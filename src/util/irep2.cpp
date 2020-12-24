@@ -47,6 +47,7 @@ static const char *type_names[] = {
   "union",
   "code",
   "array",
+  "vector",
   "pointer",
   "unsignedbv",
   "signedbv",
