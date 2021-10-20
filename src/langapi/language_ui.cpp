@@ -63,8 +63,8 @@ bool language_uit::parse(const std::string &filename)
 
   msg.status("Parsing", filename);
 
-  if(mode == 2) // 0 for clang-c, 2 for Solidity
-    language.set_func_name(_cmdline.vm["function"].as<std::string>());
+  //if(mode == 2) // 0 for clang-c, 2 for Solidity
+  //  language.set_func_name(_cmdline.vm["function"].as<std::string>());
 
   if(language.parse(filename, msg))
   {
