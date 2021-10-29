@@ -325,23 +325,29 @@ public:
     superclass::traits,                                                        \
     basename##_type2tc>;
 
-irep_typedefs(bool, type2t) irep_typedefs(empty, type2t)
-  irep_typedefs(symbol, symbol_type_data)
-    irep_typedefs(struct, struct_union_data)
-      irep_typedefs(union, struct_union_data) irep_typedefs(unsignedbv, bv_data)
-        irep_typedefs(signedbv, bv_data) irep_typedefs(code, code_data)
-          irep_typedefs(array, array_data) irep_typedefs(pointer, pointer_data)
-            irep_typedefs(fixedbv, fixedbv_data)
-              irep_typedefs(floatbv, floatbv_data)
-                irep_typedefs(string, string_data)
-                  irep_typedefs(cpp_name, cpp_name_data)
+// clang-format off
+irep_typedefs(bool      , type2t)
+irep_typedefs(empty     , type2t)
+irep_typedefs(symbol    , symbol_type_data)
+irep_typedefs(struct    , struct_union_data)
+irep_typedefs(union     , struct_union_data)
+irep_typedefs(unsignedbv, bv_data)
+irep_typedefs(signedbv  , bv_data)
+irep_typedefs(code      , code_data)
+irep_typedefs(array     , array_data)
+irep_typedefs(pointer   , pointer_data)
+irep_typedefs(fixedbv   , fixedbv_data)
+irep_typedefs(floatbv   , floatbv_data)
+irep_typedefs(string    , string_data)
+irep_typedefs(cpp_name  , cpp_name_data)
+// clang-format on
 #undef irep_typedefs
 
-  /** Boolean type.
+/** Boolean type.
  *  Identifies a boolean type. Contains no additional data.
  *  @extends typet
  */
-  class bool_type2t : public bool_type_methods
+class bool_type2t : public bool_type_methods
 {
 public:
   bool_type2t() : bool_type_methods(bool_id)
