@@ -699,8 +699,11 @@ public:
 // Generate some "is-this-a-blah" macros, and type conversion macros. This is
 // fine in terms of using/ keywords in syntax, because the preprocessor
 // preprocesses everything out.
+// The macro 'cast' defined below is local to these definitions.
 #ifdef NDEBUG
-#define dynamic_cast static_cast
+#  define cast static_cast
+#else
+#  define cast dynamic_cast
 #endif
 #define type_macros(name)                                                      \
   inline bool is_##name##_type(const expr2tc &e)                               \
@@ -713,19 +716,19 @@ public:
   }                                                                            \
   inline const name##_type2t &to_##name##_type(const type2tc &t)               \
   {                                                                            \
-    return dynamic_cast<const name##_type2t &>(*t.get());                      \
+    return cast<const name##_type2t &>(*t.get());                              \
   }                                                                            \
   inline name##_type2t &to_##name##_type(type2tc &t)                           \
   {                                                                            \
-    return dynamic_cast<name##_type2t &>(*t.get());                            \
+    return cast<name##_type2t &>(*t.get());                                    \
   }                                                                            \
   inline name##_type2t &to_##name##_type(type2t &t)                            \
   {                                                                            \
-    return dynamic_cast<name##_type2t &>(t);                                   \
+    return cast<name##_type2t &>(t);                                           \
   }                                                                            \
   inline const name##_type2t &to_##name##_type(const type2t &t)                \
   {                                                                            \
-    return dynamic_cast<const name##_type2t &>(t);                             \
+    return cast<const name##_type2t &>(t);                                     \
   }
 
 type_macros(bool);
@@ -743,8 +746,6 @@ type_macros(floatbv);
 type_macros(string);
 type_macros(cpp_name);
 #undef type_macros
-#ifdef dynamic_cast
-#undef dynamic_cast
-#endif
+#undef cast
 
 #endif /* IREP2_TYPE_H_ */
