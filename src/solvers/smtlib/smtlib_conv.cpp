@@ -148,9 +148,9 @@ smtlib_convt::smtlib_convt(
     solver_name = "Text output";
     solver_version = "";
 
+    fprintf(out_stream, "(set-option :produce-models true)\n");
     fprintf(out_stream, "(set-logic %s)\n", logic.c_str());
     fprintf(out_stream, "(set-info :status unknown)\n");
-    fprintf(out_stream, "(set-option :produce-models true)\n");
 
     return;
   }
@@ -216,9 +216,9 @@ smtlib_convt::smtlib_convt(
   // Point lexer input at output stream
   smtlib_tokin = in_stream;
 
+  fprintf(out_stream, "(set-option :produce-models true)\n");
   fprintf(out_stream, "(set-logic %s)\n", logic.c_str());
   fprintf(out_stream, "(set-info :status unknown)\n");
-  fprintf(out_stream, "(set-option :produce-models true)\n");
 
   // Fetch solver name and version.
   fprintf(out_stream, "(get-info :name)\n");
