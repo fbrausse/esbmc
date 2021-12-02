@@ -11,7 +11,7 @@ add_subdirectory (headers)
 if(DEFINED C2GOTO_INCLUDE_DIR)
   set(multiarch "${C2GOTO_INCLUDE_DIR}")
 else()
-  set(multiarch "/usr/include/${CMAKE_LIBRARY_ARCHITECTURE}")
+  set(multiarch "${CMAKE_SYSROOT}/usr/include/${CMAKE_LIBRARY_ARCHITECTURE}")
 endif()
 
 set (clib32_config clib32.c --32 --fixedbv -D__ESBMC_FIXEDBV)
