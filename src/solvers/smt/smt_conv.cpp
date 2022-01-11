@@ -2554,7 +2554,7 @@ void smt_convt::dump_smt()
   abort();
 }
 
-void smt_convt::print_model()
+void smt_convt::print_model(const std::string &)
 {
   msg.error(
     fmt::format("SMT model printing not implemented for {}", solver_text()));

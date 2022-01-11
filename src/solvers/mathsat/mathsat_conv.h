@@ -147,7 +147,7 @@ public:
   void check_msat_error(msat_term &r) const;
 
   void dump_smt() override;
-  void print_model() override;
+  void print_model(const std::string &path) override;
 
   // MathSAT data.
   msat_config cfg;

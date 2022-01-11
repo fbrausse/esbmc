@@ -202,7 +202,7 @@ public:
   }
 
   void dump_smt() override;
-  void print_model() override;
+  void print_model(const std::string &path) override;
 
 public:
   //  Must be first member; that way it's the last to be destroyed.

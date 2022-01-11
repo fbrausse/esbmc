@@ -1,4 +1,5 @@
 #include <cassert>
+#include <cstdio>
 #include <gmp.h>
 #include <mathsat_conv.h>
 #include <sstream>
@@ -968,14 +969,18 @@ smt_astt mathsat_convt::mk_smt_fpbv_fma(
   return mk_from_bv_to_fp(fma, v1->sort);
 }
 
-void mathsat_convt::print_model()
+void mathsat_convt::print_model(const std::string &path)
 {
+  FILE *f = fopen(path.c_str(), "w");
+  if(!f) /* ignore error when printing the model */
+    return;
+
   /* we use a model iterator to retrieve the model values for all the
-     * variables, and the necessary function instantiations */
+   * variables, and the necessary function instantiations */
   msat_model_iterator iter = msat_create_model_iterator(env);
   assert(!MSAT_ERROR_MODEL_ITERATOR(iter));
 
-  printf("Model:\n");
+  fprintf(f, "Model:\n");
   while(msat_model_iterator_has_next(iter))
   {
     msat_term t, v;
@@ -983,14 +988,15 @@ void mathsat_convt::print_model()
     msat_model_iterator_next(iter, &t, &v);
     s = msat_term_repr(t);
     assert(s);
-    printf(" %s = ", s);
+    fprintf(f, " %s = ", s);
     msat_free(s);
     s = msat_term_repr(v);
     assert(s);
-    printf("%s\n", s);
+    fprintf(f, "%s\n", s);
     msat_free(s);
   }
   msat_destroy_model_iterator(iter);
+  fclose(f);
 }
 
 smt_sortt mathsat_convt::mk_fpbv_sort(const unsigned ew, const unsigned sw)

@@ -1,4 +1,5 @@
 #include <boolector_conv.h>
+#include <cstdio>
 #include <cstring>
 #include <util/message/format.h>
 
@@ -803,11 +804,15 @@ void btor_smt_ast::dump() const
   msg.insert_file_contents(VerbosityLevel::Debug, f.file());
 }
 
-void boolector_convt::print_model()
+void boolector_convt::print_model(const std::string &path)
 {
-  auto f = msg.get_temp_file();
-  boolector_print_model(btor, const_cast<char *>("smt2"), f.file());
-  msg.insert_file_contents(VerbosityLevel::Status, f.file());
+  FILE *f = fopen(path.c_str(), "w");
+  if(!f) /* ignore error when printing the model */
+    return;
+
+  char format[] = "smt2";
+  boolector_print_model(btor, format, f);
+  fclose(f);
 }
 
 smt_sortt boolector_convt::mk_bool_sort()

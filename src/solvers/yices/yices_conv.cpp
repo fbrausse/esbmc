@@ -1,6 +1,7 @@
 #include <cstddef>
 #include <cstdarg>
 #include <cstdint>
+#include <cstdio>
 #include <sstream>
 #include <yices_conv.h>
 #include <assert.h>
@@ -1109,11 +1110,14 @@ expr2tc yices_convt::tuple_get(const expr2tc &expr)
   return outstruct;
 }
 
-void yices_convt::print_model()
+void yices_convt::print_model(const std::string &path)
 {
-  auto f = msg.get_temp_file();
-  yices_print_model(f.file(), yices_get_model(yices_ctx, 1));
-  msg.insert_file_contents(VerbosityLevel::Status, f.file());
+  FILE *f = fopen(path.c_str(), "w");
+  if(!f) /* ignore error when printing the model */
+    return;
+
+  yices_print_model(f, yices_get_model(yices_ctx, 1));
+  fclose(f);
 }
 
 smt_sortt yices_convt::mk_bool_sort()

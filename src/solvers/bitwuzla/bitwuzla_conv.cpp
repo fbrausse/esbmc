@@ -1,4 +1,5 @@
 #include <bitwuzla_conv.h>
+#include <cstdio>
 #include <cstring>
 #include <util/message/format.h>
 
@@ -836,11 +837,14 @@ void bitw_smt_ast::dump() const
   msg.insert_file_contents(VerbosityLevel::Debug, f.file());
 }
 
-void bitwuzla_convt::print_model()
+void bitwuzla_convt::print_model(const std::string &path)
 {
-  auto f = msg.get_temp_file();
-  bitwuzla_print_model(bitw, "smt2", f.file());
-  msg.insert_file_contents(VerbosityLevel::Status, f.file());
+  FILE *f = fopen(path.c_str(), "w");
+  if(!f) /* ignore error when printing the model */
+    return;
+
+  bitwuzla_print_model(bitw, "smt2", f);
+  fclose(f);
 }
 
 smt_sortt bitwuzla_convt::mk_bool_sort()

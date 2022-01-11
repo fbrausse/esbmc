@@ -1361,9 +1361,9 @@ smt_astt z3_convt::mk_smt_fpbv_neg(smt_astt op)
   return new_ast(-to_solver_smt_ast<z3_smt_ast>(op)->a, op->sort);
 }
 
-void z3_convt::print_model()
+void z3_convt::print_model(const std::string &path)
 {
-  msg.status(Z3_model_to_string(z3_ctx, solver.get_model()));
+  std::ofstream(path) << Z3_model_to_string(z3_ctx, solver.get_model());
 }
 
 smt_sortt z3_convt::mk_fpbv_sort(const unsigned ew, const unsigned sw)

@@ -382,8 +382,9 @@ smt_convt::resultt bmct::run(std::shared_ptr<symex_target_equationt> &eq)
 
     if(res == smt_convt::P_SATISFIABLE)
     {
-      if(config.options.get_bool_option("smt-model"))
-        runtime_solver->print_model();
+      std::string path;
+      if(config.options.get_option("smt-model", path))
+        runtime_solver->print_model(path);
 
       if(config.options.get_bool_option("bidirectional"))
         bidirectional_search(runtime_solver, eq);

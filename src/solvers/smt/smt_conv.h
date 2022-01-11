@@ -529,7 +529,7 @@ public:
   virtual void dump_smt();
 
   /** Method to print the SMT model */
-  virtual void print_model();
+  virtual void print_model(const std::string &path);
 
   /** @} */
 
