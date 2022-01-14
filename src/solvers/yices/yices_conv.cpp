@@ -806,6 +806,14 @@ bool yices_convt::get_bool(smt_astt a)
   return val ? true : false;
 }
 
+template <typename T, typename = std::enable_if_t<std::is_unsigned<T>::value>>
+static inline std::make_signed_t<T> sign_extend(const T &v, size_t width)
+{
+  size_t sign_bit = width - 1;
+  assert(sign_bit < sizeof(T) * CHAR_BIT);
+  return v | -(v >> sign_bit) << sign_bit;
+}
+
 BigInt yices_convt::get_bv(smt_astt a, bool is_signed)
 {
   const yices_smt_ast *ast = to_solver_smt_ast<yices_smt_ast>(a);
@@ -819,15 +827,27 @@ BigInt yices_convt::get_bv(smt_astt a, bool is_signed)
 
   unsigned int width = a->sort->get_data_width();
 
-  int32_t *data = new int32_t[width];
-  yices_get_bv_value(yices_get_model(yices_ctx, 1), ast->a, data);
+  int32_t r [[gnu::unused]];
+  if(width <= sizeof(BigInt::ullong_t) * CHAR_BIT)
+  {
+    /* common case: avoid allocations */
+    int32_t bits[sizeof(BigInt::ullong_t) * CHAR_BIT];
+    r = yices_get_bv_value(yices_get_model(yices_ctx, 1), ast->a, bits);
+    assert(!r);
 
-  std::string s;
+    BigInt::ullong_t v = 0;
+    for(unsigned i = 0; i < width; i++)
+      v |= (BigInt::ullong_t)bits[i] << i;
+    return is_signed ? BigInt(sign_extend(v, width)) : BigInt(v);
+  }
+
+  std::vector<int32_t> bits(width);
+  r = yices_get_bv_value(yices_get_model(yices_ctx, 1), ast->a, bits.data());
+  assert(!r);
+
+  std::string s(width, '0');
   for(unsigned i = 0; i < width; i++)
-    s.append(std::to_string(data[width - i - 1]));
-
-  delete[] data;
-
+    s[i] += bits[width - i - 1]; /* turns '0' to '1' if set, no-op otherwise */
   return binary2integer(s, is_signed);
 }
 

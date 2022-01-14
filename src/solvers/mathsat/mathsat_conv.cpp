@@ -137,14 +137,13 @@ BigInt mathsat_convt::get_bv(smt_astt a, bool is_signed)
   check_msat_error(t);
   msat_free(msat_term_repr(t));
 
-  mpz_t num;
-  mpz_init(num);
-  mpz_set(num, mpq_numref(val));
-  std::string buffer = mpz_get_str(nullptr, 2, num);
+  char buffer[mpz_sizeinbase(mpq_numref(val), 2) + 2];
+  mpz_get_str(buffer, 2, mpq_numref(val));
 
-  mpz_clear(num);
   mpq_clear(val);
 
+  /* until C++17 std::string makes no guarantees about contiguity and there is
+   * no string_view; we need to make a copy, thanks C++ */
   return binary2integer(buffer, is_signed);
 }
 
@@ -162,11 +161,10 @@ ieee_floatt mathsat_convt::get_fpbv(smt_astt a)
   check_msat_error(t);
   msat_free(msat_term_repr(t));
 
-  mpz_t num;
-  mpz_init(num);
-  mpz_set(num, mpq_numref(val));
-  char buffer[mpz_sizeinbase(num, 10) + 2];
-  mpz_get_str(buffer, 10, num);
+  char buffer[mpz_sizeinbase(mpq_numref(val), 10) + 2];
+  mpz_get_str(buffer, 10, mpq_numref(val));
+
+  mpq_clear(val);
 
   size_t ew, sw;
   if(!msat_is_fp_type(env, to_solver_smt_sort<msat_type>(a->sort)->s, &ew, &sw))
