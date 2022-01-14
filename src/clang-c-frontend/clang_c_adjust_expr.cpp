@@ -773,9 +773,9 @@ void clang_c_adjust::do_special_functions(side_effect_expr_function_callt &expr)
       }
       else
       {
-        infl_expr =
-          ieee_floatt::plus_infinity(ieee_float_spect(to_floatbv_type(t)))
-            .to_expr();
+        ieee_floatt flt(to_floatbv_type(t));
+        flt.make_plus_infinity();
+        infl_expr = flt.to_expr();
       }
 
       expr.swap(infl_expr);
@@ -795,8 +795,9 @@ void clang_c_adjust::do_special_functions(side_effect_expr_function_callt &expr)
       }
       else
       {
-        nan_expr =
-          ieee_floatt::NaN(ieee_float_spect(to_floatbv_type(t))).to_expr();
+        ieee_floatt flt(to_floatbv_type(t));
+        flt.make_NaN();
+        nan_expr = flt.to_expr();
       }
 
       expr.swap(nan_expr);

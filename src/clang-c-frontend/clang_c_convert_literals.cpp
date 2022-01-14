@@ -216,24 +216,23 @@ bool clang_c_convertert::convert_float_literal(
   }
   else
   {
-    ieee_floatt a;
-    a.spec = to_floatbv_type(type);
+    ieee_floatt a(to_floatbv_type(type));
 
     // If it's +oo or -oo, we can't parse it
     if(val.isInfinity())
     {
       if(val.isNegative())
       {
-        a = ieee_floatt::minus_infinity(a.spec);
+        a.make_minus_infinity();
       }
       else
       {
-        a = ieee_floatt::plus_infinity(a.spec);
+        a.make_plus_infinity();
       }
     }
     else if(val.isNaN())
     {
-      a = ieee_floatt::NaN(a.spec);
+      a.make_NaN();
     }
     else
     {
