@@ -1122,13 +1122,13 @@ void dereferencet::construct_from_const_offset(
   expr2tc offset_bits = modulus2tc(offset->type, offset, gen_ulong(8));
   simplify(offset_bits);
 
+  value = extract_bits_from_byte_array(
+    value,
+    offset_bits,
+    type_byte_size_bits(type).to_uint64());
+
   // Extracting bits from the produced bv
-  value = bitcast2tc(
-    type,
-    extract_bits_from_byte_array(
-      value,
-      offset_bits,
-      type_byte_size_bits(type).to_uint64()));
+  value = bitcast2tc(type, value);
 }
 
 void dereferencet::construct_from_const_struct_offset(
@@ -1325,7 +1325,9 @@ void dereferencet::construct_from_dyn_struct_offset(
       // Push nothing back, allow fall-through of the if-then-else chain to
       // resolve to a failed deref symbol.
     }
-    else if(alignment >= config.ansi_c.word_size)
+    else if(
+      alignment >= config.ansi_c.word_size &&
+      it->get_width() == type->get_width())
     {
       // This is fully aligned, just pull it out and possibly cast,
       // XXX endian?
@@ -1336,7 +1338,7 @@ void dereferencet::construct_from_dyn_struct_offset(
     }
     else
     {
-      // Not fully aligned; devolve to byte extract.
+      // Not fully aligned or type widths differ; devolve to byte extract.
       expr2tc field_offset = constant_int2tc(
         offset->type,
         member_offset_bits(value->type, struct_type.member_names[i]));
@@ -2315,20 +2317,21 @@ unsigned int dereferencet::compute_num_bytes_to_extract(
 }
 
 expr2tc dereferencet::extract_bits_from_byte_array(
-  expr2tc value,
+  const expr2tc &value,
   const expr2tc &offset,
   unsigned long num_bits)
 {
   // Extract the target bits using bitwise AND
   // and bit-shifting as follows:
   //
-  //   value := (value & mask) >> shft;
+  //   value := ((rtype)value >> shft) & mask;
   //
   // where
   //   mask - is a bitvector with 1's starting at 'offset' and
   //          for as long as 'type->width', and 0's everywhere else
   //   shft = offset - (offset / 8) * 8 (i.e., offset in bits minus
   //          the number of full bytes converted to bits)
+  //   rtype = unsignedbv type of width equal to num_bits
 
   if(is_constant_int2t(offset))
   {
@@ -2348,17 +2351,17 @@ expr2tc dereferencet::extract_bits_from_byte_array(
   }
 
   expr2tc shft_expr = modulus2tc(offset->type, offset, gen_ulong(8));
-  shft_expr = bitcast2tc(value->type, shft_expr);
   simplify(shft_expr);
 
-  expr2tc mask_expr = gen_ulong(1);
-  mask_expr = shl2tc(mask_expr->type, mask_expr, gen_ulong(num_bits));
-  mask_expr = sub2tc(mask_expr->type, mask_expr, gen_ulong(1));
-  mask_expr = shl2tc(mask_expr->type, mask_expr, shft_expr);
-  mask_expr = bitcast2tc(value->type, mask_expr);
-  simplify(mask_expr);
+  type2tc rtype = get_uint_type(num_bits);
+  expr2tc mask_expr = constant_int2tc(rtype, (BigInt(1) << num_bits) - 1);
 
-  value = bitand2tc(value->type, value, mask_expr);
-  value = lshr2tc(value->type, value, shft_expr);
-  return value;
+  assert(num_bits <= UINT_MAX);
+
+  expr2tc result;
+  result = lshr2tc(value->type, value, shft_expr);
+  result = typecast2tc(rtype, result);
+  result = bitand2tc(rtype, result, mask_expr);
+  simplify(result);
+  return result;
 }
