@@ -1,0 +1,96 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/ldv-linux-3.4-simple/43_1a_cilled_ok_nondet_linux-43_1a-drivers--mtd--devices--phram.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-linux-3.4-simple/43_1a_cilled_ok_nondet_linux-43_1a-drivers--mtd--devices--phram.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i --64 --witness-output 43_1a_cilled_ok_nondet_linux-43_1a-drivers--mtd--devices--phram.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 64-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/ldv-linux-3.4-simple/43_1a_cilled_ok_nondet_linux-43_1a-drivers--mtd--devices--phram.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.265s
+GOTO program processing time: 0.013s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.008s (42 assignments)
+Slicing time: 0.000s (removed 36 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (6 assignments)
+BMC program time: 0.008s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.007s (42 assignments)
+Slicing time: 0.000s (removed 36 assignments)
+Generated 2 VCC(s), 2 remaining after simplification (6 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.001s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.001s
+Runtime decision procedure: 0.217s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 7  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--mtd--devices--phram.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1805 function main
+Unwinding loop 7  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--mtd--devices--phram.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1805 function main
+Not unwinding 
+Unwinding loop 5  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--mtd--devices--phram.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1165 function unregister_devices
+Unwinding loop 5  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--mtd--devices--phram.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1165 function unregister_devices
+Not unwinding 
+Symex completed in: 0.024s (154 assignments)
+Slicing time: 0.000s (removed 124 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (30 assignments)
+BMC program time: 0.024s
+No bug has been found in the base case
+*** Checking forward condition, k = 3
+Starting Bounded Model Checking
+Unwinding loop 7  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--mtd--devices--phram.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1805 function main
+Unwinding loop 7  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--mtd--devices--phram.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1805 function main
+Not unwinding 
+Unwinding loop 5  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--mtd--devices--phram.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1165 function unregister_devices
+Unwinding loop 5  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--mtd--devices--phram.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1165 function unregister_devices
+Not unwinding 
+Symex completed in: 0.024s (154 assignments)
+Slicing time: 0.000s (removed 124 assignments)
+Generated 2 VCC(s), 2 remaining after simplification (30 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.005s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.005s
+Runtime decision procedure: 1.104s
+The forward condition is unable to prove the property
+*** Checking inductive step, k = 3
+Starting Bounded Model Checking
+Unwinding loop 7  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--mtd--devices--phram.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1805 function main
+Unwinding loop 7  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--mtd--devices--phram.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1805 function main
+Not unwinding 
+Unwinding loop 5  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--mtd--devices--phram.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1165 function unregister_devices
+Unwinding loop 5  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--mtd--devices--phram.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1165 function unregister_devices
+Not unwinding 
+Symex completed in: 0.025s (158 assignments)
+Slicing time: 0.001s (removed 126 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (32 assignments)
+BMC program time: 0.026s
+Building successful trace
+
+VERIFICATION SUCCESSFUL
+
+Solution found by the inductive step (k = 3)
+
+../sv-benchmarks/c/ldv-linux-3.4-simple/43_1a_cilled_ok_nondet_linux-43_1a-drivers--mtd--devices--phram.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i:1771:1: warning: return type of 'main' is not 'int' [-Wmain-return-type]
+void main(void)
+^
+../sv-benchmarks/c/ldv-linux-3.4-simple/43_1a_cilled_ok_nondet_linux-43_1a-drivers--mtd--devices--phram.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i:1771:1: note: change return type to 'int'
+void main(void)
+^~~~
+int
+
+TRUE

@@ -1,0 +1,218 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/list-ext3-properties/sll_of_sll_nondet_append-2.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/list-ext3-properties/sll_of_sll_nondet_append-2.i --32 --witness-output sll_of_sll_nondet_append-2.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/list-ext3-properties/sll_of_sll_nondet_append-2.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.163s
+GOTO program processing time: 0.002s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.003s (50 assignments)
+Slicing time: 0.000s (removed 41 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (9 assignments)
+BMC program time: 0.003s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.002s (50 assignments)
+Slicing time: 0.000s (removed 41 assignments)
+Generated 2 VCC(s), 2 remaining after simplification (9 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.002s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.002s
+Runtime decision procedure: 0.053s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 2  iteration  1   file sll_of_sll_nondet_append-2.i line 577 function sll_create
+Unwinding loop 2  iteration  2   file sll_of_sll_nondet_append-2.i line 577 function sll_create
+Not unwinding 
+Unwinding loop 8  iteration  1   file sll_of_sll_nondet_append-2.i line 636 function main
+Unwinding loop 2  iteration  1   file sll_of_sll_nondet_append-2.i line 577 function sll_create
+Unwinding loop 2  iteration  2   file sll_of_sll_nondet_append-2.i line 577 function sll_create
+Not unwinding 
+Unwinding loop 8  iteration  2   file sll_of_sll_nondet_append-2.i line 636 function main
+Unwinding loop 2  iteration  1   file sll_of_sll_nondet_append-2.i line 577 function sll_create
+Unwinding loop 2  iteration  2   file sll_of_sll_nondet_append-2.i line 577 function sll_create
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.009s (192 assignments)
+Slicing time: 0.001s (removed 157 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (35 assignments)
+BMC program time: 0.010s
+No bug has been found in the base case
+*** Checking forward condition, k = 3
+Starting Bounded Model Checking
+Unwinding loop 2  iteration  1   file sll_of_sll_nondet_append-2.i line 577 function sll_create
+Unwinding loop 2  iteration  2   file sll_of_sll_nondet_append-2.i line 577 function sll_create
+Not unwinding 
+Unwinding loop 8  iteration  1   file sll_of_sll_nondet_append-2.i line 636 function main
+Unwinding loop 2  iteration  1   file sll_of_sll_nondet_append-2.i line 577 function sll_create
+Unwinding loop 2  iteration  2   file sll_of_sll_nondet_append-2.i line 577 function sll_create
+Not unwinding 
+Unwinding loop 8  iteration  2   file sll_of_sll_nondet_append-2.i line 636 function main
+Unwinding loop 2  iteration  1   file sll_of_sll_nondet_append-2.i line 577 function sll_create
+Unwinding loop 2  iteration  2   file sll_of_sll_nondet_append-2.i line 577 function sll_create
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.010s (192 assignments)
+Slicing time: 0.000s (removed 157 assignments)
+Generated 4 VCC(s), 4 remaining after simplification (35 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.011s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.011s
+Runtime decision procedure: 1.540s
+The forward condition is unable to prove the property
+*** Checking inductive step, k = 3
+Starting Bounded Model Checking
+Unwinding loop 2  iteration  1   file sll_of_sll_nondet_append-2.i line 577 function sll_create
+Unwinding loop 2  iteration  2   file sll_of_sll_nondet_append-2.i line 577 function sll_create
+Not unwinding 
+Unwinding loop 4  iteration  1   file sll_of_sll_nondet_append-2.i line 610 function sll_append
+Unwinding loop 4  iteration  2   file sll_of_sll_nondet_append-2.i line 610 function sll_append
+Not unwinding 
+Unwinding loop 7  iteration  1   file sll_of_sll_nondet_append-2.i line 637 function main
+Unwinding loop 2  iteration  1   file sll_of_sll_nondet_append-2.i line 577 function sll_create
+Unwinding loop 2  iteration  2   file sll_of_sll_nondet_append-2.i line 577 function sll_create
+Not unwinding 
+Unwinding loop 4  iteration  1   file sll_of_sll_nondet_append-2.i line 610 function sll_append
+Unwinding loop 4  iteration  2   file sll_of_sll_nondet_append-2.i line 610 function sll_append
+Not unwinding 
+Unwinding loop 7  iteration  2   file sll_of_sll_nondet_append-2.i line 637 function main
+Unwinding loop 2  iteration  1   file sll_of_sll_nondet_append-2.i line 577 function sll_create
+Unwinding loop 2  iteration  2   file sll_of_sll_nondet_append-2.i line 577 function sll_create
+Not unwinding 
+Unwinding loop 4  iteration  1   file sll_of_sll_nondet_append-2.i line 610 function sll_append
+Unwinding loop 4  iteration  2   file sll_of_sll_nondet_append-2.i line 610 function sll_append
+Not unwinding 
+Not unwinding 
+Unwinding loop 8  iteration  1   file sll_of_sll_nondet_append-2.i line 636 function main
+Unwinding loop 2  iteration  1   file sll_of_sll_nondet_append-2.i line 577 function sll_create
+Unwinding loop 2  iteration  2   file sll_of_sll_nondet_append-2.i line 577 function sll_create
+Not unwinding 
+Unwinding loop 4  iteration  1   file sll_of_sll_nondet_append-2.i line 610 function sll_append
+Unwinding loop 4  iteration  2   file sll_of_sll_nondet_append-2.i line 610 function sll_append
+Not unwinding 
+Unwinding loop 7  iteration  1   file sll_of_sll_nondet_append-2.i line 637 function main
+Unwinding loop 2  iteration  1   file sll_of_sll_nondet_append-2.i line 577 function sll_create
+Unwinding loop 2  iteration  2   file sll_of_sll_nondet_append-2.i line 577 function sll_create
+Not unwinding 
+Unwinding loop 4  iteration  1   file sll_of_sll_nondet_append-2.i line 610 function sll_append
+Unwinding loop 4  iteration  2   file sll_of_sll_nondet_append-2.i line 610 function sll_append
+Not unwinding 
+Unwinding loop 7  iteration  2   file sll_of_sll_nondet_append-2.i line 637 function main
+Unwinding loop 2  iteration  1   file sll_of_sll_nondet_append-2.i line 577 function sll_create
+Unwinding loop 2  iteration  2   file sll_of_sll_nondet_append-2.i line 577 function sll_create
+Not unwinding 
+Unwinding loop 4  iteration  1   file sll_of_sll_nondet_append-2.i line 610 function sll_append
+Unwinding loop 4  iteration  2   file sll_of_sll_nondet_append-2.i line 610 function sll_append
+Not unwinding 
+Not unwinding 
+Unwinding loop 8  iteration  2   file sll_of_sll_nondet_append-2.i line 636 function main
+Unwinding loop 2  iteration  1   file sll_of_sll_nondet_append-2.i line 577 function sll_create
+Unwinding loop 2  iteration  2   file sll_of_sll_nondet_append-2.i line 577 function sll_create
+Not unwinding 
+Unwinding loop 4  iteration  1   file sll_of_sll_nondet_append-2.i line 610 function sll_append
+Unwinding loop 4  iteration  2   file sll_of_sll_nondet_append-2.i line 610 function sll_append
+Not unwinding 
+Unwinding loop 7  iteration  1   file sll_of_sll_nondet_append-2.i line 637 function main
+Unwinding loop 2  iteration  1   file sll_of_sll_nondet_append-2.i line 577 function sll_create
+Unwinding loop 2  iteration  2   file sll_of_sll_nondet_append-2.i line 577 function sll_create
+Not unwinding 
+Unwinding loop 4  iteration  1   file sll_of_sll_nondet_append-2.i line 610 function sll_append
+Unwinding loop 4  iteration  2   file sll_of_sll_nondet_append-2.i line 610 function sll_append
+Not unwinding 
+Unwinding loop 7  iteration  2   file sll_of_sll_nondet_append-2.i line 637 function main
+Unwinding loop 2  iteration  1   file sll_of_sll_nondet_append-2.i line 577 function sll_create
+Unwinding loop 2  iteration  2   file sll_of_sll_nondet_append-2.i line 577 function sll_create
+Not unwinding 
+Unwinding loop 4  iteration  1   file sll_of_sll_nondet_append-2.i line 610 function sll_append
+Unwinding loop 4  iteration  2   file sll_of_sll_nondet_append-2.i line 610 function sll_append
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Unwinding loop 2  iteration  1   file sll_of_sll_nondet_append-2.i line 577 function sll_create
+Unwinding loop 2  iteration  2   file sll_of_sll_nondet_append-2.i line 577 function sll_create
+Not unwinding 
+Unwinding loop 4  iteration  1   file sll_of_sll_nondet_append-2.i line 610 function sll_append
+Unwinding loop 4  iteration  2   file sll_of_sll_nondet_append-2.i line 610 function sll_append
+Not unwinding 
+Unwinding loop 3  iteration  1   file sll_of_sll_nondet_append-2.i line 599 function sll_length
+Unwinding loop 3  iteration  2   file sll_of_sll_nondet_append-2.i line 599 function sll_length
+Not unwinding 
+Unwinding loop 9  iteration  1   file sll_of_sll_nondet_append-2.i line 647 function main
+Unwinding loop 3  iteration  1   file sll_of_sll_nondet_append-2.i line 599 function sll_length
+Unwinding loop 3  iteration  2   file sll_of_sll_nondet_append-2.i line 599 function sll_length
+Not unwinding 
+Unwinding loop 9  iteration  2   file sll_of_sll_nondet_append-2.i line 647 function main
+Unwinding loop 3  iteration  1   file sll_of_sll_nondet_append-2.i line 599 function sll_length
+Unwinding loop 3  iteration  2   file sll_of_sll_nondet_append-2.i line 599 function sll_length
+Not unwinding 
+Not unwinding 
+Unwinding loop 10  iteration  1   file sll_of_sll_nondet_append-2.i line 643 function main
+Unwinding loop 3  iteration  1   file sll_of_sll_nondet_append-2.i line 599 function sll_length
+Unwinding loop 3  iteration  2   file sll_of_sll_nondet_append-2.i line 599 function sll_length
+Not unwinding 
+Unwinding loop 9  iteration  1   file sll_of_sll_nondet_append-2.i line 647 function main
+Unwinding loop 3  iteration  1   file sll_of_sll_nondet_append-2.i line 599 function sll_length
+Unwinding loop 3  iteration  2   file sll_of_sll_nondet_append-2.i line 599 function sll_length
+Not unwinding 
+Unwinding loop 9  iteration  2   file sll_of_sll_nondet_append-2.i line 647 function main
+Unwinding loop 3  iteration  1   file sll_of_sll_nondet_append-2.i line 599 function sll_length
+Unwinding loop 3  iteration  2   file sll_of_sll_nondet_append-2.i line 599 function sll_length
+Not unwinding 
+Not unwinding 
+Unwinding loop 10  iteration  2   file sll_of_sll_nondet_append-2.i line 643 function main
+Unwinding loop 3  iteration  1   file sll_of_sll_nondet_append-2.i line 599 function sll_length
+Unwinding loop 3  iteration  2   file sll_of_sll_nondet_append-2.i line 599 function sll_length
+Not unwinding 
+Unwinding loop 9  iteration  1   file sll_of_sll_nondet_append-2.i line 647 function main
+Unwinding loop 3  iteration  1   file sll_of_sll_nondet_append-2.i line 599 function sll_length
+Unwinding loop 3  iteration  2   file sll_of_sll_nondet_append-2.i line 599 function sll_length
+Not unwinding 
+Unwinding loop 9  iteration  2   file sll_of_sll_nondet_append-2.i line 647 function main
+Unwinding loop 3  iteration  1   file sll_of_sll_nondet_append-2.i line 599 function sll_length
+Unwinding loop 3  iteration  2   file sll_of_sll_nondet_append-2.i line 599 function sll_length
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Unwinding loop 5  iteration  1   file sll_of_sll_nondet_append-2.i line 622 function sll_hierarchical_destroy
+Unwinding loop 5  iteration  2   file sll_of_sll_nondet_append-2.i line 622 function sll_hierarchical_destroy
+Not unwinding 
+Unwinding loop 6  iteration  1   file sll_of_sll_nondet_append-2.i line 619 function sll_hierarchical_destroy
+Unwinding loop 5  iteration  1   file sll_of_sll_nondet_append-2.i line 622 function sll_hierarchical_destroy
+Unwinding loop 5  iteration  2   file sll_of_sll_nondet_append-2.i line 622 function sll_hierarchical_destroy
+Not unwinding 
+Unwinding loop 6  iteration  2   file sll_of_sll_nondet_append-2.i line 619 function sll_hierarchical_destroy
+Unwinding loop 5  iteration  1   file sll_of_sll_nondet_append-2.i line 622 function sll_hierarchical_destroy
+Unwinding loop 5  iteration  2   file sll_of_sll_nondet_append-2.i line 622 function sll_hierarchical_destroy
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.179s (1826 assignments)
+Slicing time: 0.016s (removed 1289 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (537 assignments)
+BMC program time: 0.196s
+Building successful trace
+
+VERIFICATION SUCCESSFUL
+
+Solution found by the inductive step (k = 3)
+
+
+TRUE

@@ -1,0 +1,135 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--net--ppp--ppp_generic.ko.cil.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--net--ppp--ppp_generic.ko.cil.i --64 --witness-output linux-4.0-rc1---drivers--net--ppp--ppp_generic.ko.cil.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 64-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--net--ppp--ppp_generic.ko.cil.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 2.140s
+GOTO program processing time: 0.593s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+No target candidate for function call *pch->chan->ops->start_xmit
+Not unwinding 
+Not unwinding 
+Not unwinding 
+No target candidate for function call *pch->chan->ops->start_xmit
+Not unwinding 
+Not unwinding 
+Not unwinding 
+No target candidate for function call *xcomp->comp_free
+No target candidate for function call *rcomp->decomp_free
+Not unwinding 
+No target candidate for function call *xcomp->comp_free
+No target candidate for function call *rcomp->decomp_free
+No target candidate for function call *xcomp->comp_free
+No target candidate for function call *rcomp->decomp_free
+No target candidate for function call *chan->ops->ioctl
+No target candidate for function call *xcomp->comp_free
+No target candidate for function call *rcomp->decomp_free
+Not unwinding 
+Not unwinding 
+No target candidate for function call *cp->comp_alloc
+No target candidate for function call *ocomp->comp_free
+No target candidate for function call *cp->decomp_alloc
+No target candidate for function call *ocomp->decomp_free
+Not unwinding 
+No target candidate for function call *p->_qproc
+Not unwinding 
+Symex completed in: 1.359s (3992 assignments)
+Slicing time: 0.017s (removed 3240 assignments)
+Generated 34 VCC(s), 34 remaining after simplification (752 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.292s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.292s
+Runtime decision procedure: 22.115s
+Building error trace
+
+Counterexample:
+
+State 1 file linux-4.0-rc1---drivers--net--ppp--ppp_generic.ko.cil.i line 15679 function ldv_undef_int thread 0
+----------------------------------------------------
+  tmp = 0 (00000000 00000000 00000000 00000000)
+
+State 2 file linux-4.0-rc1---drivers--net--ppp--ppp_generic.ko.cil.i line 15714 function ldv_undef_int_nonpositive thread 0
+----------------------------------------------------
+  ret = 0 (00000000 00000000 00000000 00000000)
+
+State 3 file linux-4.0-rc1---drivers--net--ppp--ppp_generic.ko.cil.i line 13288 function register_chrdev thread 0
+----------------------------------------------------
+  res1 = 0 (00000000 00000000 00000000 00000000)
+
+State 4 file linux-4.0-rc1---drivers--net--ppp--ppp_generic.ko.cil.i line 15679 function ldv_undef_int thread 0
+----------------------------------------------------
+  tmp = 0 (00000000 00000000 00000000 00000000)
+
+State 5 file linux-4.0-rc1---drivers--net--ppp--ppp_generic.ko.cil.i line 15714 function ldv_undef_int_nonpositive thread 0
+----------------------------------------------------
+  ret = 0 (00000000 00000000 00000000 00000000)
+
+State 6 file linux-4.0-rc1---drivers--net--ppp--ppp_generic.ko.cil.i line 13290 function register_chrdev thread 0
+----------------------------------------------------
+  res2 = 0 (00000000 00000000 00000000 00000000)
+
+State 7 file linux-4.0-rc1---drivers--net--ppp--ppp_generic.ko.cil.i line 13551 function ldv_register_chrdev_158 thread 0
+----------------------------------------------------
+  ldv_func_res = 0 (00000000 00000000 00000000 00000000)
+
+State 8 file linux-4.0-rc1---drivers--net--ppp--ppp_generic.ko.cil.i line 15679 function ldv_undef_int thread 0
+----------------------------------------------------
+  tmp = 1 (00000000 00000000 00000000 00000001)
+
+State 9 file linux-4.0-rc1---drivers--net--ppp--ppp_generic.ko.cil.i line 15679 function ldv_undef_int thread 0
+----------------------------------------------------
+  tmp = -4186096 (11111111 11000000 00100000 00010000)
+
+State 10 file linux-4.0-rc1---drivers--net--ppp--ppp_generic.ko.cil.i line 12723 function ldv_file_operations_file_operations_instance_0 thread 0
+----------------------------------------------------
+  ldv_0_size_cnt_struct_poll_table_struct_ptr = ( struct poll_table_struct *)-4186096
+
+State 11 file linux-4.0-rc1---drivers--net--ppp--ppp_generic.ko.cil.i line 15679 function ldv_undef_int thread 0
+----------------------------------------------------
+  tmp = 1 (00000000 00000000 00000000 00000001)
+
+State 12 file linux-4.0-rc1---drivers--net--ppp--ppp_generic.ko.cil.i line 15679 function ldv_undef_int thread 0
+----------------------------------------------------
+  tmp = 1 (00000000 00000000 00000000 00000001)
+
+State 13 file linux-4.0-rc1---drivers--net--ppp--ppp_generic.ko.cil.i line 15679 function ldv_undef_int thread 0
+----------------------------------------------------
+  tmp = 3 (00000000 00000000 00000000 00000011)
+
+State 14 file linux-4.0-rc1---drivers--net--ppp--ppp_generic.ko.cil.i line 15679 function ldv_undef_int thread 0
+----------------------------------------------------
+  tmp = 1 (00000000 00000000 00000000 00000001)
+
+State 15 file linux-4.0-rc1---drivers--net--ppp--ppp_generic.ko.cil.i line 8612 function ppp_ioctl thread 0
+----------------------------------------------------
+  pf = ( struct ppp_file *)(0)
+
+State 16 file linux-4.0-rc1---drivers--net--ppp--ppp_generic.ko.cil.i line 7990 function ppp_pernet thread 0
+----------------------------------------------------
+Violated property:
+  file linux-4.0-rc1---drivers--net--ppp--ppp_generic.ko.cil.i line 7990 function ppp_pernet
+  assertion
+  0
+
+
+VERIFICATION FAILED
+
+Bug found (k = 1)
+
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--net--ppp--ppp_generic.ko.cil.i:11446:11: warning: incompatible integer to pointer conversion assigning to 'struct compressor *' from 'int' [-Wint-conversion]
+  tmp___3 = (unsigned long )tmp___4 != (unsigned long )((struct compressor *)0);
+          ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+FALSE_REACH

@@ -1,0 +1,194 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/list-properties/list_search-2.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/list-properties/list_search-2.i --32 --witness-output list_search-2.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/list-properties/list_search-2.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.186s
+GOTO program processing time: 0.002s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.008s (108 assignments)
+Slicing time: 0.000s (removed 85 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (23 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.001s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.001s
+Runtime decision procedure: 0.001s
+BMC program time: 0.011s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.007s (107 assignments)
+Slicing time: 0.000s (removed 85 assignments)
+Generated 4 VCC(s), 4 remaining after simplification (22 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.001s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.001s
+Runtime decision procedure: 0.053s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 5  iteration  1   file list_search-2.i line 812 function main
+Unwinding loop 5  iteration  2   file list_search-2.i line 812 function main
+Not unwinding 
+Unwinding loop 3  iteration  1   file list_search-2.i line 772 function search_list
+Unwinding loop 3  iteration  2   file list_search-2.i line 772 function search_list
+Not unwinding 
+Unwinding loop 4  iteration  1   file list_search-2.i line 781 function delete_list
+Unwinding loop 4  iteration  2   file list_search-2.i line 781 function delete_list
+Not unwinding 
+Unwinding loop 6  iteration  1   file list_search-2.i line 819 function main
+Unwinding loop 6  iteration  2   file list_search-2.i line 819 function main
+Not unwinding 
+Symex completed in: 0.012s (135 assignments)
+Slicing time: 0.000s (removed 65 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (70 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.004s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.004s
+Runtime decision procedure: 0.001s
+BMC program time: 0.018s
+No bug has been found in the base case
+*** Checking forward condition, k = 3
+Starting Bounded Model Checking
+Unwinding loop 5  iteration  1   file list_search-2.i line 812 function main
+Unwinding loop 5  iteration  2   file list_search-2.i line 812 function main
+Not unwinding 
+Unwinding loop 3  iteration  1   file list_search-2.i line 772 function search_list
+Unwinding loop 3  iteration  2   file list_search-2.i line 772 function search_list
+Not unwinding 
+Unwinding loop 4  iteration  1   file list_search-2.i line 781 function delete_list
+Unwinding loop 4  iteration  2   file list_search-2.i line 781 function delete_list
+Not unwinding 
+Unwinding loop 6  iteration  1   file list_search-2.i line 819 function main
+Unwinding loop 6  iteration  2   file list_search-2.i line 819 function main
+Not unwinding 
+Symex completed in: 0.012s (134 assignments)
+Slicing time: 0.001s (removed 65 assignments)
+Generated 4 VCC(s), 4 remaining after simplification (69 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.004s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.004s
+Runtime decision procedure: 0.197s
+The forward condition is unable to prove the property
+*** Checking inductive step, k = 3
+Starting Bounded Model Checking
+Unwinding loop 5  iteration  1   file list_search-2.i line 812 function main
+Unwinding loop 5  iteration  2   file list_search-2.i line 812 function main
+Not unwinding 
+Unwinding loop 3  iteration  1   file list_search-2.i line 772 function search_list
+Unwinding loop 3  iteration  2   file list_search-2.i line 772 function search_list
+Not unwinding 
+Unwinding loop 4  iteration  1   file list_search-2.i line 781 function delete_list
+Unwinding loop 4  iteration  2   file list_search-2.i line 781 function delete_list
+Not unwinding 
+Unwinding loop 6  iteration  1   file list_search-2.i line 819 function main
+Unwinding loop 6  iteration  2   file list_search-2.i line 819 function main
+Not unwinding 
+Symex completed in: 0.009s (138 assignments)
+Slicing time: 0.000s (removed 112 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (26 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.001s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.001s
+Runtime decision procedure: 0.026s
+The inductive step is unable to prove the property
+*** Checking base case, k = 5
+Starting Bounded Model Checking
+Unwinding loop 5  iteration  1   file list_search-2.i line 812 function main
+Unwinding loop 5  iteration  2   file list_search-2.i line 812 function main
+Unwinding loop 5  iteration  3   file list_search-2.i line 812 function main
+Unwinding loop 5  iteration  4   file list_search-2.i line 812 function main
+Not unwinding 
+Unwinding loop 3  iteration  1   file list_search-2.i line 772 function search_list
+Unwinding loop 3  iteration  2   file list_search-2.i line 772 function search_list
+Unwinding loop 3  iteration  3   file list_search-2.i line 772 function search_list
+Unwinding loop 3  iteration  4   file list_search-2.i line 772 function search_list
+Not unwinding 
+Unwinding loop 4  iteration  1   file list_search-2.i line 781 function delete_list
+Unwinding loop 4  iteration  2   file list_search-2.i line 781 function delete_list
+Unwinding loop 4  iteration  3   file list_search-2.i line 781 function delete_list
+Unwinding loop 4  iteration  4   file list_search-2.i line 781 function delete_list
+Not unwinding 
+Unwinding loop 6  iteration  1   file list_search-2.i line 819 function main
+Unwinding loop 6  iteration  2   file list_search-2.i line 819 function main
+Unwinding loop 6  iteration  3   file list_search-2.i line 819 function main
+Unwinding loop 6  iteration  4   file list_search-2.i line 819 function main
+Not unwinding 
+Symex completed in: 0.015s (159 assignments)
+Slicing time: 0.001s (removed 69 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (90 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.004s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.004s
+Runtime decision procedure: 0.001s
+BMC program time: 0.022s
+No bug has been found in the base case
+*** Checking forward condition, k = 5
+Starting Bounded Model Checking
+Unwinding loop 5  iteration  1   file list_search-2.i line 812 function main
+Unwinding loop 5  iteration  2   file list_search-2.i line 812 function main
+Unwinding loop 5  iteration  3   file list_search-2.i line 812 function main
+Unwinding loop 5  iteration  4   file list_search-2.i line 812 function main
+Not unwinding 
+Unwinding loop 3  iteration  1   file list_search-2.i line 772 function search_list
+Unwinding loop 3  iteration  2   file list_search-2.i line 772 function search_list
+Unwinding loop 3  iteration  3   file list_search-2.i line 772 function search_list
+Unwinding loop 3  iteration  4   file list_search-2.i line 772 function search_list
+Not unwinding 
+Unwinding loop 4  iteration  1   file list_search-2.i line 781 function delete_list
+Unwinding loop 4  iteration  2   file list_search-2.i line 781 function delete_list
+Unwinding loop 4  iteration  3   file list_search-2.i line 781 function delete_list
+Unwinding loop 4  iteration  4   file list_search-2.i line 781 function delete_list
+Not unwinding 
+Unwinding loop 6  iteration  1   file list_search-2.i line 819 function main
+Unwinding loop 6  iteration  2   file list_search-2.i line 819 function main
+Unwinding loop 6  iteration  3   file list_search-2.i line 819 function main
+Unwinding loop 6  iteration  4   file list_search-2.i line 819 function main
+Not unwinding 
+Symex completed in: 0.015s (158 assignments)
+Slicing time: 0.001s (removed 69 assignments)
+Generated 4 VCC(s), 4 remaining after simplification (89 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.004s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.004s
+Runtime decision procedure: 0.002s
+BMC program time: 0.023s
+Building successful trace
+
+VERIFICATION SUCCESSFUL
+
+Solution found by the forward condition; all states are reachable (k = 5
+
+
+TRUE

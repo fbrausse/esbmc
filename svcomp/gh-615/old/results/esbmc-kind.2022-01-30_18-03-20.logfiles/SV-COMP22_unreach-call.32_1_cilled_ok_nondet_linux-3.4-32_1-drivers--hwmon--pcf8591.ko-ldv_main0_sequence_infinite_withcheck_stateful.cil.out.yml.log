@@ -1,0 +1,112 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/ldv-linux-3.4-simple/32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--hwmon--pcf8591.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-linux-3.4-simple/32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--hwmon--pcf8591.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i --64 --witness-output 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--hwmon--pcf8591.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 64-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/ldv-linux-3.4-simple/32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--hwmon--pcf8591.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.202s
+GOTO program processing time: 0.008s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.020s (343 assignments)
+Slicing time: 0.001s (removed 265 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (78 assignments)
+BMC program time: 0.021s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.020s (343 assignments)
+Slicing time: 0.001s (removed 265 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (78 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.003s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.003s
+Runtime decision procedure: 0.477s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--hwmon--pcf8591.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3176 function main
+Unwinding loop 1  iteration  2   file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--hwmon--pcf8591.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3176 function main
+Not unwinding 
+Symex completed in: 0.071s (1157 assignments)
+Slicing time: 0.004s (removed 894 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (263 assignments)
+BMC program time: 0.075s
+No bug has been found in the base case
+*** Checking forward condition, k = 3
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--hwmon--pcf8591.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3176 function main
+Unwinding loop 1  iteration  2   file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--hwmon--pcf8591.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3176 function main
+Not unwinding 
+Symex completed in: 0.072s (1157 assignments)
+Slicing time: 0.004s (removed 894 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (263 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.025s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.025s
+Runtime decision procedure: 4.548s
+The forward condition is unable to prove the property
+*** Checking inductive step, k = 3
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--hwmon--pcf8591.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3176 function main
+Unwinding loop 1  iteration  2   file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--hwmon--pcf8591.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3176 function main
+Not unwinding 
+Symex completed in: 0.126s (1438 assignments)
+Slicing time: 0.006s (removed 1081 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (357 assignments)
+BMC program time: 0.132s
+Building successful trace
+
+VERIFICATION SUCCESSFUL
+
+Solution found by the inductive step (k = 3)
+
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--hwmon--pcf8591.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i:2351:17: warning: cast to smaller integer type 'unsigned int' from 'struct device *' [-Wpointer-to-int-cast]
+  __cil_tmp12 = (unsigned int )__cil_tmp11;
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--hwmon--pcf8591.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i:2407:17: warning: cast to smaller integer type 'unsigned int' from 'struct device *' [-Wpointer-to-int-cast]
+  __cil_tmp15 = (unsigned int )__cil_tmp14;
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--hwmon--pcf8591.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i:2480:17: warning: cast to smaller integer type 'unsigned int' from 'struct device *' [-Wpointer-to-int-cast]
+  __cil_tmp12 = (unsigned int )__cil_tmp11;
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--hwmon--pcf8591.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i:2547:17: warning: cast to smaller integer type 'unsigned int' from 'struct device *' [-Wpointer-to-int-cast]
+  __cil_tmp15 = (unsigned int )__cil_tmp14;
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--hwmon--pcf8591.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i:2918:17: warning: cast to smaller integer type 'unsigned int' from 'struct device *' [-Wpointer-to-int-cast]
+  __cil_tmp14 = (unsigned int )__cil_tmp13;
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--hwmon--pcf8591.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i:3024:11: warning: 'attach_adapter' is deprecated [-Wdeprecated-declarations]
+     {0U, (int (*)(struct i2c_adapter * ))0, (int (*)(struct i2c_adapter * ))0, & pcf8591_probe,
+          ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--hwmon--pcf8591.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i:1954:64: note: 'attach_adapter' has been explicitly marked deprecated here
+   int (*attach_adapter)(struct i2c_adapter * ) __attribute__((__deprecated__)) ;
+                                                               ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--hwmon--pcf8591.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i:3024:46: warning: 'detach_adapter' is deprecated [-Wdeprecated-declarations]
+     {0U, (int (*)(struct i2c_adapter * ))0, (int (*)(struct i2c_adapter * ))0, & pcf8591_probe,
+                                             ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--hwmon--pcf8591.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i:1955:64: note: 'detach_adapter' has been explicitly marked deprecated here
+   int (*detach_adapter)(struct i2c_adapter * ) __attribute__((__deprecated__)) ;
+                                                               ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--hwmon--pcf8591.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i:3156:1: warning: return type of 'main' is not 'int' [-Wmain-return-type]
+void main(void)
+^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--hwmon--pcf8591.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i:3156:1: note: change return type to 'int'
+void main(void)
+^~~~
+int
+
+TRUE

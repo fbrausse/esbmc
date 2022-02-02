@@ -1,0 +1,57 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/loop-invgen/id_trans.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/loop-invgen/id_trans.i --32 --witness-output id_trans.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/loop-invgen/id_trans.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.129s
+GOTO program processing time: 0.001s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.001s (29 assignments)
+Slicing time: 0.000s (removed 14 assignments)
+Generated 2 VCC(s), 2 remaining after simplification (15 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.001s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.001s
+Runtime decision procedure: 0.023s
+Building error trace
+
+Counterexample:
+
+State 1 file id_trans.i line 27 function main thread 0
+----------------------------------------------------
+  nlen = 0 (00000000 00000000 00000000 00000000)
+
+State 2 file id_trans.i line 28 function main thread 0
+----------------------------------------------------
+  idBitLength = 31 (00000000 00000000 00000000 00011111)
+
+State 3 file id_trans.i line 29 function main thread 0
+----------------------------------------------------
+  material_length = 7 (00000000 00000000 00000000 00000111)
+
+State 4 file id_trans.i line 12 function reach_error thread 0
+----------------------------------------------------
+Violated property:
+  file id_trans.i line 12 function reach_error
+  assertion 0
+  0
+
+
+VERIFICATION FAILED
+
+Bug found (k = 1)
+
+
+FALSE_REACH

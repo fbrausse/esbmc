@@ -1,0 +1,165 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/pthread-divine/tls_destructor_worker.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/pthread-divine/tls_destructor_worker.i --32 --witness-output tls_destructor_worker.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/pthread-divine/tls_destructor_worker.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.185s
+GOTO program processing time: 0.003s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+WARNING: k-induction does not support concurrency yet. Disabling inductive step
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.018s (212 assignments)
+Slicing time: 0.001s (removed 128 assignments)
+Generated 5 VCC(s), 5 remaining after simplification (84 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.107s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.107s
+Runtime decision procedure: 0.003s
+BMC program time: 0.129s
+*** Thread interleavings 2 ***
+Symex completed in: 0.002s (115 assignments)
+Slicing time: 0.000s (removed 104 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (11 assignments)
+BMC program time: 0.002s
+*** Thread interleavings 3 ***
+Symex completed in: 0.003s (141 assignments)
+Slicing time: 0.000s (removed 129 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (12 assignments)
+BMC program time: 0.003s
+*** Thread interleavings 4 ***
+Symex completed in: 0.001s (148 assignments)
+Slicing time: 0.000s (removed 124 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (24 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.001s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.001s
+Runtime decision procedure: 0.000s
+BMC program time: 0.004s
+*** Thread interleavings 5 ***
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.008s (208 assignments)
+Slicing time: 0.000s (removed 154 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (54 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.004s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.004s
+Runtime decision procedure: 0.002s
+BMC program time: 0.015s
+*** Thread interleavings 6 ***
+Symex completed in: 0.001s (113 assignments)
+Slicing time: 0.000s (removed 104 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (9 assignments)
+BMC program time: 0.002s
+*** Thread interleavings 7 ***
+Symex completed in: 0.003s (139 assignments)
+Slicing time: 0.000s (removed 129 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (10 assignments)
+BMC program time: 0.003s
+*** Thread interleavings 8 ***
+Symex completed in: 0.001s (146 assignments)
+Slicing time: 0.000s (removed 124 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (22 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.001s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.001s
+Runtime decision procedure: 0.000s
+BMC program time: 0.004s
+*** Thread interleavings 9 ***
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.008s (208 assignments)
+Slicing time: 0.001s (removed 153 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (55 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.004s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.004s
+Runtime decision procedure: 0.186s
+Building error trace
+
+Counterexample:
+
+State 1 file pthread_lib.c line 85 function insert_key_value thread 0
+----------------------------------------------------
+  l->key = 0 (00000000 00000000 00000000 00000000)
+
+State 2 file pthread_lib.c line 86 function insert_key_value thread 0
+----------------------------------------------------
+  l->value = 0
+
+State 3 file pthread_lib.c line 87 function insert_key_value thread 0
+----------------------------------------------------
+  l->next = 0
+
+State 6 file pthread_lib.c line 85 function insert_key_value thread 0
+----------------------------------------------------
+  l->key = 0 (00000000 00000000 00000000 00000000)
+
+State 7 file pthread_lib.c line 86 function insert_key_value thread 0
+----------------------------------------------------
+  l->value = (void *)16
+
+State 8 file pthread_lib.c line 87 function insert_key_value thread 0
+----------------------------------------------------
+  l->next = &dynamic_1_value == ( struct thread_key *)0 ? 0 : &dynamic_1_value
+
+State 12 file pthread_lib.c line 85 function insert_key_value thread 1
+----------------------------------------------------
+  l->key = 0 (00000000 00000000 00000000 00000000)
+
+State 13 file pthread_lib.c line 86 function insert_key_value thread 1
+----------------------------------------------------
+  l->value = (void *)42
+
+State 14 file pthread_lib.c line 87 function insert_key_value thread 1
+----------------------------------------------------
+  l->next = &dynamic_3_value == ( struct thread_key *)0 ? 0 : &dynamic_3_value
+
+State 17 file pthread_lib.c line 94 function search_key thread 1
+----------------------------------------------------
+  l = &dynamic_6_value
+
+State 18 file tls_destructor_worker.i line 698 function dtor thread 1
+----------------------------------------------------
+  val = (signed int)(&dynamic_6_value.key)
+
+State 19 file tls_destructor_worker.i line 696 function reach_error thread 1
+----------------------------------------------------
+Violated property:
+  file tls_destructor_worker.i line 696 function reach_error
+  assertion 0
+  0
+
+
+VERIFICATION FAILED
+
+Bug found (k = 1)
+
+../sv-benchmarks/c/pthread-divine/tls_destructor_worker.i:510:12: warning: declaration of built-in function '__sigsetjmp' requires the declaration of the 'jmp_buf' type, commonly provided in the header <setjmp.h>. [-Wincomplete-setjmp-declaration]
+extern int __sigsetjmp (struct __jmp_buf_tag *__env, int __savemask) __attribute__ ((__nothrow__));
+           ^
+
+FALSE_REACH

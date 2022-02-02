@@ -1,0 +1,291 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/ldv-sets/test_mutex_unlock_at_exit.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-sets/test_mutex_unlock_at_exit.i --32 --witness-output test_mutex_unlock_at_exit.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/ldv-sets/test_mutex_unlock_at_exit.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.160s
+GOTO program processing time: 0.002s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.034s (291 assignments)
+Slicing time: 0.001s (removed 189 assignments)
+Generated 4 VCC(s), 4 remaining after simplification (102 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.009s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.009s
+Runtime decision procedure: 0.005s
+BMC program time: 0.050s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.035s (287 assignments)
+Slicing time: 0.001s (removed 189 assignments)
+Generated 6 VCC(s), 6 remaining after simplification (98 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.008s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.008s
+Runtime decision procedure: 0.736s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file test_mutex_unlock_at_exit.i line 655 function ldv_is_in_set
+Unwinding loop 1  iteration  2   file test_mutex_unlock_at_exit.i line 655 function ldv_is_in_set
+Not unwinding 
+Unwinding loop 1  iteration  1   file test_mutex_unlock_at_exit.i line 655 function ldv_is_in_set
+Unwinding loop 1  iteration  2   file test_mutex_unlock_at_exit.i line 655 function ldv_is_in_set
+Not unwinding 
+Unwinding loop 1  iteration  1   file test_mutex_unlock_at_exit.i line 655 function ldv_is_in_set
+Unwinding loop 1  iteration  2   file test_mutex_unlock_at_exit.i line 655 function ldv_is_in_set
+Not unwinding 
+Unwinding loop 1  iteration  1   file test_mutex_unlock_at_exit.i line 655 function ldv_is_in_set
+Unwinding loop 1  iteration  2   file test_mutex_unlock_at_exit.i line 655 function ldv_is_in_set
+Not unwinding 
+Unwinding loop 1  iteration  1   file test_mutex_unlock_at_exit.i line 655 function ldv_is_in_set
+Unwinding loop 1  iteration  2   file test_mutex_unlock_at_exit.i line 655 function ldv_is_in_set
+Not unwinding 
+Unwinding loop 2  iteration  1   file test_mutex_unlock_at_exit.i line 646 function ldv_set_del
+Unwinding loop 2  iteration  2   file test_mutex_unlock_at_exit.i line 646 function ldv_set_del
+Not unwinding 
+Symex completed in: 0.085s (545 assignments)
+Slicing time: 0.003s (removed 323 assignments)
+Generated 4 VCC(s), 4 remaining after simplification (222 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.025s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.025s
+Runtime decision procedure: 38.561s
+Building error trace
+
+Counterexample:
+
+State 1 file test_mutex_unlock_at_exit.i line 655 function ldv_is_in_set thread 0
+----------------------------------------------------
+  m = &mutexes
+
+State 2 file test_mutex_unlock_at_exit.i line 655 function ldv_is_in_set thread 0
+----------------------------------------------------
+  m = &mutexes
+
+State 3 file test_mutex_unlock_at_exit.i line 639 function ldv_set_add thread 0
+----------------------------------------------------
+  le->e = (unsigned int)(( struct mutex *)(&dynamic_9_array[0]))
+
+State 4 file test_mutex_unlock_at_exit.i line 639 function ldv_set_add thread 0
+----------------------------------------------------
+  le->e = (unsigned int)(( struct mutex *)(&dynamic_9_array[0]))
+
+State 5 file test_mutex_unlock_at_exit.i line 639 function ldv_set_add thread 0
+----------------------------------------------------
+  le->e = (unsigned int)(( struct mutex *)(&dynamic_9_array[0]))
+
+State 6 file test_mutex_unlock_at_exit.i line 639 function ldv_set_add thread 0
+----------------------------------------------------
+  le->e = (unsigned int)(( struct mutex *)(&dynamic_9_array[0]))
+
+State 7 file test_mutex_unlock_at_exit.i line 597 function __ldv_list_add thread 0
+----------------------------------------------------
+  new->next = (unsigned int)(( struct ldv_list_head *)(&mutexes))
+
+State 8 file test_mutex_unlock_at_exit.i line 597 function __ldv_list_add thread 0
+----------------------------------------------------
+  new->next = (unsigned int)(( struct ldv_list_head *)(&mutexes))
+
+State 9 file test_mutex_unlock_at_exit.i line 597 function __ldv_list_add thread 0
+----------------------------------------------------
+  new->next = (unsigned int)(( struct ldv_list_head *)(&mutexes))
+
+State 10 file test_mutex_unlock_at_exit.i line 597 function __ldv_list_add thread 0
+----------------------------------------------------
+  new->next = (unsigned int)(( struct ldv_list_head *)(&mutexes))
+
+State 11 file test_mutex_unlock_at_exit.i line 598 function __ldv_list_add thread 0
+----------------------------------------------------
+  new->prev = (unsigned int)(( struct ldv_list_head *)(&mutexes))
+
+State 12 file test_mutex_unlock_at_exit.i line 598 function __ldv_list_add thread 0
+----------------------------------------------------
+  new->prev = (unsigned int)(( struct ldv_list_head *)(&mutexes))
+
+State 13 file test_mutex_unlock_at_exit.i line 598 function __ldv_list_add thread 0
+----------------------------------------------------
+  new->prev = (unsigned int)(( struct ldv_list_head *)(&mutexes))
+
+State 14 file test_mutex_unlock_at_exit.i line 598 function __ldv_list_add thread 0
+----------------------------------------------------
+  new->prev = (unsigned int)(( struct ldv_list_head *)(&mutexes))
+
+State 15 file test_mutex_unlock_at_exit.i line 655 function ldv_is_in_set thread 0
+----------------------------------------------------
+  __mptr = mutexes.next
+
+State 16 file test_mutex_unlock_at_exit.i line 655 function ldv_is_in_set thread 0
+----------------------------------------------------
+  m = &dynamic_11_array[0]
+
+State 17 file test_mutex_unlock_at_exit.i line 655 function ldv_is_in_set thread 0
+----------------------------------------------------
+  __mptr = ( struct ldv_list_head *)3472817918
+
+State 18 file test_mutex_unlock_at_exit.i line 655 function ldv_is_in_set thread 0
+----------------------------------------------------
+  m = &mutexes
+
+State 19 file test_mutex_unlock_at_exit.i line 655 function ldv_is_in_set thread 0
+----------------------------------------------------
+  __mptr = mutexes.next
+
+State 20 file test_mutex_unlock_at_exit.i line 655 function ldv_is_in_set thread 0
+----------------------------------------------------
+  m = &dynamic_11_array[0]
+
+State 21 file test_mutex_unlock_at_exit.i line 655 function ldv_is_in_set thread 0
+----------------------------------------------------
+  __mptr = ( struct ldv_list_head *)3472817918
+
+State 22 file test_mutex_unlock_at_exit.i line 655 function ldv_is_in_set thread 0
+----------------------------------------------------
+  m = &mutexes
+
+State 23 file test_mutex_unlock_at_exit.i line 639 function ldv_set_add thread 0
+----------------------------------------------------
+  le->e = (unsigned int)(( struct mutex *)(&dynamic_10_array[0]))
+
+State 24 file test_mutex_unlock_at_exit.i line 639 function ldv_set_add thread 0
+----------------------------------------------------
+  le->e = (unsigned int)(( struct mutex *)(&dynamic_10_array[0]))
+
+State 25 file test_mutex_unlock_at_exit.i line 639 function ldv_set_add thread 0
+----------------------------------------------------
+  le->e = (unsigned int)(( struct mutex *)(&dynamic_10_array[0]))
+
+State 26 file test_mutex_unlock_at_exit.i line 639 function ldv_set_add thread 0
+----------------------------------------------------
+  le->e = (unsigned int)(( struct mutex *)(&dynamic_10_array[0]))
+
+State 27 file test_mutex_unlock_at_exit.i line 596 function __ldv_list_add thread 0
+----------------------------------------------------
+  next->prev = { .next=&dynamic_11_array[4], .prev=&dynamic_11_array[4] }
+
+State 28 file test_mutex_unlock_at_exit.i line 597 function __ldv_list_add thread 0
+----------------------------------------------------
+  new->next = (unsigned int)(&dynamic_11_array[4])
+
+State 29 file test_mutex_unlock_at_exit.i line 597 function __ldv_list_add thread 0
+----------------------------------------------------
+  new->next = (unsigned int)(&dynamic_11_array[4])
+
+State 30 file test_mutex_unlock_at_exit.i line 597 function __ldv_list_add thread 0
+----------------------------------------------------
+  new->next = (unsigned int)(&dynamic_11_array[4])
+
+State 31 file test_mutex_unlock_at_exit.i line 597 function __ldv_list_add thread 0
+----------------------------------------------------
+  new->next = (unsigned int)(&dynamic_11_array[4])
+
+State 32 file test_mutex_unlock_at_exit.i line 598 function __ldv_list_add thread 0
+----------------------------------------------------
+  new->prev = (unsigned int)(( struct ldv_list_head *)(&mutexes))
+
+State 33 file test_mutex_unlock_at_exit.i line 598 function __ldv_list_add thread 0
+----------------------------------------------------
+  new->prev = (unsigned int)(( struct ldv_list_head *)(&mutexes))
+
+State 34 file test_mutex_unlock_at_exit.i line 598 function __ldv_list_add thread 0
+----------------------------------------------------
+  new->prev = (unsigned int)(( struct ldv_list_head *)(&mutexes))
+
+State 35 file test_mutex_unlock_at_exit.i line 598 function __ldv_list_add thread 0
+----------------------------------------------------
+  new->prev = (unsigned int)(( struct ldv_list_head *)(&mutexes))
+
+State 36 file test_mutex_unlock_at_exit.i line 599 function __ldv_list_add thread 0
+----------------------------------------------------
+  prev->next = { .next=( struct ldv_list_head *)(( struct ldv_list_head {  struct ldv_list_head * next;  struct ldv_list_head * prev; } *)((unsigned char *)(( struct ldv_list_element *)(&dynamic_12_array[0])) + 4)), .prev=&dynamic_11_array[4] }
+
+State 37 file test_mutex_unlock_at_exit.i line 655 function ldv_is_in_set thread 0
+----------------------------------------------------
+  __mptr = mutexes.next
+
+State 38 file test_mutex_unlock_at_exit.i line 655 function ldv_is_in_set thread 0
+----------------------------------------------------
+  m = &dynamic_12_array[0]
+
+State 39 file test_mutex_unlock_at_exit.i line 655 function ldv_is_in_set thread 0
+----------------------------------------------------
+  __mptr = ( struct ldv_list_head *)1434386169
+
+State 40 file test_mutex_unlock_at_exit.i line 655 function ldv_is_in_set thread 0
+----------------------------------------------------
+  m = &dynamic_11_array[0]
+
+State 41 file test_mutex_unlock_at_exit.i line 646 function ldv_set_del thread 0
+----------------------------------------------------
+  __mptr = mutexes.next
+
+State 42 file test_mutex_unlock_at_exit.i line 646 function ldv_set_del thread 0
+----------------------------------------------------
+  m = &dynamic_12_array[0]
+
+State 43 file test_mutex_unlock_at_exit.i line 646 function ldv_set_del thread 0
+----------------------------------------------------
+  __mptr = ( struct ldv_list_head *)1434386169
+
+State 44 file test_mutex_unlock_at_exit.i line 646 function ldv_set_del thread 0
+----------------------------------------------------
+  n = &dynamic_11_array[0]
+
+State 45 file test_mutex_unlock_at_exit.i line 646 function ldv_set_del thread 0
+----------------------------------------------------
+  m = &dynamic_11_array[0]
+
+State 46 file test_mutex_unlock_at_exit.i line 646 function ldv_set_del thread 0
+----------------------------------------------------
+  __mptr = ( struct ldv_list_head *)3472817918
+
+State 47 file test_mutex_unlock_at_exit.i line 646 function ldv_set_del thread 0
+----------------------------------------------------
+  n = &mutexes
+
+State 48 file test_mutex_unlock_at_exit.i line 646 function ldv_set_del thread 0
+----------------------------------------------------
+  m = &mutexes
+
+State 49 file test_mutex_unlock_at_exit.i line 562 function reach_error thread 0
+----------------------------------------------------
+Violated property:
+  file test_mutex_unlock_at_exit.i line 562 function reach_error
+  assertion 0
+  0
+
+
+VERIFICATION FAILED
+
+Bug found (k = 3)
+
+
+FALSE_REACH

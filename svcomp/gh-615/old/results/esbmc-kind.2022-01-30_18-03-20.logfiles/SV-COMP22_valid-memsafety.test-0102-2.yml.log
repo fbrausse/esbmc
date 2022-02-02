@@ -1,0 +1,219 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/valid-memsafety.prp -s kinduction --arch 32 ../sv-benchmarks/c/memsafety/test-0102-2.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/memsafety/test-0102-2.i --32 --witness-output test-0102-2.i.graphml --memory-leak-check --no-assertions --incremental-bmc 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/memsafety/test-0102-2.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.153s
+GOTO program processing time: 0.001s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.019s (145 assignments)
+Slicing time: 0.001s (removed 57 assignments)
+Generated 65 VCC(s), 43 remaining after simplification (88 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.007s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.007s
+Runtime decision procedure: 0.002s
+BMC program time: 0.030s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.019s (145 assignments)
+Slicing time: 0.001s (removed 57 assignments)
+Generated 70 VCC(s), 48 remaining after simplification (88 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.007s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.007s
+Runtime decision procedure: 0.192s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 3  iteration  1   file test-0102-2.i line 582 function create_sub_list
+Unwinding loop 3  iteration  2   file test-0102-2.i line 582 function create_sub_list
+Not unwinding 
+Unwinding loop 3  iteration  1   file test-0102-2.i line 582 function create_sub_list
+Unwinding loop 3  iteration  2   file test-0102-2.i line 582 function create_sub_list
+Not unwinding 
+Unwinding loop 4  iteration  1   file test-0102-2.i line 597 function create_top
+Unwinding loop 3  iteration  1   file test-0102-2.i line 582 function create_sub_list
+Unwinding loop 3  iteration  2   file test-0102-2.i line 582 function create_sub_list
+Not unwinding 
+Unwinding loop 3  iteration  1   file test-0102-2.i line 582 function create_sub_list
+Unwinding loop 3  iteration  2   file test-0102-2.i line 582 function create_sub_list
+Not unwinding 
+Unwinding loop 4  iteration  2   file test-0102-2.i line 597 function create_top
+Unwinding loop 3  iteration  1   file test-0102-2.i line 582 function create_sub_list
+Unwinding loop 3  iteration  2   file test-0102-2.i line 582 function create_sub_list
+Not unwinding 
+Unwinding loop 3  iteration  1   file test-0102-2.i line 582 function create_sub_list
+Unwinding loop 3  iteration  2   file test-0102-2.i line 582 function create_sub_list
+Not unwinding 
+Not unwinding 
+Unwinding loop 1  iteration  1   file test-0102-2.i line 552 function destroy_sub
+Unwinding loop 1  iteration  2   file test-0102-2.i line 552 function destroy_sub
+Not unwinding 
+Unwinding loop 2  iteration  1   file test-0102-2.i line 561 function destroy_top
+Unwinding loop 1  iteration  1   file test-0102-2.i line 552 function destroy_sub
+Unwinding loop 1  iteration  2   file test-0102-2.i line 552 function destroy_sub
+Not unwinding 
+Unwinding loop 2  iteration  2   file test-0102-2.i line 561 function destroy_top
+Unwinding loop 1  iteration  1   file test-0102-2.i line 552 function destroy_sub
+Unwinding loop 1  iteration  2   file test-0102-2.i line 552 function destroy_sub
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.484s (1854 assignments)
+Slicing time: 0.031s (removed 241 assignments)
+Generated 1330 VCC(s), 1194 remaining after simplification (1613 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.778s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.778s
+Runtime decision procedure: 249.902s
+Building error trace
+
+Counterexample:
+
+State 2 file test-0102-2.i line 578 function create_sub_list thread 0
+----------------------------------------------------
+  sub->prev = ( struct list_head *)(( struct list_head {  struct list_head * next;  struct list_head * prev; } *)((unsigned char *)(( struct top_list *)((void *)(&dynamic_13_value))) + 8))
+
+State 4 file test-0102-2.i line 579 function create_sub_list thread 0
+----------------------------------------------------
+  sub->next = ( struct list_head *)(( struct list_head {  struct list_head * next;  struct list_head * prev; } *)((unsigned char *)(( struct top_list *)((void *)(&dynamic_13_value))) + 8))
+
+State 6 file test-0102-2.i line 573 function insert_sub thread 0
+----------------------------------------------------
+  sub->number = 0 (00000000 00000000 00000000 00000000)
+
+State 9 file test-0102-2.i line 531 function __list_add thread 0
+----------------------------------------------------
+  next->prev = ( struct list_head *)(( struct list_head {  struct list_head * next;  struct list_head * prev; } *)((unsigned char *)(( struct sub_list *)((void *)(&dynamic_14_value))) + 4))
+
+State 11 file test-0102-2.i line 532 function __list_add thread 0
+----------------------------------------------------
+  new->next = ( struct list_head *)(( struct list_head {  struct list_head * next;  struct list_head * prev; } *)((unsigned char *)(( struct top_list *)((void *)(&dynamic_13_value))) + 8))
+
+State 13 file test-0102-2.i line 533 function __list_add thread 0
+----------------------------------------------------
+  new->prev = &dynamic_13_value.link.prev
+
+State 15 file test-0102-2.i line 534 function __list_add thread 0
+----------------------------------------------------
+  prev->next = ( struct list_head *)(( struct list_head {  struct list_head * next;  struct list_head * prev; } *)((unsigned char *)(( struct sub_list *)((void *)(&dynamic_14_value))) + 4))
+
+State 17 file test-0102-2.i line 578 function create_sub_list thread 0
+----------------------------------------------------
+  sub->prev = ( struct list_head *)(( struct list_head {  struct list_head * next;  struct list_head * prev; } *)((unsigned char *)(( struct top_list *)((void *)(&dynamic_13_value))) + 16))
+
+State 19 file test-0102-2.i line 579 function create_sub_list thread 0
+----------------------------------------------------
+  sub->next = ( struct list_head *)(( struct list_head {  struct list_head * next;  struct list_head * prev; } *)((unsigned char *)(( struct top_list *)((void *)(&dynamic_13_value))) + 16))
+
+State 21 file test-0102-2.i line 573 function insert_sub thread 0
+----------------------------------------------------
+  sub->number = 0 (00000000 00000000 00000000 00000000)
+
+State 24 file test-0102-2.i line 531 function __list_add thread 0
+----------------------------------------------------
+  next->prev = ( struct list_head *)(( struct list_head {  struct list_head * next;  struct list_head * prev; } *)((unsigned char *)(( struct sub_list *)((void *)(&dynamic_20_value))) + 4))
+
+State 26 file test-0102-2.i line 532 function __list_add thread 0
+----------------------------------------------------
+  new->next = ( struct list_head *)(( struct list_head {  struct list_head * next;  struct list_head * prev; } *)((unsigned char *)(( struct top_list *)((void *)(&dynamic_13_value))) + 16))
+
+State 28 file test-0102-2.i line 533 function __list_add thread 0
+----------------------------------------------------
+  new->prev = &dynamic_13_value.sub1.prev
+
+State 30 file test-0102-2.i line 534 function __list_add thread 0
+----------------------------------------------------
+  prev->next = ( struct list_head *)(( struct list_head {  struct list_head * next;  struct list_head * prev; } *)((unsigned char *)(( struct sub_list *)((void *)(&dynamic_20_value))) + 4))
+
+State 32 file test-0102-2.i line 573 function insert_sub thread 0
+----------------------------------------------------
+  sub->number = 0 (00000000 00000000 00000000 00000000)
+
+State 35 file test-0102-2.i line 531 function __list_add thread 0
+----------------------------------------------------
+  next->prev = ( struct list_head *)(( struct list_head {  struct list_head * next;  struct list_head * prev; } *)((unsigned char *)(( struct sub_list *)((void *)(&dynamic_22_value))) + 4))
+
+State 37 file test-0102-2.i line 532 function __list_add thread 0
+----------------------------------------------------
+  new->next = ( struct list_head *)(( struct list_head {  struct list_head * next;  struct list_head * prev; } *)((unsigned char *)(( struct top_list *)((void *)(&dynamic_13_value))) + 16))
+
+State 39 file test-0102-2.i line 533 function __list_add thread 0
+----------------------------------------------------
+  new->prev = &dynamic_20_value.number
+
+State 41 file test-0102-2.i line 534 function __list_add thread 0
+----------------------------------------------------
+  prev->next = ( struct list_head *)(( struct list_head {  struct list_head * next;  struct list_head * prev; } *)((unsigned char *)(( struct sub_list *)((void *)(&dynamic_22_value))) + 4))
+
+State 43 file test-0102-2.i line 532 function __list_add thread 0
+----------------------------------------------------
+  new->next = ( struct list_head *)(&top)
+
+State 45 file test-0102-2.i line 533 function __list_add thread 0
+----------------------------------------------------
+  new->prev = ( struct list_head *)(&top)
+
+State 46 file test-0102-2.i line 560 function destroy_top thread 0
+----------------------------------------------------
+  now = ( struct top_list *)((signed char *)top.next - (unsigned int)(( struct list_head {  struct list_head * next;  struct list_head * prev; } *)((unsigned char *)0)))
+
+State 49 file test-0102-2.i line 562 function destroy_top thread 0
+----------------------------------------------------
+  next = ( struct top_list *)((signed char *)dynamic_13_value.link.next - (unsigned int)(( struct list_head {  struct list_head * next;  struct list_head * prev; } *)((unsigned char *)0)))
+
+State 52 file test-0102-2.i line 551 function destroy_sub thread 0
+----------------------------------------------------
+  now = ( struct sub_list *)((signed char *)dynamic_13_value.sub1.next - ((unsigned int)(( struct list_head {  struct list_head * next;  struct list_head * prev; } *)((unsigned char *)0 + 4))))
+
+State 69 file test-0102-2.i line 553 function destroy_sub thread 0
+----------------------------------------------------
+  next = ( struct sub_list *)((signed char *)(( struct list_head *)(CONCAT(CONCAT(CONCAT(byte_extract_little_endian(dynamic_14_value.link.next, 3), byte_extract_little_endian(dynamic_14_value.link.next, 2)), byte_extract_little_endian(dynamic_14_value.link.next, 1)), byte_extract_little_endian(dynamic_14_value.link.next, 0)))) - ((unsigned int)(( struct list_head {  struct list_head * next;  struct list_head * prev; } *)((unsigned char *)0 + 4))))
+
+State 94 file test-0102-2.i line 555 function destroy_sub thread 0
+----------------------------------------------------
+  now = &dynamic_13_value.link.next
+
+State 98 file test-0102-2.i line 565 function destroy_top thread 0
+----------------------------------------------------
+  now = &top
+
+State 101 file test-0102-2.i line 605 function main thread 0
+----------------------------------------------------
+Violated property:
+  file test-0102-2.i line 605 function main
+  dereference failure: forgotten memory: dynamic_20_value
+
+
+VERIFICATION FAILED
+
+Bug found (k = 3)
+
+
+FALSE_MEMTRACK

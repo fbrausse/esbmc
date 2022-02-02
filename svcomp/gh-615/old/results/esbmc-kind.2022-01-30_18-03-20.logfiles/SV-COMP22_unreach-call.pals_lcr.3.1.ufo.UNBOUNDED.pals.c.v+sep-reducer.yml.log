@@ -1,0 +1,374 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/seq-mthreaded-reduced/pals_lcr.3.1.ufo.UNBOUNDED.pals.c.v+sep-reducer.c
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/seq-mthreaded-reduced/pals_lcr.3.1.ufo.UNBOUNDED.pals.c.v+sep-reducer.c --32 --witness-output pals_lcr.3.1.ufo.UNBOUNDED.pals.c.v+sep-reducer.c.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/seq-mthreaded-reduced/pals_lcr.3.1.ufo.UNBOUNDED.pals.c.v+sep-reducer.c: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.243s
+GOTO program processing time: 0.234s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 1.505s (6595 assignments)
+Slicing time: 0.032s (removed 6173 assignments)
+Generated 7 VCC(s), 7 remaining after simplification (422 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.012s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.012s
+Runtime decision procedure: 0.030s
+BMC program time: 1.580s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 1.451s (6588 assignments)
+Slicing time: 0.027s (removed 6173 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (415 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.010s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.010s
+Runtime decision procedure: 0.012s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 5  iteration  1   file pals_lcr.3.1.ufo.UNBOUNDED.pals.c.v+sep-reducer.c line 2104 function main
+Unwinding loop 4  iteration  1   file pals_lcr.3.1.ufo.UNBOUNDED.pals.c.v+sep-reducer.c line 2075 function main
+Unwinding loop 3  iteration  1   file pals_lcr.3.1.ufo.UNBOUNDED.pals.c.v+sep-reducer.c line 2047 function main
+Unwinding loop 2  iteration  1   file pals_lcr.3.1.ufo.UNBOUNDED.pals.c.v+sep-reducer.c line 2020 function main
+Unwinding loop 2  iteration  2   file pals_lcr.3.1.ufo.UNBOUNDED.pals.c.v+sep-reducer.c line 2020 function main
+Unwinding loop 5  iteration  2   file pals_lcr.3.1.ufo.UNBOUNDED.pals.c.v+sep-reducer.c line 2104 function main
+Unwinding loop 4  iteration  1   file pals_lcr.3.1.ufo.UNBOUNDED.pals.c.v+sep-reducer.c line 2075 function main
+Unwinding loop 3  iteration  1   file pals_lcr.3.1.ufo.UNBOUNDED.pals.c.v+sep-reducer.c line 2047 function main
+Unwinding loop 2  iteration  1   file pals_lcr.3.1.ufo.UNBOUNDED.pals.c.v+sep-reducer.c line 2020 function main
+Unwinding loop 2  iteration  2   file pals_lcr.3.1.ufo.UNBOUNDED.pals.c.v+sep-reducer.c line 2020 function main
+Not unwinding 
+Symex completed in: 1.925s (7166 assignments)
+Slicing time: 0.042s (removed 6472 assignments)
+Generated 11 VCC(s), 11 remaining after simplification (694 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.016s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.016s
+Runtime decision procedure: 0.217s
+Building error trace
+
+Counterexample:
+
+State 1 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c.v+sep-reducer.c line 70 function main thread 0
+----------------------------------------------------
+  r1 = 0 (00000000)
+
+State 2 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c.v+sep-reducer.c line 71 function main thread 0
+----------------------------------------------------
+  id1 = 68 (01000100)
+
+State 3 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c.v+sep-reducer.c line 72 function main thread 0
+----------------------------------------------------
+  st1 = 0 (00000000)
+
+State 4 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c.v+sep-reducer.c line 73 function main thread 0
+----------------------------------------------------
+  send1 = 68 (01000100)
+
+State 5 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c.v+sep-reducer.c line 74 function main thread 0
+----------------------------------------------------
+  mode1 = 0
+
+State 6 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c.v+sep-reducer.c line 75 function main thread 0
+----------------------------------------------------
+  id2 = 1 (00000001)
+
+State 7 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c.v+sep-reducer.c line 76 function main thread 0
+----------------------------------------------------
+  st2 = 0 (00000000)
+
+State 8 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c.v+sep-reducer.c line 77 function main thread 0
+----------------------------------------------------
+  send2 = 1 (00000001)
+
+State 9 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c.v+sep-reducer.c line 78 function main thread 0
+----------------------------------------------------
+  mode2 = 0
+
+State 10 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c.v+sep-reducer.c line 79 function main thread 0
+----------------------------------------------------
+  id3 = 64 (01000000)
+
+State 11 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c.v+sep-reducer.c line 80 function main thread 0
+----------------------------------------------------
+  st3 = 0 (00000000)
+
+State 12 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c.v+sep-reducer.c line 81 function main thread 0
+----------------------------------------------------
+  send3 = 64 (01000000)
+
+State 13 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c.v+sep-reducer.c line 82 function main thread 0
+----------------------------------------------------
+  mode3 = 0
+
+State 14 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c.v+sep-reducer.c line 143 function main thread 0
+----------------------------------------------------
+  node1____CPAchecker_TMP_0 = 68 (00000000 00000000 00000000 01000100)
+
+State 15 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c.v+sep-reducer.c line 144 function main thread 0
+----------------------------------------------------
+  p1_new = 68 (01000100)
+
+State 16 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c.v+sep-reducer.c line 160 function main thread 0
+----------------------------------------------------
+  node2____CPAchecker_TMP_0 = 1 (00000000 00000000 00000000 00000001)
+
+State 17 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c.v+sep-reducer.c line 161 function main thread 0
+----------------------------------------------------
+  p2_new = 1 (00000001)
+
+State 18 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c.v+sep-reducer.c line 177 function main thread 0
+----------------------------------------------------
+  node3____CPAchecker_TMP_0 = 64 (00000000 00000000 00000000 01000000)
+
+State 19 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c.v+sep-reducer.c line 178 function main thread 0
+----------------------------------------------------
+  p3_new = 64 (01000000)
+
+State 20 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c.v+sep-reducer.c line 180 function main thread 0
+----------------------------------------------------
+  p1_old = 68 (01000100)
+
+State 21 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c.v+sep-reducer.c line 182 function main thread 0
+----------------------------------------------------
+  p2_old = 1 (00000001)
+
+State 22 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c.v+sep-reducer.c line 184 function main thread 0
+----------------------------------------------------
+  p3_old = 64 (01000000)
+
+State 23 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c.v+sep-reducer.c line 225 function main thread 0
+----------------------------------------------------
+  r1 = 1 (00000001)
+
+State 24 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c.v+sep-reducer.c line 226 function main thread 0
+----------------------------------------------------
+  node1__m1 = 64 (01000000)
+
+State 25 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c.v+sep-reducer.c line 361 function main thread 0
+----------------------------------------------------
+  send1 = 64 (01000000)
+
+State 26 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c.v+sep-reducer.c line 472 function main thread 0
+----------------------------------------------------
+  node2__m2 = 68 (01000100)
+
+State 27 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c.v+sep-reducer.c line 478 function main thread 0
+----------------------------------------------------
+  send2 = 68 (01000100)
+
+State 28 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c.v+sep-reducer.c line 1385 function main thread 0
+----------------------------------------------------
+  node3__m3 = 1 (00000001)
+
+State 29 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c.v+sep-reducer.c line 2089 function main thread 0
+----------------------------------------------------
+  node1____CPAchecker_TMP_0 = 64 (00000000 00000000 00000000 01000000)
+
+State 30 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c.v+sep-reducer.c line 2102 function main thread 0
+----------------------------------------------------
+  p1_new = 64 (01000000)
+
+State 31 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c.v+sep-reducer.c line 2060 function main thread 0
+----------------------------------------------------
+  node2____CPAchecker_TMP_0 = 68 (00000000 00000000 00000000 01000100)
+
+State 32 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c.v+sep-reducer.c line 2073 function main thread 0
+----------------------------------------------------
+  p2_new = 68 (01000100)
+
+State 33 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c.v+sep-reducer.c line 2032 function main thread 0
+----------------------------------------------------
+  node3____CPAchecker_TMP_0 = 64 (00000000 00000000 00000000 01000000)
+
+State 34 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c.v+sep-reducer.c line 2045 function main thread 0
+----------------------------------------------------
+  p3_new = 64 (01000000)
+
+State 35 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c.v+sep-reducer.c line 1967 function main thread 0
+----------------------------------------------------
+  p1_old = 64 (01000000)
+
+State 36 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c.v+sep-reducer.c line 1969 function main thread 0
+----------------------------------------------------
+  p2_old = 68 (01000100)
+
+State 37 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c.v+sep-reducer.c line 1971 function main thread 0
+----------------------------------------------------
+  p3_old = 64 (01000000)
+
+State 38 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c.v+sep-reducer.c line 2018 function main thread 0
+----------------------------------------------------
+  __return_1296 = 1 (00000000 00000000 00000000 00000001)
+
+State 39 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c.v+sep-reducer.c line 2019 function main thread 0
+----------------------------------------------------
+  main__c1 = 1 (00000000 00000000 00000000 00000001)
+
+State 40 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c.v+sep-reducer.c line 301 function main thread 0
+----------------------------------------------------
+  __tmp_2 = 1
+
+State 41 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c.v+sep-reducer.c line 303 function main thread 0
+----------------------------------------------------
+  assert__arg = 1
+
+State 42 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c.v+sep-reducer.c line 1874 function main thread 0
+----------------------------------------------------
+  r1 = 2 (00000010)
+
+State 43 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c.v+sep-reducer.c line 1875 function main thread 0
+----------------------------------------------------
+  node1__m1 = 64 (01000000)
+
+State 44 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c.v+sep-reducer.c line 1893 function main thread 0
+----------------------------------------------------
+  send1 = 64 (01000000)
+
+State 45 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c.v+sep-reducer.c line 1908 function main thread 0
+----------------------------------------------------
+  node2__m2 = 64 (01000000)
+
+State 46 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c.v+sep-reducer.c line 1914 function main thread 0
+----------------------------------------------------
+  send2 = 64 (01000000)
+
+State 47 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c.v+sep-reducer.c line 1940 function main thread 0
+----------------------------------------------------
+  node3__m3 = 68 (01000100)
+
+State 48 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c.v+sep-reducer.c line 1946 function main thread 0
+----------------------------------------------------
+  send3 = 68 (01000100)
+
+State 49 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c.v+sep-reducer.c line 2018 function main thread 0
+----------------------------------------------------
+  __return_1296 = 1 (00000000 00000000 00000000 00000001)
+
+State 50 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c.v+sep-reducer.c line 2019 function main thread 0
+----------------------------------------------------
+  main__c1 = 1 (00000000 00000000 00000000 00000001)
+
+State 51 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c.v+sep-reducer.c line 301 function main thread 0
+----------------------------------------------------
+  __tmp_2 = 1
+
+State 52 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c.v+sep-reducer.c line 303 function main thread 0
+----------------------------------------------------
+  assert__arg = 1
+
+State 53 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c.v+sep-reducer.c line 2089 function main thread 0
+----------------------------------------------------
+  node1____CPAchecker_TMP_0 = 64 (00000000 00000000 00000000 01000000)
+
+State 54 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c.v+sep-reducer.c line 2102 function main thread 0
+----------------------------------------------------
+  p1_new = 64 (01000000)
+
+State 55 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c.v+sep-reducer.c line 2060 function main thread 0
+----------------------------------------------------
+  node2____CPAchecker_TMP_0 = 64 (00000000 00000000 00000000 01000000)
+
+State 56 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c.v+sep-reducer.c line 2073 function main thread 0
+----------------------------------------------------
+  p2_new = 64 (01000000)
+
+State 57 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c.v+sep-reducer.c line 2032 function main thread 0
+----------------------------------------------------
+  node3____CPAchecker_TMP_0 = 68 (00000000 00000000 00000000 01000100)
+
+State 58 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c.v+sep-reducer.c line 2045 function main thread 0
+----------------------------------------------------
+  p3_new = 68 (01000100)
+
+State 59 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c.v+sep-reducer.c line 1967 function main thread 0
+----------------------------------------------------
+  p1_old = 64 (01000000)
+
+State 60 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c.v+sep-reducer.c line 1969 function main thread 0
+----------------------------------------------------
+  p2_old = 64 (01000000)
+
+State 61 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c.v+sep-reducer.c line 1971 function main thread 0
+----------------------------------------------------
+  p3_old = 68 (01000100)
+
+State 62 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c.v+sep-reducer.c line 2018 function main thread 0
+----------------------------------------------------
+  __return_1296 = 1 (00000000 00000000 00000000 00000001)
+
+State 63 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c.v+sep-reducer.c line 2019 function main thread 0
+----------------------------------------------------
+  main__c1 = 1 (00000000 00000000 00000000 00000001)
+
+State 64 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c.v+sep-reducer.c line 301 function main thread 0
+----------------------------------------------------
+  __tmp_2 = 1
+
+State 65 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c.v+sep-reducer.c line 303 function main thread 0
+----------------------------------------------------
+  assert__arg = 1
+
+State 66 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c.v+sep-reducer.c line 1874 function main thread 0
+----------------------------------------------------
+  r1 = 3 (00000011)
+
+State 67 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c.v+sep-reducer.c line 1875 function main thread 0
+----------------------------------------------------
+  node1__m1 = 68 (01000100)
+
+State 68 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c.v+sep-reducer.c line 1908 function main thread 0
+----------------------------------------------------
+  node2__m2 = 64 (01000000)
+
+State 69 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c.v+sep-reducer.c line 1940 function main thread 0
+----------------------------------------------------
+  node3__m3 = 64 (01000000)
+
+State 70 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c.v+sep-reducer.c line 2018 function main thread 0
+----------------------------------------------------
+  __return_1296 = 0 (00000000 00000000 00000000 00000000)
+
+State 71 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c.v+sep-reducer.c line 2019 function main thread 0
+----------------------------------------------------
+  main__c1 = 0 (00000000 00000000 00000000 00000000)
+
+State 72 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c.v+sep-reducer.c line 301 function main thread 0
+----------------------------------------------------
+  __tmp_2 = 0
+
+State 73 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c.v+sep-reducer.c line 303 function main thread 0
+----------------------------------------------------
+  assert__arg = 0
+
+State 74 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c.v+sep-reducer.c line 4 function reach_error thread 0
+----------------------------------------------------
+Violated property:
+  file pals_lcr.3.1.ufo.UNBOUNDED.pals.c.v+sep-reducer.c line 4 function reach_error
+  assertion 0
+  0
+
+
+VERIFICATION FAILED
+
+Bug found (k = 3)
+
+
+FALSE_REACH

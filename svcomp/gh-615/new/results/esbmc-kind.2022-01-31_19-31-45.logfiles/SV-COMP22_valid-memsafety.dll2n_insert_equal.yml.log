@@ -1,0 +1,144 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/valid-memsafety.prp -s kinduction --arch 32 ../sv-benchmarks/c/list-simple/dll2n_insert_equal.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/list-simple/dll2n_insert_equal.i --32 --witness-output dll2n_insert_equal.i.graphml --memory-leak-check --no-assertions --incremental-bmc 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/list-simple/dll2n_insert_equal.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.167s
+GOTO program processing time: 0.001s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.002s (36 assignments)
+Slicing time: 0.000s (removed 23 assignments)
+Generated 8 VCC(s), 5 remaining after simplification (13 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.001s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.001s
+Runtime decision procedure: 0.000s
+BMC program time: 0.004s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.002s (36 assignments)
+Slicing time: 0.000s (removed 23 assignments)
+Generated 9 VCC(s), 6 remaining after simplification (13 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.000s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.000s
+Runtime decision procedure: 0.016s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 2  iteration  1   file dll2n_insert_equal.i line 587 function dll_create
+Unwinding loop 2  iteration  2   file dll2n_insert_equal.i line 587 function dll_create
+Unwinding loop 4  iteration  1   file dll2n_insert_equal.i line 614 function dll_insert
+Unwinding loop 5  iteration  1   file dll2n_insert_equal.i line 641 function main
+Unwinding loop 5  iteration  2   file dll2n_insert_equal.i line 641 function main
+Not unwinding 
+Unwinding loop 3  iteration  1   file dll2n_insert_equal.i line 604 function dll_destroy
+Unwinding loop 3  iteration  2   file dll2n_insert_equal.i line 604 function dll_destroy
+Not unwinding 
+Symex completed in: 0.015s (226 assignments)
+Slicing time: 0.002s (removed 83 assignments)
+Generated 118 VCC(s), 64 remaining after simplification (143 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.003s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.003s
+Runtime decision procedure: 0.001s
+BMC program time: 0.022s
+No bug has been found in the base case
+*** Checking forward condition, k = 3
+Starting Bounded Model Checking
+Unwinding loop 2  iteration  1   file dll2n_insert_equal.i line 587 function dll_create
+Unwinding loop 2  iteration  2   file dll2n_insert_equal.i line 587 function dll_create
+Unwinding loop 4  iteration  1   file dll2n_insert_equal.i line 614 function dll_insert
+Unwinding loop 5  iteration  1   file dll2n_insert_equal.i line 641 function main
+Unwinding loop 5  iteration  2   file dll2n_insert_equal.i line 641 function main
+Not unwinding 
+Unwinding loop 3  iteration  1   file dll2n_insert_equal.i line 604 function dll_destroy
+Unwinding loop 3  iteration  2   file dll2n_insert_equal.i line 604 function dll_destroy
+Not unwinding 
+Symex completed in: 0.016s (226 assignments)
+Slicing time: 0.002s (removed 83 assignments)
+Generated 120 VCC(s), 66 remaining after simplification (143 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.004s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.004s
+Runtime decision procedure: 0.115s
+The forward condition is unable to prove the property
+*** Checking base case, k = 5
+Starting Bounded Model Checking
+Unwinding loop 2  iteration  1   file dll2n_insert_equal.i line 587 function dll_create
+Unwinding loop 2  iteration  2   file dll2n_insert_equal.i line 587 function dll_create
+Unwinding loop 4  iteration  1   file dll2n_insert_equal.i line 614 function dll_insert
+Unwinding loop 5  iteration  1   file dll2n_insert_equal.i line 641 function main
+Unwinding loop 5  iteration  2   file dll2n_insert_equal.i line 641 function main
+Unwinding loop 5  iteration  3   file dll2n_insert_equal.i line 641 function main
+Unwinding loop 5  iteration  4   file dll2n_insert_equal.i line 641 function main
+Not unwinding 
+Unwinding loop 3  iteration  1   file dll2n_insert_equal.i line 604 function dll_destroy
+Unwinding loop 3  iteration  2   file dll2n_insert_equal.i line 604 function dll_destroy
+Unwinding loop 3  iteration  3   file dll2n_insert_equal.i line 604 function dll_destroy
+Unwinding loop 3  iteration  4   file dll2n_insert_equal.i line 604 function dll_destroy
+Not unwinding 
+Symex completed in: 0.021s (300 assignments)
+Slicing time: 0.005s (removed 99 assignments)
+Generated 178 VCC(s), 100 remaining after simplification (201 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.004s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.004s
+Runtime decision procedure: 0.001s
+BMC program time: 0.032s
+No bug has been found in the base case
+*** Checking forward condition, k = 5
+Starting Bounded Model Checking
+Unwinding loop 2  iteration  1   file dll2n_insert_equal.i line 587 function dll_create
+Unwinding loop 2  iteration  2   file dll2n_insert_equal.i line 587 function dll_create
+Unwinding loop 4  iteration  1   file dll2n_insert_equal.i line 614 function dll_insert
+Unwinding loop 5  iteration  1   file dll2n_insert_equal.i line 641 function main
+Unwinding loop 5  iteration  2   file dll2n_insert_equal.i line 641 function main
+Unwinding loop 5  iteration  3   file dll2n_insert_equal.i line 641 function main
+Unwinding loop 5  iteration  4   file dll2n_insert_equal.i line 641 function main
+Not unwinding 
+Unwinding loop 3  iteration  1   file dll2n_insert_equal.i line 604 function dll_destroy
+Unwinding loop 3  iteration  2   file dll2n_insert_equal.i line 604 function dll_destroy
+Unwinding loop 3  iteration  3   file dll2n_insert_equal.i line 604 function dll_destroy
+Unwinding loop 3  iteration  4   file dll2n_insert_equal.i line 604 function dll_destroy
+Not unwinding 
+Symex completed in: 0.021s (300 assignments)
+Slicing time: 0.004s (removed 99 assignments)
+Generated 180 VCC(s), 102 remaining after simplification (201 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.004s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.004s
+Runtime decision procedure: 0.002s
+BMC program time: 0.033s
+Building successful trace
+
+VERIFICATION SUCCESSFUL
+
+Solution found by the forward condition; all states are reachable (k = 5
+
+
+TRUE

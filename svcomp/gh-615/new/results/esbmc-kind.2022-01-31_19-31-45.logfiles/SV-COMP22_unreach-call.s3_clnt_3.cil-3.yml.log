@@ -1,0 +1,354 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/openssl-simplified/s3_clnt_3.cil-3.c
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/openssl-simplified/s3_clnt_3.cil-3.c --32 --witness-output s3_clnt_3.cil-3.c.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/openssl-simplified/s3_clnt_3.cil-3.c: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.167s
+GOTO program processing time: 0.091s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.009s (164 assignments)
+Slicing time: 0.000s (removed 137 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (27 assignments)
+BMC program time: 0.009s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.009s (164 assignments)
+Slicing time: 0.000s (removed 137 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (27 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.001s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.001s
+Runtime decision procedure: 0.004s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  2   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Not unwinding 
+Symex completed in: 0.018s (253 assignments)
+Slicing time: 0.001s (removed 214 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (39 assignments)
+BMC program time: 0.019s
+No bug has been found in the base case
+*** Checking forward condition, k = 3
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  2   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Not unwinding 
+Symex completed in: 0.018s (253 assignments)
+Slicing time: 0.001s (removed 214 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (39 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.001s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.001s
+Runtime decision procedure: 0.007s
+The forward condition is unable to prove the property
+*** Checking inductive step, k = 3
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  2   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Not unwinding 
+Symex completed in: 1.462s (8790 assignments)
+Slicing time: 0.202s (removed 7358 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (1432 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.041s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.041s
+Runtime decision procedure: 0.545s
+The inductive step is unable to prove the property
+*** Checking base case, k = 5
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  2   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  3   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  4   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Not unwinding 
+Symex completed in: 0.703s (5132 assignments)
+Slicing time: 0.026s (removed 4790 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (342 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.008s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.008s
+Runtime decision procedure: 0.006s
+BMC program time: 0.744s
+No bug has been found in the base case
+*** Checking forward condition, k = 5
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  2   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  3   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  4   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Not unwinding 
+Symex completed in: 0.716s (5131 assignments)
+Slicing time: 0.026s (removed 4790 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (341 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.009s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.009s
+Runtime decision procedure: 0.033s
+The forward condition is unable to prove the property
+*** Checking base case, k = 7
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  2   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  3   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  4   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  5   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  6   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Not unwinding 
+Symex completed in: 1.389s (10704 assignments)
+Slicing time: 0.077s (removed 9840 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (864 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.019s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.019s
+Runtime decision procedure: 0.054s
+BMC program time: 1.540s
+No bug has been found in the base case
+*** Checking forward condition, k = 7
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  2   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  3   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  4   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  5   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  6   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Not unwinding 
+Symex completed in: 1.474s (10703 assignments)
+Slicing time: 0.078s (removed 9840 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (863 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.020s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.020s
+Runtime decision procedure: 0.085s
+The forward condition is unable to prove the property
+*** Checking base case, k = 9
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  2   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  3   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  4   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  5   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  6   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  7   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  8   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Not unwinding 
+Symex completed in: 2.300s (16276 assignments)
+Slicing time: 0.155s (removed 14856 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (1420 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.034s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.034s
+Runtime decision procedure: 0.115s
+BMC program time: 2.605s
+No bug has been found in the base case
+*** Checking forward condition, k = 9
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  2   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  3   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  4   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  5   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  6   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  7   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  8   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Not unwinding 
+Symex completed in: 2.327s (16275 assignments)
+Slicing time: 0.153s (removed 14856 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (1419 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.035s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.035s
+Runtime decision procedure: 0.157s
+The forward condition is unable to prove the property
+*** Checking base case, k = 11
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  2   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  3   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  4   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  5   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  6   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  7   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  8   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  9   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  10   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Not unwinding 
+Symex completed in: 3.124s (21848 assignments)
+Slicing time: 0.266s (removed 19872 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (1976 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.048s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.048s
+Runtime decision procedure: 0.189s
+BMC program time: 3.627s
+No bug has been found in the base case
+*** Checking forward condition, k = 11
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  2   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  3   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  4   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  5   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  6   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  7   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  8   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  9   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  10   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Not unwinding 
+Symex completed in: 3.096s (21847 assignments)
+Slicing time: 0.266s (removed 19872 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (1975 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.051s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.051s
+Runtime decision procedure: 0.245s
+The forward condition is unable to prove the property
+*** Checking base case, k = 13
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  2   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  3   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  4   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  5   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  6   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  7   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  8   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  9   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  10   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  11   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  12   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Not unwinding 
+Symex completed in: 4.024s (27420 assignments)
+Slicing time: 0.383s (removed 24888 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (2532 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.060s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.060s
+Runtime decision procedure: 0.342s
+BMC program time: 4.810s
+No bug has been found in the base case
+*** Checking forward condition, k = 13
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  2   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  3   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  4   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  5   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  6   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  7   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  8   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  9   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  10   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  11   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  12   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Not unwinding 
+Symex completed in: 3.945s (27419 assignments)
+Slicing time: 0.380s (removed 24888 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (2531 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.060s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.060s
+Runtime decision procedure: 0.345s
+The forward condition is unable to prove the property
+*** Checking base case, k = 15
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  2   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  3   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  4   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  5   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  6   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  7   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  8   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  9   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  10   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  11   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  12   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  13   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  14   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Not unwinding 
+Symex completed in: 4.754s (32992 assignments)
+Slicing time: 0.565s (removed 29904 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (3088 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.078s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.078s
+Runtime decision procedure: 0.456s
+BMC program time: 5.853s
+No bug has been found in the base case
+*** Checking forward condition, k = 15
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  2   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  3   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  4   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  5   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  6   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  7   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  8   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  9   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  10   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  11   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  12   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  13   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Unwinding loop 1  iteration  14   file s3_clnt_3.cil-3.c line 109 function ssl3_connect
+Not unwinding 
+Symex completed in: 4.592s (32991 assignments)
+Slicing time: 0.533s (removed 29904 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (3087 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.071s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.071s
+Runtime decision procedure: 0.432s
+BMC program time: 5.630s
+Building successful trace
+
+VERIFICATION SUCCESSFUL
+
+Solution found by the forward condition; all states are reachable (k = 15
+
+
+TRUE

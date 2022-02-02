@@ -1,0 +1,61 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/no-overflow.prp -s kinduction --arch 64 ../sv-benchmarks/c/termination-crafted/Gothenburg-2.c
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/termination-crafted/Gothenburg-2.c --64 --witness-output Gothenburg-2.c.graphml --no-pointer-check --no-bounds-check --overflow-check --no-assertions --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 64-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/termination-crafted/Gothenburg-2.c: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.080s
+GOTO program processing time: 0.001s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.000s (29 assignments)
+Slicing time: 0.001s (removed 15 assignments)
+Generated 6 VCC(s), 6 remaining after simplification (14 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.000s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.000s
+Runtime decision procedure: 0.063s
+Building error trace
+
+Counterexample:
+
+State 1 file Gothenburg-2.c line 17 function main thread 0
+----------------------------------------------------
+  a = 1541402623 (01011011 11011111 11101111 11111111)
+
+State 2 file Gothenburg-2.c line 18 function main thread 0
+----------------------------------------------------
+  b = 1541402623 (01011011 11011111 11101111 11111111)
+
+State 3 file Gothenburg-2.c line 19 function main thread 0
+----------------------------------------------------
+  x = 608178178 (00100100 01000000 00010000 00000010)
+
+State 4 file Gothenburg-2.c line 20 function main thread 0
+----------------------------------------------------
+  y = -1004531710 (11000100 00100000 00010000 00000010)
+
+State 5 file Gothenburg-2.c line 23 function main thread 0
+----------------------------------------------------
+Violated property:
+  file Gothenburg-2.c line 23 function main
+  arithmetic overflow on add
+  !overflow("+", x, a)
+
+
+VERIFICATION FAILED
+
+Bug found (k = 1)
+
+
+FALSE_OVERFLOW

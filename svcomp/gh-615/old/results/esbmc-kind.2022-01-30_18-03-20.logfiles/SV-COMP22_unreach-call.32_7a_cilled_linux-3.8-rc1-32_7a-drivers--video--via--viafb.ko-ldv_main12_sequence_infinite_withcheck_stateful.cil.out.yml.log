@@ -1,0 +1,511 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i --64 --witness-output 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 64-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 3.156s
+GOTO program processing time: 0.561s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.147s (209 assignments)
+Slicing time: 0.000s (removed 200 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (9 assignments)
+BMC program time: 0.147s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.153s (209 assignments)
+Slicing time: 0.001s (removed 200 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (9 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.000s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.000s
+Runtime decision procedure: 0.001s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 48  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 13754 function get_best_mode
+Unwinding loop 48  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 13754 function get_best_mode
+Not unwinding 
+Symex completed in: 1.120s (245 assignments)
+Slicing time: 0.001s (removed 236 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (9 assignments)
+BMC program time: 1.121s
+No bug has been found in the base case
+*** Checking forward condition, k = 3
+Starting Bounded Model Checking
+Unwinding loop 48  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 13754 function get_best_mode
+Unwinding loop 48  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 13754 function get_best_mode
+Not unwinding 
+Symex completed in: 1.107s (245 assignments)
+Slicing time: 0.000s (removed 236 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (9 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.001s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.001s
+Runtime decision procedure: 0.000s
+The forward condition is unable to prove the property
+*** Checking inductive step, k = 3
+Starting Bounded Model Checking
+Unwinding loop 48  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 13754 function get_best_mode
+Unwinding loop 48  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 13754 function get_best_mode
+Not unwinding 
+Unwinding loop 48  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 13754 function get_best_mode
+Unwinding loop 48  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 13754 function get_best_mode
+Not unwinding 
+Unwinding loop 3  iteration  1   file string.c line 96 function strcmp
+Unwinding loop 3  iteration  2   file string.c line 96 function strcmp
+Not unwinding 
+Unwinding loop 3  iteration  1   file string.c line 96 function strcmp
+Unwinding loop 3  iteration  2   file string.c line 96 function strcmp
+Not unwinding 
+Unwinding loop 3  iteration  1   file string.c line 96 function strcmp
+Unwinding loop 3  iteration  2   file string.c line 96 function strcmp
+Not unwinding 
+Unwinding loop 3  iteration  1   file string.c line 96 function strcmp
+Unwinding loop 3  iteration  2   file string.c line 96 function strcmp
+Not unwinding 
+Unwinding loop 3  iteration  1   file string.c line 96 function strcmp
+Unwinding loop 3  iteration  2   file string.c line 96 function strcmp
+Not unwinding 
+Unwinding loop 3  iteration  1   file string.c line 96 function strcmp
+Unwinding loop 3  iteration  2   file string.c line 96 function strcmp
+Not unwinding 
+Unwinding loop 3  iteration  1   file string.c line 96 function strcmp
+Unwinding loop 3  iteration  2   file string.c line 96 function strcmp
+Not unwinding 
+Unwinding loop 3  iteration  1   file string.c line 96 function strcmp
+Unwinding loop 3  iteration  2   file string.c line 96 function strcmp
+Not unwinding 
+Unwinding loop 3  iteration  1   file string.c line 96 function strcmp
+Unwinding loop 3  iteration  2   file string.c line 96 function strcmp
+Not unwinding 
+Unwinding loop 3  iteration  1   file string.c line 96 function strcmp
+Unwinding loop 3  iteration  2   file string.c line 96 function strcmp
+Not unwinding 
+Unwinding loop 3  iteration  1   file string.c line 96 function strcmp
+Unwinding loop 3  iteration  2   file string.c line 96 function strcmp
+Not unwinding 
+Unwinding loop 57  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 14830 function main
+Unwinding loop 78  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 78  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 51  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 14391 function viafb_get_fb_size_from_pci
+Unwinding loop 51  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 14391 function viafb_get_fb_size_from_pci
+Not unwinding 
+Unwinding loop 52  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 14485 function via_pci_setup_mmio
+Unwinding loop 52  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 14485 function via_pci_setup_mmio
+Not unwinding 
+Unwinding loop 53  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 14546 function via_setup_subdevs
+Unwinding loop 53  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 14546 function via_setup_subdevs
+Not unwinding 
+Unwinding loop 78  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 78  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 69  iteration  1   file string.c line 308 function memcmp
+Unwinding loop 69  iteration  2   file string.c line 308 function memcmp
+Not unwinding 
+Unwinding loop 65  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 16855 function via_aux_vt1632_probe
+Unwinding loop 69  iteration  1   file string.c line 308 function memcmp
+Unwinding loop 69  iteration  2   file string.c line 308 function memcmp
+Not unwinding 
+Unwinding loop 65  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 16855 function via_aux_vt1632_probe
+Unwinding loop 69  iteration  1   file string.c line 308 function memcmp
+Unwinding loop 69  iteration  2   file string.c line 308 function memcmp
+Not unwinding 
+Not unwinding 
+Unwinding loop 69  iteration  1   file string.c line 308 function memcmp
+Unwinding loop 69  iteration  2   file string.c line 308 function memcmp
+Not unwinding 
+Unwinding loop 66  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 17683 function via_aux_sii164_probe
+Unwinding loop 69  iteration  1   file string.c line 308 function memcmp
+Unwinding loop 69  iteration  2   file string.c line 308 function memcmp
+Not unwinding 
+Unwinding loop 66  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 17683 function via_aux_sii164_probe
+Unwinding loop 69  iteration  1   file string.c line 308 function memcmp
+Unwinding loop 69  iteration  2   file string.c line 308 function memcmp
+Not unwinding 
+Not unwinding 
+Unwinding loop 69  iteration  1   file string.c line 308 function memcmp
+Unwinding loop 69  iteration  2   file string.c line 308 function memcmp
+Not unwinding 
+Unwinding loop 65  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 16855 function via_aux_vt1632_probe
+Unwinding loop 69  iteration  1   file string.c line 308 function memcmp
+Unwinding loop 69  iteration  2   file string.c line 308 function memcmp
+Not unwinding 
+Unwinding loop 65  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 16855 function via_aux_vt1632_probe
+Unwinding loop 69  iteration  1   file string.c line 308 function memcmp
+Unwinding loop 69  iteration  2   file string.c line 308 function memcmp
+Not unwinding 
+Not unwinding 
+Unwinding loop 69  iteration  1   file string.c line 308 function memcmp
+Unwinding loop 69  iteration  2   file string.c line 308 function memcmp
+Not unwinding 
+Unwinding loop 66  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 17683 function via_aux_sii164_probe
+Unwinding loop 69  iteration  1   file string.c line 308 function memcmp
+Unwinding loop 69  iteration  2   file string.c line 308 function memcmp
+Not unwinding 
+Unwinding loop 66  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 17683 function via_aux_sii164_probe
+Unwinding loop 69  iteration  1   file string.c line 308 function memcmp
+Unwinding loop 69  iteration  2   file string.c line 308 function memcmp
+Not unwinding 
+Not unwinding 
+Unwinding loop 69  iteration  1   file string.c line 308 function memcmp
+Unwinding loop 69  iteration  2   file string.c line 308 function memcmp
+Not unwinding 
+Unwinding loop 65  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 16855 function via_aux_vt1632_probe
+Unwinding loop 69  iteration  1   file string.c line 308 function memcmp
+Unwinding loop 69  iteration  2   file string.c line 308 function memcmp
+Not unwinding 
+Unwinding loop 65  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 16855 function via_aux_vt1632_probe
+Unwinding loop 69  iteration  1   file string.c line 308 function memcmp
+Unwinding loop 69  iteration  2   file string.c line 308 function memcmp
+Not unwinding 
+Not unwinding 
+Unwinding loop 69  iteration  1   file string.c line 308 function memcmp
+Unwinding loop 69  iteration  2   file string.c line 308 function memcmp
+Not unwinding 
+Unwinding loop 66  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 17683 function via_aux_sii164_probe
+Unwinding loop 69  iteration  1   file string.c line 308 function memcmp
+Unwinding loop 69  iteration  2   file string.c line 308 function memcmp
+Not unwinding 
+Unwinding loop 66  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 17683 function via_aux_sii164_probe
+Unwinding loop 69  iteration  1   file string.c line 308 function memcmp
+Unwinding loop 69  iteration  2   file string.c line 308 function memcmp
+Not unwinding 
+Not unwinding 
+Unwinding loop 4  iteration  1   file string.c line 120 function strncmp
+Unwinding loop 4  iteration  2   file string.c line 120 function strncmp
+Not unwinding 
+Unwinding loop 4  iteration  1   file string.c line 120 function strncmp
+Unwinding loop 4  iteration  2   file string.c line 120 function strncmp
+Not unwinding 
+Unwinding loop 4  iteration  1   file string.c line 120 function strncmp
+Unwinding loop 4  iteration  2   file string.c line 120 function strncmp
+Not unwinding 
+Unwinding loop 4  iteration  1   file string.c line 120 function strncmp
+Unwinding loop 4  iteration  2   file string.c line 120 function strncmp
+Not unwinding 
+Unwinding loop 4  iteration  1   file string.c line 120 function strncmp
+Unwinding loop 4  iteration  2   file string.c line 120 function strncmp
+Not unwinding 
+Unwinding loop 4  iteration  1   file string.c line 120 function strncmp
+Unwinding loop 4  iteration  2   file string.c line 120 function strncmp
+Not unwinding 
+Unwinding loop 4  iteration  1   file string.c line 120 function strncmp
+Unwinding loop 4  iteration  2   file string.c line 120 function strncmp
+Not unwinding 
+Unwinding loop 4  iteration  1   file string.c line 120 function strncmp
+Unwinding loop 4  iteration  2   file string.c line 120 function strncmp
+Not unwinding 
+Unwinding loop 4  iteration  1   file string.c line 120 function strncmp
+Unwinding loop 4  iteration  2   file string.c line 120 function strncmp
+Not unwinding 
+Unwinding loop 4  iteration  1   file string.c line 120 function strncmp
+Unwinding loop 4  iteration  2   file string.c line 120 function strncmp
+Not unwinding 
+Unwinding loop 42  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 10454 function dvi_get_panel_size_from_DDCv1
+Unwinding loop 42  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 10454 function dvi_get_panel_size_from_DDCv1
+Not unwinding 
+Unwinding loop 26  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 12283 function viafb_reset_engine
+Unwinding loop 26  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 12283 function viafb_reset_engine
+Not unwinding 
+Unwinding loop 25  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 16260 function via_aux_get_preferred_mode
+No target candidate for function call *pos->get_preferred_mode
+Unwinding loop 25  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 16260 function via_aux_get_preferred_mode
+No target candidate for function call *pos->get_preferred_mode
+Not unwinding 
+Unwinding loop 25  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 16260 function via_aux_get_preferred_mode
+No target candidate for function call *pos->get_preferred_mode
+Unwinding loop 25  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 16260 function via_aux_get_preferred_mode
+No target candidate for function call *pos->get_preferred_mode
+Not unwinding 
+Unwinding loop 48  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 13754 function get_best_mode
+Unwinding loop 48  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 13754 function get_best_mode
+Not unwinding 
+Unwinding loop 78  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 78  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 2  iteration  1   file string.c line 30 function strcpy
+Unwinding loop 2  iteration  2   file string.c line 30 function strcpy
+Not unwinding 
+Unwinding loop 48  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 13754 function get_best_mode
+Unwinding loop 48  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 13754 function get_best_mode
+Not unwinding 
+Unwinding loop 48  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 13754 function get_best_mode
+Unwinding loop 48  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 13754 function get_best_mode
+Not unwinding 
+Unwinding loop 48  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 13754 function get_best_mode
+Unwinding loop 48  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 13754 function get_best_mode
+Not unwinding 
+Unwinding loop 29  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 9206 function viafb_init_dac
+Unwinding loop 29  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 9206 function viafb_init_dac
+Not unwinding 
+Unwinding loop 27  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 16229 function via_aux_free
+No target candidate for function call *pos->cleanup
+Unwinding loop 27  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 16229 function via_aux_free
+No target candidate for function call *pos->cleanup
+Not unwinding 
+Unwinding loop 27  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 16229 function via_aux_free
+No target candidate for function call *pos->cleanup
+Unwinding loop 27  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 16229 function via_aux_free
+No target candidate for function call *pos->cleanup
+Not unwinding 
+Unwinding loop 27  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 16229 function via_aux_free
+No target candidate for function call *pos->cleanup
+Unwinding loop 27  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 16229 function via_aux_free
+No target candidate for function call *pos->cleanup
+Not unwinding 
+Unwinding loop 54  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 14567 function via_teardown_subdevs
+Unwinding loop 54  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 14567 function via_teardown_subdevs
+Not unwinding 
+Unwinding loop 55  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 14618 function via_suspend
+No target candidate for function call *hooks->suspend
+Unwinding loop 55  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 14618 function via_suspend
+No target candidate for function call *hooks->suspend
+Not unwinding 
+Unwinding loop 56  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 14654 function via_resume
+No target candidate for function call *hooks->resume
+Unwinding loop 56  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 14654 function via_resume
+No target candidate for function call *hooks->resume
+Not unwinding 
+Unwinding loop 57  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 14830 function main
+Unwinding loop 78  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 78  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 51  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 14391 function viafb_get_fb_size_from_pci
+Unwinding loop 51  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 14391 function viafb_get_fb_size_from_pci
+Not unwinding 
+Unwinding loop 52  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 14485 function via_pci_setup_mmio
+Unwinding loop 52  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 14485 function via_pci_setup_mmio
+Not unwinding 
+Unwinding loop 53  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 14546 function via_setup_subdevs
+Unwinding loop 53  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 14546 function via_setup_subdevs
+Not unwinding 
+Unwinding loop 78  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 78  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 69  iteration  1   file string.c line 308 function memcmp
+Unwinding loop 69  iteration  2   file string.c line 308 function memcmp
+Not unwinding 
+Unwinding loop 65  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 16855 function via_aux_vt1632_probe
+Unwinding loop 69  iteration  1   file string.c line 308 function memcmp
+Unwinding loop 69  iteration  2   file string.c line 308 function memcmp
+Not unwinding 
+Unwinding loop 65  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 16855 function via_aux_vt1632_probe
+Unwinding loop 69  iteration  1   file string.c line 308 function memcmp
+Unwinding loop 69  iteration  2   file string.c line 308 function memcmp
+Not unwinding 
+Not unwinding 
+Unwinding loop 69  iteration  1   file string.c line 308 function memcmp
+Unwinding loop 69  iteration  2   file string.c line 308 function memcmp
+Not unwinding 
+Unwinding loop 66  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 17683 function via_aux_sii164_probe
+Unwinding loop 69  iteration  1   file string.c line 308 function memcmp
+Unwinding loop 69  iteration  2   file string.c line 308 function memcmp
+Not unwinding 
+Unwinding loop 66  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 17683 function via_aux_sii164_probe
+Unwinding loop 69  iteration  1   file string.c line 308 function memcmp
+Unwinding loop 69  iteration  2   file string.c line 308 function memcmp
+Not unwinding 
+Not unwinding 
+Unwinding loop 69  iteration  1   file string.c line 308 function memcmp
+Unwinding loop 69  iteration  2   file string.c line 308 function memcmp
+Not unwinding 
+Unwinding loop 65  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 16855 function via_aux_vt1632_probe
+Unwinding loop 69  iteration  1   file string.c line 308 function memcmp
+Unwinding loop 69  iteration  2   file string.c line 308 function memcmp
+Not unwinding 
+Unwinding loop 65  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 16855 function via_aux_vt1632_probe
+Unwinding loop 69  iteration  1   file string.c line 308 function memcmp
+Unwinding loop 69  iteration  2   file string.c line 308 function memcmp
+Not unwinding 
+Not unwinding 
+Unwinding loop 69  iteration  1   file string.c line 308 function memcmp
+Unwinding loop 69  iteration  2   file string.c line 308 function memcmp
+Not unwinding 
+Unwinding loop 66  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 17683 function via_aux_sii164_probe
+Unwinding loop 69  iteration  1   file string.c line 308 function memcmp
+Unwinding loop 69  iteration  2   file string.c line 308 function memcmp
+Not unwinding 
+Unwinding loop 66  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 17683 function via_aux_sii164_probe
+Unwinding loop 69  iteration  1   file string.c line 308 function memcmp
+Unwinding loop 69  iteration  2   file string.c line 308 function memcmp
+Not unwinding 
+Not unwinding 
+Unwinding loop 69  iteration  1   file string.c line 308 function memcmp
+Unwinding loop 69  iteration  2   file string.c line 308 function memcmp
+Not unwinding 
+Unwinding loop 65  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 16855 function via_aux_vt1632_probe
+Unwinding loop 69  iteration  1   file string.c line 308 function memcmp
+Unwinding loop 69  iteration  2   file string.c line 308 function memcmp
+Not unwinding 
+Unwinding loop 65  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 16855 function via_aux_vt1632_probe
+Unwinding loop 69  iteration  1   file string.c line 308 function memcmp
+Unwinding loop 69  iteration  2   file string.c line 308 function memcmp
+Not unwinding 
+Not unwinding 
+Unwinding loop 69  iteration  1   file string.c line 308 function memcmp
+Unwinding loop 69  iteration  2   file string.c line 308 function memcmp
+Not unwinding 
+Unwinding loop 66  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 17683 function via_aux_sii164_probe
+Unwinding loop 69  iteration  1   file string.c line 308 function memcmp
+Unwinding loop 69  iteration  2   file string.c line 308 function memcmp
+Not unwinding 
+Unwinding loop 66  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 17683 function via_aux_sii164_probe
+Unwinding loop 69  iteration  1   file string.c line 308 function memcmp
+Unwinding loop 69  iteration  2   file string.c line 308 function memcmp
+Not unwinding 
+Not unwinding 
+Unwinding loop 4  iteration  1   file string.c line 120 function strncmp
+Unwinding loop 4  iteration  2   file string.c line 120 function strncmp
+Not unwinding 
+Unwinding loop 4  iteration  1   file string.c line 120 function strncmp
+Unwinding loop 4  iteration  2   file string.c line 120 function strncmp
+Not unwinding 
+Unwinding loop 4  iteration  1   file string.c line 120 function strncmp
+Unwinding loop 4  iteration  2   file string.c line 120 function strncmp
+Not unwinding 
+Unwinding loop 4  iteration  1   file string.c line 120 function strncmp
+Unwinding loop 4  iteration  2   file string.c line 120 function strncmp
+Not unwinding 
+Unwinding loop 4  iteration  1   file string.c line 120 function strncmp
+Unwinding loop 4  iteration  2   file string.c line 120 function strncmp
+Not unwinding 
+Unwinding loop 4  iteration  1   file string.c line 120 function strncmp
+Unwinding loop 4  iteration  2   file string.c line 120 function strncmp
+Not unwinding 
+Unwinding loop 4  iteration  1   file string.c line 120 function strncmp
+Unwinding loop 4  iteration  2   file string.c line 120 function strncmp
+Not unwinding 
+Unwinding loop 4  iteration  1   file string.c line 120 function strncmp
+Unwinding loop 4  iteration  2   file string.c line 120 function strncmp
+Not unwinding 
+Unwinding loop 4  iteration  1   file string.c line 120 function strncmp
+Unwinding loop 4  iteration  2   file string.c line 120 function strncmp
+Not unwinding 
+Unwinding loop 4  iteration  1   file string.c line 120 function strncmp
+Unwinding loop 4  iteration  2   file string.c line 120 function strncmp
+Not unwinding 
+Unwinding loop 42  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 10454 function dvi_get_panel_size_from_DDCv1
+Unwinding loop 42  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 10454 function dvi_get_panel_size_from_DDCv1
+Not unwinding 
+Unwinding loop 26  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 12283 function viafb_reset_engine
+Unwinding loop 26  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 12283 function viafb_reset_engine
+Not unwinding 
+Unwinding loop 25  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 16260 function via_aux_get_preferred_mode
+No target candidate for function call *pos->get_preferred_mode
+Unwinding loop 25  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 16260 function via_aux_get_preferred_mode
+No target candidate for function call *pos->get_preferred_mode
+Not unwinding 
+Unwinding loop 25  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 16260 function via_aux_get_preferred_mode
+No target candidate for function call *pos->get_preferred_mode
+Unwinding loop 25  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 16260 function via_aux_get_preferred_mode
+No target candidate for function call *pos->get_preferred_mode
+Not unwinding 
+Unwinding loop 48  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 13754 function get_best_mode
+Unwinding loop 48  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 13754 function get_best_mode
+Not unwinding 
+Unwinding loop 78  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 78  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 2  iteration  1   file string.c line 30 function strcpy
+Unwinding loop 2  iteration  2   file string.c line 30 function strcpy
+Not unwinding 
+Unwinding loop 48  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 13754 function get_best_mode
+Unwinding loop 48  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 13754 function get_best_mode
+Not unwinding 
+Unwinding loop 48  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 13754 function get_best_mode
+Unwinding loop 48  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 13754 function get_best_mode
+Not unwinding 
+Unwinding loop 48  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 13754 function get_best_mode
+Unwinding loop 48  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 13754 function get_best_mode
+Not unwinding 
+Unwinding loop 29  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 9206 function viafb_init_dac
+Unwinding loop 29  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 9206 function viafb_init_dac
+Not unwinding 
+Unwinding loop 27  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 16229 function via_aux_free
+No target candidate for function call *pos->cleanup
+Unwinding loop 27  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 16229 function via_aux_free
+No target candidate for function call *pos->cleanup
+Not unwinding 
+Unwinding loop 27  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 16229 function via_aux_free
+No target candidate for function call *pos->cleanup
+Unwinding loop 27  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 16229 function via_aux_free
+No target candidate for function call *pos->cleanup
+Not unwinding 
+Unwinding loop 27  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 16229 function via_aux_free
+No target candidate for function call *pos->cleanup
+Unwinding loop 27  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 16229 function via_aux_free
+No target candidate for function call *pos->cleanup
+Not unwinding 
+Unwinding loop 54  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 14567 function via_teardown_subdevs
+Unwinding loop 54  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 14567 function via_teardown_subdevs
+Not unwinding 
+Unwinding loop 54  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 14567 function via_teardown_subdevs
+Unwinding loop 54  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 14567 function via_teardown_subdevs
+Not unwinding 
+Unwinding loop 27  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 16229 function via_aux_free
+No target candidate for function call *pos->cleanup
+Unwinding loop 27  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 16229 function via_aux_free
+No target candidate for function call *pos->cleanup
+Not unwinding 
+Unwinding loop 27  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 16229 function via_aux_free
+No target candidate for function call *pos->cleanup
+Unwinding loop 27  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 16229 function via_aux_free
+No target candidate for function call *pos->cleanup
+Not unwinding 
+Unwinding loop 27  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 16229 function via_aux_free
+No target candidate for function call *pos->cleanup
+Unwinding loop 27  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 16229 function via_aux_free
+No target candidate for function call *pos->cleanup
+Not unwinding 
+Unwinding loop 55  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 14618 function via_suspend
+No target candidate for function call *hooks->suspend
+Unwinding loop 55  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 14618 function via_suspend
+No target candidate for function call *hooks->suspend
+Not unwinding 
+Unwinding loop 56  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 14654 function via_resume
+No target candidate for function call *hooks->resume
+Unwinding loop 56  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i line 14654 function via_resume
+No target candidate for function call *hooks->resume
+Not unwinding 
+Not unwinding 
+Symex completed in: 68.143s (28531 assignments)
+Slicing time: 0.437s (removed 22300 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (6231 assignments)
+BMC program time: 68.580s
+Building successful trace
+
+VERIFICATION SUCCESSFUL
+
+Solution found by the inductive step (k = 3)
+
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i:5606:13: warning: incompatible pointer types assigning to 'struct __anonstruct_cr_data_184 *' from 'struct __anonstruct_187 *' [-Wincompatible-pointer-types]
+    cr_data = (struct __anonstruct_187 *)tmp;
+            ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i:14205:92: warning: incompatible integer to pointer conversion initializing 'void *' with an expression of type 'unsigned long' [-Wint-conversion]
+static struct completion viafb_dma_completion = {0U, {{{{{{0U}}, 3735899821U, 4294967295U, 0xffffffffffffffffUL, {0, {0, 0}, "(viafb_dma_completion).wait.lock",
+                                                                                           ^~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i:14208:81: warning: incompatible integer to pointer conversion initializing 'void *' with an expression of type 'unsigned long' [-Wint-conversion]
+static struct mutex viafb_dma_lock = {{1}, {{{{{0U}}, 3735899821U, 4294967295U, 0xffffffffffffffffUL, {0, {0, 0}, "viafb_dma_lock.wait_lock",
+                                                                                ^~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--via--viafb.ko-ldv_main12_sequence_infinite_withcheck_stateful.cil.out.i:14574:86: warning: incompatible integer to pointer conversion initializing 'void *' with an expression of type 'unsigned long' [-Wint-conversion]
+static struct mutex viafb_pm_hooks_lock = {{1}, {{{{{0U}}, 3735899821U, 4294967295U, 0xffffffffffffffffUL, {0, {0, 0}, "viafb_pm_hooks_lock.wait_lock",
+                                                                                     ^~~~~~~~~~~~~~~~~~~~
+
+TRUE

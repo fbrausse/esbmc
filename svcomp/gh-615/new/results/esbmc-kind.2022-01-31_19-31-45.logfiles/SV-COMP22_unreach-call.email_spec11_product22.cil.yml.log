@@ -1,0 +1,202 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/product-lines/email_spec11_product22.cil.c
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/product-lines/email_spec11_product22.cil.c --32 --witness-output email_spec11_product22.cil.c.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/product-lines/email_spec11_product22.cil.c: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.288s
+GOTO program processing time: 0.222s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.077s (643 assignments)
+Slicing time: 0.001s (removed 606 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (37 assignments)
+BMC program time: 0.078s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.066s (643 assignments)
+Slicing time: 0.001s (removed 606 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (37 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.003s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.003s
+Runtime decision procedure: 0.219s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file email_spec11_product22.cil.c line 562 function test
+Unwinding loop 1  iteration  2   file email_spec11_product22.cil.c line 562 function test
+Not unwinding 
+Symex completed in: 0.334s (2580 assignments)
+Slicing time: 0.042s (removed 1810 assignments)
+Generated 2 VCC(s), 2 remaining after simplification (770 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.019s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.019s
+Runtime decision procedure: 0.077s
+BMC program time: 0.473s
+No bug has been found in the base case
+*** Checking forward condition, k = 3
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file email_spec11_product22.cil.c line 562 function test
+Unwinding loop 1  iteration  2   file email_spec11_product22.cil.c line 562 function test
+Not unwinding 
+Symex completed in: 0.347s (2578 assignments)
+Slicing time: 0.041s (removed 1810 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (768 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.019s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.019s
+Runtime decision procedure: 0.645s
+The forward condition is unable to prove the property
+*** Checking inductive step, k = 3
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file email_spec11_product22.cil.c line 562 function test
+Unwinding loop 1  iteration  2   file email_spec11_product22.cil.c line 562 function test
+Not unwinding 
+Symex completed in: 0.433s (3111 assignments)
+Slicing time: 0.189s (removed 1700 assignments)
+Generated 2 VCC(s), 2 remaining after simplification (1411 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.030s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.030s
+Runtime decision procedure: 0.874s
+The inductive step is unable to prove the property
+*** Checking base case, k = 5
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file email_spec11_product22.cil.c line 562 function test
+Unwinding loop 1  iteration  2   file email_spec11_product22.cil.c line 562 function test
+Unwinding loop 1  iteration  3   file email_spec11_product22.cil.c line 562 function test
+Unwinding loop 1  iteration  4   file email_spec11_product22.cil.c line 562 function test
+Symex completed in: 0.478s (3182 assignments)
+Slicing time: 0.083s (removed 2108 assignments)
+Generated 2 VCC(s), 2 remaining after simplification (1074 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.025s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.025s
+Runtime decision procedure: 0.715s
+Building error trace
+
+Counterexample:
+bob: 1
+
+rjh: 2
+
+chuck: 3
+
+
+State 4 file email_spec11_product22.cil.c line 572 function test thread 0
+----------------------------------------------------
+  tmp___9 = -2147483648 (10000000 00000000 00000000 00000000)
+bob added rjhs key
+
+2
+
+456
+
+
+State 8 file email_spec11_product22.cil.c line 586 function test thread 0
+----------------------------------------------------
+  tmp___8 = 0 (00000000 00000000 00000000 00000000)
+
+State 9 file email_spec11_product22.cil.c line 600 function test thread 0
+----------------------------------------------------
+  tmp___7 = -2147483648 (10000000 00000000 00000000 00000000)
+
+State 10 file email_spec11_product22.cil.c line 586 function test thread 0
+----------------------------------------------------
+  tmp___8 = -2147483648 (10000000 00000000 00000000 00000000)
+
+State 11 file email_spec11_product22.cil.c line 614 function test thread 0
+----------------------------------------------------
+  tmp___6 = 0 (00000000 00000000 00000000 00000000)
+
+State 12 file email_spec11_product22.cil.c line 628 function test thread 0
+----------------------------------------------------
+  tmp___5 = 0 (00000000 00000000 00000000 00000000)
+
+State 13 file email_spec11_product22.cil.c line 642 function test thread 0
+----------------------------------------------------
+  tmp___4 = 0 (00000000 00000000 00000000 00000000)
+
+State 14 file email_spec11_product22.cil.c line 656 function test thread 0
+----------------------------------------------------
+  tmp___3 = 0 (00000000 00000000 00000000 00000000)
+
+State 15 file email_spec11_product22.cil.c line 670 function test thread 0
+----------------------------------------------------
+  tmp___2 = -2147483648 (10000000 00000000 00000000 00000000)
+Please enter a subject and a message body.
+
+
+
+State 17 file email_spec11_product22.cil.c line 1627 function findPublicKey thread 0
+----------------------------------------------------
+  retValue_acc = 456 (00000000 00000000 00000001 11001000)
+
+State 18 file email_spec11_product22.cil.c line 264 function outgoing thread 0
+----------------------------------------------------
+  pubkey = 456 (00000000 00000000 00000001 11001000)
+
+State 19 file email_spec11_product22.cil.c line 2793 function setEmailEncryptionKey thread 0
+----------------------------------------------------
+  __ste_email_encryptionKey0 = 456 (00000000 00000000 00000001 11001000)
+mail sent
+
+
+State 21 file email_spec11_product22.cil.c line 1344 function getClientPrivateKey thread 0
+----------------------------------------------------
+  retValue_acc = 0 (00000000 00000000 00000000 00000000)
+
+State 22 file email_spec11_product22.cil.c line 349 function incoming thread 0
+----------------------------------------------------
+  privkey = 0 (00000000 00000000 00000000 00000000)
+mail delivered
+
+
+
+State 24 file email_spec11_product22.cil.c line 1297 function getClientAutoResponse thread 0
+----------------------------------------------------
+  retValue_acc = 1 (00000000 00000000 00000000 00000001)
+before autoRespond
+
+
+
+State 26 file email_spec11_product22.cil.c line 2737 function isEncrypted thread 0
+----------------------------------------------------
+  retValue_acc = 1 (00000000 00000000 00000000 00000001)
+
+State 27 file email_spec11_product22.cil.c line 3 function reach_error thread 0
+----------------------------------------------------
+Violated property:
+  file email_spec11_product22.cil.c line 3 function reach_error
+  assertion 0
+  0
+
+
+VERIFICATION FAILED
+
+Bug found (k = 5)
+
+
+FALSE_REACH

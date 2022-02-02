@@ -1,0 +1,105 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/systemc/transmitter.01.cil.c
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/systemc/transmitter.01.cil.c --32 --witness-output transmitter.01.cil.c.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/systemc/transmitter.01.cil.c: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.138s
+GOTO program processing time: 0.013s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.004s (53 assignments)
+Slicing time: 0.000s (removed 51 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (2 assignments)
+BMC program time: 0.004s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.002s (53 assignments)
+Slicing time: 0.000s (removed 51 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (2 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.000s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.000s
+Runtime decision procedure: 0.000s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 4  iteration  1   file transmitter.01.cil.c line 193 function eval
+Unwinding loop 1  iteration  1   file transmitter.01.cil.c line 52 function master
+Unwinding loop 4  iteration  2   file transmitter.01.cil.c line 193 function eval
+Unwinding loop 1  iteration  1   file transmitter.01.cil.c line 52 function master
+Not unwinding 
+Unwinding loop 5  iteration  1   file transmitter.01.cil.c line 396 function start_simulation
+Unwinding loop 1  iteration  1   file transmitter.01.cil.c line 52 function master
+Unwinding loop 4  iteration  1   file transmitter.01.cil.c line 193 function eval
+Unwinding loop 1  iteration  1   file transmitter.01.cil.c line 52 function master
+Unwinding loop 4  iteration  2   file transmitter.01.cil.c line 193 function eval
+Unwinding loop 1  iteration  1   file transmitter.01.cil.c line 52 function master
+Not unwinding 
+Unwinding loop 5  iteration  2   file transmitter.01.cil.c line 396 function start_simulation
+Unwinding loop 1  iteration  1   file transmitter.01.cil.c line 52 function master
+Unwinding loop 4  iteration  1   file transmitter.01.cil.c line 193 function eval
+Unwinding loop 1  iteration  1   file transmitter.01.cil.c line 52 function master
+Unwinding loop 4  iteration  2   file transmitter.01.cil.c line 193 function eval
+Unwinding loop 1  iteration  1   file transmitter.01.cil.c line 52 function master
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.035s (808 assignments)
+Slicing time: 0.003s (removed 447 assignments)
+Generated 8 VCC(s), 8 remaining after simplification (361 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.005s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.005s
+Runtime decision procedure: 0.038s
+Building error trace
+
+Counterexample:
+
+State 1 file transmitter.01.cil.c line 205 function eval thread 0
+----------------------------------------------------
+  tmp_ndt_1 = 0 (00000000 00000000 00000000 00000000)
+
+State 2 file transmitter.01.cil.c line 219 function eval thread 0
+----------------------------------------------------
+  tmp_ndt_2 = 1 (00000000 00000000 00000000 00000001)
+
+State 3 file transmitter.01.cil.c line 205 function eval thread 0
+----------------------------------------------------
+  tmp_ndt_1 = 1 (00000000 00000000 00000000 00000001)
+
+State 4 file transmitter.01.cil.c line 219 function eval thread 0
+----------------------------------------------------
+  tmp_ndt_2 = 0 (00000000 00000000 00000000 00000000)
+
+State 5 file transmitter.01.cil.c line 219 function eval thread 0
+----------------------------------------------------
+  tmp_ndt_2 = 1 (00000000 00000000 00000000 00000001)
+
+State 6 file transmitter.01.cil.c line 3 function reach_error thread 0
+----------------------------------------------------
+Violated property:
+  file transmitter.01.cil.c line 3 function reach_error
+  assertion 0
+  0
+
+
+VERIFICATION FAILED
+
+Bug found (k = 3)
+
+
+FALSE_REACH

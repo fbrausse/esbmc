@@ -1,0 +1,279 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/openssl-simplified/s3_clnt_4.cil-2.c
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/openssl-simplified/s3_clnt_4.cil-2.c --32 --witness-output s3_clnt_4.cil-2.c.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/openssl-simplified/s3_clnt_4.cil-2.c: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.167s
+GOTO program processing time: 0.080s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.009s (163 assignments)
+Slicing time: 0.000s (removed 135 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (28 assignments)
+BMC program time: 0.010s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.009s (163 assignments)
+Slicing time: 0.000s (removed 135 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (28 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.001s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.001s
+Runtime decision procedure: 0.006s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file s3_clnt_4.cil-2.c line 100 function ssl3_connect
+Unwinding loop 1  iteration  2   file s3_clnt_4.cil-2.c line 100 function ssl3_connect
+Not unwinding 
+Symex completed in: 0.017s (250 assignments)
+Slicing time: 0.001s (removed 210 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (40 assignments)
+BMC program time: 0.018s
+No bug has been found in the base case
+*** Checking forward condition, k = 3
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file s3_clnt_4.cil-2.c line 100 function ssl3_connect
+Unwinding loop 1  iteration  2   file s3_clnt_4.cil-2.c line 100 function ssl3_connect
+Not unwinding 
+Symex completed in: 0.017s (250 assignments)
+Slicing time: 0.001s (removed 210 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (40 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.000s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.000s
+Runtime decision procedure: 0.010s
+The forward condition is unable to prove the property
+*** Checking inductive step, k = 3
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file s3_clnt_4.cil-2.c line 100 function ssl3_connect
+Unwinding loop 1  iteration  2   file s3_clnt_4.cil-2.c line 100 function ssl3_connect
+Not unwinding 
+Symex completed in: 1.148s (7004 assignments)
+Slicing time: 0.200s (removed 5587 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (1417 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.032s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.032s
+Runtime decision procedure: 0.583s
+The inductive step is unable to prove the property
+*** Checking base case, k = 5
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file s3_clnt_4.cil-2.c line 100 function ssl3_connect
+Unwinding loop 1  iteration  2   file s3_clnt_4.cil-2.c line 100 function ssl3_connect
+Unwinding loop 1  iteration  3   file s3_clnt_4.cil-2.c line 100 function ssl3_connect
+Unwinding loop 1  iteration  4   file s3_clnt_4.cil-2.c line 100 function ssl3_connect
+Not unwinding 
+Symex completed in: 0.583s (4022 assignments)
+Slicing time: 0.024s (removed 3666 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (356 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.008s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.008s
+Runtime decision procedure: 0.005s
+BMC program time: 0.621s
+No bug has been found in the base case
+*** Checking forward condition, k = 5
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file s3_clnt_4.cil-2.c line 100 function ssl3_connect
+Unwinding loop 1  iteration  2   file s3_clnt_4.cil-2.c line 100 function ssl3_connect
+Unwinding loop 1  iteration  3   file s3_clnt_4.cil-2.c line 100 function ssl3_connect
+Unwinding loop 1  iteration  4   file s3_clnt_4.cil-2.c line 100 function ssl3_connect
+Not unwinding 
+Symex completed in: 0.585s (4021 assignments)
+Slicing time: 0.022s (removed 3666 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (355 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.008s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.008s
+Runtime decision procedure: 0.036s
+The forward condition is unable to prove the property
+*** Checking base case, k = 7
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file s3_clnt_4.cil-2.c line 100 function ssl3_connect
+Unwinding loop 1  iteration  2   file s3_clnt_4.cil-2.c line 100 function ssl3_connect
+Unwinding loop 1  iteration  3   file s3_clnt_4.cil-2.c line 100 function ssl3_connect
+Unwinding loop 1  iteration  4   file s3_clnt_4.cil-2.c line 100 function ssl3_connect
+Unwinding loop 1  iteration  5   file s3_clnt_4.cil-2.c line 100 function ssl3_connect
+Unwinding loop 1  iteration  6   file s3_clnt_4.cil-2.c line 100 function ssl3_connect
+Not unwinding 
+Symex completed in: 1.216s (8406 assignments)
+Slicing time: 0.069s (removed 7517 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (889 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.020s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.020s
+Runtime decision procedure: 0.090s
+Building error trace
+
+Counterexample:
+
+State 1 file s3_clnt_4.cil-2.c line 13 function ssl3_connect thread 0
+----------------------------------------------------
+  s__info_callback = 0 (00000000 00000000 00000000 00000000)
+
+State 2 file s3_clnt_4.cil-2.c line 18 function ssl3_connect thread 0
+----------------------------------------------------
+  s__version = -64512 (11111111 11111111 00000100 00000000)
+
+State 3 file s3_clnt_4.cil-2.c line 23 function ssl3_connect thread 0
+----------------------------------------------------
+  s__hit = 0 (00000000 00000000 00000000 00000000)
+
+State 4 file s3_clnt_4.cil-2.c line 25 function ssl3_connect thread 0
+----------------------------------------------------
+  s__init_buf___0 = 1 (00000000 00000000 00000000 00000001)
+
+State 5 file s3_clnt_4.cil-2.c line 26 function ssl3_connect thread 0
+----------------------------------------------------
+  s__debug = 1 (00000000 00000000 00000000 00000001)
+
+State 6 file s3_clnt_4.cil-2.c line 28 function ssl3_connect thread 0
+----------------------------------------------------
+  s__ctx__info_callback = 0 (00000000 00000000 00000000 00000000)
+
+State 7 file s3_clnt_4.cil-2.c line 34 function ssl3_connect thread 0
+----------------------------------------------------
+  s__s3__flags = -8781821 (11111111 01111010 00000000 00000011)
+
+State 8 file s3_clnt_4.cil-2.c line 36 function ssl3_connect thread 0
+----------------------------------------------------
+  s__s3__tmp__cert_req = 0 (00000000 00000000 00000000 00000000)
+
+State 9 file s3_clnt_4.cil-2.c line 38 function ssl3_connect thread 0
+----------------------------------------------------
+  s__s3__tmp__reuse_message = 0 (00000000 00000000 00000000 00000000)
+
+State 10 file s3_clnt_4.cil-2.c line 40 function ssl3_connect thread 0
+----------------------------------------------------
+  s__s3__tmp__new_cipher__algorithms = -256 (11111111 11111111 11111111 00000000)
+
+State 11 file s3_clnt_4.cil-2.c line 48 function ssl3_connect thread 0
+----------------------------------------------------
+  num1 = -1946087737 (10001100 00000001 00001110 11000111)
+
+State 12 file s3_clnt_4.cil-2.c line 57 function ssl3_connect thread 0
+----------------------------------------------------
+  tmp___3 = 1 (00000000 00000000 00000000 00000001)
+
+State 13 file s3_clnt_4.cil-2.c line 58 function ssl3_connect thread 0
+----------------------------------------------------
+  tmp___4 = 7 (00000000 00000000 00000000 00000111)
+
+State 14 file s3_clnt_4.cil-2.c line 59 function ssl3_connect thread 0
+----------------------------------------------------
+  tmp___5 = 3 (00000000 00000000 00000000 00000011)
+
+State 15 file s3_clnt_4.cil-2.c line 60 function ssl3_connect thread 0
+----------------------------------------------------
+  tmp___6 = 32767 (00000000 00000000 01111111 11111111)
+
+State 16 file s3_clnt_4.cil-2.c line 61 function ssl3_connect thread 0
+----------------------------------------------------
+  tmp___7 = 32767 (00000000 00000000 01111111 11111111)
+
+State 17 file s3_clnt_4.cil-2.c line 62 function ssl3_connect thread 0
+----------------------------------------------------
+  tmp___8 = 15 (00000000 00000000 00000000 00001111)
+
+State 18 file s3_clnt_4.cil-2.c line 63 function ssl3_connect thread 0
+----------------------------------------------------
+  tmp___9 = -1 (11111111 11111111 11111111 11111111)
+
+State 19 file s3_clnt_4.cil-2.c line 217 function ssl3_connect thread 0
+----------------------------------------------------
+  __cil_tmp55 = 768 (00000000 00000000 00000011 00000000)
+
+State 20 file s3_clnt_4.cil-2.c line 525 function ssl3_connect thread 0
+----------------------------------------------------
+  ret = 1 (00000000 00000000 00000000 00000001)
+
+State 21 file s3_clnt_4.cil-2.c line 251 function ssl3_connect thread 0
+----------------------------------------------------
+  ret = 127 (00000000 00000000 00000000 01111111)
+
+State 22 file s3_clnt_4.cil-2.c line 525 function ssl3_connect thread 0
+----------------------------------------------------
+  ret = 1 (00000000 00000000 00000000 00000001)
+
+State 23 file s3_clnt_4.cil-2.c line 266 function ssl3_connect thread 0
+----------------------------------------------------
+  ret = 7 (00000000 00000000 00000000 00000111)
+
+State 24 file s3_clnt_4.cil-2.c line 525 function ssl3_connect thread 0
+----------------------------------------------------
+  ret = 1 (00000000 00000000 00000000 00000001)
+
+State 25 file s3_clnt_4.cil-2.c line 102 function ssl3_connect thread 0
+----------------------------------------------------
+  state = 4400 (00000000 00000000 00010001 00110000)
+
+State 26 file s3_clnt_4.cil-2.c line 283 function ssl3_connect thread 0
+----------------------------------------------------
+  __cil_tmp56 = 4294967040 (11111111 11111111 11111111 00000000)
+
+State 27 file s3_clnt_4.cil-2.c line 287 function ssl3_connect thread 0
+----------------------------------------------------
+  ret = 63 (00000000 00000000 00000000 00111111)
+
+State 28 file s3_clnt_4.cil-2.c line 525 function ssl3_connect thread 0
+----------------------------------------------------
+  ret = 1 (00000000 00000000 00000000 00000001)
+
+State 29 file s3_clnt_4.cil-2.c line 102 function ssl3_connect thread 0
+----------------------------------------------------
+  state = 4416 (00000000 00000000 00010001 01000000)
+
+State 30 file s3_clnt_4.cil-2.c line 305 function ssl3_connect thread 0
+----------------------------------------------------
+  ret = 3 (00000000 00000000 00000000 00000011)
+
+State 31 file s3_clnt_4.cil-2.c line 525 function ssl3_connect thread 0
+----------------------------------------------------
+  ret = 1 (00000000 00000000 00000000 00000001)
+
+State 32 file s3_clnt_4.cil-2.c line 102 function ssl3_connect thread 0
+----------------------------------------------------
+  state = 4432 (00000000 00000000 00010001 01010000)
+
+State 33 file s3_clnt_4.cil-2.c line 321 function ssl3_connect thread 0
+----------------------------------------------------
+  ret = -2147483648 (10000000 00000000 00000000 00000000)
+
+State 34 file s3_clnt_4.cil-2.c line 3 function reach_error thread 0
+----------------------------------------------------
+Violated property:
+  file s3_clnt_4.cil-2.c line 3 function reach_error
+  assertion 0
+  0
+
+
+VERIFICATION FAILED
+
+Bug found (k = 7)
+
+
+FALSE_REACH

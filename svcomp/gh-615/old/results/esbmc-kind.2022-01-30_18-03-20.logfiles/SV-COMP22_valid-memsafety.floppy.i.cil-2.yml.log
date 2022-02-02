@@ -1,0 +1,162 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/valid-memsafety.prp -s kinduction --arch 32 ../sv-benchmarks/c/ntdrivers/floppy.i.cil-2.c
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ntdrivers/floppy.i.cil-2.c --32 --witness-output floppy.i.cil-2.c.graphml --memory-leak-check --no-assertions --incremental-bmc 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/ntdrivers/floppy.i.cil-2.c: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 1.243s
+GOTO program processing time: 0.058s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 6.007s (7151 assignments)
+Slicing time: 0.231s (removed 3908 assignments)
+Generated 1987 VCC(s), 1842 remaining after simplification (3243 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.383s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.383s
+Runtime decision procedure: 11.470s
+Building error trace
+
+Counterexample:
+
+State 1 file floppy.i.cil-2.c line 7025 function main thread 0
+----------------------------------------------------
+  __BLAST_NONDET = 2 (00000000 00000000 00000000 00000010)
+
+State 2 file floppy.i.cil-2.c line 7026 function main thread 0
+----------------------------------------------------
+  irp_choice = 0 (00000000 00000000 00000000 00000000)
+
+State 3 file floppy.i.cil-2.c line 2140 function DriverEntry thread 0
+----------------------------------------------------
+  DriverObject->MajorFunction[0] = &FloppyCreateClose
+
+State 4 file floppy.i.cil-2.c line 2141 function DriverEntry thread 0
+----------------------------------------------------
+  DriverObject->MajorFunction[2] = &FloppyCreateClose
+
+State 5 file floppy.i.cil-2.c line 2142 function DriverEntry thread 0
+----------------------------------------------------
+  DriverObject->MajorFunction[3] = &FloppyReadWrite
+
+State 6 file floppy.i.cil-2.c line 2143 function DriverEntry thread 0
+----------------------------------------------------
+  DriverObject->MajorFunction[4] = &FloppyReadWrite
+
+State 7 file floppy.i.cil-2.c line 2144 function DriverEntry thread 0
+----------------------------------------------------
+  DriverObject->MajorFunction[14] = &FloppyDeviceControl
+
+State 8 file floppy.i.cil-2.c line 2145 function DriverEntry thread 0
+----------------------------------------------------
+  DriverObject->MajorFunction[27] = &FloppyPnp
+
+State 9 file floppy.i.cil-2.c line 2146 function DriverEntry thread 0
+----------------------------------------------------
+  DriverObject->MajorFunction[22] = &FloppyPower
+
+State 10 file floppy.i.cil-2.c line 2147 function DriverEntry thread 0
+----------------------------------------------------
+  DriverObject->DriverUnload = &FloppyUnload
+
+State 12 file floppy.i.cil-2.c line 2158 function DriverEntry thread 0
+----------------------------------------------------
+Violated property:
+  file floppy.i.cil-2.c line 2158 function DriverEntry
+  dereference failure: Access to object out of bounds
+
+
+VERIFICATION FAILED
+
+Bug found (k = 1)
+
+../sv-benchmarks/c/ntdrivers/floppy.i.cil-2.c:2219:34: warning: incompatible pointer types passing 'char [33]' to parameter of type 'const wchar_t *' (aka 'const unsigned short *') [-Wincompatible-pointer-types]
+      swprintf(deviceNameBuffer, "\\\000D\000e\000v\000i\000c\000e\000\\\000F\000l\000o\000p\000p\000y\000%\000d\000",
+                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ntdrivers/floppy.i.cil-2.c:1730:52: note: passing argument to parameter here
+extern int swprintf(wchar_t * , wchar_t const   *  , ...) ;
+                                                   ^
+../sv-benchmarks/c/ntdrivers/floppy.i.cil-2.c:2255:15: warning: passing 'UCHAR [256]' to parameter of type 'char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+      sprintf(arcNameBuffer, "%s(%d)disk(%d)fdisk(%d)", "\\ArcName\\multi", fdcInfo.BusNumber,
+              ^~~~~~~~~~~~~
+../sv-benchmarks/c/ntdrivers/floppy.i.cil-2.c:1729:27: note: passing argument to parameter here
+extern int sprintf(char * , char const   *  , ...) ;
+                          ^
+../sv-benchmarks/c/ntdrivers/floppy.i.cil-2.c:2255:77: warning: format specifies type 'int' but the argument has type 'ULONG' (aka 'unsigned long') [-Wformat]
+      sprintf(arcNameBuffer, "%s(%d)disk(%d)fdisk(%d)", "\\ArcName\\multi", fdcInfo.BusNumber,
+                                 ~~                                         ^~~~~~~~~~~~~~~~~
+                                 %lu
+../sv-benchmarks/c/ntdrivers/floppy.i.cil-2.c:2256:15: warning: format specifies type 'int' but the argument has type 'ULONG' (aka 'unsigned long') [-Wformat]
+              fdcInfo.ControllerNumber, fdcInfo.PeripheralNumber);
+              ^~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ntdrivers/floppy.i.cil-2.c:2256:41: warning: format specifies type 'int' but the argument has type 'ULONG' (aka 'unsigned long') [-Wformat]
+              fdcInfo.ControllerNumber, fdcInfo.PeripheralNumber);
+                                        ^~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ntdrivers/floppy.i.cil-2.c:2625:78: warning: incompatible pointer types passing 'PKTHREAD *' (aka 'struct _KTHREAD **') to parameter of type 'PVOID *' (aka 'void **') [-Wincompatible-pointer-types]
+    status = ObReferenceObjectByHandle(threadHandle, 1048576L, (void *)0, 0, & DisketteExtension->FloppyThread,
+                                                                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ntdrivers/floppy.i.cil-2.c:1905:75: note: passing argument to parameter 'Object' here
+                                                                   PVOID *Object ,
+                                                                          ^
+../sv-benchmarks/c/ntdrivers/floppy.i.cil-2.c:2986:68: warning: incompatible pointer types passing 'char [59]' to parameter of type 'PCWSTR' (aka 'const unsigned short *') [-Wincompatible-pointer-types]
+                              ntStatus = RtlQueryRegistryValues(0, "\\\000R\000e\000g\000i\000s\000t\000r\000y\000\\\000M\000a\000c\000h\000i\000n\000e\000\\\000S\000y\000s\000t\000e\000m\000\\\000D\000I\000S\000K\000",
+                                                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ntdrivers/floppy.i.cil-2.c:1740:104: note: passing argument to parameter 'Path' here
+                                                                                                PCWSTR Path ,
+                                                                                                       ^
+../sv-benchmarks/c/ntdrivers/floppy.i.cil-2.c:3046:57: warning: incompatible pointer types passing 'char [59]' to parameter of type 'PCWSTR' (aka 'const unsigned short *') [-Wincompatible-pointer-types]
+                              RtlDeleteRegistryValue(0, "\\\000R\000e\000g\000i\000s\000t\000r\000y\000\\\000M\000a\000c\000h\000i\000n\000e\000\\\000S\000y\000s\000t\000e\000m\000\\\000D\000I\000S\000K\000",
+                                                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ntdrivers/floppy.i.cil-2.c:1745:104: note: passing argument to parameter 'Path' here
+                                                                                                PCWSTR Path ,
+                                                                                                       ^
+../sv-benchmarks/c/ntdrivers/floppy.i.cil-2.c:6048:16: warning: assigning to 'PCHAR' (aka 'char *') from 'PUCHAR' (aka 'unsigned char *') converts between pointers to integer types with different sign [-Wpointer-sign]
+      ioBuffer = DisketteExtension->IoBuffer;
+               ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ntdrivers/floppy.i.cil-2.c:7042:14: warning: incompatible integer to pointer conversion assigning to 'NTSTATUS (*)(PDEVICE_OBJECT, PIRP, PVOID)' (aka 'long (*)(struct _DEVICE_OBJECT *, struct _IRP *, void *)') from 'int' [-Wint-conversion]
+    compFptr = compRegistered;
+             ^ ~~~~~~~~~~~~~~
+../sv-benchmarks/c/ntdrivers/floppy.i.cil-2.c:7043:12: warning: incompatible pointer to integer conversion assigning to 'int' from 'NTSTATUS (*)(PDEVICE_OBJECT, PIRP, PVOID)' (aka 'long (*)(struct _DEVICE_OBJECT *, struct _IRP *, void *)') [-Wint-conversion]
+    pended = compFptr;
+           ^ ~~~~~~~~
+../sv-benchmarks/c/ntdrivers/floppy.i.cil-2.c:7191:7: warning: incompatible redeclaration of library function 'malloc' [-Wincompatible-library-redeclaration]
+char *malloc(int i ) 
+      ^
+../sv-benchmarks/c/ntdrivers/floppy.i.cil-2.c:7191:7: note: 'malloc' is a builtin with type 'void *(unsigned int)'
+
+FALSE_DEREF

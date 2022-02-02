@@ -1,0 +1,180 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-drivers--mmc--host--vub300.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-drivers--mmc--host--vub300.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i --64 --witness-output 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--mmc--host--vub300.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 64-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-drivers--mmc--host--vub300.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 2.622s
+GOTO program processing time: 0.410s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.027s (202 assignments)
+Slicing time: 0.001s (removed 159 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (43 assignments)
+BMC program time: 0.028s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.021s (202 assignments)
+Slicing time: 0.000s (removed 159 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (43 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.004s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.004s
+Runtime decision procedure: 0.039s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 22  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--mmc--host--vub300.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 6730 function main
+Unwinding loop 16  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--mmc--host--vub300.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 5856 function satisfy_request_from_offloaded_data
+Unwinding loop 16  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--mmc--host--vub300.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 5856 function satisfy_request_from_offloaded_data
+Not unwinding 
+Unwinding loop 15  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--mmc--host--vub300.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 5803 function examine_cyclic_buffer
+Unwinding loop 15  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--mmc--host--vub300.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 5803 function examine_cyclic_buffer
+Not unwinding 
+Unwinding loop 17  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--mmc--host--vub300.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 5981 function __set_clock_speed
+Unwinding loop 17  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--mmc--host--vub300.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 5981 function __set_clock_speed
+Not unwinding 
+No target candidate for function call *host->ops->enable_sdio_irq
+Unwinding loop 18  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--mmc--host--vub300.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 6255 function vub300_probe
+Unwinding loop 18  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--mmc--host--vub300.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 6255 function vub300_probe
+Not unwinding 
+Unwinding loop 22  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--mmc--host--vub300.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 6730 function main
+Unwinding loop 16  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--mmc--host--vub300.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 5856 function satisfy_request_from_offloaded_data
+Unwinding loop 16  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--mmc--host--vub300.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 5856 function satisfy_request_from_offloaded_data
+Not unwinding 
+Unwinding loop 15  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--mmc--host--vub300.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 5803 function examine_cyclic_buffer
+Unwinding loop 15  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--mmc--host--vub300.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 5803 function examine_cyclic_buffer
+Not unwinding 
+Unwinding loop 17  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--mmc--host--vub300.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 5981 function __set_clock_speed
+Unwinding loop 17  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--mmc--host--vub300.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 5981 function __set_clock_speed
+Not unwinding 
+No target candidate for function call *host->ops->enable_sdio_irq
+Unwinding loop 18  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--mmc--host--vub300.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 6255 function vub300_probe
+Unwinding loop 18  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--mmc--host--vub300.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 6255 function vub300_probe
+Not unwinding 
+Not unwinding 
+Symex completed in: 1.389s (2990 assignments)
+Slicing time: 0.011s (removed 2747 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (243 assignments)
+BMC program time: 1.400s
+No bug has been found in the base case
+*** Checking forward condition, k = 3
+Starting Bounded Model Checking
+Unwinding loop 22  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--mmc--host--vub300.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 6730 function main
+Unwinding loop 16  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--mmc--host--vub300.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 5856 function satisfy_request_from_offloaded_data
+Unwinding loop 16  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--mmc--host--vub300.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 5856 function satisfy_request_from_offloaded_data
+Not unwinding 
+Unwinding loop 15  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--mmc--host--vub300.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 5803 function examine_cyclic_buffer
+Unwinding loop 15  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--mmc--host--vub300.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 5803 function examine_cyclic_buffer
+Not unwinding 
+Unwinding loop 17  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--mmc--host--vub300.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 5981 function __set_clock_speed
+Unwinding loop 17  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--mmc--host--vub300.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 5981 function __set_clock_speed
+Not unwinding 
+No target candidate for function call *host->ops->enable_sdio_irq
+Unwinding loop 18  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--mmc--host--vub300.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 6255 function vub300_probe
+Unwinding loop 18  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--mmc--host--vub300.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 6255 function vub300_probe
+Not unwinding 
+Unwinding loop 22  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--mmc--host--vub300.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 6730 function main
+Unwinding loop 16  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--mmc--host--vub300.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 5856 function satisfy_request_from_offloaded_data
+Unwinding loop 16  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--mmc--host--vub300.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 5856 function satisfy_request_from_offloaded_data
+Not unwinding 
+Unwinding loop 15  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--mmc--host--vub300.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 5803 function examine_cyclic_buffer
+Unwinding loop 15  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--mmc--host--vub300.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 5803 function examine_cyclic_buffer
+Not unwinding 
+Unwinding loop 17  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--mmc--host--vub300.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 5981 function __set_clock_speed
+Unwinding loop 17  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--mmc--host--vub300.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 5981 function __set_clock_speed
+Not unwinding 
+No target candidate for function call *host->ops->enable_sdio_irq
+Unwinding loop 18  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--mmc--host--vub300.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 6255 function vub300_probe
+Unwinding loop 18  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--mmc--host--vub300.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 6255 function vub300_probe
+Not unwinding 
+Not unwinding 
+Symex completed in: 1.341s (2990 assignments)
+Slicing time: 0.012s (removed 2747 assignments)
+Generated 9 VCC(s), 9 remaining after simplification (243 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.065s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.065s
+Runtime decision procedure: 9.972s
+The forward condition is unable to prove the property
+*** Checking inductive step, k = 3
+Starting Bounded Model Checking
+Unwinding loop 22  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--mmc--host--vub300.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 6730 function main
+Unwinding loop 16  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--mmc--host--vub300.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 5856 function satisfy_request_from_offloaded_data
+Unwinding loop 16  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--mmc--host--vub300.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 5856 function satisfy_request_from_offloaded_data
+Not unwinding 
+Unwinding loop 15  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--mmc--host--vub300.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 5803 function examine_cyclic_buffer
+Unwinding loop 15  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--mmc--host--vub300.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 5803 function examine_cyclic_buffer
+Not unwinding 
+Unwinding loop 17  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--mmc--host--vub300.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 5981 function __set_clock_speed
+Unwinding loop 17  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--mmc--host--vub300.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 5981 function __set_clock_speed
+Not unwinding 
+No target candidate for function call *host->ops->enable_sdio_irq
+Unwinding loop 18  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--mmc--host--vub300.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 6255 function vub300_probe
+Unwinding loop 18  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--mmc--host--vub300.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 6255 function vub300_probe
+Not unwinding 
+Unwinding loop 19  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--mmc--host--vub300.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 6271 function vub300_probe
+Unwinding loop 19  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--mmc--host--vub300.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 6271 function vub300_probe
+Not unwinding 
+Unwinding loop 20  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--mmc--host--vub300.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 6287 function vub300_probe
+Unwinding loop 20  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--mmc--host--vub300.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 6287 function vub300_probe
+Not unwinding 
+Unwinding loop 21  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--mmc--host--vub300.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 6338 function vub300_probe
+Unwinding loop 21  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--mmc--host--vub300.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 6338 function vub300_probe
+Not unwinding 
+Unwinding loop 22  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--mmc--host--vub300.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 6730 function main
+Unwinding loop 16  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--mmc--host--vub300.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 5856 function satisfy_request_from_offloaded_data
+Unwinding loop 16  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--mmc--host--vub300.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 5856 function satisfy_request_from_offloaded_data
+Not unwinding 
+Unwinding loop 15  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--mmc--host--vub300.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 5803 function examine_cyclic_buffer
+Unwinding loop 15  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--mmc--host--vub300.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 5803 function examine_cyclic_buffer
+Not unwinding 
+Unwinding loop 17  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--mmc--host--vub300.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 5981 function __set_clock_speed
+Unwinding loop 17  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--mmc--host--vub300.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 5981 function __set_clock_speed
+Not unwinding 
+No target candidate for function call *host->ops->enable_sdio_irq
+Unwinding loop 18  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--mmc--host--vub300.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 6255 function vub300_probe
+Unwinding loop 18  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--mmc--host--vub300.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 6255 function vub300_probe
+Not unwinding 
+Unwinding loop 19  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--mmc--host--vub300.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 6271 function vub300_probe
+Unwinding loop 19  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--mmc--host--vub300.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 6271 function vub300_probe
+Not unwinding 
+Unwinding loop 20  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--mmc--host--vub300.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 6287 function vub300_probe
+Unwinding loop 20  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--mmc--host--vub300.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 6287 function vub300_probe
+Not unwinding 
+Unwinding loop 21  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--mmc--host--vub300.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 6338 function vub300_probe
+Unwinding loop 21  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--mmc--host--vub300.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 6338 function vub300_probe
+Not unwinding 
+Not unwinding 
+Symex completed in: 2.364s (4720 assignments)
+Slicing time: 0.048s (removed 3653 assignments)
+Generated 2 VCC(s), 2 remaining after simplification (1067 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.139s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.139s
+Runtime decision procedure: 0.086s
+BMC program time: 2.638s
+Building successful trace
+
+VERIFICATION SUCCESSFUL
+
+Solution found by the inductive step (k = 3)
+
+
+TRUE

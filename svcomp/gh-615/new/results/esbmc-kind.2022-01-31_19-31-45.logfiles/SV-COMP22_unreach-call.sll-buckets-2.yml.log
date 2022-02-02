@@ -1,0 +1,197 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/forester-heap/sll-buckets-2.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/forester-heap/sll-buckets-2.i --32 --witness-output sll-buckets-2.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/forester-heap/sll-buckets-2.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.149s
+GOTO program processing time: 0.002s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.007s (127 assignments)
+Slicing time: 0.001s (removed 78 assignments)
+Generated 5 VCC(s), 5 remaining after simplification (49 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.002s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.002s
+Runtime decision procedure: 0.001s
+BMC program time: 0.012s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.007s (122 assignments)
+Slicing time: 0.000s (removed 78 assignments)
+Generated 5 VCC(s), 5 remaining after simplification (44 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.002s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.002s
+Runtime decision procedure: 0.118s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file sll-buckets-2.i line 1036 function main
+Unwinding loop 1  iteration  2   file sll-buckets-2.i line 1036 function main
+Not unwinding 
+Unwinding loop 2  iteration  1   file sll-buckets-2.i line 1045 function main
+Unwinding loop 2  iteration  2   file sll-buckets-2.i line 1045 function main
+Not unwinding 
+Unwinding loop 3  iteration  1   file sll-buckets-2.i line 1021 function main
+Unwinding loop 1  iteration  1   file sll-buckets-2.i line 1036 function main
+Unwinding loop 1  iteration  2   file sll-buckets-2.i line 1036 function main
+Not unwinding 
+Unwinding loop 2  iteration  1   file sll-buckets-2.i line 1045 function main
+Unwinding loop 2  iteration  2   file sll-buckets-2.i line 1045 function main
+Not unwinding 
+Unwinding loop 3  iteration  2   file sll-buckets-2.i line 1021 function main
+Unwinding loop 1  iteration  1   file sll-buckets-2.i line 1036 function main
+Unwinding loop 1  iteration  2   file sll-buckets-2.i line 1036 function main
+Not unwinding 
+Unwinding loop 2  iteration  1   file sll-buckets-2.i line 1045 function main
+Unwinding loop 2  iteration  2   file sll-buckets-2.i line 1045 function main
+Not unwinding 
+Not unwinding 
+Unwinding loop 4  iteration  1   file sll-buckets-2.i line 1057 function main
+Unwinding loop 4  iteration  2   file sll-buckets-2.i line 1057 function main
+Not unwinding 
+Unwinding loop 5  iteration  1   file sll-buckets-2.i line 1053 function main
+Unwinding loop 4  iteration  1   file sll-buckets-2.i line 1057 function main
+Unwinding loop 4  iteration  2   file sll-buckets-2.i line 1057 function main
+Not unwinding 
+Unwinding loop 5  iteration  2   file sll-buckets-2.i line 1053 function main
+Unwinding loop 4  iteration  1   file sll-buckets-2.i line 1057 function main
+Unwinding loop 4  iteration  2   file sll-buckets-2.i line 1057 function main
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.039s (441 assignments)
+Slicing time: 0.010s (removed 182 assignments)
+Generated 21 VCC(s), 21 remaining after simplification (259 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.008s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.008s
+Runtime decision procedure: 0.468s
+Building error trace
+
+Counterexample:
+
+State 1 file sll-buckets-2.i line 1005 function main thread 0
+----------------------------------------------------
+  bucket->data = { .next=nil, .list=nil, .data=0 }
+
+State 2 file sll-buckets-2.i line 1006 function main thread 0
+----------------------------------------------------
+  bucket->list = { .next={ .pointer_object=nil, .pointer_offset=nil }, .list=0,
+    .data=0 }
+
+State 3 file sll-buckets-2.i line 1008 function main thread 0
+----------------------------------------------------
+  bucket->next = { .next=( struct TBCK *)((void *)(&dynamic_16_value)), .list=0,
+    .data=0 }
+
+State 4 file sll-buckets-2.i line 1010 function main thread 0
+----------------------------------------------------
+  bcki->data = { .next=nil, .list=nil, .data=1 }
+
+State 5 file sll-buckets-2.i line 1011 function main thread 0
+----------------------------------------------------
+  bcki->list = { .next={ .pointer_object=nil, .pointer_offset=nil }, .list=0,
+    .data=1 }
+
+State 6 file sll-buckets-2.i line 1013 function main thread 0
+----------------------------------------------------
+  bcki->next = { .next=( struct TBCK *)((void *)(&dynamic_17_value)), .list=0,
+    .data=1 }
+
+State 7 file sll-buckets-2.i line 1015 function main thread 0
+----------------------------------------------------
+  bcki->data = { .next=nil, .list=nil, .data=2 }
+
+State 8 file sll-buckets-2.i line 1016 function main thread 0
+----------------------------------------------------
+  bcki->list = { .next={ .pointer_object=nil, .pointer_offset=nil }, .list=0,
+    .data=2 }
+
+State 9 file sll-buckets-2.i line 1017 function main thread 0
+----------------------------------------------------
+  bcki->next = { .next=0, .list=0, .data=2 }
+
+State 10 file sll-buckets-2.i line 1024 function main thread 0
+----------------------------------------------------
+  item->next = { .next=0, .data=nil }
+
+State 11 file sll-buckets-2.i line 1026 function main thread 0
+----------------------------------------------------
+  item->data = { .next=0, .data=0 }
+
+State 12 file sll-buckets-2.i line 1041 function main thread 0
+----------------------------------------------------
+  bcki->list = { .next=&dynamic_17_value, .list=0, .data=1 }
+
+State 13 file sll-buckets-2.i line 1024 function main thread 0
+----------------------------------------------------
+  item->next = { .next=0, .data=nil }
+
+State 14 file sll-buckets-2.i line 1026 function main thread 0
+----------------------------------------------------
+  item->data = { .next=0, .data=0 }
+
+State 15 file sll-buckets-2.i line 1044 function main thread 0
+----------------------------------------------------
+  itr = dynamic_15_value.list
+
+State 16 file sll-buckets-2.i line 1047 function main thread 0
+----------------------------------------------------
+  itr->next = { .next=( struct TSLL *)((void *)(&dynamic_23_value)), .data=0 }
+
+State 17 file sll-buckets-2.i line 1055 function main thread 0
+----------------------------------------------------
+  item = dynamic_15_value.list
+
+State 18 file sll-buckets-2.i line 1056 function main thread 0
+----------------------------------------------------
+  bcki->list = { .next=&dynamic_16_value, .list=0, .data=0 }
+
+State 19 file sll-buckets-2.i line 1059 function main thread 0
+----------------------------------------------------
+  itr = &dynamic_19_value
+
+State 20 file sll-buckets-2.i line 1060 function main thread 0
+----------------------------------------------------
+  item = dynamic_19_value.next
+
+State 21 file sll-buckets-2.i line 985 function reach_error thread 0
+----------------------------------------------------
+Violated property:
+  file sll-buckets-2.i line 985 function reach_error
+  assertion 0
+  0
+
+
+VERIFICATION FAILED
+
+Bug found (k = 3)
+
+
+FALSE_REACH

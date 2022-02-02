@@ -1,0 +1,367 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/valid-memsafety.prp -s kinduction --arch 32 ../sv-benchmarks/c/memsafety/test-0235-3.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/memsafety/test-0235-3.i --32 --witness-output test-0235-3.i.graphml --memory-leak-check --no-assertions --incremental-bmc 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/memsafety/test-0235-3.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.169s
+GOTO program processing time: 0.001s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.039s (541 assignments)
+Slicing time: 0.004s (removed 135 assignments)
+Generated 228 VCC(s), 213 remaining after simplification (406 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.017s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.017s
+Runtime decision procedure: 1.355s
+Building error trace
+
+Counterexample:
+
+State 9 file test-0235-3.i line 675 function l4_insert thread 0
+----------------------------------------------------
+  item->down = (unsigned int)(( struct L5 *)(&dynamic_6_array[0]))
+
+State 10 file test-0235-3.i line 675 function l4_insert thread 0
+----------------------------------------------------
+  item->down = (unsigned int)(( struct L5 *)(&dynamic_6_array[0]))
+
+State 11 file test-0235-3.i line 675 function l4_insert thread 0
+----------------------------------------------------
+  item->down = (unsigned int)(( struct L5 *)(&dynamic_6_array[0]))
+
+State 12 file test-0235-3.i line 675 function l4_insert thread 0
+----------------------------------------------------
+  item->down = (unsigned int)(( struct L5 *)(&dynamic_6_array[0]))
+
+State 17 file test-0235-3.i line 676 function l4_insert thread 0
+----------------------------------------------------
+  item->next = (unsigned int)(( struct L4 *)0)
+
+State 18 file test-0235-3.i line 676 function l4_insert thread 0
+----------------------------------------------------
+  item->next = (unsigned int)(( struct L4 *)0)
+
+State 19 file test-0235-3.i line 676 function l4_insert thread 0
+----------------------------------------------------
+  item->next = (unsigned int)(( struct L4 *)0)
+
+State 20 file test-0235-3.i line 676 function l4_insert thread 0
+----------------------------------------------------
+  item->next = (unsigned int)(( struct L4 *)0)
+
+State 23 file test-0235-3.i line 677 function l4_insert thread 0
+----------------------------------------------------
+  *list = (unsigned int)(( struct L4 *)(&dynamic_5_array[0]))
+
+State 24 file test-0235-3.i line 677 function l4_insert thread 0
+----------------------------------------------------
+  *list = (unsigned int)(( struct L4 *)(&dynamic_5_array[0]))
+
+State 25 file test-0235-3.i line 677 function l4_insert thread 0
+----------------------------------------------------
+  *list = (unsigned int)(( struct L4 *)(&dynamic_5_array[0]))
+
+State 26 file test-0235-3.i line 677 function l4_insert thread 0
+----------------------------------------------------
+  *list = (unsigned int)(( struct L4 *)(&dynamic_5_array[0]))
+
+State 32 file test-0235-3.i line 685 function l3_insert thread 0
+----------------------------------------------------
+  item->next = (unsigned int)(( struct L3 *)0)
+
+State 33 file test-0235-3.i line 685 function l3_insert thread 0
+----------------------------------------------------
+  item->next = (unsigned int)(( struct L3 *)0)
+
+State 34 file test-0235-3.i line 685 function l3_insert thread 0
+----------------------------------------------------
+  item->next = (unsigned int)(( struct L3 *)0)
+
+State 35 file test-0235-3.i line 685 function l3_insert thread 0
+----------------------------------------------------
+  item->next = (unsigned int)(( struct L3 *)0)
+
+State 38 file test-0235-3.i line 686 function l3_insert thread 0
+----------------------------------------------------
+  *list = (unsigned int)(( struct L3 *)(&dynamic_4_array[0]))
+
+State 39 file test-0235-3.i line 686 function l3_insert thread 0
+----------------------------------------------------
+  *list = (unsigned int)(( struct L3 *)(&dynamic_4_array[0]))
+
+State 40 file test-0235-3.i line 686 function l3_insert thread 0
+----------------------------------------------------
+  *list = (unsigned int)(( struct L3 *)(&dynamic_4_array[0]))
+
+State 41 file test-0235-3.i line 686 function l3_insert thread 0
+----------------------------------------------------
+  *list = (unsigned int)(( struct L3 *)(&dynamic_4_array[0]))
+
+State 47 file test-0235-3.i line 694 function l2_insert thread 0
+----------------------------------------------------
+  item->next = (unsigned int)(( struct L2 *)0)
+
+State 48 file test-0235-3.i line 694 function l2_insert thread 0
+----------------------------------------------------
+  item->next = (unsigned int)(( struct L2 *)0)
+
+State 49 file test-0235-3.i line 694 function l2_insert thread 0
+----------------------------------------------------
+  item->next = (unsigned int)(( struct L2 *)0)
+
+State 50 file test-0235-3.i line 694 function l2_insert thread 0
+----------------------------------------------------
+  item->next = (unsigned int)(( struct L2 *)0)
+
+State 53 file test-0235-3.i line 695 function l2_insert thread 0
+----------------------------------------------------
+  *list = (unsigned int)(( struct L2 *)(&dynamic_3_array[0]))
+
+State 54 file test-0235-3.i line 695 function l2_insert thread 0
+----------------------------------------------------
+  *list = (unsigned int)(( struct L2 *)(&dynamic_3_array[0]))
+
+State 55 file test-0235-3.i line 695 function l2_insert thread 0
+----------------------------------------------------
+  *list = (unsigned int)(( struct L2 *)(&dynamic_3_array[0]))
+
+State 56 file test-0235-3.i line 695 function l2_insert thread 0
+----------------------------------------------------
+  *list = (unsigned int)(( struct L2 *)(&dynamic_3_array[0]))
+
+State 62 file test-0235-3.i line 703 function l1_insert thread 0
+----------------------------------------------------
+  item->next = (unsigned int)(( struct L1 *)0)
+
+State 63 file test-0235-3.i line 703 function l1_insert thread 0
+----------------------------------------------------
+  item->next = (unsigned int)(( struct L1 *)0)
+
+State 64 file test-0235-3.i line 703 function l1_insert thread 0
+----------------------------------------------------
+  item->next = (unsigned int)(( struct L1 *)0)
+
+State 65 file test-0235-3.i line 703 function l1_insert thread 0
+----------------------------------------------------
+  item->next = (unsigned int)(( struct L1 *)0)
+
+State 68 file test-0235-3.i line 704 function l1_insert thread 0
+----------------------------------------------------
+  *list = (unsigned int)(( struct L1 *)(&dynamic_2_array[0]))
+
+State 69 file test-0235-3.i line 704 function l1_insert thread 0
+----------------------------------------------------
+  *list = (unsigned int)(( struct L1 *)(&dynamic_2_array[0]))
+
+State 70 file test-0235-3.i line 704 function l1_insert thread 0
+----------------------------------------------------
+  *list = (unsigned int)(( struct L1 *)(&dynamic_2_array[0]))
+
+State 71 file test-0235-3.i line 704 function l1_insert thread 0
+----------------------------------------------------
+  *list = (unsigned int)(( struct L1 *)(&dynamic_2_array[0]))
+
+State 75 file test-0235-3.i line 712 function l0_insert thread 0
+----------------------------------------------------
+  item->next = (unsigned int)0
+
+State 76 file test-0235-3.i line 712 function l0_insert thread 0
+----------------------------------------------------
+  item->next = (unsigned int)0
+
+State 77 file test-0235-3.i line 712 function l0_insert thread 0
+----------------------------------------------------
+  item->next = (unsigned int)0
+
+State 78 file test-0235-3.i line 712 function l0_insert thread 0
+----------------------------------------------------
+  item->next = (unsigned int)0
+
+State 114 file test-0235-3.i line 720 function l4_destroy thread 0
+----------------------------------------------------
+  next = ( struct L4 *)0
+
+State 115 file test-0235-3.i line 723 function l4_destroy thread 0
+----------------------------------------------------
+  list = 0
+
+State 121 file test-0235-3.i line 732 function l3_destroy thread 0
+----------------------------------------------------
+  next = ( struct L3 *)0
+
+State 122 file test-0235-3.i line 735 function l3_destroy thread 0
+----------------------------------------------------
+  list = 0
+
+State 128 file test-0235-3.i line 744 function l2_destroy thread 0
+----------------------------------------------------
+  next = ( struct L2 *)0
+
+State 129 file test-0235-3.i line 747 function l2_destroy thread 0
+----------------------------------------------------
+  list = 0
+
+State 136 file test-0235-3.i line 756 function l1_destroy thread 0
+----------------------------------------------------
+  next = ( struct L1 *)0
+
+State 137 file test-0235-3.i line 759 function l1_destroy thread 0
+----------------------------------------------------
+  list = 0
+
+State 141 file test-0235-3.i line 768 function l0_destroy thread 0
+----------------------------------------------------
+  next = ( struct L0 *)0
+
+State 142 file test-0235-3.i line 771 function l0_destroy thread 0
+----------------------------------------------------
+  list = 0
+
+State 163 file test-0235-3.i line 720 function l4_destroy thread 0
+----------------------------------------------------
+  next = ( struct L4 *)0
+
+State 167 file test-0235-3.i line 723 function l4_destroy thread 0
+----------------------------------------------------
+  list = 0
+
+State 173 file test-0235-3.i line 732 function l3_destroy thread 0
+----------------------------------------------------
+  next = ( struct L3 *)0
+
+State 174 file test-0235-3.i line 735 function l3_destroy thread 0
+----------------------------------------------------
+  list = 0
+
+State 180 file test-0235-3.i line 744 function l2_destroy thread 0
+----------------------------------------------------
+  next = ( struct L2 *)0
+
+State 181 file test-0235-3.i line 747 function l2_destroy thread 0
+----------------------------------------------------
+  list = 0
+
+State 188 file test-0235-3.i line 756 function l1_destroy thread 0
+----------------------------------------------------
+  next = ( struct L1 *)0
+
+State 189 file test-0235-3.i line 759 function l1_destroy thread 0
+----------------------------------------------------
+  list = 0
+
+State 193 file test-0235-3.i line 768 function l0_destroy thread 0
+----------------------------------------------------
+  next = ( struct L0 *)0
+
+State 194 file test-0235-3.i line 771 function l0_destroy thread 0
+----------------------------------------------------
+  list = 0
+
+State 211 file test-0235-3.i line 732 function l3_destroy thread 0
+----------------------------------------------------
+  next = ( struct L3 *)0
+
+State 215 file test-0235-3.i line 735 function l3_destroy thread 0
+----------------------------------------------------
+  list = 0
+
+State 221 file test-0235-3.i line 744 function l2_destroy thread 0
+----------------------------------------------------
+  next = ( struct L2 *)0
+
+State 222 file test-0235-3.i line 747 function l2_destroy thread 0
+----------------------------------------------------
+  list = 0
+
+State 229 file test-0235-3.i line 756 function l1_destroy thread 0
+----------------------------------------------------
+  next = ( struct L1 *)0
+
+State 230 file test-0235-3.i line 759 function l1_destroy thread 0
+----------------------------------------------------
+  list = 0
+
+State 234 file test-0235-3.i line 768 function l0_destroy thread 0
+----------------------------------------------------
+  next = ( struct L0 *)0
+
+State 235 file test-0235-3.i line 771 function l0_destroy thread 0
+----------------------------------------------------
+  list = 0
+
+State 248 file test-0235-3.i line 744 function l2_destroy thread 0
+----------------------------------------------------
+  next = ( struct L2 *)0
+
+State 252 file test-0235-3.i line 747 function l2_destroy thread 0
+----------------------------------------------------
+  list = 0
+
+State 259 file test-0235-3.i line 756 function l1_destroy thread 0
+----------------------------------------------------
+  next = ( struct L1 *)0
+
+State 260 file test-0235-3.i line 759 function l1_destroy thread 0
+----------------------------------------------------
+  list = 0
+
+State 264 file test-0235-3.i line 768 function l0_destroy thread 0
+----------------------------------------------------
+  next = ( struct L0 *)0
+
+State 265 file test-0235-3.i line 771 function l0_destroy thread 0
+----------------------------------------------------
+  list = 0
+
+State 274 file test-0235-3.i line 744 function l2_destroy thread 0
+----------------------------------------------------
+Violated property:
+  file test-0235-3.i line 744 function l2_destroy
+  dereference failure: invalidated dynamic object
+
+
+VERIFICATION FAILED
+
+Bug found (k = 1)
+
+
+FALSE_DEREF

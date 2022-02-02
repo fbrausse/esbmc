@@ -1,0 +1,137 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/ldv-sets/test_mutex.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-sets/test_mutex.i --32 --witness-output test_mutex.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/ldv-sets/test_mutex.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.106s
+GOTO program processing time: 0.002s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.037s (384 assignments)
+Slicing time: 0.001s (removed 244 assignments)
+Generated 5 VCC(s), 5 remaining after simplification (140 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.009s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.009s
+Runtime decision procedure: 0.008s
+BMC program time: 0.055s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.037s (379 assignments)
+Slicing time: 0.001s (removed 244 assignments)
+Generated 8 VCC(s), 8 remaining after simplification (135 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.009s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.009s
+Runtime decision procedure: 1.774s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file test_mutex.i line 655 function ldv_is_in_set
+Unwinding loop 1  iteration  2   file test_mutex.i line 655 function ldv_is_in_set
+Not unwinding 
+Unwinding loop 1  iteration  1   file test_mutex.i line 655 function ldv_is_in_set
+Unwinding loop 1  iteration  2   file test_mutex.i line 655 function ldv_is_in_set
+Not unwinding 
+Unwinding loop 1  iteration  1   file test_mutex.i line 655 function ldv_is_in_set
+Unwinding loop 1  iteration  2   file test_mutex.i line 655 function ldv_is_in_set
+Not unwinding 
+Unwinding loop 1  iteration  1   file test_mutex.i line 655 function ldv_is_in_set
+Unwinding loop 1  iteration  2   file test_mutex.i line 655 function ldv_is_in_set
+Not unwinding 
+Unwinding loop 1  iteration  1   file test_mutex.i line 655 function ldv_is_in_set
+Unwinding loop 1  iteration  2   file test_mutex.i line 655 function ldv_is_in_set
+Not unwinding 
+Unwinding loop 2  iteration  1   file test_mutex.i line 646 function ldv_set_del
+Unwinding loop 2  iteration  2   file test_mutex.i line 646 function ldv_set_del
+Not unwinding 
+Unwinding loop 1  iteration  1   file test_mutex.i line 655 function ldv_is_in_set
+Unwinding loop 1  iteration  2   file test_mutex.i line 655 function ldv_is_in_set
+Not unwinding 
+Unwinding loop 2  iteration  1   file test_mutex.i line 646 function ldv_set_del
+Unwinding loop 2  iteration  2   file test_mutex.i line 646 function ldv_set_del
+Not unwinding 
+Symex completed in: 0.105s (788 assignments)
+Slicing time: 0.004s (removed 430 assignments)
+Generated 5 VCC(s), 5 remaining after simplification (358 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.032s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.032s
+Runtime decision procedure: 41.596s
+BMC program time: 41.738s
+No bug has been found in the base case
+*** Checking forward condition, k = 3
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file test_mutex.i line 655 function ldv_is_in_set
+Unwinding loop 1  iteration  2   file test_mutex.i line 655 function ldv_is_in_set
+Not unwinding 
+Unwinding loop 1  iteration  1   file test_mutex.i line 655 function ldv_is_in_set
+Unwinding loop 1  iteration  2   file test_mutex.i line 655 function ldv_is_in_set
+Not unwinding 
+Unwinding loop 1  iteration  1   file test_mutex.i line 655 function ldv_is_in_set
+Unwinding loop 1  iteration  2   file test_mutex.i line 655 function ldv_is_in_set
+Not unwinding 
+Unwinding loop 1  iteration  1   file test_mutex.i line 655 function ldv_is_in_set
+Unwinding loop 1  iteration  2   file test_mutex.i line 655 function ldv_is_in_set
+Not unwinding 
+Unwinding loop 1  iteration  1   file test_mutex.i line 655 function ldv_is_in_set
+Unwinding loop 1  iteration  2   file test_mutex.i line 655 function ldv_is_in_set
+Not unwinding 
+Unwinding loop 2  iteration  1   file test_mutex.i line 646 function ldv_set_del
+Unwinding loop 2  iteration  2   file test_mutex.i line 646 function ldv_set_del
+Not unwinding 
+Unwinding loop 1  iteration  1   file test_mutex.i line 655 function ldv_is_in_set
+Unwinding loop 1  iteration  2   file test_mutex.i line 655 function ldv_is_in_set
+Not unwinding 
+Unwinding loop 2  iteration  1   file test_mutex.i line 646 function ldv_set_del
+Unwinding loop 2  iteration  2   file test_mutex.i line 646 function ldv_set_del
+Not unwinding 
+Symex completed in: 0.113s (783 assignments)
+Slicing time: 0.004s (removed 430 assignments)
+Generated 8 VCC(s), 8 remaining after simplification (353 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.035s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.035s
+Runtime decision procedure: 194.213s
+BMC program time: 194.366s
+Building successful trace
+
+VERIFICATION SUCCESSFUL
+
+Solution found by the forward condition; all states are reachable (k = 3
+
+
+TRUE

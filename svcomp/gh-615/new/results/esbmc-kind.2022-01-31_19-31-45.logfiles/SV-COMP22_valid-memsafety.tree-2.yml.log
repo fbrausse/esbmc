@@ -1,0 +1,146 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/valid-memsafety.prp -s kinduction --arch 32 ../sv-benchmarks/c/heap-manipulation/tree-2.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/heap-manipulation/tree-2.i --32 --witness-output tree-2.i.graphml --memory-leak-check --no-assertions --incremental-bmc 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/heap-manipulation/tree-2.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.161s
+GOTO program processing time: 0.001s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.006s (134 assignments)
+Slicing time: 0.001s (removed 57 assignments)
+Generated 37 VCC(s), 34 remaining after simplification (77 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.002s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.002s
+Runtime decision procedure: 0.001s
+BMC program time: 0.011s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.006s (134 assignments)
+Slicing time: 0.000s (removed 57 assignments)
+Generated 42 VCC(s), 39 remaining after simplification (77 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.002s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.002s
+Runtime decision procedure: 0.058s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 2  iteration  1   file tree-2.i line 587 function create_tree
+Unwinding loop 2  iteration  2   file tree-2.i line 587 function create_tree
+Not unwinding 
+Unwinding loop 3  iteration  1   file tree-2.i line 599 function create_tree
+Unwinding loop 3  iteration  2   file tree-2.i line 599 function create_tree
+Not unwinding 
+Unwinding loop 1  iteration  1   file tree-2.i line 576 function inspect
+Unwinding loop 1  iteration  2   file tree-2.i line 576 function inspect
+Not unwinding 
+Unwinding loop 4  iteration  1   file tree-2.i line 613 function free_tree
+Unwinding loop 4  iteration  2   file tree-2.i line 613 function free_tree
+Not unwinding 
+Unwinding loop 5  iteration  1   file tree-2.i line 618 function free_tree
+Unwinding loop 5  iteration  2   file tree-2.i line 618 function free_tree
+Not unwinding 
+Symex completed in: 0.034s (472 assignments)
+Slicing time: 0.009s (removed 67 assignments)
+Generated 343 VCC(s), 222 remaining after simplification (405 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.010s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.010s
+Runtime decision procedure: 0.528s
+Building error trace
+
+Counterexample:
+
+State 2 file tree-2.i line 591 function create_tree thread 0
+----------------------------------------------------
+  node->left = { .left=0, .right=nil, .parent=nil, .value=nil }
+
+State 4 file tree-2.i line 592 function create_tree thread 0
+----------------------------------------------------
+  node->right = { .left=0, .right=0, .parent=invalid-object, .value=0 }
+
+State 5 file tree-2.i line 595 function create_tree thread 0
+----------------------------------------------------
+  value = -2147483648 (10000000 00000000 00000000 00000000)
+
+State 7 file tree-2.i line 596 function create_tree thread 0
+----------------------------------------------------
+  node->value = { .left=0, .right=0, .parent=invalid-object, .value=-2147483648 }
+
+State 11 file tree-2.i line 600 function create_tree thread 0
+----------------------------------------------------
+  node->left = { .left=( struct node *)((void *)(&dynamic_18_value)), .right=0,
+    .parent=invalid-object, .value=-2147483648 }
+
+State 17 file tree-2.i line 603 function create_tree thread 0
+----------------------------------------------------
+  node->left->left = { .left=0, .right=nil, .parent=nil, .value=nil }
+
+State 23 file tree-2.i line 604 function create_tree thread 0
+----------------------------------------------------
+  node->left->right = { .left=0, .right=0, .parent={ .pointer_object=nil, .pointer_offset=nil }, .value=0 }
+
+State 29 file tree-2.i line 605 function create_tree thread 0
+----------------------------------------------------
+  node->left->value = { .left=0, .right=0, .parent={ .pointer_object=nil, .pointer_offset=nil }, .value=42 }
+
+State 35 file tree-2.i line 606 function create_tree thread 0
+----------------------------------------------------
+  node->left->parent = { .left=0, .right=0, .parent=&dynamic_10_value, .value=42 }
+
+State 39 file tree-2.i line 607 function create_tree thread 0
+----------------------------------------------------
+  node = dynamic_10_value.right
+
+State 40 file tree-2.i line 630 function main thread 0
+----------------------------------------------------
+  data = &dynamic_10_value
+
+State 56 file tree-2.i line 580 function inspect thread 0
+----------------------------------------------------
+  node = dynamic_10_value.parent
+
+State 66 file tree-2.i line 580 function inspect thread 0
+----------------------------------------------------
+  node = dynamic_16_value.parent
+
+State 68 file tree-2.i line 577 function inspect thread 0
+----------------------------------------------------
+Violated property:
+  file tree-2.i line 577 function inspect
+  dereference failure: invalidated dynamic object
+
+
+VERIFICATION FAILED
+
+Bug found (k = 3)
+
+
+FALSE_DEREF

@@ -1,0 +1,365 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/aws-c-common/aws_byte_cursor_compare_lookup_harness.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/aws-c-common/aws_byte_cursor_compare_lookup_harness.i --64 --witness-output aws_byte_cursor_compare_lookup_harness.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 64-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/aws-c-common/aws_byte_cursor_compare_lookup_harness.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.583s
+GOTO program processing time: 0.031s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.138s (270 assignments)
+Slicing time: 0.002s (removed 110 assignments)
+Generated 14 VCC(s), 14 remaining after simplification (160 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.013s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.013s
+Runtime decision procedure: 0.030s
+BMC program time: 0.184s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.038s (256 assignments)
+Slicing time: 0.002s (removed 110 assignments)
+Generated 2 VCC(s), 2 remaining after simplification (146 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.013s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.013s
+Runtime decision procedure: 1.208s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 38  iteration  1   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  2   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Not unwinding 
+Unwinding loop 38  iteration  1   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  2   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Not unwinding 
+Symex completed in: 0.061s (390 assignments)
+Slicing time: 0.003s (removed 154 assignments)
+Generated 22 VCC(s), 22 remaining after simplification (236 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.018s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.018s
+Runtime decision procedure: 1.318s
+BMC program time: 1.401s
+No bug has been found in the base case
+*** Checking forward condition, k = 3
+Starting Bounded Model Checking
+Unwinding loop 38  iteration  1   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  2   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Not unwinding 
+Unwinding loop 38  iteration  1   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  2   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Not unwinding 
+Symex completed in: 0.059s (368 assignments)
+Slicing time: 0.002s (removed 154 assignments)
+Generated 2 VCC(s), 2 remaining after simplification (214 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.012s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.012s
+Runtime decision procedure: 1.055s
+The forward condition is unable to prove the property
+*** Checking inductive step, k = 3
+Starting Bounded Model Checking
+Unwinding loop 38  iteration  1   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  2   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Not unwinding 
+Unwinding loop 38  iteration  1   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  2   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Not unwinding 
+Symex completed in: 0.066s (407 assignments)
+Slicing time: 0.003s (removed 154 assignments)
+Generated 14 VCC(s), 14 remaining after simplification (253 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.022s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.022s
+Runtime decision procedure: 3.728s
+The inductive step is unable to prove the property
+*** Checking base case, k = 5
+Starting Bounded Model Checking
+Unwinding loop 38  iteration  1   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  2   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  3   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  4   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Not unwinding 
+Unwinding loop 38  iteration  1   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  2   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  3   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  4   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Not unwinding 
+Symex completed in: 0.085s (510 assignments)
+Slicing time: 0.004s (removed 198 assignments)
+Generated 30 VCC(s), 30 remaining after simplification (312 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.026s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.026s
+Runtime decision procedure: 1.479s
+BMC program time: 1.596s
+No bug has been found in the base case
+*** Checking forward condition, k = 5
+Starting Bounded Model Checking
+Unwinding loop 38  iteration  1   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  2   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  3   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  4   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Not unwinding 
+Unwinding loop 38  iteration  1   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  2   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  3   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  4   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Not unwinding 
+Symex completed in: 0.090s (480 assignments)
+Slicing time: 0.004s (removed 198 assignments)
+Generated 2 VCC(s), 2 remaining after simplification (282 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.029s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.029s
+Runtime decision procedure: 1.241s
+The forward condition is unable to prove the property
+*** Checking base case, k = 7
+Starting Bounded Model Checking
+Unwinding loop 38  iteration  1   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  2   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  3   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  4   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  5   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  6   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Not unwinding 
+Unwinding loop 38  iteration  1   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  2   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  3   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  4   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  5   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  6   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Not unwinding 
+Symex completed in: 0.117s (630 assignments)
+Slicing time: 0.008s (removed 242 assignments)
+Generated 38 VCC(s), 38 remaining after simplification (388 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.037s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.037s
+Runtime decision procedure: 1.407s
+BMC program time: 1.571s
+No bug has been found in the base case
+*** Checking forward condition, k = 7
+Starting Bounded Model Checking
+Unwinding loop 38  iteration  1   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  2   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  3   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  4   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  5   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  6   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Not unwinding 
+Unwinding loop 38  iteration  1   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  2   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  3   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  4   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  5   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  6   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Not unwinding 
+Symex completed in: 0.120s (592 assignments)
+Slicing time: 0.007s (removed 242 assignments)
+Generated 2 VCC(s), 2 remaining after simplification (350 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.039s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.039s
+Runtime decision procedure: 1.763s
+The forward condition is unable to prove the property
+*** Checking base case, k = 9
+Starting Bounded Model Checking
+Unwinding loop 38  iteration  1   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  2   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  3   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  4   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  5   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  6   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  7   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  8   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Not unwinding 
+Unwinding loop 38  iteration  1   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  2   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  3   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  4   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  5   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  6   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  7   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  8   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Not unwinding 
+Symex completed in: 0.158s (750 assignments)
+Slicing time: 0.012s (removed 286 assignments)
+Generated 46 VCC(s), 46 remaining after simplification (464 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.050s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.050s
+Runtime decision procedure: 1.521s
+BMC program time: 1.744s
+No bug has been found in the base case
+*** Checking forward condition, k = 9
+Starting Bounded Model Checking
+Unwinding loop 38  iteration  1   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  2   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  3   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  4   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  5   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  6   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  7   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  8   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Not unwinding 
+Unwinding loop 38  iteration  1   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  2   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  3   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  4   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  5   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  6   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  7   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  8   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Not unwinding 
+Symex completed in: 0.159s (704 assignments)
+Slicing time: 0.010s (removed 286 assignments)
+Generated 2 VCC(s), 2 remaining after simplification (418 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.053s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.053s
+Runtime decision procedure: 1.299s
+The forward condition is unable to prove the property
+*** Checking base case, k = 11
+Starting Bounded Model Checking
+Unwinding loop 38  iteration  1   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  2   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  3   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  4   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  5   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  6   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  7   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  8   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  9   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  10   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Not unwinding 
+Unwinding loop 38  iteration  1   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  2   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  3   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  4   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  5   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  6   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  7   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  8   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  9   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  10   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Not unwinding 
+Symex completed in: 0.197s (870 assignments)
+Slicing time: 0.016s (removed 330 assignments)
+Generated 54 VCC(s), 54 remaining after simplification (540 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.066s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.066s
+Runtime decision procedure: 1.968s
+BMC program time: 2.251s
+No bug has been found in the base case
+*** Checking forward condition, k = 11
+Starting Bounded Model Checking
+Unwinding loop 38  iteration  1   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  2   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  3   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  4   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  5   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  6   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  7   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  8   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  9   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  10   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Not unwinding 
+Unwinding loop 38  iteration  1   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  2   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  3   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  4   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  5   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  6   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  7   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  8   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  9   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Unwinding loop 38  iteration  10   file aws_byte_cursor_compare_lookup_harness.i line 8163 function aws_byte_cursor_compare_lookup
+Not unwinding 
+Symex completed in: 0.129s (816 assignments)
+Slicing time: 0.009s (removed 330 assignments)
+Generated 2 VCC(s), 2 remaining after simplification (486 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.066s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.066s
+Runtime decision procedure: 0.030s
+BMC program time: 0.238s
+Building successful trace
+
+VERIFICATION SUCCESSFUL
+
+Solution found by the forward condition; all states are reachable (k = 11
+
+../sv-benchmarks/c/aws-c-common/aws_byte_cursor_compare_lookup_harness.i:1632:45: warning: attribute declaration must precede definition [-Wignored-attributes]
+extern void my_abort (void) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+                                            ^
+../sv-benchmarks/c/aws-c-common/aws_byte_cursor_compare_lookup_harness.i:232:6: note: previous definition is here
+void my_abort(void) {
+     ^
+../sv-benchmarks/c/aws-c-common/aws_byte_cursor_compare_lookup_harness.i:5785:12: warning: implicit declaration of function '__ESBMC_atomic_load' is invalid in C99 [-Wimplicit-function-declaration]
+    return __atomic_load_n(&(*(aws_atomic_impl_int_t *)(var)), aws_atomic_priv_xlate_order(memory_order));
+           ^
+esbmc_intrinsics.h:99:5: note: expanded from here
+    __ESBMC_atomic_load(__atomic_load_ptr, &__atomic_load_tmp, (MO));          \
+    ^
+../sv-benchmarks/c/aws-c-common/aws_byte_cursor_compare_lookup_harness.i:5793:12: warning: implicit declaration of function '__ESBMC_atomic_load' is invalid in C99 [-Wimplicit-function-declaration]
+    return __atomic_load_n(&((var)->value), aws_atomic_priv_xlate_order(memory_order));
+           ^
+esbmc_intrinsics.h:99:5: note: expanded from here
+    __ESBMC_atomic_load(__atomic_load_ptr, &__atomic_load_tmp, (MO));          \
+    ^
+../sv-benchmarks/c/aws-c-common/aws_byte_cursor_compare_lookup_harness.i:5801:5: warning: implicit declaration of function '__ESBMC_atomic_store' is invalid in C99 [-Wimplicit-function-declaration]
+    __atomic_store_n(&(*(aws_atomic_impl_int_t *)(var)), n, aws_atomic_priv_xlate_order(memory_order));
+    ^
+esbmc_intrinsics.h:107:5: note: expanded from here
+    __ESBMC_atomic_store(__atomic_store_ptr, &__atomic_store_tmp, (MO));       \
+    ^
+../sv-benchmarks/c/aws-c-common/aws_byte_cursor_compare_lookup_harness.i:5809:5: warning: implicit declaration of function '__ESBMC_atomic_store' is invalid in C99 [-Wimplicit-function-declaration]
+    __atomic_store_n(&((var)->value), p, aws_atomic_priv_xlate_order(memory_order));
+    ^
+esbmc_intrinsics.h:107:5: note: expanded from here
+    __ESBMC_atomic_store(__atomic_store_ptr, &__atomic_store_tmp, (MO));       \
+    ^
+
+TRUE

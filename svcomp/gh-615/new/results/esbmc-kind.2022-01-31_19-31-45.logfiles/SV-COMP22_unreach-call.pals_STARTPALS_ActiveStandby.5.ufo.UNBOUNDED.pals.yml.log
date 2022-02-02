@@ -1,0 +1,840 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/seq-mthreaded/pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/seq-mthreaded/pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c --32 --witness-output pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/seq-mthreaded/pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.108s
+GOTO program processing time: 0.013s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.013s (345 assignments)
+Slicing time: 0.001s (removed 246 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (99 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.001s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.001s
+Runtime decision procedure: 0.001s
+BMC program time: 0.017s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.013s (344 assignments)
+Slicing time: 0.001s (removed 246 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (98 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.001s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.001s
+Runtime decision procedure: 0.001s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 2  iteration  1   file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 578 function main
+Unwinding loop 2  iteration  2   file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 578 function main
+Not unwinding 
+Symex completed in: 0.042s (937 assignments)
+Slicing time: 0.003s (removed 567 assignments)
+Generated 3 VCC(s), 3 remaining after simplification (370 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.004s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.004s
+Runtime decision procedure: 0.019s
+BMC program time: 0.069s
+No bug has been found in the base case
+*** Checking forward condition, k = 3
+Starting Bounded Model Checking
+Unwinding loop 2  iteration  1   file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 578 function main
+Unwinding loop 2  iteration  2   file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 578 function main
+Not unwinding 
+Symex completed in: 0.044s (934 assignments)
+Slicing time: 0.002s (removed 567 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (367 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.004s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.004s
+Runtime decision procedure: 0.011s
+The forward condition is unable to prove the property
+*** Checking inductive step, k = 3
+Starting Bounded Model Checking
+Unwinding loop 2  iteration  1   file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 578 function main
+Unwinding loop 2  iteration  2   file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 578 function main
+Not unwinding 
+Symex completed in: 0.070s (1150 assignments)
+Slicing time: 0.004s (removed 624 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (526 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.006s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.006s
+Runtime decision procedure: 0.062s
+The inductive step is unable to prove the property
+*** Checking base case, k = 5
+Starting Bounded Model Checking
+Unwinding loop 2  iteration  1   file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 578 function main
+Unwinding loop 2  iteration  2   file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 578 function main
+Unwinding loop 2  iteration  3   file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 578 function main
+Unwinding loop 2  iteration  4   file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 578 function main
+Not unwinding 
+Symex completed in: 0.077s (1531 assignments)
+Slicing time: 0.004s (removed 879 assignments)
+Generated 5 VCC(s), 5 remaining after simplification (652 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.007s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.007s
+Runtime decision procedure: 0.052s
+Building error trace
+
+Counterexample:
+
+State 1 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 547 function main thread 0
+----------------------------------------------------
+  side1Failed_History_0 = 0
+
+State 2 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 548 function main thread 0
+----------------------------------------------------
+  side1Failed_History_1 = 0
+
+State 3 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 549 function main thread 0
+----------------------------------------------------
+  side1Failed_History_2 = 0
+
+State 4 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 550 function main thread 0
+----------------------------------------------------
+  side2Failed_History_0 = 0
+
+State 5 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 551 function main thread 0
+----------------------------------------------------
+  side2Failed_History_1 = 0
+
+State 6 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 552 function main thread 0
+----------------------------------------------------
+  side2Failed_History_2 = 0
+
+State 7 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 553 function main thread 0
+----------------------------------------------------
+  active_side_History_0 = -2 (11111110)
+
+State 8 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 554 function main thread 0
+----------------------------------------------------
+  active_side_History_1 = -2 (11111110)
+
+State 9 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 555 function main thread 0
+----------------------------------------------------
+  active_side_History_2 = -2 (11111110)
+
+State 10 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 556 function main thread 0
+----------------------------------------------------
+  manual_selection_History_0 = 0 (00000000)
+
+State 11 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 557 function main thread 0
+----------------------------------------------------
+  manual_selection_History_1 = 0 (00000000)
+
+State 12 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 558 function main thread 0
+----------------------------------------------------
+  manual_selection_History_2 = 0 (00000000)
+
+State 13 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 255 function Console_task_each_pals_period thread 0
+----------------------------------------------------
+  tmp = -125 (10000011)
+
+State 14 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 256 function Console_task_each_pals_period thread 0
+----------------------------------------------------
+  manual_selection = -125 (10000011)
+
+State 15 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 167 function write_manual_selection_history thread 0
+----------------------------------------------------
+  manual_selection_History_2 = 0 (00000000)
+
+State 16 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 168 function write_manual_selection_history thread 0
+----------------------------------------------------
+  manual_selection_History_1 = 0 (00000000)
+
+State 17 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 169 function write_manual_selection_history thread 0
+----------------------------------------------------
+  manual_selection_History_0 = -125 (10000011)
+
+State 18 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 259 function Console_task_each_pals_period thread 0
+----------------------------------------------------
+  cs2_new = -125 (10000011)
+
+State 19 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 275 function Side1_activestandby_task_each_pals_period thread 0
+----------------------------------------------------
+  side1Failed = 1
+
+State 20 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 77 function write_side1_failed_history thread 0
+----------------------------------------------------
+  side1Failed_History_2 = 0
+
+State 21 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 78 function write_side1_failed_history thread 0
+----------------------------------------------------
+  side1Failed_History_1 = 0
+
+State 22 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 79 function write_side1_failed_history thread 0
+----------------------------------------------------
+  side1Failed_History_0 = 1
+
+State 23 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 328 function Side2_activestandby_task_each_pals_period thread 0
+----------------------------------------------------
+  side2Failed = 0
+
+State 24 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 107 function write_side2_failed_history thread 0
+----------------------------------------------------
+  side2Failed_History_2 = 0
+
+State 25 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 108 function write_side2_failed_history thread 0
+----------------------------------------------------
+  side2Failed_History_1 = 0
+
+State 26 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 109 function write_side2_failed_history thread 0
+----------------------------------------------------
+  side2Failed_History_0 = 0
+
+State 27 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 137 function write_active_side_history thread 0
+----------------------------------------------------
+  active_side_History_2 = -2 (11111110)
+
+State 28 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 138 function write_active_side_history thread 0
+----------------------------------------------------
+  active_side_History_1 = -2 (11111110)
+
+State 29 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 586 function main thread 0
+----------------------------------------------------
+  cs2_old = -125 (10000011)
+
+State 30 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 588 function main thread 0
+----------------------------------------------------
+  s1s2_old = -1 (11111111)
+
+State 31 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 590 function main thread 0
+----------------------------------------------------
+  s1s1_old = -1 (11111111)
+
+State 32 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 592 function main thread 0
+----------------------------------------------------
+  s2s1_old = 0 (00000000)
+
+State 33 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 594 function main thread 0
+----------------------------------------------------
+  s2s2_old = 0 (00000000)
+
+State 34 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 596 function main thread 0
+----------------------------------------------------
+  s1p_old = -1 (11111111)
+
+State 35 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 598 function main thread 0
+----------------------------------------------------
+  s2p_old = 0 (00000000)
+
+State 36 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 255 function Console_task_each_pals_period thread 0
+----------------------------------------------------
+  tmp = 1 (00000001)
+
+State 37 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 256 function Console_task_each_pals_period thread 0
+----------------------------------------------------
+  manual_selection = 1 (00000001)
+
+State 38 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 167 function write_manual_selection_history thread 0
+----------------------------------------------------
+  manual_selection_History_2 = 0 (00000000)
+
+State 39 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 168 function write_manual_selection_history thread 0
+----------------------------------------------------
+  manual_selection_History_1 = -125 (10000011)
+
+State 40 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 169 function write_manual_selection_history thread 0
+----------------------------------------------------
+  manual_selection_History_0 = 1 (00000001)
+
+State 41 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 259 function Console_task_each_pals_period thread 0
+----------------------------------------------------
+  cs2_new = 1 (00000001)
+
+State 42 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 275 function Side1_activestandby_task_each_pals_period thread 0
+----------------------------------------------------
+  side1Failed = 0
+
+State 43 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 77 function write_side1_failed_history thread 0
+----------------------------------------------------
+  side1Failed_History_2 = 0
+
+State 44 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 78 function write_side1_failed_history thread 0
+----------------------------------------------------
+  side1Failed_History_1 = 1
+
+State 45 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 79 function write_side1_failed_history thread 0
+----------------------------------------------------
+  side1Failed_History_0 = 0
+
+State 46 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 284 function Side1_activestandby_task_each_pals_period thread 0
+----------------------------------------------------
+  side1 = -1 (11111111)
+
+State 47 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 286 function Side1_activestandby_task_each_pals_period thread 0
+----------------------------------------------------
+  side2 = 0 (00000000)
+
+State 48 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 310 function Side1_activestandby_task_each_pals_period thread 0
+----------------------------------------------------
+  s1s1_new = 0 (00000000)
+
+State 49 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 311 function Side1_activestandby_task_each_pals_period thread 0
+----------------------------------------------------
+  s1s2_new = 0 (00000000)
+
+State 50 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 312 function Side1_activestandby_task_each_pals_period thread 0
+----------------------------------------------------
+  s1p_new = 0 (00000000)
+
+State 51 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 313 function Side1_activestandby_task_each_pals_period thread 0
+----------------------------------------------------
+  side1_written = 0 (00000000)
+
+State 52 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 328 function Side2_activestandby_task_each_pals_period thread 0
+----------------------------------------------------
+  side2Failed = 0
+
+State 53 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 107 function write_side2_failed_history thread 0
+----------------------------------------------------
+  side2Failed_History_2 = 0
+
+State 54 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 108 function write_side2_failed_history thread 0
+----------------------------------------------------
+  side2Failed_History_1 = 0
+
+State 55 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 109 function write_side2_failed_history thread 0
+----------------------------------------------------
+  side2Failed_History_0 = 0
+
+State 56 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 337 function Side2_activestandby_task_each_pals_period thread 0
+----------------------------------------------------
+  side1 = -1 (11111111)
+
+State 57 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 339 function Side2_activestandby_task_each_pals_period thread 0
+----------------------------------------------------
+  side2 = 0 (00000000)
+
+State 58 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 341 function Side2_activestandby_task_each_pals_period thread 0
+----------------------------------------------------
+  manual_selection = -125 (10000011)
+
+State 59 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 367 function Side2_activestandby_task_each_pals_period thread 0
+----------------------------------------------------
+  s2s1_new = 1 (00000001)
+
+State 60 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 368 function Side2_activestandby_task_each_pals_period thread 0
+----------------------------------------------------
+  s2s2_new = 1 (00000001)
+
+State 61 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 369 function Side2_activestandby_task_each_pals_period thread 0
+----------------------------------------------------
+  s2p_new = 1 (00000001)
+
+State 62 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 370 function Side2_activestandby_task_each_pals_period thread 0
+----------------------------------------------------
+  side2_written = 1 (00000001)
+
+State 63 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 386 function Pendulum_prism_task_each_pals_period thread 0
+----------------------------------------------------
+  side1 = -1 (11111111)
+
+State 64 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 388 function Pendulum_prism_task_each_pals_period thread 0
+----------------------------------------------------
+  side2 = 0 (00000000)
+
+State 65 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 137 function write_active_side_history thread 0
+----------------------------------------------------
+  active_side_History_2 = -2 (11111110)
+
+State 66 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 139 function write_active_side_history thread 0
+----------------------------------------------------
+  active_side_History_0 = 2 (00000010)
+
+State 67 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 586 function main thread 0
+----------------------------------------------------
+  cs2_old = 1 (00000001)
+
+State 68 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 588 function main thread 0
+----------------------------------------------------
+  s1s2_old = 0 (00000000)
+
+State 69 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 590 function main thread 0
+----------------------------------------------------
+  s1s1_old = 0 (00000000)
+
+State 70 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 592 function main thread 0
+----------------------------------------------------
+  s2s1_old = 1 (00000001)
+
+State 71 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 594 function main thread 0
+----------------------------------------------------
+  s2s2_old = 1 (00000001)
+
+State 72 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 596 function main thread 0
+----------------------------------------------------
+  s1p_old = 0 (00000000)
+
+State 73 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 598 function main thread 0
+----------------------------------------------------
+  s2p_old = 1 (00000001)
+
+State 74 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 255 function Console_task_each_pals_period thread 0
+----------------------------------------------------
+  tmp = 0 (00000000)
+
+State 75 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 256 function Console_task_each_pals_period thread 0
+----------------------------------------------------
+  manual_selection = 0 (00000000)
+
+State 76 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 167 function write_manual_selection_history thread 0
+----------------------------------------------------
+  manual_selection_History_2 = -125 (10000011)
+
+State 77 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 168 function write_manual_selection_history thread 0
+----------------------------------------------------
+  manual_selection_History_1 = 1 (00000001)
+
+State 78 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 169 function write_manual_selection_history thread 0
+----------------------------------------------------
+  manual_selection_History_0 = 0 (00000000)
+
+State 79 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 259 function Console_task_each_pals_period thread 0
+----------------------------------------------------
+  cs2_new = 0 (00000000)
+
+State 80 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 275 function Side1_activestandby_task_each_pals_period thread 0
+----------------------------------------------------
+  side1Failed = 0
+
+State 81 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 77 function write_side1_failed_history thread 0
+----------------------------------------------------
+  side1Failed_History_2 = 1
+
+State 82 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 78 function write_side1_failed_history thread 0
+----------------------------------------------------
+  side1Failed_History_1 = 0
+
+State 83 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 79 function write_side1_failed_history thread 0
+----------------------------------------------------
+  side1Failed_History_0 = 0
+
+State 84 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 284 function Side1_activestandby_task_each_pals_period thread 0
+----------------------------------------------------
+  side1 = 0 (00000000)
+
+State 85 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 286 function Side1_activestandby_task_each_pals_period thread 0
+----------------------------------------------------
+  side2 = 1 (00000001)
+
+State 86 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 305 function Side1_activestandby_task_each_pals_period thread 0
+----------------------------------------------------
+  next_state = 0 (00000000)
+
+State 87 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 310 function Side1_activestandby_task_each_pals_period thread 0
+----------------------------------------------------
+  s1s1_new = 0 (00000000)
+
+State 88 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 311 function Side1_activestandby_task_each_pals_period thread 0
+----------------------------------------------------
+  s1s2_new = 0 (00000000)
+
+State 89 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 312 function Side1_activestandby_task_each_pals_period thread 0
+----------------------------------------------------
+  s1p_new = 0 (00000000)
+
+State 90 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 313 function Side1_activestandby_task_each_pals_period thread 0
+----------------------------------------------------
+  side1_written = 0 (00000000)
+
+State 91 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 328 function Side2_activestandby_task_each_pals_period thread 0
+----------------------------------------------------
+  side2Failed = 0
+
+State 92 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 107 function write_side2_failed_history thread 0
+----------------------------------------------------
+  side2Failed_History_2 = 0
+
+State 93 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 108 function write_side2_failed_history thread 0
+----------------------------------------------------
+  side2Failed_History_1 = 0
+
+State 94 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 109 function write_side2_failed_history thread 0
+----------------------------------------------------
+  side2Failed_History_0 = 0
+
+State 95 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 337 function Side2_activestandby_task_each_pals_period thread 0
+----------------------------------------------------
+  side1 = 0 (00000000)
+
+State 96 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 339 function Side2_activestandby_task_each_pals_period thread 0
+----------------------------------------------------
+  side2 = 1 (00000001)
+
+State 97 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 341 function Side2_activestandby_task_each_pals_period thread 0
+----------------------------------------------------
+  manual_selection = 1 (00000001)
+
+State 98 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 367 function Side2_activestandby_task_each_pals_period thread 0
+----------------------------------------------------
+  s2s1_new = 0 (00000000)
+
+State 99 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 368 function Side2_activestandby_task_each_pals_period thread 0
+----------------------------------------------------
+  s2s2_new = 0 (00000000)
+
+State 100 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 369 function Side2_activestandby_task_each_pals_period thread 0
+----------------------------------------------------
+  s2p_new = 0 (00000000)
+
+State 101 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 370 function Side2_activestandby_task_each_pals_period thread 0
+----------------------------------------------------
+  side2_written = 0 (00000000)
+
+State 102 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 386 function Pendulum_prism_task_each_pals_period thread 0
+----------------------------------------------------
+  side1 = 0 (00000000)
+
+State 103 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 388 function Pendulum_prism_task_each_pals_period thread 0
+----------------------------------------------------
+  side2 = 1 (00000001)
+
+State 104 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 138 function write_active_side_history thread 0
+----------------------------------------------------
+  active_side_History_1 = 2 (00000010)
+
+State 105 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 139 function write_active_side_history thread 0
+----------------------------------------------------
+  active_side_History_0 = 2 (00000010)
+
+State 106 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 586 function main thread 0
+----------------------------------------------------
+  cs2_old = 0 (00000000)
+
+State 107 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 588 function main thread 0
+----------------------------------------------------
+  s1s2_old = 0 (00000000)
+
+State 108 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 590 function main thread 0
+----------------------------------------------------
+  s1s1_old = 0 (00000000)
+
+State 109 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 592 function main thread 0
+----------------------------------------------------
+  s2s1_old = 0 (00000000)
+
+State 110 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 594 function main thread 0
+----------------------------------------------------
+  s2s2_old = 0 (00000000)
+
+State 111 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 596 function main thread 0
+----------------------------------------------------
+  s1p_old = 0 (00000000)
+
+State 112 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 598 function main thread 0
+----------------------------------------------------
+  s2p_old = 0 (00000000)
+
+State 113 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 255 function Console_task_each_pals_period thread 0
+----------------------------------------------------
+  tmp = 0 (00000000)
+
+State 114 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 256 function Console_task_each_pals_period thread 0
+----------------------------------------------------
+  manual_selection = 0 (00000000)
+
+State 115 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 167 function write_manual_selection_history thread 0
+----------------------------------------------------
+  manual_selection_History_2 = 1 (00000001)
+
+State 116 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 168 function write_manual_selection_history thread 0
+----------------------------------------------------
+  manual_selection_History_1 = 0 (00000000)
+
+State 117 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 169 function write_manual_selection_history thread 0
+----------------------------------------------------
+  manual_selection_History_0 = 0 (00000000)
+
+State 118 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 259 function Console_task_each_pals_period thread 0
+----------------------------------------------------
+  cs2_new = 0 (00000000)
+
+State 119 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 275 function Side1_activestandby_task_each_pals_period thread 0
+----------------------------------------------------
+  side1Failed = 0
+
+State 120 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 77 function write_side1_failed_history thread 0
+----------------------------------------------------
+  side1Failed_History_2 = 0
+
+State 121 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 78 function write_side1_failed_history thread 0
+----------------------------------------------------
+  side1Failed_History_1 = 0
+
+State 122 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 79 function write_side1_failed_history thread 0
+----------------------------------------------------
+  side1Failed_History_0 = 0
+
+State 123 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 284 function Side1_activestandby_task_each_pals_period thread 0
+----------------------------------------------------
+  side1 = 0 (00000000)
+
+State 124 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 286 function Side1_activestandby_task_each_pals_period thread 0
+----------------------------------------------------
+  side2 = 0 (00000000)
+
+State 125 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 310 function Side1_activestandby_task_each_pals_period thread 0
+----------------------------------------------------
+  s1s1_new = 1 (00000001)
+
+State 126 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 311 function Side1_activestandby_task_each_pals_period thread 0
+----------------------------------------------------
+  s1s2_new = 1 (00000001)
+
+State 127 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 312 function Side1_activestandby_task_each_pals_period thread 0
+----------------------------------------------------
+  s1p_new = 1 (00000001)
+
+State 128 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 313 function Side1_activestandby_task_each_pals_period thread 0
+----------------------------------------------------
+  side1_written = 1 (00000001)
+
+State 129 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 328 function Side2_activestandby_task_each_pals_period thread 0
+----------------------------------------------------
+  side2Failed = 0
+
+State 130 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 107 function write_side2_failed_history thread 0
+----------------------------------------------------
+  side2Failed_History_2 = 0
+
+State 131 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 108 function write_side2_failed_history thread 0
+----------------------------------------------------
+  side2Failed_History_1 = 0
+
+State 132 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 109 function write_side2_failed_history thread 0
+----------------------------------------------------
+  side2Failed_History_0 = 0
+
+State 133 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 337 function Side2_activestandby_task_each_pals_period thread 0
+----------------------------------------------------
+  side1 = 0 (00000000)
+
+State 134 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 339 function Side2_activestandby_task_each_pals_period thread 0
+----------------------------------------------------
+  side2 = 0 (00000000)
+
+State 135 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 341 function Side2_activestandby_task_each_pals_period thread 0
+----------------------------------------------------
+  manual_selection = 0 (00000000)
+
+State 136 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 367 function Side2_activestandby_task_each_pals_period thread 0
+----------------------------------------------------
+  s2s1_new = 0 (00000000)
+
+State 137 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 368 function Side2_activestandby_task_each_pals_period thread 0
+----------------------------------------------------
+  s2s2_new = 0 (00000000)
+
+State 138 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 369 function Side2_activestandby_task_each_pals_period thread 0
+----------------------------------------------------
+  s2p_new = 0 (00000000)
+
+State 139 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 370 function Side2_activestandby_task_each_pals_period thread 0
+----------------------------------------------------
+  side2_written = 0 (00000000)
+
+State 140 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 386 function Pendulum_prism_task_each_pals_period thread 0
+----------------------------------------------------
+  side1 = 0 (00000000)
+
+State 141 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 388 function Pendulum_prism_task_each_pals_period thread 0
+----------------------------------------------------
+  side2 = 0 (00000000)
+
+State 142 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 137 function write_active_side_history thread 0
+----------------------------------------------------
+  active_side_History_2 = 2 (00000010)
+
+State 143 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 138 function write_active_side_history thread 0
+----------------------------------------------------
+  active_side_History_1 = 2 (00000010)
+
+State 144 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 139 function write_active_side_history thread 0
+----------------------------------------------------
+  active_side_History_0 = 0 (00000000)
+
+State 145 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 586 function main thread 0
+----------------------------------------------------
+  cs2_old = 0 (00000000)
+
+State 146 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 588 function main thread 0
+----------------------------------------------------
+  s1s2_old = 1 (00000001)
+
+State 147 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 590 function main thread 0
+----------------------------------------------------
+  s1s1_old = 1 (00000001)
+
+State 148 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 592 function main thread 0
+----------------------------------------------------
+  s2s1_old = 0 (00000000)
+
+State 149 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 594 function main thread 0
+----------------------------------------------------
+  s2s2_old = 0 (00000000)
+
+State 150 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 596 function main thread 0
+----------------------------------------------------
+  s1p_old = 1 (00000001)
+
+State 151 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 598 function main thread 0
+----------------------------------------------------
+  s2p_old = 0 (00000000)
+
+State 152 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 167 function write_manual_selection_history thread 0
+----------------------------------------------------
+  manual_selection_History_2 = 0 (00000000)
+
+State 153 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 168 function write_manual_selection_history thread 0
+----------------------------------------------------
+  manual_selection_History_1 = 0 (00000000)
+
+State 154 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 275 function Side1_activestandby_task_each_pals_period thread 0
+----------------------------------------------------
+  side1Failed = 0
+
+State 155 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 77 function write_side1_failed_history thread 0
+----------------------------------------------------
+  side1Failed_History_2 = 0
+
+State 156 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 78 function write_side1_failed_history thread 0
+----------------------------------------------------
+  side1Failed_History_1 = 0
+
+State 157 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 79 function write_side1_failed_history thread 0
+----------------------------------------------------
+  side1Failed_History_0 = 0
+
+State 158 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 284 function Side1_activestandby_task_each_pals_period thread 0
+----------------------------------------------------
+  side1 = 1 (00000001)
+
+State 159 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 286 function Side1_activestandby_task_each_pals_period thread 0
+----------------------------------------------------
+  side2 = 0 (00000000)
+
+State 160 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 305 function Side1_activestandby_task_each_pals_period thread 0
+----------------------------------------------------
+  next_state = 1 (00000001)
+
+State 161 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 313 function Side1_activestandby_task_each_pals_period thread 0
+----------------------------------------------------
+  side1_written = 1 (00000001)
+
+State 162 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 328 function Side2_activestandby_task_each_pals_period thread 0
+----------------------------------------------------
+  side2Failed = 0
+
+State 163 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 107 function write_side2_failed_history thread 0
+----------------------------------------------------
+  side2Failed_History_2 = 0
+
+State 164 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 108 function write_side2_failed_history thread 0
+----------------------------------------------------
+  side2Failed_History_1 = 0
+
+State 165 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 109 function write_side2_failed_history thread 0
+----------------------------------------------------
+  side2Failed_History_0 = 0
+
+State 166 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 337 function Side2_activestandby_task_each_pals_period thread 0
+----------------------------------------------------
+  side1 = 1 (00000001)
+
+State 167 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 339 function Side2_activestandby_task_each_pals_period thread 0
+----------------------------------------------------
+  side2 = 0 (00000000)
+
+State 168 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 341 function Side2_activestandby_task_each_pals_period thread 0
+----------------------------------------------------
+  manual_selection = 0 (00000000)
+
+State 169 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 365 function Side2_activestandby_task_each_pals_period thread 0
+----------------------------------------------------
+  next_state = 0 (00000000)
+
+State 170 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 370 function Side2_activestandby_task_each_pals_period thread 0
+----------------------------------------------------
+  side2_written = 0 (00000000)
+
+State 171 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 386 function Pendulum_prism_task_each_pals_period thread 0
+----------------------------------------------------
+  side1 = 1 (00000001)
+
+State 172 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 388 function Pendulum_prism_task_each_pals_period thread 0
+----------------------------------------------------
+  side2 = 0 (00000000)
+
+State 173 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 137 function write_active_side_history thread 0
+----------------------------------------------------
+  active_side_History_2 = 2 (00000010)
+
+State 174 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 138 function write_active_side_history thread 0
+----------------------------------------------------
+  active_side_History_1 = 0 (00000000)
+
+State 175 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 139 function write_active_side_history thread 0
+----------------------------------------------------
+  active_side_History_0 = 1 (00000001)
+
+State 176 file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 3 function reach_error thread 0
+----------------------------------------------------
+Violated property:
+  file pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c line 3 function reach_error
+  assertion 0
+  0
+
+
+VERIFICATION FAILED
+
+Bug found (k = 5)
+
+../sv-benchmarks/c/seq-mthreaded/pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c:278:22: warning: self-comparison always evaluates to false [-Wtautological-compare]
+    s1s1_new = nomsg != nomsg && s1s1_new == nomsg ? nomsg : s1s1_new;
+                     ^
+../sv-benchmarks/c/seq-mthreaded/pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c:279:22: warning: self-comparison always evaluates to false [-Wtautological-compare]
+    s1s2_new = nomsg != nomsg && s1s2_new == nomsg ? nomsg : s1s2_new;
+                     ^
+../sv-benchmarks/c/seq-mthreaded/pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c:280:21: warning: self-comparison always evaluates to false [-Wtautological-compare]
+    s1p_new = nomsg != nomsg && s1p_new == nomsg ? nomsg : s1p_new;
+                    ^
+../sv-benchmarks/c/seq-mthreaded/pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c:331:22: warning: self-comparison always evaluates to false [-Wtautological-compare]
+    s2s1_new = nomsg != nomsg && s2s1_new == nomsg ? nomsg : s2s1_new;
+                     ^
+../sv-benchmarks/c/seq-mthreaded/pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c:332:22: warning: self-comparison always evaluates to false [-Wtautological-compare]
+    s2s2_new = nomsg != nomsg && s2s2_new == nomsg ? nomsg : s2s2_new;
+                     ^
+../sv-benchmarks/c/seq-mthreaded/pals_STARTPALS_ActiveStandby.5.ufo.UNBOUNDED.pals.c:333:21: warning: self-comparison always evaluates to false [-Wtautological-compare]
+    s2p_new = nomsg != nomsg && s2p_new == nomsg ? nomsg : s2p_new;
+                    ^
+
+FALSE_REACH

@@ -1,0 +1,144 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-net--netfilter--ipvs--ip_vs.ko-ldv_main13_sequence_infinite_withcheck_stateful.cil.out.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-net--netfilter--ipvs--ip_vs.ko-ldv_main13_sequence_infinite_withcheck_stateful.cil.out.i --64 --witness-output 32_7a_cilled_linux-3.8-rc1-32_7a-net--netfilter--ipvs--ip_vs.ko-ldv_main13_sequence_infinite_withcheck_stateful.cil.out.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 64-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-net--netfilter--ipvs--ip_vs.ko-ldv_main13_sequence_infinite_withcheck_stateful.cil.out.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 4.213s
+GOTO program processing time: 1.312s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.038s (91 assignments)
+Slicing time: 0.000s (removed 87 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (4 assignments)
+BMC program time: 0.038s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.037s (91 assignments)
+Slicing time: 0.000s (removed 87 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (4 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.001s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.001s
+Runtime decision procedure: 0.001s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 160  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-net--netfilter--ipvs--ip_vs.ko-ldv_main13_sequence_infinite_withcheck_stateful.cil.out.i line 29972 function main
+Unwinding loop 33  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-net--netfilter--ipvs--ip_vs.ko-ldv_main13_sequence_infinite_withcheck_stateful.cil.out.i line 10661 function ip_vs_init_hash_table
+Unwinding loop 33  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-net--netfilter--ipvs--ip_vs.ko-ldv_main13_sequence_infinite_withcheck_stateful.cil.out.i line 10661 function ip_vs_init_hash_table
+Not unwinding 
+Unwinding loop 136  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-net--netfilter--ipvs--ip_vs.ko-ldv_main13_sequence_infinite_withcheck_stateful.cil.out.i line 26041 function __ipvs_proto_data_get
+Unwinding loop 136  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-net--netfilter--ipvs--ip_vs.ko-ldv_main13_sequence_infinite_withcheck_stateful.cil.out.i line 26041 function __ipvs_proto_data_get
+Not unwinding 
+Unwinding loop 158  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-net--netfilter--ipvs--ip_vs.ko-ldv_main13_sequence_infinite_withcheck_stateful.cil.out.i line 29745 function sctp_register_app
+Unwinding loop 158  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-net--netfilter--ipvs--ip_vs.ko-ldv_main13_sequence_infinite_withcheck_stateful.cil.out.i line 29745 function sctp_register_app
+Not unwinding 
+Unwinding loop 136  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-net--netfilter--ipvs--ip_vs.ko-ldv_main13_sequence_infinite_withcheck_stateful.cil.out.i line 26041 function __ipvs_proto_data_get
+Unwinding loop 136  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-net--netfilter--ipvs--ip_vs.ko-ldv_main13_sequence_infinite_withcheck_stateful.cil.out.i line 26041 function __ipvs_proto_data_get
+Not unwinding 
+Unwinding loop 51  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-net--netfilter--ipvs--ip_vs.ko-ldv_main13_sequence_infinite_withcheck_stateful.cil.out.i line 14216 function __ip_vs_svc_fwm_find
+Unwinding loop 51  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-net--netfilter--ipvs--ip_vs.ko-ldv_main13_sequence_infinite_withcheck_stateful.cil.out.i line 14216 function __ip_vs_svc_fwm_find
+Not unwinding 
+Unwinding loop 50  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-net--netfilter--ipvs--ip_vs.ko-ldv_main13_sequence_infinite_withcheck_stateful.cil.out.i line 14184 function __ip_vs_service_find
+Unwinding loop 50  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-net--netfilter--ipvs--ip_vs.ko-ldv_main13_sequence_infinite_withcheck_stateful.cil.out.i line 14184 function __ip_vs_service_find
+Not unwinding 
+Unwinding loop 50  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-net--netfilter--ipvs--ip_vs.ko-ldv_main13_sequence_infinite_withcheck_stateful.cil.out.i line 14184 function __ip_vs_service_find
+Unwinding loop 50  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-net--netfilter--ipvs--ip_vs.ko-ldv_main13_sequence_infinite_withcheck_stateful.cil.out.i line 14184 function __ip_vs_service_find
+Not unwinding 
+Unwinding loop 50  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-net--netfilter--ipvs--ip_vs.ko-ldv_main13_sequence_infinite_withcheck_stateful.cil.out.i line 14184 function __ip_vs_service_find
+Unwinding loop 50  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-net--netfilter--ipvs--ip_vs.ko-ldv_main13_sequence_infinite_withcheck_stateful.cil.out.i line 14184 function __ip_vs_service_find
+Not unwinding 
+Unwinding loop 50  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-net--netfilter--ipvs--ip_vs.ko-ldv_main13_sequence_infinite_withcheck_stateful.cil.out.i line 14184 function __ip_vs_service_find
+Unwinding loop 50  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-net--netfilter--ipvs--ip_vs.ko-ldv_main13_sequence_infinite_withcheck_stateful.cil.out.i line 14184 function __ip_vs_service_find
+Not unwinding 
+No target candidate for function call *pp->conn_in_get
+Unwinding loop 161  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 161  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+No target candidate for function call *p->pe->fill_param
+No target candidate for function call *p->pe->hashkey_raw
+Unwinding loop 2  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-net--netfilter--ipvs--ip_vs.ko-ldv_main13_sequence_infinite_withcheck_stateful.cil.out.i line 7429 function jhash
+Unwinding loop 6  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-net--netfilter--ipvs--ip_vs.ko-ldv_main13_sequence_infinite_withcheck_stateful.cil.out.i line 8378 function ip_vs_ct_in_get
+No target candidate for function call *p->pe->ct_match
+Unwinding loop 6  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-net--netfilter--ipvs--ip_vs.ko-ldv_main13_sequence_infinite_withcheck_stateful.cil.out.i line 8378 function ip_vs_ct_in_get
+No target candidate for function call *p->pe->ct_match
+Not unwinding 
+No target candidate for function call *p->pe->hashkey_raw
+Unwinding loop 2  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-net--netfilter--ipvs--ip_vs.ko-ldv_main13_sequence_infinite_withcheck_stateful.cil.out.i line 7429 function jhash
+No target candidate for function call *p->pe->hashkey_raw
+Unwinding loop 2  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-net--netfilter--ipvs--ip_vs.ko-ldv_main13_sequence_infinite_withcheck_stateful.cil.out.i line 7429 function jhash
+**** WARNING: no body for function __builtin_return_address
+No target candidate for function call *svc->scheduler->schedule
+Unwinding loop 136  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-net--netfilter--ipvs--ip_vs.ko-ldv_main13_sequence_infinite_withcheck_stateful.cil.out.i line 26041 function __ipvs_proto_data_get
+Unwinding loop 136  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-net--netfilter--ipvs--ip_vs.ko-ldv_main13_sequence_infinite_withcheck_stateful.cil.out.i line 26041 function __ipvs_proto_data_get
+Not unwinding 
+No target candidate for function call *pp->app_conn_bind
+No target candidate for function call *dst->ops->check
+Unwinding loop 161  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 161  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 161  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 161  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+No target candidate for function call *dst->ops->mtu
+No target candidate for function call *tmp->output
+No target candidate for function call *dst->ops->link_failure
+**** WARNING: k-induction does not support recursion yet. Disabling inductive step
+Unwinding recursion ip_vs_conn_hashkey_conn iteration 1 (3 max)
+Unwinding recursion ip_vs_conn_hashkey_param iteration 1 (3 max)
+No target c
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-net--netfilter--ipvs--ip_vs.ko-ldv_main13_sequence_infinite_withcheck_stateful.cil.out.i:7181:11: warning: incompatible integer to pointer conversion assigning to 'struct hlist_node *' from 'unsigned long' [-Wint-conversion]
+  n->next = 0xdead000000100100UL;
+          ^ ~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-net--netfilter--ipvs--ip_vs.ko-ldv_main13_sequence_infinite_withcheck_stateful.cil.out.i:7182:12: warning: incompatible integer to pointer conversion assigning to 'struct hlist_node **' from 'unsigned long' [-Wint-conversion]
+  n->pprev = 0xdead000000200200UL;
+           ^ ~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-net--netfilter--ipvs--ip_vs.ko-ldv_main13_sequence_infinite_withcheck_stateful.cil.out.i:9131:13: warning: incompatible integer to pointer conversion assigning to 'void *' from 'int' [-Wint-conversion]
+    tmp___0 = 1;
+            ^ ~
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-net--netfilter--ipvs--ip_vs.ko-ldv_main13_sequence_infinite_withcheck_stateful.cil.out.i:9246:15: warning: implicitly declaring library function 'memcpy' with type 'void *(void *, const void *, unsigned long)' [-Wimplicit-function-declaration]
+      __ret = memcpy((void *)(& pe_data) + 1U, (void const *)(cp->pe)->name,
+              ^
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-net--netfilter--ipvs--ip_vs.ko-ldv_main13_sequence_infinite_withcheck_stateful.cil.out.i:9246:15: note: include the header <string.h> or explicitly provide a declaration for 'memcpy'
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-net--netfilter--ipvs--ip_vs.ko-ldv_main13_sequence_infinite_withcheck_stateful.cil.out.i:10648:28: warning: address of stack memory associated with local variable 'buf' returned [-Wreturn-stack-address]
+  return ((char const *)(& buf));
+                           ^~~
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-net--netfilter--ipvs--ip_vs.ko-ldv_main13_sequence_infinite_withcheck_stateful.cil.out.i:13855:80: warning: incompatible integer to pointer conversion initializing 'void *' with an expression of type 'unsigned long' [-Wint-conversion]
+static struct mutex __ip_vs_mutex = {{1}, {{{{{0U}}, 3735899821U, 4294967295U, 0xffffffffffffffffUL, {0, {0, 0}, "__ip_vs_mutex.wait_lock",
+                                                                               ^~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-net--netfilter--ipvs--ip_vs.ko-ldv_main13_sequence_infinite_withcheck_stateful.cil.out.i:13859:79: warning: incompatible integer to pointer conversion initializing 'void *' with an expression of type 'unsigned long' [-Wint-conversion]
+static rwlock_t __ip_vs_svc_lock = {{4294967296LL}, 3736018669U, 4294967295U, 0xffffffffffffffffUL, {0, {0, 0}, "__ip_vs_svc_lock",
+                                                                              ^~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-net--netfilter--ipvs--ip_vs.ko-ldv_main13_sequence_infinite_withcheck_stateful.cil.out.i:15978:13: warning: incompatible integer to pointer conversion assigning to 'void *' from 'int' [-Wint-conversion]
+    tmp___0 = 1;
+            ^ ~
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-net--netfilter--ipvs--ip_vs.ko-ldv_main13_sequence_infinite_withcheck_stateful.cil.out.i:18782:75: warning: incompatible integer to pointer conversion initializing 'void *' with an expression of type 'unsigned long' [-Wint-conversion]
+static spinlock_t ip_vs_sched_lock = {{{{{0U}}, 3735899821U, 4294967295U, 0xffffffffffffffffUL, {0, {0, 0}, "ip_vs_sched_lock",
+                                                                          ^~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-net--netfilter--ipvs--ip_vs.ko-ldv_main13_sequence_infinite_withcheck_stateful.cil.out.i:22004:84: warning: incompatible integer to pointer conversion initializing 'void *' with an expression of type 'unsigned long' [-Wint-conversion]
+static struct mutex __ip_vs_app_mutex = {{1}, {{{{{0U}}, 3735899821U, 4294967295U, 0xffffffffffffffffUL, {0, {0, 0}, "__ip_vs_app_mutex.wait_lock",
+                                                                                   ^~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-net--netfilter--ipvs--ip_vs.ko-ldv_main13_sequence_infinite_withcheck_stateful.cil.out.i:22613:13: warning: incompatible integer to pointer conversion assigning to 'void *' from 'int' [-Wint-conversion]
+    tmp___2 = 1;
+            ^ ~
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-net--netfilter--ipvs--ip_vs.ko-ldv_main13_sequence_infinite_withcheck_stateful.cil.out.i:26435:72: warning: incompatible integer to pointer conversion initializing 'void *' with an expression of type 'unsigned long' [-Wint-conversion]
+static spinlock_t ip_vs_pe_lock = {{{{{0U}}, 3735899821U, 4294967295U, 0xffffffffffffffffUL, {0, {0, 0}, "ip_vs_pe_lock",
+                                                                       ^~~~~~~~~~~~~~~~~~~~
+Can't construct rvalue reference to array type during dereference
+(It isn't allowed by C anyway)
+
+
+Unknown

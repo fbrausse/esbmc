@@ -1,0 +1,756 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/openssl/s3_clnt.blast.04.i.cil-1.c
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/openssl/s3_clnt.blast.04.i.cil-1.c --32 --witness-output s3_clnt.blast.04.i.cil-1.c.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/openssl/s3_clnt.blast.04.i.cil-1.c: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.222s
+GOTO program processing time: 0.038s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.565s (600 assignments)
+Slicing time: 0.004s (removed 378 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (222 assignments)
+BMC program time: 0.569s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.620s (600 assignments)
+Slicing time: 0.005s (removed 378 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (222 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.020s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.020s
+Runtime decision procedure: 0.440s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 2  iteration  1   file s3_clnt.blast.04.i.cil-1.c line 1130 function ssl3_connect
+Unwinding loop 2  iteration  2   file s3_clnt.blast.04.i.cil-1.c line 1130 function ssl3_connect
+Not unwinding 
+Symex completed in: 6.726s (2413 assignments)
+Slicing time: 0.056s (removed 1653 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (760 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.083s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.083s
+Runtime decision procedure: 0.009s
+BMC program time: 6.875s
+No bug has been found in the base case
+*** Checking forward condition, k = 3
+Starting Bounded Model Checking
+Unwinding loop 2  iteration  1   file s3_clnt.blast.04.i.cil-1.c line 1130 function ssl3_connect
+Unwinding loop 2  iteration  2   file s3_clnt.blast.04.i.cil-1.c line 1130 function ssl3_connect
+Not unwinding 
+Symex completed in: 7.351s (2412 assignments)
+Slicing time: 0.061s (removed 1653 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (759 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.084s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.084s
+Runtime decision procedure: 1.424s
+The forward condition is unable to prove the property
+*** Checking inductive step, k = 3
+Starting Bounded Model Checking
+Unwinding loop 2  iteration  1   file s3_clnt.blast.04.i.cil-1.c line 1130 function ssl3_connect
+Unwinding loop 2  iteration  2   file s3_clnt.blast.04.i.cil-1.c line 1130 function ssl3_connect
+Not unwinding 
+Symex completed in: 0.793s (2216 assignments)
+Slicing time: 0.172s (removed 1206 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (1010 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.045s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.045s
+Runtime decision procedure: 5.723s
+The inductive step is unable to prove the property
+*** Checking base case, k = 5
+Starting Bounded Model Checking
+Unwinding loop 2  iteration  1   file s3_clnt.blast.04.i.cil-1.c line 1130 function ssl3_connect
+Unwinding loop 2  iteration  2   file s3_clnt.blast.04.i.cil-1.c line 1130 function ssl3_connect
+Unwinding loop 2  iteration  3   file s3_clnt.blast.04.i.cil-1.c line 1130 function ssl3_connect
+Unwinding loop 2  iteration  4   file s3_clnt.blast.04.i.cil-1.c line 1130 function ssl3_connect
+Not unwinding 
+Symex completed in: 22.248s (4171 assignments)
+Slicing time: 0.168s (removed 2819 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (1352 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.154s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.154s
+Runtime decision procedure: 0.029s
+BMC program time: 22.601s
+No bug has been found in the base case
+*** Checking forward condition, k = 5
+Starting Bounded Model Checking
+Unwinding loop 2  iteration  1   file s3_clnt.blast.04.i.cil-1.c line 1130 function ssl3_connect
+Unwinding loop 2  iteration  2   file s3_clnt.blast.04.i.cil-1.c line 1130 function ssl3_connect
+Unwinding loop 2  iteration  3   file s3_clnt.blast.04.i.cil-1.c line 1130 function ssl3_connect
+Unwinding loop 2  iteration  4   file s3_clnt.blast.04.i.cil-1.c line 1130 function ssl3_connect
+Not unwinding 
+Symex completed in: 24.628s (4170 assignments)
+Slicing time: 0.170s (removed 2819 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (1351 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.158s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.158s
+Runtime decision procedure: 2.127s
+The forward condition is unable to prove the property
+*** Checking base case, k = 7
+Starting Bounded Model Checking
+Unwinding loop 2  iteration  1   file s3_clnt.blast.04.i.cil-1.c line 1130 function ssl3_connect
+Unwinding loop 2  iteration  2   file s3_clnt.blast.04.i.cil-1.c line 1130 function ssl3_connect
+Unwinding loop 2  iteration  3   file s3_clnt.blast.04.i.cil-1.c line 1130 function ssl3_connect
+Unwinding loop 2  iteration  4   file s3_clnt.blast.04.i.cil-1.c line 1130 function ssl3_connect
+Unwinding loop 2  iteration  5   file s3_clnt.blast.04.i.cil-1.c line 1130 function ssl3_connect
+Unwinding loop 2  iteration  6   file s3_clnt.blast.04.i.cil-1.c line 1130 function ssl3_connect
+Not unwinding 
+Symex completed in: 48.868s (5929 assignments)
+Slicing time: 0.321s (removed 3985 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (1944 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.227s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.227s
+Runtime decision procedure: 3.314s
+Building error trace
+Fetching array elements inside tuples currently unimplemented, returning empty expression...
+Fetching array elements inside tuples currently unimplemented, returning empty expression...
+Fetching array elements inside tuples currently unimplemented, returning empty expression...
+Fetching array elements inside tuples currently unimplemented, returning empty expression...
+Fetching array elements inside tuples currently unimplemented, returning empty expression...
+Fetching array elements inside tuples currently unimplemented, returning empty expression...
+Fetching array elements inside tuples currently unimplemented, returning empty expression...
+Fetching array elements inside tuples currently unimplemented, returning empty expression...
+Fetching array elements inside tuples currently unimplemented, returning empty expression...
+Fetching array elements inside tuples currently unimplemented, returning empty expression...
+Fetching array elements inside tuples currently unimplemented, returning empty expression...
+Fetching array elements inside tuples currently unimplemented, returning empty expression...
+Fetching array elements inside tuples currently unimplemented, returning empty expression...
+Fetching array elements inside tuples currently unimplemented, returning empty expression...
+Fetching array elements inside tuples currently unimplemented, returning empty expression...
+Fetching array elements inside tuples currently unimplemented, returning empty expression...
+Fetching array elements inside tuples currently unimplemented, returning empty expression...
+Fetching array elements inside tuples currently unimplemented, returning empty expression...
+Fetching array elements inside tuples currently unimplemented, returning empty expression...
+Fetching array elements inside tuples currently unimplemented, returning empty expression...
+Fetching array elements inside tuples currently unimplemented, returning empty expression...
+Fetching array elements inside tuples currently unimplemented, returning empty expression...
+
+Counterexample:
+
+State 1 file s3_clnt.blast.04.i.cil-1.c line 1071 function main thread 0
+----------------------------------------------------
+  s->s3 = { .version=nil, .type=nil, .method=nil, .rbio=nil, .wbio=nil,
+    .bbio=nil, .rwstate=nil, .in_handshake=nil, .handshake_func=nil,
+    .server=nil, .new_session=nil, .quiet_shutdown=nil,
+    .shutdown=nil, .state=nil, .rstate=nil,
+    .init_buf=nil, .init_num=nil, .init_off=nil,
+    .packet=nil, .packet_length=nil, .s2=nil,
+    .s3=( struct ssl3_state_st *)((void *)(&dynamic_417_value)), .read_ahead=nil,
+    .hit=nil, .purpose=nil, .trust=nil,
+    .cipher_list=nil, .cipher_list_by_id=nil, .enc_read_ctx=nil,
+    .read_hash=nil, .expand=nil, .enc_write_ctx=nil,
+    .write_hash=nil, .compress=nil,
+    .cert=nil, .sid_ctx_length=nil, .sid_ctx=nil,
+    .session=nil, .verify_mode=nil, .verify_depth=nil,
+    .verify_callback=nil, .info_callback=nil,
+    .error=nil, .error_code=nil, .ctx=nil,
+    .debug=nil, .verify_result=nil, .ex_data=nil,
+    .client_CA=nil, .references=nil, .options=nil,
+    .mode=nil, .first_packet=nil, .client_version=nil }
+
+State 2 file s3_clnt.blast.04.i.cil-1.c line 1072 function main thread 0
+----------------------------------------------------
+  s->ctx = { .version=0, .type=0, .method=0, .rbio=0, .wbio=0,
+    .bbio=0, .rwstate=0, .in_handshake=0, .handshake_func=0,
+    .server=0, .new_session=0, .quiet_shutdown=0,
+    .shutdown=0, .state=0, .rstate=0,
+    .init_buf=&dynamic_417_value, .init_num=0,
+    .init_off=0, .packet=0, .packet_length=0,
+    .s2=0, .s3=&dynamic_417_value, .read_ahead=0,
+    .hit=0, .purpose=0, .trust=0, .cipher_list=0,
+    .cipher_list_by_id=0, .enc_read_ctx=0,
+    .read_hash=0, .expand=0, .enc_write_ctx=0,
+    .write_hash=0, .compress=0, .cert=0,
+    .sid_ctx_length=0, .sid_ctx=nil, .session={ .pointer_object=nil, .pointer_offset=nil },
+    .verify_mode=0,
+    .verify_depth=0, .verify_callback=0, .info_callback=INVALID12,
+    .error=0, .error_code=0, .ctx=( struct ssl_ctx_st *)((void *)(&dynamic_418_value)),
+    .debug=-2147483648,
+    .verify_result=0, .ex_data={ .sk=0, .dummy=0 },
+    .client_CA=0, .references=0,
+    .options=0, .mode=0, .first_packet=0, .client_version=0 }
+
+State 3 file s3_clnt.blast.04.i.cil-1.c line 1073 function main thread 0
+----------------------------------------------------
+  s->session = { .version=0, .type=0, .method=0, .rbio=0, .wbio=0,
+    .bbio=0, .rwstate=0, .in_handshake=0, .handshake_func=0,
+    .server=0, .new_session=0, .quiet_shutdown=0,
+    .shutdown=0, .state=0, .rstate=0,
+    .init_buf=&dynamic_417_value, .init_num=0,
+    .init_off=0, .packet=0, .packet_length=0,
+    .s2=0, .s3=&dynamic_417_value, .read_ahead=0,
+    .hit=0, .purpose=0, .trust=0, .cipher_list=0,
+    .cipher_list_by_id=0, .enc_read_ctx=0,
+    .read_hash=0, .expand=0, .enc_write_ctx=0,
+    .write_hash=0, .compress=0, .cert=0,
+    .sid_ctx_length=0, .sid_ctx=nil, .session=( struct ssl_session_st *)((void *)(&dynamic_419_value)),
+    .verify_mode=0,
+    .verify_depth=0, .verify_callback=0, .info_callback=INVALID12,
+    .error=0, .error_code=0, .ctx=&dynamic_418_value,
+    .debug=-2147483648, .verify_result=0,
+    .ex_data={ .sk=0, .dummy=0 }, .client_CA=0,
+    .references=0, .options=0, .mode=0,
+    .first_packet=0, .client_version=0 }
+
+State 4 file s3_clnt.blast.04.i.cil-1.c line 1074 function main thread 0
+----------------------------------------------------
+  s->state = { .version=0, .type=0, .method=0, .rbio=0, .wbio=0,
+    .bbio=0, .rwstate=0, .in_handshake=0, .handshake_func=0,
+    .server=0, .new_session=0, .quiet_shutdown=0,
+    .shutdown=0, .state=12292, .rstate=0,
+    .init_buf=&dynamic_417_value, .init_num=0,
+    .init_off=0, .packet=0, .packet_length=0,
+    .s2=0, .s3=&dynamic_417_value, .read_ahead=0,
+    .hit=0, .purpose=0, .trust=0, .cipher_list=0,
+    .cipher_list_by_id=0, .enc_read_ctx=0,
+    .read_hash=0, .expand=0, .enc_write_ctx=0,
+    .write_hash=0, .compress=0, .cert=0,
+    .sid_ctx_length=0, .sid_ctx=nil, .session=&dynamic_419_value,
+    .verify_mode=0, .verify_depth=0,
+    .verify_callback=0, .info_callback=INVALID12,
+    .error=0, .error_code=0, .ctx=&dynamic_418_value,
+    .debug=-2147483648, .verify_result=0,
+    .ex_data={ .sk=0, .dummy=0 }, .client_CA=0,
+    .references=0, .options=0, .mode=0,
+    .first_packet=0, .client_version=0 }
+
+State 5 file s3_clnt.blast.04.i.cil-1.c line 1075 function main thread 0
+----------------------------------------------------
+  s->version = { .version=768, .type=0, .method=0, .rbio=0, .wbio=0,
+    .bbio=0, .rwstate=0, .in_handshake=0, .handshake_func=0,
+    .server=0, .new_session=0, .quiet_shutdown=0,
+    .shutdown=0, .state=12292, .rstate=0,
+    .init_buf=&dynamic_417_value, .init_num=0,
+    .init_off=0, .packet=0, .packet_length=0,
+    .s2=0, .s3=&dynamic_417_value, .read_ahead=0,
+    .hit=0, .purpose=0, .trust=0, .cipher_list=0,
+    .cipher_list_by_id=0, .enc_read_ctx=0,
+    .read_hash=0, .expand=0, .enc_write_ctx=0,
+    .write_hash=0, .compress=0, .cert=0,
+    .sid_ctx_length=0, .sid_ctx=nil, .session=&dynamic_419_value,
+    .verify_mode=0, .verify_depth=0,
+    .verify_callback=0, .info_callback=INVALID12,
+    .error=0, .error_code=0, .ctx=&dynamic_418_value,
+    .debug=-2147483648, .verify_result=0,
+    .ex_data={ .sk=0, .dummy=0 }, .client_CA=0,
+    .references=0, .options=0, .mode=0,
+    .first_packet=0, .client_version=0 }
+
+State 6 file s3_clnt.blast.04.i.cil-1.c line 1093 function ssl3_connect thread 0
+----------------------------------------------------
+  tmp___3 = 0 (00000000 00000000 00000000 00000000)
+
+State 7 file s3_clnt.blast.04.i.cil-1.c line 1094 function ssl3_connect thread 0
+----------------------------------------------------
+  tmp___4 = -1 (11111111 11111111 11111111 11111111)
+
+State 8 file s3_clnt.blast.04.i.cil-1.c line 1095 function ssl3_connect thread 0
+----------------------------------------------------
+  tmp___5 = -1 (11111111 11111111 11111111 11111111)
+
+State 9 file s3_clnt.blast.04.i.cil-1.c line 1096 function ssl3_connect thread 0
+----------------------------------------------------
+  tmp___6 = -1 (11111111 11111111 11111111 11111111)
+
+State 10 file s3_clnt.blast.04.i.cil-1.c line 1097 function ssl3_connect thread 0
+----------------------------------------------------
+  tmp___7 = -2147483648 (10000000 00000000 00000000 00000000)
+
+State 11 file s3_clnt.blast.04.i.cil-1.c line 1098 function ssl3_connect thread 0
+----------------------------------------------------
+  tmp___8 = -2147483648 (10000000 00000000 00000000 00000000)
+
+State 12 file s3_clnt.blast.04.i.cil-1.c line 1099 function ssl3_connect thread 0
+----------------------------------------------------
+  tmp___9 = 0 (00000000 00000000 00000000 00000000)
+
+State 13 file s3_clnt.blast.04.i.cil-1.c line 1104 function ssl3_connect thread 0
+----------------------------------------------------
+  s->hit = { .version=768, .type=0, .method=0, .rbio=0, .wbio=0,
+    .bbio=0, .rwstate=0, .in_handshake=0, .handshake_func=0,
+    .server=0, .new_session=0, .quiet_shutdown=0,
+    .shutdown=0, .state=12292, .rstate=0,
+    .init_buf=&dynamic_417_value, .init_num=0,
+    .init_off=0, .packet=0, .packet_length=0,
+    .s2=0, .s3=&dynamic_417_value, .read_ahead=0,
+    .hit=0, .purpose=0, .trust=0, .cipher_list=0,
+    .cipher_list_by_id=0, .enc_read_ctx=0,
+    .read_hash=0, .expand=0, .enc_write_ctx=0,
+    .write_hash=0, .compress=0, .cert=0,
+    .sid_ctx_length=0, .sid_ctx=nil, .session=&dynamic_419_value,
+    .verify_mode=0, .verify_depth=0,
+    .verify_callback=0, .info_callback=INVALID12,
+    .error=0, .error_code=0, .ctx=&dynamic_418_value,
+    .debug=-2147483648, .verify_result=0,
+    .ex_data={ .sk=0, .dummy=0 }, .client_CA=0,
+    .references=0, .options=0, .mode=0,
+    .first_packet=0, .client_version=0 }
+
+State 14 file s3_clnt.blast.04.i.cil-1.c line 1105 function ssl3_connect thread 0
+----------------------------------------------------
+  s->state = { .version=768, .type=0, .method=0, .rbio=0, .wbio=0,
+    .bbio=0, .rwstate=0, .in_handshake=0, .handshake_func=0,
+    .server=0, .new_session=0, .quiet_shutdown=0,
+    .shutdown=0, .state=12292, .rstate=0,
+    .init_buf=&dynamic_417_value, .init_num=0,
+    .init_off=0, .packet=0, .packet_length=0,
+    .s2=0, .s3=&dynamic_417_value, .read_ahead=0,
+    .hit=0, .purpose=0, .trust=0, .cipher_list=0,
+    .cipher_list_by_id=0, .enc_read_ctx=0,
+    .read_hash=0, .expand=0, .enc_write_ctx=0,
+    .write_hash=0, .compress=0, .cert=0,
+    .sid_ctx_length=0, .sid_ctx=nil, .session=&dynamic_419_value,
+    .verify_mode=0, .verify_depth=0,
+    .verify_callback=0, .info_callback=INVALID12,
+    .error=0, .error_code=0, .ctx=&dynamic_418_value,
+    .debug=-2147483648, .verify_result=0,
+    .ex_data={ .sk=0, .dummy=0 }, .client_CA=0,
+    .references=0, .options=0, .mode=0,
+    .first_packet=0, .client_version=0 }
+
+State 15 file s3_clnt.blast.04.i.cil-1.c line 1111 function ssl3_connect thread 0
+----------------------------------------------------
+  cb = dynamic_416_value.info_callback
+
+State 16 file s3_clnt.blast.04.i.cil-1.c line 1119 function ssl3_connect thread 0
+----------------------------------------------------
+  s->in_handshake = { .version=768, .type=0, .method=0, .rbio=0, .wbio=0,
+    .bbio=0, .rwstate=0, .in_handshake=dynamic_416_value.in_handshake + 1, .handshake_func=0,
+    .server=0, .new_session=0, .quiet_shutdown=0,
+    .shutdown=0, .state=12292, .rstate=0,
+    .init_buf=&dynamic_417_value, .init_num=0,
+    .init_off=0, .packet=0, .packet_length=0,
+    .s2=0, .s3=&dynamic_417_value, .read_ahead=0,
+    .hit=0, .purpose=0, .trust=0, .cipher_list=0,
+    .cipher_list_by_id=0, .enc_read_ctx=0,
+    .read_hash=0, .expand=0, .enc_write_ctx=0,
+    .write_hash=0, .compress=0, .cert=0,
+    .sid_ctx_length=0, .sid_ctx=nil, .session=&dynamic_419_value,
+    .verify_mode=0, .verify_depth=0,
+    .verify_callback=0, .info_callback=INVALID12,
+    .error=0, .error_code=0, .ctx=&dynamic_418_value,
+    .debug=-2147483648, .verify_result=0,
+    .ex_data={ .sk=0, .dummy=0 }, .client_CA=0,
+    .references=0, .options=0, .mode=0,
+    .first_packet=0, .client_version=0 }
+
+State 17 file s3_clnt.blast.04.i.cil-1.c line 1132 function ssl3_connect thread 0
+----------------------------------------------------
+  state = dynamic_416_value.state
+
+State 18 file s3_clnt.blast.04.i.cil-1.c line 1236 function ssl3_connect thread 0
+----------------------------------------------------
+  s->new_session = { .version=768, .type=0, .method=0, .rbio=0, .wbio=0,
+    .bbio=0, .rwstate=0, .in_handshake=1, .handshake_func=0,
+    .server=0, .new_session=1, .quiet_shutdown=0,
+    .shutdown=0, .state=12292, .rstate=0,
+    .init_buf=&dynamic_417_value, .init_num=0,
+    .init_off=0, .packet=0, .packet_length=0,
+    .s2=0, .s3=&dynamic_417_value, .read_ahead=0,
+    .hit=0, .purpose=0, .trust=0, .cipher_list=0,
+    .cipher_list_by_id=0, .enc_read_ctx=0,
+    .read_hash=0, .expand=0, .enc_write_ctx=0,
+    .write_hash=0, .compress=0, .cert=0,
+    .sid_ctx_length=0, .sid_ctx=nil, .session=&dynamic_419_value,
+    .verify_mode=0, .verify_depth=0,
+    .verify_callback=0, .info_callback=INVALID12,
+    .error=0, .error_code=0, .ctx=&dynamic_418_value,
+    .debug=-2147483648, .verify_result=0,
+    .ex_data={ .sk=0, .dummy=0 }, .client_CA=0,
+    .references=0, .options=0, .mode=0,
+    .first_packet=0, .client_version=0 }
+
+State 19 file s3_clnt.blast.04.i.cil-1.c line 1237 function ssl3_connect thread 0
+----------------------------------------------------
+  s->state = { .version=768, .type=0, .method=0, .rbio=0, .wbio=0,
+    .bbio=0, .rwstate=0, .in_handshake=1, .handshake_func=0,
+    .server=0, .new_session=1, .quiet_shutdown=0,
+    .shutdown=0, .state=4096, .rstate=0,
+    .init_buf=&dynamic_417_value, .init_num=0,
+    .init_off=0, .packet=0, .packet_length=0,
+    .s2=0, .s3=&dynamic_417_value, .read_ahead=0,
+    .hit=0, .purpose=0, .trust=0, .cipher_list=0,
+    .cipher_list_by_id=0, .enc_read_ctx=0,
+    .read_hash=0, .expand=0, .enc_write_ctx=0,
+    .write_hash=0, .compress=0, .cert=0,
+    .sid_ctx_length=0, .sid_ctx=nil, .session=&dynamic_419_value,
+    .verify_mode=0, .verify_depth=0,
+    .verify_callback=0, .info_callback=INVALID12,
+    .error=0, .error_code=0, .ctx=&dynamic_418_value,
+    .debug=-2147483648, .verify_result=0,
+    .ex_data={ .sk=0, .dummy=0 }, .client_CA=0,
+    .references=0, .options=0, .mode=0,
+    .first_packet=0, .client_version=0 }
+
+State 20 file s3_clnt.blast.04.i.cil-1.c line 1243 function ssl3_connect thread 0
+----------------------------------------------------
+  s->server = { .version=768, .type=0, .method=0, .rbio=0, .wbio=0,
+    .bbio=0, .rwstate=0, .in_handshake=1, .handshake_func=0,
+    .server=0, .new_session=1, .quiet_shutdown=0,
+    .shutdown=0, .state=4096, .rstate=0,
+    .init_buf=&dynamic_417_value, .init_num=0,
+    .init_off=0, .packet=0, .packet_length=0,
+    .s2=0, .s3=&dynamic_417_value, .read_ahead=0,
+    .hit=0, .purpose=0, .trust=0, .cipher_list=0,
+    .cipher_list_by_id=0, .enc_read_ctx=0,
+    .read_hash=0, .expand=0, .enc_write_ctx=0,
+    .write_hash=0, .compress=0, .cert=0,
+    .sid_ctx_length=0, .sid_ctx=nil, .session=&dynamic_419_value,
+    .verify_mode=0, .verify_depth=0,
+    .verify_callback=0, .info_callback=INVALID12,
+    .error=0, .error_code=0, .ctx=&dynamic_418_value,
+    .debug=-2147483648, .verify_result=0,
+    .ex_data={ .sk=0, .dummy=0 }, .client_CA=0,
+    .references=0, .options=0, .mode=0,
+    .first_packet=0, .client_version=0 }
+
+State 21 file s3_clnt.blast.04.i.cil-1.c line 1255 function ssl3_connect thread 0
+----------------------------------------------------
+  s->type = { .version=768, .type=4096, .method=0, .rbio=0, .wbio=0,
+    .bbio=0, .rwstate=0, .in_handshake=1, .handshake_func=0,
+    .server=0, .new_session=1, .quiet_shutdown=0,
+    .shutdown=0, .state=4096, .rstate=0,
+    .init_buf=&dynamic_417_value, .init_num=0,
+    .init_off=0, .packet=0, .packet_length=0,
+    .s2=0, .s3=&dynamic_417_value, .read_ahead=0,
+    .hit=0, .purpose=0, .trust=0, .cipher_list=0,
+    .cipher_list_by_id=0, .enc_read_ctx=0,
+    .read_hash=0, .expand=0, .enc_write_ctx=0,
+    .write_hash=0, .compress=0, .cert=0,
+    .sid_ctx_length=0, .sid_ctx=nil, .session=&dynamic_419_value,
+    .verify_mode=0, .verify_depth=0,
+    .verify_callback=0, .info_callback=INVALID12,
+    .error=0, .error_code=0, .ctx=&dynamic_418_value,
+    .debug=-2147483648, .verify_result=0,
+    .ex_data={ .sk=0, .dummy=0 }, .client_CA=0,
+    .references=0, .options=0, .mode=0,
+    .first_packet=0, .client_version=0 }
+
+State 22 file s3_clnt.blast.04.i.cil-1.c line 1286 function ssl3_connect thread 0
+----------------------------------------------------
+  s->state = { .version=768, .type=4096, .method=0, .rbio=0, .wbio=0,
+    .bbio=0, .rwstate=0, .in_handshake=1, .handshake_func=0,
+    .server=0, .new_session=1, .quiet_shutdown=0,
+    .shutdown=0, .state=4368, .rstate=0,
+    .init_buf=&dynamic_417_value, .init_num=0,
+    .init_off=0, .packet=0, .packet_length=0,
+    .s2=0, .s3=&dynamic_417_value, .read_ahead=0,
+    .hit=0, .purpose=0, .trust=0, .cipher_list=0,
+    .cipher_list_by_id=0, .enc_read_ctx=0,
+    .read_hash=0, .expand=0, .enc_write_ctx=0,
+    .write_hash=0, .compress=0, .cert=0,
+    .sid_ctx_length=0, .sid_ctx=nil, .session=&dynamic_419_value,
+    .verify_mode=0, .verify_depth=0,
+    .verify_callback=0, .info_callback=INVALID12,
+    .error=0, .error_code=0, .ctx=&dynamic_418_value,
+    .debug=-2147483648, .verify_result=0,
+    .ex_data={ .sk=0, .dummy=0 }, .client_CA=0,
+    .references=0, .options=0, .mode=0,
+    .first_packet=0, .client_version=0 }
+
+State 23 file s3_clnt.blast.04.i.cil-1.c line 1288 function ssl3_connect thread 0
+----------------------------------------------------
+  s->init_num = { .version=768, .type=4096, .method=0, .rbio=0, .wbio=0,
+    .bbio=0, .rwstate=0, .in_handshake=1, .handshake_func=0,
+    .server=0, .new_session=1, .quiet_shutdown=0,
+    .shutdown=0, .state=4368, .rstate=0,
+    .init_buf=&dynamic_417_value, .init_num=0,
+    .init_off=0, .packet=0, .packet_length=0,
+    .s2=0, .s3=&dynamic_417_value, .read_ahead=0,
+    .hit=0, .purpose=0, .trust=0, .cipher_list=0,
+    .cipher_list_by_id=0, .enc_read_ctx=0,
+    .read_hash=0, .expand=0, .enc_write_ctx=0,
+    .write_hash=0, .compress=0, .cert=0,
+    .sid_ctx_length=0, .sid_ctx=nil, .session=&dynamic_419_value,
+    .verify_mode=0, .verify_depth=0,
+    .verify_callback=0, .info_callback=INVALID12,
+    .error=0, .error_code=0, .ctx=&dynamic_418_value,
+    .debug=-2147483648, .verify_result=0,
+    .ex_data={ .sk=0, .dummy=0 }, .client_CA=0,
+    .references=0, .options=0, .mode=0,
+    .first_packet=0, .client_version=0 }
+
+State 24 file s3_clnt.blast.04.i.cil-1.c line 1132 function ssl3_connect thread 0
+----------------------------------------------------
+  state = dynamic_416_value.state
+
+State 25 file s3_clnt.blast.04.i.cil-1.c line 1292 function ssl3_connect thread 0
+----------------------------------------------------
+  s->shutdown = { .version=768, .type=4096, .method=0, .rbio=0, .wbio=0,
+    .bbio=0, .rwstate=0, .in_handshake=1, .handshake_func=0,
+    .server=0, .new_session=1, .quiet_shutdown=0,
+    .shutdown=0, .state=4368, .rstate=0,
+    .init_buf=&dynamic_417_value, .init_num=0,
+    .init_off=0, .packet=0, .packet_length=0,
+    .s2=0, .s3=&dynamic_417_value, .read_ahead=0,
+    .hit=0, .purpose=0, .trust=0, .cipher_list=0,
+    .cipher_list_by_id=0, .enc_read_ctx=0,
+    .read_hash=0, .expand=0, .enc_write_ctx=0,
+    .write_hash=0, .compress=0, .cert=0,
+    .sid_ctx_length=0, .sid_ctx=nil, .session=&dynamic_419_value,
+    .verify_mode=0, .verify_depth=0,
+    .verify_callback=0, .info_callback=INVALID12,
+    .error=0, .error_code=0, .ctx=&dynamic_418_value,
+    .debug=-2147483648, .verify_result=0,
+    .ex_data={ .sk=0, .dummy=0 }, .client_CA=0,
+    .references=0, .options=0, .mode=0,
+    .first_packet=0, .client_version=0 }
+
+State 26 file s3_clnt.blast.04.i.cil-1.c line 1293 function ssl3_connect thread 0
+----------------------------------------------------
+  ret = 2147483647 (01111111 11111111 11111111 11111111)
+
+State 27 file s3_clnt.blast.04.i.cil-1.c line 1304 function ssl3_connect thread 0
+----------------------------------------------------
+  s->state = { .version=768, .type=4096, .method=0, .rbio=0, .wbio=0,
+    .bbio=0, .rwstate=0, .in_handshake=1, .handshake_func=0,
+    .server=0, .new_session=1, .quiet_shutdown=0,
+    .shutdown=0, .state=4384, .rstate=0,
+    .init_buf=&dynamic_417_value, .init_num=0,
+    .init_off=0, .packet=0, .packet_length=0,
+    .s2=0, .s3=&dynamic_417_value, .read_ahead=0,
+    .hit=0, .purpose=0, .trust=0, .cipher_list=0,
+    .cipher_list_by_id=0, .enc_read_ctx=0,
+    .read_hash=0, .expand=0, .enc_write_ctx=0,
+    .write_hash=0, .compress=0, .cert=0,
+    .sid_ctx_length=0, .sid_ctx=nil, .session=&dynamic_419_value,
+    .verify_mode=0, .verify_depth=0,
+    .verify_callback=0, .info_callback=INVALID12,
+    .error=0, .error_code=0, .ctx=&dynamic_418_value,
+    .debug=-2147483648, .verify_result=0,
+    .ex_data={ .sk=0, .dummy=0 }, .client_CA=0,
+    .references=0, .options=0, .mode=0,
+    .first_packet=0, .client_version=0 }
+
+State 28 file s3_clnt.blast.04.i.cil-1.c line 1305 function ssl3_connect thread 0
+----------------------------------------------------
+  s->init_num = { .version=768, .type=4096, .method=0, .rbio=0, .wbio=0,
+    .bbio=0, .rwstate=0, .in_handshake=1, .handshake_func=0,
+    .server=0, .new_session=1, .quiet_shutdown=0,
+    .shutdown=0, .state=4384, .rstate=0,
+    .init_buf=&dynamic_417_value, .init_num=0,
+    .init_off=0, .packet=0, .packet_length=0,
+    .s2=0, .s3=&dynamic_417_value, .read_ahead=0,
+    .hit=0, .purpose=0, .trust=0, .cipher_list=0,
+    .cipher_list_by_id=0, .enc_read_ctx=0,
+    .read_hash=0, .expand=0, .enc_write_ctx=0,
+    .write_hash=0, .compress=0, .cert=0,
+    .sid_ctx_length=0, .sid_ctx=nil, .session=&dynamic_419_value,
+    .verify_mode=0, .verify_depth=0,
+    .verify_callback=0, .info_callback=INVALID12,
+    .error=0, .error_code=0, .ctx=&dynamic_418_value,
+    .debug=-2147483648, .verify_result=0,
+    .ex_data={ .sk=0, .dummy=0 }, .client_CA=0,
+    .references=0, .options=0, .mode=0,
+    .first_packet=0, .client_version=0 }
+
+State 29 file s3_clnt.blast.04.i.cil-1.c line 1132 function ssl3_connect thread 0
+----------------------------------------------------
+  state = dynamic_416_value.state
+
+State 30 file s3_clnt.blast.04.i.cil-1.c line 1314 function ssl3_connect thread 0
+----------------------------------------------------
+  ret = 2147483647 (01111111 11111111 11111111 11111111)
+
+State 31 file s3_clnt.blast.04.i.cil-1.c line 1328 function ssl3_connect thread 0
+----------------------------------------------------
+  s->state = { .version=768, .type=4096, .method=0, .rbio=0, .wbio=0,
+    .bbio=0, .rwstate=0, .in_handshake=1, .handshake_func=0,
+    .server=0, .new_session=1, .quiet_shutdown=0,
+    .shutdown=0, .state=4400, .rstate=0,
+    .init_buf=&dynamic_417_value, .init_num=0,
+    .init_off=0, .packet=0, .packet_length=0,
+    .s2=0, .s3=&dynamic_417_value, .read_ahead=0,
+    .hit=0, .purpose=0, .trust=0, .cipher_list=0,
+    .cipher_list_by_id=0, .enc_read_ctx=0,
+    .read_hash=0, .expand=0, .enc_write_ctx=0,
+    .write_hash=0, .compress=0, .cert=0,
+    .sid_ctx_length=0, .sid_ctx=nil, .session=&dynamic_419_value,
+    .verify_mode=0, .verify_depth=0,
+    .verify_callback=0, .info_callback=INVALID12,
+    .error=0, .error_code=0, .ctx=&dynamic_418_value,
+    .debug=-2147483648, .verify_result=0,
+    .ex_data={ .sk=0, .dummy=0 }, .client_CA=0,
+    .references=0, .options=0, .mode=0,
+    .first_packet=0, .client_version=0 }
+
+State 32 file s3_clnt.blast.04.i.cil-1.c line 1330 function ssl3_connect thread 0
+----------------------------------------------------
+  s->init_num = { .version=768, .type=4096, .method=0, .rbio=0, .wbio=0,
+    .bbio=0, .rwstate=0, .in_handshake=1, .handshake_func=0,
+    .server=0, .new_session=1, .quiet_shutdown=0,
+    .shutdown=0, .state=4400, .rstate=0,
+    .init_buf=&dynamic_417_value, .init_num=0,
+    .init_off=0, .packet=0, .packet_length=0,
+    .s2=0, .s3=&dynamic_417_value, .read_ahead=0,
+    .hit=0, .purpose=0, .trust=0, .cipher_list=0,
+    .cipher_list_by_id=0, .enc_read_ctx=0,
+    .read_hash=0, .expand=0, .enc_write_ctx=0,
+    .write_hash=0, .compress=0, .cert=0,
+    .sid_ctx_length=0, .sid_ctx=nil, .session=&dynamic_419_value,
+    .verify_mode=0, .verify_depth=0,
+    .verify_callback=0, .info_callback=INVALID12,
+    .error=0, .error_code=0, .ctx=&dynamic_418_value,
+    .debug=-2147483648, .verify_result=0,
+    .ex_data={ .sk=0, .dummy=0 }, .client_CA=0,
+    .references=0, .options=0, .mode=0,
+    .first_packet=0, .client_version=0 }
+
+State 33 file s3_clnt.blast.04.i.cil-1.c line 1132 function ssl3_connect thread 0
+----------------------------------------------------
+  state = dynamic_416_value.state
+
+State 34 file s3_clnt.blast.04.i.cil-1.c line 1337 function ssl3_connect thread 0
+----------------------------------------------------
+  ret = 2147483647 (01111111 11111111 11111111 11111111)
+
+State 35 file s3_clnt.blast.04.i.cil-1.c line 1353 function ssl3_connect thread 0
+----------------------------------------------------
+  s->state = { .version=768, .type=4096, .method=0, .rbio=0, .wbio=0,
+    .bbio=0, .rwstate=0, .in_handshake=1, .handshake_func=0,
+    .server=0, .new_session=1, .quiet_shutdown=0,
+    .shutdown=0, .state=4416, .rstate=0,
+    .init_buf=&dynamic_417_value, .init_num=0,
+    .init_off=0, .packet=0, .packet_length=0,
+    .s2=0, .s3=&dynamic_417_value, .read_ahead=0,
+    .hit=0, .purpose=0, .trust=0, .cipher_list=0,
+    .cipher_list_by_id=0, .enc_read_ctx=0,
+    .read_hash=0, .expand=0, .enc_write_ctx=0,
+    .write_hash=0, .compress=0, .cert=0,
+    .sid_ctx_length=0, .sid_ctx=nil, .session=&dynamic_419_value,
+    .verify_mode=0, .verify_depth=0,
+    .verify_callback=0, .info_callback=INVALID12,
+    .error=0, .error_code=0, .ctx=&dynamic_418_value,
+    .debug=-2147483648, .verify_result=0,
+    .ex_data={ .sk=0, .dummy=0 }, .client_CA=0,
+    .references=0, .options=0, .mode=0,
+    .first_packet=0, .client_version=0 }
+
+State 36 file s3_clnt.blast.04.i.cil-1.c line 1354 function ssl3_connect thread 0
+----------------------------------------------------
+  s->init_num = { .version=768, .type=4096, .method=0, .rbio=0, .wbio=0,
+    .bbio=0, .rwstate=0, .in_handshake=1, .handshake_func=0,
+    .server=0, .new_session=1, .quiet_shutdown=0,
+    .shutdown=0, .state=4416, .rstate=0,
+    .init_buf=&dynamic_417_value, .init_num=0,
+    .init_off=0, .packet=0, .packet_length=0,
+    .s2=0, .s3=&dynamic_417_value, .read_ahead=0,
+    .hit=0, .purpose=0, .trust=0, .cipher_list=0,
+    .cipher_list_by_id=0, .enc_read_ctx=0,
+    .read_hash=0, .expand=0, .enc_write_ctx=0,
+    .write_hash=0, .compress=0, .cert=0,
+    .sid_ctx_length=0, .sid_ctx=nil, .session=&dynamic_419_value,
+    .verify_mode=0, .verify_depth=0,
+    .verify_callback=0, .info_callback=INVALID12,
+    .error=0, .error_code=0, .ctx=&dynamic_418_value,
+    .debug=-2147483648, .verify_result=0,
+    .ex_data={ .sk=0, .dummy=0 }, .client_CA=0,
+    .references=0, .options=0, .mode=0,
+    .first_packet=0, .client_version=0 }
+
+State 37 file s3_clnt.blast.04.i.cil-1.c line 1132 function ssl3_connect thread 0
+----------------------------------------------------
+  state = dynamic_416_value.state
+
+State 38 file s3_clnt.blast.04.i.cil-1.c line 1358 function ssl3_connect thread 0
+----------------------------------------------------
+  ret = 2147483647 (01111111 11111111 11111111 11111111)
+
+State 39 file s3_clnt.blast.04.i.cil-1.c line 1369 function ssl3_connect thread 0
+----------------------------------------------------
+  s->state = { .version=768, .type=4096, .method=0, .rbio=0, .wbio=0,
+    .bbio=0, .rwstate=0, .in_handshake=1, .handshake_func=0,
+    .server=0, .new_session=1, .quiet_shutdown=0,
+    .shutdown=0, .state=4432, .rstate=0,
+    .init_buf=&dynamic_417_value, .init_num=0,
+    .init_off=0, .packet=0, .packet_length=0,
+    .s2=0, .s3=&dynamic_417_value, .read_ahead=0,
+    .hit=0, .purpose=0, .trust=0, .cipher_list=0,
+    .cipher_list_by_id=0, .enc_read_ctx=0,
+    .read_hash=0, .expand=0, .enc_write_ctx=0,
+    .write_hash=0, .compress=0, .cert=0,
+    .sid_ctx_length=0, .sid_ctx=nil, .session=&dynamic_419_value,
+    .verify_mode=0, .verify_depth=0,
+    .verify_callback=0, .info_callback=INVALID12,
+    .error=0, .error_code=0, .ctx=&dynamic_418_value,
+    .debug=-2147483648, .verify_result=0,
+    .ex_data={ .sk=0, .dummy=0 }, .client_CA=0,
+    .references=0, .options=0, .mode=0,
+    .first_packet=0, .client_version=0 }
+
+State 40 file s3_clnt.blast.04.i.cil-1.c line 1370 function ssl3_connect thread 0
+----------------------------------------------------
+  s->init_num = { .version=768, .type=4096, .method=0, .rbio=0, .wbio=0,
+    .bbio=0, .rwstate=0, .in_handshake=1, .handshake_func=0,
+    .server=0, .new_session=1, .quiet_shutdown=0,
+    .shutdown=0, .state=4432, .rstate=0,
+    .init_buf=&dynamic_417_value, .init_num=0,
+    .init_off=0, .packet=0, .packet_length=0,
+    .s2=0, .s3=&dynamic_417_value, .read_ahead=0,
+    .hit=0, .purpose=0, .trust=0, .cipher_list=0,
+    .cipher_list_by_id=0, .enc_read_ctx=0,
+    .read_hash=0, .expand=0, .enc_write_ctx=0,
+    .write_hash=0, .compress=0, .cert=0,
+    .sid_ctx_length=0, .sid_ctx=nil, .session=&dynamic_419_value,
+    .verify_mode=0, .verify_depth=0,
+    .verify_callback=0, .info_callback=INVALID12,
+    .error=0, .error_code=0, .ctx=&dynamic_418_value,
+    .debug=-2147483648, .verify_result=0,
+    .ex_data={ .sk=0, .dummy=0 }, .client_CA=0,
+    .references=0, .options=0, .mode=0,
+    .first_packet=0, .client_version=0 }
+
+State 41 file s3_clnt.blast.04.i.cil-1.c line 1132 function ssl3_connect thread 0
+----------------------------------------------------
+  state = dynamic_416_value.state
+
+State 42 file s3_clnt.blast.04.i.cil-1.c line 1380 function ssl3_connect thread 0
+----------------------------------------------------
+  ret = 0 (00000000 00000000 00000000 00000000)
+
+State 43 file s3_clnt.blast.04.i.cil-1.c line 3 function reach_error thread 0
+----------------------------------------------------
+Violated property:
+  file s3_clnt.blast.04.i.cil-1.c line 3 function reach_error
+  assertion 0
+  0
+
+
+VERIFICATION FAILED
+
+Bug found (k = 7)
+
+
+FALSE_REACH

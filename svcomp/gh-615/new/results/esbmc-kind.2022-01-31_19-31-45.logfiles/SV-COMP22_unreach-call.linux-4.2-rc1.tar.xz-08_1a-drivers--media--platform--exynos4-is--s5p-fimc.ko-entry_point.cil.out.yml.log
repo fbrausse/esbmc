@@ -1,0 +1,598 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i --64 --witness-output linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 64-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 4.022s
+GOTO program processing time: 4.125s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.054s (233 assignments)
+Slicing time: 0.000s (removed 216 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (17 assignments)
+BMC program time: 0.054s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.050s (233 assignments)
+Slicing time: 0.000s (removed 216 assignments)
+Generated 4 VCC(s), 4 remaining after simplification (17 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.003s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.003s
+Runtime decision procedure: 0.261s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 77  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 77  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 77  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 77  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 77  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 77  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Symex completed in: 0.057s (243 assignments)
+Slicing time: 0.000s (removed 230 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (13 assignments)
+BMC program time: 0.057s
+No bug has been found in the base case
+*** Checking forward condition, k = 3
+Starting Bounded Model Checking
+Unwinding loop 77  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 77  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 77  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 77  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 77  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 77  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Symex completed in: 0.058s (243 assignments)
+Slicing time: 0.000s (removed 230 assignments)
+Generated 2 VCC(s), 2 remaining after simplification (13 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.003s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.003s
+Runtime decision procedure: 0.267s
+The forward condition is unable to prove the property
+*** Checking inductive step, k = 3
+Starting Bounded Model Checking
+Unwinding loop 77  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 77  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 77  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 77  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 77  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 77  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 77  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 77  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 77  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 77  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 77  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 77  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 77  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 77  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 77  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 77  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 4  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 6655 function fimc_prepare_dma_offset
+Unwinding loop 4  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 6655 function fimc_prepare_dma_offset
+Not unwinding 
+Unwinding loop 4  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 6655 function fimc_prepare_dma_offset
+Unwinding loop 4  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 6655 function fimc_prepare_dma_offset
+Not unwinding 
+Unwinding loop 2  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 6359 function fimc_get_scaler_factor
+Unwinding loop 2  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 6359 function fimc_get_scaler_factor
+Not unwinding 
+Unwinding loop 2  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 6359 function fimc_get_scaler_factor
+Unwinding loop 2  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 6359 function fimc_get_scaler_factor
+Not unwinding 
+Unwinding loop 13  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 8871 function fimc_hw_set_output_addr
+Unwinding loop 13  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 8871 function fimc_hw_set_output_addr
+Not unwinding 
+Unwinding loop 17  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 9639 function fimc_m2m_shutdown
+Unwinding loop 17  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 9639 function fimc_m2m_shutdown
+Not unwinding 
+Unwinding loop 77  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 77  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 77  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 77  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 77  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 77  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 77  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 77  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 77  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 77  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 66  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 16355 function fimc_md_get_clocks
+Unwinding loop 66  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 16355 function fimc_md_get_clocks
+Unwinding loop 67  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 16375 function fimc_md_get_clocks
+Unwinding loop 67  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 16375 function fimc_md_get_clocks
+Unwinding loop 64  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 16307 function fimc_md_put_clocks
+Unwinding loop 64  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 16307 function fimc_md_put_clocks
+Unwinding loop 65  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 16325 function fimc_md_put_clocks
+Unwinding loop 65  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 16325 function fimc_md_put_clocks
+Unwinding loop 68  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 16406 function fimc_md_get_clocks
+Unwinding loop 64  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 16307 function fimc_md_put_clocks
+Unwinding loop 64  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 16307 function fimc_md_put_clocks
+Unwinding loop 65  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 16325 function fimc_md_put_clocks
+Unwinding loop 65  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 16325 function fimc_md_put_clocks
+Unwinding loop 52  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 15849 function fimc_md_register_platform_entities
+Unwinding loop 41  iteration  1   file string.c line 96 function strcmp
+Unwinding loop 41  iteration  2   file string.c line 96 function strcmp
+Not unwinding 
+Unwinding loop 41  iteration  1   file string.c line 96 function strcmp
+Unwinding loop 41  iteration  2   file string.c line 96 function strcmp
+Not unwinding 
+Unwinding loop 41  iteration  1   file string.c line 96 function strcmp
+Unwinding loop 41  iteration  2   file string.c line 96 function strcmp
+Not unwinding 
+Unwinding loop 41  iteration  1   file string.c line 96 function strcmp
+Unwinding loop 41  iteration  2   file string.c line 96 function strcmp
+Not unwinding 
+Unwinding loop 52  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 15849 function fimc_md_register_platform_entities
+Unwinding loop 41  iteration  1   file string.c line 96 function strcmp
+Unwinding loop 41  iteration  2   file string.c line 96 function strcmp
+Not unwinding 
+Unwinding loop 41  iteration  1   file string.c line 96 function strcmp
+Unwinding loop 41  iteration  2   file string.c line 96 function strcmp
+Not unwinding 
+Unwinding loop 41  iteration  1   file string.c line 96 function strcmp
+Unwinding loop 41  iteration  2   file string.c line 96 function strcmp
+Not unwinding 
+Unwinding loop 41  iteration  1   file string.c line 96 function strcmp
+Unwinding loop 41  iteration  2   file string.c line 96 function strcmp
+Not unwinding 
+Not unwinding 
+Unwinding loop 50  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 15508 function fimc_md_register_sensor_entities
+Unwinding loop 50  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 15508 function fimc_md_register_sensor_entities
+Not unwinding 
+Unwinding loop 51  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 15528 function fimc_md_register_sensor_entities
+Unwinding loop 51  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 15528 function fimc_md_register_sensor_entities
+Not unwinding 
+Unwinding loop 73  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 16726 function fimc_md_register_clk_provider
+Unwinding loop 73  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 16726 function fimc_md_register_clk_provider
+Unwinding loop 72  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 16674 function fimc_md_unregister_clk_provider
+Unwinding loop 72  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 16674 function fimc_md_unregister_clk_provider
+Not unwinding 
+Unwinding loop 72  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 16674 function fimc_md_unregister_clk_provider
+Unwinding loop 72  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 16674 function fimc_md_unregister_clk_provider
+Not unwinding 
+Unwinding loop 64  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 16307 function fimc_md_put_clocks
+Unwinding loop 64  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 16307 function fimc_md_put_clocks
+Unwinding loop 65  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 16325 function fimc_md_put_clocks
+Unwinding loop 65  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 16325 function fimc_md_put_clocks
+Unwinding loop 53  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 15877 function fimc_md_unregister_entities
+Unwinding loop 53  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 15877 function fimc_md_unregister_entities
+Not unwinding 
+Unwinding loop 54  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 15895 function fimc_md_unregister_entities
+Unwinding loop 54  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 15895 function fimc_md_unregister_entities
+Not unwinding 
+Unwinding loop 55  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 15911 function fimc_md_unregister_entities
+Unwinding loop 55  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 15911 function fimc_md_unregister_entities
+Unwinding loop 72  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 16674 function fimc_md_unregister_clk_provider
+Unwinding loop 72  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 16674 function fimc_md_unregister_clk_provider
+Not unwinding 
+Unwinding loop 53  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 15877 function fimc_md_unregister_entities
+Unwinding loop 53  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 15877 function fimc_md_unregister_entities
+Not unwinding 
+Unwinding loop 54  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 15895 function fimc_md_unregister_entities
+Unwinding loop 54  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 15895 function fimc_md_unregister_entities
+Not unwinding 
+Unwinding loop 55  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 15911 function fimc_md_unregister_entities
+Unwinding loop 55  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 15911 function fimc_md_unregister_entities
+Unwinding loop 49  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 15368 function fimc_md_pipelines_free
+Unwinding loop 49  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 15368 function fimc_md_pipelines_free
+Not unwinding 
+Unwinding loop 64  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 16307 function fimc_md_put_clocks
+Unwinding loop 64  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 16307 function fimc_md_put_clocks
+Unwinding loop 65  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 16325 function fimc_md_put_clocks
+Unwinding loop 65  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 16325 function fimc_md_put_clocks
+Unwinding loop 72  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 16674 function fimc_md_unregister_clk_provider
+Unwinding loop 72  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 16674 function fimc_md_unregister_clk_provider
+Not unwinding 
+Unwinding loop 53  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 15877 function fimc_md_unregister_entities
+Unwinding loop 53  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 15877 function fimc_md_unregister_entities
+Not unwinding 
+Unwinding loop 54  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 15895 function fimc_md_unregister_entities
+Unwinding loop 54  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 15895 function fimc_md_unregister_entities
+Not unwinding 
+Unwinding loop 55  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 15911 function fimc_md_unregister_entities
+Unwinding loop 55  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 15911 function fimc_md_unregister_entities
+Unwinding loop 49  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 15368 function fimc_md_pipelines_free
+Unwinding loop 49  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 15368 function fimc_md_pipelines_free
+Not unwinding 
+Unwinding loop 64  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 16307 function fimc_md_put_clocks
+Unwinding loop 64  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 16307 function fimc_md_put_clocks
+Unwinding loop 65  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 16325 function fimc_md_put_clocks
+Unwinding loop 65  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 16325 function fimc_md_put_clocks
+Unwinding loop 77  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 77  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 77  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 77  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 77  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 77  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 77  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 77  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 77  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 77  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 77  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 77  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 77  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 77  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 77  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 77  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 77  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 77  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 77  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 77  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 77  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 77  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 77  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 77  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 77  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 77  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 77  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 77  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 77  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 77  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 77  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 77  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 77  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 77  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 77  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 77  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 77  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 77  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 77  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 77  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 77  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 77  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 77  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 77  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+No target candidate for function call *ve->pipe->ops->open
+Unwinding loop 4  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 6655 function fimc_prepare_dma_offset
+Unwinding loop 4  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 6655 function fimc_prepare_dma_offset
+Not unwinding 
+Unwinding loop 14  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 8943 function fimc_hw_set_camera_source
+Unwinding loop 14  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 8943 function fimc_hw_set_camera_source
+Not unwinding 
+Unwinding loop 2  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 6359 function fimc_get_scaler_factor
+Unwinding loop 2  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 6359 function fimc_get_scaler_factor
+Not unwinding 
+Unwinding loop 2  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 6359 function fimc_get_scaler_factor
+Unwinding loop 2  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 6359 function fimc_get_scaler_factor
+Not unwinding 
+Unwinding loop 12  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 11913 function fimc_capture_resume
+Unwinding loop 13  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 8871 function fimc_hw_set_output_addr
+Unwinding loop 13  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 8871 function fimc_hw_set_output_addr
+Not unwinding 
+No target candidate for function call *ve->pipe->ops->set_stream
+Unwinding loop 12  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 11913 function fimc_capture_resume
+Unwinding loop 13  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 8871 function fimc_hw_set_output_addr
+Unwinding loop 13  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 8871 function fimc_hw_set_output_addr
+Not unwinding 
+No target candidate for function call *ve->pipe->ops->set_stream
+Not unwinding 
+No target candidate for function call *ve->pipe->ops->open
+Unwinding loop 4  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 6655 function fimc_prepare_dma_offset
+Unwinding loop 4  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 6655 function fimc_prepare_dma_offset
+Not unwinding 
+Unwinding loop 14  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 8943 function fimc_hw_set_camera_source
+Unwinding loop 14  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 8943 function fimc_hw_set_camera_source
+Not unwinding 
+Unwinding loop 2  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 6359 function fimc_get_scaler_factor
+Unwinding loop 2  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 6359 function fimc_get_scaler_factor
+Not unwinding 
+Unwinding loop 2  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 6359 function fimc_get_scaler_factor
+Unwinding loop 2  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 6359 function fimc_get_scaler_factor
+Not unwinding 
+Unwinding loop 12  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 11913 function fimc_capture_resume
+Unwinding loop 13  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 8871 function fimc_hw_set_output_addr
+Unwinding loop 13  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 8871 function fimc_hw_set_output_addr
+Not unwinding 
+No target candidate for function call *ve->pipe->ops->set_stream
+Unwinding loop 12  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 11913 function fimc_capture_resume
+Unwinding loop 13  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 8871 function fimc_hw_set_output_addr
+Unwinding loop 13  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 8871 function fimc_hw_set_output_addr
+Not unwinding 
+No target candidate for function call *ve->pipe->ops->set_stream
+Not unwinding 
+Unwinding loop 29  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 11556 function fimc_stop_capture
+Unwinding loop 29  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 11556 function fimc_stop_capture
+Not unwinding 
+Unwinding loop 27  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 11454 function fimc_capture_state_cleanup
+Unwinding loop 27  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 11454 function fimc_capture_state_cleanup
+Not unwinding 
+Unwinding loop 28  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 11472 function fimc_capture_state_cleanup
+Unwinding loop 28  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 11472 function fimc_capture_state_cleanup
+Not unwinding 
+No target candidate for function call *cap->ve.pipe->ops->set_stream
+No target candidate for function call *fimc->vid_cap.ve.pipe->ops->close
+Unwinding loop 11  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 7185 function fimc_m2m_suspend
+Unwinding loop 11  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 7185 function fimc_m2m_suspend
+Not unwinding 
+No target candidate for function call *ve->pipe->ops->open
+Unwinding loop 4  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 6655 function fimc_prepare_dma_offset
+Unwinding loop 4  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 6655 function fimc_prepare_dma_offset
+Not unwinding 
+Unwinding loop 14  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 8943 function fimc_hw_set_camera_source
+Unwinding loop 14  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 8943 function fimc_hw_set_camera_source
+Not unwinding 
+Unwinding loop 2  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 6359 function fimc_get_scaler_factor
+Unwinding loop 2  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 6359 function fimc_get_scaler_factor
+Not unwinding 
+Unwinding loop 2  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 6359 function fimc_get_scaler_factor
+Unwinding loop 2  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 6359 function fimc_get_scaler_factor
+Not unwinding 
+Unwinding loop 12  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 11913 function fimc_capture_resume
+Unwinding loop 13  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 8871 function fimc_hw_set_output_addr
+Unwinding loop 13  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 8871 function fimc_hw_set_output_addr
+Not unwinding 
+No target candidate for function call *ve->pipe->ops->set_stream
+Unwinding loop 12  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 11913 function fimc_capture_resume
+Unwinding loop 13  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 8871 function fimc_hw_set_output_addr
+Unwinding loop 13  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 8871 function fimc_hw_set_output_addr
+Not unwinding 
+No target candidate for function call *ve->pipe->ops->set_stream
+Not unwinding 
+Unwinding loop 29  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 11556 function fimc_stop_capture
+Unwinding loop 29  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 11556 function fimc_stop_capture
+Not unwinding 
+Unwinding loop 27  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 11454 function fimc_capture_state_cleanup
+Unwinding loop 27  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 11454 function fimc_capture_state_cleanup
+Not unwinding 
+Unwinding loop 28  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 11472 function fimc_capture_state_cleanup
+Unwinding loop 28  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 11472 function fimc_capture_state_cleanup
+Not unwinding 
+No target candidate for function call *cap->ve.pipe->ops->set_stream
+No target candidate for function call *fimc->vid_cap.ve.pipe->ops->close
+Unwinding loop 11  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 7185 function fimc_m2m_suspend
+Unwinding loop 11  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 7185 function fimc_m2m_suspend
+Not unwinding 
+Unwinding loop 29  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 11556 function fimc_stop_capture
+Unwinding loop 29  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 11556 function fimc_stop_capture
+Not unwinding 
+Unwinding loop 27  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 11454 function fimc_capture_state_cleanup
+Unwinding loop 27  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 11454 function fimc_capture_state_cleanup
+Not unwinding 
+Unwinding loop 28  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 11472 function fimc_capture_state_cleanup
+Unwinding loop 28  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 11472 function fimc_capture_state_cleanup
+Not unwinding 
+No target candidate for function call *cap->ve.pipe->ops->set_stream
+No target candidate for function call *fimc->vid_cap.ve.pipe->ops->close
+Unwinding loop 11  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 7185 function fimc_m2m_suspend
+Unwinding loop 11  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 7185 function fimc_m2m_suspend
+Not unwinding 
+Unwinding loop 29  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 11556 function fimc_stop_capture
+Unwinding loop 29  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 11556 function fimc_stop_capture
+Not unwinding 
+Unwinding loop 27  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 11454 function fimc_capture_state_cleanup
+Unwinding loop 27  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 11454 function fimc_capture_state_cleanup
+Not unwinding 
+Unwinding loop 28  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 11472 function fimc_capture_state_cleanup
+Unwinding loop 28  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 11472 function fimc_capture_state_cleanup
+Not unwinding 
+No target candidate for function call *cap->ve.pipe->ops->set_stream
+No target candidate for function call *fimc->vid_cap.ve.pipe->ops->close
+Unwinding loop 11  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 7185 function fimc_m2m_suspend
+Unwinding loop 11  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 7185 function fimc_m2m_suspend
+Not unwinding 
+No target candidate for function call *ve->pipe->ops->open
+Unwinding loop 4  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 6655 function fimc_prepare_dma_offset
+Unwinding loop 4  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 6655 function fimc_prepare_dma_offset
+Not unwinding 
+Unwinding loop 14  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 8943 function fimc_hw_set_camera_source
+Unwinding loop 14  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 8943 function fimc_hw_set_camera_source
+Not unwinding 
+Unwinding loop 2  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 6359 function fimc_get_scaler_factor
+Unwinding loop 2  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 6359 function fimc_get_scaler_factor
+Not unwinding 
+Unwinding loop 2  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 6359 function fimc_get_scaler_factor
+Unwinding loop 2  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 6359 function fimc_get_scaler_factor
+Not unwinding 
+Unwinding loop 12  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 11913 function fimc_capture_resume
+Unwinding loop 13  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 8871 function fimc_hw_set_output_addr
+Unwinding loop 13  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 8871 function fimc_hw_set_output_addr
+Not unwinding 
+No target candidate for function call *ve->pipe->ops->set_stream
+Unwinding loop 12  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 11913 function fimc_capture_resume
+Unwinding loop 13  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 8871 function fimc_hw_set_output_addr
+Unwinding loop 13  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 8871 function fimc_hw_set_output_addr
+Not unwinding 
+No target candidate for function call *ve->pipe->ops->set_stream
+Not unwinding 
+Unwinding loop 77  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 77  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 77  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 77  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 77  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 77  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 77  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 77  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 77  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 77  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 77  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 77  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 77  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 77  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 77  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 77  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 77  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 77  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 77  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 77  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 77  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 77  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 77  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 77  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 77  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 77  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 77  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 77  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 77  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 77  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 77  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 77  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 77  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 77  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 77  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 77  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 77  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 77  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 77  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 77  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 77  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 77  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 77  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 77  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 77  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 77  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 77  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 77  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 77  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 77  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 77  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 77  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 77  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 77  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 7  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 7044 function fimc_find_format
+Unwinding loop 7  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 7044 function fimc_find_format
+Not unwinding 
+Unwinding loop 6  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 6999 function fimc_adjust_mplane_format
+Unwinding loop 6  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 6999 function fimc_adjust_mplane_format
+Not unwinding 
+Unwinding loop 7  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 7044 function fimc_find_format
+Unwinding loop 7  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 7044 function fimc_find_format
+Not unwinding 
+Unwinding loop 20  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 10009 function __set_frame_format
+Unwinding loop 20  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 10009 function __set_frame_format
+Not unwinding 
+Unwinding loop 7  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 7044 function fimc_find_format
+Unwinding loop 7  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 7044 function fimc_find_format
+Not unwinding 
+Unwinding loop 6  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 6999 function fimc_adjust_mplane_format
+Unwinding loop 6  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 6999 function fimc_adjust_mplane_format
+Not unwinding 
+Unwinding loop 5  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 6950 function __fimc_get_format
+Unwinding loop 5  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 6950 function __fimc_get_format
+Not unwinding 
+Unwinding loop 7  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 7044 function fimc_find_format
+Unwinding loop 7  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 7044 function fimc_find_format
+Not unwinding 
+Unwinding loop 6  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 6999 function fimc_adjust_mplane_format
+Unwinding loop 6  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 6999 function fimc_adjust_mplane_format
+Not unwinding 
+Unwinding loop 7  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 7044 function fimc_find_format
+Unwinding loop 7  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 7044 function fimc_find_format
+Not unwinding 
+Unwinding loop 20  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 10009 function __set_frame_format
+Unwinding loop 20  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 10009 function __set_frame_format
+Not unwinding 
+Unwinding loop 7  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 7044 function fimc_find_format
+Unwinding loop 7  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 7044 function fimc_find_format
+Not unwinding 
+Unwinding loop 15  iteration  1   file string.c line 40 function strncpy
+Unwinding loop 15  iteration  2   file string.c line 40 function strncpy
+Not unwinding 
+Unwinding loop 16  iteration  1   file string.c line 44 function strncpy
+Unwinding loop 16  iteration  2   file string.c line 44 function strncpy
+Not unwinding 
+Unwinding loop 5  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 6950 function __fimc_get_format
+Unwinding loop 5  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 6950 function __fimc_get_format
+Not unwinding 
+Unwinding loop 7  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 7044 function fimc_find_format
+Unwinding loop 7  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 7044 function fimc_find_format
+Not unwinding 
+Unwinding loop 6  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 6999 function fimc_adjust_mplane_format
+Unwinding loop 6  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 6999 function fimc_adjust_mplane_format
+Not unwinding 
+Unwinding loop 21  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i line 10159 function fimc_m2m_try_crop
+Unwinding loop 21  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-d
+../sv-benchmarks/c/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-08_1a-drivers--media--platform--exynos4-is--s5p-fimc.ko-entry_point.cil.out.i:4478:43: warning: declaration of 'struct v4l2_async_subdev' will not be visible outside of this function [-Wvisibility]
+   bool (*match)(struct device * , struct v4l2_async_subdev * ) ;
+                                          ^
+Can't construct rvalue reference to array type during dereference
+(It isn't allowed by C anyway)
+
+
+Unknown

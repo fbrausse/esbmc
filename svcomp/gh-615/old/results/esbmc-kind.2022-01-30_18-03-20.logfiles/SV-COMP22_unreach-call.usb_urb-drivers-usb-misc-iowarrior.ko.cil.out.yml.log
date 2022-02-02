@@ -1,0 +1,257 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/ldv-linux-3.0/usb_urb-drivers-usb-misc-iowarrior.ko.cil.out.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-linux-3.0/usb_urb-drivers-usb-misc-iowarrior.ko.cil.out.i --64 --witness-output usb_urb-drivers-usb-misc-iowarrior.ko.cil.out.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 64-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/ldv-linux-3.0/usb_urb-drivers-usb-misc-iowarrior.ko.cil.out.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.730s
+GOTO program processing time: 0.111s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+**** WARNING: no body for function __builtin_object_size
+Not unwinding 
+No target candidate for function call *p->qproc
+No target candidate for function call *p->qproc
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.310s (1019 assignments)
+Slicing time: 0.004s (removed 833 assignments)
+Generated 2 VCC(s), 2 remaining after simplification (186 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.019s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.019s
+Runtime decision procedure: 7.624s
+BMC program time: 7.958s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+**** WARNING: no body for function __builtin_object_size
+Not unwinding 
+No target candidate for function call *p->qproc
+No target candidate for function call *p->qproc
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.242s (1017 assignments)
+Slicing time: 0.004s (removed 833 assignments)
+Generated 4 VCC(s), 4 remaining after simplification (184 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.018s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.018s
+Runtime decision procedure: 5.955s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+**** WARNING: no body for function __builtin_object_size
+Unwinding loop 10  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 10  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+No target candidate for function call *p->qproc
+No target candidate for function call *p->qproc
+Unwinding loop 7  iteration  1   file usb_urb-drivers-usb-misc-iowarrior.ko.cil.out.i line 5124 function iowarrior_probe
+Unwinding loop 7  iteration  2   file usb_urb-drivers-usb-misc-iowarrior.ko.cil.out.i line 5124 function iowarrior_probe
+Not unwinding 
+Unwinding loop 10  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 10  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 8  iteration  1   file usb_urb-drivers-usb-misc-iowarrior.ko.cil.out.i line 5377 function main
+Unwinding loop 4  iteration  1   file usb_urb-drivers-usb-misc-iowarrior.ko.cil.out.i line 4209 function iowarrior_read
+Unwinding loop 4  iteration  2   file usb_urb-drivers-usb-misc-iowarrior.ko.cil.out.i line 4209 function iowarrior_read
+Not unwinding 
+Unwinding loop 5  iteration  1   file usb_urb-drivers-usb-misc-iowarrior.ko.cil.out.i line 4179 function iowarrior_read
+Unwinding loop 4  iteration  1   file usb_urb-drivers-usb-misc-iowarrior.ko.cil.out.i line 4209 function iowarrior_read
+Unwinding loop 4  iteration  2   file usb_urb-drivers-usb-misc-iowarrior.ko.cil.out.i line 4209 function iowarrior_read
+Not unwinding 
+Unwinding loop 5  iteration  2   file usb_urb-drivers-usb-misc-iowarrior.ko.cil.out.i line 4179 function iowarrior_read
+Unwinding loop 4  iteration  1   file usb_urb-drivers-usb-misc-iowarrior.ko.cil.out.i line 4209 function iowarrior_read
+Unwinding loop 4  iteration  2   file usb_urb-drivers-usb-misc-iowarrior.ko.cil.out.i line 4209 function iowarrior_read
+Not unwinding 
+Not unwinding 
+**** WARNING: no body for function __builtin_object_size
+Unwinding loop 6  iteration  1   file usb_urb-drivers-usb-misc-iowarrior.ko.cil.out.i line 4438 function iowarrior_write
+Unwinding loop 6  iteration  2   file usb_urb-drivers-usb-misc-iowarrior.ko.cil.out.i line 4438 function iowarrior_write
+Not unwinding 
+**** WARNING: no body for function __builtin_object_size
+**** WARNING: no body for function __builtin_object_size
+Unwinding loop 10  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 10  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+No target candidate for function call *p->qproc
+No target candidate for function call *p->qproc
+Unwinding loop 7  iteration  1   file usb_urb-drivers-usb-misc-iowarrior.ko.cil.out.i line 5124 function iowarrior_probe
+Unwinding loop 7  iteration  2   file usb_urb-drivers-usb-misc-iowarrior.ko.cil.out.i line 5124 function iowarrior_probe
+Not unwinding 
+Unwinding loop 10  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 10  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 8  iteration  2   file usb_urb-drivers-usb-misc-iowarrior.ko.cil.out.i line 5377 function main
+Unwinding loop 4  iteration  1   file usb_urb-drivers-usb-misc-iowarrior.ko.cil.out.i line 4209 function iowarrior_read
+Unwinding loop 4  iteration  2   file usb_urb-drivers-usb-misc-iowarrior.ko.cil.out.i line 4209 function iowarrior_read
+Not unwinding 
+Unwinding loop 5  iteration  1   file usb_urb-drivers-usb-misc-iowarrior.ko.cil.out.i line 4179 function iowarrior_read
+Unwinding loop 4  iteration  1   file usb_urb-drivers-usb-misc-iowarrior.ko.cil.out.i line 4209 function iowarrior_read
+Unwinding loop 4  iteration  2   file usb_urb-drivers-usb-misc-iowarrior.ko.cil.out.i line 4209 function iowarrior_read
+Not unwinding 
+Unwinding loop 5  iteration  2   file usb_urb-drivers-usb-misc-iowarrior.ko.cil.out.i line 4179 function iowarrior_read
+Unwinding loop 4  iteration  1   file usb_urb-drivers-usb-misc-iowarrior.ko.cil.out.i line 4209 function iowarrior_read
+Unwinding loop 4  iteration  2   file usb_urb-drivers-usb-misc-iowarrior.ko.cil.out.i line 4209 function iowarrior_read
+Not unwinding 
+Not unwinding 
+**** WARNING: no body for function __builtin_object_size
+Unwinding loop 6  iteration  1   file usb_urb-drivers-usb-misc-iowarrior.ko.cil.out.i line 4438 function iowarrior_write
+Unwinding loop 6  iteration  2   file usb_urb-drivers-usb-misc-iowarrior.ko.cil.out.i line 4438 function iowarrior_write
+Not unwinding 
+**** WARNING: no body for function __builtin_object_size
+**** WARNING: no body for function __builtin_object_size
+Unwinding loop 10  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 10  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+No target candidate for function call *p->qproc
+No target candidate for function call *p->qproc
+Unwinding loop 7  iteration  1   file usb_urb-drivers-usb-misc-iowarrior.ko.cil.out.i line 5124 function iowarrior_probe
+Unwinding loop 7  iteration  2   file usb_urb-drivers-usb-misc-iowarrior.ko.cil.out.i line 5124 function iowarrior_probe
+Not unwinding 
+Unwinding loop 10  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 10  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Not unwinding 
+Symex completed in: 5.819s (6645 assignments)
+Slicing time: 0.105s (removed 4738 assignments)
+Generated 13 VCC(s), 13 remaining after simplification (1907 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.206s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.206s
+Runtime decision procedure: 248.979s
+Building error trace
+
+Counterexample:
+
+State 1 file usb_urb-drivers-usb-misc-iowarrior.ko.cil.out.i line 5380 function main thread 0
+----------------------------------------------------
+  tmp___9 = -2147483648 (10000000 00000000 00000000 00000000)
+
+State 2 file usb_urb-drivers-usb-misc-iowarrior.ko.cil.out.i line 5391 function main thread 0
+----------------------------------------------------
+  tmp___8 = 0 (00000000 00000000 00000000 00000000)
+
+State 3 file usb_urb-drivers-usb-misc-iowarrior.ko.cil.out.i line 4848 function iowarrior_open thread 0
+----------------------------------------------------
+  dev = ( struct iowarrior *)(&dynamic_70_array[0])
+
+State 4 file usb_urb-drivers-usb-misc-iowarrior.ko.cil.out.i line 5380 function main thread 0
+----------------------------------------------------
+  tmp___9 = -2147483648 (10000000 00000000 00000000 00000000)
+
+State 5 file usb_urb-drivers-usb-misc-iowarrior.ko.cil.out.i line 5391 function main thread 0
+----------------------------------------------------
+  tmp___8 = 1 (00000000 00000000 00000000 00000001)
+
+State 6 file usb_urb-drivers-usb-misc-iowarrior.ko.cil.out.i line 4148 function iowarrior_read thread 0
+----------------------------------------------------
+  dev = ( struct iowarrior *)INVALID4194304
+
+State 7 file usb_urb-drivers-usb-misc-iowarrior.ko.cil.out.i line 4129 function read_index thread 0
+----------------------------------------------------
+  tmp___7 = -1 (11111111 11111111 11111111 11111111)
+
+State 8 file usb_urb-drivers-usb-misc-iowarrior.ko.cil.out.i line 4253 function iowarrior_read thread 0
+----------------------------------------------------
+  r = 0 (00000000 00000000 00000000 00000000)
+
+State 9 file usb_urb-drivers-usb-misc-iowarrior.ko.cil.out.i line 5447 function main thread 0
+----------------------------------------------------
+  ldv_s_iowarrior_fops_file_operations = 2 (00000000 00000000 00000000 00000010)
+
+State 10 file usb_urb-drivers-usb-misc-iowarrior.ko.cil.out.i line 5380 function main thread 0
+----------------------------------------------------
+  tmp___9 = 0 (00000000 00000000 00000000 00000000)
+
+State 11 file usb_urb-drivers-usb-misc-iowarrior.ko.cil.out.i line 5391 function main thread 0
+----------------------------------------------------
+  tmp___8 = 2 (00000000 00000000 00000000 00000010)
+
+State 12 file usb_urb-drivers-usb-misc-iowarrior.ko.cil.out.i line 4482 function iowarrior_write thread 0
+----------------------------------------------------
+  retval = 0 (00000000 00000000 00000000 00000000)
+
+State 13 file usb_urb-drivers-usb-misc-iowarrior.ko.cil.out.i line 5621 function usb_alloc_urb thread 0
+----------------------------------------------------
+  arbitrary_memory = &dynamic_155_array[0]
+
+State 14 file usb_urb-drivers-usb-misc-iowarrior.ko.cil.out.i line 5627 function usb_alloc_urb thread 0
+----------------------------------------------------
+  ldv_urb_state = 1 (00000000 00000000 00000000 00000001)
+
+State 15 file usb_urb-drivers-usb-misc-iowarrior.ko.cil.out.i line 5564 function usb_alloc_coherent thread 0
+----------------------------------------------------
+  arbitrary_memory = &dynamic_157_array[0]
+
+State 16 file usb_urb-drivers-usb-misc-iowarrior.ko.cil.out.i line 5570 function usb_alloc_coherent thread 0
+----------------------------------------------------
+  ldv_coherent_state = 1 (00000000 00000000 00000000 00000001)
+
+State 17 file usb_urb-drivers-usb-misc-iowarrior.ko.cil.out.i line 4527 function iowarrior_write thread 0
+----------------------------------------------------
+  buf = &dynamic_157_array[0]
+
+State 19 file usb_urb-drivers-usb-misc-iowarrior.ko.cil.out.i line 3579 function copy_from_user thread 0
+----------------------------------------------------
+  sz = -302256133 (11101101 11111011 11101111 11111011)
+
+State 20 file usb_urb-drivers-usb-misc-iowarrior.ko.cil.out.i line 3591 function copy_from_user thread 0
+----------------------------------------------------
+  tmp___2 = 1 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000001)
+
+State 21 file usb_urb-drivers-usb-misc-iowarrior.ko.cil.out.i line 3596 function copy_from_user thread 0
+----------------------------------------------------
+  n = 0 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)
+
+State 22 file usb_urb-drivers-usb-misc-iowarrior.ko.cil.out.i line 4557 function iowarrior_write thread 0
+----------------------------------------------------
+  tmp___17 = 0 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)
+
+State 23 file usb_urb-drivers-usb-misc-iowarrior.ko.cil.out.i line 4588 function iowarrior_write thread 0
+----------------------------------------------------
+  retval = -1711009473 (10011010 00000100 00010001 00111111)
+
+State 24 file usb_urb-drivers-usb-misc-iowarrior.ko.cil.out.i line 5657 function usb_free_urb thread 0
+----------------------------------------------------
+  ldv_urb_state = 0 (00000000 00000000 00000000 00000000)
+
+State 25 file usb_urb-drivers-usb-misc-iowarrior.ko.cil.out.i line 12 function reach_error thread 0
+----------------------------------------------------
+Violated property:
+  file usb_urb-drivers-usb-misc-iowarrior.ko.cil.out.i line 12 function reach_error
+  assertion 0
+  0
+
+
+VERIFICATION FAILED
+
+Bug found (k = 3)
+
+../sv-benchmarks/c/ldv-linux-3.0/usb_urb-drivers-usb-misc-iowarrior.ko.cil.out.i:478:17: warning: cast to smaller integer type 'unsigned int' from 'struct lockdep_map *' [-Wpointer-to-int-cast]
+   u8 __padding[(unsigned int )(& ((struct raw_spinlock *)0)->dep_map)] ;
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.0/usb_urb-drivers-usb-misc-iowarrior.ko.cil.out.i:3611:5: warning: ignoring return value of function declared with const attribute [-Wunused-value]
+    __builtin_expect((long )(! (! __ret_warn_on)), 0L);
+    ^~~~~~~~~~~~~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.0/usb_urb-drivers-usb-misc-iowarrior.ko.cil.out.i:3710:50: warning: cast to smaller integer type 'unsigned int' from 'struct device *' [-Wpointer-to-int-cast]
+  return ((struct usb_device *)((char *)__mptr - (unsigned int )(& ((struct usb_device *)0)->dev)));
+                                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+FALSE_REACH

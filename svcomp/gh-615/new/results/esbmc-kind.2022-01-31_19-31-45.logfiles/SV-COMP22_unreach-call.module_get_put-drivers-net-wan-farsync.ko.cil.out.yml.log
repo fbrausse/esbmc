@@ -1,0 +1,608 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/ldv-linux-3.0/module_get_put-drivers-net-wan-farsync.ko.cil.out.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-linux-3.0/module_get_put-drivers-net-wan-farsync.ko.cil.out.i --64 --witness-output module_get_put-drivers-net-wan-farsync.ko.cil.out.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 64-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/ldv-linux-3.0/module_get_put-drivers-net-wan-farsync.ko.cil.out.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.437s
+GOTO program processing time: 0.099s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.003s (33 assignments)
+Slicing time: 0.000s (removed 31 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (2 assignments)
+BMC program time: 0.003s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.002s (33 assignments)
+Slicing time: 0.000s (removed 31 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (2 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.000s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.000s
+Runtime decision procedure: 0.000s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 22  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 7772 function fst_init
+Unwinding loop 22  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 7772 function fst_init
+Not unwinding 
+Symex completed in: 0.003s (37 assignments)
+Slicing time: 0.000s (removed 35 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (2 assignments)
+BMC program time: 0.003s
+No bug has been found in the base case
+*** Checking forward condition, k = 3
+Starting Bounded Model Checking
+Unwinding loop 22  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 7772 function fst_init
+Unwinding loop 22  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 7772 function fst_init
+Not unwinding 
+Symex completed in: 0.002s (37 assignments)
+Slicing time: 0.000s (removed 35 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (2 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.000s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.000s
+Runtime decision procedure: 0.001s
+The forward condition is unable to prove the property
+*** Checking inductive step, k = 3
+Starting Bounded Model Checking
+Unwinding loop 22  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 7772 function fst_init
+Unwinding loop 22  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 7772 function fst_init
+Not unwinding 
+Unwinding loop 23  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 7924 function main
+Unwinding loop 11  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5632 function fst_issue_cmd
+Unwinding loop 11  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5632 function fst_issue_cmd
+Not unwinding 
+Unwinding loop 12  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5719 function fst_rx_config
+Unwinding loop 12  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5719 function fst_rx_config
+Not unwinding 
+Unwinding loop 13  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5758 function fst_tx_config
+Unwinding loop 13  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5758 function fst_tx_config
+Unwinding loop 11  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5632 function fst_issue_cmd
+Unwinding loop 11  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5632 function fst_issue_cmd
+Not unwinding 
+Unwinding loop 11  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5632 function fst_issue_cmd
+Unwinding loop 11  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5632 function fst_issue_cmd
+Not unwinding 
+Unwinding loop 9  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5372 function fst_cpureset
+Unwinding loop 9  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5372 function fst_cpureset
+Not unwinding 
+Unwinding loop 10  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5385 function fst_cpureset
+Unwinding loop 10  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5385 function fst_cpureset
+Not unwinding 
+**** WARNING: no body for function __builtin_object_size
+Unwinding loop 2  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 2  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 27  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+**** WARNING: no body for function __builtin_object_size
+**** WARNING: no body for function __builtin_object_size
+Unwinding loop 11  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5632 function fst_issue_cmd
+Unwinding loop 11  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5632 function fst_issue_cmd
+Not unwinding 
+Unwinding loop 20  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 7647 function fst_add_one
+Unwinding loop 20  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 7647 function fst_add_one
+Unwinding loop 19  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 7610 function fst_add_one
+Not unwinding 
+Unwinding loop 9  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5372 function fst_cpureset
+Unwinding loop 9  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5372 function fst_cpureset
+Not unwinding 
+Unwinding loop 10  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5385 function fst_cpureset
+Unwinding loop 10  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5385 function fst_cpureset
+Not unwinding 
+Unwinding loop 17  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 7381 function fst_init_card
+Unwinding loop 16  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 7369 function fst_init_card
+Unwinding loop 16  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 7369 function fst_init_card
+Not unwinding 
+Unwinding loop 17  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 7381 function fst_init_card
+Unwinding loop 16  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 7369 function fst_init_card
+Unwinding loop 16  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 7369 function fst_init_card
+Not unwinding 
+Not unwinding 
+Unwinding loop 2  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 2  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+No target candidate for function call *hdlc->proto->type_trans
+Unwinding loop 15  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 6402 function fst_intr
+Unwinding loop 15  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 6402 function fst_intr
+Not unwinding 
+Unwinding loop 23  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 7924 function main
+Unwinding loop 11  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5632 function fst_issue_cmd
+Unwinding loop 11  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5632 function fst_issue_cmd
+Not unwinding 
+Unwinding loop 12  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5719 function fst_rx_config
+Unwinding loop 12  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5719 function fst_rx_config
+Not unwinding 
+Unwinding loop 13  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5758 function fst_tx_config
+Unwinding loop 13  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5758 function fst_tx_config
+Unwinding loop 11  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5632 function fst_issue_cmd
+Unwinding loop 11  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5632 function fst_issue_cmd
+Not unwinding 
+Unwinding loop 11  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5632 function fst_issue_cmd
+Unwinding loop 11  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5632 function fst_issue_cmd
+Not unwinding 
+Unwinding loop 11  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5632 function fst_issue_cmd
+Unwinding loop 11  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5632 function fst_issue_cmd
+Not unwinding 
+Unwinding loop 11  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5632 function fst_issue_cmd
+Unwinding loop 11  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5632 function fst_issue_cmd
+Not unwinding 
+Unwinding loop 9  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5372 function fst_cpureset
+Unwinding loop 9  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5372 function fst_cpureset
+Not unwinding 
+Unwinding loop 10  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5385 function fst_cpureset
+Unwinding loop 10  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5385 function fst_cpureset
+Not unwinding 
+**** WARNING: no body for function __builtin_object_size
+Unwinding loop 2  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 2  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 27  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+**** WARNING: no body for function __builtin_object_size
+**** WARNING: no body for function __builtin_object_size
+Unwinding loop 11  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5632 function fst_issue_cmd
+Unwinding loop 11  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5632 function fst_issue_cmd
+Not unwinding 
+Unwinding loop 20  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 7647 function fst_add_one
+Unwinding loop 20  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 7647 function fst_add_one
+Unwinding loop 19  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 7610 function fst_add_one
+Not unwinding 
+Unwinding loop 9  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5372 function fst_cpureset
+Unwinding loop 9  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5372 function fst_cpureset
+Not unwinding 
+Unwinding loop 10  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5385 function fst_cpureset
+Unwinding loop 10  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5385 function fst_cpureset
+Not unwinding 
+Unwinding loop 17  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 7381 function fst_init_card
+Unwinding loop 16  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 7369 function fst_init_card
+Unwinding loop 16  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 7369 function fst_init_card
+Not unwinding 
+Unwinding loop 17  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 7381 function fst_init_card
+Unwinding loop 16  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 7369 function fst_init_card
+Unwinding loop 16  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 7369 function fst_init_card
+Not unwinding 
+Not unwinding 
+Unwinding loop 2  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 2  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+No target candidate for function call *hdlc->proto->type_trans
+Unwinding loop 15  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 6402 function fst_intr
+Unwinding loop 15  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 6402 function fst_intr
+Not unwinding 
+Not unwinding 
+Unwinding loop 24  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 7927 function main
+Unwinding loop 11  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5632 function fst_issue_cmd
+Unwinding loop 11  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5632 function fst_issue_cmd
+Not unwinding 
+Unwinding loop 12  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5719 function fst_rx_config
+Unwinding loop 12  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5719 function fst_rx_config
+Not unwinding 
+Unwinding loop 13  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5758 function fst_tx_config
+Unwinding loop 13  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5758 function fst_tx_config
+Unwinding loop 11  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5632 function fst_issue_cmd
+Unwinding loop 11  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5632 function fst_issue_cmd
+Not unwinding 
+Unwinding loop 11  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5632 function fst_issue_cmd
+Unwinding loop 11  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5632 function fst_issue_cmd
+Not unwinding 
+Unwinding loop 11  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5632 function fst_issue_cmd
+Unwinding loop 11  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5632 function fst_issue_cmd
+Not unwinding 
+Unwinding loop 11  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5632 function fst_issue_cmd
+Unwinding loop 11  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5632 function fst_issue_cmd
+Not unwinding 
+Unwinding loop 9  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5372 function fst_cpureset
+Unwinding loop 9  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5372 function fst_cpureset
+Not unwinding 
+Unwinding loop 10  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5385 function fst_cpureset
+Unwinding loop 10  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5385 function fst_cpureset
+Not unwinding 
+**** WARNING: no body for function __builtin_object_size
+Unwinding loop 2  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 2  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 27  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+**** WARNING: no body for function __builtin_object_size
+**** WARNING: no body for function __builtin_object_size
+Unwinding loop 11  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5632 function fst_issue_cmd
+Unwinding loop 11  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5632 function fst_issue_cmd
+Not unwinding 
+Unwinding loop 20  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 7647 function fst_add_one
+Unwinding loop 20  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 7647 function fst_add_one
+Unwinding loop 19  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 7610 function fst_add_one
+Not unwinding 
+Unwinding loop 9  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5372 function fst_cpureset
+Unwinding loop 9  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5372 function fst_cpureset
+Not unwinding 
+Unwinding loop 10  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5385 function fst_cpureset
+Unwinding loop 10  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5385 function fst_cpureset
+Not unwinding 
+Unwinding loop 17  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 7381 function fst_init_card
+Unwinding loop 16  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 7369 function fst_init_card
+Unwinding loop 16  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 7369 function fst_init_card
+Not unwinding 
+Unwinding loop 17  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 7381 function fst_init_card
+Unwinding loop 16  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 7369 function fst_init_card
+Unwinding loop 16  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 7369 function fst_init_card
+Not unwinding 
+Not unwinding 
+Unwinding loop 2  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 2  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+No target candidate for function call *hdlc->proto->type_trans
+Unwinding loop 15  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 6402 function fst_intr
+Unwinding loop 15  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 6402 function fst_intr
+Not unwinding 
+Unwinding loop 23  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 7924 function main
+Unwinding loop 11  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5632 function fst_issue_cmd
+Unwinding loop 11  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5632 function fst_issue_cmd
+Not unwinding 
+Unwinding loop 12  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5719 function fst_rx_config
+Unwinding loop 12  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5719 function fst_rx_config
+Not unwinding 
+Unwinding loop 13  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5758 function fst_tx_config
+Unwinding loop 13  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5758 function fst_tx_config
+Unwinding loop 11  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5632 function fst_issue_cmd
+Unwinding loop 11  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5632 function fst_issue_cmd
+Not unwinding 
+Unwinding loop 11  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5632 function fst_issue_cmd
+Unwinding loop 11  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5632 function fst_issue_cmd
+Not unwinding 
+Unwinding loop 11  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5632 function fst_issue_cmd
+Unwinding loop 11  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5632 function fst_issue_cmd
+Not unwinding 
+Unwinding loop 11  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5632 function fst_issue_cmd
+Unwinding loop 11  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5632 function fst_issue_cmd
+Not unwinding 
+Unwinding loop 9  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5372 function fst_cpureset
+Unwinding loop 9  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5372 function fst_cpureset
+Not unwinding 
+Unwinding loop 10  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5385 function fst_cpureset
+Unwinding loop 10  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5385 function fst_cpureset
+Not unwinding 
+**** WARNING: no body for function __builtin_object_size
+Unwinding loop 2  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 2  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 27  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+**** WARNING: no body for function __builtin_object_size
+**** WARNING: no body for function __builtin_object_size
+Unwinding loop 11  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5632 function fst_issue_cmd
+Unwinding loop 11  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5632 function fst_issue_cmd
+Not unwinding 
+Unwinding loop 20  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 7647 function fst_add_one
+Unwinding loop 20  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 7647 function fst_add_one
+Unwinding loop 19  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 7610 function fst_add_one
+Not unwinding 
+Unwinding loop 9  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5372 function fst_cpureset
+Unwinding loop 9  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5372 function fst_cpureset
+Not unwinding 
+Unwinding loop 10  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5385 function fst_cpureset
+Unwinding loop 10  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5385 function fst_cpureset
+Not unwinding 
+Unwinding loop 17  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 7381 function fst_init_card
+Unwinding loop 16  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 7369 function fst_init_card
+Unwinding loop 16  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 7369 function fst_init_card
+Not unwinding 
+Unwinding loop 17  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 7381 function fst_init_card
+Unwinding loop 16  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 7369 function fst_init_card
+Unwinding loop 16  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 7369 function fst_init_card
+Not unwinding 
+Not unwinding 
+Unwinding loop 2  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 2  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+No target candidate for function call *hdlc->proto->type_trans
+Unwinding loop 15  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 6402 function fst_intr
+Unwinding loop 15  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 6402 function fst_intr
+Not unwinding 
+Unwinding loop 23  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 7924 function main
+Unwinding loop 11  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5632 function fst_issue_cmd
+Unwinding loop 11  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5632 function fst_issue_cmd
+Not unwinding 
+Unwinding loop 12  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5719 function fst_rx_config
+Unwinding loop 12  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5719 function fst_rx_config
+Not unwinding 
+Unwinding loop 13  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5758 function fst_tx_config
+Unwinding loop 13  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5758 function fst_tx_config
+Unwinding loop 11  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5632 function fst_issue_cmd
+Unwinding loop 11  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5632 function fst_issue_cmd
+Not unwinding 
+Unwinding loop 11  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5632 function fst_issue_cmd
+Unwinding loop 11  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5632 function fst_issue_cmd
+Not unwinding 
+Unwinding loop 11  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5632 function fst_issue_cmd
+Unwinding loop 11  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5632 function fst_issue_cmd
+Not unwinding 
+Unwinding loop 11  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5632 function fst_issue_cmd
+Unwinding loop 11  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5632 function fst_issue_cmd
+Not unwinding 
+Unwinding loop 9  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5372 function fst_cpureset
+Unwinding loop 9  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5372 function fst_cpureset
+Not unwinding 
+Unwinding loop 10  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5385 function fst_cpureset
+Unwinding loop 10  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5385 function fst_cpureset
+Not unwinding 
+**** WARNING: no body for function __builtin_object_size
+Unwinding loop 2  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 2  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 27  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+**** WARNING: no body for function __builtin_object_size
+**** WARNING: no body for function __builtin_object_size
+Unwinding loop 11  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5632 function fst_issue_cmd
+Unwinding loop 11  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5632 function fst_issue_cmd
+Not unwinding 
+Unwinding loop 20  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 7647 function fst_add_one
+Unwinding loop 20  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 7647 function fst_add_one
+Unwinding loop 19  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 7610 function fst_add_one
+Not unwinding 
+Unwinding loop 9  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5372 function fst_cpureset
+Unwinding loop 9  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5372 function fst_cpureset
+Not unwinding 
+Unwinding loop 10  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5385 function fst_cpureset
+Unwinding loop 10  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5385 function fst_cpureset
+Not unwinding 
+Unwinding loop 17  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 7381 function fst_init_card
+Unwinding loop 16  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 7369 function fst_init_card
+Unwinding loop 16  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 7369 function fst_init_card
+Not unwinding 
+Unwinding loop 17  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 7381 function fst_init_card
+Unwinding loop 16  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 7369 function fst_init_card
+Unwinding loop 16  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 7369 function fst_init_card
+Not unwinding 
+Not unwinding 
+Unwinding loop 2  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 2  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+No target candidate for function call *hdlc->proto->type_trans
+Unwinding loop 15  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 6402 function fst_intr
+Unwinding loop 15  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 6402 function fst_intr
+Not unwinding 
+Not unwinding 
+Unwinding loop 24  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 7927 function main
+Unwinding loop 11  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5632 function fst_issue_cmd
+Unwinding loop 11  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5632 function fst_issue_cmd
+Not unwinding 
+Unwinding loop 12  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5719 function fst_rx_config
+Unwinding loop 12  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5719 function fst_rx_config
+Not unwinding 
+Unwinding loop 13  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5758 function fst_tx_config
+Unwinding loop 13  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5758 function fst_tx_config
+Unwinding loop 11  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5632 function fst_issue_cmd
+Unwinding loop 11  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5632 function fst_issue_cmd
+Not unwinding 
+Unwinding loop 11  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5632 function fst_issue_cmd
+Unwinding loop 11  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5632 function fst_issue_cmd
+Not unwinding 
+Unwinding loop 11  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5632 function fst_issue_cmd
+Unwinding loop 11  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5632 function fst_issue_cmd
+Not unwinding 
+Unwinding loop 11  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5632 function fst_issue_cmd
+Unwinding loop 11  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5632 function fst_issue_cmd
+Not unwinding 
+Unwinding loop 9  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5372 function fst_cpureset
+Unwinding loop 9  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5372 function fst_cpureset
+Not unwinding 
+Unwinding loop 10  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5385 function fst_cpureset
+Unwinding loop 10  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5385 function fst_cpureset
+Not unwinding 
+**** WARNING: no body for function __builtin_object_size
+Unwinding loop 2  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 2  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 27  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+**** WARNING: no body for function __builtin_object_size
+**** WARNING: no body for function __builtin_object_size
+Unwinding loop 11  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5632 function fst_issue_cmd
+Unwinding loop 11  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5632 function fst_issue_cmd
+Not unwinding 
+Unwinding loop 20  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 7647 function fst_add_one
+Unwinding loop 20  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 7647 function fst_add_one
+Unwinding loop 19  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 7610 function fst_add_one
+Not unwinding 
+Unwinding loop 9  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5372 function fst_cpureset
+Unwinding loop 9  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5372 function fst_cpureset
+Not unwinding 
+Unwinding loop 10  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5385 function fst_cpureset
+Unwinding loop 10  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5385 function fst_cpureset
+Not unwinding 
+Unwinding loop 17  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 7381 function fst_init_card
+Unwinding loop 16  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 7369 function fst_init_card
+Unwinding loop 16  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 7369 function fst_init_card
+Not unwinding 
+Unwinding loop 17  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 7381 function fst_init_card
+Unwinding loop 16  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 7369 function fst_init_card
+Unwinding loop 16  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 7369 function fst_init_card
+Not unwinding 
+Not unwinding 
+Unwinding loop 2  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 2  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+No target candidate for function call *hdlc->proto->type_trans
+Unwinding loop 15  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 6402 function fst_intr
+Unwinding loop 15  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 6402 function fst_intr
+Not unwinding 
+Unwinding loop 23  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 7924 function main
+Unwinding loop 11  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5632 function fst_issue_cmd
+Unwinding loop 11  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5632 function fst_issue_cmd
+Not unwinding 
+Unwinding loop 12  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5719 function fst_rx_config
+Unwinding loop 12  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5719 function fst_rx_config
+Not unwinding 
+Unwinding loop 13  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5758 function fst_tx_config
+Unwinding loop 13  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5758 function fst_tx_config
+Unwinding loop 11  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5632 function fst_issue_cmd
+Unwinding loop 11  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5632 function fst_issue_cmd
+Not unwinding 
+Unwinding loop 11  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5632 function fst_issue_cmd
+Unwinding loop 11  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5632 function fst_issue_cmd
+Not unwinding 
+Unwinding loop 11  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5632 function fst_issue_cmd
+Unwinding loop 11  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5632 function fst_issue_cmd
+Not unwinding 
+Unwinding loop 11  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5632 function fst_issue_cmd
+Unwinding loop 11  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5632 function fst_issue_cmd
+Not unwinding 
+Unwinding loop 9  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5372 function fst_cpureset
+Unwinding loop 9  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5372 function fst_cpureset
+Not unwinding 
+Unwinding loop 10  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5385 function fst_cpureset
+Unwinding loop 10  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5385 function fst_cpureset
+Not unwinding 
+**** WARNING: no body for function __builtin_object_size
+Unwinding loop 2  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 2  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 27  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+**** WARNING: no body for function __builtin_object_size
+**** WARNING: no body for function __builtin_object_size
+Unwinding loop 11  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5632 function fst_issue_cmd
+Unwinding loop 11  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5632 function fst_issue_cmd
+Not unwinding 
+Unwinding loop 20  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 7647 function fst_add_one
+Unwinding loop 20  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 7647 function fst_add_one
+Unwinding loop 19  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 7610 function fst_add_one
+Not unwinding 
+Unwinding loop 9  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5372 function fst_cpureset
+Unwinding loop 9  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5372 function fst_cpureset
+Not unwinding 
+Unwinding loop 10  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5385 function fst_cpureset
+Unwinding loop 10  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5385 function fst_cpureset
+Not unwinding 
+Unwinding loop 17  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 7381 function fst_init_card
+Unwinding loop 16  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 7369 function fst_init_card
+Unwinding loop 16  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 7369 function fst_init_card
+Not unwinding 
+Unwinding loop 17  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 7381 function fst_init_card
+Unwinding loop 16  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 7369 function fst_init_card
+Unwinding loop 16  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 7369 function fst_init_card
+Not unwinding 
+Not unwinding 
+Unwinding loop 2  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 2  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+No target candidate for function call *hdlc->proto->type_trans
+Unwinding loop 15  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 6402 function fst_intr
+Unwinding loop 15  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 6402 function fst_intr
+Not unwinding 
+Unwinding loop 23  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 7924 function main
+Unwinding loop 11  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5632 function fst_issue_cmd
+Unwinding loop 11  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5632 function fst_issue_cmd
+Not unwinding 
+Unwinding loop 12  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5719 function fst_rx_config
+Unwinding loop 12  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5719 function fst_rx_config
+Not unwinding 
+Unwinding loop 13  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5758 function fst_tx_config
+Unwinding loop 13  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5758 function fst_tx_config
+Unwinding loop 11  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5632 function fst_issue_cmd
+Unwinding loop 11  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5632 function fst_issue_cmd
+Not unwinding 
+Unwinding loop 11  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5632 function fst_issue_cmd
+Unwinding loop 11  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5632 function fst_issue_cmd
+Not unwinding 
+Unwinding loop 11  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5632 function fst_issue_cmd
+Unwinding loop 11  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5632 function fst_issue_cmd
+Not unwinding 
+Unwinding loop 11  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5632 function fst_issue_cmd
+Unwinding loop 11  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5632 function fst_issue_cmd
+Not unwinding 
+Unwinding loop 9  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5372 function fst_cpureset
+Unwinding loop 9  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5372 function fst_cpureset
+Not unwinding 
+Unwinding loop 10  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5385 function fst_cpureset
+Unwinding loop 10  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5385 function fst_cpureset
+Not unwinding 
+**** WARNING: no body for function __builtin_object_size
+Unwinding loop 2  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 2  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 27  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+**** WARNING: no body for function __builtin_object_size
+**** WARNING: no body for function __builtin_object_size
+Unwinding loop 11  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5632 function fst_issue_cmd
+Unwinding loop 11  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5632 function fst_issue_cmd
+Not unwinding 
+Unwinding loop 20  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 7647 function fst_add_one
+Unwinding loop 20  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 7647 function fst_add_one
+Unwinding loop 19  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 7610 function fst_add_one
+Not unwinding 
+Unwinding loop 9  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5372 function fst_cpureset
+Unwinding loop 9  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5372 function fst_cpureset
+Not unwinding 
+Unwinding loop 10  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5385 function fst_cpureset
+Unwinding loop 10  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 5385 function fst_cpureset
+Not unwinding 
+Unwinding loop 17  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 7381 function fst_init_card
+Unwinding loop 16  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 7369 function fst_init_card
+Unwinding loop 16  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 7369 function fst_init_card
+Not unwinding 
+Unwinding loop 17  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 7381 function fst_init_card
+Unwinding loop 16  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 7369 function fst_init_card
+Unwinding loop 16  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 7369 function fst_init_card
+Not unwinding 
+Not unwinding 
+Unwinding loop 2  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 2  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+No target candidate for function call *hdlc->proto->type_trans
+Unwinding loop 15  iteration  1   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 6402 function fst_intr
+Unwinding loop 15  iteration  2   file module_get_put-drivers-net-wan-farsync.ko.cil.out.i line 6402 function fst_intr
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 40.700s (26477 assignments)
+Slicing time: 0.706s (removed 17006 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (9471 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 2.037s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 2.037s
+Runtime decision procedure: 0.001s
+BMC program time: 43.448s
+Building successful trace
+
+VERIFICATION SUCCESSFUL
+
+Solution found by the inductive step (k = 3)
+
+../sv-benchmarks/c/ldv-linux-3.0/module_get_put-drivers-net-wan-farsync.ko.cil.out.i:4922:3: warning: ignoring return value of function declared with const attribute [-Wunused-value]
+  __builtin_expect((long )(__ret_warn_on != 0), 0L);
+  ^~~~~~~~~~~~~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.0/module_get_put-drivers-net-wan-farsync.ko.cil.out.i:5027:7: warning: ignoring return value of function declared with const attribute [-Wunused-value]
+      __builtin_expect((long )(__ret_warn_on != 0), 0L);
+      ^~~~~~~~~~~~~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+TRUE

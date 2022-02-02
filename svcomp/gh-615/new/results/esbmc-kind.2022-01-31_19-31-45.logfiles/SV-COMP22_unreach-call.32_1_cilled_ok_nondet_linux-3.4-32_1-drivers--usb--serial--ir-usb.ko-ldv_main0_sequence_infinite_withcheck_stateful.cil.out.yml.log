@@ -1,0 +1,108 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/ldv-linux-3.4-simple/32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--usb--serial--ir-usb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-linux-3.4-simple/32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--usb--serial--ir-usb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i --64 --witness-output 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--usb--serial--ir-usb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 64-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/ldv-linux-3.4-simple/32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--usb--serial--ir-usb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.244s
+GOTO program processing time: 0.030s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.059s (685 assignments)
+Slicing time: 0.001s (removed 639 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (46 assignments)
+BMC program time: 0.060s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.062s (685 assignments)
+Slicing time: 0.001s (removed 639 assignments)
+Generated 2 VCC(s), 2 remaining after simplification (46 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.003s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.003s
+Runtime decision procedure: 0.255s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--usb--serial--ir-usb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4563 function ir_open
+Unwinding loop 1  iteration  2   file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--usb--serial--ir-usb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4563 function ir_open
+Unwinding loop 2  iteration  1   file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--usb--serial--ir-usb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 5322 function main
+Unwinding loop 1  iteration  1   file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--usb--serial--ir-usb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4563 function ir_open
+Unwinding loop 1  iteration  2   file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--usb--serial--ir-usb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4563 function ir_open
+Unwinding loop 2  iteration  2   file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--usb--serial--ir-usb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 5322 function main
+Unwinding loop 1  iteration  1   file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--usb--serial--ir-usb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4563 function ir_open
+Unwinding loop 1  iteration  2   file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--usb--serial--ir-usb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4563 function ir_open
+Not unwinding 
+Symex completed in: 0.220s (2159 assignments)
+Slicing time: 0.003s (removed 2024 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (135 assignments)
+BMC program time: 0.223s
+No bug has been found in the base case
+*** Checking forward condition, k = 3
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--usb--serial--ir-usb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4563 function ir_open
+Unwinding loop 1  iteration  2   file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--usb--serial--ir-usb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4563 function ir_open
+Unwinding loop 2  iteration  1   file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--usb--serial--ir-usb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 5322 function main
+Unwinding loop 1  iteration  1   file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--usb--serial--ir-usb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4563 function ir_open
+Unwinding loop 1  iteration  2   file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--usb--serial--ir-usb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4563 function ir_open
+Unwinding loop 2  iteration  2   file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--usb--serial--ir-usb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 5322 function main
+Unwinding loop 1  iteration  1   file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--usb--serial--ir-usb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4563 function ir_open
+Unwinding loop 1  iteration  2   file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--usb--serial--ir-usb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4563 function ir_open
+Not unwinding 
+Symex completed in: 0.240s (2159 assignments)
+Slicing time: 0.004s (removed 2024 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (135 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.015s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.015s
+Runtime decision procedure: 1.922s
+The forward condition is unable to prove the property
+*** Checking inductive step, k = 3
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--usb--serial--ir-usb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4563 function ir_open
+Unwinding loop 1  iteration  2   file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--usb--serial--ir-usb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4563 function ir_open
+Not unwinding 
+Unwinding loop 2  iteration  1   file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--usb--serial--ir-usb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 5322 function main
+Unwinding loop 1  iteration  1   file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--usb--serial--ir-usb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4563 function ir_open
+Unwinding loop 1  iteration  2   file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--usb--serial--ir-usb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4563 function ir_open
+Not unwinding 
+Unwinding loop 2  iteration  2   file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--usb--serial--ir-usb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 5322 function main
+Unwinding loop 1  iteration  1   file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--usb--serial--ir-usb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4563 function ir_open
+Unwinding loop 1  iteration  2   file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--usb--serial--ir-usb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4563 function ir_open
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.607s (3336 assignments)
+Slicing time: 0.022s (removed 2592 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (744 assignments)
+BMC program time: 0.629s
+Building successful trace
+
+VERIFICATION SUCCESSFUL
+
+Solution found by the inductive step (k = 3)
+
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--usb--serial--ir-usb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i:5297:1: warning: return type of 'main' is not 'int' [-Wmain-return-type]
+void main(void)
+^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--usb--serial--ir-usb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i:5297:1: note: change return type to 'int'
+void main(void)
+^~~~
+int
+
+TRUE

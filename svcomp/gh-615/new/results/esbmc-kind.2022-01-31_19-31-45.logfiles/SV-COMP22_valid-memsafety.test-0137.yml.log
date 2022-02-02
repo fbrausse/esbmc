@@ -1,0 +1,238 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/valid-memsafety.prp -s kinduction --arch 32 ../sv-benchmarks/c/memsafety/test-0137.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/memsafety/test-0137.i --32 --witness-output test-0137.i.graphml --memory-leak-check --no-assertions --incremental-bmc 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/memsafety/test-0137.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.154s
+GOTO program processing time: 0.001s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.013s (123 assignments)
+Slicing time: 0.001s (removed 65 assignments)
+Generated 47 VCC(s), 24 remaining after simplification (58 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.003s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.003s
+Runtime decision procedure: 0.001s
+BMC program time: 0.019s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.012s (123 assignments)
+Slicing time: 0.001s (removed 65 assignments)
+Generated 51 VCC(s), 28 remaining after simplification (58 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.003s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.003s
+Runtime decision procedure: 0.112s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file test-0137.i line 578 function gl_read
+Unwinding loop 1  iteration  2   file test-0137.i line 578 function gl_read
+Not unwinding 
+Unwinding loop 3  iteration  1   file test-0137.i line 602 function gl_seek_max
+Unwinding loop 3  iteration  2   file test-0137.i line 602 function gl_seek_max
+Not unwinding 
+Unwinding loop 4  iteration  1   file test-0137.i line 617 function gl_sort
+Unwinding loop 3  iteration  1   file test-0137.i line 602 function gl_seek_max
+Unwinding loop 3  iteration  2   file test-0137.i line 602 function gl_seek_max
+Not unwinding 
+Unwinding loop 4  iteration  2   file test-0137.i line 617 function gl_sort
+Unwinding loop 3  iteration  1   file test-0137.i line 602 function gl_seek_max
+Unwinding loop 3  iteration  2   file test-0137.i line 602 function gl_seek_max
+Not unwinding 
+Not unwinding 
+Unwinding loop 2  iteration  1   file test-0137.i line 583 function gl_destroy
+Unwinding loop 2  iteration  2   file test-0137.i line 583 function gl_destroy
+Not unwinding 
+Symex completed in: 0.140s (718 assignments)
+Slicing time: 0.010s (removed 160 assignments)
+Generated 497 VCC(s), 295 remaining after simplification (558 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.039s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.039s
+Runtime decision procedure: 5.028s
+Building error trace
+
+Counterexample:
+
+State 2 file test-0137.i line 570 function gl_insert thread 0
+----------------------------------------------------
+  node->value = { .value=-1834909788, .linkage=nil }
+
+State 4 file test-0137.i line 536 function __list_add thread 0
+----------------------------------------------------
+  new->next = { .value=-1834909788, .linkage=dynamic_8_value.linkage WITH [next:=( struct list_head *)(&gl_list)] }
+
+State 6 file test-0137.i line 537 function __list_add thread 0
+----------------------------------------------------
+  new->prev = { .value=-1834909788, .linkage=dynamic_8_value.linkage WITH [prev:=( struct list_head *)(&gl_list)] }
+
+State 7 file test-0137.i line 599 function gl_seek_max thread 0
+----------------------------------------------------
+  max_pos = gl_list.next
+
+State 8 file test-0137.i line 589 function val_from_node thread 0
+----------------------------------------------------
+  entry = ( struct node *)((signed char *)(&dynamic_8_value.value) - ((unsigned int)(( struct list_head {  struct list_head * next;  struct list_head * prev; } *)((unsigned char *)0 + 4))))
+
+State 18 file test-0137.i line 602 function gl_seek_max thread 0
+----------------------------------------------------
+  pos = dynamic_8_value.linkage.next
+
+State 19 file test-0137.i line 589 function val_from_node thread 0
+----------------------------------------------------
+  entry = ( struct node *)((signed char *)(&gl_list) - ((unsigned int)(( struct list_head {  struct list_head * next;  struct list_head * prev; } *)((unsigned char *)0 + 4))))
+
+State 25 file test-0137.i line 603 function gl_seek_max thread 0
+----------------------------------------------------
+  value = 312565668 (00010010 10100001 01011111 10100100)
+
+State 26 file test-0137.i line 606 function gl_seek_max thread 0
+----------------------------------------------------
+  max_pos = &gl_list
+
+State 27 file test-0137.i line 607 function gl_seek_max thread 0
+----------------------------------------------------
+  max = 312565668 (00010010 10100001 01011111 10100100)
+
+State 30 file test-0137.i line 602 function gl_seek_max thread 0
+----------------------------------------------------
+  pos = gl_list.next
+
+State 31 file test-0137.i line 589 function val_from_node thread 0
+----------------------------------------------------
+  entry = ( struct node *)((signed char *)(&dynamic_8_value.value) - ((unsigned int)(( struct list_head {  struct list_head * next;  struct list_head * prev; } *)((unsigned char *)0 + 4))))
+
+State 39 file test-0137.i line 603 function gl_seek_max thread 0
+----------------------------------------------------
+  value = -1834909788 (10010010 10100001 01111111 10100100)
+
+State 43 file test-0137.i line 602 function gl_seek_max thread 0
+----------------------------------------------------
+  pos = dynamic_8_value.linkage.next
+
+State 55 file test-0137.i line 542 function __list_del thread 0
+----------------------------------------------------
+  next->prev = { .value=-872411072, .linkage={ .next=&dynamic_8_value.value, .prev=&gl_list } }
+
+State 59 file test-0137.i line 543 function __list_del thread 0
+----------------------------------------------------
+  prev->next = { .value=-872411072, .linkage={ .next=&dynamic_8_value.value, .prev=&gl_list } }
+
+State 60 file test-0137.i line 535 function __list_add thread 0
+----------------------------------------------------
+  next->prev = { .next=&dst?1!0, .prev=new?4!0&0#1 }
+
+State 65 file test-0137.i line 536 function __list_add thread 0
+----------------------------------------------------
+  new->next = { .value=-1834909788, .linkage={ .next=&dynamic_8_value.value, .prev=&dynamic_8_value.value } }
+
+State 70 file test-0137.i line 537 function __list_add thread 0
+----------------------------------------------------
+  new->prev = { .value=-1834909788, .linkage={ .next=&dynamic_8_value.value, .prev=&dynamic_8_value.value } }
+
+State 71 file test-0137.i line 538 function __list_add thread 0
+----------------------------------------------------
+  prev->next = { .next=&gl_list, .prev=&gl_list }
+
+State 72 file test-0137.i line 599 function gl_seek_max thread 0
+----------------------------------------------------
+  max_pos = gl_list.next
+
+State 73 file test-0137.i line 589 function val_from_node thread 0
+----------------------------------------------------
+  entry = ( struct node *)((signed char *)(&dst) - ((unsigned int)(( struct list_head {  struct list_head * next;  struct list_head * prev; } *)((unsigned char *)0 + 4))))
+
+State 85 file test-0137.i line 602 function gl_seek_max thread 0
+----------------------------------------------------
+  pos = dst.next
+
+State 86 file test-0137.i line 589 function val_from_node thread 0
+----------------------------------------------------
+  entry = ( struct node *)((signed char *)(&gl_list) - ((unsigned int)(( struct list_head {  struct list_head * next;  struct list_head * prev; } *)((unsigned char *)0 + 4))))
+
+State 96 file test-0137.i line 603 function gl_seek_max thread 0
+----------------------------------------------------
+  value = -1056960512 (11000001 00000000 00010000 00000000)
+
+State 101 file test-0137.i line 602 function gl_seek_max thread 0
+----------------------------------------------------
+  pos = gl_list.next
+
+State 114 file test-0137.i line 542 function __list_del thread 0
+----------------------------------------------------
+  next->prev = { .value=-1834909788, .linkage={ .next=&dynamic_8_value.value, .prev=&dynamic_8_value.value } }
+
+State 119 file test-0137.i line 543 function __list_del thread 0
+----------------------------------------------------
+  prev->next = { .next=&gl_list, .prev=&gl_list }
+
+State 124 file test-0137.i line 535 function __list_add thread 0
+----------------------------------------------------
+  next->prev = { .next=&gl_list, .prev=&gl_list }
+
+State 129 file test-0137.i line 536 function __list_add thread 0
+----------------------------------------------------
+  new->next = { .next=&gl_list, .prev=&gl_list }
+
+State 134 file test-0137.i line 537 function __list_add thread 0
+----------------------------------------------------
+  new->prev = { .next=&gl_list, .prev=( struct list_head *)(&dst) }
+
+State 135 file test-0137.i line 538 function __list_add thread 0
+----------------------------------------------------
+  prev->next = { .next=&dst, .prev=&dst }
+
+State 140 file test-0137.i line 619 function gl_sort thread 0
+----------------------------------------------------
+  dst.next->prev = { .value=-1834909788, .linkage={ .next=&dynamic_8_value.value, .prev=&dynamic_8_value.value } }
+
+State 145 file test-0137.i line 620 function gl_sort thread 0
+----------------------------------------------------
+  dst.prev->next = { .next=&dst, .prev=&gl_list }
+
+State 146 file test-0137.i line 621 function gl_sort thread 0
+----------------------------------------------------
+  gl_list = { .next=&dst, .prev=&gl_list }
+
+State 147 file test-0137.i line 583 function gl_destroy thread 0
+----------------------------------------------------
+  next = gl_list.next
+
+State 148 file test-0137.i line 584 function gl_destroy thread 0
+----------------------------------------------------
+Violated property:
+  file test-0137.i line 584 function gl_destroy
+  dereference failure: accessed expired variable pointer `dst'
+
+
+VERIFICATION FAILED
+
+Bug found (k = 3)
+
+
+FALSE_DEREF

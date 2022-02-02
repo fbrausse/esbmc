@@ -1,0 +1,545 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/ldv-linux-3.16-rc1/43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-linux-3.16-rc1/43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i --64 --witness-output 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 64-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/ldv-linux-3.16-rc1/43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.674s
+GOTO program processing time: 0.085s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.022s (298 assignments)
+Slicing time: 0.000s (removed 260 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (38 assignments)
+BMC program time: 0.022s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.021s (298 assignments)
+Slicing time: 0.001s (removed 260 assignments)
+Generated 4 VCC(s), 4 remaining after simplification (38 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.003s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.003s
+Runtime decision procedure: 0.230s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 10  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 10  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 10  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 10  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 10  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 10  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 9  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 7762 function main
+Unwinding loop 3  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6316 function btmrvl_sdio_verify_fw_download
+Unwinding loop 2  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6282 function btmrvl_sdio_poll_card_status
+Unwinding loop 2  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6282 function btmrvl_sdio_poll_card_status
+Not unwinding 
+Unwinding loop 4  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 4  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 5  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6405 function btmrvl_sdio_download_helper
+Unwinding loop 2  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6282 function btmrvl_sdio_poll_card_status
+Unwinding loop 2  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6282 function btmrvl_sdio_poll_card_status
+Not unwinding 
+Unwinding loop 4  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 4  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 5  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6405 function btmrvl_sdio_download_helper
+Unwinding loop 2  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6282 function btmrvl_sdio_poll_card_status
+Unwinding loop 2  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6282 function btmrvl_sdio_poll_card_status
+Not unwinding 
+Unwinding loop 4  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 4  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Not unwinding 
+Unwinding loop 2  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6282 function btmrvl_sdio_poll_card_status
+Unwinding loop 2  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6282 function btmrvl_sdio_poll_card_status
+Not unwinding 
+Unwinding loop 6  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6535 function btmrvl_sdio_download_fw_w_helper
+Unwinding loop 6  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6535 function btmrvl_sdio_download_fw_w_helper
+Not unwinding 
+Unwinding loop 4  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 4  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 7  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6583 function btmrvl_sdio_download_fw_w_helper
+Unwinding loop 2  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6282 function btmrvl_sdio_poll_card_status
+Unwinding loop 2  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6282 function btmrvl_sdio_poll_card_status
+Not unwinding 
+Unwinding loop 6  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6535 function btmrvl_sdio_download_fw_w_helper
+Unwinding loop 6  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6535 function btmrvl_sdio_download_fw_w_helper
+Not unwinding 
+Unwinding loop 4  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 4  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 7  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6583 function btmrvl_sdio_download_fw_w_helper
+Unwinding loop 2  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6282 function btmrvl_sdio_poll_card_status
+Unwinding loop 2  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6282 function btmrvl_sdio_poll_card_status
+Not unwinding 
+Unwinding loop 6  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6535 function btmrvl_sdio_download_fw_w_helper
+Unwinding loop 6  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6535 function btmrvl_sdio_download_fw_w_helper
+Not unwinding 
+Unwinding loop 4  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 4  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Not unwinding 
+Unwinding loop 3  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6316 function btmrvl_sdio_verify_fw_download
+Unwinding loop 3  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6316 function btmrvl_sdio_verify_fw_download
+Not unwinding 
+Unwinding loop 10  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 10  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 10  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 10  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+No target candidate for function call *priv->hw_wakeup_firmware
+Unwinding loop 9  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 7762 function main
+Unwinding loop 3  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6316 function btmrvl_sdio_verify_fw_download
+Unwinding loop 2  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6282 function btmrvl_sdio_poll_card_status
+Unwinding loop 2  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6282 function btmrvl_sdio_poll_card_status
+Not unwinding 
+Unwinding loop 4  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 4  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 5  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6405 function btmrvl_sdio_download_helper
+Unwinding loop 2  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6282 function btmrvl_sdio_poll_card_status
+Unwinding loop 2  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6282 function btmrvl_sdio_poll_card_status
+Not unwinding 
+Unwinding loop 4  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 4  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 5  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6405 function btmrvl_sdio_download_helper
+Unwinding loop 2  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6282 function btmrvl_sdio_poll_card_status
+Unwinding loop 2  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6282 function btmrvl_sdio_poll_card_status
+Not unwinding 
+Unwinding loop 4  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 4  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Not unwinding 
+Unwinding loop 2  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6282 function btmrvl_sdio_poll_card_status
+Unwinding loop 2  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6282 function btmrvl_sdio_poll_card_status
+Not unwinding 
+Unwinding loop 6  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6535 function btmrvl_sdio_download_fw_w_helper
+Unwinding loop 6  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6535 function btmrvl_sdio_download_fw_w_helper
+Not unwinding 
+Unwinding loop 4  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 4  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 7  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6583 function btmrvl_sdio_download_fw_w_helper
+Unwinding loop 2  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6282 function btmrvl_sdio_poll_card_status
+Unwinding loop 2  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6282 function btmrvl_sdio_poll_card_status
+Not unwinding 
+Unwinding loop 6  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6535 function btmrvl_sdio_download_fw_w_helper
+Unwinding loop 6  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6535 function btmrvl_sdio_download_fw_w_helper
+Not unwinding 
+Unwinding loop 4  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 4  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 7  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6583 function btmrvl_sdio_download_fw_w_helper
+Unwinding loop 2  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6282 function btmrvl_sdio_poll_card_status
+Unwinding loop 2  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6282 function btmrvl_sdio_poll_card_status
+Not unwinding 
+Unwinding loop 6  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6535 function btmrvl_sdio_download_fw_w_helper
+Unwinding loop 6  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6535 function btmrvl_sdio_download_fw_w_helper
+Not unwinding 
+Unwinding loop 4  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 4  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Not unwinding 
+Unwinding loop 3  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6316 function btmrvl_sdio_verify_fw_download
+Unwinding loop 3  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6316 function btmrvl_sdio_verify_fw_download
+Not unwinding 
+Unwinding loop 10  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 10  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 10  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 10  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+No target candidate for function call *priv->hw_wakeup_firmware
+Not unwinding 
+Symex completed in: 2.227s (6175 assignments)
+Slicing time: 0.052s (removed 4807 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (1368 assignments)
+BMC program time: 2.279s
+No bug has been found in the base case
+*** Checking forward condition, k = 3
+Starting Bounded Model Checking
+Unwinding loop 10  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 10  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 10  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 10  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 10  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 10  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 9  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 7762 function main
+Unwinding loop 3  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6316 function btmrvl_sdio_verify_fw_download
+Unwinding loop 2  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6282 function btmrvl_sdio_poll_card_status
+Unwinding loop 2  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6282 function btmrvl_sdio_poll_card_status
+Not unwinding 
+Unwinding loop 4  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 4  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 5  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6405 function btmrvl_sdio_download_helper
+Unwinding loop 2  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6282 function btmrvl_sdio_poll_card_status
+Unwinding loop 2  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6282 function btmrvl_sdio_poll_card_status
+Not unwinding 
+Unwinding loop 4  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 4  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 5  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6405 function btmrvl_sdio_download_helper
+Unwinding loop 2  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6282 function btmrvl_sdio_poll_card_status
+Unwinding loop 2  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6282 function btmrvl_sdio_poll_card_status
+Not unwinding 
+Unwinding loop 4  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 4  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Not unwinding 
+Unwinding loop 2  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6282 function btmrvl_sdio_poll_card_status
+Unwinding loop 2  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6282 function btmrvl_sdio_poll_card_status
+Not unwinding 
+Unwinding loop 6  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6535 function btmrvl_sdio_download_fw_w_helper
+Unwinding loop 6  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6535 function btmrvl_sdio_download_fw_w_helper
+Not unwinding 
+Unwinding loop 4  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 4  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 7  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6583 function btmrvl_sdio_download_fw_w_helper
+Unwinding loop 2  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6282 function btmrvl_sdio_poll_card_status
+Unwinding loop 2  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6282 function btmrvl_sdio_poll_card_status
+Not unwinding 
+Unwinding loop 6  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6535 function btmrvl_sdio_download_fw_w_helper
+Unwinding loop 6  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6535 function btmrvl_sdio_download_fw_w_helper
+Not unwinding 
+Unwinding loop 4  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 4  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 7  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6583 function btmrvl_sdio_download_fw_w_helper
+Unwinding loop 2  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6282 function btmrvl_sdio_poll_card_status
+Unwinding loop 2  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6282 function btmrvl_sdio_poll_card_status
+Not unwinding 
+Unwinding loop 6  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6535 function btmrvl_sdio_download_fw_w_helper
+Unwinding loop 6  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6535 function btmrvl_sdio_download_fw_w_helper
+Not unwinding 
+Unwinding loop 4  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 4  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Not unwinding 
+Unwinding loop 3  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6316 function btmrvl_sdio_verify_fw_download
+Unwinding loop 3  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6316 function btmrvl_sdio_verify_fw_download
+Not unwinding 
+Unwinding loop 10  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 10  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 10  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 10  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+No target candidate for function call *priv->hw_wakeup_firmware
+Unwinding loop 9  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 7762 function main
+Unwinding loop 3  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6316 function btmrvl_sdio_verify_fw_download
+Unwinding loop 2  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6282 function btmrvl_sdio_poll_card_status
+Unwinding loop 2  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6282 function btmrvl_sdio_poll_card_status
+Not unwinding 
+Unwinding loop 4  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 4  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 5  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6405 function btmrvl_sdio_download_helper
+Unwinding loop 2  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6282 function btmrvl_sdio_poll_card_status
+Unwinding loop 2  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6282 function btmrvl_sdio_poll_card_status
+Not unwinding 
+Unwinding loop 4  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 4  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 5  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6405 function btmrvl_sdio_download_helper
+Unwinding loop 2  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6282 function btmrvl_sdio_poll_card_status
+Unwinding loop 2  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6282 function btmrvl_sdio_poll_card_status
+Not unwinding 
+Unwinding loop 4  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 4  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Not unwinding 
+Unwinding loop 2  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6282 function btmrvl_sdio_poll_card_status
+Unwinding loop 2  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6282 function btmrvl_sdio_poll_card_status
+Not unwinding 
+Unwinding loop 6  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6535 function btmrvl_sdio_download_fw_w_helper
+Unwinding loop 6  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6535 function btmrvl_sdio_download_fw_w_helper
+Not unwinding 
+Unwinding loop 4  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 4  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 7  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6583 function btmrvl_sdio_download_fw_w_helper
+Unwinding loop 2  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6282 function btmrvl_sdio_poll_card_status
+Unwinding loop 2  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6282 function btmrvl_sdio_poll_card_status
+Not unwinding 
+Unwinding loop 6  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6535 function btmrvl_sdio_download_fw_w_helper
+Unwinding loop 6  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6535 function btmrvl_sdio_download_fw_w_helper
+Not unwinding 
+Unwinding loop 4  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 4  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 7  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6583 function btmrvl_sdio_download_fw_w_helper
+Unwinding loop 2  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6282 function btmrvl_sdio_poll_card_status
+Unwinding loop 2  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6282 function btmrvl_sdio_poll_card_status
+Not unwinding 
+Unwinding loop 6  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6535 function btmrvl_sdio_download_fw_w_helper
+Unwinding loop 6  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6535 function btmrvl_sdio_download_fw_w_helper
+Not unwinding 
+Unwinding loop 4  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 4  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Not unwinding 
+Unwinding loop 3  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6316 function btmrvl_sdio_verify_fw_download
+Unwinding loop 3  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6316 function btmrvl_sdio_verify_fw_download
+Not unwinding 
+Unwinding loop 10  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 10  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 10  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 10  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+No target candidate for function call *priv->hw_wakeup_firmware
+Not unwinding 
+Symex completed in: 2.363s (6175 assignments)
+Slicing time: 0.050s (removed 4807 assignments)
+Generated 44 VCC(s), 44 remaining after simplification (1368 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.109s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.109s
+Runtime decision procedure: 22.162s
+The forward condition is unable to prove the property
+*** Checking inductive step, k = 3
+Starting Bounded Model Checking
+Unwinding loop 10  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 10  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 3  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6316 function btmrvl_sdio_verify_fw_download
+Unwinding loop 2  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6282 function btmrvl_sdio_poll_card_status
+Unwinding loop 2  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6282 function btmrvl_sdio_poll_card_status
+Not unwinding 
+Unwinding loop 4  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 4  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 5  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6405 function btmrvl_sdio_download_helper
+Unwinding loop 2  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6282 function btmrvl_sdio_poll_card_status
+Unwinding loop 2  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6282 function btmrvl_sdio_poll_card_status
+Not unwinding 
+Unwinding loop 4  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 4  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 5  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6405 function btmrvl_sdio_download_helper
+Unwinding loop 2  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6282 function btmrvl_sdio_poll_card_status
+Unwinding loop 2  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6282 function btmrvl_sdio_poll_card_status
+Not unwinding 
+Unwinding loop 4  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 4  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Not unwinding 
+Unwinding loop 2  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6282 function btmrvl_sdio_poll_card_status
+Unwinding loop 2  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6282 function btmrvl_sdio_poll_card_status
+Not unwinding 
+Unwinding loop 6  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6535 function btmrvl_sdio_download_fw_w_helper
+Unwinding loop 6  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6535 function btmrvl_sdio_download_fw_w_helper
+Not unwinding 
+Unwinding loop 4  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 4  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 7  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6583 function btmrvl_sdio_download_fw_w_helper
+Unwinding loop 2  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6282 function btmrvl_sdio_poll_card_status
+Unwinding loop 2  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6282 function btmrvl_sdio_poll_card_status
+Not unwinding 
+Unwinding loop 6  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6535 function btmrvl_sdio_download_fw_w_helper
+Unwinding loop 6  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6535 function btmrvl_sdio_download_fw_w_helper
+Not unwinding 
+Unwinding loop 4  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 4  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 7  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6583 function btmrvl_sdio_download_fw_w_helper
+Unwinding loop 2  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6282 function btmrvl_sdio_poll_card_status
+Unwinding loop 2  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6282 function btmrvl_sdio_poll_card_status
+Not unwinding 
+Unwinding loop 6  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6535 function btmrvl_sdio_download_fw_w_helper
+Unwinding loop 6  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6535 function btmrvl_sdio_download_fw_w_helper
+Not unwinding 
+Unwinding loop 4  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 4  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Not unwinding 
+Unwinding loop 3  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6316 function btmrvl_sdio_verify_fw_download
+Unwinding loop 3  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6316 function btmrvl_sdio_verify_fw_download
+Not unwinding 
+Unwinding loop 10  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 10  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 10  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 10  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+No target candidate for function call *priv->hw_wakeup_firmware
+Unwinding loop 9  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 7762 function main
+Unwinding loop 3  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6316 function btmrvl_sdio_verify_fw_download
+Unwinding loop 2  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6282 function btmrvl_sdio_poll_card_status
+Unwinding loop 2  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6282 function btmrvl_sdio_poll_card_status
+Not unwinding 
+Unwinding loop 4  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 4  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 5  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6405 function btmrvl_sdio_download_helper
+Unwinding loop 2  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6282 function btmrvl_sdio_poll_card_status
+Unwinding loop 2  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6282 function btmrvl_sdio_poll_card_status
+Not unwinding 
+Unwinding loop 4  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 4  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 5  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6405 function btmrvl_sdio_download_helper
+Unwinding loop 2  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6282 function btmrvl_sdio_poll_card_status
+Unwinding loop 2  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6282 function btmrvl_sdio_poll_card_status
+Not unwinding 
+Unwinding loop 4  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 4  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Not unwinding 
+Unwinding loop 2  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6282 function btmrvl_sdio_poll_card_status
+Unwinding loop 2  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6282 function btmrvl_sdio_poll_card_status
+Not unwinding 
+Unwinding loop 6  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6535 function btmrvl_sdio_download_fw_w_helper
+Unwinding loop 6  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6535 function btmrvl_sdio_download_fw_w_helper
+Not unwinding 
+Unwinding loop 4  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 4  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 7  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6583 function btmrvl_sdio_download_fw_w_helper
+Unwinding loop 2  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6282 function btmrvl_sdio_poll_card_status
+Unwinding loop 2  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6282 function btmrvl_sdio_poll_card_status
+Not unwinding 
+Unwinding loop 6  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6535 function btmrvl_sdio_download_fw_w_helper
+Unwinding loop 6  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6535 function btmrvl_sdio_download_fw_w_helper
+Not unwinding 
+Unwinding loop 4  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 4  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 7  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6583 function btmrvl_sdio_download_fw_w_helper
+Unwinding loop 2  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6282 function btmrvl_sdio_poll_card_status
+Unwinding loop 2  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6282 function btmrvl_sdio_poll_card_status
+Not unwinding 
+Unwinding loop 6  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6535 function btmrvl_sdio_download_fw_w_helper
+Unwinding loop 6  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6535 function btmrvl_sdio_download_fw_w_helper
+Not unwinding 
+Unwinding loop 4  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 4  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Not unwinding 
+Unwinding loop 3  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6316 function btmrvl_sdio_verify_fw_download
+Unwinding loop 3  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6316 function btmrvl_sdio_verify_fw_download
+Not unwinding 
+Unwinding loop 10  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 10  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 10  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 10  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+No target candidate for function call *priv->hw_wakeup_firmware
+Unwinding loop 9  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 7762 function main
+Unwinding loop 3  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6316 function btmrvl_sdio_verify_fw_download
+Unwinding loop 2  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6282 function btmrvl_sdio_poll_card_status
+Unwinding loop 2  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6282 function btmrvl_sdio_poll_card_status
+Not unwinding 
+Unwinding loop 4  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 4  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 5  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6405 function btmrvl_sdio_download_helper
+Unwinding loop 2  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6282 function btmrvl_sdio_poll_card_status
+Unwinding loop 2  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6282 function btmrvl_sdio_poll_card_status
+Not unwinding 
+Unwinding loop 4  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 4  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 5  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6405 function btmrvl_sdio_download_helper
+Unwinding loop 2  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6282 function btmrvl_sdio_poll_card_status
+Unwinding loop 2  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6282 function btmrvl_sdio_poll_card_status
+Not unwinding 
+Unwinding loop 4  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 4  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Not unwinding 
+Unwinding loop 2  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6282 function btmrvl_sdio_poll_card_status
+Unwinding loop 2  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6282 function btmrvl_sdio_poll_card_status
+Not unwinding 
+Unwinding loop 6  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6535 function btmrvl_sdio_download_fw_w_helper
+Unwinding loop 6  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6535 function btmrvl_sdio_download_fw_w_helper
+Not unwinding 
+Unwinding loop 4  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 4  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 7  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6583 function btmrvl_sdio_download_fw_w_helper
+Unwinding loop 2  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6282 function btmrvl_sdio_poll_card_status
+Unwinding loop 2  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6282 function btmrvl_sdio_poll_card_status
+Not unwinding 
+Unwinding loop 6  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6535 function btmrvl_sdio_download_fw_w_helper
+Unwinding loop 6  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6535 function btmrvl_sdio_download_fw_w_helper
+Not unwinding 
+Unwinding loop 4  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 4  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 7  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6583 function btmrvl_sdio_download_fw_w_helper
+Unwinding loop 2  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6282 function btmrvl_sdio_poll_card_status
+Unwinding loop 2  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6282 function btmrvl_sdio_poll_card_status
+Not unwinding 
+Unwinding loop 6  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6535 function btmrvl_sdio_download_fw_w_helper
+Unwinding loop 6  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6535 function btmrvl_sdio_download_fw_w_helper
+Not unwinding 
+Unwinding loop 4  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 4  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Not unwinding 
+Unwinding loop 3  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6316 function btmrvl_sdio_verify_fw_download
+Unwinding loop 3  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i line 6316 function btmrvl_sdio_verify_fw_download
+Not unwinding 
+Unwinding loop 10  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 10  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 10  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 10  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+No target candidate for function call *priv->hw_wakeup_firmware
+Not unwinding 
+Symex completed in: 5.558s (10453 assignments)
+Slicing time: 0.194s (removed 7564 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (2889 assignments)
+BMC program time: 5.752s
+Building successful trace
+
+VERIFICATION SUCCESSFUL
+
+Solution found by the inductive step (k = 3)
+
+../sv-benchmarks/c/ldv-linux-3.16-rc1/43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i:5840:27: warning: declaration of 'struct kobject___0' will not be visible outside of this function [-Wvisibility]
+   ssize_t (*show)(struct kobject___0 * , struct attribute___0 * , char * ) ;
+                          ^
+../sv-benchmarks/c/ldv-linux-3.16-rc1/43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--bluetooth--btmrvl_sdio.ko-entry_point.cil.out.i:5841:28: warning: declaration of 'struct kobject___0' will not be visible outside of this function [-Wvisibility]
+   ssize_t (*store)(struct kobject___0 * , struct attribute___0 * , char const * ,
+                           ^
+
+TRUE

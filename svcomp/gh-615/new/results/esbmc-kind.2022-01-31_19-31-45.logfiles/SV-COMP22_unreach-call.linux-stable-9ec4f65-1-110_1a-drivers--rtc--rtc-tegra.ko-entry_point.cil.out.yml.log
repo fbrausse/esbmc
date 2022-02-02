@@ -1,0 +1,459 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/ldv-validator-v0.6/linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-validator-v0.6/linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i --64 --witness-output linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 64-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/ldv-validator-v0.6/linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.215s
+GOTO program processing time: 0.046s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.005s (96 assignments)
+Slicing time: 0.000s (removed 83 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (13 assignments)
+BMC program time: 0.005s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.003s (96 assignments)
+Slicing time: 0.000s (removed 83 assignments)
+Generated 2 VCC(s), 2 remaining after simplification (13 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.000s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.000s
+Runtime decision procedure: 0.021s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 4  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 4  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 4  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 4  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Symex completed in: 0.004s (106 assignments)
+Slicing time: 0.000s (removed 93 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (13 assignments)
+BMC program time: 0.004s
+No bug has been found in the base case
+*** Checking forward condition, k = 3
+Starting Bounded Model Checking
+Unwinding loop 4  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 4  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 4  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 4  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Symex completed in: 0.004s (106 assignments)
+Slicing time: 0.000s (removed 93 assignments)
+Generated 2 VCC(s), 2 remaining after simplification (13 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.001s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.001s
+Runtime decision procedure: 0.021s
+The forward condition is unable to prove the property
+*** Checking inductive step, k = 3
+Starting Bounded Model Checking
+Unwinding loop 4  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 4  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 4  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 4  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 2  iteration  1   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Unwinding loop 2  iteration  2   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Not unwinding 
+Unwinding loop 2  iteration  1   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Unwinding loop 2  iteration  2   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Not unwinding 
+Unwinding loop 2  iteration  1   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Unwinding loop 2  iteration  2   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Not unwinding 
+Unwinding loop 2  iteration  1   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Unwinding loop 2  iteration  2   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Not unwinding 
+Unwinding loop 4  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 4  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 2  iteration  1   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Unwinding loop 2  iteration  2   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Not unwinding 
+Unwinding loop 2  iteration  1   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Unwinding loop 2  iteration  2   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Not unwinding 
+Unwinding loop 2  iteration  1   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Unwinding loop 2  iteration  2   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Not unwinding 
+Unwinding loop 2  iteration  1   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Unwinding loop 2  iteration  2   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Not unwinding 
+Unwinding loop 2  iteration  1   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Unwinding loop 2  iteration  2   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Not unwinding 
+No target candidate for function call *outer_cache.sync
+Unwinding loop 2  iteration  1   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Unwinding loop 2  iteration  2   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Not unwinding 
+No target candidate for function call *outer_cache.sync
+Unwinding loop 2  iteration  1   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Unwinding loop 2  iteration  2   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Not unwinding 
+Unwinding loop 2  iteration  1   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Unwinding loop 2  iteration  2   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Not unwinding 
+Unwinding loop 2  iteration  1   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Unwinding loop 2  iteration  2   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Not unwinding 
+Unwinding loop 2  iteration  1   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Unwinding loop 2  iteration  2   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Not unwinding 
+Unwinding loop 2  iteration  1   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Unwinding loop 2  iteration  2   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Not unwinding 
+Unwinding loop 3  iteration  1   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 2633 function main
+Unwinding loop 2  iteration  1   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Unwinding loop 2  iteration  2   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Not unwinding 
+Unwinding loop 2  iteration  1   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Unwinding loop 2  iteration  2   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Not unwinding 
+Unwinding loop 2  iteration  1   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Unwinding loop 2  iteration  2   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Not unwinding 
+Unwinding loop 2  iteration  1   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Unwinding loop 2  iteration  2   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Not unwinding 
+Unwinding loop 4  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 4  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 2  iteration  1   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Unwinding loop 2  iteration  2   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Not unwinding 
+Unwinding loop 2  iteration  1   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Unwinding loop 2  iteration  2   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Not unwinding 
+Unwinding loop 2  iteration  1   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Unwinding loop 2  iteration  2   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Not unwinding 
+Unwinding loop 2  iteration  1   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Unwinding loop 2  iteration  2   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Not unwinding 
+Unwinding loop 2  iteration  1   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Unwinding loop 2  iteration  2   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Not unwinding 
+No target candidate for function call *outer_cache.sync
+Unwinding loop 2  iteration  1   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Unwinding loop 2  iteration  2   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Not unwinding 
+No target candidate for function call *outer_cache.sync
+Unwinding loop 2  iteration  1   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Unwinding loop 2  iteration  2   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Not unwinding 
+Unwinding loop 2  iteration  1   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Unwinding loop 2  iteration  2   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Not unwinding 
+Unwinding loop 2  iteration  1   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Unwinding loop 2  iteration  2   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Not unwinding 
+Unwinding loop 2  iteration  1   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Unwinding loop 2  iteration  2   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Not unwinding 
+Unwinding loop 2  iteration  1   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Unwinding loop 2  iteration  2   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Not unwinding 
+Unwinding loop 3  iteration  2   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 2633 function main
+Unwinding loop 2  iteration  1   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Unwinding loop 2  iteration  2   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Not unwinding 
+Unwinding loop 2  iteration  1   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Unwinding loop 2  iteration  2   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Not unwinding 
+Unwinding loop 2  iteration  1   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Unwinding loop 2  iteration  2   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Not unwinding 
+Unwinding loop 2  iteration  1   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Unwinding loop 2  iteration  2   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Not unwinding 
+Unwinding loop 4  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 4  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 2  iteration  1   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Unwinding loop 2  iteration  2   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Not unwinding 
+Unwinding loop 2  iteration  1   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Unwinding loop 2  iteration  2   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Not unwinding 
+No target candidate for function call *outer_cache.sync
+Unwinding loop 2  iteration  1   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Unwinding loop 2  iteration  2   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Not unwinding 
+Unwinding loop 2  iteration  1   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Unwinding loop 2  iteration  2   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Not unwinding 
+No target candidate for function call *outer_cache.sync
+Unwinding loop 2  iteration  1   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Unwinding loop 2  iteration  2   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Not unwinding 
+No target candidate for function call *outer_cache.sync
+Unwinding loop 2  iteration  1   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Unwinding loop 2  iteration  2   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Not unwinding 
+No target candidate for function call *outer_cache.sync
+Unwinding loop 2  iteration  1   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Unwinding loop 2  iteration  2   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Not unwinding 
+No target candidate for function call *outer_cache.sync
+Unwinding loop 2  iteration  1   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Unwinding loop 2  iteration  2   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Not unwinding 
+No target candidate for function call *outer_cache.sync
+Unwinding loop 2  iteration  1   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Unwinding loop 2  iteration  2   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Not unwinding 
+No target candidate for function call *outer_cache.sync
+Unwinding loop 2  iteration  1   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Unwinding loop 2  iteration  2   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Not unwinding 
+No target candidate for function call *outer_cache.sync
+Unwinding loop 2  iteration  1   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Unwinding loop 2  iteration  2   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Not unwinding 
+Not unwinding 
+Symex completed in: 1.575s (9698 assignments)
+Slicing time: 0.182s (removed 6101 assignments)
+Generated 24 VCC(s), 24 remaining after simplification (3597 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 1.834s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 1.834s
+Runtime decision procedure: 39.498s
+The inductive step is unable to prove the property
+*** Checking base case, k = 5
+Starting Bounded Model Checking
+Unwinding loop 4  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 4  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 4  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 4  iteration  4   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 4  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 4  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 4  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 4  iteration  4   file string.c line 272 function __memset_impl
+Unwinding loop 4  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 4  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 4  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 4  iteration  4   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 3  iteration  1   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 2633 function main
+Unwinding loop 4  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 4  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 4  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 4  iteration  4   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 2  iteration  1   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Unwinding loop 2  iteration  2   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Unwinding loop 2  iteration  3   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Unwinding loop 2  iteration  4   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Not unwinding 
+No target candidate for function call *outer_cache.sync
+Unwinding loop 2  iteration  1   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Unwinding loop 2  iteration  2   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Unwinding loop 2  iteration  3   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Unwinding loop 2  iteration  4   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Not unwinding 
+No target candidate for function call *outer_cache.sync
+Unwinding loop 2  iteration  1   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Unwinding loop 2  iteration  2   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Unwinding loop 2  iteration  3   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Unwinding loop 2  iteration  4   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Not unwinding 
+Unwinding loop 3  iteration  2   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 2633 function main
+Unwinding loop 4  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 4  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 4  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 4  iteration  4   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 2  iteration  1   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Unwinding loop 2  iteration  2   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Unwinding loop 2  iteration  3   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Unwinding loop 2  iteration  4   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Not unwinding 
+No target candidate for function call *outer_cache.sync
+Unwinding loop 2  iteration  1   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Unwinding loop 2  iteration  2   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Unwinding loop 2  iteration  3   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Unwinding loop 2  iteration  4   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Not unwinding 
+No target candidate for function call *outer_cache.sync
+Unwinding loop 2  iteration  1   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Unwinding loop 2  iteration  2   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Unwinding loop 2  iteration  3   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Unwinding loop 2  iteration  4   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Not unwinding 
+Unwinding loop 3  iteration  3   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 2633 function main
+Unwinding loop 4  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 4  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 4  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 4  iteration  4   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 2  iteration  1   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Unwinding loop 2  iteration  2   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Unwinding loop 2  iteration  3   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Unwinding loop 2  iteration  4   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Not unwinding 
+No target candidate for function call *outer_cache.sync
+Unwinding loop 2  iteration  1   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Unwinding loop 2  iteration  2   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Unwinding loop 2  iteration  3   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Unwinding loop 2  iteration  4   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Not unwinding 
+No target candidate for function call *outer_cache.sync
+Unwinding loop 2  iteration  1   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Unwinding loop 2  iteration  2   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Unwinding loop 2  iteration  3   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Unwinding loop 2  iteration  4   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Not unwinding 
+Unwinding loop 3  iteration  4   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 2633 function main
+Unwinding loop 4  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 4  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 4  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 4  iteration  4   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 2  iteration  1   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Unwinding loop 2  iteration  2   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Unwinding loop 2  iteration  3   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Unwinding loop 2  iteration  4   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Not unwinding 
+No target candidate for function call *outer_cache.sync
+Unwinding loop 2  iteration  1   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Unwinding loop 2  iteration  2   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Unwinding loop 2  iteration  3   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Unwinding loop 2  iteration  4   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Not unwinding 
+No target candidate for function call *outer_cache.sync
+Unwinding loop 2  iteration  1   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Unwinding loop 2  iteration  2   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Unwinding loop 2  iteration  3   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Unwinding loop 2  iteration  4   file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1864 function tegra_rtc_wait_while_busy
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.942s (4783 assignments)
+Slicing time: 0.043s (removed 3595 assignments)
+Generated 16 VCC(s), 16 remaining after simplification (1188 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.420s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.420s
+Runtime decision procedure: 9.678s
+Building error trace
+
+Counterexample:
+
+State 1 file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1640 function ldv_zalloc thread 0
+----------------------------------------------------
+  tmp___0 = -1 (11111111 11111111 11111111 11111111)
+
+State 2 file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 2420 function main thread 0
+----------------------------------------------------
+  tmp___1 = 1 (00000000 00000000 00000000 00000001)
+
+State 3 file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 2430 function main thread 0
+----------------------------------------------------
+  tmp___2 = 1 (00000000 00000000 00000000 00000001)
+
+State 4 file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1640 function ldv_zalloc thread 0
+----------------------------------------------------
+  tmp___0 = -2147483648 (10000000 00000000 00000000 00000000)
+
+State 5 file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 2420 function main thread 0
+----------------------------------------------------
+  tmp___1 = 0 (00000000 00000000 00000000 00000000)
+
+State 6 file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 2325 function choose_interrupt_1 thread 0
+----------------------------------------------------
+  tmp = 3 (00000000 00000000 00000000 00000011)
+
+State 7 file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 2420 function main thread 0
+----------------------------------------------------
+  tmp___1 = 1 (00000000 00000000 00000000 00000001)
+
+State 8 file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 2430 function main thread 0
+----------------------------------------------------
+  tmp___2 = 1 (00000000 00000000 00000000 00000001)
+
+State 9 file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 2420 function main thread 0
+----------------------------------------------------
+  tmp___1 = 3 (00000000 00000000 00000000 00000011)
+
+State 10 file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 2560 function main thread 0
+----------------------------------------------------
+  tmp___4 = 4 (00000000 00000000 00000000 00000100)
+
+State 11 file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 2618 function main thread 0
+----------------------------------------------------
+  ref_cnt = 1 (00000000 00000000 00000000 00000001)
+
+State 12 file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 2420 function main thread 0
+----------------------------------------------------
+  tmp___1 = 3 (00000000 00000000 00000000 00000011)
+
+State 13 file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 2560 function main thread 0
+----------------------------------------------------
+  tmp___4 = 0 (00000000 00000000 00000000 00000000)
+
+State 14 file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1622 function ldv_malloc thread 0
+----------------------------------------------------
+  tmp___0 = -2147483648 (10000000 00000000 00000000 00000000)
+
+State 15 file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1622 function ldv_malloc thread 0
+----------------------------------------------------
+  tmp___0 = -2147483648 (10000000 00000000 00000000 00000000)
+
+State 16 file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1836 function tegra_rtc_check_busy thread 0
+----------------------------------------------------
+  __v___0 = 0 (00000000 00000000 00000000 00000000)
+
+State 17 file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 1837 function tegra_rtc_check_busy thread 0
+----------------------------------------------------
+  __v = 0 (00000000 00000000 00000000 00000000)
+
+State 18 file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 12 function reach_error thread 0
+----------------------------------------------------
+Violated property:
+  file linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i line 12 function reach_error
+  assertion 0
+  0
+
+
+VERIFICATION FAILED
+
+Bug found (k = 5)
+
+../sv-benchmarks/c/ldv-validator-v0.6/linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i:2114:40: warning: incompatible integer to pointer conversion assigning to 'void *' from 'long' [-Wint-conversion]
+  __constr_expr_0.ldv_2857.rlock.owner = 4294967295L;
+                                       ^ ~~~~~~~~~~~
+../sv-benchmarks/c/ldv-validator-v0.6/linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i:2759:22: warning: incompatible integer to pointer conversion passing 'unsigned long' to parameter of type 'const void *' [-Wint-conversion]
+    tmp = ldv_is_err((unsigned long )ptr);
+                     ^~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-validator-v0.6/linux-stable-9ec4f65-1-110_1a-drivers--rtc--rtc-tegra.ko-entry_point.cil.out.i:2733:29: note: passing argument to parameter 'ptr' here
+long ldv_is_err(void const *ptr )
+                            ^
+
+FALSE_REACH

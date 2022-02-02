@@ -1,0 +1,2135 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/ntdrivers/diskperf.i.cil-2.c
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ntdrivers/diskperf.i.cil-2.c --32 --witness-output diskperf.i.cil-2.c.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/ntdrivers/diskperf.i.cil-2.c: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.464s
+GOTO program processing time: 0.067s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+**** WARNING: no body for function swprintf
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 1.099s (2009 assignments)
+Slicing time: 0.008s (removed 1641 assignments)
+Generated 12 VCC(s), 12 remaining after simplification (368 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.062s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.062s
+Runtime decision procedure: 12.497s
+Building error trace
+
+Counterexample:
+
+State 1 file diskperf.i.cil-2.c line 3215 function main thread 0
+----------------------------------------------------
+  status = 0 (00000000 00000000 00000000 00000000)
+
+State 2 file diskperf.i.cil-2.c line 3218 function main thread 0
+----------------------------------------------------
+  __BLAST_NONDET___0 = 0 (00000000 00000000 00000000 00000000)
+
+State 3 file diskperf.i.cil-2.c line 3219 function main thread 0
+----------------------------------------------------
+  irp_choice = 0 (00000000 00000000 00000000 00000000)
+
+State 4 file diskperf.i.cil-2.c line 3222 function main thread 0
+----------------------------------------------------
+  ( struct _DEVICE_EXTENSION *)devobj.DeviceExtension->DiskCounters = { .DeviceObject=nil, .TargetDeviceObject=nil, .PhysicalDeviceObject=nil,
+    .DiskNumber=nil, .StorageManagerName=nil,
+    .Processors=nil, .DiskCounters=( struct _DISK_PERFORMANCE *)((void *)(&dynamic_6_value)),
+    .LastIdleClock=nil,
+    .QueueDepth=nil, .CountersEnabled=nil,
+    .PagingPathCountEvent=nil, .PagingPathCount=nil,
+    .PhysicalDeviceName=nil, .PhysicalDeviceNameBuffer=nil,
+    .WmilibContext=nil, .anon_pad$15=nil }
+
+State 5 file diskperf.i.cil-2.c line 3224 function main thread 0
+----------------------------------------------------
+  irp.Tail.Overlay.__annonCompField17.__annonCompField16.CurrentStackLocation = { .Type=0, .Size=0, .MdlAddress=0, .Flags=0, .AssociatedIrp=union
+  * type: union
+      * tag: union __anonunion_AssociatedIrp_44
+      * components: 
+        0: component
+            * type: pointer
+                * subtype: symbol
+                    * identifier: tag-struct _IRP
+            * name: MasterIrp
+            * pretty_name: MasterIrp
+        1: component
+            * type: signedbv
+                * width: 32
+            * name: IrpCount
+            * pretty_name: IrpCount
+        2: component
+            * type: pointer
+                * subtype: empty
+            * name: SystemBuffer
+            * pretty_name: SystemBuffer
+  * operands: 
+    0: bitcast
+        * type: pointer
+            * subtype: symbol
+                * identifier: tag-struct _IRP
+        * operands: 
+          0: constant
+              * type: unsignedbv
+                  * width: 32
+              * value: 00000000000000000000000000000000
+    1: constant
+        * type: signedbv
+            * width: 32
+        * value: 00000000000000000000000000000000
+    2: bitcast
+        * type: pointer
+            * subtype: empty
+        * operands: 
+          0: constant
+              * type: unsignedbv
+                  * width: 32
+              * value: 00000000000000000000000000000000
+  * component_name: ,
+    .ThreadListEntry={ .Flink=0, .Blink=0 },
+    .IoStatus={ .__annonCompField4=nil, .Information=nil },
+    .RequestorMode=0,
+    .PendingReturned=0, .StackCount=0,
+    .CurrentLocation=0, .Cancel=0, .CancelIrql=0,
+    .ApcEnvironment=0, .AllocationFlags=0, .UserIosb=0,
+    .UserEvent=0, .Overlay=union
+  * type: union
+      * tag: union __anonunion_Overlay_45
+      * components: 
+        0: component
+            * type: struct
+                * tag: struct __anonstruct_AsynchronousParameters_46
+                * components: 
+                  0: component
+                      * type: pointer
+                          * subtype: code
+                              * arguments: 
+                                0: argument
+                                    * type: pointer
+                                        * subtype: empty
+                                    * #identifier: 
+                                1: argument
+                                    * type: pointer
+                                        * subtype: symbol
+                                            * identifier: tag-struct _IO_STATUS_BLOCK
+                                    * #identifier: 
+                                2: argument
+                                    * type: unsignedbv
+                                        * width: 32
+                                    * #identifier: 
+                              * return_type: empty
+                      * name: UserApcRoutine
+                      * pretty_name: UserApcRoutine
+                  1: component
+                      * type: pointer
+                          * subtype: empty
+                      * name: UserApcContext
+                      * pretty_name: UserApcContext
+            * name: AsynchronousParameters
+            * pretty_name: AsynchronousParameters
+        1: component
+            * type: union
+                * tag: union _LARGE_INTEGER
+                * components: 
+                  0: component
+                      * type: struct
+                          * tag: struct __anonstruct____missing_field_name_1
+                          * components: 
+                            0: component
+                                * type: unsignedbv
+                                    * width: 32
+                                * name: LowPart
+                                * pretty_name: LowPart
+                            1: component
+                                * type: signedbv
+                                    * width: 32
+                                * name: HighPart
+                                * pretty_name: HighPart
+                      * name: __annonCompField1
+                      * pretty_name: __annonCompField1
+                  1: component
+                      * type: struct
+                          * tag: struct __anonstruct_u_2
+                          * components: 
+                            0: component
+                                * type: unsignedbv
+                                    * width: 32
+                                * name: LowPart
+                                * pretty_name: LowPart
+                            1: component
+                                * type: signedbv
+                                    * width: 32
+                                * name: HighPart
+                                * pretty_name: HighPart
+                      * name: u
+                      * pretty_name: u
+                  2: component
+                      * type: signedbv
+                          * width: 64
+                      * name: QuadPart
+                      * pretty_name: QuadPart
+            * name: AllocationSize
+            * pretty_name: AllocationSize
+  * operands: 
+    0: bitcast
+        * type: struct
+            * tag: struct __anonstruct_AsynchronousParameters_46
+            * components: 
+              0: component
+                  * type: pointer
+                      * subtype: code
+                          * arguments: 
+                            0: argument
+                                * type: pointer
+                                    * subtype: empty
+                                * #identifier: 
+                            1: argument
+                                * type: pointer
+                                    * subtype: symbol
+                                        * identifier: tag-struct _IO_STATUS_BLOCK
+                                * #identifier: 
+                            2: argument
+                                * type: unsignedbv
+                                    * width: 32
+                                * #identifier: 
+                          * return_type: empty
+                  * name: UserApcRoutine
+                  * pretty_name: UserApcRoutine
+              1: component
+                  * type: pointer
+                      * subtype: empty
+                  * name: UserApcContext
+                  * pretty_name: UserApcContext
+        * operands: 
+          0: constant
+              * type: unsignedbv
+                  * width: 64
+              * value: 0000000000000000000000000000000000000000000000000000000000000000
+    1: bitcast
+        * type: union
+            * tag: union _LARGE_INTEGER
+            * components: 
+              0: component
+                  * type: struct
+                      * tag: struct __anonstruct____missing_field_name_1
+                      * components: 
+                        0: component
+                            * type: unsignedbv
+                                * width: 32
+                            * name: LowPart
+                            * pretty_name: LowPart
+                        1: component
+                            * type: signedbv
+                                * width: 32
+                            * name: HighPart
+                            * pretty_name: HighPart
+                  * name: __annonCompField1
+                  * pretty_name: __annonCompField1
+              1: component
+                  * type: struct
+                      * tag: struct __anonstruct_u_2
+                      * components: 
+                        0: component
+                            * type: unsignedbv
+                                * width: 32
+                            * name: LowPart
+                            * pretty_name: LowPart
+                        1: component
+                            * type: signedbv
+                                * width: 32
+                            * name: HighPart
+                            * pretty_name: HighPart
+                  * name: u
+                  * pretty_name: u
+              2: component
+                  * type: signedbv
+                      * width: 64
+                  * name: QuadPart
+                  * pretty_name: QuadPart
+        * operands: 
+          0: constant
+              * type: unsignedbv
+                  * width: 64
+              * value: 0000000000000000000000000000000000000000000000000000000000000000
+  * component_name: , .CancelRoutine=0,
+    .UserBuffer=0, .Tail=irp.Tail WITH [Overlay:=irp.Tail.Overlay WITH [__annonCompField17:=irp.Tail.Overlay.__annonCompField17 WITH [__annonCompField16:=irp.Tail.Overlay.__annonCompField17.__annonCompField16 WITH [CurrentStackLocation:=( struct _IO_STACK_LOCATION *)(&dynamic_8_array[0])]]]] }
+
+State 6 file diskperf.i.cil-2.c line 3226 function main thread 0
+----------------------------------------------------
+  irp.Tail.Overlay.__annonCompField17.__annonCompField16.CurrentStackLocation = { .Type=0, .Size=0, .MdlAddress=0, .Flags=0, .AssociatedIrp=union
+  * type: union
+      * tag: union __anonunion_AssociatedIrp_44
+      * components: 
+        0: component
+            * type: pointer
+                * subtype: symbol
+                    * identifier: tag-struct _IRP
+            * name: MasterIrp
+            * pretty_name: MasterIrp
+        1: component
+            * type: signedbv
+                * width: 32
+            * name: IrpCount
+            * pretty_name: IrpCount
+        2: component
+            * type: pointer
+                * subtype: empty
+            * name: SystemBuffer
+            * pretty_name: SystemBuffer
+  * operands: 
+    0: bitcast
+        * type: pointer
+            * subtype: symbol
+                * identifier: tag-struct _IRP
+        * operands: 
+          0: constant
+              * type: unsignedbv
+                  * width: 32
+              * value: 00000000000000000000000000000000
+    1: constant
+        * type: signedbv
+            * width: 32
+        * value: 00000000000000000000000000000000
+    2: bitcast
+        * type: pointer
+            * subtype: empty
+        * operands: 
+          0: constant
+              * type: unsignedbv
+                  * width: 32
+              * value: 00000000000000000000000000000000
+  * component_name: ,
+    .ThreadListEntry={ .Flink=0, .Blink=0 },
+    .IoStatus={ .__annonCompField4=nil, .Information=nil },
+    .RequestorMode=0,
+    .PendingReturned=0, .StackCount=0,
+    .CurrentLocation=0, .Cancel=0, .CancelIrql=0,
+    .ApcEnvironment=0, .AllocationFlags=0, .UserIosb=0,
+    .UserEvent=0, .Overlay=union
+  * type: union
+      * tag: union __anonunion_Overlay_45
+      * components: 
+        0: component
+            * type: struct
+                * tag: struct __anonstruct_AsynchronousParameters_46
+                * components: 
+                  0: component
+                      * type: pointer
+                          * subtype: code
+                              * arguments: 
+                                0: argument
+                                    * type: pointer
+                                        * subtype: empty
+                                    * #identifier: 
+                                1: argument
+                                    * type: pointer
+                                        * subtype: symbol
+                                            * identifier: tag-struct _IO_STATUS_BLOCK
+                                    * #identifier: 
+                                2: argument
+                                    * type: unsignedbv
+                                        * width: 32
+                                    * #identifier: 
+                              * return_type: empty
+                      * name: UserApcRoutine
+                      * pretty_name: UserApcRoutine
+                  1: component
+                      * type: pointer
+                          * subtype: empty
+                      * name: UserApcContext
+                      * pretty_name: UserApcContext
+            * name: AsynchronousParameters
+            * pretty_name: AsynchronousParameters
+        1: component
+            * type: union
+                * tag: union _LARGE_INTEGER
+                * components: 
+                  0: component
+                      * type: struct
+                          * tag: struct __anonstruct____missing_field_name_1
+                          * components: 
+                            0: component
+                                * type: unsignedbv
+                                    * width: 32
+                                * name: LowPart
+                                * pretty_name: LowPart
+                            1: component
+                                * type: signedbv
+                                    * width: 32
+                                * name: HighPart
+                                * pretty_name: HighPart
+                      * name: __annonCompField1
+                      * pretty_name: __annonCompField1
+                  1: component
+                      * type: struct
+                          * tag: struct __anonstruct_u_2
+                          * components: 
+                            0: component
+                                * type: unsignedbv
+                                    * width: 32
+                                * name: LowPart
+                                * pretty_name: LowPart
+                            1: component
+                                * type: signedbv
+                                    * width: 32
+                                * name: HighPart
+                                * pretty_name: HighPart
+                      * name: u
+                      * pretty_name: u
+                  2: component
+                      * type: signedbv
+                          * width: 64
+                      * name: QuadPart
+                      * pretty_name: QuadPart
+            * name: AllocationSize
+            * pretty_name: AllocationSize
+  * operands: 
+    0: bitcast
+        * type: struct
+            * tag: struct __anonstruct_AsynchronousParameters_46
+            * components: 
+              0: component
+                  * type: pointer
+                      * subtype: code
+                          * arguments: 
+                            0: argument
+                                * type: pointer
+                                    * subtype: empty
+                                * #identifier: 
+                            1: argument
+                                * type: pointer
+                                    * subtype: symbol
+                                        * identifier: tag-struct _IO_STATUS_BLOCK
+                                * #identifier: 
+                            2: argument
+                                * type: unsignedbv
+                                    * width: 32
+                                * #identifier: 
+                          * return_type: empty
+                  * name: UserApcRoutine
+                  * pretty_name: UserApcRoutine
+              1: component
+                  * type: pointer
+                      * subtype: empty
+                  * name: UserApcContext
+                  * pretty_name: UserApcContext
+        * operands: 
+          0: constant
+              * type: unsignedbv
+                  * width: 64
+              * value: 0000000000000000000000000000000000000000000000000000000000000000
+    1: bitcast
+        * type: union
+            * tag: union _LARGE_INTEGER
+            * components: 
+              0: component
+                  * type: struct
+                      * tag: struct __anonstruct____missing_field_name_1
+                      * components: 
+                        0: component
+                            * type: unsignedbv
+                                * width: 32
+                            * name: LowPart
+                            * pretty_name: LowPart
+                        1: component
+                            * type: signedbv
+                                * width: 32
+                            * name: HighPart
+                            * pretty_name: HighPart
+                  * name: __annonCompField1
+                  * pretty_name: __annonCompField1
+              1: component
+                  * type: struct
+                      * tag: struct __anonstruct_u_2
+                      * components: 
+                        0: component
+                            * type: unsignedbv
+                                * width: 32
+                            * name: LowPart
+                            * pretty_name: LowPart
+                        1: component
+                            * type: signedbv
+                                * width: 32
+                            * name: HighPart
+                            * pretty_name: HighPart
+                  * name: u
+                  * pretty_name: u
+              2: component
+                  * type: signedbv
+                      * width: 64
+                  * name: QuadPart
+                  * pretty_name: QuadPart
+        * operands: 
+          0: constant
+              * type: unsignedbv
+                  * width: 64
+              * value: 0000000000000000000000000000000000000000000000000000000000000000
+  * component_name: , .CancelRoutine=0,
+    .UserBuffer=0, .Tail=irp.Tail WITH [Overlay:=irp.Tail.Overlay WITH [__annonCompField17:=irp.Tail.Overlay.__annonCompField17 WITH [__annonCompField16:=irp.Tail.Overlay.__annonCompField17.__annonCompField16 WITH [CurrentStackLocation:=irp.Tail.Overlay.__annonCompField17.__annonCompField16.CurrentStackLocation + 3]]]] }
+
+State 7 file diskperf.i.cil-2.c line 3242 function main thread 0
+----------------------------------------------------
+  pirp->IoStatus.__annonCompField4.Status = { .Type=0, .Size=0, .MdlAddress=0, .Flags=0, .AssociatedIrp=union
+  * type: union
+      * tag: union __anonunion_AssociatedIrp_44
+      * components: 
+        0: component
+            * type: pointer
+                * subtype: symbol
+                    * identifier: tag-struct _IRP
+            * name: MasterIrp
+            * pretty_name: MasterIrp
+        1: component
+            * type: signedbv
+                * width: 32
+            * name: IrpCount
+            * pretty_name: IrpCount
+        2: component
+            * type: pointer
+                * subtype: empty
+            * name: SystemBuffer
+            * pretty_name: SystemBuffer
+  * operands: 
+    0: bitcast
+        * type: pointer
+            * subtype: symbol
+                * identifier: tag-struct _IRP
+        * operands: 
+          0: constant
+              * type: unsignedbv
+                  * width: 32
+              * value: 00000000000000100000000010000000
+    1: constant
+        * type: signedbv
+            * width: 32
+        * value: 00000000000000100000000010000000
+    2: bitcast
+        * type: pointer
+            * subtype: empty
+        * operands: 
+          0: constant
+              * type: unsignedbv
+                  * width: 32
+              * value: 00000000000000100000000010000000
+  * component_name: ,
+    .ThreadListEntry={ .Flink=0, .Blink=0 },
+    .IoStatus=irp.IoStatus WITH [__annonCompField4:=irp.IoStatus.__annonCompField4 WITH [Status:=0]],
+    .RequestorMode=0,
+    .PendingReturned=0, .StackCount=0,
+    .CurrentLocation=0, .Cancel=0, .CancelIrql=0,
+    .ApcEnvironment=0, .AllocationFlags=0, .UserIosb=0,
+    .UserEvent=0, .Overlay=union
+  * type: union
+      * tag: union __anonunion_Overlay_45
+      * components: 
+        0: component
+            * type: struct
+                * tag: struct __anonstruct_AsynchronousParameters_46
+                * components: 
+                  0: component
+                      * type: pointer
+                          * subtype: code
+                              * arguments: 
+                                0: argument
+                                    * type: pointer
+                                        * subtype: empty
+                                    * #identifier: 
+                                1: argument
+                                    * type: pointer
+                                        * subtype: symbol
+                                            * identifier: tag-struct _IO_STATUS_BLOCK
+                                    * #identifier: 
+                                2: argument
+                                    * type: unsignedbv
+                                        * width: 32
+                                    * #identifier: 
+                              * return_type: empty
+                      * name: UserApcRoutine
+                      * pretty_name: UserApcRoutine
+                  1: component
+                      * type: pointer
+                          * subtype: empty
+                      * name: UserApcContext
+                      * pretty_name: UserApcContext
+            * name: AsynchronousParameters
+            * pretty_name: AsynchronousParameters
+        1: component
+            * type: union
+                * tag: union _LARGE_INTEGER
+                * components: 
+                  0: component
+                      * type: struct
+                          * tag: struct __anonstruct____missing_field_name_1
+                          * components: 
+                            0: component
+                                * type: unsignedbv
+                                    * width: 32
+                                * name: LowPart
+                                * pretty_name: LowPart
+                            1: component
+                                * type: signedbv
+                                    * width: 32
+                                * name: HighPart
+                                * pretty_name: HighPart
+                      * name: __annonCompField1
+                      * pretty_name: __annonCompField1
+                  1: component
+                      * type: struct
+                          * tag: struct __anonstruct_u_2
+                          * components: 
+                            0: component
+                                * type: unsignedbv
+                                    * width: 32
+                                * name: LowPart
+                                * pretty_name: LowPart
+                            1: component
+                                * type: signedbv
+                                    * width: 32
+                                * name: HighPart
+                                * pretty_name: HighPart
+                      * name: u
+                      * pretty_name: u
+                  2: component
+                      * type: signedbv
+                          * width: 64
+                      * name: QuadPart
+                      * pretty_name: QuadPart
+            * name: AllocationSize
+            * pretty_name: AllocationSize
+  * operands: 
+    0: bitcast
+        * type: struct
+            * tag: struct __anonstruct_AsynchronousParameters_46
+            * components: 
+              0: component
+                  * type: pointer
+                      * subtype: code
+                          * arguments: 
+                            0: argument
+                                * type: pointer
+                                    * subtype: empty
+                                * #identifier: 
+                            1: argument
+                                * type: pointer
+                                    * subtype: symbol
+                                        * identifier: tag-struct _IO_STATUS_BLOCK
+                                * #identifier: 
+                            2: argument
+                                * type: unsignedbv
+                                    * width: 32
+                                * #identifier: 
+                          * return_type: empty
+                  * name: UserApcRoutine
+                  * pretty_name: UserApcRoutine
+              1: component
+                  * type: pointer
+                      * subtype: empty
+                  * name: UserApcContext
+                  * pretty_name: UserApcContext
+        * operands: 
+          0: constant
+              * type: unsignedbv
+                  * width: 64
+              * value: 0000000000000000000000000000000000000000000000000000000000000000
+    1: bitcast
+        * type: union
+            * tag: union _LARGE_INTEGER
+            * components: 
+              0: component
+                  * type: struct
+                      * tag: struct __anonstruct____missing_field_name_1
+                      * components: 
+                        0: component
+                            * type: unsignedbv
+                                * width: 32
+                            * name: LowPart
+                            * pretty_name: LowPart
+                        1: component
+                            * type: signedbv
+                                * width: 32
+                            * name: HighPart
+                            * pretty_name: HighPart
+                  * name: __annonCompField1
+                  * pretty_name: __annonCompField1
+              1: component
+                  * type: struct
+                      * tag: struct __anonstruct_u_2
+                      * components: 
+                        0: component
+                            * type: unsignedbv
+                                * width: 32
+                            * name: LowPart
+                            * pretty_name: LowPart
+                        1: component
+                            * type: signedbv
+                                * width: 32
+                            * name: HighPart
+                            * pretty_name: HighPart
+                  * name: u
+                  * pretty_name: u
+              2: component
+                  * type: signedbv
+                      * width: 64
+                  * name: QuadPart
+                  * pretty_name: QuadPart
+        * operands: 
+          0: constant
+              * type: unsignedbv
+                  * width: 64
+              * value: 0000000000000000000000000000000000000000000000000000000000000000
+  * component_name: , .CancelRoutine=0,
+    .UserBuffer=0, .Tail=union
+  * type: union
+      * tag: union __anonunion_Tail_47
+      * components: 
+        0: component
+            * type: struct
+                * tag: struct __anonstruct_Overlay_48
+                * components: 
+                  0: component
+                      * type: union
+                          * tag: union __anonunion____missing_field_name_49
+                          * components: 
+                            0: component
+                                * type: struct
+                                    * tag: struct _KDEVICE_QUEUE_ENTRY
+                                    * components: 
+                                      0: component
+                                          * type: struct
+                                              * tag: struct _LIST_ENTRY
+                                              * components: 
+                                                0: component
+                                                    * type: pointer
+                                                        * subtype: symbol
+                                                            * identifier: tag-struct _LIST_ENTRY
+                                                    * name: Flink
+                                                    * pretty_name: Flink
+                                                1: component
+                                                    * type: pointer
+                                                        * subtype: symbol
+                                                            * identifier: tag-struct _LIST_ENTRY
+                                                    * name: Blink
+                                                    * pretty_name: Blink
+                                          * name: DeviceListEntry
+                                          * pretty_name: DeviceListEntry
+                                      1: component
+                                          * type: unsignedbv
+                                              * width: 32
+                                          * name: SortKey
+                                          * pretty_name: SortKey
+                                      2: component
+                                          * type: unsignedbv
+                                              * width: 8
+                                          * name: Inserted
+                                          * pretty_name: Inserted
+                                      3: component
+                                          * type: unsignedbv
+                                              * width: 24
+                                          * name: pad$3
+                                          * pretty_name: anon_pad$3
+                                * name: DeviceQueueEntry
+                                * pretty_name: DeviceQueueEntry
+                            1: component
+                                * type: struct
+                                    * tag: struct __anonstruct____missing_field_name_50
+                                    * components: 
+                                      0: component
+                                          * type: array
+                                              * size: constant
+                                                  * type: signedbv
+                                                      * width: 32
+                                                  * value: 00000000000000000000000000000100
+                                              * subtype: pointer
+                                                  * subtype: empty
+                                          * name: DriverContext
+                                          * pretty_name: DriverContext
+                                * name: __annonCompField14
+                                * pretty_name: __annonCompField14
+                      * name: __annonCompField15
+                      * pretty_name: __annonCompField15
+                  1: component
+                      * type: pointer
+                          * subtype: symbol
+                              * identifier: tag-struct _ETHREAD
+                      * name: Thread
+                      * pretty_name: Thread
+                  2: component
+                      * type: pointer
+                          * subtype: signedbv
+                              * width: 8
+                      * name: AuxiliaryBuffer
+                      * pretty_name: AuxiliaryBuffer
+                  3: component
+                      * type: struct
+                          * tag: struct __anonstruct____missing_field_name_51
+                          * components: 
+                            0: component
+                                * type: struct
+                                    * tag: struct _LIST_ENTRY
+                                    * components: 
+                                      0: component
+                                          * type: pointer
+                                              * subtype: symbol
+                                                  * identifier: tag-struct _LIST_ENTRY
+                                          * name: Flink
+                                          * pretty_name: Flink
+                                      1: component
+                                          * type: pointer
+                                              * subtype: symbol
+                                                  * identifier: tag-struct _LIST_ENTRY
+                                          * name: Blink
+                                          * pretty_name: Blink
+                                * name: ListEntry
+                                * pretty_name: ListEntry
+                            1: component
+                                * type: union
+                                    * tag: union __anonunion____missing_field_name_52
+                                    * components: 
+                                      0: component
+                                          * type: pointer
+                                              * subtype: symbol
+                                                  * identifier: tag-struct _IO_STACK_LOCATION
+                                          * name: CurrentStackLocation
+                                          * pretty_name: CurrentStackLocation
+                                      1: component
+                                          * type: unsignedbv
+                                              * width: 32
+                                          * name: PacketType
+                                          * pretty_name: PacketType
+                                * name: __annonCompField16
+                                * pretty_name: __annonCompField16
+                      * name: __annonCompField17
+                      * pretty_name: __annonCompField17
+                  4: component
+                      * type: pointer
+                          * subtype: symbol
+                              * identifier: tag-struct _FILE_OBJECT
+                      * name: OriginalFileObject
+                      * pretty_name: OriginalFileObject
+            * name: Overlay
+            * pretty_name: Overlay
+        1: component
+            * type: struct
+                * tag: struct _KAPC
+                * components: 
+                  0: component
+                      * type: signedbv
+                          * width: 16
+                      * name: Type
+                      * pretty_name: Type
+                  1: component
+                      * type: signedbv
+                          * width: 16
+                      * name: Size
+                      * pretty_name: Size
+                  2: component
+                      * type: unsignedbv
+                          * width: 32
+                      * name: Spare0
+                      * pretty_name: Spare0
+                  3: component
+                      * type: pointer
+                          * subtype: symbol
+                              * identifier: tag-struct _KTHREAD
+                      * name: Thread
+                      * pretty_name: Thread
+                  4: component
+                      * type: struct
+                          * tag: struct _LIST_ENTRY
+                          * components: 
+                            0: component
+                                * type: pointer
+                                    * subtype: symbol
+                                        * identifier: tag-struct _LIST_ENTRY
+                                * name: Flink
+                                * pretty_name: Flink
+                            1: component
+                                * type: pointer
+                                    * subtype: symbol
+                                        * identifier: tag-struct _LIST_ENTRY
+                                * name: Blink
+                                * pretty_name: Blink
+                      * name: ApcListEntry
+                      * pretty_name: ApcListEntry
+                  5: component
+                      * type: pointer
+                          * subtype: code
+                              * arguments: 
+                                0: argument
+                                    * type: pointer
+                                        * subtype: symbol
+                                            * identifier: tag-struct _KAPC
+                                    * #identifier: 
+                                1: argument
+                                    * type: pointer
+                                        * subtype: pointer
+                                            * subtype: code
+                                                * arguments: 
+                                                  0: argument
+                                                      * type: pointer
+                                                          * subtype: empty
+                                                      * #identifier: 
+                                                  1: argument
+                                                      * type: pointer
+                                                          * subtype: empty
+                                                      * #identifier: 
+                                                  2: argument
+                                                      * type: pointer
+                                                          * subtype: empty
+                                                      * #identifier: 
+                                                * return_type: empty
+                                    * #identifier: 
+                                2: argument
+                                    * type: pointer
+                                        * subtype: pointer
+                                            * subtype: empty
+                                    * #identifier: 
+                                3: argument
+                                    * type: pointer
+                                        * subtype: pointer
+                                            * subtype: empty
+                                    * #identifier: 
+                                4: argument
+                                    * type: pointer
+                                        * subtype: pointer
+                                            * subtype: empty
+                                    * #identifier: 
+                              * return_type: empty
+                      * name: KernelRoutine
+                      * pretty_name: KernelRoutine
+                  6: component
+                      * type: pointer
+                          * subtype: code
+                              * arguments: 
+                                0: argument
+                                    * type: pointer
+                                        * subtype: symbol
+                                            * identifier: tag-struct _KAPC
+                                    * #identifier: 
+                              * return_type: empty
+                      * name: RundownRoutine
+                      * pretty_name: RundownRoutine
+                  7: component
+                      * type: pointer
+                          * subtype: code
+                              * arguments: 
+                                0: argument
+                                    * type: pointer
+                                        * subtype: empty
+                                    * #identifier: 
+                                1: argument
+                                    * type: pointer
+                                        * subtype: empty
+                                    * #identifier: 
+                                2: argument
+                                    * type: pointer
+                                        * subtype: empty
+                                    * #identifier: 
+                              * return_type: empty
+                      * name: NormalRoutine
+                      * pretty_name: NormalRoutine
+                  8: component
+                      * type: pointer
+                          * subtype: empty
+                      * name: NormalContext
+                      * pretty_name: NormalContext
+                  9: component
+                      * type: pointer
+                          * subtype: empty
+                      * name: SystemArgument1
+                      * pretty_name: SystemArgument1
+                  10: component
+                      * type: pointer
+                          * subtype: empty
+                      * name: SystemArgument2
+                      * pretty_name: SystemArgument2
+                  11: component
+                      * type: signedbv
+                          * width: 8
+                      * name: ApcStateIndex
+                      * pretty_name: ApcStateIndex
+                  12: component
+                      * type: signedbv
+                          * width: 8
+                      * name: ApcMode
+                      * pretty_name: ApcMode
+                  13: component
+                      * type: unsignedbv
+                          * width: 8
+                      * name: Inserted
+                      * pretty_name: Inserted
+                  14: component
+                      * type: unsignedbv
+                          * width: 8
+                      * name: pad$14
+                      * pretty_name: anon_pad$14
+            * name: Apc
+            * pretty_name: Apc
+        2: component
+            * type: pointer
+                * subtype: empty
+            * name: CompletionKey
+            * pretty_name: CompletionKey
+  * operands: 
+    0: bitcast
+        * type: struct
+            * tag: struct __anonstruct_Overlay_48
+            * components: 
+              0: component
+                  * type: union
+                      * tag: union __anonunion____missing_field_name_49
+                      * components: 
+                        0: component
+                            * type: struct
+                                * tag: struct _KDEVICE_QUEUE_ENTRY
+                                * components: 
+                                  0: component
+                                      * type: struct
+                                          * tag: struct _LIST_ENTRY
+                                          * components: 
+                                            0: component
+                                                * type: pointer
+                                                    * subtype: symbol
+                                                        * identifier: tag-struct _LIST_ENTRY
+                                                * name: Flink
+                                                * pretty_name: Flink
+                                            1: component
+                                                * type: pointer
+                                                    * subtype: symbol
+                                                        * identifier: tag-struct _LIST_ENTRY
+                                                * name: Blink
+                                                * pretty_name: Blink
+                                      * name: DeviceListEntry
+                                      * pretty_name: DeviceListEntry
+                                  1: component
+                                      * type: unsignedbv
+                                          * width: 32
+                                      * name: SortKey
+                                      * pretty_name: SortKey
+                                  2: component
+                                      * type: unsignedbv
+                                          * width: 8
+                                      * name: Inserted
+                                      * pretty_name: Inserted
+                                  3: component
+                                      * type: unsignedbv
+                                          * width: 24
+                                      * name: pad$3
+                                      * pretty_name: anon_pad$3
+                            * name: DeviceQueueEntry
+                            * pretty_name: DeviceQueueEntry
+                        1: component
+                            * type: struct
+                                * tag: struct __anonstruct____missing_field_name_50
+                                * components: 
+                                  0: component
+                                      * type: array
+                                          * size: constant
+                                              * type: signedbv
+                                                  * width: 32
+                                              * value: 00000000000000000000000000000100
+                                          * subtype: pointer
+                                              * subtype: empty
+                                      * name: DriverContext
+                                      * pretty_name: DriverContext
+                            * name: __annonCompField14
+                            * pretty_name: __annonCompField14
+                  * name: __annonCompField15
+                  * pretty_name: __annonCompField15
+              1: component
+                  * type: pointer
+                      * subtype: symbol
+                          * identifier: tag-struct _ETHREAD
+                  * name: Thread
+                  * pretty_name: Thread
+              2: component
+                  * type: pointer
+                      * subtype: signedbv
+                          * width: 8
+                  * name: AuxiliaryBuffer
+                  * pretty_name: AuxiliaryBuffer
+              3: component
+                  * type: struct
+                      * tag: struct __anonstruct____missing_field_name_51
+                      * components: 
+                        0: component
+                            * type: struct
+                                * tag: struct _LIST_ENTRY
+                                * components: 
+                                  0: component
+                                      * type: pointer
+                                          * subtype: symbol
+                                              * identifier: tag-struct _LIST_ENTRY
+                                      * name: Flink
+                                      * pretty_name: Flink
+                                  1: component
+                                      * type: pointer
+                                          * subtype: symbol
+                                              * identifier: tag-struct _LIST_ENTRY
+                                      * name: Blink
+                                      * pretty_name: Blink
+                            * name: ListEntry
+                            * pretty_name: ListEntry
+                        1: component
+                            * type: union
+                                * tag: union __anonunion____missing_field_name_52
+                                * components: 
+                                  0: component
+                                      * type: pointer
+                                          * subtype: symbol
+                                              * identifier: tag-struct _IO_STACK_LOCATION
+                                      * name: CurrentStackLocation
+                                      * pretty_name: CurrentStackLocation
+                                  1: component
+                                      * type: unsignedbv
+                                          * width: 32
+                                      * name: PacketType
+                                      * pretty_name: PacketType
+                            * name: __annonCompField16
+                            * pretty_name: __annonCompField16
+                  * name: __annonCompField17
+                  * pretty_name: __annonCompField17
+              4: component
+                  * type: pointer
+                      * subtype: symbol
+                          * identifier: tag-struct _FILE_OBJECT
+                  * name: OriginalFileObject
+                  * pretty_name: OriginalFileObject
+        * operands: 
+          0: constant
+              * type: unsignedbv
+                  * width: 320
+              * value: 01000000000000010111110100111011011110000000000111111110111100010000000000001000000000000000000000000000100000100000110010111011000000000000000000000000000000000000000000000001111111110011101000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+    1: bitcast
+        * type: struct
+            * tag: struct _KAPC
+            * components: 
+              0: component
+                  * type: signedbv
+                      * width: 16
+                  * name: Type
+                  * pretty_name: Type
+              1: component
+                  * type: signedbv
+                      * width: 16
+                  * name: Size
+                  * pretty_name: Size
+              2: component
+                  * type: unsignedbv
+                      * width: 32
+                  * name: Spare0
+                  * pretty_name: Spare0
+              3: component
+                  * type: pointer
+                      * subtype: symbol
+                          * identifier: tag-struct _KTHREAD
+                  * name: Thread
+                  * pretty_name: Thread
+              4: component
+                  * type: struct
+                      * tag: struct _LIST_ENTRY
+                      * components: 
+                        0: component
+                            * type: pointer
+                                * subtype: symbol
+                                    * identifier: tag-struct _LIST_ENTRY
+                            * name: Flink
+                            * pretty_name: Flink
+                        1: component
+                            * type: pointer
+                                * subtype: symbol
+                                    * identifier: tag-struct _LIST_ENTRY
+                            * name: Blink
+                            * pretty_name: Blink
+                  * name: ApcListEntry
+                  * pretty_name: ApcListEntry
+              5: component
+                  * type: pointer
+                      * subtype: code
+                          * arguments: 
+                            0: argument
+                                * type: pointer
+                                    * subtype: symbol
+                                        * identifier: tag-struct _KAPC
+                                * #identifier: 
+                            1: argument
+                                * type: pointer
+                                    * subtype: pointer
+                                        * subtype: code
+                                            * arguments: 
+                                              0: argument
+                                                  * type: pointer
+                                                      * subtype: empty
+                                                  * #identifier: 
+                                              1: argument
+                                                  * type: pointer
+                                                      * subtype: empty
+                                                  * #identifier: 
+                                              2: argument
+                                                  * type: pointer
+                                                      * subtype: empty
+                                                  * #identifier: 
+                                            * return_type: empty
+                                * #identifier: 
+                            2: argument
+                                * type: pointer
+                                    * subtype: pointer
+                                        * subtype: empty
+                                * #identifier: 
+                            3: argument
+                                * type: pointer
+                                    * subtype: pointer
+                                        * subtype: empty
+                                * #identifier: 
+                            4: argument
+                                * type: pointer
+                                    * subtype: pointer
+                                        * subtype: empty
+                                * #identifier: 
+                          * return_type: empty
+                  * name: KernelRoutine
+                  * pretty_name: KernelRoutine
+              6: component
+                  * type: pointer
+                      * subtype: code
+                          * arguments: 
+                            0: argument
+                                * type: pointer
+                                    * subtype: symbol
+                                        * identifier: tag-struct _KAPC
+                                * #identifier: 
+                          * return_type: empty
+                  * name: RundownRoutine
+                  * pretty_name: RundownRoutine
+              7: component
+                  * type: pointer
+                      * subtype: code
+                          * arguments: 
+                            0: argument
+                                * type: pointer
+                                    * subtype: empty
+                                * #identifier: 
+                            1: argument
+                                * type: pointer
+                                    * subtype: empty
+                                * #identifier: 
+                            2: argument
+                                * type: pointer
+                                    * subtype: empty
+                                * #identifier: 
+                          * return_type: empty
+                  * name: NormalRoutine
+                  * pretty_name: NormalRoutine
+              8: component
+                  * type: pointer
+                      * subtype: empty
+                  * name: NormalContext
+                  * pretty_name: NormalContext
+              9: component
+                  * type: pointer
+                      * subtype: empty
+                  * name: SystemArgument1
+                  * pretty_name: SystemArgument1
+              10: component
+                  * type: pointer
+                      * subtype: empty
+                  * name: SystemArgument2
+                  * pretty_name: SystemArgument2
+              11: component
+                  * type: signedbv
+                      * width: 8
+                  * name: ApcStateIndex
+                  * pretty_name: ApcStateIndex
+              12: component
+                  * type: signedbv
+                      * width: 8
+                  * name: ApcMode
+                  * pretty_name: ApcMode
+              13: component
+                  * type: unsignedbv
+                      * width: 8
+                  * name: Inserted
+                  * pretty_name: Inserted
+              14: component
+                  * type: unsignedbv
+                      * width: 8
+                  * name: pad$14
+                  * pretty_name: anon_pad$14
+        * operands: 
+          0: constant
+              * type: unsignedbv
+                  * width: 384
+              * value: 000000000000000000000000000000000000000000000000000000000000000001000000000000010111110100111011011110000000000111111110111100010000000000001000000000000000000000000000100000100000110010111011000000000000000000000000000000000000000000000001111111110011101000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+    2: bitcast
+        * type: pointer
+            * subtype: empty
+        * operands: 
+          0: constant
+              * type: unsignedbv
+                  * width: 32
+              * value: 00000000000000000000000000000000
+  * component_name:  }
+
+State 8 file diskperf.i.cil-2.c line 3245 function main thread 0
+----------------------------------------------------
+  pirp->IoStatus.__annonCompField4.Status = { .Type=0, .Size=0, .MdlAddress=0, .Flags=0, .AssociatedIrp=union
+  * type: union
+      * tag: union __anonunion_AssociatedIrp_44
+      * components: 
+        0: component
+            * type: pointer
+                * subtype: symbol
+                    * identifier: tag-struct _IRP
+            * name: MasterIrp
+            * pretty_name: MasterIrp
+        1: component
+            * type: signedbv
+                * width: 32
+            * name: IrpCount
+            * pretty_name: IrpCount
+        2: component
+            * type: pointer
+                * subtype: empty
+            * name: SystemBuffer
+            * pretty_name: SystemBuffer
+  * operands: 
+    0: bitcast
+        * type: pointer
+            * subtype: symbol
+                * identifier: tag-struct _IRP
+        * operands: 
+          0: constant
+              * type: unsignedbv
+                  * width: 32
+              * value: 00000000000000100000000010000000
+    1: constant
+        * type: signedbv
+            * width: 32
+        * value: 00000000000000100000000010000000
+    2: bitcast
+        * type: pointer
+            * subtype: empty
+        * operands: 
+          0: constant
+              * type: unsignedbv
+                  * width: 32
+              * value: 00000000000000100000000010000000
+  * component_name: ,
+    .ThreadListEntry={ .Flink=0, .Blink=0 },
+    .IoStatus=irp.IoStatus WITH [__annonCompField4:=irp.IoStatus.__annonCompField4 WITH [Status:=-1073741637]],
+    .RequestorMode=0,
+    .PendingReturned=0, .StackCount=0,
+    .CurrentLocation=0, .Cancel=0, .CancelIrql=0,
+    .ApcEnvironment=0, .AllocationFlags=0, .UserIosb=0,
+    .UserEvent=0, .Overlay=union
+  * type: union
+      * tag: union __anonunion_Overlay_45
+      * components: 
+        0: component
+            * type: struct
+                * tag: struct __anonstruct_AsynchronousParameters_46
+                * components: 
+                  0: component
+                      * type: pointer
+                          * subtype: code
+                              * arguments: 
+                                0: argument
+                                    * type: pointer
+                                        * subtype: empty
+                                    * #identifier: 
+                                1: argument
+                                    * type: pointer
+                                        * subtype: symbol
+                                            * identifier: tag-struct _IO_STATUS_BLOCK
+                                    * #identifier: 
+                                2: argument
+                                    * type: unsignedbv
+                                        * width: 32
+                                    * #identifier: 
+                              * return_type: empty
+                      * name: UserApcRoutine
+                      * pretty_name: UserApcRoutine
+                  1: component
+                      * type: pointer
+                          * subtype: empty
+                      * name: UserApcContext
+                      * pretty_name: UserApcContext
+            * name: AsynchronousParameters
+            * pretty_name: AsynchronousParameters
+        1: component
+            * type: union
+                * tag: union _LARGE_INTEGER
+                * components: 
+                  0: component
+                      * type: struct
+                          * tag: struct __anonstruct____missing_field_name_1
+                          * components: 
+                            0: component
+                                * type: unsignedbv
+                                    * width: 32
+                                * name: LowPart
+                                * pretty_name: LowPart
+                            1: component
+                                * type: signedbv
+                                    * width: 32
+                                * name: HighPart
+                                * pretty_name: HighPart
+                      * name: __annonCompField1
+                      * pretty_name: __annonCompField1
+                  1: component
+                      * type: struct
+                          * tag: struct __anonstruct_u_2
+                          * components: 
+                            0: component
+                                * type: unsignedbv
+                                    * width: 32
+                                * name: LowPart
+                                * pretty_name: LowPart
+                            1: component
+                                * type: signedbv
+                                    * width: 32
+                                * name: HighPart
+                                * pretty_name: HighPart
+                      * name: u
+                      * pretty_name: u
+                  2: component
+                      * type: signedbv
+                          * width: 64
+                      * name: QuadPart
+                      * pretty_name: QuadPart
+            * name: AllocationSize
+            * pretty_name: AllocationSize
+  * operands: 
+    0: bitcast
+        * type: struct
+            * tag: struct __anonstruct_AsynchronousParameters_46
+            * components: 
+              0: component
+                  * type: pointer
+                      * subtype: code
+                          * arguments: 
+                            0: argument
+                                * type: pointer
+                                    * subtype: empty
+                                * #identifier: 
+                            1: argument
+                                * type: pointer
+                                    * subtype: symbol
+                                        * identifier: tag-struct _IO_STATUS_BLOCK
+                                * #identifier: 
+                            2: argument
+                                * type: unsignedbv
+                                    * width: 32
+                                * #identifier: 
+                          * return_type: empty
+                  * name: UserApcRoutine
+                  * pretty_name: UserApcRoutine
+              1: component
+                  * type: pointer
+                      * subtype: empty
+                  * name: UserApcContext
+                  * pretty_name: UserApcContext
+        * operands: 
+          0: constant
+              * type: unsignedbv
+                  * width: 64
+              * value: 0000000000000000000000000000000000000000000000000000000000000000
+    1: bitcast
+        * type: union
+            * tag: union _LARGE_INTEGER
+            * components: 
+              0: component
+                  * type: struct
+                      * tag: struct __anonstruct____missing_field_name_1
+                      * components: 
+                        0: component
+                            * type: unsignedbv
+                                * width: 32
+                            * name: LowPart
+                            * pretty_name: LowPart
+                        1: component
+                            * type: signedbv
+                                * width: 32
+                            * name: HighPart
+                            * pretty_name: HighPart
+                  * name: __annonCompField1
+                  * pretty_name: __annonCompField1
+              1: component
+                  * type: struct
+                      * tag: struct __anonstruct_u_2
+                      * components: 
+                        0: component
+                            * type: unsignedbv
+                                * width: 32
+                            * name: LowPart
+                            * pretty_name: LowPart
+                        1: component
+                            * type: signedbv
+                                * width: 32
+                            * name: HighPart
+                            * pretty_name: HighPart
+                  * name: u
+                  * pretty_name: u
+              2: component
+                  * type: signedbv
+                      * width: 64
+                  * name: QuadPart
+                  * pretty_name: QuadPart
+        * operands: 
+          0: constant
+              * type: unsignedbv
+                  * width: 64
+              * value: 0000000000000000000000000000000000000000000000000000000000000000
+  * component_name: , .CancelRoutine=0,
+    .UserBuffer=0, .Tail=union
+  * type: union
+      * tag: union __anonunion_Tail_47
+      * components: 
+        0: component
+            * type: struct
+                * tag: struct __anonstruct_Overlay_48
+                * components: 
+                  0: component
+                      * type: union
+                          * tag: union __anonunion____missing_field_name_49
+                          * components: 
+                            0: component
+                                * type: struct
+                                    * tag: struct _KDEVICE_QUEUE_ENTRY
+                                    * components: 
+                                      0: component
+                                          * type: struct
+                                              * tag: struct _LIST_ENTRY
+                                              * components: 
+                                                0: component
+                                                    * type: pointer
+                                                        * subtype: symbol
+                                                            * identifier: tag-struct _LIST_ENTRY
+                                                    * name: Flink
+                                                    * pretty_name: Flink
+                                                1: component
+                                                    * type: pointer
+                                                        * subtype: symbol
+                                                            * identifier: tag-struct _LIST_ENTRY
+                                                    * name: Blink
+                                                    * pretty_name: Blink
+                                          * name: DeviceListEntry
+                                          * pretty_name: DeviceListEntry
+                                      1: component
+                                          * type: unsignedbv
+                                              * width: 32
+                                          * name: SortKey
+                                          * pretty_name: SortKey
+                                      2: component
+                                          * type: unsignedbv
+                                              * width: 8
+                                          * name: Inserted
+                                          * pretty_name: Inserted
+                                      3: component
+                                          * type: unsignedbv
+                                              * width: 24
+                                          * name: pad$3
+                                          * pretty_name: anon_pad$3
+                                * name: DeviceQueueEntry
+                                * pretty_name: DeviceQueueEntry
+                            1: component
+                                * type: struct
+                                    * tag: struct __anonstruct____missing_field_name_50
+                                    * components: 
+                                      0: component
+                                          * type: array
+                                              * size: constant
+                                                  * type: signedbv
+                                                      * width: 32
+                                                  * value: 00000000000000000000000000000100
+                                              * subtype: pointer
+                                                  * subtype: empty
+                                          * name: DriverContext
+                                          * pretty_name: DriverContext
+                                * name: __annonCompField14
+                                * pretty_name: __annonCompField14
+                      * name: __annonCompField15
+                      * pretty_name: __annonCompField15
+                  1: component
+                      * type: pointer
+                          * subtype: symbol
+                              * identifier: tag-struct _ETHREAD
+                      * name: Thread
+                      * pretty_name: Thread
+                  2: component
+                      * type: pointer
+                          * subtype: signedbv
+                              * width: 8
+                      * name: AuxiliaryBuffer
+                      * pretty_name: AuxiliaryBuffer
+                  3: component
+                      * type: struct
+                          * tag: struct __anonstruct____missing_field_name_51
+                          * components: 
+                            0: component
+                                * type: struct
+                                    * tag: struct _LIST_ENTRY
+                                    * components: 
+                                      0: component
+                                          * type: pointer
+                                              * subtype: symbol
+                                                  * identifier: tag-struct _LIST_ENTRY
+                                          * name: Flink
+                                          * pretty_name: Flink
+                                      1: component
+                                          * type: pointer
+                                              * subtype: symbol
+                                                  * identifier: tag-struct _LIST_ENTRY
+                                          * name: Blink
+                                          * pretty_name: Blink
+                                * name: ListEntry
+                                * pretty_name: ListEntry
+                            1: component
+                                * type: union
+                                    * tag: union __anonunion____missing_field_name_52
+                                    * components: 
+                                      0: component
+                                          * type: pointer
+                                              * subtype: symbol
+                                                  * identifier: tag-struct _IO_STACK_LOCATION
+                                          * name: CurrentStackLocation
+                                          * pretty_name: CurrentStackLocation
+                                      1: component
+                                          * type: unsignedbv
+                                              * width: 32
+                                          * name: PacketType
+                                          * pretty_name: PacketType
+                                * name: __annonCompField16
+                                * pretty_name: __annonCompField16
+                      * name: __annonCompField17
+                      * pretty_name: __annonCompField17
+                  4: component
+                      * type: pointer
+                          * subtype: symbol
+                              * identifier: tag-struct _FILE_OBJECT
+                      * name: OriginalFileObject
+                      * pretty_name: OriginalFileObject
+            * name: Overlay
+            * pretty_name: Overlay
+        1: component
+            * type: struct
+                * tag: struct _KAPC
+                * components: 
+                  0: component
+                      * type: signedbv
+                          * width: 16
+                      * name: Type
+                      * pretty_name: Type
+                  1: component
+                      * type: signedbv
+                          * width: 16
+                      * name: Size
+                      * pretty_name: Size
+                  2: component
+                      * type: unsignedbv
+                          * width: 32
+                      * name: Spare0
+                      * pretty_name: Spare0
+                  3: component
+                      * type: pointer
+                          * subtype: symbol
+                              * identifier: tag-struct _KTHREAD
+                      * name: Thread
+                      * pretty_name: Thread
+                  4: component
+                      * type: struct
+                          * tag: struct _LIST_ENTRY
+                          * components: 
+                            0: component
+                                * type: pointer
+                                    * subtype: symbol
+                                        * identifier: tag-struct _LIST_ENTRY
+                                * name: Flink
+                                * pretty_name: Flink
+                            1: component
+                                * type: pointer
+                                    * subtype: symbol
+                                        * identifier: tag-struct _LIST_ENTRY
+                                * name: Blink
+                                * pretty_name: Blink
+                      * name: ApcListEntry
+                      * pretty_name: ApcListEntry
+                  5: component
+                      * type: pointer
+                          * subtype: code
+                              * arguments: 
+                                0: argument
+                                    * type: pointer
+                                        * subtype: symbol
+                                            * identifier: tag-struct _KAPC
+                                    * #identifier: 
+                                1: argument
+                                    * type: pointer
+                                        * subtype: pointer
+                                            * subtype: code
+                                                * arguments: 
+                                                  0: argument
+                                                      * type: pointer
+                                                          * subtype: empty
+                                                      * #identifier: 
+                                                  1: argument
+                                                      * type: pointer
+                                                          * subtype: empty
+                                                      * #identifier: 
+                                                  2: argument
+                                                      * type: pointer
+                                                          * subtype: empty
+                                                      * #identifier: 
+                                                * return_type: empty
+                                    * #identifier: 
+                                2: argument
+                                    * type: pointer
+                                        * subtype: pointer
+                                            * subtype: empty
+                                    * #identifier: 
+                                3: argument
+                                    * type: pointer
+                                        * subtype: pointer
+                                            * subtype: empty
+                                    * #identifier: 
+                                4: argument
+                                    * type: pointer
+                                        * subtype: pointer
+                                            * subtype: empty
+                                    * #identifier: 
+                              * return_type: empty
+                      * name: KernelRoutine
+                      * pretty_name: KernelRoutine
+                  6: component
+                      * type: pointer
+                          * subtype: code
+                              * arguments: 
+                                0: argument
+                                    * type: pointer
+                                        * subtype: symbol
+                                            * identifier: tag-struct _KAPC
+                                    * #identifier: 
+                              * return_type: empty
+                      * name: RundownRoutine
+                      * pretty_name: RundownRoutine
+                  7: component
+                      * type: pointer
+                          * subtype: code
+                              * arguments: 
+                                0: argument
+                                    * type: pointer
+                                        * subtype: empty
+                                    * #identifier: 
+                                1: argument
+                                    * type: pointer
+                                        * subtype: empty
+                                    * #identifier: 
+                                2: argument
+                                    * type: pointer
+                                        * subtype: empty
+                                    * #identifier: 
+                              * return_type: empty
+                      * name: NormalRoutine
+                      * pretty_name: NormalRoutine
+                  8: component
+                      * type: pointer
+                          * subtype: empty
+                      * name: NormalContext
+                      * pretty_name: NormalContext
+                  9: component
+                      * type: pointer
+                          * subtype: empty
+                      * name: SystemArgument1
+                      * pretty_name: SystemArgument1
+                  10: component
+                      * type: pointer
+                          * subtype: empty
+                      * name: SystemArgument2
+                      * pretty_name: SystemArgument2
+                  11: component
+                      * type: signedbv
+                          * width: 8
+                      * name: ApcStateIndex
+                      * pretty_name: ApcStateIndex
+                  12: component
+                      * type: signedbv
+                          * width: 8
+                      * name: ApcMode
+                      * pretty_name: ApcMode
+                  13: component
+                      * type: unsignedbv
+                          * width: 8
+                      * name: Inserted
+                      * pretty_name: Inserted
+                  14: component
+                      * type: unsignedbv
+                          * width: 8
+                      * name: pad$14
+                      * pretty_name: anon_pad$14
+            * name: Apc
+            * pretty_name: Apc
+        2: component
+            * type: pointer
+                * subtype: empty
+            * name: CompletionKey
+            * pretty_name: CompletionKey
+  * operands: 
+    0: bitcast
+        * type: struct
+            * tag: struct __anonstruct_Overlay_48
+            * components: 
+              0: component
+                  * type: union
+                      * tag: union __anonunion____missing_field_name_49
+                      * components: 
+                        0: component
+                            * type: struct
+                                * tag: struct _KDEVICE_QUEUE_ENTRY
+                                * components: 
+                                  0: component
+                                      * type: struct
+                                          * tag: struct _LIST_ENTRY
+                                          * components: 
+                                            0: component
+                                                * type: pointer
+                                                    * subtype: symbol
+                                                        * identifier: tag-struct _LIST_ENTRY
+                                                * name: Flink
+                                                * pretty_name: Flink
+                                            1: component
+                                                * type: pointer
+                                                    * subtype: symbol
+                                                        * identifier: tag-struct _LIST_ENTRY
+                                                * name: Blink
+                                                * pretty_name: Blink
+                                      * name: DeviceListEntry
+                                      * pretty_name: DeviceListEntry
+                                  1: component
+                                      * type: unsignedbv
+                                          * width: 32
+                                      * name: SortKey
+                                      * pretty_name: SortKey
+                                  2: component
+                                      * type: unsignedbv
+                                          * width: 8
+                                      * name: Inserted
+                                      * pretty_name: Inserted
+                                  3: component
+                                      * type: unsignedbv
+                                          * width: 24
+                                      * name: pad$3
+                                      * pretty_name: anon_pad$3
+                            * name: DeviceQueueEntry
+                            * pretty_name: DeviceQueueEntry
+                        1: component
+                            * type: struct
+                                * tag: struct __anonstruct____missing_field_name_50
+                                * components: 
+                                  0: component
+                                      * type: array
+                                          * size: constant
+                                              * type: signedbv
+                                                  * width: 32
+                                              * value: 00000000000000000000000000000100
+                                          * subtype: pointer
+                                              * subtype: empty
+                                      * name: DriverContext
+                                      * pretty_name: DriverContext
+                            * name: __annonCompField14
+                            * pretty_name: __annonCompField14
+                  * name: __annonCompField15
+                  * pretty_name: __annonCompField15
+              1: component
+                  * type: pointer
+                      * subtype: symbol
+                          * identifier: tag-struct _ETHREAD
+                  * name: Thread
+                  * pretty_name: Thread
+              2: component
+                  * type: pointer
+                      * subtype: signedbv
+                          * width: 8
+                  * name: AuxiliaryBuffer
+                  * pretty_name: AuxiliaryBuffer
+              3: component
+                  * type: struct
+                      * tag: struct __anonstruct____missing_field_name_51
+                      * components: 
+                        0: component
+                            * type: struct
+                                * tag: struct _LIST_ENTRY
+                                * components: 
+                                  0: component
+                                      * type: pointer
+                                          * subtype: symbol
+                                              * identifier: tag-struct _LIST_ENTRY
+                                      * name: Flink
+                                      * pretty_name: Flink
+                                  1: component
+                                      * type: pointer
+                                          * subtype: symbol
+                                              * identifier: tag-struct _LIST_ENTRY
+                                      * name: Blink
+                                      * pretty_name: Blink
+                            * name: ListEntry
+                            * pretty_name: ListEntry
+                        1: component
+                            * type: union
+                                * tag: union __anonunion____missing_field_name_52
+                                * components: 
+                                  0: component
+                                      * type: pointer
+                                          * subtype: symbol
+                                              * identifier: tag-struct _IO_STACK_LOCATION
+                                      * name: CurrentStackLocation
+                                      * pretty_name: CurrentStackLocation
+                                  1: component
+                                      * type: unsignedbv
+                                          * width: 32
+                                      * name: PacketType
+                                      * pretty_name: PacketType
+                            * name: __annonCompField16
+                            * pretty_name: __annonCompField16
+                  * name: __annonCompField17
+                  * pretty_name: __annonCompField17
+              4: component
+                  * type: pointer
+                      * subtype: symbol
+                          * identifier: tag-struct _FILE_OBJECT
+                  * name: OriginalFileObject
+                  * pretty_name: OriginalFileObject
+        * operands: 
+          0: constant
+              * type: unsignedbv
+                  * width: 320
+              * value: 01000000000000010111110100111011011110000000000111111110111100010000000000001000000000000000000000000000100000100000110010111011000000000000000000000000000000000000000000000001111111110011101000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+    1: bitcast
+        * type: struct
+            * tag: struct _KAPC
+            * components: 
+              0: component
+                  * type: signedbv
+                      * width: 16
+                  * name: Type
+                  * pretty_name: Type
+              1: component
+                  * type: signedbv
+                      * width: 16
+                  * name: Size
+                  * pretty_name: Size
+              2: component
+                  * type: unsignedbv
+                      * width: 32
+                  * name: Spare0
+                  * pretty_name: Spare0
+              3: component
+                  * type: pointer
+                      * subtype: symbol
+                          * identifier: tag-struct _KTHREAD
+                  * name: Thread
+                  * pretty_name: Thread
+              4: component
+                  * type: struct
+                      * tag: struct _LIST_ENTRY
+                      * components: 
+                        0: component
+                            * type: pointer
+                                * subtype: symbol
+                                    * identifier: tag-struct _LIST_ENTRY
+                            * name: Flink
+                            * pretty_name: Flink
+                        1: component
+                            * type: pointer
+                                * subtype: symbol
+                                    * identifier: tag-struct _LIST_ENTRY
+                            * name: Blink
+                            * pretty_name: Blink
+                  * name: ApcListEntry
+                  * pretty_name: ApcListEntry
+              5: component
+                  * type: pointer
+                      * subtype: code
+                          * arguments: 
+                            0: argument
+                                * type: pointer
+                                    * subtype: symbol
+                                        * identifier: tag-struct _KAPC
+                                * #identifier: 
+                            1: argument
+                                * type: pointer
+                                    * subtype: pointer
+                                        * subtype: code
+                                            * arguments: 
+                                              0: argument
+                                                  * type: pointer
+                                                      * subtype: empty
+                                                  * #identifier: 
+                                              1: argument
+                                                  * type: pointer
+                                                      * subtype: empty
+                                                  * #identifier: 
+                                              2: argument
+                                                  * type: pointer
+                                                      * subtype: empty
+                                                  * #identifier: 
+                                            * return_type: empty
+                                * #identifier: 
+                            2: argument
+                                * type: pointer
+                                    * subtype: pointer
+                                        * subtype: empty
+                                * #identifier: 
+                            3: argument
+                                * type: pointer
+                                    * subtype: pointer
+                                        * subtype: empty
+                                * #identifier: 
+                            4: argument
+                                * type: pointer
+                                    * subtype: pointer
+                                        * subtype: empty
+                                * #identifier: 
+                          * return_type: empty
+                  * name: KernelRoutine
+                  * pretty_name: KernelRoutine
+              6: component
+                  * type: pointer
+                      * subtype: code
+                          * arguments: 
+                            0: argument
+                                * type: pointer
+                                    * subtype: symbol
+                                        * identifier: tag-struct _KAPC
+                                * #identifier: 
+                          * return_type: empty
+                  * name: RundownRoutine
+                  * pretty_name: RundownRoutine
+              7: component
+                  * type: pointer
+                      * subtype: code
+                          * arguments: 
+                            0: argument
+                                * type: pointer
+                                    * subtype: empty
+                                * #identifier: 
+                            1: argument
+                                * type: pointer
+                                    * subtype: empty
+                                * #identifier: 
+                            2: argument
+                                * type: pointer
+                                    * subtype: empty
+                                * #identifier: 
+                          * return_type: empty
+                  * name: NormalRoutine
+                  * pretty_name: NormalRoutine
+              8: component
+                  * type: pointer
+                      * subtype: empty
+                  * name: NormalContext
+                  * pretty_name: NormalContext
+              9: component
+                  * type: pointer
+                      * subtype: empty
+                  * name: SystemArgument1
+                  * pretty_name: SystemArgument1
+              10: component
+                  * type: pointer
+                      * subtype: empty
+                  * name: SystemArgument2
+                  * pretty_name: SystemArgument2
+              11: component
+                  * type: signedbv
+                      * width: 8
+                  * name: ApcStateIndex
+                  * pretty_name: ApcStateIndex
+              12: component
+                  * type: signedbv
+                      * width: 8
+                  * name: ApcMode
+                  * pretty_name: ApcMode
+              13: component
+                  * type: unsignedbv
+                      * width: 8
+                  * name: Inserted
+                  * pretty_name: Inserted
+              14: component
+                  * type: unsignedbv
+                      * width: 8
+                  * name: pad$14
+                  * pretty_name: anon_pad$14
+        * operands: 
+          0: constant
+              * type: unsignedbv
+                  * width: 384
+              * value: 000000000000000000000000000000000000000000000000000000000000000001000000000000010111110100111011011110000000000111111110111100010000000000001000000000000000000000000000100000100000110010111011000000000000000000000000000000000000000000000001111111110011101000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+    2: bitcast
+        * type: pointer
+            * subtype: empty
+        * operands: 
+          0: constant
+              * type: unsignedbv
+                  * width: 32
+              * value: 00000000000000000000000000000000
+  * component_name:  }
+
+State 9 file diskperf.i.cil-2.c line 3 function reach_error thread 0
+----------------------------------------------------
+Violated property:
+  file diskperf.i.cil-2.c line 3 function reach_error
+  assertion 0
+  0
+
+
+VERIFICATION FAILED
+
+Bug found (k = 1)
+
+../sv-benchmarks/c/ntdrivers/diskperf.i.cil-2.c:2794:57: warning: incompatible pointer types passing 'char [61]' to parameter of type 'const wchar_t *' (aka 'const unsigned short *') [-Wincompatible-pointer-types]
+    swprintf(deviceExtension->PhysicalDeviceNameBuffer, "\\\000D\000e\000v\000i\000c\000e\000\\\000H\000a\000r\000d\000d\000i\000s\000k\000%\000d\000\\\000P\000a\000r\000t\000i\000t\000i\000o\000n\000%\000d\000",
+                                                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ntdrivers/diskperf.i.cil-2.c:1742:52: note: passing argument to parameter here
+extern int swprintf(wchar_t * , wchar_t const   *  , ...) ;
+                                                   ^
+../sv-benchmarks/c/ntdrivers/diskperf.i.cil-2.c:3208:12: warning: incompatible integer to pointer conversion assigning to 'NTSTATUS (*)(PDEVICE_OBJECT, PIRP, PVOID)' (aka 'long (*)(struct _DEVICE_OBJECT *, struct _IRP *, void *)') from 'int' [-Wint-conversion]
+  compFptr = compRegistered;
+           ^ ~~~~~~~~~~~~~~
+../sv-benchmarks/c/ntdrivers/diskperf.i.cil-2.c:3209:10: warning: incompatible pointer to integer conversion assigning to 'int' from 'NTSTATUS (*)(PDEVICE_OBJECT, PIRP, PVOID)' (aka 'long (*)(struct _DEVICE_OBJECT *, struct _IRP *, void *)') [-Wint-conversion]
+  pended = compFptr;
+         ^ ~~~~~~~~
+../sv-benchmarks/c/ntdrivers/diskperf.i.cil-2.c:3240:14: warning: incompatible integer to pointer conversion assigning to 'NTSTATUS (*)(PDEVICE_OBJECT, PIRP, PVOID)' (aka 'long (*)(struct _DEVICE_OBJECT *, struct _IRP *, void *)') from 'int' [-Wint-conversion]
+    compFptr = compRegistered;
+             ^ ~~~~~~~~~~~~~~
+../sv-benchmarks/c/ntdrivers/diskperf.i.cil-2.c:3241:12: warning: incompatible pointer to integer conversion assigning to 'int' from 'NTSTATUS (*)(PDEVICE_OBJECT, PIRP, PVOID)' (aka 'long (*)(struct _DEVICE_OBJECT *, struct _IRP *, void *)') [-Wint-conversion]
+    pended = compFptr;
+           ^ ~~~~~~~~
+
+FALSE_REACH

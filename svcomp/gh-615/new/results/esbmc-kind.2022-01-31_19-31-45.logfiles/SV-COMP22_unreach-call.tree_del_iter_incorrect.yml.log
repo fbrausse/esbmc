@@ -1,0 +1,755 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/verifythis/tree_del_iter_incorrect.c
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/verifythis/tree_del_iter_incorrect.c --32 --witness-output tree_del_iter_incorrect.c.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/verifythis/tree_del_iter_incorrect.c: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.087s
+GOTO program processing time: 0.001s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+**** WARNING: k-induction does not support recursion yet. Disabling inductive step
+Unwinding recursion nondet_tree iteration 1 (1 max)
+Unwinding recursion nondet_tree iteration 1 (1 max)
+Unwinding recursion min iteration 1 (1 max)
+Unwinding recursion min iteration 1 (1 max)
+Unwinding recursion size iteration 1 (1 max)
+Unwinding recursion size iteration 1 (1 max)
+Not unwinding 
+Unwinding recursion tree_inorder iteration 1 (1 max)
+Unwinding recursion tree_inorder iteration 1 (1 max)
+Not unwinding 
+Unwinding recursion size iteration 1 (1 max)
+Unwinding recursion size iteration 1 (1 max)
+Not unwinding 
+Unwinding recursion tree_inorder iteration 1 (1 max)
+Unwinding recursion tree_inorder iteration 1 (1 max)
+Not unwinding 
+Symex completed in: 0.064s (218 assignments)
+Slicing time: 0.001s (removed 99 assignments)
+Generated 4 VCC(s), 4 remaining after simplification (119 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.003s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.003s
+Runtime decision procedure: 0.001s
+BMC program time: 0.069s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Unwinding recursion nondet_tree iteration 1 (1 max)
+Unwinding recursion nondet_tree iteration 1 (1 max)
+Unwinding recursion min iteration 1 (1 max)
+Unwinding recursion min iteration 1 (1 max)
+Unwinding recursion size iteration 1 (1 max)
+Unwinding recursion size iteration 1 (1 max)
+Not unwinding 
+Unwinding recursion tree_inorder iteration 1 (1 max)
+Unwinding recursion tree_inorder iteration 1 (1 max)
+Not unwinding 
+Unwinding recursion size iteration 1 (1 max)
+Unwinding recursion size iteration 1 (1 max)
+Not unwinding 
+Unwinding recursion tree_inorder iteration 1 (1 max)
+Unwinding recursion tree_inorder iteration 1 (1 max)
+Not unwinding 
+Symex completed in: 0.009s (214 assignments)
+Slicing time: 0.000s (removed 99 assignments)
+Generated 16 VCC(s), 16 remaining after simplification (115 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.002s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.002s
+Runtime decision procedure: 0.122s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding recursion nondet_tree iteration 1 (3 max)
+Unwinding recursion nondet_tree iteration 2 (3 max)
+Unwinding recursion nondet_tree iteration 3 (3 max)
+Unwinding recursion nondet_tree iteration 3 (3 max)
+Unwinding recursion nondet_tree iteration 2 (3 max)
+Unwinding recursion nondet_tree iteration 3 (3 max)
+Unwinding recursion nondet_tree iteration 3 (3 max)
+Unwinding recursion nondet_tree iteration 1 (3 max)
+Unwinding recursion nondet_tree iteration 2 (3 max)
+Unwinding recursion nondet_tree iteration 3 (3 max)
+Unwinding recursion nondet_tree iteration 3 (3 max)
+Unwinding recursion nondet_tree iteration 2 (3 max)
+Unwinding recursion nondet_tree iteration 3 (3 max)
+Unwinding recursion nondet_tree iteration 3 (3 max)
+Unwinding recursion min iteration 1 (3 max)
+Unwinding recursion min iteration 2 (3 max)
+Unwinding recursion min iteration 3 (3 max)
+Unwinding recursion min iteration 3 (3 max)
+Unwinding recursion min iteration 2 (3 max)
+Unwinding recursion min iteration 3 (3 max)
+Unwinding recursion min iteration 3 (3 max)
+Unwinding recursion min iteration 1 (3 max)
+Unwinding recursion min iteration 2 (3 max)
+Unwinding recursion min iteration 3 (3 max)
+Unwinding recursion min iteration 3 (3 max)
+Unwinding recursion min iteration 2 (3 max)
+Unwinding recursion min iteration 3 (3 max)
+Unwinding recursion min iteration 3 (3 max)
+Unwinding recursion size iteration 1 (3 max)
+Unwinding recursion size iteration 2 (3 max)
+Unwinding recursion size iteration 3 (3 max)
+Unwinding recursion size iteration 3 (3 max)
+Unwinding recursion size iteration 2 (3 max)
+Unwinding recursion size iteration 3 (3 max)
+Unwinding recursion size iteration 3 (3 max)
+Unwinding recursion size iteration 1 (3 max)
+Unwinding recursion size iteration 2 (3 max)
+Unwinding recursion size iteration 3 (3 max)
+Unwinding recursion size iteration 3 (3 max)
+Unwinding recursion size iteration 2 (3 max)
+Unwinding recursion size iteration 3 (3 max)
+Unwinding recursion size iteration 3 (3 max)
+Unwinding loop 3  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 3  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding recursion tree_inorder iteration 1 (3 max)
+Unwinding recursion tree_inorder iteration 2 (3 max)
+Unwinding recursion tree_inorder iteration 3 (3 max)
+Unwinding recursion tree_inorder iteration 3 (3 max)
+Unwinding recursion tree_inorder iteration 2 (3 max)
+Unwinding recursion tree_inorder iteration 3 (3 max)
+Unwinding recursion tree_inorder iteration 3 (3 max)
+Unwinding recursion tree_inorder iteration 1 (3 max)
+Unwinding recursion tree_inorder iteration 2 (3 max)
+Unwinding recursion tree_inorder iteration 3 (3 max)
+Unwinding recursion tree_inorder iteration 3 (3 max)
+Unwinding recursion tree_inorder iteration 2 (3 max)
+Unwinding recursion tree_inorder iteration 3 (3 max)
+Unwinding recursion tree_inorder iteration 3 (3 max)
+Unwinding loop 1  iteration  1   file tree_del_iter_incorrect.c line 56 function tree_del
+Unwinding loop 1  iteration  2   file tree_del_iter_incorrect.c line 56 function tree_del
+Not unwinding 
+Unwinding recursion size iteration 1 (3 max)
+Unwinding recursion size iteration 2 (3 max)
+Unwinding recursion size iteration 3 (3 max)
+Unwinding recursion size iteration 3 (3 max)
+Unwinding recursion size iteration 2 (3 max)
+Unwinding recursion size iteration 3 (3 max)
+Unwinding recursion size iteration 3 (3 max)
+Unwinding recursion size iteration 1 (3 max)
+Unwinding recursion size iteration 2 (3 max)
+Unwinding recursion size iteration 3 (3 max)
+Unwinding recursion size iteration 3 (3 max)
+Unwinding recursion size iteration 2 (3 max)
+Unwinding recursion size iteration 3 (3 max)
+Unwinding recursion size iteration 3 (3 max)
+Unwinding loop 3  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 3  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding recursion tree_inorder iteration 1 (3 max)
+Unwinding recursion tree_inorder iteration 2 (3 max)
+Unwinding recursion tree_inorder iteration 3 (3 max)
+Unwinding recursion tree_inorder iteration 3 (3 max)
+Unwinding recursion tree_inorder iteration 2 (3 max)
+Unwinding recursion tree_inorder iteration 3 (3 max)
+Unwinding recursion tree_inorder iteration 3 (3 max)
+Unwinding recursion tree_inorder iteration 1 (3 max)
+Unwinding recursion tree_inorder iteration 2 (3 max)
+Unwinding recursion tree_inorder iteration 3 (3 max)
+Unwinding recursion tree_inorder iteration 3 (3 max)
+Unwinding recursion tree_inorder iteration 2 (3 max)
+Unwinding recursion tree_inorder iteration 3 (3 max)
+Unwinding recursion tree_inorder iteration 3 (3 max)
+Unwinding loop 2  iteration  1   file tree_del_iter_incorrect.c line 100 function task
+Unwinding loop 2  iteration  2   file tree_del_iter_incorrect.c line 100 function task
+Not unwinding 
+Symex completed in: 0.044s (736 assignments)
+Slicing time: 0.002s (removed 246 assignments)
+Generated 6 VCC(s), 6 remaining after simplification (490 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.009s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.009s
+Runtime decision procedure: 0.724s
+BMC program time: 0.779s
+No bug has been found in the base case
+*** Checking forward condition, k = 3
+Starting Bounded Model Checking
+Unwinding recursion nondet_tree iteration 1 (3 max)
+Unwinding recursion nondet_tree iteration 2 (3 max)
+Unwinding recursion nondet_tree iteration 3 (3 max)
+Unwinding recursion nondet_tree iteration 3 (3 max)
+Unwinding recursion nondet_tree iteration 2 (3 max)
+Unwinding recursion nondet_tree iteration 3 (3 max)
+Unwinding recursion nondet_tree iteration 3 (3 max)
+Unwinding recursion nondet_tree iteration 1 (3 max)
+Unwinding recursion nondet_tree iteration 2 (3 max)
+Unwinding recursion nondet_tree iteration 3 (3 max)
+Unwinding recursion nondet_tree iteration 3 (3 max)
+Unwinding recursion nondet_tree iteration 2 (3 max)
+Unwinding recursion nondet_tree iteration 3 (3 max)
+Unwinding recursion nondet_tree iteration 3 (3 max)
+Unwinding recursion min iteration 1 (3 max)
+Unwinding recursion min iteration 2 (3 max)
+Unwinding recursion min iteration 3 (3 max)
+Unwinding recursion min iteration 3 (3 max)
+Unwinding recursion min iteration 2 (3 max)
+Unwinding recursion min iteration 3 (3 max)
+Unwinding recursion min iteration 3 (3 max)
+Unwinding recursion min iteration 1 (3 max)
+Unwinding recursion min iteration 2 (3 max)
+Unwinding recursion min iteration 3 (3 max)
+Unwinding recursion min iteration 3 (3 max)
+Unwinding recursion min iteration 2 (3 max)
+Unwinding recursion min iteration 3 (3 max)
+Unwinding recursion min iteration 3 (3 max)
+Unwinding recursion size iteration 1 (3 max)
+Unwinding recursion size iteration 2 (3 max)
+Unwinding recursion size iteration 3 (3 max)
+Unwinding recursion size iteration 3 (3 max)
+Unwinding recursion size iteration 2 (3 max)
+Unwinding recursion size iteration 3 (3 max)
+Unwinding recursion size iteration 3 (3 max)
+Unwinding recursion size iteration 1 (3 max)
+Unwinding recursion size iteration 2 (3 max)
+Unwinding recursion size iteration 3 (3 max)
+Unwinding recursion size iteration 3 (3 max)
+Unwinding recursion size iteration 2 (3 max)
+Unwinding recursion size iteration 3 (3 max)
+Unwinding recursion size iteration 3 (3 max)
+Unwinding loop 3  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 3  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding recursion tree_inorder iteration 1 (3 max)
+Unwinding recursion tree_inorder iteration 2 (3 max)
+Unwinding recursion tree_inorder iteration 3 (3 max)
+Unwinding recursion tree_inorder iteration 3 (3 max)
+Unwinding recursion tree_inorder iteration 2 (3 max)
+Unwinding recursion tree_inorder iteration 3 (3 max)
+Unwinding recursion tree_inorder iteration 3 (3 max)
+Unwinding recursion tree_inorder iteration 1 (3 max)
+Unwinding recursion tree_inorder iteration 2 (3 max)
+Unwinding recursion tree_inorder iteration 3 (3 max)
+Unwinding recursion tree_inorder iteration 3 (3 max)
+Unwinding recursion tree_inorder iteration 2 (3 max)
+Unwinding recursion tree_inorder iteration 3 (3 max)
+Unwinding recursion tree_inorder iteration 3 (3 max)
+Unwinding loop 1  iteration  1   file tree_del_iter_incorrect.c line 56 function tree_del
+Unwinding loop 1  iteration  2   file tree_del_iter_incorrect.c line 56 function tree_del
+Not unwinding 
+Unwinding recursion size iteration 1 (3 max)
+Unwinding recursion size iteration 2 (3 max)
+Unwinding recursion size iteration 3 (3 max)
+Unwinding recursion size iteration 3 (3 max)
+Unwinding recursion size iteration 2 (3 max)
+Unwinding recursion size iteration 3 (3 max)
+Unwinding recursion size iteration 3 (3 max)
+Unwinding recursion size iteration 1 (3 max)
+Unwinding recursion size iteration 2 (3 max)
+Unwinding recursion size iteration 3 (3 max)
+Unwinding recursion size iteration 3 (3 max)
+Unwinding recursion size iteration 2 (3 max)
+Unwinding recursion size iteration 3 (3 max)
+Unwinding recursion size iteration 3 (3 max)
+Unwinding loop 3  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 3  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding recursion tree_inorder iteration 1 (3 max)
+Unwinding recursion tree_inorder iteration 2 (3 max)
+Unwinding recursion tree_inorder iteration 3 (3 max)
+Unwinding recursion tree_inorder iteration 3 (3 max)
+Unwinding recursion tree_inorder iteration 2 (3 max)
+Unwinding recursion tree_inorder iteration 3 (3 max)
+Unwinding recursion tree_inorder iteration 3 (3 max)
+Unwinding recursion tree_inorder iteration 1 (3 max)
+Unwinding recursion tree_inorder iteration 2 (3 max)
+Unwinding recursion tree_inorder iteration 3 (3 max)
+Unwinding recursion tree_inorder iteration 3 (3 max)
+Unwinding recursion tree_inorder iteration 2 (3 max)
+Unwinding recursion tree_inorder iteration 3 (3 max)
+Unwinding recursion tree_inorder iteration 3 (3 max)
+Unwinding loop 2  iteration  1   file tree_del_iter_incorrect.c line 100 function task
+Unwinding loop 2  iteration  2   file tree_del_iter_incorrect.c line 100 function task
+Not unwinding 
+Symex completed in: 0.046s (730 assignments)
+Slicing time: 0.002s (removed 246 assignments)
+Generated 52 VCC(s), 52 remaining after simplification (484 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.009s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.009s
+Runtime decision procedure: 0.859s
+The forward condition is unable to prove the property
+*** Checking base case, k = 5
+Starting Bounded Model Checking
+Unwinding recursion nondet_tree iteration 1 (5 max)
+Unwinding recursion nondet_tree iteration 2 (5 max)
+Unwinding recursion nondet_tree iteration 3 (5 max)
+Unwinding recursion nondet_tree iteration 4 (5 max)
+Unwinding recursion nondet_tree iteration 5 (5 max)
+Unwinding recursion nondet_tree iteration 5 (5 max)
+Unwinding recursion nondet_tree iteration 4 (5 max)
+Unwinding recursion nondet_tree iteration 5 (5 max)
+Unwinding recursion nondet_tree iteration 5 (5 max)
+Unwinding recursion nondet_tree iteration 3 (5 max)
+Unwinding recursion nondet_tree iteration 4 (5 max)
+Unwinding recursion nondet_tree iteration 5 (5 max)
+Unwinding recursion nondet_tree iteration 5 (5 max)
+Unwinding recursion nondet_tree iteration 4 (5 max)
+Unwinding recursion nondet_tree iteration 5 (5 max)
+Unwinding recursion nondet_tree iteration 5 (5 max)
+Unwinding recursion nondet_tree iteration 2 (5 max)
+Unwinding recursion nondet_tree iteration 3 (5 max)
+Unwinding recursion nondet_tree iteration 4 (5 max)
+Unwinding recursion nondet_tree iteration 5 (5 max)
+Unwinding recursion nondet_tree iteration 5 (5 max)
+Unwinding recursion nondet_tree iteration 4 (5 max)
+Unwinding recursion nondet_tree iteration 5 (5 max)
+Unwinding recursion nondet_tree iteration 5 (5 max)
+Unwinding recursion nondet_tree iteration 3 (5 max)
+Unwinding recursion nondet_tree iteration 4 (5 max)
+Unwinding recursion nondet_tree iteration 5 (5 max)
+Unwinding recursion nondet_tree iteration 5 (5 max)
+Unwinding recursion nondet_tree iteration 4 (5 max)
+Unwinding recursion nondet_tree iteration 5 (5 max)
+Unwinding recursion nondet_tree iteration 5 (5 max)
+Unwinding recursion nondet_tree iteration 1 (5 max)
+Unwinding recursion nondet_tree iteration 2 (5 max)
+Unwinding recursion nondet_tree iteration 3 (5 max)
+Unwinding recursion nondet_tree iteration 4 (5 max)
+Unwinding recursion nondet_tree iteration 5 (5 max)
+Unwinding recursion nondet_tree iteration 5 (5 max)
+Unwinding recursion nondet_tree iteration 4 (5 max)
+Unwinding recursion nondet_tree iteration 5 (5 max)
+Unwinding recursion nondet_tree iteration 5 (5 max)
+Unwinding recursion nondet_tree iteration 3 (5 max)
+Unwinding recursion nondet_tree iteration 4 (5 max)
+Unwinding recursion nondet_tree iteration 5 (5 max)
+Unwinding recursion nondet_tree iteration 5 (5 max)
+Unwinding recursion nondet_tree iteration 4 (5 max)
+Unwinding recursion nondet_tree iteration 5 (5 max)
+Unwinding recursion nondet_tree iteration 5 (5 max)
+Unwinding recursion nondet_tree iteration 2 (5 max)
+Unwinding recursion nondet_tree iteration 3 (5 max)
+Unwinding recursion nondet_tree iteration 4 (5 max)
+Unwinding recursion nondet_tree iteration 5 (5 max)
+Unwinding recursion nondet_tree iteration 5 (5 max)
+Unwinding recursion nondet_tree iteration 4 (5 max)
+Unwinding recursion nondet_tree iteration 5 (5 max)
+Unwinding recursion nondet_tree iteration 5 (5 max)
+Unwinding recursion nondet_tree iteration 3 (5 max)
+Unwinding recursion nondet_tree iteration 4 (5 max)
+Unwinding recursion nondet_tree iteration 5 (5 max)
+Unwinding recursion nondet_tree iteration 5 (5 max)
+Unwinding recursion nondet_tree iteration 4 (5 max)
+Unwinding recursion nondet_tree iteration 5 (5 max)
+Unwinding recursion nondet_tree iteration 5 (5 max)
+Unwinding recursion min iteration 1 (5 max)
+Unwinding recursion min iteration 2 (5 max)
+Unwinding recursion min iteration 3 (5 max)
+Unwinding recursion min iteration 4 (5 max)
+Unwinding recursion min iteration 5 (5 max)
+Unwinding recursion min iteration 5 (5 max)
+Unwinding recursion min iteration 4 (5 max)
+Unwinding recursion min iteration 5 (5 max)
+Unwinding recursion min iteration 5 (5 max)
+Unwinding recursion min iteration 3 (5 max)
+Unwinding recursion min iteration 4 (5 max)
+Unwinding recursion min iteration 5 (5 max)
+Unwinding recursion min iteration 5 (5 max)
+Unwinding recursion min iteration 4 (5 max)
+Unwinding recursion min iteration 5 (5 max)
+Unwinding recursion min iteration 5 (5 max)
+Unwinding recursion min iteration 2 (5 max)
+Unwinding recursion min iteration 3 (5 max)
+Unwinding recursion min iteration 4 (5 max)
+Unwinding recursion min iteration 5 (5 max)
+Unwinding recursion min iteration 5 (5 max)
+Unwinding recursion min iteration 4 (5 max)
+Unwinding recursion min iteration 5 (5 max)
+Unwinding recursion min iteration 5 (5 max)
+Unwinding recursion min iteration 3 (5 max)
+Unwinding recursion min iteration 4 (5 max)
+Unwinding recursion min iteration 5 (5 max)
+Unwinding recursion min iteration 5 (5 max)
+Unwinding recursion min iteration 4 (5 max)
+Unwinding recursion min iteration 5 (5 max)
+Unwinding recursion min iteration 5 (5 max)
+Unwinding recursion min iteration 1 (5 max)
+Unwinding recursion min iteration 2 (5 max)
+Unwinding recursion min iteration 3 (5 max)
+Unwinding recursion min iteration 4 (5 max)
+Unwinding recursion min iteration 5 (5 max)
+Unwinding recursion min iteration 5 (5 max)
+Unwinding recursion min iteration 4 (5 max)
+Unwinding recursion min iteration 5 (5 max)
+Unwinding recursion min iteration 5 (5 max)
+Unwinding recursion min iteration 3 (5 max)
+Unwinding recursion min iteration 4 (5 max)
+Unwinding recursion min iteration 5 (5 max)
+Unwinding recursion min iteration 5 (5 max)
+Unwinding recursion min iteration 4 (5 max)
+Unwinding recursion min iteration 5 (5 max)
+Unwinding recursion min iteration 5 (5 max)
+Unwinding recursion min iteration 2 (5 max)
+Unwinding recursion min iteration 3 (5 max)
+Unwinding recursion min iteration 4 (5 max)
+Unwinding recursion min iteration 5 (5 max)
+Unwinding recursion min iteration 5 (5 max)
+Unwinding recursion min iteration 4 (5 max)
+Unwinding recursion min iteration 5 (5 max)
+Unwinding recursion min iteration 5 (5 max)
+Unwinding recursion min iteration 3 (5 max)
+Unwinding recursion min iteration 4 (5 max)
+Unwinding recursion min iteration 5 (5 max)
+Unwinding recursion min iteration 5 (5 max)
+Unwinding recursion min iteration 4 (5 max)
+Unwinding recursion min iteration 5 (5 max)
+Unwinding recursion min iteration 5 (5 max)
+Unwinding recursion size iteration 1 (5 max)
+Unwinding recursion size iteration 2 (5 max)
+Unwinding recursion size iteration 3 (5 max)
+Unwinding recursion size iteration 4 (5 max)
+Unwinding recursion size iteration 5 (5 max)
+Unwinding recursion size iteration 5 (5 max)
+Unwinding recursion size iteration 4 (5 max)
+Unwinding recursion size iteration 5 (5 max)
+Unwinding recursion size iteration 5 (5 max)
+Unwinding recursion size iteration 3 (5 max)
+Unwinding recursion size iteration 4 (5 max)
+Unwinding recursion size iteration 5 (5 max)
+Unwinding recursion size iteration 5 (5 max)
+Unwinding recursion size iteration 4 (5 max)
+Unwinding recursion size iteration 5 (5 max)
+Unwinding recursion size iteration 5 (5 max)
+Unwinding recursion size iteration 2 (5 max)
+Unwinding recursion size iteration 3 (5 max)
+Unwinding recursion size iteration 4 (5 max)
+Unwinding recursion size iteration 5 (5 max)
+Unwinding recursion size iteration 5 (5 max)
+Unwinding recursion size iteration 4 (5 max)
+Unwinding recursion size iteration 5 (5 max)
+Unwinding recursion size iteration 5 (5 max)
+Unwinding recursion size iteration 3 (5 max)
+Unwinding recursion size iteration 4 (5 max)
+Unwinding recursion size iteration 5 (5 max)
+Unwinding recursion size iteration 5 (5 max)
+Unwinding recursion size iteration 4 (5 max)
+Unwinding recursion size iteration 5 (5 max)
+Unwinding recursion size iteration 5 (5 max)
+Unwinding recursion size iteration 1 (5 max)
+Unwinding recursion size iteration 2 (5 max)
+Unwinding recursion size iteration 3 (5 max)
+Unwinding recursion size iteration 4 (5 max)
+Unwinding recursion size iteration 5 (5 max)
+Unwinding recursion size iteration 5 (5 max)
+Unwinding recursion size iteration 4 (5 max)
+Unwinding recursion size iteration 5 (5 max)
+Unwinding recursion size iteration 5 (5 max)
+Unwinding recursion size iteration 3 (5 max)
+Unwinding recursion size iteration 4 (5 max)
+Unwinding recursion size iteration 5 (5 max)
+Unwinding recursion size iteration 5 (5 max)
+Unwinding recursion size iteration 4 (5 max)
+Unwinding recursion size iteration 5 (5 max)
+Unwinding recursion size iteration 5 (5 max)
+Unwinding recursion size iteration 2 (5 max)
+Unwinding recursion size iteration 3 (5 max)
+Unwinding recursion size iteration 4 (5 max)
+Unwinding recursion size iteration 5 (5 max)
+Unwinding recursion size iteration 5 (5 max)
+Unwinding recursion size iteration 4 (5 max)
+Unwinding recursion size iteration 5 (5 max)
+Unwinding recursion size iteration 5 (5 max)
+Unwinding recursion size iteration 3 (5 max)
+Unwinding recursion size iteration 4 (5 max)
+Unwinding recursion size iteration 5 (5 max)
+Unwinding recursion size iteration 5 (5 max)
+Unwinding recursion size iteration 4 (5 max)
+Unwinding recursion size iteration 5 (5 max)
+Unwinding recursion size iteration 5 (5 max)
+Unwinding loop 3  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 3  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 3  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 3  iteration  4   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding recursion tree_inorder iteration 1 (5 max)
+Unwinding recursion tree_inorder iteration 2 (5 max)
+Unwinding recursion tree_inorder iteration 3 (5 max)
+Unwinding recursion tree_inorder iteration 4 (5 max)
+Unwinding recursion tree_inorder iteration 5 (5 max)
+Unwinding recursion tree_inorder iteration 5 (5 max)
+Unwinding recursion tree_inorder iteration 4 (5 max)
+Unwinding recursion tree_inorder iteration 5 (5 max)
+Unwinding recursion tree_inorder iteration 5 (5 max)
+Unwinding recursion tree_inorder iteration 3 (5 max)
+Unwinding recursion tree_inorder iteration 4 (5 max)
+Unwinding recursion tree_inorder iteration 5 (5 max)
+Unwinding recursion tree_inorder iteration 5 (5 max)
+Unwinding recursion tree_inorder iteration 4 (5 max)
+Unwinding recursion tree_inorder iteration 5 (5 max)
+Unwinding recursion tree_inorder iteration 5 (5 max)
+Unwinding recursion tree_inorder iteration 2 (5 max)
+Unwinding recursion tree_inorder iteration 3 (5 max)
+Unwinding recursion tree_inorder iteration 4 (5 max)
+Unwinding recursion tree_inorder iteration 5 (5 max)
+Unwinding recursion tree_inorder iteration 5 (5 max)
+Unwinding recursion tree_inorder iteration 4 (5 max)
+Unwinding recursion tree_inorder iteration 5 (5 max)
+Unwinding recursion tree_inorder iteration 5 (5 max)
+Unwinding recursion tree_inorder iteration 3 (5 max)
+Unwinding recursion tree_inorder iteration 4 (5 max)
+Unwinding recursion tree_inorder iteration 5 (5 max)
+Unwinding recursion tree_inorder iteration 5 (5 max)
+Unwinding recursion tree_inorder iteration 4 (5 max)
+Unwinding recursion tree_inorder iteration 5 (5 max)
+Unwinding recursion tree_inorder iteration 5 (5 max)
+Unwinding recursion tree_inorder iteration 1 (5 max)
+Unwinding recursion tree_inorder iteration 2 (5 max)
+Unwinding recursion tree_inorder iteration 3 (5 max)
+Unwinding recursion tree_inorder iteration 4 (5 max)
+Unwinding recursion tree_inorder iteration 5 (5 max)
+Unwinding recursion tree_inorder iteration 5 (5 max)
+Unwinding recursion tree_inorder iteration 4 (5 max)
+Unwinding recursion tree_inorder iteration 5 (5 max)
+Unwinding recursion tree_inorder iteration 5 (5 max)
+Unwinding recursion tree_inorder iteration 3 (5 max)
+Unwinding recursion tree_inorder iteration 4 (5 max)
+Unwinding recursion tree_inorder iteration 5 (5 max)
+Unwinding recursion tree_inorder iteration 5 (5 max)
+Unwinding recursion tree_inorder iteration 4 (5 max)
+Unwinding recursion tree_inorder iteration 5 (5 max)
+Unwinding recursion tree_inorder iteration 5 (5 max)
+Unwinding recursion tree_inorder iteration 2 (5 max)
+Unwinding recursion tree_inorder iteration 3 (5 max)
+Unwinding recursion tree_inorder iteration 4 (5 max)
+Unwinding recursion tree_inorder iteration 5 (5 max)
+Unwinding recursion tree_inorder iteration 5 (5 max)
+Unwinding recursion tree_inorder iteration 4 (5 max)
+Unwinding recursion tree_inorder iteration 5 (5 max)
+Unwinding recursion tree_inorder iteration 5 (5 max)
+Unwinding recursion tree_inorder iteration 3 (5 max)
+Unwinding recursion tree_inorder iteration 4 (5 max)
+Unwinding recursion tree_inorder iteration 5 (5 max)
+Unwinding recursion tree_inorder iteration 5 (5 max)
+Unwinding recursion tree_inorder iteration 4 (5 max)
+Unwinding recursion tree_inorder iteration 5 (5 max)
+Unwinding recursion tree_inorder iteration 5 (5 max)
+Unwinding loop 1  iteration  1   file tree_del_iter_incorrect.c line 56 function tree_del
+Unwinding loop 1  iteration  2   file tree_del_iter_incorrect.c line 56 function tree_del
+Unwinding loop 1  iteration  3   file tree_del_iter_incorrect.c line 56 function tree_del
+Unwinding loop 1  iteration  4   file tree_del_iter_incorrect.c line 56 function tree_del
+Not unwinding 
+Unwinding recursion size iteration 1 (5 max)
+Unwinding recursion size iteration 2 (5 max)
+Unwinding recursion size iteration 3 (5 max)
+Unwinding recursion size iteration 4 (5 max)
+Unwinding recursion size iteration 5 (5 max)
+Unwinding recursion size iteration 5 (5 max)
+Unwinding recursion size iteration 4 (5 max)
+Unwinding recursion size iteration 5 (5 max)
+Unwinding recursion size iteration 5 (5 max)
+Unwinding recursion size iteration 3 (5 max)
+Unwinding recursion size iteration 4 (5 max)
+Unwinding recursion size iteration 5 (5 max)
+Unwinding recursion size iteration 5 (5 max)
+Unwinding recursion size iteration 4 (5 max)
+Unwinding recursion size iteration 5 (5 max)
+Unwinding recursion size iteration 5 (5 max)
+Unwinding recursion size iteration 2 (5 max)
+Unwinding recursion size iteration 3 (5 max)
+Unwinding recursion size iteration 4 (5 max)
+Unwinding recursion size iteration 5 (5 max)
+Unwinding recursion size iteration 5 (5 max)
+Unwinding recursion size iteration 4 (5 max)
+Unwinding recursion size iteration 5 (5 max)
+Unwinding recursion size iteration 5 (5 max)
+Unwinding recursion size iteration 3 (5 max)
+Unwinding recursion size iteration 4 (5 max)
+Unwinding recursion size iteration 5 (5 max)
+Unwinding recursion size iteration 5 (5 max)
+Unwinding recursion size iteration 4 (5 max)
+Unwinding recursion size iteration 5 (5 max)
+Unwinding recursion size iteration 5 (5 max)
+Unwinding recursion size iteration 1 (5 max)
+Unwinding recursion size iteration 2 (5 max)
+Unwinding recursion size iteration 3 (5 max)
+Unwinding recursion size iteration 4 (5 max)
+Unwinding recursion size iteration 5 (5 max)
+Unwinding recursion size iteration 5 (5 max)
+Unwinding recursion size iteration 4 (5 max)
+Unwinding recursion size iteration 5 (5 max)
+Unwinding recursion size iteration 5 (5 max)
+Unwinding recursion size iteration 3 (5 max)
+Unwinding recursion size iteration 4 (5 max)
+Unwinding recursion size iteration 5 (5 max)
+Unwinding recursion size iteration 5 (5 max)
+Unwinding recursion size iteration 4 (5 max)
+Unwinding recursion size iteration 5 (5 max)
+Unwinding recursion size iteration 5 (5 max)
+Unwinding recursion size iteration 2 (5 max)
+Unwinding recursion size iteration 3 (5 max)
+Unwinding recursion size iteration 4 (5 max)
+Unwinding recursion size iteration 5 (5 max)
+Unwinding recursion size iteration 5 (5 max)
+Unwinding recursion size iteration 4 (5 max)
+Unwinding recursion size iteration 5 (5 max)
+Unwinding recursion size iteration 5 (5 max)
+Unwinding recursion size iteration 3 (5 max)
+Unwinding recursion size iteration 4 (5 max)
+Unwinding recursion size iteration 5 (5 max)
+Unwinding recursion size iteration 5 (5 max)
+Unwinding recursion size iteration 4 (5 max)
+Unwinding recursion size iteration 5 (5 max)
+Unwinding recursion size iteration 5 (5 max)
+Unwinding loop 3  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 3  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 3  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 3  iteration  4   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding recursion tree_inorder iteration 1 (5 max)
+Unwinding recursion tree_inorder iteration 2 (5 max)
+Unwinding recursion tree_inorder iteration 3 (5 max)
+Unwinding recursion tree_inorder iteration 4 (5 max)
+Unwinding recursion tree_inorder iteration 5 (5 max)
+Unwinding recursion tree_inorder iteration 5 (5 max)
+Unwinding recursion tree_inorder iteration 4 (5 max)
+Unwinding recursion tree_inorder iteration 5 (5 max)
+Unwinding recursion tree_inorder iteration 5 (5 max)
+Unwinding recursion tree_inorder iteration 3 (5 max)
+Unwinding recursion tree_inorder iteration 4 (5 max)
+Unwinding recursion tree_inorder iteration 5 (5 max)
+Unwinding recursion tree_inorder iteration 5 (5 max)
+Unwinding recursion tree_inorder iteration 4 (5 max)
+Unwinding recursion tree_inorder iteration 5 (5 max)
+Unwinding recursion tree_inorder iteration 5 (5 max)
+Unwinding recursion tree_inorder iteration 2 (5 max)
+Unwinding recursion tree_inorder iteration 3 (5 max)
+Unwinding recursion tree_inorder iteration 4 (5 max)
+Unwinding recursion tree_inorder iteration 5 (5 max)
+Unwinding recursion tree_inorder iteration 5 (5 max)
+Unwinding recursion tree_inorder iteration 4 (5 max)
+Unwinding recursion tree_inorder iteration 5 (5 max)
+Unwinding recursion tree_inorder iteration 5 (5 max)
+Unwinding recursion tree_inorder iteration 3 (5 max)
+Unwinding recursion tree_inorder iteration 4 (5 max)
+Unwinding recursion tree_inorder iteration 5 (5 max)
+Unwinding recursion tree_inorder iteration 5 (5 max)
+Unwinding recursion tree_inorder iteration 4 (5 max)
+Unwinding recursion tree_inorder iteration 5 (5 max)
+Unwinding recursion tree_inorder iteration 5 (5 max)
+Unwinding recursion tree_inorder iteration 1 (5 max)
+Unwinding recursion tree_inorder iteration 2 (5 max)
+Unwinding recursion tree_inorder iteration 3 (5 max)
+Unwinding recursion tree_inorder iteration 4 (5 max)
+Unwinding recursion tree_inorder iteration 5 (5 max)
+Unwinding recursion tree_inorder iteration 5 (5 max)
+Unwinding recursion tree_inorder iteration 4 (5 max)
+Unwinding recursion tree_inorder iteration 5 (5 max)
+Unwinding recursion tree_inorder iteration 5 (5 max)
+Unwinding recursion tree_inorder iteration 3 (5 max)
+Unwinding recursion tree_inorder iteration 4 (5 max)
+Unwinding recursion tree_inorder iteration 5 (5 max)
+Unwinding recursion tree_inorder iteration 5 (5 max)
+Unwinding recursion tree_inorder iteration 4 (5 max)
+Unwinding recursion tree_inorder iteration 5 (5 max)
+Unwinding recursion tree_inorder iteration 5 (5 max)
+Unwinding recursion tree_inorder iteration 2 (5 max)
+Unwinding recursion tree_inorder iteration 3 (5 max)
+Unwinding recursion tree_inorder iteration 4 (5 max)
+Unwinding recursion tree_inorder iteration 5 (5 max)
+Unwinding recursion tree_inorder iteration 5 (5 max)
+Unwinding recursion tree_inorder iteration 4 (5 max)
+Unwinding recursion tree_inorder iteration 5 (5 max)
+Unwinding recursion tree_inorder iteration 5 (5 max)
+Unwinding recursion tree_inorder iteration 3 (5 max)
+Unwinding recursion tree_inorder iteration 4 (5 max)
+Unwinding recursion tree_inorder iteration 5 (5 max)
+Unwinding recursion tree_inorder iteration 5 (5 max)
+Unwinding recursion tree_inorder iteration 4 (5 max)
+Unwinding recursion tree_inorder iteration 5 (5 max)
+Unwinding recursion tree_inorder iteration 5 (5 max)
+Unwinding loop 2  iteration  1   file tree_del_iter_incorrect.c line 100 function task
+Unwinding loop 2  iteration  2   file tree_del_iter_incorrect.c line 100 function task
+Unwinding loop 2  iteration  3   file tree_del_iter_incorrect.c line 100 function task
+Unwinding loop 2  iteration  4   file tree_del_iter_incorrect.c line 100 function task
+Not unwinding 
+Symex completed in: 0.311s (2638 assignments)
+Slicing time: 0.011s (removed 754 assignments)
+Generated 8 VCC(s), 8 remaining after simplification (1884 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.059s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.059s
+Runtime decision procedure: 8.153s
+Building error trace
+
+Counterexample:
+
+State 1 file tree_del_iter_incorrect.c line 29 function nondet_tree thread 0
+----------------------------------------------------
+  n->data = { .data=2147483647, .left=nil, .right=nil }
+
+State 2 file tree_del_iter_incorrect.c line 40 function min thread 0
+----------------------------------------------------
+  a = 2147483647 (01111111 11111111 11111111 11111111)
+
+State 3 file tree_del_iter_incorrect.c line 41 function min thread 0
+----------------------------------------------------
+  b = 2147483647 (01111111 11111111 11111111 11111111)
+
+State 4 file tree_del_iter_incorrect.c line 83 function task thread 0
+----------------------------------------------------
+  a = 2147483647 (01111111 11111111 11111111 11111111)
+
+State 5 file tree_del_iter_incorrect.c line 86 function task thread 0
+----------------------------------------------------
+  n = 1 (00000000 00000000 00000000 00000001)
+
+State 6 file tree_del_iter_incorrect.c line 88 function task thread 0
+----------------------------------------------------
+  x = &dynamic_150_array[0]
+
+State 7 file tree_del_iter_incorrect.c line 71 function tree_inorder thread 0
+----------------------------------------------------
+  i = 2 (00000000 00000000 00000000 00000010)
+
+State 8 file tree_del_iter_incorrect.c line 71 function tree_inorder thread 0
+----------------------------------------------------
+  *(a + tmp$1) = (unsigned int)dynamic_58_value.data
+
+State 9 file tree_del_iter_incorrect.c line 71 function tree_inorder thread 0
+----------------------------------------------------
+  *(a + tmp$1) = (unsigned int)dynamic_58_value.data
+
+State 10 file tree_del_iter_incorrect.c line 71 function tree_inorder thread 0
+----------------------------------------------------
+  *(a + tmp$1) = (unsigned int)dynamic_58_value.data
+
+State 11 file tree_del_iter_incorrect.c line 71 function tree_inorder thread 0
+----------------------------------------------------
+  *(a + tmp$1) = (unsigned int)dynamic_58_value.data
+
+State 12 file tree_del_iter_incorrect.c line 14 function reach_error thread 0
+----------------------------------------------------
+Violated property:
+  file tree_del_iter_incorrect.c line 14 function reach_error
+  assertion 0
+  0
+
+
+VERIFICATION FAILED
+
+Bug found (k = 5)
+
+
+FALSE_REACH

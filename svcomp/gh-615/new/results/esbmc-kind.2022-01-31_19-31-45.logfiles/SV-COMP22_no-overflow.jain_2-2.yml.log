@@ -1,0 +1,45 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/no-overflow.prp -s kinduction --arch 32 ../sv-benchmarks/c/bitvector/jain_2-2.c
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/bitvector/jain_2-2.c --32 --witness-output jain_2-2.c.graphml --no-pointer-check --no-bounds-check --overflow-check --no-assertions --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/bitvector/jain_2-2.c: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.085s
+GOTO program processing time: 0.001s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.000s (25 assignments)
+Slicing time: 0.000s (removed 11 assignments)
+Generated 5 VCC(s), 5 remaining after simplification (14 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.000s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.000s
+Runtime decision procedure: 0.007s
+Building error trace
+
+Counterexample:
+
+State 1 file jain_2-2.c line 21 function main thread 0
+----------------------------------------------------
+Violated property:
+  file jain_2-2.c line 21 function main
+  arithmetic overflow on mul
+  !overflow("*", 2, return_value$___VERIFIER_nondet_int$1)
+
+
+VERIFICATION FAILED
+
+Bug found (k = 1)
+
+
+FALSE_OVERFLOW

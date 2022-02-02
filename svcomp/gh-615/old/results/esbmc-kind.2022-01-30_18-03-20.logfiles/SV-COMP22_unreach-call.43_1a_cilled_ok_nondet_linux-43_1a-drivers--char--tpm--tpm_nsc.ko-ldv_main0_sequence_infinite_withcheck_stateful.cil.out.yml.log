@@ -1,0 +1,979 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/ldv-linux-3.4-simple/43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-linux-3.4-simple/43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i --64 --witness-output 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 64-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/ldv-linux-3.4-simple/43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.342s
+GOTO program processing time: 0.023s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.072s (929 assignments)
+Slicing time: 0.001s (removed 889 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (40 assignments)
+BMC program time: 0.073s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.078s (929 assignments)
+Slicing time: 0.001s (removed 889 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (40 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.002s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.002s
+Runtime decision procedure: 0.247s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 5  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4518 function main
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 3  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3287 function tpm_nsc_recv
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 3  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3287 function tpm_nsc_recv
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 2  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3116 function nsc_wait_for_ready
+Unwinding loop 2  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3116 function nsc_wait_for_ready
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 4  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3502 function tpm_nsc_send
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 4  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3502 function tpm_nsc_send
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 5  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4518 function main
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 3  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3287 function tpm_nsc_recv
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 3  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3287 function tpm_nsc_recv
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 2  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3116 function nsc_wait_for_ready
+Unwinding loop 2  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3116 function nsc_wait_for_ready
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 4  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3502 function tpm_nsc_send
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 4  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3502 function tpm_nsc_send
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Not unwinding 
+Unwinding loop 6  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4521 function main
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 3  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3287 function tpm_nsc_recv
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 3  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3287 function tpm_nsc_recv
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 2  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3116 function nsc_wait_for_ready
+Unwinding loop 2  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3116 function nsc_wait_for_ready
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 4  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3502 function tpm_nsc_send
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 4  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3502 function tpm_nsc_send
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 5  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4518 function main
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 3  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3287 function tpm_nsc_recv
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 3  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3287 function tpm_nsc_recv
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 2  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3116 function nsc_wait_for_ready
+Unwinding loop 2  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3116 function nsc_wait_for_ready
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 4  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3502 function tpm_nsc_send
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 4  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3502 function tpm_nsc_send
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 5  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4518 function main
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 3  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3287 function tpm_nsc_recv
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 3  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3287 function tpm_nsc_recv
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 2  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3116 function nsc_wait_for_ready
+Unwinding loop 2  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3116 function nsc_wait_for_ready
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 4  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3502 function tpm_nsc_send
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 4  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3502 function tpm_nsc_send
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Not unwinding 
+Unwinding loop 6  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4521 function main
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 3  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3287 function tpm_nsc_recv
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 3  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3287 function tpm_nsc_recv
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 2  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3116 function nsc_wait_for_ready
+Unwinding loop 2  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3116 function nsc_wait_for_ready
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 4  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3502 function tpm_nsc_send
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 4  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3502 function tpm_nsc_send
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 5  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4518 function main
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 3  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3287 function tpm_nsc_recv
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 3  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3287 function tpm_nsc_recv
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 2  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3116 function nsc_wait_for_ready
+Unwinding loop 2  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3116 function nsc_wait_for_ready
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 4  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3502 function tpm_nsc_send
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 4  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3502 function tpm_nsc_send
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 5  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4518 function main
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 3  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3287 function tpm_nsc_recv
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 3  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3287 function tpm_nsc_recv
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 2  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3116 function nsc_wait_for_ready
+Unwinding loop 2  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3116 function nsc_wait_for_ready
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 4  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3502 function tpm_nsc_send
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 4  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3502 function tpm_nsc_send
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 1.407s (18779 assignments)
+Slicing time: 0.187s (removed 14901 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (3878 assignments)
+BMC program time: 1.594s
+No bug has been found in the base case
+*** Checking forward condition, k = 3
+Starting Bounded Model Checking
+Unwinding loop 5  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4518 function main
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 3  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3287 function tpm_nsc_recv
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 3  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3287 function tpm_nsc_recv
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 2  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3116 function nsc_wait_for_ready
+Unwinding loop 2  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3116 function nsc_wait_for_ready
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 4  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3502 function tpm_nsc_send
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 4  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3502 function tpm_nsc_send
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 5  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4518 function main
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 3  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3287 function tpm_nsc_recv
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 3  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3287 function tpm_nsc_recv
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 2  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3116 function nsc_wait_for_ready
+Unwinding loop 2  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3116 function nsc_wait_for_ready
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 4  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3502 function tpm_nsc_send
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 4  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3502 function tpm_nsc_send
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Not unwinding 
+Unwinding loop 6  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4521 function main
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 3  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3287 function tpm_nsc_recv
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 3  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3287 function tpm_nsc_recv
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 2  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3116 function nsc_wait_for_ready
+Unwinding loop 2  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3116 function nsc_wait_for_ready
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 4  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3502 function tpm_nsc_send
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 4  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3502 function tpm_nsc_send
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 5  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4518 function main
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 3  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3287 function tpm_nsc_recv
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 3  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3287 function tpm_nsc_recv
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 2  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3116 function nsc_wait_for_ready
+Unwinding loop 2  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3116 function nsc_wait_for_ready
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 4  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3502 function tpm_nsc_send
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 4  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3502 function tpm_nsc_send
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 5  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4518 function main
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 3  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3287 function tpm_nsc_recv
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 3  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3287 function tpm_nsc_recv
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 2  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3116 function nsc_wait_for_ready
+Unwinding loop 2  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3116 function nsc_wait_for_ready
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 4  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3502 function tpm_nsc_send
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 4  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3502 function tpm_nsc_send
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Not unwinding 
+Unwinding loop 6  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4521 function main
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 3  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3287 function tpm_nsc_recv
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 3  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3287 function tpm_nsc_recv
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 2  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3116 function nsc_wait_for_ready
+Unwinding loop 2  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3116 function nsc_wait_for_ready
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 4  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3502 function tpm_nsc_send
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 4  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3502 function tpm_nsc_send
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 5  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4518 function main
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 3  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3287 function tpm_nsc_recv
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 3  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3287 function tpm_nsc_recv
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 2  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3116 function nsc_wait_for_ready
+Unwinding loop 2  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3116 function nsc_wait_for_ready
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 4  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3502 function tpm_nsc_send
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 4  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3502 function tpm_nsc_send
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 5  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4518 function main
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 3  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3287 function tpm_nsc_recv
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 3  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3287 function tpm_nsc_recv
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 2  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3116 function nsc_wait_for_ready
+Unwinding loop 2  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3116 function nsc_wait_for_ready
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 4  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3502 function tpm_nsc_send
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 4  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3502 function tpm_nsc_send
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 1.753s (18779 assignments)
+Slicing time: 0.192s (removed 14901 assignments)
+Generated 100 VCC(s), 100 remaining after simplification (3878 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.094s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.094s
+Runtime decision procedure: 3.646s
+The forward condition is unable to prove the property
+*** Checking inductive step, k = 3
+Starting Bounded Model Checking
+Unwinding loop 5  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4518 function main
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 3  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3287 function tpm_nsc_recv
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 3  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3287 function tpm_nsc_recv
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 2  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3116 function nsc_wait_for_ready
+Unwinding loop 2  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3116 function nsc_wait_for_ready
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 4  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3502 function tpm_nsc_send
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 4  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3502 function tpm_nsc_send
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 5  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4518 function main
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 3  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3287 function tpm_nsc_recv
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 3  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3287 function tpm_nsc_recv
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 2  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3116 function nsc_wait_for_ready
+Unwinding loop 2  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3116 function nsc_wait_for_ready
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 4  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3502 function tpm_nsc_send
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 4  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3502 function tpm_nsc_send
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Not unwinding 
+Unwinding loop 6  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4521 function main
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 3  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3287 function tpm_nsc_recv
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 3  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3287 function tpm_nsc_recv
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 2  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3116 function nsc_wait_for_ready
+Unwinding loop 2  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3116 function nsc_wait_for_ready
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 4  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3502 function tpm_nsc_send
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 4  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3502 function tpm_nsc_send
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 5  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4518 function main
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 3  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3287 function tpm_nsc_recv
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 3  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3287 function tpm_nsc_recv
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 2  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3116 function nsc_wait_for_ready
+Unwinding loop 2  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3116 function nsc_wait_for_ready
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 4  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3502 function tpm_nsc_send
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 4  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3502 function tpm_nsc_send
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 5  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4518 function main
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 3  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3287 function tpm_nsc_recv
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 3  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3287 function tpm_nsc_recv
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 2  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3116 function nsc_wait_for_ready
+Unwinding loop 2  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3116 function nsc_wait_for_ready
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 4  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3502 function tpm_nsc_send
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 4  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3502 function tpm_nsc_send
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Not unwinding 
+Unwinding loop 6  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4521 function main
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 3  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3287 function tpm_nsc_recv
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 3  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3287 function tpm_nsc_recv
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 2  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3116 function nsc_wait_for_ready
+Unwinding loop 2  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3116 function nsc_wait_for_ready
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 4  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3502 function tpm_nsc_send
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 4  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3502 function tpm_nsc_send
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 5  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4518 function main
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 3  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3287 function tpm_nsc_recv
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 3  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3287 function tpm_nsc_recv
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 2  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3116 function nsc_wait_for_ready
+Unwinding loop 2  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3116 function nsc_wait_for_ready
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 4  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3502 function tpm_nsc_send
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 4  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3502 function tpm_nsc_send
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 5  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4518 function main
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 3  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3287 function tpm_nsc_recv
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 3  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3287 function tpm_nsc_recv
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 2  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3116 function nsc_wait_for_ready
+Unwinding loop 2  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3116 function nsc_wait_for_ready
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 4  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3502 function tpm_nsc_send
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Unwinding loop 4  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3502 function tpm_nsc_send
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Not unwinding 
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 2998 function wait_for_stat
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 2.470s (21188 assignments)
+Slicing time: 0.310s (removed 16120 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (5068 assignments)
+BMC program time: 2.780s
+Building successful trace
+
+VERIFICATION SUCCESSFUL
+
+Solution found by the inductive step (k = 3)
+
+../sv-benchmarks/c/ldv-linux-3.4-simple/43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i:3719:45: warning: incompatible function pointer types initializing 'int (*)(struct platform_device *, pm_message_t)' (aka 'int (*)(struct platform_device *, struct pm_message)') with an expression of type 'int (*)(struct platform_device *, int)' [-Wincompatible-function-pointer-types]
+    (void (*)(struct platform_device * ))0, & tpm_nsc_suspend, & tpm_nsc_resume, {"tpm_nsc",
+                                            ^~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i:4417:1: warning: return type of 'main' is not 'int' [-Wmain-return-type]
+void main(void)
+^
+../sv-benchmarks/c/ldv-linux-3.4-simple/43_1a_cilled_ok_nondet_linux-43_1a-drivers--char--tpm--tpm_nsc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i:4417:1: note: change return type to 'int'
+void main(void)
+^~~~
+int
+
+TRUE

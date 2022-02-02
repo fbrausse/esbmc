@@ -1,0 +1,124 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--mtd--sm_ftl.ko.cil.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--mtd--sm_ftl.ko.cil.i --64 --witness-output linux-4.0-rc1---drivers--mtd--sm_ftl.ko.cil.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 64-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--mtd--sm_ftl.ko.cil.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.530s
+GOTO program processing time: 0.220s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+No target candidate for function call *arg0
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.250s (1594 assignments)
+Slicing time: 0.006s (removed 1039 assignments)
+Generated 6 VCC(s), 6 remaining after simplification (555 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.024s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.024s
+Runtime decision procedure: 5.614s
+Building error trace
+
+Counterexample:
+
+State 1 file linux-4.0-rc1---drivers--mtd--sm_ftl.ko.cil.i line 8785 function ldv_undef_int thread 0
+----------------------------------------------------
+  tmp = -2147483648 (10000000 00000000 00000000 00000000)
+
+State 2 file linux-4.0-rc1---drivers--mtd--sm_ftl.ko.cil.i line 6199 function sm_module_init thread 0
+----------------------------------------------------
+  cache_flush_workqueue = &dynamic_2_array[0]
+
+State 3 file linux-4.0-rc1---drivers--mtd--sm_ftl.ko.cil.i line 6938 function ldv_register_mtd_blktrans_100 thread 0
+----------------------------------------------------
+  ldv_func_res = 0 (00000000 00000000 00000000 00000000)
+
+State 4 file linux-4.0-rc1---drivers--mtd--sm_ftl.ko.cil.i line 8785 function ldv_undef_int thread 0
+----------------------------------------------------
+  tmp = -2147483648 (10000000 00000000 00000000 00000000)
+
+State 5 file linux-4.0-rc1---drivers--mtd--sm_ftl.ko.cil.i line 8785 function ldv_undef_int thread 0
+----------------------------------------------------
+  tmp = 4 (00000000 00000000 00000000 00000100)
+
+State 6 file linux-4.0-rc1---drivers--mtd--sm_ftl.ko.cil.i line 4491 function sm_break_offset thread 0
+----------------------------------------------------
+  __base = 1 (00000000 00000000 00000000 00000001)
+
+State 7 file linux-4.0-rc1---drivers--mtd--sm_ftl.ko.cil.i line 4493 function sm_break_offset thread 0
+----------------------------------------------------
+  offset = 451947028399390208 (00000110 01000101 10100011 01101101 10000101 00001001 11111110 00000000)
+
+State 8 file linux-4.0-rc1---drivers--mtd--sm_ftl.ko.cil.i line 4495 function sm_break_offset thread 0
+----------------------------------------------------
+  __base___0 = 131 (00000000 00000000 00000000 10000011)
+
+State 9 file linux-4.0-rc1---drivers--mtd--sm_ftl.ko.cil.i line 4496 function sm_break_offset thread 0
+----------------------------------------------------
+  __rem___0 = 59 (00000000 00000000 00000000 00111011)
+
+State 10 file linux-4.0-rc1---drivers--mtd--sm_ftl.ko.cil.i line 4497 function sm_break_offset thread 0
+----------------------------------------------------
+  offset = 3449977316025879 (00000000 00001100 01000001 10111100 01110000 01100111 10100110 00010111)
+
+State 11 file linux-4.0-rc1---drivers--mtd--sm_ftl.ko.cil.i line 4498 function sm_break_offset thread 0
+----------------------------------------------------
+  *block = 59 (00000000 00000000 00000000 00111011)
+
+State 12 file linux-4.0-rc1---drivers--mtd--sm_ftl.ko.cil.i line 4499 function sm_break_offset thread 0
+----------------------------------------------------
+  *zone = -1 (11111111 11111111 11111111 11111111)
+
+State 13 file linux-4.0-rc1---drivers--mtd--sm_ftl.ko.cil.i line 5596 function sm_get_zone thread 0
+----------------------------------------------------
+Violated property:
+  file linux-4.0-rc1---drivers--mtd--sm_ftl.ko.cil.i line 5596 function sm_get_zone
+  assertion
+  0
+
+
+VERIFICATION FAILED
+
+Bug found (k = 1)
+
+
+FALSE_REACH

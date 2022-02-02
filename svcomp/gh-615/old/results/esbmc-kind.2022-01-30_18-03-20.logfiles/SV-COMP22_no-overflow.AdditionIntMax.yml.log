@@ -1,0 +1,50 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/no-overflow.prp -s kinduction --arch 64 ../sv-benchmarks/c/signedintegeroverflow-regression/AdditionIntMax.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/signedintegeroverflow-regression/AdditionIntMax.i --64 --witness-output AdditionIntMax.i.graphml --no-pointer-check --no-bounds-check --overflow-check --no-assertions --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 64-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/signedintegeroverflow-regression/AdditionIntMax.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.091s
+GOTO program processing time: 0.000s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Symex completed in: 0.000s (14 assignments)
+Slicing time: 0.000s (removed 10 assignments)
+Generated 2 VCC(s), 2 remaining after simplification (4 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.000s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.000s
+Runtime decision procedure: 0.000s
+Building error trace
+
+Counterexample:
+
+State 1 file AdditionIntMax.i line 332 function main thread 0
+----------------------------------------------------
+Violated property:
+  file AdditionIntMax.i line 332 function main
+  arithmetic overflow on add
+  !overflow("+", 2147483647, 1)
+
+
+VERIFICATION FAILED
+
+Bug found (k = 1)
+
+../sv-benchmarks/c/signedintegeroverflow-regression/AdditionIntMax.i:332:22: warning: overflow in expression; result is -2147483648 with type 'int' [-Winteger-overflow]
+ int x = (2147483647 + 1) - 23;
+                     ^
+../sv-benchmarks/c/signedintegeroverflow-regression/AdditionIntMax.i:332:27: warning: overflow in expression; result is 2147483625 with type 'int' [-Winteger-overflow]
+ int x = (2147483647 + 1) - 23;
+                          ^
+
+FALSE_OVERFLOW

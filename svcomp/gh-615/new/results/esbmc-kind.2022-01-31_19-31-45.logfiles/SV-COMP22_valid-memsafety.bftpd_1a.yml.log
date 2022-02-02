@@ -1,0 +1,93 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/valid-memsafety.prp -s kinduction --arch 32 ../sv-benchmarks/c/memsafety-bftpd/bftpd_1.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/memsafety-bftpd/bftpd_1.i --32 --witness-output bftpd_1.i.graphml --memory-leak-check --no-assertions --incremental-bmc 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/memsafety-bftpd/bftpd_1.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.120s
+GOTO program processing time: 0.001s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.001s (26 assignments)
+Slicing time: 0.000s (removed 25 assignments)
+Generated 4 VCC(s), 0 remaining after simplification (1 assignments)
+BMC program time: 0.001s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.001s (26 assignments)
+Slicing time: 0.000s (removed 25 assignments)
+Generated 5 VCC(s), 1 remaining after simplification (1 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.000s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.000s
+Runtime decision procedure: 0.001s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 11  iteration  1   file string.c line 96 function strcmp
+Unwinding loop 11  iteration  2   file string.c line 96 function strcmp
+Unwinding loop 11  iteration  1   file string.c line 96 function strcmp
+Unwinding loop 11  iteration  2   file string.c line 96 function strcmp
+Unwinding loop 23  iteration  1   file bftpd_1.i line 692 function parse_input
+Unwinding loop 11  iteration  1   file string.c line 96 function strcmp
+Unwinding loop 23  iteration  2   file bftpd_1.i line 692 function parse_input
+Unwinding loop 11  iteration  1   file string.c line 96 function strcmp
+Unwinding loop 23  iteration  1   file bftpd_1.i line 692 function parse_input
+Unwinding loop 11  iteration  1   file string.c line 96 function strcmp
+Unwinding loop 11  iteration  2   file string.c line 96 function strcmp
+Unwinding loop 23  iteration  2   file bftpd_1.i line 692 function parse_input
+Symex completed in: 0.010s (318 assignments)
+Slicing time: 0.000s (removed 199 assignments)
+Generated 96 VCC(s), 29 remaining after simplification (119 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.061s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.061s
+Runtime decision procedure: 0.002s
+BMC program time: 0.074s
+No bug has been found in the base case
+*** Checking forward condition, k = 3
+Starting Bounded Model Checking
+Unwinding loop 11  iteration  1   file string.c line 96 function strcmp
+Unwinding loop 11  iteration  2   file string.c line 96 function strcmp
+Unwinding loop 11  iteration  1   file string.c line 96 function strcmp
+Unwinding loop 11  iteration  2   file string.c line 96 function strcmp
+Unwinding loop 23  iteration  1   file bftpd_1.i line 692 function parse_input
+Unwinding loop 11  iteration  1   file string.c line 96 function strcmp
+Unwinding loop 23  iteration  2   file bftpd_1.i line 692 function parse_input
+Unwinding loop 11  iteration  1   file string.c line 96 function strcmp
+Unwinding loop 23  iteration  1   file bftpd_1.i line 692 function parse_input
+Unwinding loop 11  iteration  1   file string.c line 96 function strcmp
+Unwinding loop 11  iteration  2   file string.c line 96 function strcmp
+Unwinding loop 23  iteration  2   file bftpd_1.i line 692 function parse_input
+Symex completed in: 0.010s (318 assignments)
+Slicing time: 0.000s (removed 199 assignments)
+Generated 96 VCC(s), 29 remaining after simplification (119 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.004s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.004s
+Runtime decision procedure: 0.002s
+BMC program time: 0.017s
+Building successful trace
+
+VERIFICATION SUCCESSFUL
+
+Solution found by the forward condition; all states are reachable (k = 3
+
+
+TRUE

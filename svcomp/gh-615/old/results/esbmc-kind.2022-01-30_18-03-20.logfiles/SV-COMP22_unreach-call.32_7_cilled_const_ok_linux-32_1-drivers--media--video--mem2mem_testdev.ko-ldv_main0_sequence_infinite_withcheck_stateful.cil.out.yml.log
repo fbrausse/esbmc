@@ -1,0 +1,89 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--media--video--mem2mem_testdev.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--media--video--mem2mem_testdev.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i --64 --witness-output 32_7_cilled_const_ok_linux-32_1-drivers--media--video--mem2mem_testdev.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 64-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--media--video--mem2mem_testdev.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.844s
+GOTO program processing time: 0.118s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 2.326s (4628 assignments)
+Slicing time: 0.017s (removed 4235 assignments)
+Generated 2 VCC(s), 2 remaining after simplification (393 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.179s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.179s
+Runtime decision procedure: 12.193s
+Building error trace
+
+Counterexample:
+
+State 1 file 32_7_cilled_const_ok_linux-32_1-drivers--media--video--mem2mem_testdev.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 8137 function main thread 0
+----------------------------------------------------
+  tmp___9 = -1 (11111111 11111111 11111111 11111111)
+
+State 2 file 32_7_cilled_const_ok_linux-32_1-drivers--media--video--mem2mem_testdev.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 8162 function main thread 0
+----------------------------------------------------
+  tmp___8 = 21 (00000000 00000000 00000000 00010101)
+
+State 3 file 32_7_cilled_const_ok_linux-32_1-drivers--media--video--mem2mem_testdev.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 12 function reach_error thread 0
+----------------------------------------------------
+Violated property:
+  file 32_7_cilled_const_ok_linux-32_1-drivers--media--video--mem2mem_testdev.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 12 function reach_error
+  assertion 0
+  0
+
+
+VERIFICATION FAILED
+
+Bug found (k = 1)
+
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--media--video--mem2mem_testdev.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i:4036:14: warning: incompatible redeclaration of library function 'snprintf' [-Wincompatible-library-redeclaration]
+extern int ( snprintf)(char *buf , size_t size , char *fmt
+             ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--media--video--mem2mem_testdev.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i:4036:14: note: 'snprintf' is a builtin with type 'int (char *, unsigned long, const char *, ...)'
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--media--video--mem2mem_testdev.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i:4039:14: warning: incompatible redeclaration of library function 'strncpy' [-Wincompatible-library-redeclaration]
+extern char *strncpy(char * , char * , __kernel_size_t ) ;
+             ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--media--video--mem2mem_testdev.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i:4039:14: note: 'strncpy' is a builtin with type 'char *(char *, const char *, unsigned long)'
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--media--video--mem2mem_testdev.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i:8062:1: warning: return type of 'main' is not 'int' [-Wmain-return-type]
+void main(void)
+^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--media--video--mem2mem_testdev.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i:8062:1: note: change return type to 'int'
+void main(void)
+^~~~
+int
+
+FALSE_REACH

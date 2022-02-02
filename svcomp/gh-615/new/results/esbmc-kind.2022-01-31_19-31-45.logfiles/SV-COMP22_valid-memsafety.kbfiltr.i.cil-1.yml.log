@@ -1,0 +1,69 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/valid-memsafety.prp -s kinduction --arch 32 ../sv-benchmarks/c/ntdrivers/kbfiltr.i.cil-1.c
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ntdrivers/kbfiltr.i.cil-1.c --32 --witness-output kbfiltr.i.cil-1.c.graphml --memory-leak-check --no-assertions --incremental-bmc 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/ntdrivers/kbfiltr.i.cil-1.c: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.300s
+GOTO program processing time: 0.007s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.552s (1134 assignments)
+Slicing time: 0.014s (removed 663 assignments)
+Generated 196 VCC(s), 180 remaining after simplification (471 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.202s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.202s
+Runtime decision procedure: 251.937s
+Building error trace
+
+Counterexample:
+
+State 1 file kbfiltr.i.cil-1.c line 2384 function main thread 0
+----------------------------------------------------
+  __BLAST_NONDET = -1 (11111111 11111111 11111111 11111111)
+
+State 2 file kbfiltr.i.cil-1.c line 2385 function main thread 0
+----------------------------------------------------
+  irp_choice = 0 (00000000 00000000 00000000 00000000)
+
+State 3 file kbfiltr.i.cil-1.c line 1691 function DriverEntry thread 0
+----------------------------------------------------
+  i = 4161011709 (11111000 00000011 11111111 11111101)
+
+State 4 file kbfiltr.i.cil-1.c line 1694 function DriverEntry thread 0
+----------------------------------------------------
+Violated property:
+  file kbfiltr.i.cil-1.c line 1694 function DriverEntry
+  dereference failure: Access to object out of bounds
+
+
+VERIFICATION FAILED
+
+Bug found (k = 1)
+
+../sv-benchmarks/c/ntdrivers/kbfiltr.i.cil-1.c:2390:8: warning: incompatible pointer types assigning to 'IRP *' (aka 'struct _IRP *') from 'PIRP *' (aka 'struct _IRP **'); remove & [-Wincompatible-pointer-types]
+  pirp = & irp;
+       ^ ~~~~~
+../sv-benchmarks/c/ntdrivers/kbfiltr.i.cil-1.c:2400:14: warning: incompatible integer to pointer conversion assigning to 'NTSTATUS (*)(PDEVICE_OBJECT, PIRP, PVOID)' (aka 'long (*)(struct _DEVICE_OBJECT *, struct _IRP *, void *)') from 'int' [-Wint-conversion]
+    compFptr = compRegistered;
+             ^ ~~~~~~~~~~~~~~
+../sv-benchmarks/c/ntdrivers/kbfiltr.i.cil-1.c:2401:12: warning: incompatible pointer to integer conversion assigning to 'int' from 'NTSTATUS (*)(PDEVICE_OBJECT, PIRP, PVOID)' (aka 'long (*)(struct _DEVICE_OBJECT *, struct _IRP *, void *)') [-Wint-conversion]
+    pended = compFptr;
+           ^ ~~~~~~~~
+../sv-benchmarks/c/ntdrivers/kbfiltr.i.cil-1.c:2560:7: warning: incompatible redeclaration of library function 'malloc' [-Wincompatible-library-redeclaration]
+char *malloc(int i ) 
+      ^
+../sv-benchmarks/c/ntdrivers/kbfiltr.i.cil-1.c:2560:7: note: 'malloc' is a builtin with type 'void *(unsigned int)'
+
+FALSE_DEREF

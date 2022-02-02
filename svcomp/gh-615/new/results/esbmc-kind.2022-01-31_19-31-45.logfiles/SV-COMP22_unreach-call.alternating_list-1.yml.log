@@ -1,0 +1,112 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/list-properties/alternating_list-1.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/list-properties/alternating_list-1.i --32 --witness-output alternating_list-1.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/list-properties/alternating_list-1.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.151s
+GOTO program processing time: 0.002s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.003s (75 assignments)
+Slicing time: 0.001s (removed 57 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (18 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.002s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.002s
+Runtime decision procedure: 0.000s
+BMC program time: 0.006s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.003s (74 assignments)
+Slicing time: 0.000s (removed 57 assignments)
+Generated 3 VCC(s), 3 remaining after simplification (17 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.001s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.001s
+Runtime decision procedure: 0.053s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 2  iteration  1   file alternating_list-1.i line 537 function main
+Unwinding loop 2  iteration  2   file alternating_list-1.i line 537 function main
+Not unwinding 
+Unwinding loop 3  iteration  1   file alternating_list-1.i line 553 function main
+Unwinding loop 3  iteration  2   file alternating_list-1.i line 553 function main
+Not unwinding 
+Unwinding loop 4  iteration  1   file alternating_list-1.i line 566 function main
+Unwinding loop 4  iteration  2   file alternating_list-1.i line 566 function main
+Not unwinding 
+Symex completed in: 0.008s (158 assignments)
+Slicing time: 0.000s (removed 115 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (43 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.003s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.003s
+Runtime decision procedure: 0.001s
+BMC program time: 0.013s
+No bug has been found in the base case
+*** Checking forward condition, k = 3
+Starting Bounded Model Checking
+Unwinding loop 2  iteration  1   file alternating_list-1.i line 537 function main
+Unwinding loop 2  iteration  2   file alternating_list-1.i line 537 function main
+Not unwinding 
+Unwinding loop 3  iteration  1   file alternating_list-1.i line 553 function main
+Unwinding loop 3  iteration  2   file alternating_list-1.i line 553 function main
+Not unwinding 
+Unwinding loop 4  iteration  1   file alternating_list-1.i line 566 function main
+Unwinding loop 4  iteration  2   file alternating_list-1.i line 566 function main
+Not unwinding 
+Symex completed in: 0.009s (157 assignments)
+Slicing time: 0.001s (removed 115 assignments)
+Generated 3 VCC(s), 3 remaining after simplification (42 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.003s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.003s
+Runtime decision procedure: 0.186s
+The forward condition is unable to prove the property
+*** Checking inductive step, k = 3
+Starting Bounded Model Checking
+Unwinding loop 2  iteration  1   file alternating_list-1.i line 537 function main
+Unwinding loop 2  iteration  2   file alternating_list-1.i line 537 function main
+Not unwinding 
+Unwinding loop 3  iteration  1   file alternating_list-1.i line 553 function main
+Unwinding loop 3  iteration  2   file alternating_list-1.i line 553 function main
+Not unwinding 
+Unwinding loop 4  iteration  1   file alternating_list-1.i line 566 function main
+Unwinding loop 4  iteration  2   file alternating_list-1.i line 566 function main
+Not unwinding 
+Symex completed in: 0.010s (229 assignments)
+Slicing time: 0.002s (removed 156 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (73 assignments)
+BMC program time: 0.012s
+Building successful trace
+
+VERIFICATION SUCCESSFUL
+
+Solution found by the inductive step (k = 3)
+
+
+TRUE

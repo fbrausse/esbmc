@@ -1,0 +1,282 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/ldv-linux-3.16-rc1/43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-linux-3.16-rc1/43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i --64 --witness-output 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 64-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/ldv-linux-3.16-rc1/43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.311s
+GOTO program processing time: 0.022s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.012s (150 assignments)
+Slicing time: 0.000s (removed 119 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (31 assignments)
+BMC program time: 0.012s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.010s (150 assignments)
+Slicing time: 0.000s (removed 119 assignments)
+Generated 4 VCC(s), 4 remaining after simplification (31 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.002s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.002s
+Runtime decision procedure: 0.120s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 9  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 9  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 9  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 9  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 6  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1918 function ns558_init
+Unwinding loop 2  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1718 function ns558_isa_probe
+Unwinding loop 2  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1718 function ns558_isa_probe
+Not unwinding 
+Unwinding loop 6  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1918 function ns558_init
+Unwinding loop 2  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1718 function ns558_isa_probe
+Unwinding loop 2  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1718 function ns558_isa_probe
+Not unwinding 
+Not unwinding 
+Unwinding loop 8  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 2050 function main
+Unwinding loop 7  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1948 function ns558_exit
+Unwinding loop 7  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1948 function ns558_exit
+Not unwinding 
+Unwinding loop 6  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1918 function ns558_init
+Unwinding loop 2  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1718 function ns558_isa_probe
+Unwinding loop 2  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1718 function ns558_isa_probe
+Not unwinding 
+Unwinding loop 6  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1918 function ns558_init
+Unwinding loop 2  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1718 function ns558_isa_probe
+Unwinding loop 2  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1718 function ns558_isa_probe
+Not unwinding 
+Not unwinding 
+Unwinding loop 8  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 2050 function main
+Unwinding loop 7  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1948 function ns558_exit
+Unwinding loop 7  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1948 function ns558_exit
+Not unwinding 
+Unwinding loop 6  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1918 function ns558_init
+Unwinding loop 2  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1718 function ns558_isa_probe
+Unwinding loop 2  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1718 function ns558_isa_probe
+Not unwinding 
+Unwinding loop 6  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1918 function ns558_init
+Unwinding loop 2  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1718 function ns558_isa_probe
+Unwinding loop 2  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1718 function ns558_isa_probe
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.143s (1410 assignments)
+Slicing time: 0.007s (removed 1129 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (281 assignments)
+BMC program time: 0.150s
+No bug has been found in the base case
+*** Checking forward condition, k = 3
+Starting Bounded Model Checking
+Unwinding loop 9  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 9  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 9  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 9  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 6  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1918 function ns558_init
+Unwinding loop 2  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1718 function ns558_isa_probe
+Unwinding loop 2  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1718 function ns558_isa_probe
+Not unwinding 
+Unwinding loop 6  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1918 function ns558_init
+Unwinding loop 2  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1718 function ns558_isa_probe
+Unwinding loop 2  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1718 function ns558_isa_probe
+Not unwinding 
+Not unwinding 
+Unwinding loop 8  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 2050 function main
+Unwinding loop 7  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1948 function ns558_exit
+Unwinding loop 7  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1948 function ns558_exit
+Not unwinding 
+Unwinding loop 6  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1918 function ns558_init
+Unwinding loop 2  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1718 function ns558_isa_probe
+Unwinding loop 2  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1718 function ns558_isa_probe
+Not unwinding 
+Unwinding loop 6  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1918 function ns558_init
+Unwinding loop 2  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1718 function ns558_isa_probe
+Unwinding loop 2  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1718 function ns558_isa_probe
+Not unwinding 
+Not unwinding 
+Unwinding loop 8  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 2050 function main
+Unwinding loop 7  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1948 function ns558_exit
+Unwinding loop 7  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1948 function ns558_exit
+Not unwinding 
+Unwinding loop 6  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1918 function ns558_init
+Unwinding loop 2  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1718 function ns558_isa_probe
+Unwinding loop 2  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1718 function ns558_isa_probe
+Not unwinding 
+Unwinding loop 6  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1918 function ns558_init
+Unwinding loop 2  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1718 function ns558_isa_probe
+Unwinding loop 2  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1718 function ns558_isa_probe
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.151s (1410 assignments)
+Slicing time: 0.006s (removed 1129 assignments)
+Generated 14 VCC(s), 14 remaining after simplification (281 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.078s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.078s
+Runtime decision procedure: 9.759s
+The forward condition is unable to prove the property
+*** Checking inductive step, k = 3
+Starting Bounded Model Checking
+Unwinding loop 9  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 9  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 9  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 9  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 7  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1948 function ns558_exit
+Unwinding loop 7  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1948 function ns558_exit
+Not unwinding 
+Unwinding loop 6  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1918 function ns558_init
+Unwinding loop 2  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1718 function ns558_isa_probe
+Unwinding loop 2  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1718 function ns558_isa_probe
+Not unwinding 
+Unwinding loop 3  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1742 function ns558_isa_probe
+Unwinding loop 3  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1742 function ns558_isa_probe
+Not unwinding 
+Unwinding loop 5  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1781 function ns558_isa_probe
+Unwinding loop 4  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1769 function ns558_isa_probe
+Unwinding loop 4  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1769 function ns558_isa_probe
+Not unwinding 
+Unwinding loop 5  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1781 function ns558_isa_probe
+Unwinding loop 4  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1769 function ns558_isa_probe
+Unwinding loop 4  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1769 function ns558_isa_probe
+Not unwinding 
+Not unwinding 
+Unwinding loop 6  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1918 function ns558_init
+Unwinding loop 2  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1718 function ns558_isa_probe
+Unwinding loop 2  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1718 function ns558_isa_probe
+Not unwinding 
+Unwinding loop 3  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1742 function ns558_isa_probe
+Unwinding loop 3  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1742 function ns558_isa_probe
+Not unwinding 
+Unwinding loop 5  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1781 function ns558_isa_probe
+Unwinding loop 4  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1769 function ns558_isa_probe
+Unwinding loop 4  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1769 function ns558_isa_probe
+Not unwinding 
+Unwinding loop 5  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1781 function ns558_isa_probe
+Unwinding loop 4  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1769 function ns558_isa_probe
+Unwinding loop 4  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1769 function ns558_isa_probe
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Unwinding loop 8  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 2050 function main
+Unwinding loop 7  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1948 function ns558_exit
+Unwinding loop 7  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1948 function ns558_exit
+Not unwinding 
+Unwinding loop 6  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1918 function ns558_init
+Unwinding loop 2  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1718 function ns558_isa_probe
+Unwinding loop 2  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1718 function ns558_isa_probe
+Not unwinding 
+Unwinding loop 3  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1742 function ns558_isa_probe
+Unwinding loop 3  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1742 function ns558_isa_probe
+Not unwinding 
+Unwinding loop 5  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1781 function ns558_isa_probe
+Unwinding loop 4  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1769 function ns558_isa_probe
+Unwinding loop 4  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1769 function ns558_isa_probe
+Not unwinding 
+Unwinding loop 5  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1781 function ns558_isa_probe
+Unwinding loop 4  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1769 function ns558_isa_probe
+Unwinding loop 4  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1769 function ns558_isa_probe
+Not unwinding 
+Not unwinding 
+Unwinding loop 6  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1918 function ns558_init
+Unwinding loop 2  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1718 function ns558_isa_probe
+Unwinding loop 2  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1718 function ns558_isa_probe
+Not unwinding 
+Unwinding loop 3  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1742 function ns558_isa_probe
+Unwinding loop 3  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1742 function ns558_isa_probe
+Not unwinding 
+Unwinding loop 5  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1781 function ns558_isa_probe
+Unwinding loop 4  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1769 function ns558_isa_probe
+Unwinding loop 4  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1769 function ns558_isa_probe
+Not unwinding 
+Unwinding loop 5  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1781 function ns558_isa_probe
+Unwinding loop 4  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1769 function ns558_isa_probe
+Unwinding loop 4  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1769 function ns558_isa_probe
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Unwinding loop 8  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 2050 function main
+Unwinding loop 7  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1948 function ns558_exit
+Unwinding loop 7  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1948 function ns558_exit
+Not unwinding 
+Unwinding loop 6  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1918 function ns558_init
+Unwinding loop 2  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1718 function ns558_isa_probe
+Unwinding loop 2  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1718 function ns558_isa_probe
+Not unwinding 
+Unwinding loop 3  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1742 function ns558_isa_probe
+Unwinding loop 3  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1742 function ns558_isa_probe
+Not unwinding 
+Unwinding loop 5  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1781 function ns558_isa_probe
+Unwinding loop 4  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1769 function ns558_isa_probe
+Unwinding loop 4  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1769 function ns558_isa_probe
+Not unwinding 
+Unwinding loop 5  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1781 function ns558_isa_probe
+Unwinding loop 4  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1769 function ns558_isa_probe
+Unwinding loop 4  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1769 function ns558_isa_probe
+Not unwinding 
+Not unwinding 
+Unwinding loop 6  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1918 function ns558_init
+Unwinding loop 2  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1718 function ns558_isa_probe
+Unwinding loop 2  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1718 function ns558_isa_probe
+Not unwinding 
+Unwinding loop 3  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1742 function ns558_isa_probe
+Unwinding loop 3  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1742 function ns558_isa_probe
+Not unwinding 
+Unwinding loop 5  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1781 function ns558_isa_probe
+Unwinding loop 4  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1769 function ns558_isa_probe
+Unwinding loop 4  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1769 function ns558_isa_probe
+Not unwinding 
+Unwinding loop 5  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1781 function ns558_isa_probe
+Unwinding loop 4  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1769 function ns558_isa_probe
+Unwinding loop 4  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i line 1769 function ns558_isa_probe
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.668s (3704 assignments)
+Slicing time: 0.036s (removed 2757 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (947 assignments)
+BMC program time: 0.704s
+Building successful trace
+
+VERIFICATION SUCCESSFUL
+
+Solution found by the inductive step (k = 3)
+
+../sv-benchmarks/c/ldv-linux-3.16-rc1/43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i:1334:27: warning: declaration of 'struct kobject___0' will not be visible outside of this function [-Wvisibility]
+   ssize_t (*show)(struct kobject___0 * , struct attribute___0 * , char * ) ;
+                          ^
+../sv-benchmarks/c/ldv-linux-3.16-rc1/43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--input--gameport--ns558.ko-entry_point.cil.out.i:1335:28: warning: declaration of 'struct kobject___0' will not be visible outside of this function [-Wvisibility]
+   ssize_t (*store)(struct kobject___0 * , struct attribute___0 * , char const * ,
+                           ^
+
+TRUE

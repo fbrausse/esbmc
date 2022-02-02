@@ -1,0 +1,117 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/product-lines/email_spec9_product14.cil.c
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/product-lines/email_spec9_product14.cil.c --32 --witness-output email_spec9_product14.cil.c.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/product-lines/email_spec9_product14.cil.c: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.283s
+GOTO program processing time: 0.176s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.081s (701 assignments)
+Slicing time: 0.001s (removed 658 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (43 assignments)
+BMC program time: 0.082s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.068s (701 assignments)
+Slicing time: 0.001s (removed 658 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (43 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.004s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.004s
+Runtime decision procedure: 0.453s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file email_spec9_product14.cil.c line 774 function test
+Unwinding loop 1  iteration  2   file email_spec9_product14.cil.c line 774 function test
+Not unwinding 
+Symex completed in: 0.287s (2384 assignments)
+Slicing time: 0.029s (removed 1832 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (552 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.014s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.014s
+Runtime decision procedure: 0.038s
+BMC program time: 0.369s
+No bug has been found in the base case
+*** Checking forward condition, k = 3
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file email_spec9_product14.cil.c line 774 function test
+Unwinding loop 1  iteration  2   file email_spec9_product14.cil.c line 774 function test
+Not unwinding 
+Symex completed in: 0.301s (2383 assignments)
+Slicing time: 0.028s (removed 1832 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (551 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.015s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.015s
+Runtime decision procedure: 0.816s
+The forward condition is unable to prove the property
+*** Checking inductive step, k = 3
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file email_spec9_product14.cil.c line 774 function test
+Unwinding loop 1  iteration  2   file email_spec9_product14.cil.c line 774 function test
+Not unwinding 
+Symex completed in: 0.386s (2883 assignments)
+Slicing time: 0.112s (removed 1800 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (1083 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.027s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.027s
+Runtime decision procedure: 0.969s
+The inductive step is unable to prove the property
+*** Checking base case, k = 5
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file email_spec9_product14.cil.c line 774 function test
+Unwinding loop 1  iteration  2   file email_spec9_product14.cil.c line 774 function test
+Unwinding loop 1  iteration  3   file email_spec9_product14.cil.c line 774 function test
+Unwinding loop 1  iteration  4   file email_spec9_product14.cil.c line 774 function test
+Symex completed in: 0.422s (3031 assignments)
+Slicing time: 0.058s (removed 2224 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (807 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.018s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.018s
+Runtime decision procedure: 0.048s
+BMC program time: 0.547s
+No bug has been found in the base case
+*** Checking forward condition, k = 5
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file email_spec9_product14.cil.c line 774 function test
+Unwinding loop 1  iteration  2   file email_spec9_product14.cil.c line 774 function test
+Unwinding loop 1  iteration  3   file email_spec9_product14.cil.c line 774 function test
+Unwinding loop 1  iteration  4   file email_spec9_product14.cil.c line 774 function test
+Symex completed in: 0.431s (3030 assignments)
+Slicing time: 0.056s (removed 2224 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (806 assignments)
+BMC program time: 0.487s
+Building successful trace
+
+VERIFICATION SUCCESSFUL
+
+Solution found by the forward condition; all states are reachable (k = 5
+
+
+TRUE

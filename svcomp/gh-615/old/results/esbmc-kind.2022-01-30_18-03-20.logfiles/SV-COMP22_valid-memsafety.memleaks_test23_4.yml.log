@@ -1,0 +1,133 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/valid-memsafety.prp -s kinduction --arch 32 ../sv-benchmarks/c/ldv-memsafety/memleaks_test23_4.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-memsafety/memleaks_test23_4.i --32 --witness-output memleaks_test23_4.i.graphml --memory-leak-check --no-assertions --incremental-bmc 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/ldv-memsafety/memleaks_test23_4.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.115s
+GOTO program processing time: 0.001s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.024s (467 assignments)
+Slicing time: 0.003s (removed 126 assignments)
+Generated 175 VCC(s), 158 remaining after simplification (341 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.010s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.010s
+Runtime decision procedure: 6.642s
+Building error trace
+
+Counterexample:
+
+State 1 file memleaks_test23_4.i line 839 function probe_23 thread 0
+----------------------------------------------------
+  p = ( struct hid_report_enum *)(&dynamic_2_array[0])
+
+State 5 file memleaks_test23_4.i line 540 function LDV_INIT_LIST_HEAD thread 0
+----------------------------------------------------
+  list->next = (unsigned int)(&dynamic_2_array[4])
+
+State 6 file memleaks_test23_4.i line 540 function LDV_INIT_LIST_HEAD thread 0
+----------------------------------------------------
+  list->next = (unsigned int)(&dynamic_2_array[4])
+
+State 7 file memleaks_test23_4.i line 540 function LDV_INIT_LIST_HEAD thread 0
+----------------------------------------------------
+  list->next = (unsigned int)(&dynamic_2_array[4])
+
+State 8 file memleaks_test23_4.i line 540 function LDV_INIT_LIST_HEAD thread 0
+----------------------------------------------------
+  list->next = (unsigned int)(&dynamic_2_array[4])
+
+State 12 file memleaks_test23_4.i line 541 function LDV_INIT_LIST_HEAD thread 0
+----------------------------------------------------
+  list->prev = (unsigned int)(&dynamic_2_array[4])
+
+State 13 file memleaks_test23_4.i line 541 function LDV_INIT_LIST_HEAD thread 0
+----------------------------------------------------
+  list->prev = (unsigned int)(&dynamic_2_array[4])
+
+State 14 file memleaks_test23_4.i line 541 function LDV_INIT_LIST_HEAD thread 0
+----------------------------------------------------
+  list->prev = (unsigned int)(&dynamic_2_array[4])
+
+State 15 file memleaks_test23_4.i line 541 function LDV_INIT_LIST_HEAD thread 0
+----------------------------------------------------
+  list->prev = (unsigned int)(&dynamic_2_array[4])
+
+State 16 file memleaks_test23_4.i line 843 function probe_23 thread 0
+----------------------------------------------------
+  dev->report_enum = { .report_enum=p?1!0&0#1, .dev_rdesc=0 }
+
+State 20 file memleaks_test23_4.i line 818 function hid_open_report thread 0
+----------------------------------------------------
+  parser->device = (unsigned int)(( struct hid_device *)(&dev))
+
+State 21 file memleaks_test23_4.i line 818 function hid_open_report thread 0
+----------------------------------------------------
+  parser->device = (unsigned int)(( struct hid_device *)(&dev))
+
+State 22 file memleaks_test23_4.i line 818 function hid_open_report thread 0
+----------------------------------------------------
+  parser->device = (unsigned int)(( struct hid_device *)(&dev))
+
+State 23 file memleaks_test23_4.i line 818 function hid_open_report thread 0
+----------------------------------------------------
+  parser->device = (unsigned int)(( struct hid_device *)(&dev))
+
+State 24 file memleaks_test23_4.i line 519 function ldv_positive thread 0
+----------------------------------------------------
+  r = 262143 (00000000 00000011 11111111 11111111)
+
+State 27 file memleaks_test23_4.i line 819 function hid_open_report thread 0
+----------------------------------------------------
+  parser->report_id = 262143 (00000000 00000011 11111111 11111111)
+
+State 28 file memleaks_test23_4.i line 819 function hid_open_report thread 0
+----------------------------------------------------
+  parser->report_id = 262143 (00000000 00000011 11111111 11111111)
+
+State 29 file memleaks_test23_4.i line 819 function hid_open_report thread 0
+----------------------------------------------------
+  parser->report_id = 262143 (00000000 00000011 11111111 11111111)
+
+State 30 file memleaks_test23_4.i line 819 function hid_open_report thread 0
+----------------------------------------------------
+  parser->report_id = 262143 (00000000 00000011 11111111 11111111)
+
+State 39 file memleaks_test23_4.i line 788 function hid_register_report thread 0
+----------------------------------------------------
+  report_enum = dev.report_enum
+
+State 41 file memleaks_test23_4.i line 790 function hid_register_report thread 0
+----------------------------------------------------
+Violated property:
+  file memleaks_test23_4.i line 790 function hid_register_report
+  dereference failure: array bounds violated
+
+
+VERIFICATION FAILED
+
+Bug found (k = 1)
+
+../sv-benchmarks/c/ldv-memsafety/memleaks_test23_4.i:862:1: warning: return type of 'main' is not 'int' [-Wmain-return-type]
+void main(void) {
+^
+../sv-benchmarks/c/ldv-memsafety/memleaks_test23_4.i:862:1: note: change return type to 'int'
+void main(void) {
+^~~~
+int
+
+FALSE_DEREF

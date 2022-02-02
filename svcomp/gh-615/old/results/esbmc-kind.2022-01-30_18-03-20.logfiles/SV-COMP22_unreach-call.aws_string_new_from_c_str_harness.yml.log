@@ -1,0 +1,624 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/aws-c-common/aws_string_new_from_c_str_harness.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/aws-c-common/aws_string_new_from_c_str_harness.i --64 --witness-output aws_string_new_from_c_str_harness.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 64-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/aws-c-common/aws_string_new_from_c_str_harness.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.653s
+GOTO program processing time: 0.034s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.130s (191 assignments)
+Slicing time: 0.001s (removed 100 assignments)
+Generated 7 VCC(s), 7 remaining after simplification (91 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.004s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.004s
+Runtime decision procedure: 0.001s
+BMC program time: 0.137s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.025s (184 assignments)
+Slicing time: 0.001s (removed 100 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (84 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.004s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.004s
+Runtime decision procedure: 0.254s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 24  iteration  1   file string.c line 78 function strlen
+Unwinding loop 24  iteration  2   file string.c line 78 function strlen
+Not unwinding 
+Unwinding loop 3  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Symex completed in: 0.030s (219 assignments)
+Slicing time: 0.001s (removed 97 assignments)
+Generated 7 VCC(s), 7 remaining after simplification (122 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.005s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.005s
+Runtime decision procedure: 0.359s
+BMC program time: 0.395s
+No bug has been found in the base case
+*** Checking forward condition, k = 3
+Starting Bounded Model Checking
+Unwinding loop 24  iteration  1   file string.c line 78 function strlen
+Unwinding loop 24  iteration  2   file string.c line 78 function strlen
+Not unwinding 
+Unwinding loop 3  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Symex completed in: 0.029s (212 assignments)
+Slicing time: 0.001s (removed 97 assignments)
+Generated 2 VCC(s), 2 remaining after simplification (115 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.005s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.005s
+Runtime decision procedure: 0.250s
+The forward condition is unable to prove the property
+*** Checking inductive step, k = 3
+Starting Bounded Model Checking
+Unwinding loop 24  iteration  1   file string.c line 78 function strlen
+Unwinding loop 24  iteration  2   file string.c line 78 function strlen
+Not unwinding 
+Unwinding loop 3  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Symex completed in: 0.031s (219 assignments)
+Slicing time: 0.001s (removed 98 assignments)
+Generated 7 VCC(s), 7 remaining after simplification (121 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.005s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.005s
+Runtime decision procedure: 0.401s
+The inductive step is unable to prove the property
+*** Checking base case, k = 5
+Starting Bounded Model Checking
+Unwinding loop 24  iteration  1   file string.c line 78 function strlen
+Unwinding loop 24  iteration  2   file string.c line 78 function strlen
+Unwinding loop 24  iteration  3   file string.c line 78 function strlen
+Unwinding loop 24  iteration  4   file string.c line 78 function strlen
+Not unwinding 
+Unwinding loop 3  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  2   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  3   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  4   file string.c line 263 function memcpy
+Not unwinding 
+Symex completed in: 0.037s (237 assignments)
+Slicing time: 0.001s (removed 105 assignments)
+Generated 7 VCC(s), 7 remaining after simplification (132 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.004s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.004s
+Runtime decision procedure: 0.400s
+BMC program time: 0.443s
+No bug has been found in the base case
+*** Checking forward condition, k = 5
+Starting Bounded Model Checking
+Unwinding loop 24  iteration  1   file string.c line 78 function strlen
+Unwinding loop 24  iteration  2   file string.c line 78 function strlen
+Unwinding loop 24  iteration  3   file string.c line 78 function strlen
+Unwinding loop 24  iteration  4   file string.c line 78 function strlen
+Not unwinding 
+Unwinding loop 3  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  2   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  3   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  4   file string.c line 263 function memcpy
+Not unwinding 
+Symex completed in: 0.034s (230 assignments)
+Slicing time: 0.001s (removed 105 assignments)
+Generated 2 VCC(s), 2 remaining after simplification (125 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.004s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.004s
+Runtime decision procedure: 0.258s
+The forward condition is unable to prove the property
+*** Checking base case, k = 7
+Starting Bounded Model Checking
+Unwinding loop 24  iteration  1   file string.c line 78 function strlen
+Unwinding loop 24  iteration  2   file string.c line 78 function strlen
+Unwinding loop 24  iteration  3   file string.c line 78 function strlen
+Unwinding loop 24  iteration  4   file string.c line 78 function strlen
+Unwinding loop 24  iteration  5   file string.c line 78 function strlen
+Unwinding loop 24  iteration  6   file string.c line 78 function strlen
+Not unwinding 
+Unwinding loop 3  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  2   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  3   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  4   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  5   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  6   file string.c line 263 function memcpy
+Not unwinding 
+Symex completed in: 0.038s (255 assignments)
+Slicing time: 0.001s (removed 113 assignments)
+Generated 7 VCC(s), 7 remaining after simplification (142 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.005s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.005s
+Runtime decision procedure: 0.432s
+BMC program time: 0.477s
+No bug has been found in the base case
+*** Checking forward condition, k = 7
+Starting Bounded Model Checking
+Unwinding loop 24  iteration  1   file string.c line 78 function strlen
+Unwinding loop 24  iteration  2   file string.c line 78 function strlen
+Unwinding loop 24  iteration  3   file string.c line 78 function strlen
+Unwinding loop 24  iteration  4   file string.c line 78 function strlen
+Unwinding loop 24  iteration  5   file string.c line 78 function strlen
+Unwinding loop 24  iteration  6   file string.c line 78 function strlen
+Not unwinding 
+Unwinding loop 3  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  2   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  3   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  4   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  5   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  6   file string.c line 263 function memcpy
+Not unwinding 
+Symex completed in: 0.038s (248 assignments)
+Slicing time: 0.001s (removed 113 assignments)
+Generated 2 VCC(s), 2 remaining after simplification (135 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.005s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.005s
+Runtime decision procedure: 0.261s
+The forward condition is unable to prove the property
+*** Checking base case, k = 9
+Starting Bounded Model Checking
+Unwinding loop 24  iteration  1   file string.c line 78 function strlen
+Unwinding loop 24  iteration  2   file string.c line 78 function strlen
+Unwinding loop 24  iteration  3   file string.c line 78 function strlen
+Unwinding loop 24  iteration  4   file string.c line 78 function strlen
+Unwinding loop 24  iteration  5   file string.c line 78 function strlen
+Unwinding loop 24  iteration  6   file string.c line 78 function strlen
+Unwinding loop 24  iteration  7   file string.c line 78 function strlen
+Unwinding loop 24  iteration  8   file string.c line 78 function strlen
+Not unwinding 
+Unwinding loop 3  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  2   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  3   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  4   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  5   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  6   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  7   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  8   file string.c line 263 function memcpy
+Not unwinding 
+Symex completed in: 0.042s (273 assignments)
+Slicing time: 0.002s (removed 121 assignments)
+Generated 7 VCC(s), 7 remaining after simplification (152 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.005s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.005s
+Runtime decision procedure: 0.507s
+BMC program time: 0.557s
+No bug has been found in the base case
+*** Checking forward condition, k = 9
+Starting Bounded Model Checking
+Unwinding loop 24  iteration  1   file string.c line 78 function strlen
+Unwinding loop 24  iteration  2   file string.c line 78 function strlen
+Unwinding loop 24  iteration  3   file string.c line 78 function strlen
+Unwinding loop 24  iteration  4   file string.c line 78 function strlen
+Unwinding loop 24  iteration  5   file string.c line 78 function strlen
+Unwinding loop 24  iteration  6   file string.c line 78 function strlen
+Unwinding loop 24  iteration  7   file string.c line 78 function strlen
+Unwinding loop 24  iteration  8   file string.c line 78 function strlen
+Not unwinding 
+Unwinding loop 3  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  2   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  3   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  4   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  5   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  6   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  7   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  8   file string.c line 263 function memcpy
+Not unwinding 
+Symex completed in: 0.044s (266 assignments)
+Slicing time: 0.001s (removed 121 assignments)
+Generated 2 VCC(s), 2 remaining after simplification (145 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.005s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.005s
+Runtime decision procedure: 0.267s
+The forward condition is unable to prove the property
+*** Checking base case, k = 11
+Starting Bounded Model Checking
+Unwinding loop 24  iteration  1   file string.c line 78 function strlen
+Unwinding loop 24  iteration  2   file string.c line 78 function strlen
+Unwinding loop 24  iteration  3   file string.c line 78 function strlen
+Unwinding loop 24  iteration  4   file string.c line 78 function strlen
+Unwinding loop 24  iteration  5   file string.c line 78 function strlen
+Unwinding loop 24  iteration  6   file string.c line 78 function strlen
+Unwinding loop 24  iteration  7   file string.c line 78 function strlen
+Unwinding loop 24  iteration  8   file string.c line 78 function strlen
+Unwinding loop 24  iteration  9   file string.c line 78 function strlen
+Unwinding loop 24  iteration  10   file string.c line 78 function strlen
+Not unwinding 
+Unwinding loop 3  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  2   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  3   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  4   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  5   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  6   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  7   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  8   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  9   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  10   file string.c line 263 function memcpy
+Not unwinding 
+Symex completed in: 0.036s (291 assignments)
+Slicing time: 0.001s (removed 129 assignments)
+Generated 7 VCC(s), 7 remaining after simplification (162 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.004s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.004s
+Runtime decision procedure: 0.354s
+BMC program time: 0.395s
+No bug has been found in the base case
+*** Checking forward condition, k = 11
+Starting Bounded Model Checking
+Unwinding loop 24  iteration  1   file string.c line 78 function strlen
+Unwinding loop 24  iteration  2   file string.c line 78 function strlen
+Unwinding loop 24  iteration  3   file string.c line 78 function strlen
+Unwinding loop 24  iteration  4   file string.c line 78 function strlen
+Unwinding loop 24  iteration  5   file string.c line 78 function strlen
+Unwinding loop 24  iteration  6   file string.c line 78 function strlen
+Unwinding loop 24  iteration  7   file string.c line 78 function strlen
+Unwinding loop 24  iteration  8   file string.c line 78 function strlen
+Unwinding loop 24  iteration  9   file string.c line 78 function strlen
+Unwinding loop 24  iteration  10   file string.c line 78 function strlen
+Not unwinding 
+Unwinding loop 3  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  2   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  3   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  4   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  5   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  6   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  7   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  8   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  9   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  10   file string.c line 263 function memcpy
+Not unwinding 
+Symex completed in: 0.030s (284 assignments)
+Slicing time: 0.001s (removed 129 assignments)
+Generated 2 VCC(s), 2 remaining after simplification (155 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.003s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.003s
+Runtime decision procedure: 0.177s
+The forward condition is unable to prove the property
+*** Checking base case, k = 13
+Starting Bounded Model Checking
+Unwinding loop 24  iteration  1   file string.c line 78 function strlen
+Unwinding loop 24  iteration  2   file string.c line 78 function strlen
+Unwinding loop 24  iteration  3   file string.c line 78 function strlen
+Unwinding loop 24  iteration  4   file string.c line 78 function strlen
+Unwinding loop 24  iteration  5   file string.c line 78 function strlen
+Unwinding loop 24  iteration  6   file string.c line 78 function strlen
+Unwinding loop 24  iteration  7   file string.c line 78 function strlen
+Unwinding loop 24  iteration  8   file string.c line 78 function strlen
+Unwinding loop 24  iteration  9   file string.c line 78 function strlen
+Unwinding loop 24  iteration  10   file string.c line 78 function strlen
+Unwinding loop 24  iteration  11   file string.c line 78 function strlen
+Unwinding loop 24  iteration  12   file string.c line 78 function strlen
+Not unwinding 
+Unwinding loop 3  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  2   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  3   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  4   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  5   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  6   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  7   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  8   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  9   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  10   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  11   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  12   file string.c line 263 function memcpy
+Not unwinding 
+Symex completed in: 0.047s (309 assignments)
+Slicing time: 0.002s (removed 137 assignments)
+Generated 7 VCC(s), 7 remaining after simplification (172 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.006s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.006s
+Runtime decision procedure: 0.581s
+BMC program time: 0.637s
+No bug has been found in the base case
+*** Checking forward condition, k = 13
+Starting Bounded Model Checking
+Unwinding loop 24  iteration  1   file string.c line 78 function strlen
+Unwinding loop 24  iteration  2   file string.c line 78 function strlen
+Unwinding loop 24  iteration  3   file string.c line 78 function strlen
+Unwinding loop 24  iteration  4   file string.c line 78 function strlen
+Unwinding loop 24  iteration  5   file string.c line 78 function strlen
+Unwinding loop 24  iteration  6   file string.c line 78 function strlen
+Unwinding loop 24  iteration  7   file string.c line 78 function strlen
+Unwinding loop 24  iteration  8   file string.c line 78 function strlen
+Unwinding loop 24  iteration  9   file string.c line 78 function strlen
+Unwinding loop 24  iteration  10   file string.c line 78 function strlen
+Unwinding loop 24  iteration  11   file string.c line 78 function strlen
+Unwinding loop 24  iteration  12   file string.c line 78 function strlen
+Not unwinding 
+Unwinding loop 3  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  2   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  3   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  4   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  5   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  6   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  7   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  8   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  9   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  10   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  11   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  12   file string.c line 263 function memcpy
+Not unwinding 
+Symex completed in: 0.053s (302 assignments)
+Slicing time: 0.002s (removed 137 assignments)
+Generated 2 VCC(s), 2 remaining after simplification (165 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.007s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.007s
+Runtime decision procedure: 0.300s
+The forward condition is unable to prove the property
+*** Checking base case, k = 15
+Starting Bounded Model Checking
+Unwinding loop 24  iteration  1   file string.c line 78 function strlen
+Unwinding loop 24  iteration  2   file string.c line 78 function strlen
+Unwinding loop 24  iteration  3   file string.c line 78 function strlen
+Unwinding loop 24  iteration  4   file string.c line 78 function strlen
+Unwinding loop 24  iteration  5   file string.c line 78 function strlen
+Unwinding loop 24  iteration  6   file string.c line 78 function strlen
+Unwinding loop 24  iteration  7   file string.c line 78 function strlen
+Unwinding loop 24  iteration  8   file string.c line 78 function strlen
+Unwinding loop 24  iteration  9   file string.c line 78 function strlen
+Unwinding loop 24  iteration  10   file string.c line 78 function strlen
+Unwinding loop 24  iteration  11   file string.c line 78 function strlen
+Unwinding loop 24  iteration  12   file string.c line 78 function strlen
+Unwinding loop 24  iteration  13   file string.c line 78 function strlen
+Unwinding loop 24  iteration  14   file string.c line 78 function strlen
+Not unwinding 
+Unwinding loop 3  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  2   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  3   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  4   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  5   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  6   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  7   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  8   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  9   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  10   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  11   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  12   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  13   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  14   file string.c line 263 function memcpy
+Not unwinding 
+Symex completed in: 0.055s (327 assignments)
+Slicing time: 0.002s (removed 145 assignments)
+Generated 7 VCC(s), 7 remaining after simplification (182 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.006s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.006s
+Runtime decision procedure: 0.780s
+BMC program time: 0.845s
+No bug has been found in the base case
+*** Checking forward condition, k = 15
+Starting Bounded Model Checking
+Unwinding loop 24  iteration  1   file string.c line 78 function strlen
+Unwinding loop 24  iteration  2   file string.c line 78 function strlen
+Unwinding loop 24  iteration  3   file string.c line 78 function strlen
+Unwinding loop 24  iteration  4   file string.c line 78 function strlen
+Unwinding loop 24  iteration  5   file string.c line 78 function strlen
+Unwinding loop 24  iteration  6   file string.c line 78 function strlen
+Unwinding loop 24  iteration  7   file string.c line 78 function strlen
+Unwinding loop 24  iteration  8   file string.c line 78 function strlen
+Unwinding loop 24  iteration  9   file string.c line 78 function strlen
+Unwinding loop 24  iteration  10   file string.c line 78 function strlen
+Unwinding loop 24  iteration  11   file string.c line 78 function strlen
+Unwinding loop 24  iteration  12   file string.c line 78 function strlen
+Unwinding loop 24  iteration  13   file string.c line 78 function strlen
+Unwinding loop 24  iteration  14   file string.c line 78 function strlen
+Not unwinding 
+Unwinding loop 3  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  2   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  3   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  4   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  5   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  6   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  7   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  8   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  9   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  10   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  11   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  12   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  13   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  14   file string.c line 263 function memcpy
+Not unwinding 
+Symex completed in: 0.056s (320 assignments)
+Slicing time: 0.002s (removed 145 assignments)
+Generated 2 VCC(s), 2 remaining after simplification (175 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.006s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.006s
+Runtime decision procedure: 0.264s
+The forward condition is unable to prove the property
+*** Checking base case, k = 17
+Starting Bounded Model Checking
+Unwinding loop 24  iteration  1   file string.c line 78 function strlen
+Unwinding loop 24  iteration  2   file string.c line 78 function strlen
+Unwinding loop 24  iteration  3   file string.c line 78 function strlen
+Unwinding loop 24  iteration  4   file string.c line 78 function strlen
+Unwinding loop 24  iteration  5   file string.c line 78 function strlen
+Unwinding loop 24  iteration  6   file string.c line 78 function strlen
+Unwinding loop 24  iteration  7   file string.c line 78 function strlen
+Unwinding loop 24  iteration  8   file string.c line 78 function strlen
+Unwinding loop 24  iteration  9   file string.c line 78 function strlen
+Unwinding loop 24  iteration  10   file string.c line 78 function strlen
+Unwinding loop 24  iteration  11   file string.c line 78 function strlen
+Unwinding loop 24  iteration  12   file string.c line 78 function strlen
+Unwinding loop 24  iteration  13   file string.c line 78 function strlen
+Unwinding loop 24  iteration  14   file string.c line 78 function strlen
+Unwinding loop 24  iteration  15   file string.c line 78 function strlen
+Unwinding loop 24  iteration  16   file string.c line 78 function strlen
+Not unwinding 
+Unwinding loop 3  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  2   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  3   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  4   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  5   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  6   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  7   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  8   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  9   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  10   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  11   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  12   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  13   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  14   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  15   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  16   file string.c line 263 function memcpy
+Not unwinding 
+Symex completed in: 0.039s (345 assignments)
+Slicing time: 0.001s (removed 153 assignments)
+Generated 7 VCC(s), 7 remaining after simplification (192 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.006s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.006s
+Runtime decision procedure: 0.925s
+BMC program time: 0.973s
+No bug has been found in the base case
+*** Checking forward condition, k = 17
+Starting Bounded Model Checking
+Unwinding loop 24  iteration  1   file string.c line 78 function strlen
+Unwinding loop 24  iteration  2   file string.c line 78 function strlen
+Unwinding loop 24  iteration  3   file string.c line 78 function strlen
+Unwinding loop 24  iteration  4   file string.c line 78 function strlen
+Unwinding loop 24  iteration  5   file string.c line 78 function strlen
+Unwinding loop 24  iteration  6   file string.c line 78 function strlen
+Unwinding loop 24  iteration  7   file string.c line 78 function strlen
+Unwinding loop 24  iteration  8   file string.c line 78 function strlen
+Unwinding loop 24  iteration  9   file string.c line 78 function strlen
+Unwinding loop 24  iteration  10   file string.c line 78 function strlen
+Unwinding loop 24  iteration  11   file string.c line 78 function strlen
+Unwinding loop 24  iteration  12   file string.c line 78 function strlen
+Unwinding loop 24  iteration  13   file string.c line 78 function strlen
+Unwinding loop 24  iteration  14   file string.c line 78 function strlen
+Unwinding loop 24  iteration  15   file string.c line 78 function strlen
+Unwinding loop 24  iteration  16   file string.c line 78 function strlen
+Not unwinding 
+Unwinding loop 3  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  2   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  3   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  4   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  5   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  6   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  7   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  8   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  9   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  10   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  11   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  12   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  13   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  14   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  15   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  16   file string.c line 263 function memcpy
+Not unwinding 
+Symex completed in: 0.063s (338 assignments)
+Slicing time: 0.002s (removed 153 assignments)
+Generated 2 VCC(s), 2 remaining after simplification (185 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.007s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.007s
+Runtime decision procedure: 0.308s
+BMC program time: 0.382s
+Building successful trace
+
+VERIFICATION SUCCESSFUL
+
+Solution found by the forward condition; all states are reachable (k = 17
+
+../sv-benchmarks/c/aws-c-common/aws_string_new_from_c_str_harness.i:1632:45: warning: attribute declaration must precede definition [-Wignored-attributes]
+extern void my_abort (void) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+                                            ^
+../sv-benchmarks/c/aws-c-common/aws_string_new_from_c_str_harness.i:232:6: note: previous definition is here
+void my_abort(void) {
+     ^
+../sv-benchmarks/c/aws-c-common/aws_string_new_from_c_str_harness.i:5785:12: warning: implicit declaration of function '__ESBMC_atomic_load' is invalid in C99 [-Wimplicit-function-declaration]
+    return __atomic_load_n(&(*(aws_atomic_impl_int_t *)(var)), aws_atomic_priv_xlate_order(memory_order));
+           ^
+esbmc_intrinsics.h:99:5: note: expanded from here
+    __ESBMC_atomic_load(__atomic_load_ptr, &__atomic_load_tmp, (MO));          \
+    ^
+../sv-benchmarks/c/aws-c-common/aws_string_new_from_c_str_harness.i:5793:12: warning: implicit declaration of function '__ESBMC_atomic_load' is invalid in C99 [-Wimplicit-function-declaration]
+    return __atomic_load_n(&((var)->value), aws_atomic_priv_xlate_order(memory_order));
+           ^
+esbmc_intrinsics.h:99:5: note: expanded from here
+    __ESBMC_atomic_load(__atomic_load_ptr, &__atomic_load_tmp, (MO));          \
+    ^
+../sv-benchmarks/c/aws-c-common/aws_string_new_from_c_str_harness.i:5801:5: warning: implicit declaration of function '__ESBMC_atomic_store' is invalid in C99 [-Wimplicit-function-declaration]
+    __atomic_store_n(&(*(aws_atomic_impl_int_t *)(var)), n, aws_atomic_priv_xlate_order(memory_order));
+    ^
+esbmc_intrinsics.h:107:5: note: expanded from here
+    __ESBMC_atomic_store(__atomic_store_ptr, &__atomic_store_tmp, (MO));       \
+    ^
+../sv-benchmarks/c/aws-c-common/aws_string_new_from_c_str_harness.i:5809:5: warning: implicit declaration of function '__ESBMC_atomic_store' is invalid in C99 [-Wimplicit-function-declaration]
+    __atomic_store_n(&((var)->value), p, aws_atomic_priv_xlate_order(memory_order));
+    ^
+esbmc_intrinsics.h:107:5: note: expanded from here
+    __ESBMC_atomic_store(__atomic_store_ptr, &__atomic_store_tmp, (MO));       \
+    ^
+../sv-benchmarks/c/aws-c-common/aws_string_new_from_c_str_harness.i:9341:40: warning: passing 'const char *' to parameter of type 'const uint8_t *' (aka 'const unsigned char *') converts between pointers to integer types with different sign [-Wpointer-sign]
+        assert_bytes_match(str->bytes, c_str, str->len);
+                                       ^~~~~
+../sv-benchmarks/c/aws-c-common/aws_string_new_from_c_str_harness.i:7099:70: note: passing argument to parameter 'b' here
+void assert_bytes_match(const uint8_t *const a, const uint8_t *const b, const size_t len) {
+                                                                     ^
+
+TRUE

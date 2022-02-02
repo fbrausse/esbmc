@@ -1,0 +1,96 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/locks/test_locks_7.c
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/locks/test_locks_7.c --32 --witness-output test_locks_7.c.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/locks/test_locks_7.c: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.128s
+GOTO program processing time: 0.006s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.004s (120 assignments)
+Slicing time: 0.001s (removed 72 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (48 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.001s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.001s
+Runtime decision procedure: 0.001s
+BMC program time: 0.007s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.003s (119 assignments)
+Slicing time: 0.001s (removed 72 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (47 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.001s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.001s
+Runtime decision procedure: 0.002s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file test_locks_7.c line 32 function main
+Unwinding loop 1  iteration  2   file test_locks_7.c line 32 function main
+Not unwinding 
+Symex completed in: 0.014s (393 assignments)
+Slicing time: 0.002s (removed 285 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (108 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.001s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.001s
+Runtime decision procedure: 0.001s
+BMC program time: 0.019s
+No bug has been found in the base case
+*** Checking forward condition, k = 3
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file test_locks_7.c line 32 function main
+Unwinding loop 1  iteration  2   file test_locks_7.c line 32 function main
+Not unwinding 
+Symex completed in: 0.014s (392 assignments)
+Slicing time: 0.002s (removed 285 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (107 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.002s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.002s
+Runtime decision procedure: 0.004s
+The forward condition is unable to prove the property
+*** Checking inductive step, k = 3
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file test_locks_7.c line 32 function main
+Unwinding loop 1  iteration  2   file test_locks_7.c line 32 function main
+Not unwinding 
+Symex completed in: 0.025s (513 assignments)
+Slicing time: 0.014s (removed 135 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (378 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.008s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.008s
+Runtime decision procedure: 0.003s
+BMC program time: 0.051s
+Building successful trace
+
+VERIFICATION SUCCESSFUL
+
+Solution found by the inductive step (k = 3)
+
+
+TRUE

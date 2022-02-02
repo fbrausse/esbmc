@@ -1,0 +1,225 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/ldv-linux-3.16-rc1/43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--fmc--fmc-fakedev.ko-entry_point.cil.out.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-linux-3.16-rc1/43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--fmc--fmc-fakedev.ko-entry_point.cil.out.i --64 --witness-output 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--fmc--fmc-fakedev.ko-entry_point.cil.out.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 64-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/ldv-linux-3.16-rc1/43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--fmc--fmc-fakedev.ko-entry_point.cil.out.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.916s
+GOTO program processing time: 0.049s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.162s (291 assignments)
+Slicing time: 0.001s (removed 224 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (67 assignments)
+BMC program time: 0.163s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.164s (291 assignments)
+Slicing time: 0.001s (removed 224 assignments)
+Generated 6 VCC(s), 6 remaining after simplification (67 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.006s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.006s
+Runtime decision procedure: 0.555s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 9  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 9  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 9  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 9  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 9  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 9  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 9  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 9  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Symex completed in: 0.180s (301 assignments)
+Slicing time: 0.001s (removed 242 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (59 assignments)
+BMC program time: 0.181s
+No bug has been found in the base case
+*** Checking forward condition, k = 3
+Starting Bounded Model Checking
+Unwinding loop 9  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 9  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 9  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 9  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 9  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 9  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 9  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 9  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Symex completed in: 0.180s (301 assignments)
+Slicing time: 0.000s (removed 242 assignments)
+Generated 2 VCC(s), 2 remaining after simplification (59 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.006s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.006s
+Runtime decision procedure: 0.543s
+The forward condition is unable to prove the property
+*** Checking inductive step, k = 3
+Starting Bounded Model Checking
+Unwinding loop 9  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 9  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 9  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 9  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 9  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 9  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 9  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 9  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 9  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 9  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 9  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 9  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 5  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--fmc--fmc-fakedev.ko-entry_point.cil.out.i line 1795 function ff_validate
+Unwinding loop 5  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--fmc--fmc-fakedev.ko-entry_point.cil.out.i line 1795 function ff_validate
+Not unwinding 
+Unwinding loop 5  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--fmc--fmc-fakedev.ko-entry_point.cil.out.i line 1795 function ff_validate
+Unwinding loop 5  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--fmc--fmc-fakedev.ko-entry_point.cil.out.i line 1795 function ff_validate
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 6  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--fmc--fmc-fakedev.ko-entry_point.cil.out.i line 1991 function ff_init
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 6  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--fmc--fmc-fakedev.ko-entry_point.cil.out.i line 1991 function ff_init
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Not unwinding 
+Unwinding loop 4  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--fmc--fmc-fakedev.ko-entry_point.cil.out.i line 1953 function ff_dev_create
+Unwinding loop 4  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--fmc--fmc-fakedev.ko-entry_point.cil.out.i line 1953 function ff_dev_create
+Not unwinding 
+Unwinding loop 9  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 9  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 9  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 9  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 4  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--fmc--fmc-fakedev.ko-entry_point.cil.out.i line 1953 function ff_dev_create
+Unwinding loop 4  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--fmc--fmc-fakedev.ko-entry_point.cil.out.i line 1953 function ff_dev_create
+Not unwinding 
+Unwinding loop 8  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--fmc--fmc-fakedev.ko-entry_point.cil.out.i line 2311 function main
+Unwinding loop 5  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--fmc--fmc-fakedev.ko-entry_point.cil.out.i line 1795 function ff_validate
+Unwinding loop 5  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--fmc--fmc-fakedev.ko-entry_point.cil.out.i line 1795 function ff_validate
+Not unwinding 
+Unwinding loop 5  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--fmc--fmc-fakedev.ko-entry_point.cil.out.i line 1795 function ff_validate
+Unwinding loop 5  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--fmc--fmc-fakedev.ko-entry_point.cil.out.i line 1795 function ff_validate
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 6  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--fmc--fmc-fakedev.ko-entry_point.cil.out.i line 1991 function ff_init
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 6  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--fmc--fmc-fakedev.ko-entry_point.cil.out.i line 1991 function ff_init
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Not unwinding 
+Unwinding loop 4  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--fmc--fmc-fakedev.ko-entry_point.cil.out.i line 1953 function ff_dev_create
+Unwinding loop 4  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--fmc--fmc-fakedev.ko-entry_point.cil.out.i line 1953 function ff_dev_create
+Not unwinding 
+Unwinding loop 9  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 9  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 9  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 9  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 4  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--fmc--fmc-fakedev.ko-entry_point.cil.out.i line 1953 function ff_dev_create
+Unwinding loop 4  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--fmc--fmc-fakedev.ko-entry_point.cil.out.i line 1953 function ff_dev_create
+Not unwinding 
+Unwinding loop 8  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--fmc--fmc-fakedev.ko-entry_point.cil.out.i line 2311 function main
+Unwinding loop 5  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--fmc--fmc-fakedev.ko-entry_point.cil.out.i line 1795 function ff_validate
+Unwinding loop 5  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--fmc--fmc-fakedev.ko-entry_point.cil.out.i line 1795 function ff_validate
+Not unwinding 
+Unwinding loop 5  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--fmc--fmc-fakedev.ko-entry_point.cil.out.i line 1795 function ff_validate
+Unwinding loop 5  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--fmc--fmc-fakedev.ko-entry_point.cil.out.i line 1795 function ff_validate
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 6  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--fmc--fmc-fakedev.ko-entry_point.cil.out.i line 1991 function ff_init
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 6  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--fmc--fmc-fakedev.ko-entry_point.cil.out.i line 1991 function ff_init
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Not unwinding 
+Unwinding loop 4  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--fmc--fmc-fakedev.ko-entry_point.cil.out.i line 1953 function ff_dev_create
+Unwinding loop 4  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--fmc--fmc-fakedev.ko-entry_point.cil.out.i line 1953 function ff_dev_create
+Not unwinding 
+Unwinding loop 9  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 9  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 9  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 9  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 4  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--fmc--fmc-fakedev.ko-entry_point.cil.out.i line 1953 function ff_dev_create
+Unwinding loop 4  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--fmc--fmc-fakedev.ko-entry_point.cil.out.i line 1953 function ff_dev_create
+Not unwinding 
+Not unwinding 
+Symex completed in: 7.270s (4465 assignments)
+Slicing time: 0.066s (removed 3164 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (1301 assignments)
+BMC program time: 7.336s
+Building successful trace
+
+VERIFICATION SUCCESSFUL
+
+Solution found by the inductive step (k = 3)
+
+../sv-benchmarks/c/ldv-linux-3.16-rc1/43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--fmc--fmc-fakedev.ko-entry_point.cil.out.i:1268:27: warning: declaration of 'struct kobject___0' will not be visible outside of this function [-Wvisibility]
+   ssize_t (*show)(struct kobject___0 * , struct attribute___0 * , char * ) ;
+                          ^
+../sv-benchmarks/c/ldv-linux-3.16-rc1/43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--fmc--fmc-fakedev.ko-entry_point.cil.out.i:1269:28: warning: declaration of 'struct kobject___0' will not be visible outside of this function [-Wvisibility]
+   ssize_t (*store)(struct kobject___0 * , struct attribute___0 * , char const * ,
+                           ^
+
+TRUE

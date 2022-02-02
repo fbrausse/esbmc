@@ -1,0 +1,72 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/forester-heap/dll-01-1.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/forester-heap/dll-01-1.i --32 --witness-output dll-01-1.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/forester-heap/dll-01-1.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.167s
+GOTO program processing time: 0.003s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.009s (139 assignments)
+Slicing time: 0.001s (removed 69 assignments)
+Generated 12 VCC(s), 12 remaining after simplification (70 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.003s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.003s
+Runtime decision procedure: 0.196s
+Building error trace
+
+Counterexample:
+
+State 1 file dll-01-1.i line 1004 function main thread 0
+----------------------------------------------------
+  list->next = 0
+
+State 2 file dll-01-1.i line 1005 function main thread 0
+----------------------------------------------------
+  list->prev = 0
+
+State 3 file dll-01-1.i line 1006 function main thread 0
+----------------------------------------------------
+  list->inner = ( struct TSLL *)((void *)(&dynamic_3_value))
+
+State 4 file dll-01-1.i line 1006 function main thread 0
+----------------------------------------------------
+  list->inner->next = 0
+
+State 5 file dll-01-1.i line 1006 function main thread 0
+----------------------------------------------------
+  list->inner->inner = 0
+
+State 6 file dll-01-1.i line 1031 function main thread 0
+----------------------------------------------------
+  inner = dynamic_1_value.inner
+
+State 7 file dll-01-1.i line 992 function reach_error thread 0
+----------------------------------------------------
+Violated property:
+  file dll-01-1.i line 992 function reach_error
+  assertion 0
+  0
+
+
+VERIFICATION FAILED
+
+Bug found (k = 1)
+
+
+FALSE_REACH

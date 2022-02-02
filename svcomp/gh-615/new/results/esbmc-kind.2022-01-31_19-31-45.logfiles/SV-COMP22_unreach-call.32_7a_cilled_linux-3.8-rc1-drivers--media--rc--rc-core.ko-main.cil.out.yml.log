@@ -1,0 +1,154 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-drivers--media--rc--rc-core.ko-main.cil.out.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-drivers--media--rc--rc-core.ko-main.cil.out.i --64 --witness-output 32_7a_cilled_linux-3.8-rc1-drivers--media--rc--rc-core.ko-main.cil.out.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 64-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-drivers--media--rc--rc-core.ko-main.cil.out.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.840s
+GOTO program processing time: 0.239s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.021s (163 assignments)
+Slicing time: 0.000s (removed 146 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (17 assignments)
+BMC program time: 0.021s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.018s (163 assignments)
+Slicing time: 0.001s (removed 146 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (17 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.000s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.000s
+Runtime decision procedure: 0.005s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 15  iteration  1   file 32_7a_cilled_linux-3.8-rc1-drivers--media--rc--rc-core.ko-main.cil.out.i line 5046 function main
+Unwinding loop 12  iteration  1   file 32_7a_cilled_linux-3.8-rc1-drivers--media--rc--rc-core.ko-main.cil.out.i line 4459 function store_protocols
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-drivers--media--rc--rc-core.ko-main.cil.out.i line 4422 function store_protocols
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-drivers--media--rc--rc-core.ko-main.cil.out.i line 4422 function store_protocols
+Not unwinding 
+Unwinding loop 12  iteration  2   file 32_7a_cilled_linux-3.8-rc1-drivers--media--rc--rc-core.ko-main.cil.out.i line 4459 function store_protocols
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-drivers--media--rc--rc-core.ko-main.cil.out.i line 4422 function store_protocols
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-drivers--media--rc--rc-core.ko-main.cil.out.i line 4422 function store_protocols
+Not unwinding 
+Not unwinding 
+No target candidate for function call *dev->change_protocol
+Unwinding loop 10  iteration  1   file 32_7a_cilled_linux-3.8-rc1-drivers--media--rc--rc-core.ko-main.cil.out.i line 4317 function show_protocols
+Unwinding loop 10  iteration  2   file 32_7a_cilled_linux-3.8-rc1-drivers--media--rc--rc-core.ko-main.cil.out.i line 4317 function show_protocols
+Not unwinding 
+Unwinding loop 15  iteration  2   file 32_7a_cilled_linux-3.8-rc1-drivers--media--rc--rc-core.ko-main.cil.out.i line 5046 function main
+Unwinding loop 12  iteration  1   file 32_7a_cilled_linux-3.8-rc1-drivers--media--rc--rc-core.ko-main.cil.out.i line 4459 function store_protocols
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-drivers--media--rc--rc-core.ko-main.cil.out.i line 4422 function store_protocols
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-drivers--media--rc--rc-core.ko-main.cil.out.i line 4422 function store_protocols
+Not unwinding 
+Unwinding loop 12  iteration  2   file 32_7a_cilled_linux-3.8-rc1-drivers--media--rc--rc-core.ko-main.cil.out.i line 4459 function store_protocols
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-drivers--media--rc--rc-core.ko-main.cil.out.i line 4422 function store_protocols
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-drivers--media--rc--rc-core.ko-main.cil.out.i line 4422 function store_protocols
+Not unwinding 
+Not unwinding 
+No target candidate for function call *dev->change_protocol
+Unwinding loop 10  iteration  1   file 32_7a_cilled_linux-3.8-rc1-drivers--media--rc--rc-core.ko-main.cil.out.i line 4317 function show_protocols
+Unwinding loop 10  iteration  2   file 32_7a_cilled_linux-3.8-rc1-drivers--media--rc--rc-core.ko-main.cil.out.i line 4317 function show_protocols
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.366s (1732 assignments)
+Slicing time: 0.015s (removed 1368 assignments)
+Generated 3 VCC(s), 3 remaining after simplification (364 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.034s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.034s
+Runtime decision procedure: 4.500s
+Building error trace
+
+Counterexample:
+
+State 1 file 32_7a_cilled_linux-3.8-rc1-drivers--media--rc--rc-core.ko-main.cil.out.i line 4910 function main thread 0
+----------------------------------------------------
+  dev_attr_protocols_group0 = ( struct device *)4611686018427387904
+
+State 2 file 32_7a_cilled_linux-3.8-rc1-drivers--media--rc--rc-core.ko-main.cil.out.i line 4920 function main thread 0
+----------------------------------------------------
+  tmp = 1 (00000000 00000000 00000000 00000001)
+
+State 3 file 32_7a_cilled_linux-3.8-rc1-drivers--media--rc--rc-core.ko-main.cil.out.i line 4963 function main thread 0
+----------------------------------------------------
+  tmp___1 = 1 (00000000 00000000 00000000 00000001)
+
+State 4 file 32_7a_cilled_linux-3.8-rc1-drivers--media--rc--rc-core.ko-main.cil.out.i line 4866 function rc_core_init thread 0
+----------------------------------------------------
+  rc = 0 (00000000 00000000 00000000 00000000)
+
+State 5 file 32_7a_cilled_linux-3.8-rc1-drivers--media--rc--rc-core.ko-main.cil.out.i line 4920 function main thread 0
+----------------------------------------------------
+  tmp = 3 (00000000 00000000 00000000 00000011)
+
+State 6 file 32_7a_cilled_linux-3.8-rc1-drivers--media--rc--rc-core.ko-main.cil.out.i line 5018 function main thread 0
+----------------------------------------------------
+  tmp___3 = 1 (00000000 00000000 00000000 00000001)
+
+State 7 file 32_7a_cilled_linux-3.8-rc1-drivers--media--rc--rc-core.ko-main.cil.out.i line 4265 function show_protocols thread 0
+----------------------------------------------------
+  __mptr = invalid-object
+
+State 8 file 32_7a_cilled_linux-3.8-rc1-drivers--media--rc--rc-core.ko-main.cil.out.i line 4266 function show_protocols thread 0
+----------------------------------------------------
+  dev = ( struct rc_dev *)(invalid-object)
+
+State 9 file 32_7a_cilled_linux-3.8-rc1-drivers--media--rc--rc-core.ko-main.cil.out.i line 4920 function main thread 0
+----------------------------------------------------
+  tmp = 3 (00000000 00000000 00000000 00000011)
+
+State 10 file 32_7a_cilled_linux-3.8-rc1-drivers--media--rc--rc-core.ko-main.cil.out.i line 5018 function main thread 0
+----------------------------------------------------
+  tmp___3 = 0 (00000000 00000000 00000000 00000000)
+
+State 11 file 32_7a_cilled_linux-3.8-rc1-drivers--media--rc--rc-core.ko-main.cil.out.i line 4359 function store_protocols thread 0
+----------------------------------------------------
+  __mptr = invalid-object
+
+State 12 file 32_7a_cilled_linux-3.8-rc1-drivers--media--rc--rc-core.ko-main.cil.out.i line 4360 function store_protocols thread 0
+----------------------------------------------------
+  dev = ( struct rc_dev *)(invalid-object)
+
+State 13 file 32_7a_cilled_linux-3.8-rc1-drivers--media--rc--rc-core.ko-main.cil.out.i line 12 function reach_error thread 0
+----------------------------------------------------
+Violated property:
+  file 32_7a_cilled_linux-3.8-rc1-drivers--media--rc--rc-core.ko-main.cil.out.i line 12 function reach_error
+  assertion 0
+  0
+
+
+VERIFICATION FAILED
+
+Bug found (k = 3)
+
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-drivers--media--rc--rc-core.ko-main.cil.out.i:3473:70: warning: incompatible integer to pointer conversion initializing 'void *' with an expression of type 'unsigned long' [-Wint-conversion]
+static spinlock_t rc_map_lock = {{{{{0U}}, 3735899821U, 4294967295U, 0xffffffffffffffffUL, {0, {0, 0}, "rc_map_lock",
+                                                                     ^~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-drivers--media--rc--rc-core.ko-main.cil.out.i:5298:86: warning: incompatible integer to pointer conversion initializing 'void *' with an expression of type 'unsigned long' [-Wint-conversion]
+static struct mutex ir_raw_handler_lock = {{1}, {{{{{0U}}, 3735899821U, 4294967295U, 0xffffffffffffffffUL, {0, {0, 0}, "ir_raw_handler_lock.wait_lock",
+                                                                                     ^~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-drivers--media--rc--rc-core.ko-main.cil.out.i:6727:26: warning: implicit declaration of function 'ldv_xmalloc' is invalid in C99 [-Wimplicit-function-declaration]
+  return *(union ktime *)ldv_xmalloc(sizeof(union ktime));
+                         ^
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-drivers--media--rc--rc-core.ko-main.cil.out.i:6727:11: warning: cast to 'union ktime *' from smaller integer type 'int' [-Wint-to-pointer-cast]
+  return *(union ktime *)ldv_xmalloc(sizeof(union ktime));
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+FALSE_REACH

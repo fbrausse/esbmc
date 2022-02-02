@@ -1,0 +1,116 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/valid-memsafety.prp -s kinduction --arch 32 ../sv-benchmarks/c/heap-manipulation/dancing.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/heap-manipulation/dancing.i --32 --witness-output dancing.i.graphml --memory-leak-check --no-assertions --incremental-bmc 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/heap-manipulation/dancing.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.152s
+GOTO program processing time: 0.001s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Unwinding recursion is_list_containing_x iteration 1 (1 max)
+Unwinding recursion is_list_containing_x iteration 1 (1 max)
+Unwinding recursion is_list_containing_x iteration 1 (1 max)
+Symex completed in: 0.007s (104 assignments)
+Slicing time: 0.001s (removed 48 assignments)
+Generated 30 VCC(s), 9 remaining after simplification (56 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.002s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.002s
+Runtime decision procedure: 0.001s
+BMC program time: 0.011s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Unwinding recursion is_list_containing_x iteration 1 (1 max)
+Unwinding recursion is_list_containing_x iteration 1 (1 max)
+Unwinding recursion is_list_containing_x iteration 1 (1 max)
+Symex completed in: 0.007s (104 assignments)
+Slicing time: 0.001s (removed 48 assignments)
+Generated 34 VCC(s), 13 remaining after simplification (56 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.002s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.002s
+Runtime decision procedure: 0.056s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file dancing.i line 607 function main
+Unwinding loop 1  iteration  2   file dancing.i line 607 function main
+Not unwinding 
+Unwinding recursion is_list_containing_x iteration 1 (3 max)
+Unwinding recursion is_list_containing_x iteration 2 (3 max)
+Unwinding recursion is_list_containing_x iteration 3 (3 max)
+Unwinding recursion is_list_containing_x iteration 1 (3 max)
+Unwinding recursion is_list_containing_x iteration 2 (3 max)
+Unwinding recursion is_list_containing_x iteration 3 (3 max)
+Unwinding recursion is_list_containing_x iteration 1 (3 max)
+Unwinding recursion is_list_containing_x iteration 2 (3 max)
+Unwinding recursion is_list_containing_x iteration 3 (3 max)
+Symex completed in: 0.029s (311 assignments)
+Slicing time: 0.006s (removed 69 assignments)
+Generated 182 VCC(s), 88 remaining after simplification (242 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.006s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.006s
+Runtime decision procedure: 0.242s
+Building error trace
+
+Counterexample:
+
+State 1 file dancing.i line 604 function main thread 0
+----------------------------------------------------
+  list.L = { .L=0, .R=nil }
+
+State 2 file dancing.i line 605 function main thread 0
+----------------------------------------------------
+  list.R = { .L=0, .R=0 }
+
+State 4 file dancing.i line 612 function main thread 0
+----------------------------------------------------
+  n->L = { .L=( struct node *)(&list), .R=nil }
+
+State 6 file dancing.i line 613 function main thread 0
+----------------------------------------------------
+  n->R = { .L=&list, .R=0 }
+
+State 7 file dancing.i line 614 function main thread 0
+----------------------------------------------------
+  tail->R = { .L=0, .R=( struct node *)((void *)(&dynamic_8_value)) }
+
+State 21 file dancing.i line 582 function remove thread 0
+----------------------------------------------------
+  x->R->L = { .L=&list, .R=0 }
+
+State 35 file dancing.i line 589 function re_insert thread 0
+----------------------------------------------------
+  x->R->L = { .L=&list, .R=0 }
+
+State 39 file dancing.i line 624 function main thread 0
+----------------------------------------------------
+Violated property:
+  file dancing.i line 624 function main
+  dereference failure: forgotten memory: dynamic_8_value
+
+
+VERIFICATION FAILED
+
+Bug found (k = 3)
+
+
+FALSE_MEMTRACK

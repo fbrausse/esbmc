@@ -1,0 +1,1944 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i --64 --witness-output linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 64-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 4.813s
+GOTO program processing time: 4.006s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+No target candidate for function call *ops->alloc
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+No target candidate for function call *arg0
+No target candidate for function call *arg0
+No target candidate for function call *arg0
+No target candidate for function call *arg0
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+No target candidate for function call *arg0
+Not unwinding 
+No target candidate for function call *arg0
+Not unwinding 
+No target candidate for function call *ops->map_page
+No target candidate for function call *ops->map_page
+No target candidate for function call *ops->map_page
+No target candidate for function call *ops->map_page
+No target candidate for function call *ops->map_page
+No target candidate for function call *phba->iotask_fn
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+No target candidate for function call *ops->unmap_page
+No target candidate for function call *ops->alloc
+No target candidate for function call *ops->unmap_page
+Not unwinding 
+No target candidate for function call *ops->free
+No target candidate for function call *ops->unmap_page
+Not unwinding 
+No target candidate for function call *ops->free
+No target candidate for function call *ops->unmap_page
+No target candidate for function call *ops->free
+Not unwinding 
+No target candidate for function call *ops->alloc
+No target candidate for function call *ops->free
+Not unwinding 
+No target candidate for function call *ops->free
+No target candidate for function call *ops->alloc
+Not unwinding 
+No target candidate for function call *ops->free
+Not unwinding 
+No target candidate for function call *ops->free
+Not unwinding 
+Not unwinding 
+No target candidate for function call *ops->unmap_page
+Not unwinding 
+No target candidate for function call *ops->alloc
+No target candidate for function call *ops->free
+Not unwinding 
+No target candidate for function call *ops->free
+Not unwinding 
+Not unwinding 
+No target candidate for function call *arg0
+Not unwinding 
+Not unwinding 
+No target candidate for function call *arg0
+Not unwinding 
+No target candidate for function call *arg0
+Not unwinding 
+No target candidate for function call *arg0
+Not unwinding 
+Not unwinding 
+No target candidate for function call *arg0
+Not unwinding 
+**** WARNING: no body for function sscanf
+Not unwinding 
+Not unwinding 
+No target candidate for function call *arg0
+Not unwinding 
+No target candidate for function call *arg0
+Symex completed in: 12.849s (10879 assignments)
+Slicing time: 0.047s (removed 9460 assignments)
+Generated 15 VCC(s), 15 remaining after simplification (1419 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.770s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.770s
+Runtime decision procedure: 33.357s
+Building error trace
+
+Counterexample:
+
+State 1 file linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i line 30960 function ldv_undef_int thread 0
+----------------------------------------------------
+  tmp = -2147483648 (10000000 00000000 00000000 00000000)
+
+State 2 file linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i line 24558 function ldv___pci_register_driver_175 thread 0
+----------------------------------------------------
+  ldv_func_res = 0 (00000000 00000000 00000000 00000000)
+
+State 3 file linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i line 30960 function ldv_undef_int thread 0
+----------------------------------------------------
+  tmp = 1048576 (00000000 00010000 00000000 00000000)
+
+State 4 file linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i line 30960 function ldv_undef_int thread 0
+----------------------------------------------------
+  tmp = 0 (00000000 00000000 00000000 00000000)
+
+State 5 file linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i line 30960 function ldv_undef_int thread 0
+----------------------------------------------------
+  tmp = 0 (00000000 00000000 00000000 00000000)
+
+State 6 file linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i line 30960 function ldv_undef_int thread 0
+----------------------------------------------------
+  tmp = 536870912 (00100000 00000000 00000000 00000000)
+
+State 7 file linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i line 30960 function ldv_undef_int thread 0
+----------------------------------------------------
+  tmp = -2147483648 (10000000 00000000 00000000 00000000)
+
+State 8 file linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i line 30960 function ldv_undef_int thread 0
+----------------------------------------------------
+  tmp = 134217728 (00001000 00000000 00000000 00000000)
+
+State 9 file linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i line 30960 function ldv_undef_int thread 0
+----------------------------------------------------
+  tmp = 0 (00000000 00000000 00000000 00000000)
+
+State 10 file linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i line 30960 function ldv_undef_int thread 0
+----------------------------------------------------
+  tmp = 30 (00000000 00000000 00000000 00011110)
+
+State 11 file linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i line 20164 function beiscsi_bsg_request thread 0
+----------------------------------------------------
+  __ret = 0 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)
+
+State 12 file linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i line 20166 function beiscsi_bsg_request thread 0
+----------------------------------------------------
+  __cond___0 = 0
+
+State 13 file linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i line 8903 function arch_local_save_flags thread 0
+----------------------------------------------------
+Violated property:
+  file linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i line 8903 function arch_local_save_flags
+  assertion
+  0
+
+
+VERIFICATION FAILED
+
+Bug found (k = 1)
+
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:9264:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((log_value & 32U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                          ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:9264:64: note: use array indexing to silence this warning
+    if ((log_value & 32U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                               ^
+                                                          &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:9274:70: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((log_value___0 & 32U) != 0U || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                              ~~~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:9274:70: note: use array indexing to silence this warning
+    if ((log_value___0 & 32U) != 0U || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                                     ^
+                                                              &      [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:9284:68: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((log_value___1 & 32U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                              ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:9284:68: note: use array indexing to silence this warning
+    if ((log_value___1 & 32U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                                   ^
+                                                              &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:9355:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+  if ((log_value & 32U) != 0U || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                        ~~~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:9355:64: note: use array indexing to silence this warning
+  if ((log_value & 32U) != 0U || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                               ^
+                                                        &      [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:9390:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((log_value & 32U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                          ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:9390:64: note: use array indexing to silence this warning
+    if ((log_value & 32U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                               ^
+                                                          &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:9400:70: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((log_value___0 & 32U) != 0U || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                              ~~~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:9400:70: note: use array indexing to silence this warning
+    if ((log_value___0 & 32U) != 0U || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                                     ^
+                                                              &      [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:9455:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((log_value & 32U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                          ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:9455:64: note: use array indexing to silence this warning
+    if ((log_value & 32U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                               ^
+                                                          &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:9471:68: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+  if ((log_value___0 & 32U) != 0U || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                            ~~~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:9471:68: note: use array indexing to silence this warning
+  if ((log_value___0 & 32U) != 0U || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                                   ^
+                                                            &      [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:9498:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((log_value & 32U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                          ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:9498:64: note: use array indexing to silence this warning
+    if ((log_value & 32U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                               ^
+                                                          &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:9525:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((log_value & 32U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                          ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:9525:64: note: use array indexing to silence this warning
+    if ((log_value & 32U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                               ^
+                                                          &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:9671:62: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+  if ((log_value & 32U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                        ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:9671:62: note: use array indexing to silence this warning
+  if ((log_value & 32U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                             ^
+                                                        &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:9683:68: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((log_value___0 & 32U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                              ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:9683:68: note: use array indexing to silence this warning
+    if ((log_value___0 & 32U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                                   ^
+                                                              &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:9716:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((log_value & 32U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                          ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:9716:64: note: use array indexing to silence this warning
+    if ((log_value & 32U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                               ^
+                                                          &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:9751:66: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+  if ((log_value___0 & 32U) != 0U || (int )((signed char )*("\f" + 1)) <= 51) {
+                                                            ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:9751:66: note: use array indexing to silence this warning
+  if ((log_value___0 & 32U) != 0U || (int )((signed char )*("\f" + 1)) <= 51) {
+                                                                 ^
+                                                            &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:9826:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((log_value & 32U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                          ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:9826:64: note: use array indexing to silence this warning
+    if ((log_value & 32U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                               ^
+                                                          &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:9860:66: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+  if ((log_value___0 & 32U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                            ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:9860:66: note: use array indexing to silence this warning
+  if ((log_value___0 & 32U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                                 ^
+                                                            &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:9915:62: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+  if ((log_value & 32U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                        ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:9915:62: note: use array indexing to silence this warning
+  if ((log_value & 32U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                             ^
+                                                        &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:9951:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((log_value & 32U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                          ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:9951:64: note: use array indexing to silence this warning
+    if ((log_value & 32U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                               ^
+                                                          &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:9975:68: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((log_value___0 & 32U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                              ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:9975:68: note: use array indexing to silence this warning
+    if ((log_value___0 & 32U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                                   ^
+                                                              &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:10007:66: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+  if ((log_value___1 & 32U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                            ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:10007:66: note: use array indexing to silence this warning
+  if ((log_value___1 & 32U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                                 ^
+                                                            &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:10180:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((log_value & 32U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                          ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:10180:64: note: use array indexing to silence this warning
+    if ((log_value & 32U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                               ^
+                                                          &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:10273:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+  if ((log_value & 32U) != 0U || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                        ~~~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:10273:64: note: use array indexing to silence this warning
+  if ((log_value & 32U) != 0U || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                               ^
+                                                        &      [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:10292:31: warning: format specifies type 'unsigned short' but the argument has type 'int' [-Wformat]
+  len = sprintf(buf, "%hu\n", (int )beiscsi_ep->dst_tcpport);
+                      ~~~     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                      %d
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:10328:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+  if ((log_value & 32U) != 0U || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                        ~~~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:10328:64: note: use array indexing to silence this warning
+  if ((log_value & 32U) != 0U || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                               ^
+                                                        &      [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:10406:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((log_value & 32U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                          ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:10406:64: note: use array indexing to silence this warning
+    if ((log_value & 32U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                               ^
+                                                          &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:10421:68: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((log_value___0 & 34U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                              ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:10421:68: note: use array indexing to silence this warning
+    if ((log_value___0 & 34U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                                   ^
+                                                              &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:10475:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((log_value & 32U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                          ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:10475:64: note: use array indexing to silence this warning
+    if ((log_value & 32U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                               ^
+                                                          &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:10490:68: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((log_value___0 & 34U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                              ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:10490:68: note: use array indexing to silence this warning
+    if ((log_value___0 & 34U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                                   ^
+                                                              &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:10564:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((log_value & 32U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                          ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:10564:64: note: use array indexing to silence this warning
+    if ((log_value & 32U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                               ^
+                                                          &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:10574:70: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((log_value___0 & 32U) != 0U || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                              ~~~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:10574:70: note: use array indexing to silence this warning
+    if ((log_value___0 & 32U) != 0U || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                                     ^
+                                                              &      [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:10606:68: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((log_value___1 & 32U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                              ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:10606:68: note: use array indexing to silence this warning
+    if ((log_value___1 & 32U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                                   ^
+                                                              &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:10623:68: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((log_value___2 & 32U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                              ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:10623:68: note: use array indexing to silence this warning
+    if ((log_value___2 & 32U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                                   ^
+                                                              &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:10647:68: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((log_value___3 & 32U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                              ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:10647:68: note: use array indexing to silence this warning
+    if ((log_value___3 & 32U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                                   ^
+                                                              &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:10714:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+  if ((log_value & 32U) != 0U || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                        ~~~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:10714:64: note: use array indexing to silence this warning
+  if ((log_value & 32U) != 0U || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                               ^
+                                                        &      [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:10807:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((log_value & 32U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                          ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:10807:64: note: use array indexing to silence this warning
+    if ((log_value & 32U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                               ^
+                                                          &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:10817:70: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((log_value___0 & 32U) != 0U || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                              ~~~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:10817:70: note: use array indexing to silence this warning
+    if ((log_value___0 & 32U) != 0U || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                                     ^
+                                                              &      [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:10831:68: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((log_value___1 & 32U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                              ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:10831:68: note: use array indexing to silence this warning
+    if ((log_value___1 & 32U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                                   ^
+                                                              &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:10962:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+  if ((log_value & 32U) != 0U || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                        ~~~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:10962:64: note: use array indexing to silence this warning
+  if ((log_value & 32U) != 0U || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                               ^
+                                                        &      [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:10975:68: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((log_value___0 & 32U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                              ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:10975:68: note: use array indexing to silence this warning
+    if ((log_value___0 & 32U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                                   ^
+                                                              &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:10986:68: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+  if ((log_value___1 & 32U) != 0U || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                            ~~~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:10986:68: note: use array indexing to silence this warning
+  if ((log_value___1 & 32U) != 0U || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                                   ^
+                                                            &      [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:11005:68: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((log_value___2 & 32U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                              ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:11005:68: note: use array indexing to silence this warning
+    if ((log_value___2 & 32U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                                   ^
+                                                              &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:11026:68: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((log_value___3 & 32U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                              ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:11026:68: note: use array indexing to silence this warning
+    if ((log_value___3 & 32U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                                   ^
+                                                              &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:11046:68: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((log_value___4 & 34U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                              ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:11046:68: note: use array indexing to silence this warning
+    if ((log_value___4 & 34U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                                   ^
+                                                              &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:11071:68: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+  if ((log_value___5 & 32U) != 0U || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                            ~~~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:11071:68: note: use array indexing to silence this warning
+  if ((log_value___5 & 32U) != 0U || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                                   ^
+                                                            &      [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:11123:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((log_value & 32U) != 0U || (int )((signed char )*("\f" + 1)) <= 51) {
+                                                          ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:11123:64: note: use array indexing to silence this warning
+    if ((log_value & 32U) != 0U || (int )((signed char )*("\f" + 1)) <= 51) {
+                                                               ^
+                                                          &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:11139:68: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((log_value___0 & 32U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                              ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:11139:68: note: use array indexing to silence this warning
+    if ((log_value___0 & 32U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                                   ^
+                                                              &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:11154:68: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((log_value___1 & 32U) != 0U || (int )((signed char )*("\f" + 1)) <= 51) {
+                                                              ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:11154:68: note: use array indexing to silence this warning
+    if ((log_value___1 & 32U) != 0U || (int )((signed char )*("\f" + 1)) <= 51) {
+                                                                   ^
+                                                              &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:11186:68: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((log_value___2 & 32U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                              ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:11186:68: note: use array indexing to silence this warning
+    if ((log_value___2 & 32U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                                   ^
+                                                              &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:11212:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+  if ((log_value & 32U) != 0U || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                        ~~~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:11212:64: note: use array indexing to silence this warning
+  if ((log_value & 32U) != 0U || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                               ^
+                                                        &      [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:11267:66: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((log_value & 32U) != 0U || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                          ~~~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:11267:66: note: use array indexing to silence this warning
+    if ((log_value & 32U) != 0U || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                                 ^
+                                                          &      [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:11294:66: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((log_value & 32U) != 0U || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                          ~~~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:11294:66: note: use array indexing to silence this warning
+    if ((log_value & 32U) != 0U || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                                 ^
+                                                          &      [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:11323:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+  if ((log_value & 32U) != 0U || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                        ~~~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:11323:64: note: use array indexing to silence this warning
+  if ((log_value & 32U) != 0U || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                               ^
+                                                        &      [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:11343:68: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((log_value___0 & 32U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                              ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:11343:68: note: use array indexing to silence this warning
+    if ((log_value___0 & 32U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                                   ^
+                                                              &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:11359:68: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((log_value___1 & 32U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                              ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:11359:68: note: use array indexing to silence this warning
+    if ((log_value___1 & 32U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                                   ^
+                                                              &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:12560:60: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((int )log_value & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                      ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:12560:60: note: use array indexing to silence this warning
+    if ((int )log_value & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                           ^
+                                                      &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:12572:62: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+  if ((int )log_value___0 & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                        ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:12572:62: note: use array indexing to silence this warning
+  if ((int )log_value___0 & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                             ^
+                                                        &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:12635:58: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+  if ((int )log_value & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                    ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:12635:58: note: use array indexing to silence this warning
+  if ((int )log_value & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                         ^
+                                                    &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:12758:63: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((log_value & 8U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                         ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:12758:63: note: use array indexing to silence this warning
+    if ((log_value & 8U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                              ^
+                                                         &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:12774:67: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((log_value___0 & 8U) != 0U || (int )((signed char )*("\f" + 1)) <= 51) {
+                                                             ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:12774:67: note: use array indexing to silence this warning
+    if ((log_value___0 & 8U) != 0U || (int )((signed char )*("\f" + 1)) <= 51) {
+                                                                  ^
+                                                             &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:12885:63: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((log_value & 8U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                         ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:12885:63: note: use array indexing to silence this warning
+    if ((log_value & 8U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                              ^
+                                                         &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:12902:67: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((log_value___0 & 8U) != 0U || (int )((signed char )*("\f" + 1)) <= 51) {
+                                                             ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:12902:67: note: use array indexing to silence this warning
+    if ((log_value___0 & 8U) != 0U || (int )((signed char )*("\f" + 1)) <= 51) {
+                                                                  ^
+                                                             &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:13519:62: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((int )log_value & 1 || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                      ~~~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:13519:62: note: use array indexing to silence this warning
+    if ((int )log_value & 1 || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                             ^
+                                                      &      [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:13837:62: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+      if ((int )log_value & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                        ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:13837:62: note: use array indexing to silence this warning
+      if ((int )log_value & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                             ^
+                                                        &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:13874:66: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+      if ((int )log_value___0 & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                            ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:13874:66: note: use array indexing to silence this warning
+      if ((int )log_value___0 & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                                 ^
+                                                            &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:13894:66: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+      if ((int )log_value___1 & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                            ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:13894:66: note: use array indexing to silence this warning
+      if ((int )log_value___1 & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                                 ^
+                                                            &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:14016:62: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+  if ((log_value & 48U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                        ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:14016:62: note: use array indexing to silence this warning
+  if ((log_value & 48U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                             ^
+                                                        &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:14033:66: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+  if ((log_value___0 & 48U) != 0U || (int )((signed char )*("\f" + 1)) <= 51) {
+                                                            ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:14033:66: note: use array indexing to silence this warning
+  if ((log_value___0 & 48U) != 0U || (int )((signed char )*("\f" + 1)) <= 51) {
+                                                                 ^
+                                                            &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:14059:66: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((log_value & 16U) != 0U || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                          ~~~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:14059:66: note: use array indexing to silence this warning
+    if ((log_value & 16U) != 0U || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                                 ^
+                                                          &      [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:14087:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+  if ((log_value & 16U) != 0U || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                        ~~~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:14087:64: note: use array indexing to silence this warning
+  if ((log_value & 16U) != 0U || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                               ^
+                                                        &      [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:14096:70: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((log_value___0 & 16U) != 0U || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                              ~~~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:14096:70: note: use array indexing to silence this warning
+    if ((log_value___0 & 16U) != 0U || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                                     ^
+                                                              &      [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:14157:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+  if ((log_value & 48U) != 0U || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                        ~~~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:14157:64: note: use array indexing to silence this warning
+  if ((log_value & 48U) != 0U || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                               ^
+                                                        &      [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:14176:66: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((log_value & 32U) != 0U || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                          ~~~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:14176:66: note: use array indexing to silence this warning
+    if ((log_value & 32U) != 0U || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                                 ^
+                                                          &      [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:14202:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+  if ((log_value & 32U) != 0U || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                        ~~~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:14202:64: note: use array indexing to silence this warning
+  if ((log_value & 32U) != 0U || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                               ^
+                                                        &      [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:14211:68: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((log_value___0 & 32U) != 0U || (int )((signed char )*("\f" + 1)) <= 51) {
+                                                              ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:14211:68: note: use array indexing to silence this warning
+    if ((log_value___0 & 32U) != 0U || (int )((signed char )*("\f" + 1)) <= 51) {
+                                                                   ^
+                                                              &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:14672:62: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+  if ((log_value & 48U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                        ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:14672:62: note: use array indexing to silence this warning
+  if ((log_value & 48U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                             ^
+                                                        &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:14687:66: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+  if ((log_value___0 & 48U) != 0U || (int )((signed char )*("\f" + 1)) <= 51) {
+                                                            ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:14687:66: note: use array indexing to silence this warning
+  if ((log_value___0 & 48U) != 0U || (int )((signed char )*("\f" + 1)) <= 51) {
+                                                                 ^
+                                                            &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:14783:62: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+  if ((log_value & 48U) != 0U || (int )((signed char )*("\f" + 1)) <= 51) {
+                                                        ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:14783:62: note: use array indexing to silence this warning
+  if ((log_value & 48U) != 0U || (int )((signed char )*("\f" + 1)) <= 51) {
+                                                             ^
+                                                        &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:14927:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((log_value & 48U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                          ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:14927:64: note: use array indexing to silence this warning
+    if ((log_value & 48U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                               ^
+                                                          &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:15356:65: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+      if ((log_value & 2U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                           ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:15356:65: note: use array indexing to silence this warning
+      if ((log_value & 2U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                                ^
+                                                           &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:15468:60: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((int )log_value & 1 || (int )((signed char )*("\f" + 1)) <= 51) {
+                                                      ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:15468:60: note: use array indexing to silence this warning
+    if ((int )log_value & 1 || (int )((signed char )*("\f" + 1)) <= 51) {
+                                                           ^
+                                                      &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:15625:68: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+  if ((log_value___0 & 48U) != 0U || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                            ~~~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:15625:68: note: use array indexing to silence this warning
+  if ((log_value___0 & 48U) != 0U || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                                   ^
+                                                            &      [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:15639:68: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+  if ((log_value___1 & 48U) != 0U || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                            ~~~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:15639:68: note: use array indexing to silence this warning
+  if ((log_value___1 & 48U) != 0U || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                                   ^
+                                                            &      [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:15654:68: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+  if ((log_value___2 & 48U) != 0U || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                            ~~~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:15654:68: note: use array indexing to silence this warning
+  if ((log_value___2 & 48U) != 0U || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                                   ^
+                                                            &      [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:15671:66: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+  if ((log_value___3 & 48U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                            ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:15671:66: note: use array indexing to silence this warning
+  if ((log_value___3 & 48U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                                 ^
+                                                            &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:15688:66: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+  if ((log_value___4 & 48U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                            ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:15688:66: note: use array indexing to silence this warning
+  if ((log_value___4 & 48U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                                 ^
+                                                            &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:15698:66: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+  if ((log_value___5 & 48U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                            ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:15698:66: note: use array indexing to silence this warning
+  if ((log_value___5 & 48U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                                 ^
+                                                            &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:15728:66: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+  if ((log_value___6 & 48U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                            ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:15728:66: note: use array indexing to silence this warning
+  if ((log_value___6 & 48U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                                 ^
+                                                            &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:15744:66: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+  if ((log_value___7 & 48U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                            ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:15744:66: note: use array indexing to silence this warning
+  if ((log_value___7 & 48U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                                 ^
+                                                            &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:15837:66: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((log_value & 48U) != 0U || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                          ~~~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:15837:66: note: use array indexing to silence this warning
+    if ((log_value & 48U) != 0U || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                                 ^
+                                                          &      [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:16609:60: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((int )log_value & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                      ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:16609:60: note: use array indexing to silence this warning
+    if ((int )log_value & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                           ^
+                                                      &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:16629:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((int )log_value___0 & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                          ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:16629:64: note: use array indexing to silence this warning
+    if ((int )log_value___0 & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                               ^
+                                                          &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:16645:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((int )log_value___1 & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                          ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:16645:64: note: use array indexing to silence this warning
+    if ((int )log_value___1 & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                               ^
+                                                          &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:16789:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+      if ((int )log_value & 1 || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                        ~~~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:16789:64: note: use array indexing to silence this warning
+      if ((int )log_value & 1 || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                               ^
+                                                        &      [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:16799:66: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+      if ((int )log_value___0 & 1 || (int )((signed char )*("\f" + 1)) <= 51) {
+                                                            ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:16799:66: note: use array indexing to silence this warning
+      if ((int )log_value___0 & 1 || (int )((signed char )*("\f" + 1)) <= 51) {
+                                                                 ^
+                                                            &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:16813:68: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+      if ((int )log_value___1 & 1 || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                            ~~~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:16813:68: note: use array indexing to silence this warning
+      if ((int )log_value___1 & 1 || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                                   ^
+                                                            &      [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:16823:66: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+      if ((int )log_value___2 & 1 || (int )((signed char )*("\f" + 1)) <= 51) {
+                                                            ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:16823:66: note: use array indexing to silence this warning
+      if ((int )log_value___2 & 1 || (int )((signed char )*("\f" + 1)) <= 51) {
+                                                                 ^
+                                                            &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:16836:68: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+      if ((int )log_value___3 & 1 || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                            ~~~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:16836:68: note: use array indexing to silence this warning
+      if ((int )log_value___3 & 1 || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                                   ^
+                                                            &      [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:16846:66: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+      if ((int )log_value___4 & 1 || (int )((signed char )*("\f" + 1)) <= 51) {
+                                                            ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:16846:66: note: use array indexing to silence this warning
+      if ((int )log_value___4 & 1 || (int )((signed char )*("\f" + 1)) <= 51) {
+                                                                 ^
+                                                            &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:16863:68: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+      if ((int )log_value___5 & 1 || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                            ~~~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:16863:68: note: use array indexing to silence this warning
+      if ((int )log_value___5 & 1 || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                                   ^
+                                                            &      [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:16873:66: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+      if ((int )log_value___6 & 1 || (int )((signed char )*("\f" + 1)) <= 51) {
+                                                            ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:16873:66: note: use array indexing to silence this warning
+      if ((int )log_value___6 & 1 || (int )((signed char )*("\f" + 1)) <= 51) {
+                                                                 ^
+                                                            &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:16886:66: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+      if ((int )log_value___7 & 1 || (int )((signed char )*("\f" + 1)) <= 51) {
+                                                            ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:16886:66: note: use array indexing to silence this warning
+      if ((int )log_value___7 & 1 || (int )((signed char )*("\f" + 1)) <= 51) {
+                                                                 ^
+                                                            &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:16906:68: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+      if ((int )log_value___8 & 1 || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                            ~~~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:16906:68: note: use array indexing to silence this warning
+      if ((int )log_value___8 & 1 || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                                   ^
+                                                            &      [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:16916:66: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+      if ((int )log_value___9 & 1 || (int )((signed char )*("\f" + 1)) <= 51) {
+                                                            ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:16916:66: note: use array indexing to silence this warning
+      if ((int )log_value___9 & 1 || (int )((signed char )*("\f" + 1)) <= 51) {
+                                                                 ^
+                                                            &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:17158:60: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((int )log_value & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                      ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:17158:60: note: use array indexing to silence this warning
+    if ((int )log_value & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                           ^
+                                                      &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:17174:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((int )log_value___0 & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                          ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:17174:64: note: use array indexing to silence this warning
+    if ((int )log_value___0 & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                               ^
+                                                          &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:17185:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+  if ((int )log_value___1 & 1 || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                        ~~~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:17185:64: note: use array indexing to silence this warning
+  if ((int )log_value___1 & 1 || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                               ^
+                                                        &      [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:17260:60: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((int )log_value & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                      ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:17260:60: note: use array indexing to silence this warning
+    if ((int )log_value & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                           ^
+                                                      &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:17276:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((int )log_value___0 & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                          ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:17276:64: note: use array indexing to silence this warning
+    if ((int )log_value___0 & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                               ^
+                                                          &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:17287:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+  if ((int )log_value___1 & 1 || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                        ~~~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:17287:64: note: use array indexing to silence this warning
+  if ((int )log_value___1 & 1 || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                               ^
+                                                        &      [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:17350:60: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((int )log_value & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                      ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:17350:60: note: use array indexing to silence this warning
+    if ((int )log_value & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                           ^
+                                                      &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:17367:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((int )log_value___0 & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                          ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:17367:64: note: use array indexing to silence this warning
+    if ((int )log_value___0 & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                               ^
+                                                          &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:17378:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+  if ((int )log_value___1 & 1 || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                        ~~~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:17378:64: note: use array indexing to silence this warning
+  if ((int )log_value___1 & 1 || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                               ^
+                                                        &      [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:17420:60: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((int )log_value & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                      ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:17420:60: note: use array indexing to silence this warning
+    if ((int )log_value & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                           ^
+                                                      &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:17437:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((int )log_value___0 & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                          ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:17437:64: note: use array indexing to silence this warning
+    if ((int )log_value___0 & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                               ^
+                                                          &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:17448:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+  if ((int )log_value___1 & 1 || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                        ~~~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:17448:64: note: use array indexing to silence this warning
+  if ((int )log_value___1 & 1 || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                               ^
+                                                        &      [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:17459:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+  if ((int )log_value___2 & 1 || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                        ~~~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:17459:64: note: use array indexing to silence this warning
+  if ((int )log_value___2 & 1 || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                               ^
+                                                        &      [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:17496:62: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+      if ((int )log_value & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                        ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:17496:62: note: use array indexing to silence this warning
+      if ((int )log_value & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                             ^
+                                                        &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:17507:66: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((int )log_value___0 & 1 || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                          ~~~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:17507:66: note: use array indexing to silence this warning
+    if ((int )log_value___0 & 1 || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                                 ^
+                                                          &      [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:17570:60: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((int )log_value & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                      ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:17570:60: note: use array indexing to silence this warning
+    if ((int )log_value & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                           ^
+                                                      &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:17588:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+  if ((int )log_value___0 & 1 || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                        ~~~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:17588:64: note: use array indexing to silence this warning
+  if ((int )log_value___0 & 1 || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                               ^
+                                                        &      [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:17685:60: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((int )log_value & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                      ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:17685:60: note: use array indexing to silence this warning
+    if ((int )log_value & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                           ^
+                                                      &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:17766:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((int )log_value___0 & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                          ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:17766:64: note: use array indexing to silence this warning
+    if ((int )log_value___0 & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                               ^
+                                                          &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:18115:60: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((int )log_value & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                      ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:18115:60: note: use array indexing to silence this warning
+    if ((int )log_value & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                           ^
+                                                      &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:18137:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((int )log_value___0 & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                          ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:18137:64: note: use array indexing to silence this warning
+    if ((int )log_value___0 & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                               ^
+                                                          &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:18152:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((int )log_value___1 & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                          ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:18152:64: note: use array indexing to silence this warning
+    if ((int )log_value___1 & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                               ^
+                                                          &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:18176:66: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+      if ((int )log_value___2 & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                            ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:18176:66: note: use array indexing to silence this warning
+      if ((int )log_value___2 & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                                 ^
+                                                            &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:18192:66: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+      if ((int )log_value___3 & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                            ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:18192:66: note: use array indexing to silence this warning
+      if ((int )log_value___3 & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                                 ^
+                                                            &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:18215:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((int )log_value___4 & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                          ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:18215:64: note: use array indexing to silence this warning
+    if ((int )log_value___4 & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                               ^
+                                                          &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:18230:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((int )log_value___5 & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                          ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:18230:64: note: use array indexing to silence this warning
+    if ((int )log_value___5 & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                               ^
+                                                          &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:18244:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((int )log_value___6 & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                          ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:18244:64: note: use array indexing to silence this warning
+    if ((int )log_value___6 & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                               ^
+                                                          &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:18288:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+  if ((int )log_value___7 & 1 || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                        ~~~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:18288:64: note: use array indexing to silence this warning
+  if ((int )log_value___7 & 1 || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                               ^
+                                                        &      [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:18298:62: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+  if ((int )log_value___8 & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                        ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:18298:62: note: use array indexing to silence this warning
+  if ((int )log_value___8 & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                             ^
+                                                        &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:18326:62: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((int )log_value & 1 || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                      ~~~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:18326:62: note: use array indexing to silence this warning
+    if ((int )log_value & 1 || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                             ^
+                                                      &      [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:18335:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((int )log_value___0 & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                          ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:18335:64: note: use array indexing to silence this warning
+    if ((int )log_value___0 & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                               ^
+                                                          &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:18357:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((int )log_value___1 & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                          ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:18357:64: note: use array indexing to silence this warning
+    if ((int )log_value___1 & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                               ^
+                                                          &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:18372:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((int )log_value___2 & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                          ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:18372:64: note: use array indexing to silence this warning
+    if ((int )log_value___2 & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                               ^
+                                                          &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:18441:60: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((int )log_value & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                      ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:18441:60: note: use array indexing to silence this warning
+    if ((int )log_value & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                           ^
+                                                      &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:18459:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+  if ((int )log_value___0 & 1 || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                        ~~~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:18459:64: note: use array indexing to silence this warning
+  if ((int )log_value___0 & 1 || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                               ^
+                                                        &      [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:18509:62: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+      if ((int )log_value & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                        ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:18509:62: note: use array indexing to silence this warning
+      if ((int )log_value & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                             ^
+                                                        &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:18529:66: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+      if ((int )log_value___0 & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                            ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:18529:66: note: use array indexing to silence this warning
+      if ((int )log_value___0 & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                                 ^
+                                                            &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:18541:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((int )log_value___1 & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                          ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:18541:64: note: use array indexing to silence this warning
+    if ((int )log_value___1 & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                               ^
+                                                          &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:18581:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+  if ((int )log_value___2 & 1 || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                        ~~~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:18581:64: note: use array indexing to silence this warning
+  if ((int )log_value___2 & 1 || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                               ^
+                                                        &      [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:18591:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+  if ((int )log_value___3 & 1 || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                        ~~~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:18591:64: note: use array indexing to silence this warning
+  if ((int )log_value___3 & 1 || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                               ^
+                                                        &      [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:18692:62: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+      if ((int )log_value & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                        ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:18692:62: note: use array indexing to silence this warning
+      if ((int )log_value & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                             ^
+                                                        &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:18711:66: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+      if ((int )log_value___0 & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                            ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:18711:66: note: use array indexing to silence this warning
+      if ((int )log_value___0 & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                                 ^
+                                                            &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:18743:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((int )log_value___1 & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                          ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:18743:64: note: use array indexing to silence this warning
+    if ((int )log_value___1 & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                               ^
+                                                          &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:18760:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((int )log_value___2 & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                          ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:18760:64: note: use array indexing to silence this warning
+    if ((int )log_value___2 & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                               ^
+                                                          &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:18861:62: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((int )log_value & 1 || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                      ~~~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:18861:62: note: use array indexing to silence this warning
+    if ((int )log_value & 1 || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                             ^
+                                                      &      [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:18876:66: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((int )log_value___0 & 1 || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                          ~~~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:18876:66: note: use array indexing to silence this warning
+    if ((int )log_value___0 & 1 || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                                 ^
+                                                          &      [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:18892:66: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((int )log_value___1 & 1 || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                          ~~~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:18892:66: note: use array indexing to silence this warning
+    if ((int )log_value___1 & 1 || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                                 ^
+                                                          &      [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:18935:60: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((int )log_value & 1 || (int )((signed char )*("\f" + 1)) <= 51) {
+                                                      ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:18935:60: note: use array indexing to silence this warning
+    if ((int )log_value & 1 || (int )((signed char )*("\f" + 1)) <= 51) {
+                                                           ^
+                                                      &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:18964:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((log_value & 33U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                          ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:18964:64: note: use array indexing to silence this warning
+    if ((log_value & 33U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                               ^
+                                                          &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:18979:68: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((log_value___0 & 33U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                              ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:18979:68: note: use array indexing to silence this warning
+    if ((log_value___0 & 33U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                                   ^
+                                                              &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:18994:68: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((log_value___1 & 33U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                              ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:18994:68: note: use array indexing to silence this warning
+    if ((log_value___1 & 33U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                                   ^
+                                                              &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:19009:68: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((log_value___2 & 33U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                              ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:19009:68: note: use array indexing to silence this warning
+    if ((log_value___2 & 33U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                                   ^
+                                                              &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:19143:60: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((int )log_value & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                      ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:19143:60: note: use array indexing to silence this warning
+    if ((int )log_value & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                           ^
+                                                      &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:19158:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((int )log_value___0 & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                          ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:19158:64: note: use array indexing to silence this warning
+    if ((int )log_value___0 & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                               ^
+                                                          &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:19173:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((int )log_value___1 & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                          ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:19173:64: note: use array indexing to silence this warning
+    if ((int )log_value___1 & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                               ^
+                                                          &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:19277:62: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+      if ((int )log_value & 1 || (int )((signed char )*("\f" + 1)) <= 51) {
+                                                        ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:19277:62: note: use array indexing to silence this warning
+      if ((int )log_value & 1 || (int )((signed char )*("\f" + 1)) <= 51) {
+                                                             ^
+                                                        &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:19528:66: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+      if ((log_value & 48U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                            ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:19528:66: note: use array indexing to silence this warning
+      if ((log_value & 48U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                                 ^
+                                                            &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:19543:70: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+      if ((log_value___0 & 48U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                                ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:19543:70: note: use array indexing to silence this warning
+      if ((log_value___0 & 48U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                                     ^
+                                                                &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:19565:74: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+          if ((log_value___1 & 48U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                                    ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:19565:74: note: use array indexing to silence this warning
+          if ((log_value___1 & 48U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                                         ^
+                                                                    &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:19583:74: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+          if ((log_value___2 & 48U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                                    ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:19583:74: note: use array indexing to silence this warning
+          if ((log_value___2 & 48U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                                         ^
+                                                                    &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:19607:72: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+        if ((log_value___3 & 48U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                                  ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:19607:72: note: use array indexing to silence this warning
+        if ((log_value___3 & 48U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                                       ^
+                                                                  &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:19623:72: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+        if ((log_value___4 & 48U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                                  ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:19623:72: note: use array indexing to silence this warning
+        if ((log_value___4 & 48U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                                       ^
+                                                                  &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:19985:62: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+  if ((log_value & 32U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                        ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:19985:62: note: use array indexing to silence this warning
+  if ((log_value & 32U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                             ^
+                                                        &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:20057:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((log_value & 80U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                          ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:20057:64: note: use array indexing to silence this warning
+    if ((log_value & 80U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                               ^
+                                                          &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:20133:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((log_value & 32U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                          ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:20133:64: note: use array indexing to silence this warning
+    if ((log_value & 32U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                               ^
+                                                          &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:20148:68: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((log_value___0 & 32U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                              ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:20148:68: note: use array indexing to silence this warning
+    if ((log_value___0 & 32U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                                   ^
+                                                              &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:20226:68: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((log_value___1 & 32U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                              ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:20226:68: note: use array indexing to silence this warning
+    if ((log_value___1 & 32U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                                   ^
+                                                              &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:20240:66: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+  if ((log_value___2 & 32U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                            ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:20240:66: note: use array indexing to silence this warning
+  if ((log_value___2 & 32U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                                 ^
+                                                            &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:20510:60: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((int )log_value & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                      ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:20510:60: note: use array indexing to silence this warning
+    if ((int )log_value & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                           ^
+                                                      &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:20562:58: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+  if ((int )log_value & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                    ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:20562:58: note: use array indexing to silence this warning
+  if ((int )log_value & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                         ^
+                                                    &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:20574:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((int )log_value___0 & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                          ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:20574:64: note: use array indexing to silence this warning
+    if ((int )log_value___0 & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                               ^
+                                                          &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:20612:58: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+  if ((int )log_value & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                    ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:20612:58: note: use array indexing to silence this warning
+  if ((int )log_value & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                         ^
+                                                    &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:20634:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((int )log_value___0 & 1 || (int )((signed char )*("\f" + 1)) <= 51) {
+                                                          ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:20634:64: note: use array indexing to silence this warning
+    if ((int )log_value___0 & 1 || (int )((signed char )*("\f" + 1)) <= 51) {
+                                                               ^
+                                                          &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:20643:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((int )log_value___1 & 1 || (int )((signed char )*("\f" + 1)) <= 51) {
+                                                          ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:20643:64: note: use array indexing to silence this warning
+    if ((int )log_value___1 & 1 || (int )((signed char )*("\f" + 1)) <= 51) {
+                                                               ^
+                                                          &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:20704:60: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((int )log_value & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                      ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:20704:60: note: use array indexing to silence this warning
+    if ((int )log_value & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                           ^
+                                                      &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:20719:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((int )log_value___0 & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                          ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:20719:64: note: use array indexing to silence this warning
+    if ((int )log_value___0 & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                               ^
+                                                          &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:20781:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((int )log_value___1 & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                          ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:20781:64: note: use array indexing to silence this warning
+    if ((int )log_value___1 & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                               ^
+                                                          &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:20798:62: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+  if ((int )log_value___2 & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                        ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:20798:62: note: use array indexing to silence this warning
+  if ((int )log_value___2 & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                             ^
+                                                        &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:20872:60: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((int )log_value & 1 || (int )((signed char )*("\f" + 1)) <= 51) {
+                                                      ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:20872:60: note: use array indexing to silence this warning
+    if ((int )log_value & 1 || (int )((signed char )*("\f" + 1)) <= 51) {
+                                                           ^
+                                                      &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:20938:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((int )log_value___0 & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                          ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:20938:64: note: use array indexing to silence this warning
+    if ((int )log_value___0 & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                               ^
+                                                          &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:20953:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((int )log_value___1 & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                          ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:20953:64: note: use array indexing to silence this warning
+    if ((int )log_value___1 & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                               ^
+                                                          &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:20968:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((int )log_value___2 & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                          ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:20968:64: note: use array indexing to silence this warning
+    if ((int )log_value___2 & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                               ^
+                                                          &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:20995:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((int )log_value___3 & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                          ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:20995:64: note: use array indexing to silence this warning
+    if ((int )log_value___3 & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                               ^
+                                                          &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:21013:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+  if ((int )log_value___4 & 1 || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                        ~~~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:21013:64: note: use array indexing to silence this warning
+  if ((int )log_value___4 & 1 || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                               ^
+                                                        &      [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:21038:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((int )log_value___5 & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                          ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:21038:64: note: use array indexing to silence this warning
+    if ((int )log_value___5 & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                               ^
+                                                          &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:21076:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((int )log_value___6 & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                          ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:21076:64: note: use array indexing to silence this warning
+    if ((int )log_value___6 & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                               ^
+                                                          &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:21129:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((int )log_value___7 & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                          ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:21129:64: note: use array indexing to silence this warning
+    if ((int )log_value___7 & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                               ^
+                                                          &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:21152:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((int )log_value___8 & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                          ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:21152:64: note: use array indexing to silence this warning
+    if ((int )log_value___8 & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                               ^
+                                                          &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:21167:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+  if ((int )log_value___9 & 1 || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                        ~~~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:21167:64: note: use array indexing to silence this warning
+  if ((int )log_value___9 & 1 || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                               ^
+                                                        &      [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:24851:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((log_value & 34U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                          ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:24851:64: note: use array indexing to silence this warning
+    if ((log_value & 34U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                               ^
+                                                          &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:24866:70: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+      if ((log_value___0 & 32U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                                ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:24866:70: note: use array indexing to silence this warning
+      if ((log_value___0 & 32U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                                     ^
+                                                                &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:24890:70: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+      if ((log_value___1 & 32U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                                ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:24890:70: note: use array indexing to silence this warning
+      if ((log_value___1 & 32U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                                     ^
+                                                                &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:24975:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+  if ((log_value & 34U) != 0U || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                        ~~~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:24975:64: note: use array indexing to silence this warning
+  if ((log_value & 34U) != 0U || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                               ^
+                                                        &      [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:25020:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+  if ((log_value & 34U) != 0U || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                        ~~~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:25020:64: note: use array indexing to silence this warning
+  if ((log_value & 34U) != 0U || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                               ^
+                                                        &      [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:25064:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+  if ((log_value & 34U) != 0U || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                        ~~~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:25064:64: note: use array indexing to silence this warning
+  if ((log_value & 34U) != 0U || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                               ^
+                                                        &      [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:25136:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+      if ((int )log_value & 1 || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                        ~~~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:25136:64: note: use array indexing to silence this warning
+      if ((int )log_value & 1 || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                               ^
+                                                        &      [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:25176:68: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+      if ((int )log_value___0 & 1 || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                            ~~~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:25176:68: note: use array indexing to silence this warning
+      if ((int )log_value___0 & 1 || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                                   ^
+                                                            &      [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:25196:66: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((int )log_value___1 & 1 || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                          ~~~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:25196:66: note: use array indexing to silence this warning
+    if ((int )log_value___1 & 1 || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                                 ^
+                                                          &      [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:25205:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((int )log_value___2 & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                          ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:25205:64: note: use array indexing to silence this warning
+    if ((int )log_value___2 & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                               ^
+                                                          &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:25245:60: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((int )log_value & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                      ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:25245:60: note: use array indexing to silence this warning
+    if ((int )log_value & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                           ^
+                                                      &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:25271:66: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((int )log_value___0 & 1 || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                          ~~~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:25271:66: note: use array indexing to silence this warning
+    if ((int )log_value___0 & 1 || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                                 ^
+                                                          &      [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:25282:66: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((int )log_value___1 & 1 || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                          ~~~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:25282:66: note: use array indexing to silence this warning
+    if ((int )log_value___1 & 1 || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                                 ^
+                                                          &      [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:25295:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((int )log_value___2 & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                          ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:25295:64: note: use array indexing to silence this warning
+    if ((int )log_value___2 & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                               ^
+                                                          &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:25371:62: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+  if ((log_value & 32U) != 0U || (int )((signed char )*("\f" + 1)) <= 51) {
+                                                        ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:25371:62: note: use array indexing to silence this warning
+  if ((log_value & 32U) != 0U || (int )((signed char )*("\f" + 1)) <= 51) {
+                                                             ^
+                                                        &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:25436:60: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((int )log_value & 1 || (int )((signed char )*("\f" + 1)) <= 51) {
+                                                      ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:25436:60: note: use array indexing to silence this warning
+    if ((int )log_value & 1 || (int )((signed char )*("\f" + 1)) <= 51) {
+                                                           ^
+                                                      &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:25686:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((log_value & 32U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                          ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:25686:64: note: use array indexing to silence this warning
+    if ((log_value & 32U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                               ^
+                                                          &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:25709:68: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+  if ((log_value___0 & 32U) != 0U || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                            ~~~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:25709:68: note: use array indexing to silence this warning
+  if ((log_value___0 & 32U) != 0U || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                                   ^
+                                                            &      [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:25767:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((log_value & 32U) != 0U || (int )((signed char )*("\f" + 1)) <= 51) {
+                                                          ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:25767:64: note: use array indexing to silence this warning
+    if ((log_value & 32U) != 0U || (int )((signed char )*("\f" + 1)) <= 51) {
+                                                               ^
+                                                          &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:25829:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((log_value & 34U) != 0U || (int )((signed char )*("\f" + 1)) <= 51) {
+                                                          ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:25829:64: note: use array indexing to silence this warning
+    if ((log_value & 34U) != 0U || (int )((signed char )*("\f" + 1)) <= 51) {
+                                                               ^
+                                                          &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:25860:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((log_value & 32U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                          ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:25860:64: note: use array indexing to silence this warning
+    if ((log_value & 32U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                               ^
+                                                          &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:25927:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((log_value & 32U) != 0U || (int )((signed char )*("\f" + 1)) <= 51) {
+                                                          ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:25927:64: note: use array indexing to silence this warning
+    if ((log_value & 32U) != 0U || (int )((signed char )*("\f" + 1)) <= 51) {
+                                                               ^
+                                                          &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:25999:66: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+      if ((log_value & 32U) != 0U || (int )((signed char )*("\f" + 1)) <= 51) {
+                                                            ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:25999:66: note: use array indexing to silence this warning
+      if ((log_value & 32U) != 0U || (int )((signed char )*("\f" + 1)) <= 51) {
+                                                                 ^
+                                                            &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:26028:70: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+      if ((log_value___0 & 32U) != 0U || (int )((signed char )*("\f" + 1)) <= 51) {
+                                                                ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:26028:70: note: use array indexing to silence this warning
+      if ((log_value___0 & 32U) != 0U || (int )((signed char )*("\f" + 1)) <= 51) {
+                                                                     ^
+                                                                &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:26058:70: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+      if ((log_value___1 & 32U) != 0U || (int )((signed char )*("\f" + 1)) <= 51) {
+                                                                ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:26058:70: note: use array indexing to silence this warning
+      if ((log_value___1 & 32U) != 0U || (int )((signed char )*("\f" + 1)) <= 51) {
+                                                                     ^
+                                                                &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:26075:72: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+        if ((log_value___2 & 32U) != 0U || (int )((signed char )*("\f" + 1)) <= 51) {
+                                                                  ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:26075:72: note: use array indexing to silence this warning
+        if ((log_value___2 & 32U) != 0U || (int )((signed char )*("\f" + 1)) <= 51) {
+                                                                       ^
+                                                                  &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:26132:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((log_value & 32U) != 0U || (int )((signed char )*("\f" + 1)) <= 51) {
+                                                          ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:26132:64: note: use array indexing to silence this warning
+    if ((log_value & 32U) != 0U || (int )((signed char )*("\f" + 1)) <= 51) {
+                                                               ^
+                                                          &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:26149:70: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+      if ((log_value___0 & 32U) != 0U || (int )((signed char )*("\f" + 1)) <= 51) {
+                                                                ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:26149:70: note: use array indexing to silence this warning
+      if ((log_value___0 & 32U) != 0U || (int )((signed char )*("\f" + 1)) <= 51) {
+                                                                     ^
+                                                                &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:26167:68: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((log_value___1 & 32U) != 0U || (int )((signed char )*("\f" + 1)) <= 51) {
+                                                              ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:26167:68: note: use array indexing to silence this warning
+    if ((log_value___1 & 32U) != 0U || (int )((signed char )*("\f" + 1)) <= 51) {
+                                                                   ^
+                                                              &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:26236:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((log_value & 33U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                          ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:26236:64: note: use array indexing to silence this warning
+    if ((log_value & 33U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                               ^
+                                                          &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:26378:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((log_value & 33U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                          ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:26378:64: note: use array indexing to silence this warning
+    if ((log_value & 33U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                               ^
+                                                          &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:26393:68: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((log_value___0 & 33U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                              ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:26393:68: note: use array indexing to silence this warning
+    if ((log_value___0 & 33U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                                   ^
+                                                              &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:26409:70: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((log_value___1 & 33U) != 0U || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                              ~~~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:26409:70: note: use array indexing to silence this warning
+    if ((log_value___1 & 33U) != 0U || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                                     ^
+                                                              &      [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:26429:68: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((log_value___2 & 33U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                              ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:26429:68: note: use array indexing to silence this warning
+    if ((log_value___2 & 33U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                                   ^
+                                                              &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:26444:68: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((log_value___3 & 33U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                              ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:26444:68: note: use array indexing to silence this warning
+    if ((log_value___3 & 33U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                                   ^
+                                                              &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:26460:66: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+  if ((log_value___4 & 33U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                            ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:26460:66: note: use array indexing to silence this warning
+  if ((log_value___4 & 33U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                                 ^
+                                                            &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:26484:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((log_value & 34U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                          ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:26484:64: note: use array indexing to silence this warning
+    if ((log_value & 34U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                               ^
+                                                          &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:26499:68: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((log_value___0 & 34U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                              ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:26499:68: note: use array indexing to silence this warning
+    if ((log_value___0 & 34U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                                   ^
+                                                              &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:27137:60: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((int )log_value & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                      ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:27137:60: note: use array indexing to silence this warning
+    if ((int )log_value & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                           ^
+                                                      &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:27300:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((log_value & 41U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                          ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:27300:64: note: use array indexing to silence this warning
+    if ((log_value & 41U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                               ^
+                                                          &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:27336:68: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((log_value___0 & 41U) != 0U || (int )((signed char )*("\f" + 1)) <= 51) {
+                                                              ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:27336:68: note: use array indexing to silence this warning
+    if ((log_value___0 & 41U) != 0U || (int )((signed char )*("\f" + 1)) <= 51) {
+                                                                   ^
+                                                              &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:27347:70: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+      if ((log_value___1 & 41U) != 0U || (int )((signed char )*("\f" + 1)) <= 51) {
+                                                                ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:27347:70: note: use array indexing to silence this warning
+      if ((log_value___1 & 41U) != 0U || (int )((signed char )*("\f" + 1)) <= 51) {
+                                                                     ^
+                                                                &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:27466:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((log_value & 34U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                          ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:27466:64: note: use array indexing to silence this warning
+    if ((log_value & 34U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                               ^
+                                                          &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:27519:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((log_value & 35U) != 0U || (int )((signed char )*("\f" + 1)) <= 51) {
+                                                          ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:27519:64: note: use array indexing to silence this warning
+    if ((log_value & 35U) != 0U || (int )((signed char )*("\f" + 1)) <= 51) {
+                                                               ^
+                                                          &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:27599:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((log_value & 33U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                          ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:27599:64: note: use array indexing to silence this warning
+    if ((log_value & 33U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                               ^
+                                                          &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:27613:68: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((log_value___0 & 33U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                              ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:27613:68: note: use array indexing to silence this warning
+    if ((log_value___0 & 33U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                                   ^
+                                                              &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:27681:68: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+        if ((log_value & 34U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                              ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:27681:68: note: use array indexing to silence this warning
+        if ((log_value & 34U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                                   ^
+                                                              &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:27691:72: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+        if ((log_value___0 & 34U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                                  ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:27691:72: note: use array indexing to silence this warning
+        if ((log_value___0 & 34U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                                       ^
+                                                                  &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:27703:72: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+        if ((log_value___1 & 34U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                                  ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:27703:72: note: use array indexing to silence this warning
+        if ((log_value___1 & 34U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                                       ^
+                                                                  &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:27789:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((log_value & 34U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                          ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:27789:64: note: use array indexing to silence this warning
+    if ((log_value & 34U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                               ^
+                                                          &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:27945:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((log_value & 34U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                          ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:27945:64: note: use array indexing to silence this warning
+    if ((log_value & 34U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                               ^
+                                                          &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:28023:66: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+      if ((log_value & 34U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                            ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:28023:66: note: use array indexing to silence this warning
+      if ((log_value & 34U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                                 ^
+                                                            &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:28035:68: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((log_value___0 & 34U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                              ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:28035:68: note: use array indexing to silence this warning
+    if ((log_value___0 & 34U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                                   ^
+                                                              &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:28106:64: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((log_value & 34U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                          ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:28106:64: note: use array indexing to silence this warning
+    if ((log_value & 34U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                               ^
+                                                          &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:28351:60: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((int )log_value & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                      ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:28351:60: note: use array indexing to silence this warning
+    if ((int )log_value & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                           ^
+                                                      &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:28418:60: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((int )log_value & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                      ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:28418:60: note: use array indexing to silence this warning
+    if ((int )log_value & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                           ^
+                                                      &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:28537:60: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((int )log_value & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                      ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:28537:60: note: use array indexing to silence this warning
+    if ((int )log_value & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                           ^
+                                                      &    [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:28649:60: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+  if ((int )log_value & 1 || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                    ~~~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:28649:60: note: use array indexing to silence this warning
+  if ((int )log_value & 1 || (int )((signed char )*("\016" + 1)) <= 51) {
+                                                           ^
+                                                    &      [  ]
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:29018:60: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+    if ((int )log_value & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                      ~~~~~^~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--scsi--be2iscsi--be2iscsi.ko.cil.i:29018:60: note: use array indexing to silence this warning
+    if ((int )log_value & 1 || (int )((signed char )*("\v" + 1)) <= 51) {
+                                                           ^
+                                                      &    [  ]
+
+FALSE_REACH

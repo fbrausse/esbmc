@@ -1,0 +1,152 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/eca-rers2012/Problem12_label40.c
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/eca-rers2012/Problem12_label40.c --32 --witness-output Problem12_label40.c.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/eca-rers2012/Problem12_label40.c: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 1.238s
+GOTO program processing time: 0.309s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.063s (100 assignments)
+Slicing time: 0.000s (removed 96 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (4 assignments)
+BMC program time: 0.063s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.060s (100 assignments)
+Slicing time: 0.000s (removed 96 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (4 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.001s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.001s
+Runtime decision procedure: 0.003s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file Problem12_label40.c line 4828 function main
+Unwinding loop 1  iteration  2   file Problem12_label40.c line 4828 function main
+Not unwinding 
+Symex completed in: 1.309s (17133 assignments)
+Slicing time: 0.142s (removed 13380 assignments)
+Generated 2 VCC(s), 2 remaining after simplification (3753 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.106s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.106s
+Runtime decision procedure: 0.100s
+BMC program time: 1.658s
+No bug has been found in the base case
+*** Checking forward condition, k = 3
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file Problem12_label40.c line 4828 function main
+Unwinding loop 1  iteration  2   file Problem12_label40.c line 4828 function main
+Not unwinding 
+Symex completed in: 1.407s (17131 assignments)
+Slicing time: 0.149s (removed 13380 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (3751 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.110s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.110s
+Runtime decision procedure: 7.651s
+The forward condition is unable to prove the property
+*** Checking inductive step, k = 3
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file Problem12_label40.c line 4828 function main
+Unwinding loop 1  iteration  2   file Problem12_label40.c line 4828 function main
+Not unwinding 
+Symex completed in: 2.898s (36184 assignments)
+Slicing time: 3.968s (removed 15414 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (20770 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.799s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.799s
+Runtime decision procedure: 52.150s
+The inductive step is unable to prove the property
+*** Checking base case, k = 5
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file Problem12_label40.c line 4828 function main
+Unwinding loop 1  iteration  2   file Problem12_label40.c line 4828 function main
+Unwinding loop 1  iteration  3   file Problem12_label40.c line 4828 function main
+Unwinding loop 1  iteration  4   file Problem12_label40.c line 4828 function main
+Not unwinding 
+Symex completed in: 3.396s (39685 assignments)
+Slicing time: 1.290s (removed 20770 assignments)
+Generated 4 VCC(s), 4 remaining after simplification (18915 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.644s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.644s
+Runtime decision procedure: 22.574s
+Building error trace
+
+Counterexample:
+
+State 1 file Problem12_label40.c line 4832 function main thread 0
+----------------------------------------------------
+  input = 4 (00000000 00000000 00000000 00000100)
+
+State 2 file Problem12_label40.c line 4832 function main thread 0
+----------------------------------------------------
+  input = 1 (00000000 00000000 00000000 00000001)
+
+State 3 file Problem12_label40.c line 4069 function calculate_output3 thread 0
+----------------------------------------------------
+  a17 = -323212 (11111111 11111011 00010001 01110100)
+
+State 4 file Problem12_label40.c line 4832 function main thread 0
+----------------------------------------------------
+  input = 5 (00000000 00000000 00000000 00000101)
+
+State 5 file Problem12_label40.c line 2114 function calculate_output2 thread 0
+----------------------------------------------------
+  a2 = 262 (00000000 00000000 00000001 00000110)
+
+State 6 file Problem12_label40.c line 2115 function calculate_output2 thread 0
+----------------------------------------------------
+  a17 = -3 (11111111 11111111 11111111 11111101)
+
+State 7 file Problem12_label40.c line 4832 function main thread 0
+----------------------------------------------------
+  input = 2 (00000000 00000000 00000000 00000010)
+
+State 8 file Problem12_label40.c line 582 function calculate_output thread 0
+----------------------------------------------------
+  a2 = -50 (11111111 11111111 11111111 11001110)
+
+State 9 file Problem12_label40.c line 4832 function main thread 0
+----------------------------------------------------
+  input = 3 (00000000 00000000 00000000 00000011)
+
+State 10 file Problem12_label40.c line 15 function reach_error thread 0
+----------------------------------------------------
+Violated property:
+  file Problem12_label40.c line 15 function reach_error
+  assertion 0
+  0
+
+
+VERIFICATION FAILED
+
+Bug found (k = 5)
+
+
+FALSE_REACH

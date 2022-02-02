@@ -1,0 +1,57 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/no-overflow.prp -s kinduction --arch 32 ../sv-benchmarks/c/loop-zilu/benchmark15_conjunctive.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/loop-zilu/benchmark15_conjunctive.i --32 --witness-output benchmark15_conjunctive.i.graphml --no-pointer-check --no-bounds-check --overflow-check --no-assertions --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/loop-zilu/benchmark15_conjunctive.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.077s
+GOTO program processing time: 0.000s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.001s (34 assignments)
+Slicing time: 0.000s (removed 20 assignments)
+Generated 4 VCC(s), 4 remaining after simplification (14 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.000s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.000s
+Runtime decision procedure: 0.005s
+Building error trace
+
+Counterexample:
+
+State 1 file benchmark15_conjunctive.i line 20 function main thread 0
+----------------------------------------------------
+  low = 0 (00000000 00000000 00000000 00000000)
+
+State 2 file benchmark15_conjunctive.i line 21 function main thread 0
+----------------------------------------------------
+  mid = 2147449584 (01111111 11111111 01111010 11110000)
+
+State 3 file benchmark15_conjunctive.i line 22 function main thread 0
+----------------------------------------------------
+  high = -1122304 (11111111 11101110 11100000 00000000)
+
+State 4 file benchmark15_conjunctive.i line 23 function main thread 0
+----------------------------------------------------
+Violated property:
+  file benchmark15_conjunctive.i line 23 function main
+  arithmetic overflow on mul
+  low == 0 && mid >= 1 => !overflow("*", 2, mid)
+
+
+VERIFICATION FAILED
+
+Bug found (k = 1)
+
+
+FALSE_OVERFLOW

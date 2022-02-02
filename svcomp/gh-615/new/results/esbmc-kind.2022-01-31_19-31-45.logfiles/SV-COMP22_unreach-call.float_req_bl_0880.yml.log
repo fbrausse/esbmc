@@ -1,0 +1,185 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/float-newlib/float_req_bl_0880.c
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/float-newlib/float_req_bl_0880.c --32 --witness-output float_req_bl_0880.c.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/float-newlib/float_req_bl_0880.c: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.243s
+GOTO program processing time: 0.012s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.057s (735 assignments)
+Slicing time: 0.009s (removed 326 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (409 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.202s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.202s
+Runtime decision procedure: 0.419s
+BMC program time: 0.688s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.072s (734 assignments)
+Slicing time: 0.009s (removed 326 assignments)
+Generated 6 VCC(s), 6 remaining after simplification (408 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.211s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.211s
+Runtime decision procedure: 0.528s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file float_req_bl_0880.c line 43 function fmod_float
+Unwinding loop 1  iteration  2   file float_req_bl_0880.c line 43 function fmod_float
+Not unwinding 
+Unwinding loop 2  iteration  1   file float_req_bl_0880.c line 49 function fmod_float
+Unwinding loop 2  iteration  2   file float_req_bl_0880.c line 49 function fmod_float
+Not unwinding 
+Unwinding loop 3  iteration  1   file float_req_bl_0880.c line 67 function fmod_float
+Unwinding loop 3  iteration  2   file float_req_bl_0880.c line 67 function fmod_float
+Not unwinding 
+Unwinding loop 4  iteration  1   file float_req_bl_0880.c line 84 function fmod_float
+Unwinding loop 4  iteration  2   file float_req_bl_0880.c line 84 function fmod_float
+Not unwinding 
+Unwinding loop 5  iteration  1   file float_req_bl_0880.c line 133 function __ieee754_sqrtf
+Unwinding loop 5  iteration  2   file float_req_bl_0880.c line 133 function __ieee754_sqrtf
+Not unwinding 
+Unwinding loop 6  iteration  1   file float_req_bl_0880.c line 147 function __ieee754_sqrtf
+Unwinding loop 6  iteration  2   file float_req_bl_0880.c line 147 function __ieee754_sqrtf
+Not unwinding 
+Symex completed in: 0.089s (846 assignments)
+Slicing time: 0.011s (removed 387 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (459 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.241s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.241s
+Runtime decision procedure: 0.440s
+BMC program time: 0.782s
+No bug has been found in the base case
+*** Checking forward condition, k = 3
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file float_req_bl_0880.c line 43 function fmod_float
+Unwinding loop 1  iteration  2   file float_req_bl_0880.c line 43 function fmod_float
+Not unwinding 
+Unwinding loop 2  iteration  1   file float_req_bl_0880.c line 49 function fmod_float
+Unwinding loop 2  iteration  2   file float_req_bl_0880.c line 49 function fmod_float
+Not unwinding 
+Unwinding loop 3  iteration  1   file float_req_bl_0880.c line 67 function fmod_float
+Unwinding loop 3  iteration  2   file float_req_bl_0880.c line 67 function fmod_float
+Not unwinding 
+Unwinding loop 4  iteration  1   file float_req_bl_0880.c line 84 function fmod_float
+Unwinding loop 4  iteration  2   file float_req_bl_0880.c line 84 function fmod_float
+Not unwinding 
+Unwinding loop 5  iteration  1   file float_req_bl_0880.c line 133 function __ieee754_sqrtf
+Unwinding loop 5  iteration  2   file float_req_bl_0880.c line 133 function __ieee754_sqrtf
+Not unwinding 
+Unwinding loop 6  iteration  1   file float_req_bl_0880.c line 147 function __ieee754_sqrtf
+Unwinding loop 6  iteration  2   file float_req_bl_0880.c line 147 function __ieee754_sqrtf
+Not unwinding 
+Symex completed in: 0.094s (845 assignments)
+Slicing time: 0.011s (removed 387 assignments)
+Generated 6 VCC(s), 6 remaining after simplification (458 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.222s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.222s
+Runtime decision procedure: 0.556s
+The forward condition is unable to prove the property
+*** Checking inductive step, k = 3
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file float_req_bl_0880.c line 43 function fmod_float
+Unwinding loop 1  iteration  2   file float_req_bl_0880.c line 43 function fmod_float
+Not unwinding 
+Unwinding loop 2  iteration  1   file float_req_bl_0880.c line 49 function fmod_float
+Unwinding loop 2  iteration  2   file float_req_bl_0880.c line 49 function fmod_float
+Not unwinding 
+Unwinding loop 3  iteration  1   file float_req_bl_0880.c line 67 function fmod_float
+Unwinding loop 3  iteration  2   file float_req_bl_0880.c line 67 function fmod_float
+Not unwinding 
+Unwinding loop 4  iteration  1   file float_req_bl_0880.c line 84 function fmod_float
+Unwinding loop 4  iteration  2   file float_req_bl_0880.c line 84 function fmod_float
+Not unwinding 
+Unwinding loop 5  iteration  1   file float_req_bl_0880.c line 133 function __ieee754_sqrtf
+Unwinding loop 5  iteration  2   file float_req_bl_0880.c line 133 function __ieee754_sqrtf
+Not unwinding 
+Unwinding loop 6  iteration  1   file float_req_bl_0880.c line 147 function __ieee754_sqrtf
+Unwinding loop 6  iteration  2   file float_req_bl_0880.c line 147 function __ieee754_sqrtf
+Not unwinding 
+Symex completed in: 0.105s (1090 assignments)
+Slicing time: 0.018s (removed 408 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (682 assignments)
+BMC program time: 0.123s
+Building successful trace
+
+VERIFICATION SUCCESSFUL
+
+Solution found by the inductive step (k = 3)
+
+../sv-benchmarks/c/float-newlib/float_req_bl_0880.c:126:13: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+  if (((hx) == 0))
+       ~~~~~^~~~
+../sv-benchmarks/c/float-newlib/float_req_bl_0880.c:126:13: note: remove extraneous parentheses around the comparison to silence this warning
+  if (((hx) == 0))
+      ~     ^   ~
+../sv-benchmarks/c/float-newlib/float_req_bl_0880.c:126:13: note: use '=' to turn this equality comparison into an assignment
+  if (((hx) == 0))
+            ^~
+            =
+../sv-benchmarks/c/float-newlib/float_req_bl_0880.c:212:13: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+  if (((hx) == 0))
+       ~~~~~^~~~
+../sv-benchmarks/c/float-newlib/float_req_bl_0880.c:212:13: note: remove extraneous parentheses around the comparison to silence this warning
+  if (((hx) == 0))
+      ~     ^   ~
+../sv-benchmarks/c/float-newlib/float_req_bl_0880.c:212:13: note: use '=' to turn this equality comparison into an assignment
+  if (((hx) == 0))
+            ^~
+            =
+../sv-benchmarks/c/float-newlib/float_req_bl_0880.c:316:13: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+  if (((iy) == 0))
+       ~~~~~^~~~
+../sv-benchmarks/c/float-newlib/float_req_bl_0880.c:316:13: note: remove extraneous parentheses around the comparison to silence this warning
+  if (((iy) == 0))
+      ~     ^   ~
+../sv-benchmarks/c/float-newlib/float_req_bl_0880.c:316:13: note: use '=' to turn this equality comparison into an assignment
+  if (((iy) == 0))
+            ^~
+            =
+../sv-benchmarks/c/float-newlib/float_req_bl_0880.c:337:13: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+  if (((iy) == 0x7f800000L)) {
+       ~~~~~^~~~~~~~~~~~~~
+../sv-benchmarks/c/float-newlib/float_req_bl_0880.c:337:13: note: remove extraneous parentheses around the comparison to silence this warning
+  if (((iy) == 0x7f800000L)) {
+      ~     ^             ~
+../sv-benchmarks/c/float-newlib/float_req_bl_0880.c:337:13: note: use '=' to turn this equality comparison into an assignment
+  if (((iy) == 0x7f800000L)) {
+            ^~
+            =
+
+TRUE
