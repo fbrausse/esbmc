@@ -1,0 +1,272 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/ldv-linux-3.16-rc1/205_9a_array_safes_linux-3.16-rc1.tar.xz-205_9a-drivers--net--can--usb--peak_usb--peak_usb.ko-entry_point.cil.out.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-linux-3.16-rc1/205_9a_array_safes_linux-3.16-rc1.tar.xz-205_9a-drivers--net--can--usb--peak_usb--peak_usb.ko-entry_point.cil.out.i --64 --witness-output 205_9a_array_safes_linux-3.16-rc1.tar.xz-205_9a-drivers--net--can--usb--peak_usb--peak_usb.ko-entry_point.cil.out.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 64-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/ldv-linux-3.16-rc1/205_9a_array_safes_linux-3.16-rc1.tar.xz-205_9a-drivers--net--can--usb--peak_usb--peak_usb.ko-entry_point.cil.out.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 1.274s
+GOTO program processing time: 0.213s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.074s (658 assignments)
+Slicing time: 0.002s (removed 581 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (77 assignments)
+BMC program time: 0.076s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.072s (658 assignments)
+Slicing time: 0.002s (removed 581 assignments)
+Generated 9 VCC(s), 9 remaining after simplification (77 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.013s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.013s
+Runtime decision procedure: 1.454s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 31  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 31  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 31  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 31  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 31  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 31  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 31  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 31  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 31  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 31  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 31  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 31  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 31  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 31  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 31  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 31  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 15  iteration  1   file 205_9a_array_safes_linux-3.16-rc1.tar.xz-205_9a-drivers--net--can--usb--peak_usb--peak_usb.ko-entry_point.cil.out.i line 7378 function main
+Unwinding loop 12  iteration  1   file 205_9a_array_safes_linux-3.16-rc1.tar.xz-205_9a-drivers--net--can--usb--peak_usb--peak_usb.ko-entry_point.cil.out.i line 7059 function peak_usb_probe
+Unwinding loop 12  iteration  2   file 205_9a_array_safes_linux-3.16-rc1.tar.xz-205_9a-drivers--net--can--usb--peak_usb--peak_usb.ko-entry_point.cil.out.i line 7059 function peak_usb_probe
+Not unwinding 
+No target candidate for function call *peak_usb_adapter->intf_probe
+Unwinding loop 13  iteration  1   file 205_9a_array_safes_linux-3.16-rc1.tar.xz-205_9a-drivers--net--can--usb--peak_usb--peak_usb.ko-entry_point.cil.out.i line 7090 function peak_usb_probe
+Unwinding loop 31  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 31  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 11  iteration  1   file 205_9a_array_safes_linux-3.16-rc1.tar.xz-205_9a-drivers--net--can--usb--peak_usb--peak_usb.ko-entry_point.cil.out.i l
+../sv-benchmarks/c/ldv-linux-3.16-rc1/205_9a_array_safes_linux-3.16-rc1.tar.xz-205_9a-drivers--net--can--usb--peak_usb--peak_usb.ko-entry_point.cil.out.i:6504:18: warning: incompatible pointer types passing 'struct sk_buff *' to parameter of type 'struct sk_buff___0 *' [-Wincompatible-pointer-types]
+    ldv_skb_free(skb);
+                 ^~~
+../sv-benchmarks/c/ldv-linux-3.16-rc1/205_9a_array_safes_linux-3.16-rc1.tar.xz-205_9a-drivers--net--can--usb--peak_usb--peak_usb.ko-entry_point.cil.out.i:5873:47: note: passing argument to parameter here
+extern void ldv_skb_free(struct sk_buff___0 * ) ;
+                                              ^
+../sv-benchmarks/c/ldv-linux-3.16-rc1/205_9a_array_safes_linux-3.16-rc1.tar.xz-205_9a-drivers--net--can--usb--peak_usb--peak_usb.ko-entry_point.cil.out.i:7387:16: warning: incompatible pointer types passing 'struct sk_buff *' to parameter of type 'struct sk_buff___0 *' [-Wincompatible-pointer-types]
+  ldv_skb_free(ldv_func_arg1);
+               ^~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.16-rc1/205_9a_array_safes_linux-3.16-rc1.tar.xz-205_9a-drivers--net--can--usb--peak_usb--peak_usb.ko-entry_point.cil.out.i:5873:47: note: passing argument to parameter here
+extern void ldv_skb_free(struct sk_buff___0 * ) ;
+                                              ^
+../sv-benchmarks/c/ldv-linux-3.16-rc1/205_9a_array_safes_linux-3.16-rc1.tar.xz-205_9a-drivers--net--can--usb--peak_usb--peak_usb.ko-entry_point.cil.out.i:7394:16: warning: incompatible pointer types passing 'struct sk_buff *' to parameter of type 'struct sk_buff___0 *' [-Wincompatible-pointer-types]
+  ldv_skb_free(ldv_func_arg1);
+               ^~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.16-rc1/205_9a_array_safes_linux-3.16-rc1.tar.xz-205_9a-drivers--net--can--usb--peak_usb--peak_usb.ko-entry_point.cil.out.i:5873:47: note: passing argument to parameter here
+extern void ldv_skb_free(struct sk_buff___0 * ) ;
+                                              ^
+../sv-benchmarks/c/ldv-linux-3.16-rc1/205_9a_array_safes_linux-3.16-rc1.tar.xz-205_9a-drivers--net--can--usb--peak_usb--peak_usb.ko-entry_point.cil.out.i:7401:16: warning: incompatible pointer types passing 'struct sk_buff *' to parameter of type 'struct sk_buff___0 *' [-Wincompatible-pointer-types]
+  ldv_skb_free(ldv_func_arg1);
+               ^~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.16-rc1/205_9a_array_safes_linux-3.16-rc1.tar.xz-205_9a-drivers--net--can--usb--peak_usb--peak_usb.ko-entry_point.cil.out.i:5873:47: note: passing argument to parameter here
+extern void ldv_skb_free(struct sk_buff___0 * ) ;
+                                              ^
+../sv-benchmarks/c/ldv-linux-3.16-rc1/205_9a_array_safes_linux-3.16-rc1.tar.xz-205_9a-drivers--net--can--usb--peak_usb--peak_usb.ko-entry_point.cil.out.i:7408:16: warning: incompatible pointer types passing 'struct sk_buff *' to parameter of type 'struct sk_buff___0 *' [-Wincompatible-pointer-types]
+  ldv_skb_free(ldv_func_arg1);
+               ^~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.16-rc1/205_9a_array_safes_linux-3.16-rc1.tar.xz-205_9a-drivers--net--can--usb--peak_usb--peak_usb.ko-entry_point.cil.out.i:5873:47: note: passing argument to parameter here
+extern void ldv_skb_free(struct sk_buff___0 * ) ;
+                                              ^
+../sv-benchmarks/c/ldv-linux-3.16-rc1/205_9a_array_safes_linux-3.16-rc1.tar.xz-205_9a-drivers--net--can--usb--peak_usb--peak_usb.ko-entry_point.cil.out.i:7415:16: warning: incompatible pointer types passing 'struct sk_buff *' to parameter of type 'struct sk_buff___0 *' [-Wincompatible-pointer-types]
+  ldv_skb_free(ldv_func_arg1);
+               ^~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.16-rc1/205_9a_array_safes_linux-3.16-rc1.tar.xz-205_9a-drivers--net--can--usb--peak_usb--peak_usb.ko-entry_point.cil.out.i:5873:47: note: passing argument to parameter here
+extern void ldv_skb_free(struct sk_buff___0 * ) ;
+                                              ^
+../sv-benchmarks/c/ldv-linux-3.16-rc1/205_9a_array_safes_linux-3.16-rc1.tar.xz-205_9a-drivers--net--can--usb--peak_usb--peak_usb.ko-entry_point.cil.out.i:7422:16: warning: incompatible pointer types passing 'struct sk_buff *' to parameter of type 'struct sk_buff___0 *' [-Wincompatible-pointer-types]
+  ldv_skb_free(ldv_func_arg1);
+               ^~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.16-rc1/205_9a_array_safes_linux-3.16-rc1.tar.xz-205_9a-drivers--net--can--usb--peak_usb--peak_usb.ko-entry_point.cil.out.i:5873:47: note: passing argument to parameter here
+extern void ldv_skb_free(struct sk_buff___0 * ) ;
+                                              ^
+../sv-benchmarks/c/ldv-linux-3.16-rc1/205_9a_array_safes_linux-3.16-rc1.tar.xz-205_9a-drivers--net--can--usb--peak_usb--peak_usb.ko-entry_point.cil.out.i:8201:16: warning: incompatible pointer types passing 'struct sk_buff *' to parameter of type 'struct sk_buff___0 *' [-Wincompatible-pointer-types]
+  ldv_skb_free(skb);
+               ^~~
+../sv-benchmarks/c/ldv-linux-3.16-rc1/205_9a_array_safes_linux-3.16-rc1.tar.xz-205_9a-drivers--net--can--usb--peak_usb--peak_usb.ko-entry_point.cil.out.i:5873:47: note: passing argument to parameter here
+extern void ldv_skb_free(struct sk_buff___0 * ) ;
+                                              ^
+../sv-benchmarks/c/ldv-linux-3.16-rc1/205_9a_array_safes_linux-3.16-rc1.tar.xz-205_9a-drivers--net--can--usb--peak_usb--peak_usb.ko-entry_point.cil.out.i:8575:16: warning: incompatible pointer types passing 'struct sk_buff *' to parameter of type 'struct sk_buff___0 *' [-Wincompatible-pointer-types]
+  ldv_skb_free(ldv_func_arg1);
+               ^~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.16-rc1/205_9a_array_safes_linux-3.16-rc1.tar.xz-205_9a-drivers--net--can--usb--peak_usb--peak_usb.ko-entry_point.cil.out.i:5873:47: note: passing argument to parameter here
+extern void ldv_skb_free(struct sk_buff___0 * ) ;
+                                              ^
+../sv-benchmarks/c/ldv-linux-3.16-rc1/205_9a_array_safes_linux-3.16-rc1.tar.xz-205_9a-drivers--net--can--usb--peak_usb--peak_usb.ko-entry_point.cil.out.i:8582:16: warning: incompatible pointer types passing 'struct sk_buff *' to parameter of type 'struct sk_buff___0 *' [-Wincompatible-pointer-types]
+  ldv_skb_free(ldv_func_arg1);
+               ^~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.16-rc1/205_9a_array_safes_linux-3.16-rc1.tar.xz-205_9a-drivers--net--can--usb--peak_usb--peak_usb.ko-entry_point.cil.out.i:5873:47: note: passing argument to parameter here
+extern void ldv_skb_free(struct sk_buff___0 * ) ;
+                                              ^
+../sv-benchmarks/c/ldv-linux-3.16-rc1/205_9a_array_safes_linux-3.16-rc1.tar.xz-205_9a-drivers--net--can--usb--peak_usb--peak_usb.ko-entry_point.cil.out.i:8589:16: warning: incompatible pointer types passing 'struct sk_buff *' to parameter of type 'struct sk_buff___0 *' [-Wincompatible-pointer-types]
+  ldv_skb_free(ldv_func_arg1);
+               ^~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.16-rc1/205_9a_array_safes_linux-3.16-rc1.tar.xz-205_9a-drivers--net--can--usb--peak_usb--peak_usb.ko-entry_point.cil.out.i:5873:47: note: passing argument to parameter here
+extern void ldv_skb_free(struct sk_buff___0 * ) ;
+                                              ^
+../sv-benchmarks/c/ldv-linux-3.16-rc1/205_9a_array_safes_linux-3.16-rc1.tar.xz-205_9a-drivers--net--can--usb--peak_usb--peak_usb.ko-entry_point.cil.out.i:8596:16: warning: incompatible pointer types passing 'struct sk_buff *' to parameter of type 'struct sk_buff___0 *' [-Wincompatible-pointer-types]
+  ldv_skb_free(ldv_func_arg1);
+               ^~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.16-rc1/205_9a_array_safes_linux-3.16-rc1.tar.xz-205_9a-drivers--net--can--usb--peak_usb--peak_usb.ko-entry_point.cil.out.i:5873:47: note: passing argument to parameter here
+extern void ldv_skb_free(struct sk_buff___0 * ) ;
+                                              ^
+../sv-benchmarks/c/ldv-linux-3.16-rc1/205_9a_array_safes_linux-3.16-rc1.tar.xz-205_9a-drivers--net--can--usb--peak_usb--peak_usb.ko-entry_point.cil.out.i:8603:16: warning: incompatible pointer types passing 'struct sk_buff *' to parameter of type 'struct sk_buff___0 *' [-Wincompatible-pointer-types]
+  ldv_skb_free(ldv_func_arg1);
+               ^~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.16-rc1/205_9a_array_safes_linux-3.16-rc1.tar.xz-205_9a-drivers--net--can--usb--peak_usb--peak_usb.ko-entry_point.cil.out.i:5873:47: note: passing argument to parameter here
+extern void ldv_skb_free(struct sk_buff___0 * ) ;
+                                              ^
+../sv-benchmarks/c/ldv-linux-3.16-rc1/205_9a_array_safes_linux-3.16-rc1.tar.xz-205_9a-drivers--net--can--usb--peak_usb--peak_usb.ko-entry_point.cil.out.i:8610:16: warning: incompatible pointer types passing 'struct sk_buff *' to parameter of type 'struct sk_buff___0 *' [-Wincompatible-pointer-types]
+  ldv_skb_free(ldv_func_arg1);
+               ^~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.16-rc1/205_9a_array_safes_linux-3.16-rc1.tar.xz-205_9a-drivers--net--can--usb--peak_usb--peak_usb.ko-entry_point.cil.out.i:5873:47: note: passing argument to parameter here
+extern void ldv_skb_free(struct sk_buff___0 * ) ;
+                                              ^
+../sv-benchmarks/c/ldv-linux-3.16-rc1/205_9a_array_safes_linux-3.16-rc1.tar.xz-205_9a-drivers--net--can--usb--peak_usb--peak_usb.ko-entry_point.cil.out.i:8629:26: warning: incompatible pointer types passing 'struct sk_buff *' to parameter of type 'struct sk_buff___0 *' [-Wincompatible-pointer-types]
+  tmp = ldv_skb_free_int(ldv_func_arg1);
+                         ^~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.16-rc1/205_9a_array_safes_linux-3.16-rc1.tar.xz-205_9a-drivers--net--can--usb--peak_usb--peak_usb.ko-entry_point.cil.out.i:7532:50: note: passing argument to parameter here
+extern int ldv_skb_free_int(struct sk_buff___0 * ) ;
+                                                 ^
+../sv-benchmarks/c/ldv-linux-3.16-rc1/205_9a_array_safes_linux-3.16-rc1.tar.xz-205_9a-drivers--net--can--usb--peak_usb--peak_usb.ko-entry_point.cil.out.i:8637:26: warning: incompatible pointer types passing 'struct sk_buff *' to parameter of type 'struct sk_buff___0 *' [-Wincompatible-pointer-types]
+  tmp = ldv_skb_free_int(ldv_func_arg1);
+                         ^~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.16-rc1/205_9a_array_safes_linux-3.16-rc1.tar.xz-205_9a-drivers--net--can--usb--peak_usb--peak_usb.ko-entry_point.cil.out.i:7532:50: note: passing argument to parameter here
+extern int ldv_skb_free_int(struct sk_buff___0 * ) ;
+                                                 ^
+../sv-benchmarks/c/ldv-linux-3.16-rc1/205_9a_array_safes_linux-3.16-rc1.tar.xz-205_9a-drivers--net--can--usb--peak_usb--peak_usb.ko-entry_point.cil.out.i:8757:25: warning: incompatible pointer types passing '__va_list_tag *' (aka 'struct __va_list_tag *') to parameter of type 'struct __va_list_tag *' [-Wincompatible-pointer-types]
+  ldv__builtin_va_start((__va_list_tag *)(& ap));
+                        ^~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.16-rc1/205_9a_array_safes_linux-3.16-rc1.tar.xz-205_9a-drivers--net--can--usb--peak_usb--peak_usb.ko-entry_point.cil.out.i:8643:46: note: passing argument to parameter here
+void ldv__builtin_va_start(__builtin_va_list ) ;
+                                             ^
+../sv-benchmarks/c/ldv-linux-3.16-rc1/205_9a_array_safes_linux-3.16-rc1.tar.xz-205_9a-drivers--net--can--usb--peak_usb--peak_usb.ko-entry_point.cil.out.i:8841:23: warning: incompatible pointer types passing '__va_list_tag *' (aka 'struct __va_list_tag *') to parameter of type 'struct __va_list_tag *' [-Wincompatible-pointer-types]
+  ldv__builtin_va_end((__va_list_tag *)(& ap));
+                      ^~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.16-rc1/205_9a_array_safes_linux-3.16-rc1.tar.xz-205_9a-drivers--net--can--usb--peak_usb--peak_usb.ko-entry_point.cil.out.i:8641:44: note: passing argument to parameter here
+void ldv__builtin_va_end(__builtin_va_list ) ;
+                                           ^
+../sv-benchmarks/c/ldv-linux-3.16-rc1/205_9a_array_safes_linux-3.16-rc1.tar.xz-205_9a-drivers--net--can--usb--peak_usb--peak_usb.ko-entry_point.cil.out.i:9785:16: warning: incompatible pointer types passing 'struct sk_buff *' to parameter of type 'struct sk_buff___0 *' [-Wincompatible-pointer-types]
+  ldv_skb_free(ldv_func_arg1);
+               ^~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.16-rc1/205_9a_array_safes_linux-3.16-rc1.tar.xz-205_9a-drivers--net--can--usb--peak_usb--peak_usb.ko-entry_point.cil.out.i:5873:47: note: passing argument to parameter here
+extern void ldv_skb_free(struct sk_buff___0 * ) ;
+                                              ^
+../sv-benchmarks/c/ldv-linux-3.16-rc1/205_9a_array_safes_linux-3.16-rc1.tar.xz-205_9a-drivers--net--can--usb--peak_usb--peak_usb.ko-entry_point.cil.out.i:9792:16: warning: incompatible pointer types passing 'struct sk_buff *' to parameter of type 'struct sk_buff___0 *' [-Wincompatible-pointer-types]
+  ldv_skb_free(ldv_func_arg1);
+               ^~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.16-rc1/205_9a_array_safes_linux-3.16-rc1.tar.xz-205_9a-drivers--net--can--usb--peak_usb--peak_usb.ko-entry_point.cil.out.i:5873:47: note: passing argument to parameter here
+extern void ldv_skb_free(struct sk_buff___0 * ) ;
+                                              ^
+../sv-benchmarks/c/ldv-linux-3.16-rc1/205_9a_array_safes_linux-3.16-rc1.tar.xz-205_9a-drivers--net--can--usb--peak_usb--peak_usb.ko-entry_point.cil.out.i:9799:16: warning: incompatible pointer types passing 'struct sk_buff *' to parameter of type 'struct sk_buff___0 *' [-Wincompatible-pointer-types]
+  ldv_skb_free(ldv_func_arg1);
+               ^~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.16-rc1/205_9a_array_safes_linux-3.16-rc1.tar.xz-205_9a-drivers--net--can--usb--peak_usb--peak_usb.ko-entry_point.cil.out.i:5873:47: note: passing argument to parameter here
+extern void ldv_skb_free(struct sk_buff___0 * ) ;
+                                              ^
+../sv-benchmarks/c/ldv-linux-3.16-rc1/205_9a_array_safes_linux-3.16-rc1.tar.xz-205_9a-drivers--net--can--usb--peak_usb--peak_usb.ko-entry_point.cil.out.i:9806:16: warning: incompatible pointer types passing 'struct sk_buff *' to parameter of type 'struct sk_buff___0 *' [-Wincompatible-pointer-types]
+  ldv_skb_free(ldv_func_arg1);
+               ^~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.16-rc1/205_9a_array_safes_linux-3.16-rc1.tar.xz-205_9a-drivers--net--can--usb--peak_usb--peak_usb.ko-entry_point.cil.out.i:5873:47: note: passing argument to parameter here
+extern void ldv_skb_free(struct sk_buff___0 * ) ;
+                                              ^
+../sv-benchmarks/c/ldv-linux-3.16-rc1/205_9a_array_safes_linux-3.16-rc1.tar.xz-205_9a-drivers--net--can--usb--peak_usb--peak_usb.ko-entry_point.cil.out.i:9813:16: warning: incompatible pointer types passing 'struct sk_buff *' to parameter of type 'struct sk_buff___0 *' [-Wincompatible-pointer-types]
+  ldv_skb_free(ldv_func_arg1);
+               ^~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.16-rc1/205_9a_array_safes_linux-3.16-rc1.tar.xz-205_9a-drivers--net--can--usb--peak_usb--peak_usb.ko-entry_point.cil.out.i:5873:47: note: passing argument to parameter here
+extern void ldv_skb_free(struct sk_buff___0 * ) ;
+                                              ^
+../sv-benchmarks/c/ldv-linux-3.16-rc1/205_9a_array_safes_linux-3.16-rc1.tar.xz-205_9a-drivers--net--can--usb--peak_usb--peak_usb.ko-entry_point.cil.out.i:9820:16: warning: incompatible pointer types passing 'struct sk_buff *' to parameter of type 'struct sk_buff___0 *' [-Wincompatible-pointer-types]
+  ldv_skb_free(ldv_func_arg1);
+               ^~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.16-rc1/205_9a_array_safes_linux-3.16-rc1.tar.xz-205_9a-drivers--net--can--usb--peak_usb--peak_usb.ko-entry_point.cil.out.i:5873:47: note: passing argument to parameter here
+extern void ldv_skb_free(struct sk_buff___0 * ) ;
+                                              ^
+../sv-benchmarks/c/ldv-linux-3.16-rc1/205_9a_array_safes_linux-3.16-rc1.tar.xz-205_9a-drivers--net--can--usb--peak_usb--peak_usb.ko-entry_point.cil.out.i:9828:26: warning: incompatible pointer types passing 'struct sk_buff *' to parameter of type 'struct sk_buff___0 *' [-Wincompatible-pointer-types]
+  tmp = ldv_skb_free_int(ldv_func_arg1);
+                         ^~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.16-rc1/205_9a_array_safes_linux-3.16-rc1.tar.xz-205_9a-drivers--net--can--usb--peak_usb--peak_usb.ko-entry_point.cil.out.i:7532:50: note: passing argument to parameter here
+extern int ldv_skb_free_int(struct sk_buff___0 * ) ;
+                                                 ^
+../sv-benchmarks/c/ldv-linux-3.16-rc1/205_9a_array_safes_linux-3.16-rc1.tar.xz-205_9a-drivers--net--can--usb--peak_usb--peak_usb.ko-entry_point.cil.out.i:9836:26: warning: incompatible pointer types passing 'struct sk_buff *' to parameter of type 'struct sk_buff___0 *' [-Wincompatible-pointer-types]
+  tmp = ldv_skb_free_int(ldv_func_arg1);
+                         ^~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.16-rc1/205_9a_array_safes_linux-3.16-rc1.tar.xz-205_9a-drivers--net--can--usb--peak_usb--peak_usb.ko-entry_point.cil.out.i:7532:50: note: passing argument to parameter here
+extern int ldv_skb_free_int(struct sk_buff___0 * ) ;
+                                                 ^
+../sv-benchmarks/c/ldv-linux-3.16-rc1/205_9a_array_safes_linux-3.16-rc1.tar.xz-205_9a-drivers--net--can--usb--peak_usb--peak_usb.ko-entry_point.cil.out.i:9966:26: warning: incompatible integer to pointer conversion passing 'unsigned long' to parameter of type 'const void *' [-Wint-conversion]
+    tmp___7 = ldv_is_err((unsigned long )ptr);
+                         ^~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.16-rc1/205_9a_array_safes_linux-3.16-rc1.tar.xz-205_9a-drivers--net--can--usb--peak_usb--peak_usb.ko-entry_point.cil.out.i:9940:29: note: passing argument to parameter 'ptr' here
+bool ldv_is_err(void const *ptr )
+                            ^
+../sv-benchmarks/c/ldv-linux-3.16-rc1/205_9a_array_safes_linux-3.16-rc1.tar.xz-205_9a-drivers--net--can--usb--peak_usb--peak_usb.ko-entry_point.cil.out.i:10019:13: warning: cast to smaller integer type 'int' from 'struct sk_buff___0 *' [-Wpointer-to-int-cast]
+  tmp___7 = (int )ldv_netdev_alloc_skb();
+            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.16-rc1/205_9a_array_safes_linux-3.16-rc1.tar.xz-205_9a-drivers--net--can--usb--peak_usb--peak_usb.ko-entry_point.cil.out.i:10020:7: warning: incompatible integer to pointer conversion assigning to 'void *' from 'int' [-Wint-conversion]
+  skb = tmp___7;
+      ^ ~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.16-rc1/205_9a_array_safes_linux-3.16-rc1.tar.xz-205_9a-drivers--net--can--usb--peak_usb--peak_usb.ko-entry_point.cil.out.i:10114:26: warning: implicit declaration of function 'ldv_xmalloc' is invalid in C99 [-Wimplicit-function-declaration]
+  return *(union ktime *)ldv_xmalloc(sizeof(union ktime));
+                         ^
+../sv-benchmarks/c/ldv-linux-3.16-rc1/205_9a_array_safes_linux-3.16-rc1.tar.xz-205_9a-drivers--net--can--usb--peak_usb--peak_usb.ko-entry_point.cil.out.i:10114:11: warning: cast to 'union ktime *' from smaller integer type 'int' [-Wint-to-pointer-cast]
+  return *(union ktime *)ldv_xmalloc(sizeof(union ktime));
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.16-rc1/205_9a_array_safes_linux-3.16-rc1.tar.xz-205_9a-drivers--net--can--usb--peak_usb--peak_usb.ko-entry_point.cil.out.i:10161:29: warning: implicit declaration of function 'ldv_xmalloc' is invalid in C99 [-Wimplicit-function-declaration]
+  return *(struct timeval *)ldv_xmalloc(sizeof(struct timeval));
+                            ^
+../sv-benchmarks/c/ldv-linux-3.16-rc1/205_9a_array_safes_linux-3.16-rc1.tar.xz-205_9a-drivers--net--can--usb--peak_usb--peak_usb.ko-entry_point.cil.out.i:10161:11: warning: cast to 'struct timeval *' from smaller integer type 'int' [-Wint-to-pointer-cast]
+  return *(struct timeval *)ldv_xmalloc(sizeof(struct timeval));
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Function call to "c:@F@can_change_mtu": number of arguments doesn't match type definition; some inconsistent rewriting occured
+
+
+Unknown

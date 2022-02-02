@@ -1,0 +1,908 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i --64 --witness-output 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 64-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.605s
+GOTO program processing time: 0.124s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.003s (34 assignments)
+Slicing time: 0.000s (removed 30 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (4 assignments)
+BMC program time: 0.003s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.003s (34 assignments)
+Slicing time: 0.000s (removed 30 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (4 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.000s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.000s
+Runtime decision procedure: 0.001s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 27  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 6500 function main
+Unwinding loop 15  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4871 function dlfb_handle_damage
+**** WARNING: no body for function __builtin_prefetch
+**** WARNING: no body for function __builtin_prefetch
+Unwinding loop 9  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4590 function dlfb_trim_hline
+Unwinding loop 9  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4590 function dlfb_trim_hline
+Not unwinding 
+Unwinding loop 10  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4605 function dlfb_trim_hline
+Unwinding loop 10  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4605 function dlfb_trim_hline
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 292 function memmove
+Unwinding loop 1  iteration  2   file string.c line 292 function memmove
+Not unwinding 
+Unwinding loop 2  iteration  1   file string.c line 297 function memmove
+Unwinding loop 2  iteration  2   file string.c line 297 function memmove
+Not unwinding 
+Unwinding loop 14  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4810 function dlfb_render_hline
+Unwinding loop 13  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4730 function dlfb_compress_hline
+Unwinding loop 12  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Unwinding loop 12  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Not unwinding 
+Unwinding loop 13  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4730 function dlfb_compress_hline
+Unwinding loop 12  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Unwinding loop 12  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Unwinding loop 28  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 28  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 14  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4810 function dlfb_render_hline
+Unwinding loop 13  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4730 function dlfb_compress_hline
+Unwinding loop 12  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Unwinding loop 12  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Not unwinding 
+Unwinding loop 13  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4730 function dlfb_compress_hline
+Unwinding loop 12  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Unwinding loop 12  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Unwinding loop 28  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 28  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Not unwinding 
+Unwinding loop 15  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4871 function dlfb_handle_damage
+**** WARNING: no body for function __builtin_prefetch
+**** WARNING: no body for function __builtin_prefetch
+Unwinding loop 9  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4590 function dlfb_trim_hline
+Unwinding loop 9  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4590 function dlfb_trim_hline
+Not unwinding 
+Unwinding loop 10  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4605 function dlfb_trim_hline
+Unwinding loop 10  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4605 function dlfb_trim_hline
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 292 function memmove
+Unwinding loop 1  iteration  2   file string.c line 292 function memmove
+Not unwinding 
+Unwinding loop 2  iteration  1   file string.c line 297 function memmove
+Unwinding loop 2  iteration  2   file string.c line 297 function memmove
+Not unwinding 
+Unwinding loop 14  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4810 function dlfb_render_hline
+Unwinding loop 13  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4730 function dlfb_compress_hline
+Unwinding loop 12  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Unwinding loop 12  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Not unwinding 
+Unwinding loop 13  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4730 function dlfb_compress_hline
+Unwinding loop 12  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Unwinding loop 12  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Unwinding loop 28  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 28  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 14  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4810 function dlfb_render_hline
+Unwinding loop 13  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4730 function dlfb_compress_hline
+Unwinding loop 12  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Unwinding loop 12  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Not unwinding 
+Unwinding loop 13  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4730 function dlfb_compress_hline
+Unwinding loop 12  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Unwinding loop 12  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Unwinding loop 28  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 28  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Unwinding loop 15  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4871 function dlfb_handle_damage
+**** WARNING: no body for function __builtin_prefetch
+**** WARNING: no body for function __builtin_prefetch
+Unwinding loop 9  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4590 function dlfb_trim_hline
+Unwinding loop 9  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4590 function dlfb_trim_hline
+Not unwinding 
+Unwinding loop 10  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4605 function dlfb_trim_hline
+Unwinding loop 10  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4605 function dlfb_trim_hline
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 292 function memmove
+Unwinding loop 1  iteration  2   file string.c line 292 function memmove
+Not unwinding 
+Unwinding loop 2  iteration  1   file string.c line 297 function memmove
+Unwinding loop 2  iteration  2   file string.c line 297 function memmove
+Not unwinding 
+Unwinding loop 14  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4810 function dlfb_render_hline
+Unwinding loop 13  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4730 function dlfb_compress_hline
+Unwinding loop 12  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Unwinding loop 12  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Not unwinding 
+Unwinding loop 13  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4730 function dlfb_compress_hline
+Unwinding loop 12  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Unwinding loop 12  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Unwinding loop 28  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 28  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 14  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4810 function dlfb_render_hline
+Unwinding loop 13  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4730 function dlfb_compress_hline
+Unwinding loop 12  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Unwinding loop 12  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Not unwinding 
+Unwinding loop 13  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4730 function dlfb_compress_hline
+Unwinding loop 12  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Unwinding loop 12  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Unwinding loop 28  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 28  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Not unwinding 
+Unwinding loop 15  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4871 function dlfb_handle_damage
+**** WARNING: no body for function __builtin_prefetch
+**** WARNING: no body for function __builtin_prefetch
+Unwinding loop 9  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4590 function dlfb_trim_hline
+Unwinding loop 9  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4590 function dlfb_trim_hline
+Not unwinding 
+Unwinding loop 10  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4605 function dlfb_trim_hline
+Unwinding loop 10  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4605 function dlfb_trim_hline
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 292 function memmove
+Unwinding loop 1  iteration  2   file string.c line 292 function memmove
+Not unwinding 
+Unwinding loop 2  iteration  1   file string.c line 297 function memmove
+Unwinding loop 2  iteration  2   file string.c line 297 function memmove
+Not unwinding 
+Unwinding loop 14  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4810 function dlfb_render_hline
+Unwinding loop 13  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4730 function dlfb_compress_hline
+Unwinding loop 12  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Unwinding loop 12  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Not unwinding 
+Unwinding loop 13  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4730 function dlfb_compress_hline
+Unwinding loop 12  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Unwinding loop 12  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Unwinding loop 28  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 28  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 14  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4810 function dlfb_render_hline
+Unwinding loop 13  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4730 function dlfb_compress_hline
+Unwinding loop 12  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Unwinding loop 12  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Not unwinding 
+Unwinding loop 13  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4730 function dlfb_compress_hline
+Unwinding loop 12  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Unwinding loop 12  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Unwinding loop 28  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 28  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Unwinding loop 15  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4871 function dlfb_handle_damage
+**** WARNING: no body for function __builtin_prefetch
+**** WARNING: no body for function __builtin_prefetch
+Unwinding loop 9  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4590 function dlfb_trim_hline
+Unwinding loop 9  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4590 function dlfb_trim_hline
+Not unwinding 
+Unwinding loop 10  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4605 function dlfb_trim_hline
+Unwinding loop 10  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4605 function dlfb_trim_hline
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 292 function memmove
+Unwinding loop 1  iteration  2   file string.c line 292 function memmove
+Not unwinding 
+Unwinding loop 2  iteration  1   file string.c line 297 function memmove
+Unwinding loop 2  iteration  2   file string.c line 297 function memmove
+Not unwinding 
+Unwinding loop 14  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4810 function dlfb_render_hline
+Unwinding loop 13  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4730 function dlfb_compress_hline
+Unwinding loop 12  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Unwinding loop 12  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Not unwinding 
+Unwinding loop 13  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4730 function dlfb_compress_hline
+Unwinding loop 12  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Unwinding loop 12  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Unwinding loop 28  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 28  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 14  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4810 function dlfb_render_hline
+Unwinding loop 13  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4730 function dlfb_compress_hline
+Unwinding loop 12  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Unwinding loop 12  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Not unwinding 
+Unwinding loop 13  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4730 function dlfb_compress_hline
+Unwinding loop 12  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Unwinding loop 12  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Unwinding loop 28  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 28  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Not unwinding 
+Unwinding loop 15  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4871 function dlfb_handle_damage
+**** WARNING: no body for function __builtin_prefetch
+**** WARNING: no body for function __builtin_prefetch
+Unwinding loop 9  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4590 function dlfb_trim_hline
+Unwinding loop 9  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4590 function dlfb_trim_hline
+Not unwinding 
+Unwinding loop 10  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4605 function dlfb_trim_hline
+Unwinding loop 10  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4605 function dlfb_trim_hline
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 292 function memmove
+Unwinding loop 1  iteration  2   file string.c line 292 function memmove
+Not unwinding 
+Unwinding loop 2  iteration  1   file string.c line 297 function memmove
+Unwinding loop 2  iteration  2   file string.c line 297 function memmove
+Not unwinding 
+Unwinding loop 14  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4810 function dlfb_render_hline
+Unwinding loop 13  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4730 function dlfb_compress_hline
+Unwinding loop 12  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Unwinding loop 12  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Not unwinding 
+Unwinding loop 13  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4730 function dlfb_compress_hline
+Unwinding loop 12  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Unwinding loop 12  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Unwinding loop 28  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 28  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 14  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4810 function dlfb_render_hline
+Unwinding loop 13  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4730 function dlfb_compress_hline
+Unwinding loop 12  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Unwinding loop 12  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Not unwinding 
+Unwinding loop 13  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4730 function dlfb_compress_hline
+Unwinding loop 12  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Unwinding loop 12  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Unwinding loop 28  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 28  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Unwinding loop 15  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4871 function dlfb_handle_damage
+**** WARNING: no body for function __builtin_prefetch
+**** WARNING: no body for function __builtin_prefetch
+Unwinding loop 9  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4590 function dlfb_trim_hline
+Unwinding loop 9  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4590 function dlfb_trim_hline
+Not unwinding 
+Unwinding loop 10  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4605 function dlfb_trim_hline
+Unwinding loop 10  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4605 function dlfb_trim_hline
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 292 function memmove
+Unwinding loop 1  iteration  2   file string.c line 292 function memmove
+Not unwinding 
+Unwinding loop 2  iteration  1   file string.c line 297 function memmove
+Unwinding loop 2  iteration  2   file string.c line 297 function memmove
+Not unwinding 
+Unwinding loop 14  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4810 function dlfb_render_hline
+Unwinding loop 13  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4730 function dlfb_compress_hline
+Unwinding loop 12  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Unwinding loop 12  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Not unwinding 
+Unwinding loop 13  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4730 function dlfb_compress_hline
+Unwinding loop 12  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Unwinding loop 12  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Unwinding loop 28  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 28  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 14  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4810 function dlfb_render_hline
+Unwinding loop 13  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4730 function dlfb_compress_hline
+Unwinding loop 12  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Unwinding loop 12  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Not unwinding 
+Unwinding loop 13  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4730 function dlfb_compress_hline
+Unwinding loop 12  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Unwinding loop 12  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Unwinding loop 28  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 28  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Not unwinding 
+Unwinding loop 15  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4871 function dlfb_handle_damage
+**** WARNING: no body for function __builtin_prefetch
+**** WARNING: no body for function __builtin_prefetch
+Unwinding loop 9  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4590 function dlfb_trim_hline
+Unwinding loop 9  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4590 function dlfb_trim_hline
+Not unwinding 
+Unwinding loop 10  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4605 function dlfb_trim_hline
+Unwinding loop 10  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4605 function dlfb_trim_hline
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 292 function memmove
+Unwinding loop 1  iteration  2   file string.c line 292 function memmove
+Not unwinding 
+Unwinding loop 2  iteration  1   file string.c line 297 function memmove
+Unwinding loop 2  iteration  2   file string.c line 297 function memmove
+Not unwinding 
+Unwinding loop 14  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4810 function dlfb_render_hline
+Unwinding loop 13  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4730 function dlfb_compress_hline
+Unwinding loop 12  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Unwinding loop 12  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Not unwinding 
+Unwinding loop 13  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4730 function dlfb_compress_hline
+Unwinding loop 12  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Unwinding loop 12  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Unwinding loop 28  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 28  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 14  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4810 function dlfb_render_hline
+Unwinding loop 13  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4730 function dlfb_compress_hline
+Unwinding loop 12  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Unwinding loop 12  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Not unwinding 
+Unwinding loop 13  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4730 function dlfb_compress_hline
+Unwinding loop 12  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Unwinding loop 12  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Unwinding loop 28  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 28  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Unwinding loop 8  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4554 function dlfb_ops_mmap
+Unwinding loop 8  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4554 function dlfb_ops_mmap
+Not unwinding 
+**** WARNING: no body for function __builtin_object_size
+Unwinding loop 15  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4871 function dlfb_handle_damage
+**** WARNING: no body for function __builtin_prefetch
+**** WARNING: no body for function __builtin_prefetch
+Unwinding loop 9  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4590 function dlfb_trim_hline
+Unwinding loop 9  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4590 function dlfb_trim_hline
+Not unwinding 
+Unwinding loop 10  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4605 function dlfb_trim_hline
+Unwinding loop 10  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4605 function dlfb_trim_hline
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 292 function memmove
+Unwinding loop 1  iteration  2   file string.c line 292 function memmove
+Not unwinding 
+Unwinding loop 2  iteration  1   file string.c line 297 function memmove
+Unwinding loop 2  iteration  2   file string.c line 297 function memmove
+Not unwinding 
+Unwinding loop 14  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4810 function dlfb_render_hline
+Unwinding loop 13  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4730 function dlfb_compress_hline
+Unwinding loop 12  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Unwinding loop 12  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Not unwinding 
+Unwinding loop 13  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4730 function dlfb_compress_hline
+Unwinding loop 12  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Unwinding loop 12  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Unwinding loop 28  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 28  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 14  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4810 function dlfb_render_hline
+Unwinding loop 13  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4730 function dlfb_compress_hline
+Unwinding loop 12  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Unwinding loop 12  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Not unwinding 
+Unwinding loop 13  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4730 function dlfb_compress_hline
+Unwinding loop 12  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Unwinding loop 12  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Unwinding loop 28  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 28  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Not unwinding 
+Unwinding loop 15  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4871 function dlfb_handle_damage
+**** WARNING: no body for function __builtin_prefetch
+**** WARNING: no body for function __builtin_prefetch
+Unwinding loop 9  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4590 function dlfb_trim_hline
+Unwinding loop 9  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4590 function dlfb_trim_hline
+Not unwinding 
+Unwinding loop 10  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4605 function dlfb_trim_hline
+Unwinding loop 10  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4605 function dlfb_trim_hline
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 292 function memmove
+Unwinding loop 1  iteration  2   file string.c line 292 function memmove
+Not unwinding 
+Unwinding loop 2  iteration  1   file string.c line 297 function memmove
+Unwinding loop 2  iteration  2   file string.c line 297 function memmove
+Not unwinding 
+Unwinding loop 14  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4810 function dlfb_render_hline
+Unwinding loop 13  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4730 function dlfb_compress_hline
+Unwinding loop 12  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Unwinding loop 12  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Not unwinding 
+Unwinding loop 13  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4730 function dlfb_compress_hline
+Unwinding loop 12  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Unwinding loop 12  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Unwinding loop 28  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 28  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 14  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4810 function dlfb_render_hline
+Unwinding loop 13  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4730 function dlfb_compress_hline
+Unwinding loop 12  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Unwinding loop 12  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Not unwinding 
+Unwinding loop 13  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4730 function dlfb_compress_hline
+Unwinding loop 12  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Unwinding loop 12  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Unwinding loop 28  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 28  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Unwinding loop 5  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4438 function dlfb_lfsr16
+Unwinding loop 5  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4438 function dlfb_lfsr16
+Not unwinding 
+Unwinding loop 5  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4438 function dlfb_lfsr16
+Unwinding loop 5  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4438 function dlfb_lfsr16
+Not unwinding 
+Unwinding loop 5  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4438 function dlfb_lfsr16
+Unwinding loop 5  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4438 function dlfb_lfsr16
+Not unwinding 
+Unwinding loop 5  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4438 function dlfb_lfsr16
+Unwinding loop 5  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4438 function dlfb_lfsr16
+Not unwinding 
+Unwinding loop 5  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4438 function dlfb_lfsr16
+Unwinding loop 5  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4438 function dlfb_lfsr16
+Not unwinding 
+Unwinding loop 5  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4438 function dlfb_lfsr16
+Unwinding loop 5  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4438 function dlfb_lfsr16
+Unwinding loop 5  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4438 function dlfb_lfsr16
+Not unwinding 
+Unwinding loop 5  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4438 function dlfb_lfsr16
+Unwinding loop 5  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4438 function dlfb_lfsr16
+Not unwinding 
+Unwinding loop 5  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4438 function dlfb_lfsr16
+Unwinding loop 5  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4438 function dlfb_lfsr16
+Not unwinding 
+Unwinding loop 5  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4438 function dlfb_lfsr16
+Unwinding loop 5  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4438 function dlfb_lfsr16
+Not unwinding 
+Unwinding loop 5  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4438 function dlfb_lfsr16
+Unwinding loop 5  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4438 function dlfb_lfsr16
+Not unwinding 
+Unwinding loop 5  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4438 function dlfb_lfsr16
+Unwinding loop 5  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4438 function dlfb_lfsr16
+Not unwinding 
+Unwinding loop 5  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4438 function dlfb_lfsr16
+Unwinding loop 5  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4438 function dlfb_lfsr16
+Not unwinding 
+Unwinding loop 5  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4438 function dlfb_lfsr16
+Unwinding loop 5  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4438 function dlfb_lfsr16
+Not unwinding 
+Unwinding loop 5  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4438 function dlfb_lfsr16
+Unwinding loop 5  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4438 function dlfb_lfsr16
+Unwinding loop 5  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4438 function dlfb_lfsr16
+Not unwinding 
+Unwinding loop 5  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4438 function dlfb_lfsr16
+Unwinding loop 5  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4438 function dlfb_lfsr16
+Not unwinding 
+Unwinding loop 5  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4438 function dlfb_lfsr16
+Unwinding loop 5  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4438 function dlfb_lfsr16
+Not unwinding 
+Unwinding loop 18  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 5343 function dlfb_ops_set_par
+Unwinding loop 18  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 5343 function dlfb_ops_set_par
+Not unwinding 
+Unwinding loop 15  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4871 function dlfb_handle_damage
+**** WARNING: no body for function __builtin_prefetch
+**** WARNING: no body for function __builtin_prefetch
+Unwinding loop 9  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4590 function dlfb_trim_hline
+Unwinding loop 9  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4590 function dlfb_trim_hline
+Not unwinding 
+Unwinding loop 10  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4605 function dlfb_trim_hline
+Unwinding loop 10  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4605 function dlfb_trim_hline
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 292 function memmove
+Unwinding loop 1  iteration  2   file string.c line 292 function memmove
+Not unwinding 
+Unwinding loop 2  iteration  1   file string.c line 297 function memmove
+Unwinding loop 2  iteration  2   file string.c line 297 function memmove
+Not unwinding 
+Unwinding loop 14  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4810 function dlfb_render_hline
+Unwinding loop 13  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4730 function dlfb_compress_hline
+Unwinding loop 12  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Unwinding loop 12  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Not unwinding 
+Unwinding loop 13  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4730 function dlfb_compress_hline
+Unwinding loop 12  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Unwinding loop 12  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Unwinding loop 28  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 28  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 14  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4810 function dlfb_render_hline
+Unwinding loop 13  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4730 function dlfb_compress_hline
+Unwinding loop 12  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Unwinding loop 12  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Not unwinding 
+Unwinding loop 13  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4730 function dlfb_compress_hline
+Unwinding loop 12  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Unwinding loop 12  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Unwinding loop 28  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 28  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Not unwinding 
+Unwinding loop 15  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4871 function dlfb_handle_damage
+**** WARNING: no body for function __builtin_prefetch
+**** WARNING: no body for function __builtin_prefetch
+Unwinding loop 9  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4590 function dlfb_trim_hline
+Unwinding loop 9  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4590 function dlfb_trim_hline
+Not unwinding 
+Unwinding loop 10  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4605 function dlfb_trim_hline
+Unwinding loop 10  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4605 function dlfb_trim_hline
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 292 function memmove
+Unwinding loop 1  iteration  2   file string.c line 292 function memmove
+Not unwinding 
+Unwinding loop 2  iteration  1   file string.c line 297 function memmove
+Unwinding loop 2  iteration  2   file string.c line 297 function memmove
+Not unwinding 
+Unwinding loop 14  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4810 function dlfb_render_hline
+Unwinding loop 13  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4730 function dlfb_compress_hline
+Unwinding loop 12  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Unwinding loop 12  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Not unwinding 
+Unwinding loop 13  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4730 function dlfb_compress_hline
+Unwinding loop 12  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Unwinding loop 12  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Unwinding loop 28  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 28  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 14  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4810 function dlfb_render_hline
+Unwinding loop 13  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4730 function dlfb_compress_hline
+Unwinding loop 12  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Unwinding loop 12  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Not unwinding 
+Unwinding loop 13  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4730 function dlfb_compress_hline
+Unwinding loop 12  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Unwinding loop 12  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4719 function dlfb_compress_hline
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 4703 function dlfb_compress_hline
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Unwinding loop 28  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 28  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 292 function memmove
+Unwinding loop 1  iteration  2   file string.c line 292 function memmove
+Not unwinding 
+Unwinding loop 2  iteration  1   file string.c line 297 function memmove
+Unwinding loop 2  iteration  2   file string.c line 297 function memmove
+
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-drivers--video--udlfb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i:4156:30: warning: incompatible integer to pointer conversion assigning to 'void *' from 'unsigned long' [-Wint-conversion]
+  __constr_expr_0.lock.owner = 0xffffffffffffffffUL;
+                             ^ ~~~~~~~~~~~~~~~~~~~~
+Can't construct rvalue reference to array type during dereference
+(It isn't allowed by C anyway)
+
+
+Unknown

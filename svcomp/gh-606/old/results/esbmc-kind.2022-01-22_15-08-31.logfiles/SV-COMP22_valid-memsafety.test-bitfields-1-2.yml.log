@@ -1,0 +1,63 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/valid-memsafety.prp -s kinduction --arch 32 ../sv-benchmarks/c/ldv-memsafety-bitfields/test-bitfields-1-2.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-memsafety-bitfields/test-bitfields-1-2.i --32 --witness-output test-bitfields-1-2.i.graphml --memory-leak-check --no-assertions --incremental-bmc 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/ldv-memsafety-bitfields/test-bitfields-1-2.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.084s
+GOTO program processing time: 0.001s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Symex completed in: 0.003s (69 assignments)
+Slicing time: 0.000s (removed 11 assignments)
+Generated 32 VCC(s), 27 remaining after simplification (58 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.002s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.002s
+Runtime decision procedure: 0.010s
+Building error trace
+
+Counterexample:
+
+State 3 file test-bitfields-1-2.i line 25 function main thread 0
+----------------------------------------------------
+  p->a = 1 (00000001)
+
+State 8 file test-bitfields-1-2.i line 29 function main thread 0
+----------------------------------------------------
+  p->b = 2 (00000010)
+
+State 13 file test-bitfields-1-2.i line 33 function main thread 0
+----------------------------------------------------
+  p->c = 14 (00001110)
+
+State 17 file test-bitfields-1-2.i line 37 function main thread 0
+----------------------------------------------------
+Violated property:
+  file test-bitfields-1-2.i line 37 function main
+  dereference failure: array bounds violated
+
+
+VERIFICATION FAILED
+
+Bug found (k = 1)
+
+../sv-benchmarks/c/ldv-memsafety-bitfields/test-bitfields-1-2.i:5:14: warning: incompatible redeclaration of library function 'memcpy' [-Wincompatible-library-redeclaration]
+extern void *memcpy (void *__restrict __dest,
+             ^
+../sv-benchmarks/c/ldv-memsafety-bitfields/test-bitfields-1-2.i:5:14: note: 'memcpy' is a builtin with type 'void *(void *, const void *, unsigned int)'
+../sv-benchmarks/c/ldv-memsafety-bitfields/test-bitfields-1-2.i:9:14: warning: incompatible redeclaration of library function 'malloc' [-Wincompatible-library-redeclaration]
+extern void *malloc (size_t __size) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__malloc__)) ;
+             ^
+../sv-benchmarks/c/ldv-memsafety-bitfields/test-bitfields-1-2.i:9:14: note: 'malloc' is a builtin with type 'void *(unsigned int)'
+
+FALSE_DEREF

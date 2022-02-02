@@ -1,0 +1,164 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/ldv-linux-3.4-simple/32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--staging--zram--zram.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-linux-3.4-simple/32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--staging--zram--zram.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i --64 --witness-output 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--staging--zram--zram.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 64-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/ldv-linux-3.4-simple/32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--staging--zram--zram.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.397s
+GOTO program processing time: 0.032s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.076s (913 assignments)
+Slicing time: 0.001s (removed 810 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (103 assignments)
+BMC program time: 0.077s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.079s (913 assignments)
+Slicing time: 0.001s (removed 810 assignments)
+Generated 5 VCC(s), 5 remaining after simplification (103 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.005s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.005s
+Runtime decision procedure: 0.711s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 5  iteration  1   file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--staging--zram--zram.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 6709 function zram_init
+Unwinding loop 8  iteration  1   file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--staging--zram--zram.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 6946 function main
+Unwinding loop 8  iteration  2   file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--staging--zram--zram.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 6946 function main
+Not unwinding 
+Unwinding loop 4  iteration  1   file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--staging--zram--zram.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 5837 function __zram_reset_device
+Unwinding loop 4  iteration  2   file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--staging--zram--zram.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 5837 function __zram_reset_device
+Not unwinding 
+Unwinding loop 11  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 11  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 7  iteration  1   file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--staging--zram--zram.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 6787 function zram_exit
+Unwinding loop 4  iteration  1   file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--staging--zram--zram.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 5837 function __zram_reset_device
+Unwinding loop 4  iteration  2   file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--staging--zram--zram.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 5837 function __zram_reset_device
+Not unwinding 
+Unwinding loop 11  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 11  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 7  iteration  2   file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--staging--zram--zram.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 6787 function zram_exit
+Unwinding loop 4  iteration  1   file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--staging--zram--zram.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 5837 function __zram_reset_device
+Unwinding loop 4  iteration  2   file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--staging--zram--zram.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 5837 function __zram_reset_device
+Not unwinding 
+Unwinding loop 11  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 11  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.204s (2245 assignments)
+Slicing time: 0.004s (removed 2061 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (184 assignments)
+BMC program time: 0.208s
+No bug has been found in the base case
+*** Checking forward condition, k = 3
+Starting Bounded Model Checking
+Unwinding loop 5  iteration  1   file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--staging--zram--zram.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 6709 function zram_init
+Unwinding loop 8  iteration  1   file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--staging--zram--zram.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 6946 function main
+Unwinding loop 8  iteration  2   file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--staging--zram--zram.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 6946 function main
+Not unwinding 
+Unwinding loop 4  iteration  1   file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--staging--zram--zram.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 5837 function __zram_reset_device
+Unwinding loop 4  iteration  2   file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--staging--zram--zram.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 5837 function __zram_reset_device
+Not unwinding 
+Unwinding loop 11  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 11  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 7  iteration  1   file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--staging--zram--zram.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 6787 function zram_exit
+Unwinding loop 4  iteration  1   file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--staging--zram--zram.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 5837 function __zram_reset_device
+Unwinding loop 4  iteration  2   file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--staging--zram--zram.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 5837 function __zram_reset_device
+Not unwinding 
+Unwinding loop 11  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 11  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 7  iteration  2   file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--staging--zram--zram.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 6787 function zram_exit
+Unwinding loop 4  iteration  1   file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--staging--zram--zram.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 5837 function __zram_reset_device
+Unwinding loop 4  iteration  2   file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--staging--zram--zram.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 5837 function __zram_reset_device
+Not unwinding 
+Unwinding loop 11  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 11  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.215s (2245 assignments)
+Slicing time: 0.003s (removed 2061 assignments)
+Generated 8 VCC(s), 8 remaining after simplification (184 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.007s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.007s
+Runtime decision procedure: 0.734s
+The forward condition is unable to prove the property
+*** Checking inductive step, k = 3
+Starting Bounded Model Checking
+Unwinding loop 5  iteration  1   file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--staging--zram--zram.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 6709 function zram_init
+Unwinding loop 5  iteration  2   file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--staging--zram--zram.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 6709 function zram_init
+Not unwinding 
+Unwinding loop 6  iteration  1   file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--staging--zram--zram.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 6735 function zram_init
+Unwinding loop 6  iteration  2   file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--staging--zram--zram.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 6735 function zram_init
+Not unwinding 
+Unwinding loop 8  iteration  1   file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--staging--zram--zram.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 6946 function main
+Unwinding loop 8  iteration  2   file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--staging--zram--zram.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 6946 function main
+Not unwinding 
+Unwinding loop 4  iteration  1   file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--staging--zram--zram.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 5837 function __zram_reset_device
+Unwinding loop 4  iteration  2   file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--staging--zram--zram.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 5837 function __zram_reset_device
+Not unwinding 
+Unwinding loop 11  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 11  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 7  iteration  1   file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--staging--zram--zram.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 6787 function zram_exit
+Unwinding loop 4  iteration  1   file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--staging--zram--zram.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 5837 function __zram_reset_device
+Unwinding loop 4  iteration  2   file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--staging--zram--zram.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 5837 function __zram_reset_device
+Not unwinding 
+Unwinding loop 11  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 11  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 7  iteration  2   file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--staging--zram--zram.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 6787 function zram_exit
+Unwinding loop 4  iteration  1   file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--staging--zram--zram.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 5837 function __zram_reset_device
+Unwinding loop 4  iteration  2   file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--staging--zram--zram.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 5837 function __zram_reset_device
+Not unwinding 
+Unwinding loop 11  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 11  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Not unwinding 
+Symex completed in: 1.210s (4300 assignments)
+Slicing time: 0.022s (removed 2705 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (1595 assignments)
+BMC program time: 1.232s
+Building successful trace
+
+VERIFICATION SUCCESSFUL
+
+Solution found by the inductive step (k = 3)
+
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--staging--zram--zram.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i:6929:1: warning: return type of 'main' is not 'int' [-Wmain-return-type]
+void main(void)
+^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--staging--zram--zram.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i:6929:1: note: change return type to 'int'
+void main(void)
+^~~~
+int
+
+TRUE

@@ -1,0 +1,160 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/forester-heap/sll-rb-sentinel-2.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/forester-heap/sll-rb-sentinel-2.i --32 --witness-output sll-rb-sentinel-2.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/forester-heap/sll-rb-sentinel-2.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.161s
+GOTO program processing time: 0.002s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.007s (112 assignments)
+Slicing time: 0.000s (removed 77 assignments)
+Generated 4 VCC(s), 4 remaining after simplification (35 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.002s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.002s
+Runtime decision procedure: 0.001s
+BMC program time: 0.011s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.006s (108 assignments)
+Slicing time: 0.000s (removed 77 assignments)
+Generated 3 VCC(s), 3 remaining after simplification (31 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.002s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.002s
+Runtime decision procedure: 0.193s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file sll-rb-sentinel-2.i line 1016 function main
+Unwinding loop 1  iteration  2   file sll-rb-sentinel-2.i line 1016 function main
+Not unwinding 
+Unwinding loop 2  iteration  1   file sll-rb-sentinel-2.i line 1044 function main
+Unwinding loop 2  iteration  2   file sll-rb-sentinel-2.i line 1044 function main
+Not unwinding 
+Unwinding loop 3  iteration  1   file sll-rb-sentinel-2.i line 1057 function main
+Unwinding loop 3  iteration  2   file sll-rb-sentinel-2.i line 1057 function main
+Not unwinding 
+Symex completed in: 0.035s (306 assignments)
+Slicing time: 0.002s (removed 155 assignments)
+Generated 8 VCC(s), 8 remaining after simplification (151 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.009s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.009s
+Runtime decision procedure: 0.751s
+Building error trace
+
+Counterexample:
+
+State 1 file sll-rb-sentinel-2.i line 1006 function main thread 0
+----------------------------------------------------
+  null->colour = 1 (00000000 00000000 00000000 00000001)
+
+State 2 file sll-rb-sentinel-2.i line 1007 function main thread 0
+----------------------------------------------------
+  null->next = 0
+
+State 3 file sll-rb-sentinel-2.i line 1010 function main thread 0
+----------------------------------------------------
+  list->next = ( struct TSLL *)((void *)(&dynamic_13_value))
+
+State 4 file sll-rb-sentinel-2.i line 1011 function main thread 0
+----------------------------------------------------
+  list->colour = 1 (00000000 00000000 00000000 00000001)
+
+State 5 file sll-rb-sentinel-2.i line 1019 function main thread 0
+----------------------------------------------------
+  end->next = ( struct TSLL *)((void *)(&dynamic_16_value))
+
+State 6 file sll-rb-sentinel-2.i line 1020 function main thread 0
+----------------------------------------------------
+  end = dynamic_14_value.next
+
+State 7 file sll-rb-sentinel-2.i line 1021 function main thread 0
+----------------------------------------------------
+  end->next = ( struct TSLL *)((void *)(&dynamic_13_value))
+
+State 8 file sll-rb-sentinel-2.i line 1025 function main thread 0
+----------------------------------------------------
+  end->colour = 1 (00000000 00000000 00000000 00000001)
+
+State 9 file sll-rb-sentinel-2.i line 1019 function main thread 0
+----------------------------------------------------
+  end->next = { .next=&dynamic_13_value, .colour=1 }
+
+State 10 file sll-rb-sentinel-2.i line 1020 function main thread 0
+----------------------------------------------------
+  end = dynamic_16_value.next
+
+State 11 file sll-rb-sentinel-2.i line 1021 function main thread 0
+----------------------------------------------------
+  end->next = { .next=0, .colour=1 }
+
+State 12 file sll-rb-sentinel-2.i line 1029 function main thread 0
+----------------------------------------------------
+  end->colour = { .next=0, .colour=1 }
+
+State 13 file sll-rb-sentinel-2.i line 1030 function main thread 0
+----------------------------------------------------
+  end->next = { .next=0, .colour=1 }
+
+State 14 file sll-rb-sentinel-2.i line 1031 function main thread 0
+----------------------------------------------------
+  end = dynamic_20_value.next
+
+State 15 file sll-rb-sentinel-2.i line 1032 function main thread 0
+----------------------------------------------------
+  end->next = { .next=&dynamic_22_value, .colour=0 }
+
+State 16 file sll-rb-sentinel-2.i line 1033 function main thread 0
+----------------------------------------------------
+  end->colour = { .next=&dynamic_22_value, .colour=0 }
+
+State 17 file sll-rb-sentinel-2.i line 1053 function main thread 0
+----------------------------------------------------
+  end = dynamic_14_value.next
+
+State 18 file sll-rb-sentinel-2.i line 1053 function main thread 0
+----------------------------------------------------
+  end = dynamic_16_value.next
+
+State 19 file sll-rb-sentinel-2.i line 1048 function main thread 0
+----------------------------------------------------
+  end = dynamic_20_value.next
+
+State 20 file sll-rb-sentinel-2.i line 993 function reach_error thread 0
+----------------------------------------------------
+Violated property:
+  file sll-rb-sentinel-2.i line 993 function reach_error
+  assertion 0
+  0
+
+
+VERIFICATION FAILED
+
+Bug found (k = 3)
+
+
+FALSE_REACH

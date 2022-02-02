@@ -1,0 +1,53 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/nla-digbench-scaling/freire2_valuebound2.c
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/nla-digbench-scaling/freire2_valuebound2.c --32 --witness-output freire2_valuebound2.c.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/nla-digbench-scaling/freire2_valuebound2.c: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.091s
+GOTO program processing time: 0.001s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.003s (39 assignments)
+Slicing time: 0.000s (removed 18 assignments)
+Generated 4 VCC(s), 4 remaining after simplification (21 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.022s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.022s
+Runtime decision procedure: 5.549s
+Building error trace
+
+Counterexample:
+
+State 1 file freire2_valuebound2.c line 27 function main thread 0
+----------------------------------------------------
+  a = 8.141636e-16 (00111100 11001101 01010101 01010101 01010101 01010101 01010101 01010101)
+
+State 2 file freire2_valuebound2.c line 29 function main thread 0
+----------------------------------------------------
+  x = 8.141636e-16 (00111100 11001101 01010101 01010101 01010101 01010101 01010101 01010101)
+
+State 3 file freire2_valuebound2.c line 10 function reach_error thread 0
+----------------------------------------------------
+Violated property:
+  file freire2_valuebound2.c line 10 function reach_error
+  assertion 0
+  0
+
+
+VERIFICATION FAILED
+
+Bug found (k = 1)
+
+
+FALSE_REACH

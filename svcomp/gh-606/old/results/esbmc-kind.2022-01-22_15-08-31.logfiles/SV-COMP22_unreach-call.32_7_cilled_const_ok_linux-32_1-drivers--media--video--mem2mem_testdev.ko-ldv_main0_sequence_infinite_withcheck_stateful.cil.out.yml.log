@@ -1,0 +1,29 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--media--video--mem2mem_testdev.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--media--video--mem2mem_testdev.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i --64 --witness-output 32_7_cilled_const_ok_linux-32_1-drivers--media--video--mem2mem_testdev.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--media--video--mem2mem_testdev.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i:4036:14: warning: incompatible redeclaration of library function 'snprintf' [-Wincompatible-library-redeclaration]
+extern int ( snprintf)(char *buf , size_t size , char *fmt
+             ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--media--video--mem2mem_testdev.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i:4036:14: note: 'snprintf' is a builtin with type 'int (char *, unsigned long, const char *, ...)'
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--media--video--mem2mem_testdev.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i:4039:14: warning: incompatible redeclaration of library function 'strncpy' [-Wincompatible-library-redeclaration]
+extern char *strncpy(char * , char * , __kernel_size_t ) ;
+             ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--media--video--mem2mem_testdev.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i:4039:14: note: 'strncpy' is a builtin with type 'char *(char *, const char *, unsigned long)'
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--media--video--mem2mem_testdev.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i:8062:1: warning: return type of 'main' is not 'int' [-Wmain-return-type]
+void main(void)
+^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--media--video--mem2mem_testdev.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i:8062:1: note: change return type to 'int'
+void main(void)
+^~~~
+int
+Can't construct rvalue reference to array type during dereference
+(It isn't allowed by C anyway)
+
+
+Unknown

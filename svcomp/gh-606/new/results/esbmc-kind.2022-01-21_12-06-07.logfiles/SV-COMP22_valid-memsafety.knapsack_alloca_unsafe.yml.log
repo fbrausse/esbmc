@@ -1,0 +1,55 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/valid-memsafety.prp -s kinduction --arch 32 ../sv-benchmarks/c/array-memsafety/knapsack_alloca_unsafe.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/array-memsafety/knapsack_alloca_unsafe.i --32 --witness-output knapsack_alloca_unsafe.i.graphml --memory-leak-check --no-assertions --incremental-bmc 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/array-memsafety/knapsack_alloca_unsafe.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.146s
+GOTO program processing time: 0.000s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.139s (122 assignments)
+Slicing time: 0.001s (removed 54 assignments)
+Generated 26 VCC(s), 26 remaining after simplification (68 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.004s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.004s
+Runtime decision procedure: 0.178s
+Building error trace
+
+Counterexample:
+
+State 1 file knapsack_alloca_unsafe.i line 527 function main thread 0
+----------------------------------------------------
+  N = 1073741824 (01000000 00000000 00000000 00000000)
+
+State 2 file knapsack_alloca_unsafe.i line 528 function main thread 0
+----------------------------------------------------
+  M = 3340142 (00000000 00110010 11110111 01101110)
+
+State 4 file knapsack_alloca_unsafe.i line 542 function main thread 0
+----------------------------------------------------
+Violated property:
+  file knapsack_alloca_unsafe.i line 542 function main
+  dereference failure: array bounds violated
+
+
+VERIFICATION FAILED
+
+Bug found (k = 1)
+
+
+FALSE_DEREF

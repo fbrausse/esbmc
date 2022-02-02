@@ -1,0 +1,42 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/float-newlib/double_req_bl_0660a.c
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/float-newlib/double_req_bl_0660a.c --32 --witness-output double_req_bl_0660a.c.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/float-newlib/double_req_bl_0660a.c: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.195s
+GOTO program processing time: 0.003s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Symex completed in: 0.042s (399 assignments)
+Slicing time: 0.007s (removed 107 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (292 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.284s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.284s
+Runtime decision procedure: 0.465s
+BMC program time: 0.799s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Symex completed in: 0.051s (398 assignments)
+Slicing time: 0.007s (removed 107 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (291 assignments)
+BMC program time: 0.058s
+Building successful trace
+
+VERIFICATION SUCCESSFUL
+
+Solution found by the forward condition; all states are reachable (k = 1
+
+
+TRUE

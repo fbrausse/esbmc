@@ -1,0 +1,144 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/ntdrivers/diskperf.i.cil-2.c
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ntdrivers/diskperf.i.cil-2.c --32 --witness-output diskperf.i.cil-2.c.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/ntdrivers/diskperf.i.cil-2.c: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.566s
+GOTO program processing time: 0.069s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+**** WARNING: no body for function swprintf
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 1.120s (2175 assignments)
+Slicing time: 0.010s (removed 1790 assignments)
+Generated 12 VCC(s), 12 remaining after simplification (385 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.061s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.061s
+Runtime decision procedure: 6.816s
+Building error trace
+
+Counterexample:
+
+State 1 file diskperf.i.cil-2.c line 3215 function main thread 0
+----------------------------------------------------
+  status = 0 (00000000 00000000 00000000 00000000)
+
+State 2 file diskperf.i.cil-2.c line 3218 function main thread 0
+----------------------------------------------------
+  __BLAST_NONDET___0 = 0 (00000000 00000000 00000000 00000000)
+
+State 3 file diskperf.i.cil-2.c line 3219 function main thread 0
+----------------------------------------------------
+  irp_choice = -2147483648 (10000000 00000000 00000000 00000000)
+
+State 4 file diskperf.i.cil-2.c line 3222 function main thread 0
+----------------------------------------------------
+  ( struct _DEVICE_EXTENSION *)devobj.DeviceExtension->DiskCounters = ( struct _DISK_PERFORMANCE *)((void *)(&dynamic_6_value))
+
+State 5 file diskperf.i.cil-2.c line 3224 function main thread 0
+----------------------------------------------------
+  (( union __anonunion____missing_field_name_52 {  struct _IO_STACK_LOCATION * CurrentStackLocation; unsigned int PacketType; } *)(&(( union __anonunion_Tail_47 {  struct __anonstruct_Overlay_48 { unsigned char [16] __annonCompField15;  struct _ETHREAD * Thread; signed char * AuxiliaryBuffer;  struct __anonstruct____missing_field_name_51 {  struct _LIST_ENTRY {  struct _LIST_ENTRY * Flink;  struct _LIST_ENTRY * Blink; }ListEntry; unsigned char [4] __annonCompField16; }__annonCompField17;  struct _FILE_OBJECT * OriginalFileObject; }Overlay;  struct _KAPC { signed short int Type; signed short int Size; unsigned int Spare0;  struct _KTHREAD * Thread;  struct _LIST_ENTRY {  struct _LIST_ENTRY * Flink;  struct _LIST_ENTRY * Blink; }ApcListEntry; void (*)( struct _KAPC *, void (*)(void *, void *, void *) *, void * *, void * *, void * *); void (*)( struct _KAPC *); void (*)(void *, void *, void *); void * NormalContext; void * SystemArgument1; void * SystemArgument2; signed char ApcStateIndex; signed char ApcMode; unsigned char Inserted; unsigned char pad$14; }Apc; void * CompletionKey; } *)(&irp.Tail))->Overlay.__annonCompField17.__annonCompField16))->CurrentStackLocation = (unsigned int)(( struct _IO_STACK_LOCATION *)(&dynamic_8_array[0]))
+
+State 6 file diskperf.i.cil-2.c line 3224 function main thread 0
+----------------------------------------------------
+  (( union __anonunion____missing_field_name_52 {  struct _IO_STACK_LOCATION * CurrentStackLocation; unsigned int PacketType; } *)(&(( union __anonunion_Tail_47 {  struct __anonstruct_Overlay_48 { unsigned char [16] __annonCompField15;  struct _ETHREAD * Thread; signed char * AuxiliaryBuffer;  struct __anonstruct____missing_field_name_51 {  struct _LIST_ENTRY {  struct _LIST_ENTRY * Flink;  struct _LIST_ENTRY * Blink; }ListEntry; unsigned char [4] __annonCompField16; }__annonCompField17;  struct _FILE_OBJECT * OriginalFileObject; }Overlay;  struct _KAPC { signed short int Type; signed short int Size; unsigned int Spare0;  struct _KTHREAD * Thread;  struct _LIST_ENTRY {  struct _LIST_ENTRY * Flink;  struct _LIST_ENTRY * Blink; }ApcListEntry; void (*)( struct _KAPC *, void (*)(void *, void *, void *) *, void * *, void * *, void * *); void (*)( struct _KAPC *); void (*)(void *, void *, void *); void * NormalContext; void * SystemArgument1; void * SystemArgument2; signed char ApcStateIndex; signed char ApcMode; unsigned char Inserted; unsigned char pad$14; }Apc; void * CompletionKey; } *)(&irp.Tail))->Overlay.__annonCompField17.__annonCompField16))->CurrentStackLocation = (unsigned int)(( struct _IO_STACK_LOCATION *)(&dynamic_8_array[0]))
+
+State 7 file diskperf.i.cil-2.c line 3224 function main thread 0
+----------------------------------------------------
+  (( union __anonunion____missing_field_name_52 {  struct _IO_STACK_LOCATION * CurrentStackLocation; unsigned int PacketType; } *)(&(( union __anonunion_Tail_47 {  struct __anonstruct_Overlay_48 { unsigned char [16] __annonCompField15;  struct _ETHREAD * Thread; signed char * AuxiliaryBuffer;  struct __anonstruct____missing_field_name_51 {  struct _LIST_ENTRY {  struct _LIST_ENTRY * Flink;  struct _LIST_ENTRY * Blink; }ListEntry; unsigned char [4] __annonCompField16; }__annonCompField17;  struct _FILE_OBJECT * OriginalFileObject; }Overlay;  struct _KAPC { signed short int Type; signed short int Size; unsigned int Spare0;  struct _KTHREAD * Thread;  struct _LIST_ENTRY {  struct _LIST_ENTRY * Flink;  struct _LIST_ENTRY * Blink; }ApcListEntry; void (*)( struct _KAPC *, void (*)(void *, void *, void *) *, void * *, void * *, void * *); void (*)( struct _KAPC *); void (*)(void *, void *, void *); void * NormalContext; void * SystemArgument1; void * SystemArgument2; signed char ApcStateIndex; signed char ApcMode; unsigned char Inserted; unsigned char pad$14; }Apc; void * CompletionKey; } *)(&irp.Tail))->Overlay.__annonCompField17.__annonCompField16))->CurrentStackLocation = (unsigned int)(( struct _IO_STACK_LOCATION *)(&dynamic_8_array[0]))
+
+State 8 file diskperf.i.cil-2.c line 3224 function main thread 0
+----------------------------------------------------
+  (( union __anonunion____missing_field_name_52 {  struct _IO_STACK_LOCATION * CurrentStackLocation; unsigned int PacketType; } *)(&(( union __anonunion_Tail_47 {  struct __anonstruct_Overlay_48 { unsigned char [16] __annonCompField15;  struct _ETHREAD * Thread; signed char * AuxiliaryBuffer;  struct __anonstruct____missing_field_name_51 {  struct _LIST_ENTRY {  struct _LIST_ENTRY * Flink;  struct _LIST_ENTRY * Blink; }ListEntry; unsigned char [4] __annonCompField16; }__annonCompField17;  struct _FILE_OBJECT * OriginalFileObject; }Overlay;  struct _KAPC { signed short int Type; signed short int Size; unsigned int Spare0;  struct _KTHREAD * Thread;  struct _LIST_ENTRY {  struct _LIST_ENTRY * Flink;  struct _LIST_ENTRY * Blink; }ApcListEntry; void (*)( struct _KAPC *, void (*)(void *, void *, void *) *, void * *, void * *, void * *); void (*)( struct _KAPC *); void (*)(void *, void *, void *); void * NormalContext; void * SystemArgument1; void * SystemArgument2; signed char ApcStateIndex; signed char ApcMode; unsigned char Inserted; unsigned char pad$14; }Apc; void * CompletionKey; } *)(&irp.Tail))->Overlay.__annonCompField17.__annonCompField16))->CurrentStackLocation = (unsigned int)(( struct _IO_STACK_LOCATION *)(&dynamic_8_array[0]))
+
+State 9 file diskperf.i.cil-2.c line 3226 function main thread 0
+----------------------------------------------------
+  (( union __anonunion____missing_field_name_52 {  struct _IO_STACK_LOCATION * CurrentStackLocation; unsigned int PacketType; } *)(&(( union __anonunion_Tail_47 {  struct __anonstruct_Overlay_48 { unsigned char [16] __annonCompField15;  struct _ETHREAD * Thread; signed char * AuxiliaryBuffer;  struct __anonstruct____missing_field_name_51 {  struct _LIST_ENTRY {  struct _LIST_ENTRY * Flink;  struct _LIST_ENTRY * Blink; }ListEntry; unsigned char [4] __annonCompField16; }__annonCompField17;  struct _FILE_OBJECT * OriginalFileObject; }Overlay;  struct _KAPC { signed short int Type; signed short int Size; unsigned int Spare0;  struct _KTHREAD * Thread;  struct _LIST_ENTRY {  struct _LIST_ENTRY * Flink;  struct _LIST_ENTRY * Blink; }ApcListEntry; void (*)( struct _KAPC *, void (*)(void *, void *, void *) *, void * *, void * *, void * *); void (*)( struct _KAPC *); void (*)(void *, void *, void *); void * NormalContext; void * SystemArgument1; void * SystemArgument2; signed char ApcStateIndex; signed char ApcMode; unsigned char Inserted; unsigned char pad$14; }Apc; void * CompletionKey; } *)(&irp.Tail))->Overlay.__annonCompField17.__annonCompField16))->CurrentStackLocation = (unsigned int)(( struct _IO_STACK_LOCATION *)2147483507 + 3)
+
+State 10 file diskperf.i.cil-2.c line 3226 function main thread 0
+----------------------------------------------------
+  (( union __anonunion____missing_field_name_52 {  struct _IO_STACK_LOCATION * CurrentStackLocation; unsigned int PacketType; } *)(&(( union __anonunion_Tail_47 {  struct __anonstruct_Overlay_48 { unsigned char [16] __annonCompField15;  struct _ETHREAD * Thread; signed char * AuxiliaryBuffer;  struct __anonstruct____missing_field_name_51 {  struct _LIST_ENTRY {  struct _LIST_ENTRY * Flink;  struct _LIST_ENTRY * Blink; }ListEntry; unsigned char [4] __annonCompField16; }__annonCompField17;  struct _FILE_OBJECT * OriginalFileObject; }Overlay;  struct _KAPC { signed short int Type; signed short int Size; unsigned int Spare0;  struct _KTHREAD * Thread;  struct _LIST_ENTRY {  struct _LIST_ENTRY * Flink;  struct _LIST_ENTRY * Blink; }ApcListEntry; void (*)( struct _KAPC *, void (*)(void *, void *, void *) *, void * *, void * *, void * *); void (*)( struct _KAPC *); void (*)(void *, void *, void *); void * NormalContext; void * SystemArgument1; void * SystemArgument2; signed char ApcStateIndex; signed char ApcMode; unsigned char Inserted; unsigned char pad$14; }Apc; void * CompletionKey; } *)(&irp.Tail))->Overlay.__annonCompField17.__annonCompField16))->CurrentStackLocation = (unsigned int)(( struct _IO_STACK_LOCATION *)2147483507 + 3)
+
+State 11 file diskperf.i.cil-2.c line 3226 function main thread 0
+----------------------------------------------------
+  (( union __anonunion____missing_field_name_52 {  struct _IO_STACK_LOCATION * CurrentStackLocation; unsigned int PacketType; } *)(&(( union __anonunion_Tail_47 {  struct __anonstruct_Overlay_48 { unsigned char [16] __annonCompField15;  struct _ETHREAD * Thread; signed char * AuxiliaryBuffer;  struct __anonstruct____missing_field_name_51 {  struct _LIST_ENTRY {  struct _LIST_ENTRY * Flink;  struct _LIST_ENTRY * Blink; }ListEntry; unsigned char [4] __annonCompField16; }__annonCompField17;  struct _FILE_OBJECT * OriginalFileObject; }Overlay;  struct _KAPC { signed short int Type; signed short int Size; unsigned int Spare0;  struct _KTHREAD * Thread;  struct _LIST_ENTRY {  struct _LIST_ENTRY * Flink;  struct _LIST_ENTRY * Blink; }ApcListEntry; void (*)( struct _KAPC *, void (*)(void *, void *, void *) *, void * *, void * *, void * *); void (*)( struct _KAPC *); void (*)(void *, void *, void *); void * NormalContext; void * SystemArgument1; void * SystemArgument2; signed char ApcStateIndex; signed char ApcMode; unsigned char Inserted; unsigned char pad$14; }Apc; void * CompletionKey; } *)(&irp.Tail))->Overlay.__annonCompField17.__annonCompField16))->CurrentStackLocation = (unsigned int)(( struct _IO_STACK_LOCATION *)2147483507 + 3)
+
+State 12 file diskperf.i.cil-2.c line 3226 function main thread 0
+----------------------------------------------------
+  (( union __anonunion____missing_field_name_52 {  struct _IO_STACK_LOCATION * CurrentStackLocation; unsigned int PacketType; } *)(&(( union __anonunion_Tail_47 {  struct __anonstruct_Overlay_48 { unsigned char [16] __annonCompField15;  struct _ETHREAD * Thread; signed char * AuxiliaryBuffer;  struct __anonstruct____missing_field_name_51 {  struct _LIST_ENTRY {  struct _LIST_ENTRY * Flink;  struct _LIST_ENTRY * Blink; }ListEntry; unsigned char [4] __annonCompField16; }__annonCompField17;  struct _FILE_OBJECT * OriginalFileObject; }Overlay;  struct _KAPC { signed short int Type; signed short int Size; unsigned int Spare0;  struct _KTHREAD * Thread;  struct _LIST_ENTRY {  struct _LIST_ENTRY * Flink;  struct _LIST_ENTRY * Blink; }ApcListEntry; void (*)( struct _KAPC *, void (*)(void *, void *, void *) *, void * *, void * *, void * *); void (*)( struct _KAPC *); void (*)(void *, void *, void *); void * NormalContext; void * SystemArgument1; void * SystemArgument2; signed char ApcStateIndex; signed char ApcMode; unsigned char Inserted; unsigned char pad$14; }Apc; void * CompletionKey; } *)(&irp.Tail))->Overlay.__annonCompField17.__annonCompField16))->CurrentStackLocation = (unsigned int)(( struct _IO_STACK_LOCATION *)2147483507 + 3)
+
+State 13 file diskperf.i.cil-2.c line 3242 function main thread 0
+----------------------------------------------------
+  (( union __anonunion____missing_field_name_6 { signed int Status; void * Pointer; } *)(&pirp->IoStatus.__annonCompField4))->Status = 0 (00000000 00000000 00000000 00000000)
+
+State 14 file diskperf.i.cil-2.c line 3242 function main thread 0
+----------------------------------------------------
+  (( union __anonunion____missing_field_name_6 { signed int Status; void * Pointer; } *)(&pirp->IoStatus.__annonCompField4))->Status = 0 (00000000 00000000 00000000 00000000)
+
+State 15 file diskperf.i.cil-2.c line 3242 function main thread 0
+----------------------------------------------------
+  (( union __anonunion____missing_field_name_6 { signed int Status; void * Pointer; } *)(&pirp->IoStatus.__annonCompField4))->Status = 0 (00000000 00000000 00000000 00000000)
+
+State 16 file diskperf.i.cil-2.c line 3242 function main thread 0
+----------------------------------------------------
+  (( union __anonunion____missing_field_name_6 { signed int Status; void * Pointer; } *)(&pirp->IoStatus.__annonCompField4))->Status = 0 (00000000 00000000 00000000 00000000)
+
+State 17 file diskperf.i.cil-2.c line 3 function reach_error thread 0
+----------------------------------------------------
+Violated property:
+  file diskperf.i.cil-2.c line 3 function reach_error
+  assertion 0
+  0
+
+
+VERIFICATION FAILED
+
+Bug found (k = 1)
+
+../sv-benchmarks/c/ntdrivers/diskperf.i.cil-2.c:2794:57: warning: incompatible pointer types passing 'char [61]' to parameter of type 'const wchar_t *' (aka 'const unsigned short *') [-Wincompatible-pointer-types]
+    swprintf(deviceExtension->PhysicalDeviceNameBuffer, "\\\000D\000e\000v\000i\000c\000e\000\\\000H\000a\000r\000d\000d\000i\000s\000k\000%\000d\000\\\000P\000a\000r\000t\000i\000t\000i\000o\000n\000%\000d\000",
+                                                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ntdrivers/diskperf.i.cil-2.c:1742:52: note: passing argument to parameter here
+extern int swprintf(wchar_t * , wchar_t const   *  , ...) ;
+                                                   ^
+../sv-benchmarks/c/ntdrivers/diskperf.i.cil-2.c:3208:12: warning: incompatible integer to pointer conversion assigning to 'NTSTATUS (*)(PDEVICE_OBJECT, PIRP, PVOID)' (aka 'long (*)(struct _DEVICE_OBJECT *, struct _IRP *, void *)') from 'int' [-Wint-conversion]
+  compFptr = compRegistered;
+           ^ ~~~~~~~~~~~~~~
+../sv-benchmarks/c/ntdrivers/diskperf.i.cil-2.c:3209:10: warning: incompatible pointer to integer conversion assigning to 'int' from 'NTSTATUS (*)(PDEVICE_OBJECT, PIRP, PVOID)' (aka 'long (*)(struct _DEVICE_OBJECT *, struct _IRP *, void *)') [-Wint-conversion]
+  pended = compFptr;
+         ^ ~~~~~~~~
+../sv-benchmarks/c/ntdrivers/diskperf.i.cil-2.c:3240:14: warning: incompatible integer to pointer conversion assigning to 'NTSTATUS (*)(PDEVICE_OBJECT, PIRP, PVOID)' (aka 'long (*)(struct _DEVICE_OBJECT *, struct _IRP *, void *)') from 'int' [-Wint-conversion]
+    compFptr = compRegistered;
+             ^ ~~~~~~~~~~~~~~
+../sv-benchmarks/c/ntdrivers/diskperf.i.cil-2.c:3241:12: warning: incompatible pointer to integer conversion assigning to 'int' from 'NTSTATUS (*)(PDEVICE_OBJECT, PIRP, PVOID)' (aka 'long (*)(struct _DEVICE_OBJECT *, struct _IRP *, void *)') [-Wint-conversion]
+    pended = compFptr;
+           ^ ~~~~~~~~
+
+FALSE_REACH

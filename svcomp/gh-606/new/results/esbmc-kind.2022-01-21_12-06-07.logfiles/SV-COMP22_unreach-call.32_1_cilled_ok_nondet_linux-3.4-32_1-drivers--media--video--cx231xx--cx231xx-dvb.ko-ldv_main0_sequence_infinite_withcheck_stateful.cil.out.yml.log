@@ -1,0 +1,379 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/ldv-linux-3.4-simple/32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--media--video--cx231xx--cx231xx-dvb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-linux-3.4-simple/32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--media--video--cx231xx--cx231xx-dvb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i --64 --witness-output 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--media--video--cx231xx--cx231xx-dvb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 64-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/ldv-linux-3.4-simple/32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--media--video--cx231xx--cx231xx-dvb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.767s
+GOTO program processing time: 0.043s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+No target candidate for function call *__a
+No target candidate for function call *__a___0
+No target candidate for function call *__a___1
+No target candidate for function call *__a___2
+No target candidate for function call *__a___3
+No target candidate for function call *__a___4
+No target candidate for function call *__a___5
+No target candidate for function call *__a___6
+No target candidate for function call *__a___7
+No target candidate for function call *__a___8
+No target candidate for function call *__a___9
+No target candidate for function call *__a___10
+Not unwinding 
+No target candidate for function call *__cil_tmp9
+No target candidate for function call *__cil_tmp20
+Not unwinding 
+Symex completed in: 0.587s (1968 assignments)
+Slicing time: 0.014s (removed 1586 assignments)
+Generated 2 VCC(s), 2 remaining after simplification (382 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.247s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.247s
+Runtime decision procedure: 15.459s
+Building error trace
+
+Counterexample:
+
+State 1 file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--media--video--cx231xx--cx231xx-dvb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 10884 function main thread 0
+----------------------------------------------------
+  tmp___9 = -1 (11111111 11111111 11111111 11111111)
+
+State 2 file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--media--video--cx231xx--cx231xx-dvb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 10891 function main thread 0
+----------------------------------------------------
+  tmp___8 = 0 (00000000 00000000 00000000 00000000)
+
+State 3 file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--media--video--cx231xx--cx231xx-dvb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9811 function dvb_init thread 0
+----------------------------------------------------
+  __cil_tmp93 = 1 (00000000 00000000 00000000 00000001)
+
+State 4 file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--media--video--cx231xx--cx231xx-dvb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9819 function dvb_init thread 0
+----------------------------------------------------
+  dvb = ( struct cx231xx_dvb *)(&dynamic_5_array[0])
+
+State 5 file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--media--video--cx231xx--cx231xx-dvb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9824 function dvb_init thread 0
+----------------------------------------------------
+  __cil_tmp96 = (unsigned long int)(&dynamic_5_array[0])
+
+State 6 file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--media--video--cx231xx--cx231xx-dvb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 10438 function dvb_init thread 0
+----------------------------------------------------
+  tmp___51 = ( struct dvb_frontend * (*)( struct lgdt3305_config *,  struct i2c_adapter *))(&dynamic_63_array[0])
+
+State 7 file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--media--video--cx231xx--cx231xx-dvb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 10494 function dvb_init thread 0
+----------------------------------------------------
+  __cil_tmp330 = INVALID513
+
+State 8 file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--media--video--cx231xx--cx231xx-dvb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 10495 function dvb_init thread 0
+----------------------------------------------------
+  __cil_tmp331 = (unsigned long int)INVALID513
+
+State 9 file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--media--video--cx231xx--cx231xx-dvb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 10512 function dvb_init thread 0
+----------------------------------------------------
+  tmp___56 = ( struct dvb_frontend * (*)( struct dvb_frontend *, unsigned char,  struct i2c_adapter *,  struct tda18271_config *))(&dynamic_70_array[0])
+
+State 10 file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--media--video--cx231xx--cx231xx-dvb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 10722 function dvb_init thread 0
+----------------------------------------------------
+  __cil_tmp415 = ( struct dvb_frontend *)1161082333036544
+
+State 11 file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--media--video--cx231xx--cx231xx-dvb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 10723 function dvb_init thread 0
+----------------------------------------------------
+  __cil_tmp416 = (unsigned long int)(&dynamic_87_array[0])
+
+State 12 file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--media--video--cx231xx--cx231xx-dvb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9024 function register_dvb thread 0
+----------------------------------------------------
+  *(void * *)__cil_tmp32 = (unsigned long int)INVALID76
+
+State 13 file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--media--video--cx231xx--cx231xx-dvb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9024 function register_dvb thread 0
+----------------------------------------------------
+  *(void * *)__cil_tmp32 = (unsigned long int)INVALID76
+
+State 14 file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--media--video--cx231xx--cx231xx-dvb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9024 function register_dvb thread 0
+----------------------------------------------------
+  *(void * *)__cil_tmp32 = (unsigned long int)INVALID76
+
+State 15 file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--media--video--cx231xx--cx231xx-dvb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9024 function register_dvb thread 0
+----------------------------------------------------
+  *(void * *)__cil_tmp32 = (unsigned long int)INVALID76
+
+State 16 file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--media--video--cx231xx--cx231xx-dvb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9024 function register_dvb thread 0
+----------------------------------------------------
+  *(void * *)__cil_tmp32 = (unsigned long int)INVALID76
+
+State 17 file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--media--video--cx231xx--cx231xx-dvb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9024 function register_dvb thread 0
+----------------------------------------------------
+  *(void * *)__cil_tmp32 = (unsigned long int)INVALID76
+
+State 18 file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--media--video--cx231xx--cx231xx-dvb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9024 function register_dvb thread 0
+----------------------------------------------------
+  *(void * *)__cil_tmp32 = (unsigned long int)INVALID76
+
+State 19 file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--media--video--cx231xx--cx231xx-dvb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9024 function register_dvb thread 0
+----------------------------------------------------
+  *(void * *)__cil_tmp32 = (unsigned long int)INVALID76
+
+State 20 file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--media--video--cx231xx--cx231xx-dvb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9046 function register_dvb thread 0
+----------------------------------------------------
+  *(unsigned int *)__cil_tmp43 = 13 (00000000 00000000 00000000 00001101)
+
+State 21 file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--media--video--cx231xx--cx231xx-dvb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9046 function register_dvb thread 0
+----------------------------------------------------
+  *(unsigned int *)__cil_tmp43 = 13 (00000000 00000000 00000000 00001101)
+
+State 22 file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--media--video--cx231xx--cx231xx-dvb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9046 function register_dvb thread 0
+----------------------------------------------------
+  *(unsigned int *)__cil_tmp43 = 13 (00000000 00000000 00000000 00001101)
+
+State 23 file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--media--video--cx231xx--cx231xx-dvb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9046 function register_dvb thread 0
+----------------------------------------------------
+  *(unsigned int *)__cil_tmp43 = 13 (00000000 00000000 00000000 00001101)
+
+State 24 file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--media--video--cx231xx--cx231xx-dvb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9050 function register_dvb thread 0
+----------------------------------------------------
+  *(void * *)__cil_tmp46 = (unsigned long int)((void *)(&dynamic_5_array[0]))
+
+State 25 file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--media--video--cx231xx--cx231xx-dvb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9050 function register_dvb thread 0
+----------------------------------------------------
+  *(void * *)__cil_tmp46 = (unsigned long int)((void *)(&dynamic_5_array[0]))
+
+State 26 file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--media--video--cx231xx--cx231xx-dvb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9050 function register_dvb thread 0
+----------------------------------------------------
+  *(void * *)__cil_tmp46 = (unsigned long int)((void *)(&dynamic_5_array[0]))
+
+State 27 file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--media--video--cx231xx--cx231xx-dvb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9050 function register_dvb thread 0
+----------------------------------------------------
+  *(void * *)__cil_tmp46 = (unsigned long int)((void *)(&dynamic_5_array[0]))
+
+State 28 file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--media--video--cx231xx--cx231xx-dvb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9050 function register_dvb thread 0
+----------------------------------------------------
+  *(void * *)__cil_tmp46 = (unsigned long int)((void *)(&dynamic_5_array[0]))
+
+State 29 file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--media--video--cx231xx--cx231xx-dvb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9050 function register_dvb thread 0
+----------------------------------------------------
+  *(void * *)__cil_tmp46 = (unsigned long int)((void *)(&dynamic_5_array[0]))
+
+State 30 file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--media--video--cx231xx--cx231xx-dvb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9050 function register_dvb thread 0
+----------------------------------------------------
+  *(void * *)__cil_tmp46 = (unsigned long int)((void *)(&dynamic_5_array[0]))
+
+State 31 file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--media--video--cx231xx--cx231xx-dvb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9050 function register_dvb thread 0
+----------------------------------------------------
+  *(void * *)__cil_tmp46 = (unsigned long int)((void *)(&dynamic_5_array[0]))
+
+State 32 file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--media--video--cx231xx--cx231xx-dvb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9054 function register_dvb thread 0
+----------------------------------------------------
+  *(signed int *)__cil_tmp49 = 256 (00000000 00000000 00000001 00000000)
+
+State 33 file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--media--video--cx231xx--cx231xx-dvb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9054 function register_dvb thread 0
+----------------------------------------------------
+  *(signed int *)__cil_tmp49 = 256 (00000000 00000000 00000001 00000000)
+
+State 34 file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--media--video--cx231xx--cx231xx-dvb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9054 function register_dvb thread 0
+----------------------------------------------------
+  *(signed int *)__cil_tmp49 = 256 (00000000 00000000 00000001 00000000)
+
+State 35 file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--media--video--cx231xx--cx231xx-dvb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9054 function register_dvb thread 0
+----------------------------------------------------
+  *(signed int *)__cil_tmp49 = 256 (00000000 00000000 00000001 00000000)
+
+State 36 file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--media--video--cx231xx--cx231xx-dvb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9058 function register_dvb thread 0
+----------------------------------------------------
+  *(signed int *)__cil_tmp52 = 256 (00000000 00000000 00000001 00000000)
+
+State 37 file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--media--video--cx231xx--cx231xx-dvb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9058 function register_dvb thread 0
+----------------------------------------------------
+  *(signed int *)__cil_tmp52 = 256 (00000000 00000000 00000001 00000000)
+
+State 38 file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--media--video--cx231xx--cx231xx-dvb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9058 function register_dvb thread 0
+----------------------------------------------------
+  *(signed int *)__cil_tmp52 = 256 (00000000 00000000 00000001 00000000)
+
+State 39 file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--media--video--cx231xx--cx231xx-dvb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9058 function register_dvb thread 0
+----------------------------------------------------
+  *(signed int *)__cil_tmp52 = 256 (00000000 00000000 00000001 00000000)
+
+State 40 file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--media--video--cx231xx--cx231xx-dvb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9062 function register_dvb thread 0
+----------------------------------------------------
+  *(signed int (*)( struct dvb_demux_feed *) *)__cil_tmp55 = (unsigned long int)(&start_feed)
+
+State 41 file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--media--video--cx231xx--cx231xx-dvb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9062 function register_dvb thread 0
+----------------------------------------------------
+  *(signed int (*)( struct dvb_demux_feed *) *)__cil_tmp55 = (unsigned long int)(&start_feed)
+
+State 42 file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--media--video--cx231xx--cx231xx-dvb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9062 function register_dvb thread 0
+----------------------------------------------------
+  *(signed int (*)( struct dvb_demux_feed *) *)__cil_tmp55 = (unsigned long int)(&start_feed)
+
+State 43 file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--media--video--cx231xx--cx231xx-dvb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9062 function register_dvb thread 0
+----------------------------------------------------
+  *(signed int (*)( struct dvb_demux_feed *) *)__cil_tmp55 = (unsigned long int)(&start_feed)
+
+State 44 file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--media--video--cx231xx--cx231xx-dvb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9062 function register_dvb thread 0
+----------------------------------------------------
+  *(signed int (*)( struct dvb_demux_feed *) *)__cil_tmp55 = (unsigned long int)(&start_feed)
+
+State 45 file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--media--video--cx231xx--cx231xx-dvb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9062 function register_dvb thread 0
+----------------------------------------------------
+  *(signed int (*)( struct dvb_demux_feed *) *)__cil_tmp55 = (unsigned long int)(&start_feed)
+
+State 46 file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--media--video--cx231xx--cx231xx-dvb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9062 function register_dvb thread 0
+----------------------------------------------------
+  *(signed int (*)( struct dvb_demux_feed *) *)__cil_tmp55 = (unsigned long int)(&start_feed)
+
+State 47 file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--media--video--cx231xx--cx231xx-dvb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9062 function register_dvb thread 0
+----------------------------------------------------
+  *(signed int (*)( struct dvb_demux_feed *) *)__cil_tmp55 = (unsigned long int)(&start_feed)
+
+State 48 file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--media--video--cx231xx--cx231xx-dvb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9066 function register_dvb thread 0
+----------------------------------------------------
+  *(signed int (*)( struct dvb_demux_feed *) *)__cil_tmp58 = (unsigned long int)(&stop_feed)
+
+State 49 file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--media--video--cx231xx--cx231xx-dvb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9066 function register_dvb thread 0
+----------------------------------------------------
+  *(signed int (*)( struct dvb_demux_feed *) *)__cil_tmp58 = (unsigned long int)(&stop_feed)
+
+State 50 file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--media--video--cx231xx--cx231xx-dvb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9066 function register_dvb thread 0
+----------------------------------------------------
+  *(signed int (*)( struct dvb_demux_feed *) *)__cil_tmp58 = (unsigned long int)(&stop_feed)
+
+State 51 file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--media--video--cx231xx--cx231xx-dvb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9066 function register_dvb thread 0
+----------------------------------------------------
+  *(signed int (*)( struct dvb_demux_feed *) *)__cil_tmp58 = (unsigned long int)(&stop_feed)
+
+State 52 file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--media--video--cx231xx--cx231xx-dvb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9066 function register_dvb thread 0
+----------------------------------------------------
+  *(signed int (*)( struct dvb_demux_feed *) *)__cil_tmp58 = (unsigned long int)(&stop_feed)
+
+State 53 file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--media--video--cx231xx--cx231xx-dvb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9066 function register_dvb thread 0
+----------------------------------------------------
+  *(signed int (*)( struct dvb_demux_feed *) *)__cil_tmp58 = (unsigned long int)(&stop_feed)
+
+State 54 file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--media--video--cx231xx--cx231xx-dvb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9066 function register_dvb thread 0
+----------------------------------------------------
+  *(signed int (*)( struct dvb_demux_feed *) *)__cil_tmp58 = (unsigned long int)(&stop_feed)
+
+State 55 file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--media--video--cx231xx--cx231xx-dvb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9066 function register_dvb thread 0
+----------------------------------------------------
+  *(signed int (*)( struct dvb_demux_feed *) *)__cil_tmp58 = (unsigned long int)(&stop_feed)
+
+State 56 file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--media--video--cx231xx--cx231xx-dvb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9088 function register_dvb thread 0
+----------------------------------------------------
+  *(signed int *)__cil_tmp69 = 256 (00000000 00000000 00000001 00000000)
+
+State 57 file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--media--video--cx231xx--cx231xx-dvb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9088 function register_dvb thread 0
+----------------------------------------------------
+  *(signed int *)__cil_tmp69 = 256 (00000000 00000000 00000001 00000000)
+
+State 58 file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--media--video--cx231xx--cx231xx-dvb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9088 function register_dvb thread 0
+----------------------------------------------------
+  *(signed int *)__cil_tmp69 = 256 (00000000 00000000 00000001 00000000)
+
+State 59 file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--media--video--cx231xx--cx231xx-dvb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9088 function register_dvb thread 0
+----------------------------------------------------
+  *(signed int *)__cil_tmp69 = 256 (00000000 00000000 00000001 00000000)
+
+State 60 file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--media--video--cx231xx--cx231xx-dvb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9092 function register_dvb thread 0
+----------------------------------------------------
+  __cil_tmp73 = (unsigned long int)(&dynamic_5_array[0])
+
+State 61 file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--media--video--cx231xx--cx231xx-dvb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9093 function register_dvb thread 0
+----------------------------------------------------
+  __cil_tmp74 = 11536427152467558412 (10100000 00011001 10011111 01011111 01100000 00000000 00000000 00001100)
+
+State 62 file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--media--video--cx231xx--cx231xx-dvb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9094 function register_dvb thread 0
+----------------------------------------------------
+  *( struct dmx_demux * *)__cil_tmp72 = (unsigned long int)(( struct dmx_demux *)11536427152467558412)
+
+State 63 file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--media--video--cx231xx--cx231xx-dvb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9094 function register_dvb thread 0
+----------------------------------------------------
+  *( struct dmx_demux * *)__cil_tmp72 = (unsigned long int)(( struct dmx_demux *)11536427152467558412)
+
+State 64 file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--media--video--cx231xx--cx231xx-dvb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9094 function register_dvb thread 0
+----------------------------------------------------
+  *( struct dmx_demux * *)__cil_tmp72 = (unsigned long int)(( struct dmx_demux *)11536427152467558412)
+
+State 65 file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--media--video--cx231xx--cx231xx-dvb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9094 function register_dvb thread 0
+----------------------------------------------------
+  *( struct dmx_demux * *)__cil_tmp72 = (unsigned long int)(( struct dmx_demux *)11536427152467558412)
+
+State 66 file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--media--video--cx231xx--cx231xx-dvb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9094 function register_dvb thread 0
+----------------------------------------------------
+  *( struct dmx_demux * *)__cil_tmp72 = (unsigned long int)(( struct dmx_demux *)11536427152467558412)
+
+State 67 file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--media--video--cx231xx--cx231xx-dvb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9094 function register_dvb thread 0
+----------------------------------------------------
+  *( struct dmx_demux * *)__cil_tmp72 = (unsigned long int)(( struct dmx_demux *)11536427152467558412)
+
+State 68 file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--media--video--cx231xx--cx231xx-dvb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9094 function register_dvb thread 0
+----------------------------------------------------
+  *( struct dmx_demux * *)__cil_tmp72 = (unsigned long int)(( struct dmx_demux *)11536427152467558412)
+
+State 69 file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--media--video--cx231xx--cx231xx-dvb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9094 function register_dvb thread 0
+----------------------------------------------------
+  *( struct dmx_demux * *)__cil_tmp72 = (unsigned long int)(( struct dmx_demux *)11536427152467558412)
+
+State 70 file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--media--video--cx231xx--cx231xx-dvb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9098 function register_dvb thread 0
+----------------------------------------------------
+  *(signed int *)__cil_tmp77 = 0 (00000000 00000000 00000000 00000000)
+
+State 71 file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--media--video--cx231xx--cx231xx-dvb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9098 function register_dvb thread 0
+----------------------------------------------------
+  *(signed int *)__cil_tmp77 = 0 (00000000 00000000 00000000 00000000)
+
+State 72 file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--media--video--cx231xx--cx231xx-dvb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9098 function register_dvb thread 0
+----------------------------------------------------
+  *(signed int *)__cil_tmp77 = 0 (00000000 00000000 00000000 00000000)
+
+State 73 file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--media--video--cx231xx--cx231xx-dvb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9098 function register_dvb thread 0
+----------------------------------------------------
+  *(signed int *)__cil_tmp77 = 0 (00000000 00000000 00000000 00000000)
+
+State 74 file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--media--video--cx231xx--cx231xx-dvb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9123 function register_dvb thread 0
+----------------------------------------------------
+  *(signed int *)__cil_tmp91 = 1 (00000000 00000000 00000000 00000001)
+
+State 75 file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--media--video--cx231xx--cx231xx-dvb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9123 function register_dvb thread 0
+----------------------------------------------------
+  *(signed int *)__cil_tmp91 = 1 (00000000 00000000 00000000 00000001)
+
+State 76 file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--media--video--cx231xx--cx231xx-dvb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9123 function register_dvb thread 0
+----------------------------------------------------
+  *(signed int *)__cil_tmp91 = 1 (00000000 00000000 00000000 00000001)
+
+State 77 file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--media--video--cx231xx--cx231xx-dvb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9123 function register_dvb thread 0
+----------------------------------------------------
+  *(signed int *)__cil_tmp91 = 1 (00000000 00000000 00000000 00000001)
+
+State 78 file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--media--video--cx231xx--cx231xx-dvb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9128 function register_dvb thread 0
+----------------------------------------------------
+  __cil_tmp96 = (signed int (*)( struct dmx_demux *,  struct dmx_frontend *))11536145677490847785
+
+State 79 file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--media--video--cx231xx--cx231xx-dvb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 12 function reach_error thread 0
+----------------------------------------------------
+Violated property:
+  file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--media--video--cx231xx--cx231xx-dvb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 12 function reach_error
+  assertion 0
+  0
+
+
+VERIFICATION FAILED
+
+Bug found (k = 1)
+
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--media--video--cx231xx--cx231xx-dvb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i:10865:1: warning: return type of 'main' is not 'int' [-Wmain-return-type]
+void main(void)
+^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--media--video--cx231xx--cx231xx-dvb.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i:10865:1: note: change return type to 'int'
+void main(void)
+^~~~
+int
+
+FALSE_REACH

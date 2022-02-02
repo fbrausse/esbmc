@@ -1,0 +1,189 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/ldv-linux-3.14/linux-3.14_complex_emg_linux-alloc-spinlock_drivers-net-ethernet-mellanox-mlx5-core-mlx5_core.cil.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-linux-3.14/linux-3.14_complex_emg_linux-alloc-spinlock_drivers-net-ethernet-mellanox-mlx5-core-mlx5_core.cil.i --64 --witness-output linux-3.14_complex_emg_linux-alloc-spinlock_drivers-net-ethernet-mellanox-mlx5-core-mlx5_core.cil.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 64-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/ldv-linux-3.14/linux-3.14_complex_emg_linux-alloc-spinlock_drivers-net-ethernet-mellanox-mlx5-core-mlx5_core.cil.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 2.176s
+GOTO program processing time: 0.773s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.213s (1243 assignments)
+Slicing time: 0.002s (removed 940 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (303 assignments)
+BMC program time: 0.215s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.221s (1243 assignments)
+Slicing time: 0.002s (removed 940 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (303 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.071s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.071s
+Runtime decision procedure: 10.116s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 13  iteration  1   file linux-3.14_complex_emg_linux-alloc-spinlock_drivers-net-ethernet-mellanox-mlx5-core-mlx5_core.cil.i line 5901 function main
+Unwinding loop 13  iteration  2   file linux-3.14_complex_emg_linux-alloc-spinlock_drivers-net-ethernet-mellanox-mlx5-core-mlx5_core.cil.i line 5901 function main
+Unwinding loop 15  iteration  1   file string.c line 96 function strcmp
+Unwinding loop 15  iteration  2   file string.c line 96 function strcmp
+Not unwinding 
+Unwinding loop 64  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 64  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 25  iteration  1   file linux-3.14_complex_emg_linux-alloc-spinlock_drivers-net-ethernet-mellanox-mlx5-core-mlx5_core.cil.i line 8065 function mlx5_alloc_cmd_msg
+Unwinding loop 64  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 64  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 25  iteration  2   file linux-3.14_complex_emg_linux-alloc-spinlock_drivers-net-ethernet-mellanox-mlx5-core-mlx5_core.cil.i line 8065 function mlx5_alloc_cmd_msg
+Unwinding loop 64  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 64  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Not unwinding 
+Unwinding loop 26  iteration  1   file linux-3.14_complex_emg_linux-alloc-spinlock_drivers-net-ethernet-mellanox-mlx5-core-mlx5_core.cil.i line 8081 function mlx5_alloc_cmd_msg
+Unwinding loop 26  iteration  2   file linux-3.14_complex_emg_linux-alloc-spinlock_drivers-net-ethernet-mellanox-mlx5-core-mlx5_core.cil.i line 8081 function mlx5_alloc_cmd_msg
+Not unwinding 
+Unwinding loop 14  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 14  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 23  iteration  1   file linux-3.14_complex_emg_linux-alloc-spinlock_drivers-net-ethernet-mellanox-mlx5-core-mlx5_core.cil.i line 7878 function mlx5_copy_to_msg
+Unwinding loop 14  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 14  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 23  iteration  2   file linux-3.14_complex_emg_linux-alloc-spinlock_drivers-net-ethernet-mellanox-mlx5-core-mlx5_core.cil.i line 7878 function mlx5_copy_to_msg
+Unwinding loop 14  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 14  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Not unwinding 
+Unwinding loop 64  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 64  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 25  iteration  1   file linux-3.14_complex_emg_linux-alloc-spinlock_drivers-net-ethernet-mellanox-mlx5-core-mlx5_core.cil.i line 8065 function mlx5_alloc_cmd_msg
+Unwinding loop 64  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 64  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 25  iteration  2   file linux-3.14_complex_emg_linux-alloc-spinlock_drivers-net-ethernet-mellanox-mlx5-core-mlx5_core.cil.i line 8065 function mlx5_alloc_cmd_msg
+Unwinding loop 64  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 64  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Not unwinding 
+Unwinding loop 26  iteration  1   file linux-3.14_complex_emg_linux-alloc-spinlock_drivers-net-ethernet-mellanox-mlx5-core-mlx5_core.cil.i line 8081 function mlx5_alloc_cmd_msg
+Unwinding loop 26  iteration  2   file linux-3.14_complex_emg_linux-alloc-spinlock_drivers-net-ethernet-mellanox-mlx5-core-mlx5_core.cil.i line 8081 function mlx5_alloc_cmd_msg
+Not unwinding 
+Unwinding loop 64  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 64  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 64  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 64  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 14  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 14  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 24  iteration  1   file linux-3.14_complex_emg_linux-alloc-spinlock_drivers-net-ethernet-mellanox-mlx5-core-mlx5_core.cil.i line 7925 function mlx5_copy_from_msg
+Unwinding loop 14  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 14  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 24  iteration  2   file linux-3.14_complex_emg_linux-alloc-spinlock_drivers-net-ethernet-mellanox-mlx5-core-mlx5_core.cil.i line 7925 function mlx5_copy_from_msg
+Unwinding loop 14  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 14  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Not unwinding 
+Unwinding loop 27  iteration  1   file linux-3.14_complex_emg_linux-alloc-spinlock_drivers-net-ethernet-mellanox-mlx5-core-mlx5_core.cil.i line 8106 function mlx5_free_cmd_msg
+Unwinding loop 27  iteration  2   file linux-3.14_complex_emg_linux-alloc-spinlock_drivers-net-ethernet-mellanox-mlx5-core-mlx5_core.cil.i line 8106 function mlx5_free_cmd_msg
+Not unwinding 
+Unwinding loop 27  iteration  1   file linux-3.14_complex_emg_linux-alloc-spinlock_drivers-net-ethernet-mellanox-mlx5-core-mlx5_core.cil.i line 8106 function mlx5_free_cmd_msg
+Unwinding loop 27  iteration  2   file linux-3.14_complex_emg_linux-alloc-spinlock_drivers-net-ethernet-mellanox-mlx5-core-mlx5_core.cil.i line 8106 function mlx5_free_cmd_msg
+Not unwinding 
+Unwinding loop 64  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 64  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 64  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 64  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 64  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 64  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 64  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 64  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 64  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 64  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 64  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 64  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+**** WARNING: no body for function sscanf
+Unwinding loop 64  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 64  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Not unwinding 
+Symex completed in: 3.312s (7729 assignments)
+Slicing time: 0.052s (removed 6119 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (1610 assignments)
+BMC program time: 3.364s
+No bug has been found in the base case
+*** Checking forward condition, k = 3
+Starting Bounded Model Checking
+Unwinding loop 13  iteration  1   file linux-3.14_complex_emg_linux-alloc-spinlock_drivers-net-ethernet-mellanox-mlx5-core-mlx5_core.cil.i line 5901 function main
+Unwinding loop 13  iteration  2   file linux-3.14_complex_emg_linux-alloc-spinlock_drivers-net-ethernet-mellanox-mlx5-core-mlx5_core.cil.i line 5901 function main
+Unwinding loop 15  iteration  1   file string.c line 96 function strcmp
+Unwinding loop 15  iteration  2   file string.c line 96 function strcmp
+Not unwinding 
+Unwinding loop 64  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 64  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 25  iteration  1   file linux-3.14_complex_emg_linux-alloc-spinlock_drivers-net-ethernet-mellanox-mlx5-core-mlx5_core.cil.i line 8065 function mlx5_alloc_cmd_msg
+Unwinding loop 64  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 64  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 25  iteration  2   file linux-3.14_complex_emg_linux-alloc-spinlock_drivers-net-ethernet-mellanox-mlx5-core-mlx5_core.cil.i line 8065 function mlx5_alloc_cmd_msg
+Unwinding loop 64  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 64  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Not unwinding 
+Unwinding loop 26  iteration  1   file linux-3.14_complex_emg_linux-alloc-spinlock_drivers-net-ethernet-mellanox-mlx5-core-mlx5_core.cil.i line 8081 function mlx5_alloc_cmd_msg
+Unwinding loop 26  iteration  2   file linux-3.14_complex_emg_linux-alloc-spinlock_drivers-net-ethernet-mellanox-mlx5-core-mlx5_core.cil.i line 8081 function mlx5_alloc_cmd_msg
+Not unwinding 
+Unwinding loop 14  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 14  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 23  iteration  1   file linux-3.14_complex_emg_linux-alloc-spinlock_drivers-net-ethernet-mellanox-mlx5-core-mlx5_core.cil.i line 7878 function mlx5_copy_to_msg
+Unwinding loop 14  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 14  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 23  iteration  2   file linux-3.14_complex_emg_linux-alloc-spinlock_drivers-net-ethernet-mellanox-mlx5-core-mlx5_core.cil.i line 7878 function mlx5_copy_to_msg
+Unwinding loop 14  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 14  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Not unwinding 
+Unwinding loop 64  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 64  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 25  iteration  1   file linux-3.14_complex_emg_linux-alloc-spinlock_drivers-net-ethernet-mellanox-mlx5-core-mlx5_core.cil.i line 8065 function mlx5_alloc_cmd_msg
+Unwinding loop 64  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 64  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 25  iteration  2   file linux-3.14_complex_emg_linux-alloc-spinlock_drivers-net-ethernet-mellanox-mlx5-core-mlx5_core.cil.i line 8065 function mlx5_alloc_cmd_msg
+Unwinding loop 64  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 64  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Not unwinding 
+Unwinding loop 26  iteration  1   file linux-3.14_complex_emg_linux-alloc-spinlock_drivers-net-ethernet-mellanox-mlx5-core-mlx5_core.cil.i l
+../sv-benchmarks/c/ldv-linux-3.14/linux-3.14_complex_emg_linux-alloc-spinlock_drivers-net-ethernet-mellanox-mlx5-core-mlx5_core.cil.i:10087:10: warning: incompatible pointer to integer conversion returning 'void *' from a function with result type 'unsigned long' [-Wint-conversion]
+  return tmp;
+         ^~~
+
+Unknown

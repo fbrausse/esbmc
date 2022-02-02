@@ -1,0 +1,265 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/ldv-challenges/linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-net-usb-asix.cil.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-challenges/linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-net-usb-asix.cil.i --64 --witness-output linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-net-usb-asix.cil.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 64-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/ldv-challenges/linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-net-usb-asix.cil.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.969s
+GOTO program processing time: 0.345s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.452s (1485 assignments)
+Slicing time: 0.003s (removed 1069 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (416 assignments)
+BMC program time: 0.455s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.487s (1485 assignments)
+Slicing time: 0.003s (removed 1069 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (416 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.130s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.130s
+Runtime decision procedure: 9.574s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 12  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-net-usb-asix.cil.i line 8151 function main
+Unwinding loop 12  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-net-usb-asix.cil.i line 8151 function main
+Unwinding loop 4  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-net-usb-asix.cil.i line 10649 function asix_get_eeprom
+Unwinding loop 4  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-net-usb-asix.cil.i line 10649 function asix_get_eeprom
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 5  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-net-usb-asix.cil.i line 10791 function asix_set_eeprom
+Unwinding loop 5  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-net-usb-asix.cil.i line 10791 function asix_set_eeprom
+Not unwinding 
+Unwinding loop 4  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-net-usb-asix.cil.i line 10649 function asix_get_eeprom
+Unwinding loop 4  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-net-usb-asix.cil.i line 10649 function asix_get_eeprom
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 18  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 18  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 5  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-net-usb-asix.cil.i line 10791 function asix_set_eeprom
+Unwinding loop 5  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-net-usb-asix.cil.i line 10791 function asix_set_eeprom
+Not unwinding 
+No target candidate for function call *arg0
+Unwinding loop 18  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 18  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 15  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-net-usb-asix.cil.i line 10029 function asix_rx_fixup_internal
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 15  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-net-usb-asix.cil.i line 10029 function asix_rx_fixup_internal
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Not unwinding 
+Unwinding loop 13  iteration  1   file string.c line 292 function memmove
+Unwinding loop 13  iteration  2   file string.c line 292 function memmove
+Not unwinding 
+Unwinding loop 14  iteration  1   file string.c line 297 function memmove
+Unwinding loop 14  iteration  2   file string.c line 297 function memmove
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+No target candidate for function call *arg0
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 18  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 18  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 3  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-net-usb-asix.cil.i line 5874 function asix_get_phyid
+Unwinding loop 3  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-net-usb-asix.cil.i line 5874 function asix_get_phyid
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 15  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-net-usb-asix.cil.i line 10029 function asix_rx_fixup_internal
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 15  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-net-usb-asix.cil.i line 10029 function asix_rx_fixup_internal
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Not unwinding 
+Unwinding loop 13  iteration  1   file string.c line 292 function memmove
+Unwinding loop 13  iteration  2   file string.c line 292 function memmove
+Not unwinding 
+Unwinding loop 14  iteration  1   file string.c line 297 function memmove
+Unwinding loop 14  iteration  2   file string.c line 297 function memmove
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+No target candidate for function call *arg0
+Unwinding loop 7  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-net-usb-asix.cil.i line 6081 function ax88172_bind
+Unwinding loop 7  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-net-usb-asix.cil.i line 6081 function ax88172_bind
+Not unwinding 
+No target candidate for function call *arg0
+No target candidate for function call *arg0
+No target candidate for function call *arg0
+No target candidate for function call *arg0
+Unwinding loop 9  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-net-usb-asix.cil.i line 6474 function ax88772_bind
+Unwinding loop 9  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-net-usb-asix.cil.i line 6474 function ax88772_bind
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 3  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-net-usb-asix.cil.i line 5874 function asix_get_phyid
+Unwinding loop 3  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-net-usb-asix.cil.i line 5874 function asix_get_phyid
+Not unwinding 
+Unwinding loop 18  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 18  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 15  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-net-usb-asix.cil.i line 10029 function asix_rx_fixup_internal
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 15  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-net-usb-asix.cil.i line 10029 function asix_rx_fixup_internal
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Not unwinding 
+Unwinding loop 13  iteration  1   file string.c line 292 function memmove
+Unwinding loop 13  iteration  2   file string.c line 292 function memmove
+Not unwinding 
+Unwinding loop 14  iteration  1   file string.c line 297 function memmove
+Unwinding loop 14  iteration  2   file string.c line 297 function memmove
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+No target candidate for function call *arg0
+No target candidate for function call *arg0
+Not unwinding 
+Symex completed in: 21.578s (17022 assignments)
+Slicing time: 0.123s (removed 13641 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (3381 assignments)
+BMC program time: 21.701s
+No bug has been found in the base case
+*** Checking forward condition, k = 3
+Starting Bounded Model Checking
+Unwinding loop 12  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-net-usb-asix.cil.i line 8151 function main
+Unwinding loop 12  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-net-usb-asix.cil.i line 8151 function main
+Unwinding loop 4  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-net-usb-asix.cil.i line 10649 function asix_get_eeprom
+Unwinding loop 4  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-net-usb-asix.cil.i line 10649 function asix_get_eeprom
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 5  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-net-usb-asix.cil.i line 10791 function asix_set_eeprom
+Unwinding loop 5  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-net-usb-asix.cil.i line 10791 function asix_set_eeprom
+Not unwinding 
+Unwinding loop 4  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-net-usb-asix.cil.i line 10649 function asix_get_eeprom
+Unwinding loop 4  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-net-usb-asix.cil.i line 10649 function asix_get_eeprom
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 18  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 18  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 5  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-net-usb-asix.cil.i line 10791 function asix_set_eeprom
+Unwinding loop 5  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-net-usb-asix.cil.i line 10791 function asix_set_eeprom
+Not unwinding 
+No target candidate for function call *arg0
+Unwinding loop 18  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 18  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 15  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-net-usb-asix.cil.i line 10029 function asix_rx_fixup_internal
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 15  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-net-usb-asix.cil.i line 10029 function asix_rx_fixup_internal
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Not unwinding 
+Unwinding loop 13  iteration  1   file string.c line 292 function memmove
+Unwinding loop 13  iteration  2   file string.c line 292 function memmove
+Not unwinding 
+Unwinding loop 14  iteration  1   file string.c line 297 function memmove
+Unwinding loop 14  iteration  2   file string.c line 297 function memmove
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+No target candidate for function call *arg0
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 18  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 18  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 3  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-net-usb-asix.cil.i line 5874 function asix_get_phyid
+Unwinding loop 3  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-net-usb-asix.cil.i line 5874 function asix_get_phyid
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 15  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-net-usb-asix.cil.i line 10029 function asix_rx_fixup_internal
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 15  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-net-usb-asix.cil.i line 10029 function asix_rx_fixup_internal
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Not unwinding 
+Unwinding loop 13  iteration  1   file string.c line 292 function memmove
+Unwinding loop 13  iteration  2   file string.c line 292 function memmove
+Not unwinding 
+Unwinding loop 14  iteration  1   file string.c line 297 function memmove
+Unwinding loop 14  iteration  2   file string.c line 297 function memmove
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 funct
+
+Unknown

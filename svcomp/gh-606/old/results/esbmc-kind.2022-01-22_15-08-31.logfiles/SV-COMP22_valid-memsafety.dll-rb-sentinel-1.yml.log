@@ -1,0 +1,151 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/valid-memsafety.prp -s kinduction --arch 32 ../sv-benchmarks/c/forester-heap/dll-rb-sentinel-1.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/forester-heap/dll-rb-sentinel-1.i --32 --witness-output dll-rb-sentinel-1.i.graphml --memory-leak-check --no-assertions --incremental-bmc 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/forester-heap/dll-rb-sentinel-1.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.164s
+GOTO program processing time: 0.001s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.011s (164 assignments)
+Slicing time: 0.001s (removed 53 assignments)
+Generated 88 VCC(s), 48 remaining after simplification (111 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.004s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.004s
+Runtime decision procedure: 0.208s
+BMC program time: 0.225s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.011s (164 assignments)
+Slicing time: 0.001s (removed 53 assignments)
+Generated 91 VCC(s), 51 remaining after simplification (111 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.003s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.003s
+Runtime decision procedure: 0.196s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file dll-rb-sentinel-1.i line 1011 function main
+Unwinding loop 1  iteration  2   file dll-rb-sentinel-1.i line 1011 function main
+Not unwinding 
+Unwinding loop 2  iteration  1   file dll-rb-sentinel-1.i line 1043 function main
+Unwinding loop 2  iteration  2   file dll-rb-sentinel-1.i line 1043 function main
+Not unwinding 
+Unwinding loop 3  iteration  1   file dll-rb-sentinel-1.i line 1056 function main
+Unwinding loop 3  iteration  2   file dll-rb-sentinel-1.i line 1056 function main
+Not unwinding 
+Symex completed in: 0.084s (737 assignments)
+Slicing time: 0.028s (removed 72 assignments)
+Generated 688 VCC(s), 405 remaining after simplification (665 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.020s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.020s
+Runtime decision procedure: 0.852s
+Building error trace
+
+Counterexample:
+
+State 2 file dll-rb-sentinel-1.i line 999 function main thread 0
+----------------------------------------------------
+  null->next = 0
+
+State 4 file dll-rb-sentinel-1.i line 1000 function main thread 0
+----------------------------------------------------
+  null->prev = 0
+
+State 6 file dll-rb-sentinel-1.i line 1001 function main thread 0
+----------------------------------------------------
+  null->colour = 1 (00000000 00000000 00000000 00000001)
+
+State 8 file dll-rb-sentinel-1.i line 1004 function main thread 0
+----------------------------------------------------
+  list->next = ( struct TSLL *)((void *)(&dynamic_13_value))
+
+State 10 file dll-rb-sentinel-1.i line 1005 function main thread 0
+----------------------------------------------------
+  list->prev = ( struct TSLL *)((void *)(&dynamic_13_value))
+
+State 12 file dll-rb-sentinel-1.i line 1006 function main thread 0
+----------------------------------------------------
+  list->colour = 1 (00000000 00000000 00000000 00000001)
+
+State 14 file dll-rb-sentinel-1.i line 1014 function main thread 0
+----------------------------------------------------
+  end->next = ( struct TSLL *)((void *)(&dynamic_16_value))
+
+State 17 file dll-rb-sentinel-1.i line 1015 function main thread 0
+----------------------------------------------------
+  end->next->prev = ( struct TSLL *)((void *)(&dynamic_14_value))
+
+State 19 file dll-rb-sentinel-1.i line 1016 function main thread 0
+----------------------------------------------------
+  end = dynamic_14_value.next
+
+State 21 file dll-rb-sentinel-1.i line 1017 function main thread 0
+----------------------------------------------------
+  end->next = ( struct TSLL *)((void *)(&dynamic_13_value))
+
+State 23 file dll-rb-sentinel-1.i line 1021 function main thread 0
+----------------------------------------------------
+  end->colour = 1 (00000000 00000000 00000000 00000001)
+
+State 33 file dll-rb-sentinel-1.i line 1052 function main thread 0
+----------------------------------------------------
+  end = dynamic_14_value.next
+
+State 51 file dll-rb-sentinel-1.i line 1052 function main thread 0
+----------------------------------------------------
+  end = dynamic_16_value.next
+
+State 54 file dll-rb-sentinel-1.i line 1067 function main thread 0
+----------------------------------------------------
+  end = dynamic_14_value.next
+
+State 57 file dll-rb-sentinel-1.i line 1069 function main thread 0
+----------------------------------------------------
+  list = &dynamic_16_value
+
+State 75 file dll-rb-sentinel-1.i line 1067 function main thread 0
+----------------------------------------------------
+  end = dynamic_16_value.next
+
+State 91 file dll-rb-sentinel-1.i line 1069 function main thread 0
+----------------------------------------------------
+  list = &dynamic_13_value
+
+State 92 file dll-rb-sentinel-1.i line 1074 function main thread 0
+----------------------------------------------------
+Violated property:
+  file dll-rb-sentinel-1.i line 1074 function main
+  dereference failure: forgotten memory: dynamic_13_value
+
+
+VERIFICATION FAILED
+
+Bug found (k = 3)
+
+
+FALSE_MEMTRACK

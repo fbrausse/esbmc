@@ -1,0 +1,505 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i --64 --witness-output linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 64-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 2.309s
+GOTO program processing time: 0.725s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.125s (1232 assignments)
+Slicing time: 0.002s (removed 1076 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (156 assignments)
+BMC program time: 0.127s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.128s (1232 assignments)
+Slicing time: 0.002s (removed 1076 assignments)
+Generated 9 VCC(s), 9 remaining after simplification (156 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.020s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.020s
+Runtime decision procedure: 2.096s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 230  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 230  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 230  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 230  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 230  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 230  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 230  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 230  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 230  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 230  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 230  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 230  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 230  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 230  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 230  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 6  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 5756 function main
+Unwinding loop 230  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 230  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 230  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 230  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 230  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 52  iteration  1   file string.c line 96 function strcmp
+Unwinding loop 52  iteration  2   file string.c line 96 function strcmp
+Not unwinding 
+Unwinding loop 52  iteration  1   file string.c line 96 function strcmp
+Unwinding loop 52  iteration  2   file string.c line 96 function strcmp
+Not unwinding 
+Unwinding loop 74  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10032 function node_show
+Unwinding loop 74  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10032 function node_show
+Not unwinding 
+No target candidate for function call *dev->gpu->kfd2kgd->get_max_engine_clock_in_mhz
+No target candidate for function call *dev->gpu->kfd2kgd->get_fw_version
+Unwinding loop 230  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 230  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 230  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 230  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 230  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 230  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 230  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 230  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 107  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 13177 function kfd_lookup_process_by_pasid
+Unwinding loop 106  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 13170 function kfd_lookup_process_by_pasid
+Unwinding loop 106  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 13170 function kfd_lookup_process_by_pasid
+Not unwinding 
+Unwinding loop 107  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 13177 function kfd_lookup_process_by_pasid
+Unwinding loop 106  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 13170 function kfd_lookup_process_by_pasid
+Unwinding loop 106  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 13170 function kfd_lookup_process_by_pasid
+Not unwinding 
+Not unwinding 
+Unwinding loop 207  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 21029 function kfd_signal_event_interrupt
+Unwinding loop 206  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 21022 function kfd_signal_event_interrupt
+Unwinding loop 199  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 20528 function lookup_event_by_id
+Unwinding loop 199  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 20528 function lookup_event_by_id
+Not unwinding 
+Unwinding loop 205  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 20892 function set_event
+Unwinding loop 205  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 20892 function set_event
+Not unwinding 
+Unwinding loop 206  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 21022 function kfd_signal_event_interrupt
+Unwinding loop 199  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 20528 function lookup_event_by_id
+Unwinding loop 199  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 20528 function lookup_event_by_id
+Not unwinding 
+Unwinding loop 205  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 20892 function set_event
+Unwinding loop 205  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 20892 function set_event
+Not unwinding 
+Not unwinding 
+Unwinding loop 107  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 13177 function kfd_lookup_process_by_pasid
+Unwinding loop 106  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 13170 function kfd_lookup_process_by_pasid
+Unwinding loop 106  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 13170 function kfd_lookup_process_by_pasid
+Not unwinding 
+Unwinding loop 107  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 13177 function kfd_lookup_process_by_pasid
+Unwinding loop 106  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 13170 function kfd_lookup_process_by_pasid
+Unwinding loop 106  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 13170 function kfd_lookup_process_by_pasid
+Not unwinding 
+Not unwinding 
+Unwinding loop 199  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 20528 function lookup_event_by_id
+Unwinding loop 199  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 20528 function lookup_event_by_id
+Not unwinding 
+Unwinding loop 205  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 20892 function set_event
+Unwinding loop 205  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 20892 function set_event
+Not unwinding 
+Unwinding loop 107  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 13177 function kfd_lookup_process_by_pasid
+Unwinding loop 106  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 13170 function kfd_lookup_process_by_pasid
+Unwinding loop 106  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 13170 function kfd_lookup_process_by_pasid
+Not unwinding 
+Unwinding loop 107  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 13177 function kfd_lookup_process_by_pasid
+Unwinding loop 106  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 13170 function kfd_lookup_process_by_pasid
+Unwinding loop 106  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 13170 function kfd_lookup_process_by_pasid
+Not unwinding 
+Not unwinding 
+Unwinding loop 213  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 21480 function lookup_events_by_type_and_signal
+Unwinding loop 212  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 21474 function lookup_events_by_type_and_signal
+Unwinding loop 205  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 20892 function set_event
+Unwinding loop 205  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 20892 function set_event
+Not unwinding 
+Unwinding loop 212  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 21474 function lookup_events_by_type_and_signal
+Unwinding loop 205  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 20892 function set_event
+Unwinding loop 205  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 20892 function set_event
+Not unwinding 
+Not unwinding 
+Unwinding loop 213  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 21480 function lookup_events_by_type_and_signal
+Unwinding loop 212  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 21474 function lookup_events_by_type_and_signal
+Unwinding loop 205  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 20892 function set_event
+Unwinding loop 205  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 20892 function set_event
+Not unwinding 
+Unwinding loop 212  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 21474 function lookup_events_by_type_and_signal
+Unwinding loop 205  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 20892 function set_event
+Unwinding loop 205  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 20892 function set_event
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Unwinding loop 230  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 230  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 230  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 230  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 230  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 73  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 9981 function kfd_cache_show
+Unwinding loop 73  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 9981 function kfd_cache_show
+Not unwinding 
+Unwinding loop 230  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 230  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 230  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 230  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 230  iteration  1   file string.c line 272 function __memset_impl
+No target candidate for function call *dev->device_info->event_interrupt_class->interrupt_isr
+Unwinding loop 51  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 51  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+No target candidate for function call *dqm->ops.uninitialize
+Unwinding loop 27  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10792 function kfd_topology_remove_device
+Unwinding loop 76  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10139 function kfd_remove_sysfs_node_entry
+Unwinding loop 76  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10139 function kfd_remove_sysfs_node_entry
+Not unwinding 
+Unwinding loop 77  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10161 function kfd_remove_sysfs_node_entry
+Unwinding loop 77  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10161 function kfd_remove_sysfs_node_entry
+Not unwinding 
+Unwinding loop 78  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10183 function kfd_remove_sysfs_node_entry
+Unwinding loop 78  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10183 function kfd_remove_sysfs_node_entry
+Not unwinding 
+Unwinding loop 67  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 9750 function kfd_release_topology_device
+Unwinding loop 67  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 9750 function kfd_release_topology_device
+Not unwinding 
+Unwinding loop 68  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 9761 function kfd_release_topology_device
+Unwinding loop 68  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 9761 function kfd_release_topology_device
+Not unwinding 
+Unwinding loop 69  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 9772 function kfd_release_topology_device
+Unwinding loop 69  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 9772 function kfd_release_topology_device
+Not unwinding 
+Unwinding loop 85  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10442 function kfd_remove_sysfs_node_tree
+Unwinding loop 76  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10139 function kfd_remove_sysfs_node_entry
+Unwinding loop 76  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10139 function kfd_remove_sysfs_node_entry
+Not unwinding 
+Unwinding loop 77  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10161 function kfd_remove_sysfs_node_entry
+Unwinding loop 77  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10161 function kfd_remove_sysfs_node_entry
+Not unwinding 
+Unwinding loop 78  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10183 function kfd_remove_sysfs_node_entry
+Unwinding loop 78  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10183 function kfd_remove_sysfs_node_entry
+Not unwinding 
+Unwinding loop 85  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10442 function kfd_remove_sysfs_node_tree
+Unwinding loop 76  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10139 function kfd_remove_sysfs_node_entry
+Unwinding loop 76  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10139 function kfd_remove_sysfs_node_entry
+Not unwinding 
+Unwinding loop 77  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10161 function kfd_remove_sysfs_node_entry
+Unwinding loop 77  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10161 function kfd_remove_sysfs_node_entry
+Not unwinding 
+Unwinding loop 78  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10183 function kfd_remove_sysfs_node_entry
+Unwinding loop 78  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10183 function kfd_remove_sysfs_node_entry
+Not unwinding 
+Not unwinding 
+Unwinding loop 84  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10421 function kfd_build_sysfs_node_tree
+Unwinding loop 81  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10327 function kfd_build_sysfs_node_entry
+Unwinding loop 81  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10327 function kfd_build_sysfs_node_entry
+Not unwinding 
+Unwinding loop 82  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10359 function kfd_build_sysfs_node_entry
+Unwinding loop 82  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10359 function kfd_build_sysfs_node_entry
+Not unwinding 
+Unwinding loop 83  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10392 function kfd_build_sysfs_node_entry
+Unwinding loop 83  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10392 function kfd_build_sysfs_node_entry
+Not unwinding 
+Unwinding loop 84  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10421 function kfd_build_sysfs_node_tree
+Unwinding loop 81  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10327 function kfd_build_sysfs_node_entry
+Unwinding loop 81  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10327 function kfd_build_sysfs_node_entry
+Not unwinding 
+Unwinding loop 82  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10359 function kfd_build_sysfs_node_entry
+Unwinding loop 82  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10359 function kfd_build_sysfs_node_entry
+Not unwinding 
+Unwinding loop 83  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10392 function kfd_build_sysfs_node_entry
+Unwinding loop 83  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10392 function kfd_build_sysfs_node_entry
+Not unwinding 
+Not unwinding 
+Unwinding loop 85  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10442 function kfd_remove_sysfs_node_tree
+Unwinding loop 76  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10139 function kfd_remove_sysfs_node_entry
+Unwinding loop 76  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10139 function kfd_remove_sysfs_node_entry
+Not unwinding 
+Unwinding loop 77  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10161 function kfd_remove_sysfs_node_entry
+Unwinding loop 77  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10161 function kfd_remove_sysfs_node_entry
+Not unwinding 
+Unwinding loop 78  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10183 function kfd_remove_sysfs_node_entry
+Unwinding loop 78  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10183 function kfd_remove_sysfs_node_entry
+Not unwinding 
+Unwinding loop 85  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10442 function kfd_remove_sysfs_node_tree
+Unwinding loop 76  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10139 function kfd_remove_sysfs_node_entry
+Unwinding loop 76  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10139 function kfd_remove_sysfs_node_entry
+Not unwinding 
+Unwinding loop 77  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10161 function kfd_remove_sysfs_node_entry
+Unwinding loop 77  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10161 function kfd_remove_sysfs_node_entry
+Not unwinding 
+Unwinding loop 78  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10183 function kfd_remove_sysfs_node_entry
+Unwinding loop 78  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10183 function kfd_remove_sysfs_node_entry
+Not unwinding 
+Not unwinding 
+Unwinding loop 27  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10792 function kfd_topology_remove_device
+Unwinding loop 76  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10139 function kfd_remove_sysfs_node_entry
+Unwinding loop 76  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10139 function kfd_remove_sysfs_node_entry
+Not unwinding 
+Unwinding loop 77  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10161 function kfd_remove_sysfs_node_entry
+Unwinding loop 77  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10161 function kfd_remove_sysfs_node_entry
+Not unwinding 
+Unwinding loop 78  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10183 function kfd_remove_sysfs_node_entry
+Unwinding loop 78  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10183 function kfd_remove_sysfs_node_entry
+Not unwinding 
+Unwinding loop 67  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 9750 function kfd_release_topology_device
+Unwinding loop 67  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 9750 function kfd_release_topology_device
+Not unwinding 
+Unwinding loop 68  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 9761 function kfd_release_topology_device
+Unwinding loop 68  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 9761 function kfd_release_topology_device
+Not unwinding 
+Unwinding loop 69  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 9772 function kfd_release_topology_device
+Unwinding loop 69  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 9772 function kfd_release_topology_device
+Not unwinding 
+Unwinding loop 85  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10442 function kfd_remove_sysfs_node_tree
+Unwinding loop 76  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10139 function kfd_remove_sysfs_node_entry
+Unwinding loop 76  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10139 function kfd_remove_sysfs_node_entry
+Not unwinding 
+Unwinding loop 77  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10161 function kfd_remove_sysfs_node_entry
+Unwinding loop 77  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10161 function kfd_remove_sysfs_node_entry
+Not unwinding 
+Unwinding loop 78  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10183 function kfd_remove_sysfs_node_entry
+Unwinding loop 78  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10183 function kfd_remove_sysfs_node_entry
+Not unwinding 
+Unwinding loop 85  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10442 function kfd_remove_sysfs_node_tree
+Unwinding loop 76  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10139 function kfd_remove_sysfs_node_entry
+Unwinding loop 76  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10139 function kfd_remove_sysfs_node_entry
+Not unwinding 
+Unwinding loop 77  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10161 function kfd_remove_sysfs_node_entry
+Unwinding loop 77  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10161 function kfd_remove_sysfs_node_entry
+Not unwinding 
+Unwinding loop 78  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10183 function kfd_remove_sysfs_node_entry
+Unwinding loop 78  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10183 function kfd_remove_sysfs_node_entry
+Not unwinding 
+Not unwinding 
+Unwinding loop 84  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10421 function kfd_build_sysfs_node_tree
+Unwinding loop 81  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10327 function kfd_build_sysfs_node_entry
+Unwinding loop 81  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10327 function kfd_build_sysfs_node_entry
+Not unwinding 
+Unwinding loop 82  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10359 function kfd_build_sysfs_node_entry
+Unwinding loop 82  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10359 function kfd_build_sysfs_node_entry
+Not unwinding 
+Unwinding loop 83  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10392 function kfd_build_sysfs_node_entry
+Unwinding loop 83  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10392 function kfd_build_sysfs_node_entry
+Not unwinding 
+Unwinding loop 84  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10421 function kfd_build_sysfs_node_tree
+Unwinding loop 81  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10327 function kfd_build_sysfs_node_entry
+Unwinding loop 81  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10327 function kfd_build_sysfs_node_entry
+Not unwinding 
+Unwinding loop 82  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10359 function kfd_build_sysfs_node_entry
+Unwinding loop 82  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10359 function kfd_build_sysfs_node_entry
+Not unwinding 
+Unwinding loop 83  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10392 function kfd_build_sysfs_node_entry
+Unwinding loop 83  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10392 function kfd_build_sysfs_node_entry
+Not unwinding 
+Not unwinding 
+Unwinding loop 85  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10442 function kfd_remove_sysfs_node_tree
+Unwinding loop 76  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10139 function kfd_remove_sysfs_node_entry
+Unwinding loop 76  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10139 function kfd_remove_sysfs_node_entry
+Not unwinding 
+Unwinding loop 77  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10161 function kfd_remove_sysfs_node_entry
+Unwinding loop 77  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10161 function kfd_remove_sysfs_node_entry
+Not unwinding 
+Unwinding loop 78  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10183 function kfd_remove_sysfs_node_entry
+Unwinding loop 78  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10183 function kfd_remove_sysfs_node_entry
+Not unwinding 
+Unwinding loop 85  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10442 function kfd_remove_sysfs_node_tree
+Unwinding loop 76  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10139 function kfd_remove_sysfs_node_entry
+Unwinding loop 76  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10139 function kfd_remove_sysfs_node_entry
+Not unwinding 
+Unwinding loop 77  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10161 function kfd_remove_sysfs_node_entry
+Unwinding loop 77  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10161 function kfd_remove_sysfs_node_entry
+Not unwinding 
+Unwinding loop 78  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10183 function kfd_remove_sysfs_node_entry
+Unwinding loop 78  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10183 function kfd_remove_sysfs_node_entry
+Not unwinding 
+Not unwinding 
+Not unwinding 
+No target candidate for function call *kfd->kfd2kgd->free_gtt_mem
+Unwinding loop 8  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 6045 function lookup_device_info
+Unwinding loop 8  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 6045 function lookup_device_info
+Not unwinding 
+Unwinding loop 230  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 230  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+No target candidate for function call *kfd->kfd2kgd->init_gtt_mem_allocation
+No target candidate for function call *gpu->kfd2kgd->get_vmem_size
+No target candidate for function call *gpu->kfd2kgd->get_vmem_size
+Unwinding loop 87  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10633 function kfd_generate_gpu_id
+Unwinding loop 87  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10633 function kfd_generate_gpu_id
+Not unwinding 
+Unwinding loop 89  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10671 function kfd_assign_gpu
+Unwinding loop 89  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10671 function kfd_assign_gpu
+Not unwinding 
+Unwinding loop 86  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10596 function kfd_debug_print_topology
+Unwinding loop 86  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10596 function kfd_debug_print_topology
+Not unwinding 
+Unwinding loop 85  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10442 function kfd_remove_sysfs_node_tree
+Unwinding loop 76  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10139 function kfd_remove_sysfs_node_entry
+Unwinding loop 76  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10139 function kfd_remove_sysfs_node_entry
+Not unwinding 
+Unwinding loop 77  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10161 function kfd_remove_sysfs_node_entry
+Unwinding loop 77  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10161 function kfd_remove_sysfs_node_entry
+Not unwinding 
+Unwinding loop 78  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10183 function kfd_remove_sysfs_node_entry
+Unwinding loop 78  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10183 function kfd_remove_sysfs_node_entry
+Not unwinding 
+Unwinding loop 85  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10442 function kfd_remove_sysfs_node_tree
+Unwinding loop 76  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10139 function kfd_remove_sysfs_node_entry
+Unwinding loop 76  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10139 function kfd_remove_sysfs_node_entry
+Not unwinding 
+Unwinding loop 77  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10161 function kfd_remove_sysfs_node_entry
+Unwinding loop 77  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10161 function kfd_remove_sysfs_node_entry
+Not unwinding 
+Unwinding loop 78  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10183 function kfd_remove_sysfs_node_entry
+Unwinding loop 78  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10183 function kfd_remove_sysfs_node_entry
+Not unwinding 
+Not unwinding 
+Unwinding loop 84  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10421 function kfd_build_sysfs_node_tree
+Unwinding loop 81  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10327 function kfd_build_sysfs_node_entry
+Unwinding loop 81  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10327 function kfd_build_sysfs_node_entry
+Not unwinding 
+Unwinding loop 82  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10359 function kfd_build_sysfs_node_entry
+Unwinding loop 82  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10359 function kfd_build_sysfs_node_entry
+Not unwinding 
+Unwinding loop 83  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10392 function kfd_build_sysfs_node_entry
+Unwinding loop 83  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10392 function kfd_build_sysfs_node_entry
+Not unwinding 
+Unwinding loop 84  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10421 function kfd_build_sysfs_node_tree
+Unwinding loop 81  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10327 function kfd_build_sysfs_node_entry
+Unwinding loop 81  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10327 function kfd_build_sysfs_node_entry
+Not unwinding 
+Unwinding loop 82  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10359 function kfd_build_sysfs_node_entry
+Unwinding loop 82  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10359 function kfd_build_sysfs_node_entry
+Not unwinding 
+Unwinding loop 83  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10392 function kfd_build_sysfs_node_entry
+Unwinding loop 83  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10392 function kfd_build_sysfs_node_entry
+Not unwinding 
+Not unwinding 
+Unwinding loop 85  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10442 function kfd_remove_sysfs_node_tree
+Unwinding loop 76  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10139 function kfd_remove_sysfs_node_entry
+Unwinding loop 76  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10139 function kfd_remove_sysfs_node_entry
+Not unwinding 
+Unwinding loop 77  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10161 function kfd_remove_sysfs_node_entry
+Unwinding loop 77  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10161 function kfd_remove_sysfs_node_entry
+Not unwinding 
+Unwinding loop 78  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10183 function kfd_remove_sysfs_node_entry
+Unwinding loop 78  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10183 function kfd_remove_sysfs_node_entry
+Not unwinding 
+Unwinding loop 85  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10442 function kfd_remove_sysfs_node_tree
+Unwinding loop 76  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10139 function kfd_remove_sysfs_node_entry
+Unwinding loop 76  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10139 function kfd_remove_sysfs_node_entry
+Not unwinding 
+Unwinding loop 77  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10161 function kfd_remove_sysfs_node_entry
+Unwinding loop 77  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10161 function kfd_remove_sysfs_node_entry
+Not unwinding 
+Unwinding loop 78  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10183 function kfd_remove_sysfs_node_entry
+Unwinding loop 78  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i line 10183 function kfd_remove_sysfs_node_entry
+Not unwinding 
+Not unwinding 
+Unwinding loop 179  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry
+../sv-benchmarks/c/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i:5150:4: warning: declaration does not declare anything [-Wmissing-declarations]
+   unsigned char ;
+   ^~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i:5154:4: warning: declaration does not declare anything [-Wmissing-declarations]
+   unsigned char ;
+   ^~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i:5157:4: warning: declaration does not declare anything [-Wmissing-declarations]
+   unsigned char ;
+   ^~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i:5159:4: warning: declaration does not declare anything [-Wmissing-declarations]
+   unsigned char ;
+   ^~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i:5164:4: warning: declaration does not declare anything [-Wmissing-declarations]
+   unsigned char ;
+   ^~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i:5168:4: warning: declaration does not declare anything [-Wmissing-declarations]
+   unsigned char ;
+   ^~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i:5171:4: warning: declaration does not declare anything [-Wmissing-declarations]
+   unsigned char ;
+   ^~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i:5173:4: warning: declaration does not declare anything [-Wmissing-declarations]
+   unsigned char ;
+   ^~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i:5187:4: warning: declaration does not declare anything [-Wmissing-declarations]
+   unsigned char ;
+   ^~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i:5196:4: warning: declaration does not declare anything [-Wmissing-declarations]
+   unsigned char ;
+   ^~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i:5210:4: warning: declaration does not declare anything [-Wmissing-declarations]
+   unsigned short ;
+   ^~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i:5214:4: warning: declaration does not declare anything [-Wmissing-declarations]
+   unsigned short ;
+   ^~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i:5224:4: warning: declaration does not declare anything [-Wmissing-declarations]
+   unsigned char ;
+   ^~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i:5228:4: warning: declaration does not declare anything [-Wmissing-declarations]
+   unsigned char ;
+   ^~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i:26111:26: warning: implicit declaration of function 'ldv_xmalloc' is invalid in C99 [-Wimplicit-function-declaration]
+  return *(union ktime *)ldv_xmalloc(sizeof(union ktime));
+                         ^
+../sv-benchmarks/c/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i:26111:11: warning: cast to 'union ktime *' from smaller integer type 'int' [-Wint-to-pointer-cast]
+  return *(union ktime *)ldv_xmalloc(sizeof(union ktime));
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i:26156:30: warning: implicit declaration of function 'ldv_xmalloc' is invalid in C99 [-Wimplicit-function-declaration]
+  return *(struct timespec *)ldv_xmalloc(sizeof(struct timespec));
+                             ^
+../sv-benchmarks/c/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i:26156:11: warning: cast to 'struct timespec *' from smaller integer type 'int' [-Wint-to-pointer-cast]
+  return *(struct timespec *)ldv_xmalloc(sizeof(struct timespec));
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Function call to "c:linux-4.2-rc1.tar.xz-32_7a-drivers--gpu--drm--amd--amdkfd--amdkfd.ko-entry_point.cil.out.i@F@unregister_process_nocpsch": number of arguments doesn't match type definition; some inconsistent rewriting occured
+
+
+Unknown

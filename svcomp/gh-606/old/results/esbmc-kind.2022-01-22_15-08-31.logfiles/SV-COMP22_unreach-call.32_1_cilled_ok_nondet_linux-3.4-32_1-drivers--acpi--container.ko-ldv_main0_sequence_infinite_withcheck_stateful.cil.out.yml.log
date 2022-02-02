@@ -1,0 +1,143 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/ldv-linux-3.4-simple/32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--acpi--container.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-linux-3.4-simple/32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--acpi--container.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i --64 --witness-output 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--acpi--container.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 64-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/ldv-linux-3.4-simple/32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--acpi--container.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.295s
+GOTO program processing time: 0.007s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.123s (233 assignments)
+Slicing time: 0.000s (removed 202 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (31 assignments)
+BMC program time: 0.123s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.015s (233 assignments)
+Slicing time: 0.001s (removed 202 assignments)
+Generated 3 VCC(s), 3 remaining after simplification (31 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.001s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.001s
+Runtime decision procedure: 0.058s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file string.c line 30 function strcpy
+Unwinding loop 1  iteration  2   file string.c line 30 function strcpy
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 30 function strcpy
+Unwinding loop 1  iteration  2   file string.c line 30 function strcpy
+Not unwinding 
+Unwinding loop 3  iteration  1   file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--acpi--container.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3788 function main
+Unwinding loop 1  iteration  1   file string.c line 30 function strcpy
+Unwinding loop 1  iteration  2   file string.c line 30 function strcpy
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 30 function strcpy
+Unwinding loop 1  iteration  2   file string.c line 30 function strcpy
+Not unwinding 
+Unwinding loop 3  iteration  2   file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--acpi--container.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3788 function main
+Unwinding loop 1  iteration  1   file string.c line 30 function strcpy
+Unwinding loop 1  iteration  2   file string.c line 30 function strcpy
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 30 function strcpy
+Unwinding loop 1  iteration  2   file string.c line 30 function strcpy
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.044s (683 assignments)
+Slicing time: 0.002s (removed 594 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (89 assignments)
+BMC program time: 0.046s
+No bug has been found in the base case
+*** Checking forward condition, k = 3
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file string.c line 30 function strcpy
+Unwinding loop 1  iteration  2   file string.c line 30 function strcpy
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 30 function strcpy
+Unwinding loop 1  iteration  2   file string.c line 30 function strcpy
+Not unwinding 
+Unwinding loop 3  iteration  1   file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--acpi--container.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3788 function main
+Unwinding loop 1  iteration  1   file string.c line 30 function strcpy
+Unwinding loop 1  iteration  2   file string.c line 30 function strcpy
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 30 function strcpy
+Unwinding loop 1  iteration  2   file string.c line 30 function strcpy
+Not unwinding 
+Unwinding loop 3  iteration  2   file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--acpi--container.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3788 function main
+Unwinding loop 1  iteration  1   file string.c line 30 function strcpy
+Unwinding loop 1  iteration  2   file string.c line 30 function strcpy
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 30 function strcpy
+Unwinding loop 1  iteration  2   file string.c line 30 function strcpy
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.046s (683 assignments)
+Slicing time: 0.002s (removed 594 assignments)
+Generated 7 VCC(s), 7 remaining after simplification (89 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.005s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.005s
+Runtime decision procedure: 0.295s
+The forward condition is unable to prove the property
+*** Checking inductive step, k = 3
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file string.c line 30 function strcpy
+Unwinding loop 1  iteration  2   file string.c line 30 function strcpy
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 30 function strcpy
+Unwinding loop 1  iteration  2   file string.c line 30 function strcpy
+Not unwinding 
+Unwinding loop 3  iteration  1   file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--acpi--container.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3788 function main
+Unwinding loop 1  iteration  1   file string.c line 30 function strcpy
+Unwinding loop 1  iteration  2   file string.c line 30 function strcpy
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 30 function strcpy
+Unwinding loop 1  iteration  2   file string.c line 30 function strcpy
+Not unwinding 
+Unwinding loop 3  iteration  2   file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--acpi--container.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3788 function main
+Unwinding loop 1  iteration  1   file string.c line 30 function strcpy
+Unwinding loop 1  iteration  2   file string.c line 30 function strcpy
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 30 function strcpy
+Unwinding loop 1  iteration  2   file string.c line 30 function strcpy
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.055s (763 assignments)
+Slicing time: 0.002s (removed 694 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (69 assignments)
+BMC program time: 0.057s
+Building successful trace
+
+VERIFICATION SUCCESSFUL
+
+Solution found by the inductive step (k = 3)
+
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--acpi--container.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i:3771:1: warning: return type of 'main' is not 'int' [-Wmain-return-type]
+void main(void)
+^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--acpi--container.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i:3771:1: note: change return type to 'int'
+void main(void)
+^~~~
+int
+
+TRUE

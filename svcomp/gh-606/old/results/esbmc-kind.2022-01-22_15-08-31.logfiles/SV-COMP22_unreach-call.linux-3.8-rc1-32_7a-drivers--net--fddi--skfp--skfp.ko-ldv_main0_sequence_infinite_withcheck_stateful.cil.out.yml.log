@@ -1,0 +1,278 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/ldv-challenges/linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-challenges/linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i --64 --witness-output linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 64-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/ldv-challenges/linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 12.860s
+GOTO program processing time: 15.815s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.031s (72 assignments)
+Slicing time: 0.000s (removed 64 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (8 assignments)
+BMC program time: 0.031s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.025s (72 assignments)
+Slicing time: 0.000s (removed 64 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (8 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.000s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.000s
+Runtime decision procedure: 0.001s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 28  iteration  1   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 8430 function main
+Unwinding loop 5  iteration  1   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 18837 function read_address
+Unwinding loop 5  iteration  2   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 18837 function read_address
+Not unwinding 
+Unwinding loop 45  iteration  1   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9665 function mac_drv_clear_txd
+Unwinding loop 42  iteration  1   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9634 function mac_drv_clear_txd
+Unwinding loop 42  iteration  2   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9634 function mac_drv_clear_txd
+Not unwinding 
+Unwinding loop 43  iteration  1   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9648 function mac_drv_clear_txd
+No target candidate for function call *ops->unmap_page
+Unwinding loop 43  iteration  2   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9648 function mac_drv_clear_txd
+No target candidate for function call *ops->unmap_page
+Not unwinding 
+No target candidate for function call *ops->unmap_page
+Unwinding loop 44  iteration  1   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9660 function mac_drv_clear_txd
+Unwinding loop 42  iteration  1   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9634 function mac_drv_clear_txd
+Unwinding loop 42  iteration  2   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9634 function mac_drv_clear_txd
+Not unwinding 
+Unwinding loop 43  iteration  1   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9648 function mac_drv_clear_txd
+No target candidate for function call *ops->unmap_page
+Unwinding loop 43  iteration  2   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9648 function mac_drv_clear_txd
+No target candidate for function call *ops->unmap_page
+Not unwinding 
+No target candidate for function call *ops->unmap_page
+Unwinding loop 44  iteration  2   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9660 function mac_drv_clear_txd
+Unwinding loop 42  iteration  1   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9634 function mac_drv_clear_txd
+Unwinding loop 42  iteration  2   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9634 function mac_drv_clear_txd
+Not unwinding 
+Unwinding loop 43  iteration  1   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9648 function mac_drv_clear_txd
+No target candidate for function call *ops->unmap_page
+Unwinding loop 43  iteration  2   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9648 function mac_drv_clear_txd
+No target candidate for function call *ops->unmap_page
+Not unwinding 
+No target candidate for function call *ops->unmap_page
+Not unwinding 
+Unwinding loop 45  iteration  2   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9665 function mac_drv_clear_txd
+Unwinding loop 42  iteration  1   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9634 function mac_drv_clear_txd
+Unwinding loop 42  iteration  2   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9634 function mac_drv_clear_txd
+Not unwinding 
+Unwinding loop 43  iteration  1   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9648 function mac_drv_clear_txd
+No target candidate for function call *ops->unmap_page
+Unwinding loop 43  iteration  2   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9648 function mac_drv_clear_txd
+No target candidate for function call *ops->unmap_page
+Not unwinding 
+No target candidate for function call *ops->unmap_page
+Unwinding loop 44  iteration  1   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9660 function mac_drv_clear_txd
+Unwinding loop 42  iteration  1   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9634 function mac_drv_clear_txd
+Unwinding loop 42  iteration  2   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9634 function mac_drv_clear_txd
+Not unwinding 
+Unwinding loop 43  iteration  1   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9648 function mac_drv_clear_txd
+No target candidate for function call *ops->unmap_page
+Unwinding loop 43  iteration  2   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9648 function mac_drv_clear_txd
+No target candidate for function call *ops->unmap_page
+Not unwinding 
+No target candidate for function call *ops->unmap_page
+Unwinding loop 44  iteration  2   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9660 function mac_drv_clear_txd
+Unwinding loop 42  iteration  1   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9634 function mac_drv_clear_txd
+Unwinding loop 42  iteration  2   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9634 function mac_drv_clear_txd
+Not unwinding 
+Unwinding loop 43  iteration  1   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9648 function mac_drv_clear_txd
+No target candidate for function call *ops->unmap_page
+Unwinding loop 43  iteration  2   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9648 function mac_drv_clear_txd
+No target candidate for function call *ops->unmap_page
+Not unwinding 
+No target candidate for function call *ops->unmap_page
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+No target candidate for function call *ops->map_page
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 69  iteration  1   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 12613 function hwm_conv_can
+Unwinding loop 69  iteration  2   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 12613 function hwm_conv_can
+Not unwinding 
+No target candidate for function call *ops->unmap_page
+Unwinding loop 23  iteration  1   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 7174 function send_queued_packets
+Unwinding loop 45  iteration  1   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9665 function mac_drv_clear_txd
+Unwinding loop 42  iteration  1   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9634 function mac_drv_clear_txd
+Unwinding loop 42  iteration  2   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9634 function mac_drv_clear_txd
+Not unwinding 
+Unwinding loop 43  iteration  1   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9648 function mac_drv_clear_txd
+No target candidate for function call *ops->unmap_page
+Unwinding loop 43  iteration  2   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9648 function mac_drv_clear_txd
+No target candidate for function call *ops->unmap_page
+Not unwinding 
+No target candidate for function call *ops->unmap_page
+Unwinding loop 44  iteration  1   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9660 function mac_drv_clear_txd
+Unwinding loop 42  iteration  1   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9634 function mac_drv_clear_txd
+Unwinding loop 42  iteration  2   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9634 function mac_drv_clear_txd
+Not unwinding 
+Unwinding loop 43  iteration  1   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9648 function mac_drv_clear_txd
+No target candidate for function call *ops->unmap_page
+Unwinding loop 43  iteration  2   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9648 function mac_drv_clear_txd
+No target candidate for function call *ops->unmap_page
+Not unwinding 
+No target candidate for function call *ops->unmap_page
+Unwinding loop 44  iteration  2   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9660 function mac_drv_clear_txd
+Unwinding loop 42  iteration  1   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9634 function mac_drv_clear_txd
+Unwinding loop 42  iteration  2   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9634 function mac_drv_clear_txd
+Not unwinding 
+Unwinding loop 43  iteration  1   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9648 function mac_drv_clear_txd
+No target candidate for function call *ops->unmap_page
+Unwinding loop 43  iteration  2   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9648 function mac_drv_clear_txd
+No target candidate for function call *ops->unmap_page
+Not unwinding 
+No target candidate for function call *ops->unmap_page
+Not unwinding 
+Unwinding loop 45  iteration  2   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9665 function mac_drv_clear_txd
+Unwinding loop 42  iteration  1   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9634 function mac_drv_clear_txd
+Unwinding loop 42  iteration  2   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9634 function mac_drv_clear_txd
+Not unwinding 
+Unwinding loop 43  iteration  1   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9648 function mac_drv_clear_txd
+No target candidate for function call *ops->unmap_page
+Unwinding loop 43  iteration  2   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9648 function mac_drv_clear_txd
+No target candidate for function call *ops->unmap_page
+Not unwinding 
+No target candidate for function call *ops->unmap_page
+Unwinding loop 44  iteration  1   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9660 function mac_drv_clear_txd
+Unwinding loop 42  iteration  1   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9634 function mac_drv_clear_txd
+Unwinding loop 42  iteration  2   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9634 function mac_drv_clear_txd
+Not unwinding 
+Unwinding loop 43  iteration  1   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9648 function mac_drv_clear_txd
+No target candidate for function call *ops->unmap_page
+Unwinding loop 43  iteration  2   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9648 function mac_drv_clear_txd
+No target candidate for function call *ops->unmap_page
+Not unwinding 
+No target candidate for function call *ops->unmap_page
+Unwinding loop 44  iteration  2   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9660 function mac_drv_clear_txd
+Unwinding loop 42  iteration  1   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9634 function mac_drv_clear_txd
+Unwinding loop 42  iteration  2   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9634 function mac_drv_clear_txd
+Not unwinding 
+Unwinding loop 43  iteration  1   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9648 function mac_drv_clear_txd
+No target candidate for function call *ops->unmap_page
+Unwinding loop 43  iteration  2   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9648 function mac_drv_clear_txd
+No target candidate for function call *ops->unmap_page
+Not unwinding 
+No target candidate for function call *ops->unmap_page
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+No target candidate for function call *ops->map_page
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 69  iteration  1   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 12613 function hwm_conv_can
+Unwinding loop 69  iteration  2   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 12613 function hwm_conv_can
+Not unwinding 
+No target candidate for function call *ops->unmap_page
+Unwinding loop 23  iteration  2   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 7174 function send_queued_packets
+Unwinding loop 45  iteration  1   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9665 function mac_drv_clear_txd
+Unwinding loop 42  iteration  1   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9634 function mac_drv_clear_txd
+Unwinding loop 42  iteration  2   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9634 function mac_drv_clear_txd
+Not unwinding 
+Unwinding loop 43  iteration  1   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9648 function mac_drv_clear_txd
+No target candidate for function call *ops->unmap_page
+Unwinding loop 43  iteration  2   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9648 function mac_drv_clear_txd
+No target candidate for function call *ops->unmap_page
+Not unwinding 
+No target candidate for function call *ops->unmap_page
+Unwinding loop 44  iteration  1   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9660 function mac_drv_clear_txd
+Unwinding loop 42  iteration  1   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9634 function mac_drv_clear_txd
+Unwinding loop 42  iteration  2   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9634 function mac_drv_clear_txd
+Not unwinding 
+Unwinding loop 43  iteration  1   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9648 function mac_drv_clear_txd
+No target candidate for function call *ops->unmap_page
+Unwinding loop 43  iteration  2   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9648 function mac_drv_clear_txd
+No target candidate for function call *ops->unmap_page
+Not unwinding 
+No target candidate for function call *ops->unmap_page
+Unwinding loop 44  iteration  2   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9660 function mac_drv_clear_txd
+Unwinding loop 42  iteration  1   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9634 function mac_drv_clear_txd
+Unwinding loop 42  iteration  2   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9634 function mac_drv_clear_txd
+Not unwinding 
+Unwinding loop 43  iteration  1   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9648 function mac_drv_clear_txd
+No target candidate for function call *ops->unmap_page
+Unwinding loop 43  iteration  2   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9648 function mac_drv_clear_txd
+No target candidate for function call *ops->unmap_page
+Not unwinding 
+No target candidate for function call *ops->unmap_page
+Not unwinding 
+Unwinding loop 45  iteration  2   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9665 function mac_drv_clear_txd
+Unwinding loop 42  iteration  1   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9634 function mac_drv_clear_txd
+Unwinding loop 42  iteration  2   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9634 function mac_drv_clear_txd
+Not unwinding 
+Unwinding loop 43  iteration  1   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9648 function mac_drv_clear_txd
+No target candidate for function call *ops->unmap_page
+Unwinding loop 43  iteration  2   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9648 function mac_drv_clear_txd
+No target candidate for function call *ops->unmap_page
+Not unwinding 
+No target candidate for function call *ops->unmap_page
+Unwinding loop 44  iteration  1   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9660 function mac_drv_clear_txd
+Unwinding loop 42  iteration  1   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9634 function mac_drv_clear_txd
+Unwinding loop 42  iteration  2   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9634 function mac_drv_clear_txd
+Not unwinding 
+Unwinding loop 43  iteration  1   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9648 function mac_drv_clear_txd
+No target candidate for function call *ops->unmap_page
+Unwinding loop 43  iteration  2   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9648 function mac_drv_clear_txd
+No target candidate for function call *ops->unmap_page
+Not unwinding 
+No target candidate for function call *ops->unmap_page
+Unwinding loop 44  iteration  2   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9660 function mac_drv_clear_txd
+Unwinding loop 42  iteration  1   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9634 function mac_drv_clear_txd
+Unwinding loop 42  iteration  2   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9634 function mac_drv_clear_txd
+Not unwinding 
+Unwinding loop 43  iteration  1   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9648 function mac_drv_clear_txd
+No target candidate for function call *ops->unmap_page
+Unwinding loop 43  iteration  2   file linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9648 function mac_drv_clear_txd
+No target candidate for function call *ops->unmap_page
+Not unwinding 
+No target candidate for function call *ops->unmap_page
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+No target candidate for function call *ops->map_page
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   f
+../sv-benchmarks/c/ldv-challenges/linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i:6012:34: warning: incompatible integer to pointer conversion passing 'unsigned long' to parameter of type 'struct page *' [-Wint-conversion]
+  addr = (*(ops->map_page))(dev, 0xffffea0000000000UL + (tmp___2 >> 12), (unsigned long )ptr & 4095UL,
+                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-challenges/linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i:6015:27: warning: incompatible integer to pointer conversion passing 'unsigned long' to parameter of type 'struct page *' [-Wint-conversion]
+  debug_dma_map_page(dev, 0xffffea0000000000UL + (tmp___3 >> 12), (unsigned long )ptr & 4095UL,
+                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-challenges/linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i:5967:64: note: passing argument to parameter here
+extern void debug_dma_map_page(struct device * , struct page * , size_t , size_t ,
+                                                               ^
+../sv-benchmarks/c/ldv-challenges/linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i:10233:13: warning: implicit conversion from 'int' to 'u16' (aka 'unsigned short') changes value from -38913 to 26623 [-Wconstant-conversion]
+  iowrite16(~ ((int )((unsigned short )mac_imsk1u)), smc->hw.iop + 1040UL);
+  ~~~~~~~~~ ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-challenges/linux-3.8-rc1-32_7a-drivers--net--fddi--skfp--skfp.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i:10236:13: warning: implicit conversion from 'int' to 'u16' (aka 'unsigned short') changes value from -50295 to 15241 [-Wconstant-conversion]
+  iowrite16(~ ((int )((unsigned short )mac_imsk2l)), smc->hw.iop + 1052UL);
+  ~~~~~~~~~ ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Can't construct rvalue reference to array type during dereference
+(It isn't allowed by C anyway)
+
+
+Unknown

@@ -1,0 +1,316 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/ldv-consumption/linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-consumption/linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i --64 --witness-output linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 64-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/ldv-consumption/linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 1.529s
+GOTO program processing time: 0.137s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.071s (50 assignments)
+Slicing time: 0.000s (removed 46 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (4 assignments)
+BMC program time: 0.071s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.073s (50 assignments)
+Slicing time: 0.000s (removed 46 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (4 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.000s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.000s
+Runtime decision procedure: 0.001s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 43  iteration  1   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6867 function main
+Unwinding loop 16  iteration  1   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 5886 function w83793_detect_subclients
+Unwinding loop 17  iteration  1   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6163 function w83793_probe
+Unwinding loop 17  iteration  2   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6163 function w83793_probe
+Not unwinding 
+Unwinding loop 27  iteration  1   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6363 function w83793_probe
+Unwinding loop 27  iteration  2   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6363 function w83793_probe
+Not unwinding 
+No target candidate for function call *adap->algo->functionality
+Unwinding loop 6  iteration  1   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 5412 function watchdog_open
+Unwinding loop 6  iteration  2   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 5412 function watchdog_open
+Not unwinding 
+Unwinding loop 8  iteration  1   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 5540 function watchdog_ioctl
+Unwinding loop 8  iteration  2   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 5540 function watchdog_ioctl
+Not unwinding 
+Unwinding loop 9  iteration  1   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 5739 function watchdog_notify_sys
+Unwinding loop 9  iteration  2   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 5739 function watchdog_notify_sys
+Not unwinding 
+Unwinding loop 43  iteration  2   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6867 function main
+Unwinding loop 16  iteration  1   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 5886 function w83793_detect_subclients
+Unwinding loop 17  iteration  1   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6163 function w83793_probe
+Unwinding loop 17  iteration  2   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6163 function w83793_probe
+Not unwinding 
+Unwinding loop 27  iteration  1   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6363 function w83793_probe
+Unwinding loop 27  iteration  2   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6363 function w83793_probe
+Not unwinding 
+Unwinding loop 10  iteration  1   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 5788 function w83793_remove
+Unwinding loop 10  iteration  2   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 5788 function w83793_remove
+Not unwinding 
+No target candidate for function call *adap->algo->functionality
+Unwinding loop 6  iteration  1   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 5412 function watchdog_open
+Unwinding loop 6  iteration  2   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 5412 function watchdog_open
+Not unwinding 
+Unwinding loop 8  iteration  1   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 5540 function watchdog_ioctl
+Unwinding loop 8  iteration  2   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 5540 function watchdog_ioctl
+Not unwinding 
+Unwinding loop 9  iteration  1   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 5739 function watchdog_notify_sys
+Unwinding loop 9  iteration  2   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 5739 function watchdog_notify_sys
+Not unwinding 
+Not unwinding 
+Symex completed in: 1.233s (3766 assignments)
+Slicing time: 0.018s (removed 3217 assignments)
+Generated 7 VCC(s), 7 remaining after simplification (549 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.314s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.314s
+Runtime decision procedure: 0.224s
+BMC program time: 1.790s
+No bug has been found in the base case
+*** Checking forward condition, k = 3
+Starting Bounded Model Checking
+Unwinding loop 43  iteration  1   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6867 function main
+Unwinding loop 16  iteration  1   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 5886 function w83793_detect_subclients
+Unwinding loop 17  iteration  1   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6163 function w83793_probe
+Unwinding loop 17  iteration  2   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6163 function w83793_probe
+Not unwinding 
+Unwinding loop 27  iteration  1   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6363 function w83793_probe
+Unwinding loop 27  iteration  2   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6363 function w83793_probe
+Not unwinding 
+No target candidate for function call *adap->algo->functionality
+Unwinding loop 6  iteration  1   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 5412 function watchdog_open
+Unwinding loop 6  iteration  2   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 5412 function watchdog_open
+Not unwinding 
+Unwinding loop 8  iteration  1   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 5540 function watchdog_ioctl
+Unwinding loop 8  iteration  2   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 5540 function watchdog_ioctl
+Not unwinding 
+Unwinding loop 9  iteration  1   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 5739 function watchdog_notify_sys
+Unwinding loop 9  iteration  2   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 5739 function watchdog_notify_sys
+Not unwinding 
+Unwinding loop 43  iteration  2   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6867 function main
+Unwinding loop 16  iteration  1   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 5886 function w83793_detect_subclients
+Unwinding loop 17  iteration  1   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6163 function w83793_probe
+Unwinding loop 17  iteration  2   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6163 function w83793_probe
+Not unwinding 
+Unwinding loop 27  iteration  1   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6363 function w83793_probe
+Unwinding loop 27  iteration  2   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6363 function w83793_probe
+Not unwinding 
+Unwinding loop 10  iteration  1   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 5788 function w83793_remove
+Unwinding loop 10  iteration  2   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 5788 function w83793_remove
+Not unwinding 
+No target candidate for function call *adap->algo->functionality
+Unwinding loop 6  iteration  1   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 5412 function watchdog_open
+Unwinding loop 6  iteration  2   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 5412 function watchdog_open
+Not unwinding 
+Unwinding loop 8  iteration  1   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 5540 function watchdog_ioctl
+Unwinding loop 8  iteration  2   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 5540 function watchdog_ioctl
+Not unwinding 
+Unwinding loop 9  iteration  1   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 5739 function watchdog_notify_sys
+Unwinding loop 9  iteration  2   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 5739 function watchdog_notify_sys
+Not unwinding 
+Not unwinding 
+Symex completed in: 1.598s (3759 assignments)
+Slicing time: 0.017s (removed 3217 assignments)
+Generated 12 VCC(s), 12 remaining after simplification (542 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.327s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.327s
+Runtime decision procedure: 13.426s
+The forward condition is unable to prove the property
+*** Checking inductive step, k = 3
+Starting Bounded Model Checking
+Unwinding loop 43  iteration  1   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6867 function main
+Unwinding loop 16  iteration  1   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 5886 function w83793_detect_subclients
+Unwinding loop 17  iteration  1   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6163 function w83793_probe
+Unwinding loop 17  iteration  2   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6163 function w83793_probe
+Not unwinding 
+Unwinding loop 18  iteration  1   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6182 function w83793_probe
+Unwinding loop 18  iteration  2   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6182 function w83793_probe
+Unwinding loop 19  iteration  1   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6205 function w83793_probe
+Unwinding loop 19  iteration  2   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6205 function w83793_probe
+Not unwinding 
+Unwinding loop 21  iteration  1   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6233 function w83793_probe
+Unwinding loop 20  iteration  1   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6226 function w83793_probe
+Unwinding loop 20  iteration  2   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6226 function w83793_probe
+Not unwinding 
+Unwinding loop 21  iteration  2   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6233 function w83793_probe
+Unwinding loop 20  iteration  1   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6226 function w83793_probe
+Unwinding loop 20  iteration  2   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6226 function w83793_probe
+Not unwinding 
+Not unwinding 
+Unwinding loop 23  iteration  1   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6261 function w83793_probe
+Unwinding loop 22  iteration  1   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6254 function w83793_probe
+Unwinding loop 22  iteration  2   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6254 function w83793_probe
+Not unwinding 
+Unwinding loop 23  iteration  2   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6261 function w83793_probe
+Unwinding loop 22  iteration  1   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6254 function w83793_probe
+Unwinding loop 22  iteration  2   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6254 function w83793_probe
+Not unwinding 
+Not unwinding 
+Unwinding loop 25  iteration  1   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6289 function w83793_probe
+Unwinding loop 24  iteration  1   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6282 function w83793_probe
+Unwinding loop 24  iteration  2   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6282 function w83793_probe
+Not unwinding 
+Unwinding loop 25  iteration  2   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6289 function w83793_probe
+Unwinding loop 24  iteration  1   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6282 function w83793_probe
+Unwinding loop 24  iteration  2   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6282 function w83793_probe
+Not unwinding 
+Not unwinding 
+Unwinding loop 26  iteration  1   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6342 function w83793_probe
+Unwinding loop 26  iteration  2   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6342 function w83793_probe
+Not unwinding 
+Unwinding loop 27  iteration  1   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6363 function w83793_probe
+Unwinding loop 27  iteration  2   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6363 function w83793_probe
+Not unwinding 
+Unwinding loop 28  iteration  1   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6373 function w83793_probe
+Unwinding loop 28  iteration  2   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6373 function w83793_probe
+Not unwinding 
+Unwinding loop 29  iteration  1   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6383 function w83793_probe
+Unwinding loop 29  iteration  2   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6383 function w83793_probe
+Unwinding loop 30  iteration  1   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6393 function w83793_probe
+Unwinding loop 30  iteration  2   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6393 function w83793_probe
+Not unwinding 
+Unwinding loop 31  iteration  1   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6403 function w83793_probe
+Unwinding loop 31  iteration  2   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6403 function w83793_probe
+Not unwinding 
+Unwinding loop 32  iteration  1   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6413 function w83793_probe
+Unwinding loop 32  iteration  2   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6413 function w83793_probe
+Not unwinding 
+No target candidate for function call *adap->algo->functionality
+Unwinding loop 6  iteration  1   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 5412 function watchdog_open
+Unwinding loop 6  iteration  2   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 5412 function watchdog_open
+Not unwinding 
+Unwinding loop 8  iteration  1   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 5540 function watchdog_ioctl
+Unwinding loop 8  iteration  2   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 5540 function watchdog_ioctl
+Not unwinding 
+Unwinding loop 9  iteration  1   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 5739 function watchdog_notify_sys
+Unwinding loop 9  iteration  2   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 5739 function watchdog_notify_sys
+Not unwinding 
+Unwinding loop 43  iteration  2   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6867 function main
+Unwinding loop 16  iteration  1   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 5886 function w83793_detect_subclients
+Unwinding loop 17  iteration  1   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6163 function w83793_probe
+Unwinding loop 17  iteration  2   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6163 function w83793_probe
+Not unwinding 
+Unwinding loop 18  iteration  1   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6182 function w83793_probe
+Unwinding loop 18  iteration  2   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6182 function w83793_probe
+Unwinding loop 19  iteration  1   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6205 function w83793_probe
+Unwinding loop 19  iteration  2   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6205 function w83793_probe
+Not unwinding 
+Unwinding loop 21  iteration  1   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6233 function w83793_probe
+Unwinding loop 20  iteration  1   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6226 function w83793_probe
+Unwinding loop 20  iteration  2   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6226 function w83793_probe
+Not unwinding 
+Unwinding loop 21  iteration  2   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6233 function w83793_probe
+Unwinding loop 20  iteration  1   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6226 function w83793_probe
+Unwinding loop 20  iteration  2   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6226 function w83793_probe
+Not unwinding 
+Not unwinding 
+Unwinding loop 23  iteration  1   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6261 function w83793_probe
+Unwinding loop 22  iteration  1   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6254 function w83793_probe
+Unwinding loop 22  iteration  2   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6254 function w83793_probe
+Not unwinding 
+Unwinding loop 23  iteration  2   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6261 function w83793_probe
+Unwinding loop 22  iteration  1   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6254 function w83793_probe
+Unwinding loop 22  iteration  2   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6254 function w83793_probe
+Not unwinding 
+Not unwinding 
+Unwinding loop 25  iteration  1   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6289 function w83793_probe
+Unwinding loop 24  iteration  1   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6282 function w83793_probe
+Unwinding loop 24  iteration  2   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6282 function w83793_probe
+Not unwinding 
+Unwinding loop 25  iteration  2   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6289 function w83793_probe
+Unwinding loop 24  iteration  1   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6282 function w83793_probe
+Unwinding loop 24  iteration  2   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6282 function w83793_probe
+Not unwinding 
+Not unwinding 
+Unwinding loop 26  iteration  1   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6342 function w83793_probe
+Unwinding loop 26  iteration  2   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6342 function w83793_probe
+Not unwinding 
+Unwinding loop 27  iteration  1   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6363 function w83793_probe
+Unwinding loop 27  iteration  2   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6363 function w83793_probe
+Not unwinding 
+Unwinding loop 28  iteration  1   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6373 function w83793_probe
+Unwinding loop 28  iteration  2   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6373 function w83793_probe
+Not unwinding 
+Unwinding loop 29  iteration  1   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6383 function w83793_probe
+Unwinding loop 29  iteration  2   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6383 function w83793_probe
+Unwinding loop 30  iteration  1   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6393 function w83793_probe
+Unwinding loop 30  iteration  2   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6393 function w83793_probe
+Not unwinding 
+Unwinding loop 31  iteration  1   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6403 function w83793_probe
+Unwinding loop 31  iteration  2   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6403 function w83793_probe
+Not unwinding 
+Unwinding loop 32  iteration  1   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6413 function w83793_probe
+Unwinding loop 32  iteration  2   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 6413 function w83793_probe
+Not unwinding 
+Unwinding loop 10  iteration  1   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 5788 function w83793_remove
+Unwinding loop 10  iteration  2   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 5788 function w83793_remove
+Not unwinding 
+Unwinding loop 11  iteration  1   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 5798 function w83793_remove
+Unwinding loop 11  iteration  2   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 5798 function w83793_remove
+Not unwinding 
+Unwinding loop 12  iteration  1   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 5808 function w83793_remove
+Unwinding loop 12  iteration  2   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 5808 function w83793_remove
+Unwinding loop 13  iteration  1   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 5819 function w83793_remove
+Unwinding loop 13  iteration  2   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 5819 function w83793_remove
+Not unwinding 
+Unwinding loop 14  iteration  1   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 5829 function w83793_remove
+Unwinding loop 14  iteration  2   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 5829 function w83793_remove
+Not unwinding 
+Unwinding loop 15  iteration  1   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 5839 function w83793_remove
+Unwinding loop 15  iteration  2   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 5839 function w83793_remove
+Not unwinding 
+No target candidate for function call *adap->algo->functionality
+Unwinding loop 6  iteration  1   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 5412 function watchdog_open
+Unwinding loop 6  iteration  2   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 5412 function watchdog_open
+Not unwinding 
+Unwinding loop 8  iteration  1   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 5540 function watchdog_ioctl
+Unwinding loop 8  iteration  2   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 5540 function watchdog_ioctl
+Not unwinding 
+Unwinding loop 9  iteration  1   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 5739 function watchdog_notify_sys
+Unwinding loop 9  iteration  2   file linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i line 5739 function watchdog_notify_sys
+Not unwinding 
+Not unwinding 
+Symex completed in: 4.300s (6955 assignments)
+Slicing time: 0.078s (removed 5095 assignments)
+Generated 8 VCC(s), 8 remaining after simplification (1860 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.856s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.856s
+Runtime decision procedure: 0.647s
+BMC program time: 5.881s
+Building successful trace
+
+VERIFICATION SUCCESSFUL
+
+Solution found by the inductive step (k = 3)
+
+../sv-benchmarks/c/ldv-consumption/linux-3.8-rc1-32_7a-drivers--hwmon--w83793.ko-ldv_main0.cil.out.i:3346:86: warning: incompatible integer to pointer conversion initializing 'void *' with an expression of type 'unsigned long' [-Wint-conversion]
+static struct mutex watchdog_data_mutex = {{1}, {{{{{0U}}, 3735899821U, 4294967295U, 0xffffffffffffffffUL, {0, {0, 0}, "watchdog_data_mutex.wait_lock",
+                                                                                     ^~~~~~~~~~~~~~~~~~~~
+
+TRUE

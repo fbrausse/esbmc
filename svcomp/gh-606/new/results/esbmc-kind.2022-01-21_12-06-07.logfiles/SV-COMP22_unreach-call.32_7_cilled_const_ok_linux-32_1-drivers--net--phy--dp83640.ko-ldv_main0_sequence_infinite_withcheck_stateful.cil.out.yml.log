@@ -1,0 +1,195 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--net--phy--dp83640.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--net--phy--dp83640.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i --64 --witness-output 32_7_cilled_const_ok_linux-32_1-drivers--net--phy--dp83640.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 64-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--net--phy--dp83640.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.788s
+GOTO program processing time: 0.093s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+**** WARNING: no body for function __builtin_object_size
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.371s (2370 assignments)
+Slicing time: 0.006s (removed 2144 assignments)
+Generated 3 VCC(s), 3 remaining after simplification (226 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.031s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.031s
+Runtime decision procedure: 9.302s
+Building error trace
+
+Counterexample:
+
+State 1 file 32_7_cilled_const_ok_linux-32_1-drivers--net--phy--dp83640.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9954 function main thread 0
+----------------------------------------------------
+  tmp___9 = -1 (11111111 11111111 11111111 11111111)
+
+State 2 file 32_7_cilled_const_ok_linux-32_1-drivers--net--phy--dp83640.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 9967 function main thread 0
+----------------------------------------------------
+  tmp___8 = 1 (00000000 00000000 00000000 00000001)
+
+State 3 file 32_7_cilled_const_ok_linux-32_1-drivers--net--phy--dp83640.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 8887 function dp83640_remove thread 0
+----------------------------------------------------
+  __cil_tmp11 = &dynamic_21_array[0]
+
+State 4 file 32_7_cilled_const_ok_linux-32_1-drivers--net--phy--dp83640.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 8888 function dp83640_remove thread 0
+----------------------------------------------------
+  dp83640 = ( struct dp83640_private *)(&dynamic_21_array[0])
+
+State 5 file 32_7_cilled_const_ok_linux-32_1-drivers--net--phy--dp83640.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 8892 function dp83640_remove thread 0
+----------------------------------------------------
+  __cil_tmp14 = -32 (11111111 11111111 11111111 11100000)
+
+State 6 file 32_7_cilled_const_ok_linux-32_1-drivers--net--phy--dp83640.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 8918 function dp83640_remove thread 0
+----------------------------------------------------
+  __cil_tmp24 = (unsigned long int)0
+
+State 7 file 32_7_cilled_const_ok_linux-32_1-drivers--net--phy--dp83640.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 8942 function dp83640_remove thread 0
+----------------------------------------------------
+  __cil_tmp30 = (unsigned long int)0
+
+State 8 file 32_7_cilled_const_ok_linux-32_1-drivers--net--phy--dp83640.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 8959 function dp83640_remove thread 0
+----------------------------------------------------
+  __cil_tmp35 = 0
+
+State 9 file 32_7_cilled_const_ok_linux-32_1-drivers--net--phy--dp83640.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 8965 function dp83640_remove thread 0
+----------------------------------------------------
+  __cil_tmp38 = INVALID18
+
+State 10 file 32_7_cilled_const_ok_linux-32_1-drivers--net--phy--dp83640.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 8966 function dp83640_remove thread 0
+----------------------------------------------------
+  __cil_tmp39 = (unsigned long int)INVALID18
+
+State 11 file 32_7_cilled_const_ok_linux-32_1-drivers--net--phy--dp83640.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 8967 function dp83640_remove thread 0
+----------------------------------------------------
+  __cil_tmp40 = (unsigned long int)(&dynamic_21_array[0])
+
+State 12 file 32_7_cilled_const_ok_linux-32_1-drivers--net--phy--dp83640.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 8982 function dp83640_remove thread 0
+----------------------------------------------------
+  this = 0
+
+State 13 file 32_7_cilled_const_ok_linux-32_1-drivers--net--phy--dp83640.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 8988 function dp83640_remove thread 0
+----------------------------------------------------
+  __cil_tmp49 = (unsigned long int)0
+
+State 14 file 32_7_cilled_const_ok_linux-32_1-drivers--net--phy--dp83640.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 8989 function dp83640_remove thread 0
+----------------------------------------------------
+  __cil_tmp50 = 272 (00000000 00000000 00000000 00000000 00000000 00000000 00000001 00010000)
+
+State 15 file 32_7_cilled_const_ok_linux-32_1-drivers--net--phy--dp83640.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 8990 function dp83640_remove thread 0
+----------------------------------------------------
+  __cil_tmp51 = ( struct list_head *)272
+
+State 16 file 32_7_cilled_const_ok_linux-32_1-drivers--net--phy--dp83640.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 8991 function dp83640_remove thread 0
+----------------------------------------------------
+  __cil_tmp52 = (unsigned long int)(&dynamic_5_array[16])
+
+State 17 file 32_7_cilled_const_ok_linux-32_1-drivers--net--phy--dp83640.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 8992 function dp83640_remove thread 0
+----------------------------------------------------
+  __cil_tmp53 = (unsigned long int)0
+
+State 18 file 32_7_cilled_const_ok_linux-32_1-drivers--net--phy--dp83640.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 12 function reach_error thread 0
+----------------------------------------------------
+Violated property:
+  file 32_7_cilled_const_ok_linux-32_1-drivers--net--phy--dp83640.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 12 function reach_error
+  assertion 0
+  0
+
+
+VERIFICATION FAILED
+
+Bug found (k = 1)
+
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--net--phy--dp83640.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i:4668:14: warning: incompatible redeclaration of library function 'sprintf' [-Wincompatible-library-redeclaration]
+extern int ( sprintf)(char *buf , char *fmt , ...) ;
+             ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--net--phy--dp83640.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i:4668:14: note: 'sprintf' is a builtin with type 'int (char *, const char *, ...)'
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--net--phy--dp83640.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i:4670:12: warning: incompatible redeclaration of library function 'memcmp' [-Wincompatible-library-redeclaration]
+extern int memcmp(void *cs , void *ct , unsigned long count ) ;
+           ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--net--phy--dp83640.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i:4670:12: note: 'memcmp' is a builtin with type 'int (const void *, const void *, unsigned long)'
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--net--phy--dp83640.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i:5950:17: warning: cast to smaller integer type 'unsigned int' from 'struct ptp_clock_info *' [-Wpointer-to-int-cast]
+  __cil_tmp14 = (unsigned int )__cil_tmp13;
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--net--phy--dp83640.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i:6037:17: warning: cast to smaller integer type 'unsigned int' from 'struct ptp_clock_info *' [-Wpointer-to-int-cast]
+  __cil_tmp12 = (unsigned int )__cil_tmp11;
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--net--phy--dp83640.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i:6134:17: warning: cast to smaller integer type 'unsigned int' from 'struct ptp_clock_info *' [-Wpointer-to-int-cast]
+  __cil_tmp15 = (unsigned int )__cil_tmp14;
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--net--phy--dp83640.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i:6232:17: warning: cast to smaller integer type 'unsigned int' from 'struct ptp_clock_info *' [-Wpointer-to-int-cast]
+  __cil_tmp11 = (unsigned int )__cil_tmp10;
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--net--phy--dp83640.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i:6311:17: warning: cast to smaller integer type 'unsigned int' from 'struct ptp_clock_info *' [-Wpointer-to-int-cast]
+  __cil_tmp15 = (unsigned int )__cil_tmp14;
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--net--phy--dp83640.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i:6612:19: warning: cast to smaller integer type 'unsigned int' from 'struct list_head *' [-Wpointer-to-int-cast]
+    __cil_tmp16 = (unsigned int )__cil_tmp15;
+                  ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--net--phy--dp83640.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i:6955:19: warning: cast to smaller integer type 'unsigned int' from 'struct list_head *' [-Wpointer-to-int-cast]
+    __cil_tmp53 = (unsigned int )__cil_tmp52;
+                  ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--net--phy--dp83640.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i:7043:20: warning: cast to smaller integer type 'unsigned int' from 'struct list_head *' [-Wpointer-to-int-cast]
+    __cil_tmp109 = (unsigned int )__cil_tmp108;
+                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--net--phy--dp83640.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i:7160:20: warning: cast to smaller integer type 'unsigned int' from 'struct list_head *' [-Wpointer-to-int-cast]
+    __cil_tmp175 = (unsigned int )__cil_tmp174;
+                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--net--phy--dp83640.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i:7249:20: warning: cast to smaller integer type 'unsigned int' from 'struct list_head *' [-Wpointer-to-int-cast]
+    __cil_tmp226 = (unsigned int )__cil_tmp225;
+                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--net--phy--dp83640.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i:7562:17: warning: cast to smaller integer type 'unsigned int' from 'struct list_head *' [-Wpointer-to-int-cast]
+  __cil_tmp29 = (unsigned int )__cil_tmp28;
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--net--phy--dp83640.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i:8090:19: warning: cast to smaller integer type 'unsigned int' from 'struct list_head *' [-Wpointer-to-int-cast]
+    __cil_tmp11 = (unsigned int )__cil_tmp10;
+                  ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--net--phy--dp83640.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i:8414:19: warning: cast to smaller integer type 'unsigned int' from 'struct list_head *' [-Wpointer-to-int-cast]
+    __cil_tmp14 = (unsigned int )__cil_tmp13;
+                  ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--net--phy--dp83640.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i:9001:21: warning: cast to smaller integer type 'unsigned int' from 'struct list_head *' [-Wpointer-to-int-cast]
+      __cil_tmp56 = (unsigned int )__cil_tmp55;
+                    ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--net--phy--dp83640.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i:9545:17: warning: cast to smaller integer type 'unsigned int' from 'struct work_struct *' [-Wpointer-to-int-cast]
+  __cil_tmp23 = (unsigned int )__cil_tmp22;
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--net--phy--dp83640.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i:9617:21: warning: cast to smaller integer type 'unsigned int' from 'struct list_head *' [-Wpointer-to-int-cast]
+      __cil_tmp50 = (unsigned int )__cil_tmp49;
+                    ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--net--phy--dp83640.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i:9928:1: warning: return type of 'main' is not 'int' [-Wmain-return-type]
+void main(void)
+^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--net--phy--dp83640.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i:9928:1: note: change return type to 'int'
+void main(void)
+^~~~
+int
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--net--phy--dp83640.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i:10254:30: warning: implicit declaration of function 'ldv_xmalloc' is invalid in C99 [-Wimplicit-function-declaration]
+  return *(struct timespec *)ldv_xmalloc(sizeof(struct timespec));
+                             ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--net--phy--dp83640.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i:10254:11: warning: cast to 'struct timespec *' from smaller integer type 'int' [-Wint-to-pointer-cast]
+  return *(struct timespec *)ldv_xmalloc(sizeof(struct timespec));
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+FALSE_REACH

@@ -1,0 +1,350 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/array-fpi/ifeqn3f.c
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/array-fpi/ifeqn3f.c --32 --witness-output ifeqn3f.c.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/array-fpi/ifeqn3f.c: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.131s
+GOTO program processing time: 0.001s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.107s (67 assignments)
+Slicing time: 0.000s (removed 43 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (24 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.000s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.000s
+Runtime decision procedure: 0.001s
+BMC program time: 0.109s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.005s (66 assignments)
+Slicing time: 0.000s (removed 43 assignments)
+Generated 3 VCC(s), 3 remaining after simplification (23 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.001s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.001s
+Runtime decision procedure: 0.003s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file ifeqn3f.c line 31 function main
+Unwinding loop 1  iteration  2   file ifeqn3f.c line 31 function main
+Not unwinding 
+Unwinding loop 2  iteration  1   file ifeqn3f.c line 40 function main
+Unwinding loop 2  iteration  2   file ifeqn3f.c line 40 function main
+Not unwinding 
+Unwinding loop 3  iteration  1   file ifeqn3f.c line 49 function main
+Unwinding loop 3  iteration  2   file ifeqn3f.c line 49 function main
+Not unwinding 
+Symex completed in: 0.099s (129 assignments)
+Slicing time: 0.001s (removed 63 assignments)
+Generated 3 VCC(s), 3 remaining after simplification (66 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.002s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.002s
+Runtime decision procedure: 0.040s
+BMC program time: 0.143s
+No bug has been found in the base case
+*** Checking forward condition, k = 3
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file ifeqn3f.c line 31 function main
+Unwinding loop 1  iteration  2   file ifeqn3f.c line 31 function main
+Not unwinding 
+Unwinding loop 2  iteration  1   file ifeqn3f.c line 40 function main
+Unwinding loop 2  iteration  2   file ifeqn3f.c line 40 function main
+Not unwinding 
+Unwinding loop 3  iteration  1   file ifeqn3f.c line 49 function main
+Unwinding loop 3  iteration  2   file ifeqn3f.c line 49 function main
+Not unwinding 
+Symex completed in: 0.099s (126 assignments)
+Slicing time: 0.001s (removed 63 assignments)
+Generated 3 VCC(s), 3 remaining after simplification (63 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.002s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.002s
+Runtime decision procedure: 0.009s
+The forward condition is unable to prove the property
+*** Checking inductive step, k = 3
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file ifeqn3f.c line 31 function main
+Unwinding loop 1  iteration  2   file ifeqn3f.c line 31 function main
+Not unwinding 
+Unwinding loop 2  iteration  1   file ifeqn3f.c line 40 function main
+Unwinding loop 2  iteration  2   file ifeqn3f.c line 40 function main
+Not unwinding 
+Unwinding loop 3  iteration  1   file ifeqn3f.c line 49 function main
+Unwinding loop 3  iteration  2   file ifeqn3f.c line 49 function main
+Not unwinding 
+Symex completed in: 0.005s (101 assignments)
+Slicing time: 0.000s (removed 71 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (30 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.000s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.000s
+Runtime decision procedure: 0.123s
+The inductive step is unable to prove the property
+*** Checking base case, k = 5
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file ifeqn3f.c line 31 function main
+Unwinding loop 1  iteration  2   file ifeqn3f.c line 31 function main
+Unwinding loop 1  iteration  3   file ifeqn3f.c line 31 function main
+Unwinding loop 1  iteration  4   file ifeqn3f.c line 31 function main
+Not unwinding 
+Unwinding loop 2  iteration  1   file ifeqn3f.c line 40 function main
+Unwinding loop 2  iteration  2   file ifeqn3f.c line 40 function main
+Unwinding loop 2  iteration  3   file ifeqn3f.c line 40 function main
+Unwinding loop 2  iteration  4   file ifeqn3f.c line 40 function main
+Not unwinding 
+Unwinding loop 3  iteration  1   file ifeqn3f.c line 49 function main
+Unwinding loop 3  iteration  2   file ifeqn3f.c line 49 function main
+Unwinding loop 3  iteration  3   file ifeqn3f.c line 49 function main
+Unwinding loop 3  iteration  4   file ifeqn3f.c line 49 function main
+Not unwinding 
+Symex completed in: 0.201s (191 assignments)
+Slicing time: 0.003s (removed 75 assignments)
+Generated 5 VCC(s), 5 remaining after simplification (116 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.004s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.004s
+Runtime decision procedure: 0.218s
+Building error trace
+
+Counterexample:
+
+State 1 file ifeqn3f.c line 23 function main thread 0
+----------------------------------------------------
+  N = 3 (00000000 00000000 00000000 00000011)
+
+State 2 file ifeqn3f.c line 34 function main thread 0
+----------------------------------------------------
+  *(a + 0) = 6 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000110)
+
+State 3 file ifeqn3f.c line 34 function main thread 0
+----------------------------------------------------
+  *(a + 0) = 6 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000110)
+
+State 4 file ifeqn3f.c line 34 function main thread 0
+----------------------------------------------------
+  *(a + 0) = 6 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000110)
+
+State 5 file ifeqn3f.c line 34 function main thread 0
+----------------------------------------------------
+  *(a + 0) = 6 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000110)
+
+State 6 file ifeqn3f.c line 34 function main thread 0
+----------------------------------------------------
+  *(a + 0) = 6 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000110)
+
+State 7 file ifeqn3f.c line 34 function main thread 0
+----------------------------------------------------
+  *(a + 0) = 6 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000110)
+
+State 8 file ifeqn3f.c line 34 function main thread 0
+----------------------------------------------------
+  *(a + 0) = 6 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000110)
+
+State 9 file ifeqn3f.c line 34 function main thread 0
+----------------------------------------------------
+  *(a + 0) = 6 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000110)
+
+State 10 file ifeqn3f.c line 36 function main thread 0
+----------------------------------------------------
+  *(a + i) = 9 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00001001)
+
+State 11 file ifeqn3f.c line 36 function main thread 0
+----------------------------------------------------
+  *(a + i) = 9 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00001001)
+
+State 12 file ifeqn3f.c line 36 function main thread 0
+----------------------------------------------------
+  *(a + i) = 9 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00001001)
+
+State 13 file ifeqn3f.c line 36 function main thread 0
+----------------------------------------------------
+  *(a + i) = 9 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00001001)
+
+State 14 file ifeqn3f.c line 36 function main thread 0
+----------------------------------------------------
+  *(a + i) = 9 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00001001)
+
+State 15 file ifeqn3f.c line 36 function main thread 0
+----------------------------------------------------
+  *(a + i) = 9 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00001001)
+
+State 16 file ifeqn3f.c line 36 function main thread 0
+----------------------------------------------------
+  *(a + i) = 9 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00001001)
+
+State 17 file ifeqn3f.c line 36 function main thread 0
+----------------------------------------------------
+  *(a + i) = 9 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00001001)
+
+State 18 file ifeqn3f.c line 36 function main thread 0
+----------------------------------------------------
+  *(a + i) = 12 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00001100)
+
+State 19 file ifeqn3f.c line 36 function main thread 0
+----------------------------------------------------
+  *(a + i) = 12 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00001100)
+
+State 20 file ifeqn3f.c line 36 function main thread 0
+----------------------------------------------------
+  *(a + i) = 12 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00001100)
+
+State 21 file ifeqn3f.c line 36 function main thread 0
+----------------------------------------------------
+  *(a + i) = 12 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00001100)
+
+State 22 file ifeqn3f.c line 36 function main thread 0
+----------------------------------------------------
+  *(a + i) = 12 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00001100)
+
+State 23 file ifeqn3f.c line 36 function main thread 0
+----------------------------------------------------
+  *(a + i) = 12 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00001100)
+
+State 24 file ifeqn3f.c line 36 function main thread 0
+----------------------------------------------------
+  *(a + i) = 12 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00001100)
+
+State 25 file ifeqn3f.c line 36 function main thread 0
+----------------------------------------------------
+  *(a + i) = 12 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00001100)
+
+State 26 file ifeqn3f.c line 43 function main thread 0
+----------------------------------------------------
+  *(b + 0) = 1 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000001)
+
+State 27 file ifeqn3f.c line 43 function main thread 0
+----------------------------------------------------
+  *(b + 0) = 1 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000001)
+
+State 28 file ifeqn3f.c line 43 function main thread 0
+----------------------------------------------------
+  *(b + 0) = 1 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000001)
+
+State 29 file ifeqn3f.c line 43 function main thread 0
+----------------------------------------------------
+  *(b + 0) = 1 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000001)
+
+State 30 file ifeqn3f.c line 43 function main thread 0
+----------------------------------------------------
+  *(b + 0) = 1 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000001)
+
+State 31 file ifeqn3f.c line 43 function main thread 0
+----------------------------------------------------
+  *(b + 0) = 1 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000001)
+
+State 32 file ifeqn3f.c line 43 function main thread 0
+----------------------------------------------------
+  *(b + 0) = 1 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000001)
+
+State 33 file ifeqn3f.c line 43 function main thread 0
+----------------------------------------------------
+  *(b + 0) = 1 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000001)
+
+State 34 file ifeqn3f.c line 45 function main thread 0
+----------------------------------------------------
+  *(b + i) = 7 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000111)
+
+State 35 file ifeqn3f.c line 45 function main thread 0
+----------------------------------------------------
+  *(b + i) = 7 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000111)
+
+State 36 file ifeqn3f.c line 45 function main thread 0
+----------------------------------------------------
+  *(b + i) = 7 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000111)
+
+State 37 file ifeqn3f.c line 45 function main thread 0
+----------------------------------------------------
+  *(b + i) = 7 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000111)
+
+State 38 file ifeqn3f.c line 45 function main thread 0
+----------------------------------------------------
+  *(b + i) = 7 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000111)
+
+State 39 file ifeqn3f.c line 45 function main thread 0
+----------------------------------------------------
+  *(b + i) = 7 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000111)
+
+State 40 file ifeqn3f.c line 45 function main thread 0
+----------------------------------------------------
+  *(b + i) = 7 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000111)
+
+State 41 file ifeqn3f.c line 45 function main thread 0
+----------------------------------------------------
+  *(b + i) = 7 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000111)
+
+State 42 file ifeqn3f.c line 45 function main thread 0
+----------------------------------------------------
+  *(b + i) = 16 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00010000)
+
+State 43 file ifeqn3f.c line 45 function main thread 0
+----------------------------------------------------
+  *(b + i) = 16 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00010000)
+
+State 44 file ifeqn3f.c line 45 function main thread 0
+----------------------------------------------------
+  *(b + i) = 16 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00010000)
+
+State 45 file ifeqn3f.c line 45 function main thread 0
+----------------------------------------------------
+  *(b + i) = 16 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00010000)
+
+State 46 file ifeqn3f.c line 45 function main thread 0
+----------------------------------------------------
+  *(b + i) = 16 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00010000)
+
+State 47 file ifeqn3f.c line 45 function main thread 0
+----------------------------------------------------
+  *(b + i) = 16 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00010000)
+
+State 48 file ifeqn3f.c line 45 function main thread 0
+----------------------------------------------------
+  *(b + i) = 16 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00010000)
+
+State 49 file ifeqn3f.c line 45 function main thread 0
+----------------------------------------------------
+  *(b + i) = 16 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00010000)
+
+State 50 file ifeqn3f.c line 10 function reach_error thread 0
+----------------------------------------------------
+Violated property:
+  file ifeqn3f.c line 10 function reach_error
+  assertion 0
+  0
+
+
+VERIFICATION FAILED
+
+Bug found (k = 5)
+
+
+FALSE_REACH

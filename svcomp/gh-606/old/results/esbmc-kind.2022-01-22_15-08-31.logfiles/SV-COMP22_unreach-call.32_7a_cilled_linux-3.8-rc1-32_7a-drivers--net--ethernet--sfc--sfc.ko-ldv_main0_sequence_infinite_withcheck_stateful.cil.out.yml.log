@@ -1,0 +1,44 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i --64 --witness-output 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i:9992:30: warning: incompatible pointer types passing 'cpumask_var_t *' (aka 'struct cpumask **') to parameter of type 'cpumask_var_t **' (aka 'struct cpumask ***') [-Wincompatible-pointer-types]
+    tmp = zalloc_cpumask_var(& thread_mask, 208U);
+                             ^~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i:7069:49: note: passing argument to parameter here
+extern bool zalloc_cpumask_var(cpumask_var_t ** , gfp_t ) ;
+                                                ^
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i:21021:34: warning: incompatible integer to pointer conversion passing 'unsigned long' to parameter of type 'struct page *' [-Wint-conversion]
+  addr = (*(ops->map_page))(dev, 0xffffea0000000000UL + (tmp___2 >> 12), (unsigned long )ptr & 4095UL,
+                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i:21024:27: warning: incompatible integer to pointer conversion passing 'unsigned long' to parameter of type 'struct page *' [-Wint-conversion]
+  debug_dma_map_page(dev, 0xffffea0000000000UL + (tmp___3 >> 12), (unsigned long )ptr & 4095UL,
+                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i:20992:64: note: passing argument to parameter here
+extern void debug_dma_map_page(struct device * , struct page * , size_t , size_t ,
+                                                               ^
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i:22611:34: warning: incompatible integer to pointer conversion passing 'unsigned long' to parameter of type 'struct page *' [-Wint-conversion]
+  addr = (*(ops->map_page))(dev, 0xffffea0000000000UL + (tmp___2 >> 12), (unsigned long )ptr & 4095UL,
+                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i:22614:27: warning: incompatible integer to pointer conversion passing 'unsigned long' to parameter of type 'struct page *' [-Wint-conversion]
+  debug_dma_map_page(dev, 0xffffea0000000000UL + (tmp___3 >> 12), (unsigned long )ptr & 4095UL,
+                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i:20992:64: note: passing argument to parameter here
+extern void debug_dma_map_page(struct device * , struct page * , size_t , size_t ,
+                                                               ^
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i:42065:30: warning: implicit declaration of function 'ldv_xmalloc' is invalid in C99 [-Wimplicit-function-declaration]
+  return *(struct timespec *)ldv_xmalloc(sizeof(struct timespec));
+                             ^
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i:42065:11: warning: cast to 'struct timespec *' from smaller integer type 'int' [-Wint-to-pointer-cast]
+  return *(struct timespec *)ldv_xmalloc(sizeof(struct timespec));
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Can't construct rvalue reference to array type during dereference
+(It isn't allowed by C anyway)
+
+
+Unknown

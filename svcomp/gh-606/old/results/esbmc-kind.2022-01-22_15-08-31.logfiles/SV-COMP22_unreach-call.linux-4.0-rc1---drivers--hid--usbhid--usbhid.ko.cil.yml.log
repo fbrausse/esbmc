@@ -1,0 +1,250 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--hid--usbhid--usbhid.ko.cil.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--hid--usbhid--usbhid.ko.cil.i --64 --witness-output linux-4.0-rc1---drivers--hid--usbhid--usbhid.ko.cil.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 64-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--hid--usbhid--usbhid.ko.cil.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 1.916s
+GOTO program processing time: 0.531s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+No target candidate for function call *arg0
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+No target candidate for function call *arg0
+No target candidate for function call *arg0
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+No target candidate for function call *hdev->ll_driver->wait
+No target candidate for function call *hdev->ll_driver->wait
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+No target candidate for function call *p->_qproc
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+No target candidate for function call *hdev->ll_driver->wait
+No target candidate for function call *hdev->ll_driver->wait
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 3.085s (7591 assignments)
+Slicing time: 0.026s (removed 5932 assignments)
+Generated 13 VCC(s), 13 remaining after simplification (1659 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.660s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.660s
+Runtime decision procedure: 50.863s
+Building error trace
+
+Counterexample:
+
+State 1 file linux-4.0-rc1---drivers--hid--usbhid--usbhid.ko.cil.i line 16634 function ldv_undef_int thread 0
+----------------------------------------------------
+  tmp = 1073741824 (01000000 00000000 00000000 00000000)
+
+State 2 file linux-4.0-rc1---drivers--hid--usbhid--usbhid.ko.cil.i line 16413 function ldv_pre_usb_register_driver thread 0
+----------------------------------------------------
+  nondet = 1073741824 (01000000 00000000 00000000 00000000)
+
+State 3 file linux-4.0-rc1---drivers--hid--usbhid--usbhid.ko.cil.i line 16634 function ldv_undef_int thread 0
+----------------------------------------------------
+  tmp = -2147483648 (10000000 00000000 00000000 00000000)
+
+State 4 file linux-4.0-rc1---drivers--hid--usbhid--usbhid.ko.cil.i line 16634 function ldv_undef_int thread 0
+----------------------------------------------------
+  tmp = 0 (00000000 00000000 00000000 00000000)
+
+State 5 file linux-4.0-rc1---drivers--hid--usbhid--usbhid.ko.cil.i line 16634 function ldv_undef_int thread 0
+----------------------------------------------------
+  tmp = 0 (00000000 00000000 00000000 00000000)
+
+State 6 file linux-4.0-rc1---drivers--hid--usbhid--usbhid.ko.cil.i line 16634 function ldv_undef_int thread 0
+----------------------------------------------------
+  tmp = 1 (00000000 00000000 00000000 00000001)
+
+State 7 file linux-4.0-rc1---drivers--hid--usbhid--usbhid.ko.cil.i line 16634 function ldv_undef_int thread 0
+----------------------------------------------------
+  tmp = -2147483648 (10000000 00000000 00000000 00000000)
+
+State 8 file linux-4.0-rc1---drivers--hid--usbhid--usbhid.ko.cil.i line 7049 function hid_find_max_report thread 0
+----------------------------------------------------
+  __mptr = ( struct list_head *)1052704469
+
+State 9 file linux-4.0-rc1---drivers--hid--usbhid--usbhid.ko.cil.i line 7050 function hid_find_max_report thread 0
+----------------------------------------------------
+  report = ( struct hid_report *)(&dynamic_15_array[88])
+
+State 10 file linux-4.0-rc1---drivers--hid--usbhid--usbhid.ko.cil.i line 7049 function hid_find_max_report thread 0
+----------------------------------------------------
+  __mptr = ( struct list_head *)1052772077
+
+State 11 file linux-4.0-rc1---drivers--hid--usbhid--usbhid.ko.cil.i line 7050 function hid_find_max_report thread 0
+----------------------------------------------------
+  report = ( struct hid_report *)(&dynamic_15_array[2160])
+
+State 12 file linux-4.0-rc1---drivers--hid--usbhid--usbhid.ko.cil.i line 7049 function hid_find_max_report thread 0
+----------------------------------------------------
+  __mptr = ( struct list_head *)1052774405
+
+State 13 file linux-4.0-rc1---drivers--hid--usbhid--usbhid.ko.cil.i line 7050 function hid_find_max_report thread 0
+----------------------------------------------------
+  report = ( struct hid_report *)(&dynamic_15_array[4232])
+
+State 14 file linux-4.0-rc1---drivers--hid--usbhid--usbhid.ko.cil.i line 7049 function hid_find_max_report thread 0
+----------------------------------------------------
+  __mptr = ( struct list_head *)1052704469
+
+State 15 file linux-4.0-rc1---drivers--hid--usbhid--usbhid.ko.cil.i line 7050 function hid_find_max_report thread 0
+----------------------------------------------------
+  report = ( struct hid_report *)(&dynamic_15_array[88])
+
+State 16 file linux-4.0-rc1---drivers--hid--usbhid--usbhid.ko.cil.i line 16634 function ldv_undef_int thread 0
+----------------------------------------------------
+  tmp = 0 (00000000 00000000 00000000 00000000)
+
+State 17 file linux-4.0-rc1---drivers--hid--usbhid--usbhid.ko.cil.i line 16156 function ldv_linux_usb_coherent_usb_alloc_coherent thread 0
+----------------------------------------------------
+  arbitrary_memory = 0
+
+State 18 file linux-4.0-rc1---drivers--hid--usbhid--usbhid.ko.cil.i line 9677 function ldv_usb_alloc_coherent_123 thread 0
+----------------------------------------------------
+  res = 0
+
+State 19 file linux-4.0-rc1---drivers--hid--usbhid--usbhid.ko.cil.i line 16634 function ldv_undef_int thread 0
+----------------------------------------------------
+  tmp = 0 (00000000 00000000 00000000 00000000)
+
+State 20 file linux-4.0-rc1---drivers--hid--usbhid--usbhid.ko.cil.i line 16156 function ldv_linux_usb_coherent_usb_alloc_coherent thread 0
+----------------------------------------------------
+  arbitrary_memory = 0
+
+State 21 file linux-4.0-rc1---drivers--hid--usbhid--usbhid.ko.cil.i line 9695 function ldv_usb_alloc_coherent_124 thread 0
+----------------------------------------------------
+  res = 0
+
+State 22 file linux-4.0-rc1---drivers--hid--usbhid--usbhid.ko.cil.i line 16634 function ldv_undef_int thread 0
+----------------------------------------------------
+  tmp = 0 (00000000 00000000 00000000 00000000)
+
+State 23 file linux-4.0-rc1---drivers--hid--usbhid--usbhid.ko.cil.i line 16634 function ldv_undef_int thread 0
+----------------------------------------------------
+  tmp = 0 (00000000 00000000 00000000 00000000)
+
+State 24 file linux-4.0-rc1---drivers--hid--usbhid--usbhid.ko.cil.i line 16156 function ldv_linux_usb_coherent_usb_alloc_coherent thread 0
+----------------------------------------------------
+  arbitrary_memory = 0
+
+State 25 file linux-4.0-rc1---drivers--hid--usbhid--usbhid.ko.cil.i line 9713 function ldv_usb_alloc_coherent_125 thread 0
+----------------------------------------------------
+  res = 0
+
+State 26 file linux-4.0-rc1---drivers--hid--usbhid--usbhid.ko.cil.i line 16634 function ldv_undef_int thread 0
+----------------------------------------------------
+  tmp = 0 (00000000 00000000 00000000 00000000)
+
+State 27 file linux-4.0-rc1---drivers--hid--usbhid--usbhid.ko.cil.i line 16455 function ldv_linux_usb_urb_usb_alloc_urb thread 0
+----------------------------------------------------
+  arbitrary_memory = 0
+
+State 28 file linux-4.0-rc1---drivers--hid--usbhid--usbhid.ko.cil.i line 9794 function ldv_usb_alloc_urb_131 thread 0
+----------------------------------------------------
+  res = 0
+
+State 29 file linux-4.0-rc1---drivers--hid--usbhid--usbhid.ko.cil.i line 6985 function hid_find_field_early thread 0
+----------------------------------------------------
+  __mptr = ( struct list_head *)1052772077
+
+State 30 file linux-4.0-rc1---drivers--hid--usbhid--usbhid.ko.cil.i line 6986 function hid_find_field_early thread 0
+----------------------------------------------------
+  report = ( struct hid_report *)(&dynamic_15_array[2160])
+
+State 31 file linux-4.0-rc1---drivers--hid--usbhid--usbhid.ko.cil.i line 16634 function ldv_undef_int thread 0
+----------------------------------------------------
+  tmp = -2147483648 (10000000 00000000 00000000 00000000)
+
+State 32 file linux-4.0-rc1---drivers--hid--usbhid--usbhid.ko.cil.i line 16634 function ldv_undef_int thread 0
+----------------------------------------------------
+  tmp = 10 (00000000 00000000 00000000 00001010)
+
+State 33 file linux-4.0-rc1---drivers--hid--usbhid--usbhid.ko.cil.i line 7610 function usbhid_stop thread 0
+----------------------------------------------------
+  usbhid = ( struct usbhid_device *)((void *)4585613018381877251)
+
+State 34 file linux-4.0-rc1---drivers--hid--usbhid--usbhid.ko.cil.i line 7611 function usbhid_stop thread 0
+----------------------------------------------------
+  __ret_warn_on = (signed int)((unsigned long int)(&dynamic_21_array[2818059776]) == (unsigned long int)0)
+
+State 35 file linux-4.0-rc1---drivers--hid--usbhid--usbhid.ko.cil.i line 18392 function reach_error thread 0
+----------------------------------------------------
+Violated property:
+  file linux-4.0-rc1---drivers--hid--usbhid--usbhid.ko.cil.i line 18392 function reach_error
+  assertion 0
+  0
+
+
+VERIFICATION FAILED
+
+Bug found (k = 1)
+
+
+FALSE_REACH

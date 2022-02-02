@@ -1,0 +1,490 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/ldv-linux-3.0/module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-linux-3.0/module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i --64 --witness-output module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 64-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/ldv-linux-3.0/module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 1.674s
+GOTO program processing time: 0.229s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.017s (75 assignments)
+Slicing time: 0.000s (removed 59 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (16 assignments)
+BMC program time: 0.017s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.016s (75 assignments)
+Slicing time: 0.000s (removed 59 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (16 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.001s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.001s
+Runtime decision procedure: 0.072s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 35  iteration  1   file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 8951 function main
+Unwinding loop 29  iteration  1   file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 6946 function gigaset_get_cs_by_minor
+Unwinding loop 29  iteration  2   file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 6946 function gigaset_get_cs_by_minor
+Not unwinding 
+No target candidate for function call *cs->ops->set_modem_ctrl
+No target candidate for function call *cs->ops->baud_rate
+No target candidate for function call *cs->ops->set_line_ctrl
+Unwinding loop 33  iteration  1   file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 7429 function if_lock
+Unwinding loop 33  iteration  2   file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 7429 function if_lock
+Not unwinding 
+No target candidate for function call *cs->ops->set_modem_ctrl
+No target candidate for function call *cs->ops->set_modem_ctrl
+Unwinding loop 2  iteration  1   file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 5091 function gigaset_enterconfigmode
+No target candidate for function call *cs->ops->set_modem_ctrl
+No target candidate for function call *cs->ops->set_modem_ctrl
+Unwinding loop 2  iteration  2   file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 5091 function gigaset_enterconfigmode
+No target candidate for function call *cs->ops->set_modem_ctrl
+No target candidate for function call *cs->ops->set_modem_ctrl
+Not unwinding 
+No target candidate for function call *cs->ops->set_modem_ctrl
+**** WARNING: no body for function __builtin_object_size
+Unwinding loop 1  iteration  1   file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 4965 function gigaset_dbg_buffer
+Unwinding loop 1  iteration  2   file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 4965 function gigaset_dbg_buffer
+Not unwinding 
+No target candidate for function call *cs->ops->brkchars
+**** WARNING: no body for function __builtin_object_size
+Unwinding loop 18  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 18  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 18  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 18  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 34  iteration  1   file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 7546 function if_version
+Unwinding loop 34  iteration  2   file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 7546 function if_version
+Not unwinding 
+Unwinding loop 18  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 18  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+No target candidate for function call *cs->ops->write_cmd
+No target candidate for function call *cs->ops->write_room
+No target candidate for function call *cs->ops->chars_in_buffer
+No target candidate for function call *cs->ops->set_modem_ctrl
+No target candidate for function call *cs->ops->baud_rate
+No target candidate for function call *cs->ops->set_modem_ctrl
+No target candidate for function call *cs->ops->set_line_ctrl
+No target candidate for function call *cs->ops->set_modem_ctrl
+Unwinding loop 35  iteration  2   file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 8951 function main
+Unwinding loop 29  iteration  1   file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 6946 function gigaset_get_cs_by_minor
+Unwinding loop 29  iteration  2   file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 6946 function gigaset_get_cs_by_minor
+Not unwinding 
+No target candidate for function call *cs->ops->set_modem_ctrl
+No target candidate for function call *cs->ops->baud_rate
+No target candidate for function call *cs->ops->set_line_ctrl
+Unwinding loop 33  iteration  1   file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 7429 function if_lock
+Unwinding loop 33  iteration  2   file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 7429 function if_lock
+Not unwinding 
+No target candidate for function call *cs->ops->set_modem_ctrl
+No target candidate for function call *cs->ops->set_modem_ctrl
+Unwinding loop 2  iteration  1   file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 5091 function gigaset_enterconfigmode
+No target candidate for function call *cs->ops->set_modem_ctrl
+No target candidate for function call *cs->ops->set_modem_ctrl
+Unwinding loop 2  iteration  2   file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 5091 function gigaset_enterconfigmode
+No target candidate for function call *cs->ops->set_modem_ctrl
+No target candidate for function call *cs->ops->set_modem_ctrl
+Not unwinding 
+No target candidate for function call *cs->ops->set_modem_ctrl
+**** WARNING: no body for function __builtin_object_size
+Unwinding loop 1  iteration  1   file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 4965 function gigaset_dbg_buffer
+Unwinding loop 1  iteration  2   file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 4965 function gigaset_dbg_buffer
+Not unwinding 
+No target candidate for function call *cs->ops->brkchars
+**** WARNING: no body for function __builtin_object_size
+Unwinding loop 18  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 18  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 18  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 18  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 34  iteration  1   file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 7546 function if_version
+Unwinding loop 34  iteration  2   file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 7546 function if_version
+Not unwinding 
+Unwinding loop 18  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 18  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+No target candidate for function call *cs->ops->write_cmd
+No target candidate for function call *cs->ops->write_room
+No target candidate for function call *cs->ops->chars_in_buffer
+No target candidate for function call *cs->ops->set_modem_ctrl
+No target candidate for function call *cs->ops->baud_rate
+No target candidate for function call *cs->ops->set_modem_ctrl
+No target candidate for function call *cs->ops->set_line_ctrl
+No target candidate for function call *cs->ops->set_modem_ctrl
+Not unwinding 
+Unwinding loop 36  iteration  1   file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 8954 function main
+Unwinding loop 29  iteration  1   file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 6946 function gigaset_get_cs_by_minor
+Unwinding loop 29  iteration  2   file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 6946 function gigaset_get_cs_by_minor
+Not unwinding 
+No target candidate for function call *cs->ops->set_modem_ctrl
+No target candidate for function call *cs->ops->baud_rate
+No target candidate for function call *cs->ops->set_line_ctrl
+Unwinding loop 33  iteration  1   file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 7429 function if_lock
+Unwinding loop 33  iteration  2   file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 7429 function if_lock
+Not unwinding 
+No target candidate for function call *cs->ops->set_modem_ctrl
+No target candidate for function call *cs->ops->set_modem_ctrl
+Unwinding loop 2  iteration  1   file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 5091 function gigaset_enterconfigmode
+No target candidate for function call *cs->ops->set_modem_ctrl
+No target candidate for function call *cs->ops->set_modem_ctrl
+Unwinding loop 2  iteration  2   file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 5091 function gigaset_enterconfigmode
+No target candidate for function call *cs->ops->set_modem_ctrl
+No target candidate for function call *cs->ops->set_modem_ctrl
+Not unwinding 
+No target candidate for function call *cs->ops->set_modem_ctrl
+**** WARNING: no body for function __builtin_object_size
+Unwinding loop 1  iteration  1   file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 4965 function gigaset_dbg_buffer
+Unwinding loop 1  iteration  2   file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 4965 function gigaset_dbg_buffer
+Not unwinding 
+No target candidate for function call *cs->ops->brkchars
+**** WARNING: no body for function __builtin_object_size
+Unwinding loop 18  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 18  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 18  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 18  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 34  iteration  1   file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 7546 function if_version
+Unwinding loop 34  iteration  2   file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 7546 function if_version
+Not unwinding 
+Unwinding loop 18  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 18  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+No target candidate for function call *cs->ops->write_cmd
+No target candidate for function call *cs->ops->write_room
+No target candidate for function call *cs->ops->chars_in_buffer
+No target candidate for function call *cs->ops->set_modem_ctrl
+No target candidate for function call *cs->ops->baud_rate
+No target candidate for function call *cs->ops->set_modem_ctrl
+No target candidate for function call *cs->ops->set_line_ctrl
+No target candidate for function call *cs->ops->set_modem_ctrl
+Unwinding loop 35  iteration  1   file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 8951 function main
+Unwinding loop 29  iteration  1   file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 6946 function gigaset_get_cs_by_minor
+Unwinding loop 29  iteration  2   file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 6946 function gigaset_get_cs_by_minor
+Not unwinding 
+No target candidate for function call *cs->ops->set_modem_ctrl
+No target candidate for function call *cs->ops->baud_rate
+No target candidate for function call *cs->ops->set_line_ctrl
+Unwinding loop 33  iteration  1   file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 7429 function if_lock
+Unwinding loop 33  iteration  2   file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 7429 function if_lock
+Not unwinding 
+No target candidate for function call *cs->ops->set_modem_ctrl
+No target candidate for function call *cs->ops->set_modem_ctrl
+Unwinding loop 2  iteration  1   file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 5091 function gigaset_enterconfigmode
+No target candidate for function call *cs->ops->set_modem_ctrl
+No target candidate for function call *cs->ops->set_modem_ctrl
+Unwinding loop 2  iteration  2   file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 5091 function gigaset_enterconfigmode
+No target candidate for function call *cs->ops->set_modem_ctrl
+No target candidate for function call *cs->ops->set_modem_ctrl
+Not unwinding 
+No target candidate for function call *cs->ops->set_modem_ctrl
+**** WARNING: no body for function __builtin_object_size
+Unwinding loop 1  iteration  1   file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 4965 function gigaset_dbg_buffer
+Unwinding loop 1  iteration  2   file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 4965 function gigaset_dbg_buffer
+Not unwinding 
+No target candidate for function call *cs->ops->brkchars
+**** WARNING: no body for function __builtin_object_size
+Unwinding loop 18  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 18  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 18  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 18  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 34  iteration  1   file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 7546 function if_version
+Unwinding loop 34  iteration  2   file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 7546 function if_version
+Not unwinding 
+Unwinding loop 18  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 18  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+No target candidate for function call *cs->ops->write_cmd
+No target candidate for function call *cs->ops->write_room
+No target candidate for function call *cs->ops->chars_in_buffer
+No target candidate for function call *cs->ops->set_modem_ctrl
+No target candidate for function call *cs->ops->baud_rate
+No target candidate for function call *cs->ops->set_modem_ctrl
+No target candidate for function call *cs->ops->set_line_ctrl
+No target candidate for function call *cs->ops->set_modem_ctrl
+Unwinding loop 35  iteration  2   file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 8951 function main
+Unwinding loop 29  iteration  1   file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 6946 function gigaset_get_cs_by_minor
+Unwinding loop 29  iteration  2   file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 6946 function gigaset_get_cs_by_minor
+Not unwinding 
+No target candidate for function call *cs->ops->set_modem_ctrl
+No target candidate for function call *cs->ops->baud_rate
+No target candidate for function call *cs->ops->set_line_ctrl
+Unwinding loop 33  iteration  1   file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 7429 function if_lock
+Unwinding loop 33  iteration  2   file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 7429 function if_lock
+Not unwinding 
+No target candidate for function call *cs->ops->set_modem_ctrl
+No target candidate for function call *cs->ops->set_modem_ctrl
+Unwinding loop 2  iteration  1   file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 5091 function gigaset_enterconfigmode
+No target candidate for function call *cs->ops->set_modem_ctrl
+No target candidate for function call *cs->ops->set_modem_ctrl
+Unwinding loop 2  iteration  2   file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 5091 function gigaset_enterconfigmode
+No target candidate for function call *cs->ops->set_modem_ctrl
+No target candidate for function call *cs->ops->set_modem_ctrl
+Not unwinding 
+No target candidate for function call *cs->ops->set_modem_ctrl
+**** WARNING: no body for function __builtin_object_size
+Unwinding loop 1  iteration  1   file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 4965 function gigaset_dbg_buffer
+Unwinding loop 1  iteration  2   file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 4965 function gigaset_dbg_buffer
+Not unwinding 
+No target candidate for function call *cs->ops->brkchars
+**** WARNING: no body for function __builtin_object_size
+Unwinding loop 18  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 18  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 18  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 18  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 34  iteration  1   file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 7546 function if_version
+Unwinding loop 34  iteration  2   file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 7546 function if_version
+Not unwinding 
+Unwinding loop 18  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 18  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+No target candidate for function call *cs->ops->write_cmd
+No target candidate for function call *cs->ops->write_room
+No target candidate for function call *cs->ops->chars_in_buffer
+No target candidate for function call *cs->ops->set_modem_ctrl
+No target candidate for function call *cs->ops->baud_rate
+No target candidate for function call *cs->ops->set_modem_ctrl
+No target candidate for function call *cs->ops->set_line_ctrl
+No target candidate for function call *cs->ops->set_modem_ctrl
+Not unwinding 
+Unwinding loop 36  iteration  2   file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 8954 function main
+Unwinding loop 29  iteration  1   file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 6946 function gigaset_get_cs_by_minor
+Unwinding loop 29  iteration  2   file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 6946 function gigaset_get_cs_by_minor
+Not unwinding 
+No target candidate for function call *cs->ops->set_modem_ctrl
+No target candidate for function call *cs->ops->baud_rate
+No target candidate for function call *cs->ops->set_line_ctrl
+Unwinding loop 33  iteration  1   file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 7429 function if_lock
+Unwinding loop 33  iteration  2   file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 7429 function if_lock
+Not unwinding 
+No target candidate for function call *cs->ops->set_modem_ctrl
+No target candidate for function call *cs->ops->set_modem_ctrl
+Unwinding loop 2  iteration  1   file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 5091 function gigaset_enterconfigmode
+No target candidate for function call *cs->ops->set_modem_ctrl
+No target candidate for function call *cs->ops->set_modem_ctrl
+Unwinding loop 2  iteration  2   file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 5091 function gigaset_enterconfigmode
+No target candidate for function call *cs->ops->set_modem_ctrl
+No target candidate for function call *cs->ops->set_modem_ctrl
+Not unwinding 
+No target candidate for function call *cs->ops->set_modem_ctrl
+**** WARNING: no body for function __builtin_object_size
+Unwinding loop 1  iteration  1   file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 4965 function gigaset_dbg_buffer
+Unwinding loop 1  iteration  2   file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 4965 function gigaset_dbg_buffer
+Not unwinding 
+No target candidate for function call *cs->ops->brkchars
+**** WARNING: no body for function __builtin_object_size
+Unwinding loop 18  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 18  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 18  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 18  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 34  iteration  1   file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 7546 function if_version
+Unwinding loop 34  iteration  2   file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 7546 function if_version
+Not unwinding 
+Unwinding loop 18  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 18  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+No target candidate for function call *cs->ops->write_cmd
+No target candidate for function call *cs->ops->write_room
+No target candidate for function call *cs->ops->chars_in_buffer
+No target candidate for function call *cs->ops->set_modem_ctrl
+No target candidate for function call *cs->ops->baud_rate
+No target candidate for function call *cs->ops->set_modem_ctrl
+No target candidate for function call *cs->ops->set_line_ctrl
+No target candidate for function call *cs->ops->set_modem_ctrl
+Unwinding loop 35  iteration  1   file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 8951 function main
+Unwinding loop 29  iteration  1   file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 6946 function gigaset_get_cs_by_minor
+Unwinding loop 29  iteration  2   file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 6946 function gigaset_get_cs_by_minor
+Not unwinding 
+No target candidate for function call *cs->ops->set_modem_ctrl
+No target candidate for function call *cs->ops->baud_rate
+No target candidate for function call *cs->ops->set_line_ctrl
+Unwinding loop 33  iteration  1   file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 7429 function if_lock
+Unwinding loop 33  iteration  2   file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 7429 function if_lock
+Not unwinding 
+No target candidate for function call *cs->ops->set_modem_ctrl
+No target candidate for function call *cs->ops->set_modem_ctrl
+Unwinding loop 2  iteration  1   file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 5091 function gigaset_enterconfigmode
+No target candidate for function call *cs->ops->set_modem_ctrl
+No target candidate for function call *cs->ops->set_modem_ctrl
+Unwinding loop 2  iteration  2   file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 5091 function gigaset_enterconfigmode
+No target candidate for function call *cs->ops->set_modem_ctrl
+No target candidate for function call *cs->ops->set_modem_ctrl
+Not unwinding 
+No target candidate for function call *cs->ops->set_modem_ctrl
+**** WARNING: no body for function __builtin_object_size
+Unwinding loop 1  iteration  1   file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 4965 function gigaset_dbg_buffer
+Unwinding loop 1  iteration  2   file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 4965 function gigaset_dbg_buffer
+Not unwinding 
+No target candidate for function call *cs->ops->brkchars
+**** WARNING: no body for function __builtin_object_size
+Unwinding loop 18  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 18  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 18  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 18  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 34  iteration  1   file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 7546 function if_version
+Unwinding loop 34  iteration  2   file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 7546 function if_version
+Not unwinding 
+Unwinding loop 18  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 18  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+No target candidate for function call *cs->ops->write_cmd
+No target candidate for function call *cs->ops->write_room
+No target candidate for function call *cs->ops->chars_in_buffer
+No target candidate for function call *cs->ops->set_modem_ctrl
+No target candidate for function call *cs->ops->baud_rate
+No target candidate for function call *cs->ops->set_modem_ctrl
+No target candidate for function call *cs->ops->set_line_ctrl
+No target candidate for function call *cs->ops->set_modem_ctrl
+Unwinding loop 35  iteration  2   file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 8951 function main
+Unwinding loop 29  iteration  1   file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 6946 function gigaset_get_cs_by_minor
+Unwinding loop 29  iteration  2   file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 6946 function gigaset_get_cs_by_minor
+Not unwinding 
+No target candidate for function call *cs->ops->set_modem_ctrl
+No target candidate for function call *cs->ops->baud_rate
+No target candidate for function call *cs->ops->set_line_ctrl
+Unwinding loop 33  iteration  1   file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 7429 function if_lock
+Unwinding loop 33  iteration  2   file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 7429 function if_lock
+Not unwinding 
+No target candidate for function call *cs->ops->set_modem_ctrl
+No target candidate for function call *cs->ops->set_modem_ctrl
+Unwinding loop 2  iteration  1   file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 5091 function gigaset_enterconfigmode
+No target candidate for function call *cs->ops->set_modem_ctrl
+No target candidate for function call *cs->ops->set_modem_ctrl
+Unwinding loop 2  iteration  2   file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 5091 function gigaset_enterconfigmode
+No target candidate for function call *cs->ops->set_modem_ctrl
+No target candidate for function call *cs->ops->set_modem_ctrl
+Not unwinding 
+No target candidate for function call *cs->ops->set_modem_ctrl
+**** WARNING: no body for function __builtin_object_size
+Unwinding loop 1  iteration  1   file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 4965 function gigaset_dbg_buffer
+Unwinding loop 1  iteration  2   file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 4965 function gigaset_dbg_buffer
+Not unwinding 
+No target candidate for function call *cs->ops->brkchars
+**** WARNING: no body for function __builtin_object_size
+Unwinding loop 18  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 18  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 18  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 18  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 34  iteration  1   file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 7546 function if_version
+Unwinding loop 34  iteration  2   file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 7546 function if_version
+Not unwinding 
+Unwinding loop 18  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 18  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+No target candidate for function call *cs->ops->write_cmd
+No target candidate for function call *cs->ops->write_room
+No target candidate for function call *cs->ops->chars_in_buffer
+No target candidate for function call *cs->ops->set_modem_ctrl
+No target candidate for function call *cs->ops->baud_rate
+No target candidate for function call *cs->ops->set_modem_ctrl
+No target candidate for function call *cs->ops->set_line_ctrl
+No target candidate for function call *cs->ops->set_modem_ctrl
+Not unwinding 
+Not unwinding 
+Symex completed in: 5.164s (11133 assignments)
+Slicing time: 0.142s (removed 8454 assignments)
+Generated 16 VCC(s), 16 remaining after simplification (2679 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.259s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.259s
+Runtime decision procedure: 34.598s
+Building error trace
+
+Counterexample:
+
+State 1 file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 8826 function main thread 0
+----------------------------------------------------
+  drivers.prev = { .next=&drivers, .prev=( struct list_head *)main::$tmp::return_value$_ldv_malloc$1?1!0&0#3 }
+
+State 2 file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 8827 function main thread 0
+----------------------------------------------------
+  drivers.next = ( struct list_head *)0
+
+State 3 file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 8948 function main thread 0
+----------------------------------------------------
+  tmp___0 = 1 (00000000 00000000 00000000 00000001)
+
+State 4 file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 8835 function main thread 0
+----------------------------------------------------
+  tmp = 0 (00000000 00000000 00000000 00000000)
+
+State 5 file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 6914 function gigaset_get_cs_by_minor thread 0
+----------------------------------------------------
+  __mptr = drivers.next
+
+State 6 file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 6915 function gigaset_get_cs_by_minor thread 0
+----------------------------------------------------
+  drv = ( struct gigaset_driver *)0
+
+State 7 file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 6942 function gigaset_get_cs_by_minor thread 0
+----------------------------------------------------
+  __mptr___0 = ( struct list_head *)5764607523069896959
+
+State 8 file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 6943 function gigaset_get_cs_by_minor thread 0
+----------------------------------------------------
+  drv = ( struct gigaset_driver *)(invalid-object)
+
+State 9 file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 6927 function gigaset_get_cs_by_minor thread 0
+----------------------------------------------------
+  index = 3905574759 (11101000 11001010 01010111 01100111)
+
+State 10 file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 6931 function gigaset_get_cs_by_minor thread 0
+----------------------------------------------------
+  ret = INVALID3859775458 + 3905574759
+
+State 11 file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 12 function reach_error thread 0
+----------------------------------------------------
+Violated property:
+  file module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i line 12 function reach_error
+  assertion 0
+  0
+
+
+VERIFICATION FAILED
+
+Bug found (k = 3)
+
+../sv-benchmarks/c/ldv-linux-3.0/module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i:6116:11: warning: implicitly declaring library function 'memcpy' with type 'void *(void *, const void *, unsigned long)' [-Wimplicit-function-declaration]
+  __ret = memcpy((void *)(& inbuf->data) + (unsigned long )tail, (void const *)src,
+          ^
+../sv-benchmarks/c/ldv-linux-3.0/module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i:6116:11: note: include the header <string.h> or explicitly provide a declaration for 'memcpy'
+../sv-benchmarks/c/ldv-linux-3.0/module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i:7270:7: warning: ignoring return value of function declared with const attribute [-Wunused-value]
+      __builtin_expect((long )(__ret_warn_on != 0), 0L);
+      ^~~~~~~~~~~~~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.0/module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i:12224:5: warning: ignoring return value of function declared with const attribute [-Wunused-value]
+    __builtin_expect((long )(__ret_warn_on != 0), 0L);
+    ^~~~~~~~~~~~~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.0/module_get_put-drivers-isdn-gigaset-gigaset.ko.cil.out.i:13711:28: warning: address of stack memory associated with local variable 'result' returned [-Wreturn-stack-address]
+  return ((char const *)(& result));
+                           ^~~~~~
+
+FALSE_REACH

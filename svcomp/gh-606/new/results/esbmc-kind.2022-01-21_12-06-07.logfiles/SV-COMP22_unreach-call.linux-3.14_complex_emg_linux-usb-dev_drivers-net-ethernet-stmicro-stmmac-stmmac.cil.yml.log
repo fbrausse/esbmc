@@ -1,0 +1,195 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/ldv-linux-3.14/linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-stmicro-stmmac-stmmac.cil.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-linux-3.14/linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-stmicro-stmmac-stmmac.cil.i --64 --witness-output linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-stmicro-stmmac-stmmac.cil.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 64-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/ldv-linux-3.14/linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-stmicro-stmmac-stmmac.cil.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 2.757s
+GOTO program processing time: 9.614s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 1.241s (3089 assignments)
+Slicing time: 0.012s (removed 2253 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (836 assignments)
+BMC program time: 1.253s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 1.362s (3089 assignments)
+Slicing time: 0.005s (removed 2253 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (836 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.580s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.580s
+Runtime decision procedure: 16.171s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 24  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-stmicro-stmmac-stmmac.cil.i line 14227 function main
+Unwinding loop 24  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-stmicro-stmmac-stmmac.cil.i line 14227 function main
+No target candidate for function call *priv->hw->ptp->config_addend
+No target candidate for function call *arg0
+No target candidate for function call *priv->hw->ptp->adjust_systime
+No target candidate for function call *priv->hw->ptp->get_systime
+No target candidate for function call *priv->hw->ptp->init_systime
+No target candidate for function call *priv->hw->ptp->config_addend
+No target candidate for function call *arg0
+No target candidate for function call *priv->hw->ptp->adjust_systime
+No target candidate for function call *priv->hw->ptp->get_systime
+No target candidate for function call *priv->hw->ptp->init_systime
+Unwinding loop 54  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-stmicro-stmmac-stmmac.cil.i line 26458 function stmmac_adjust_systime
+Unwinding loop 53  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-stmicro-stmmac-stmmac.cil.i line 26451 function stmmac_adjust_systime
+Unwinding loop 53  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-stmicro-stmmac-stmmac.cil.i line 26451 function stmmac_adjust_systime
+Not unwinding 
+Unwinding loop 52  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-stmicro-stmmac-stmmac.cil.i line 26404 function stmmac_config_addend
+Unwinding loop 51  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-stmicro-stmmac-stmmac.cil.i line 26397 function stmmac_config_addend
+Unwinding loop 51  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-stmicro-stmmac-stmmac.cil.i line 26397 function stmmac_config_addend
+Not unwinding 
+Unwinding loop 39  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-stmicro-stmmac-stmmac.cil.i line 22045 function dwmac1000_dump_regs
+Unwinding loop 39  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-stmicro-stmmac-stmmac.cil.i line 22045 function dwmac1000_dump_regs
+Not unwinding 
+Unwinding loop 47  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-stmicro-stmmac-stmmac.cil.i line 23682 function dwmac100_dma_init
+Unwinding loop 46  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-stmicro-stmmac-stmmac.cil.i line 23675 function dwmac100_dma_init
+Unwinding loop 46  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-stmicro-stmmac-stmmac.cil.i line 23675 function dwmac100_dma_init
+Not unwinding 
+Unwinding loop 50  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-stmicro-stmmac-stmmac.cil.i line 26351 function stmmac_init_systime
+Unwinding loop 49  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-stmicro-stmmac-stmmac.cil.i line 26344 function stmmac_init_systime
+Unwinding loop 49  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-stmicro-stmmac-stmmac.cil.i line 26344 function stmmac_init_systime
+Not unwinding 
+Unwinding loop 57  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 57  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 57  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 57  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 41  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-stmicro-stmmac-stmmac.cil.i line 22170 function dwmac1000_set_filter
+Unwinding loop 41  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-stmicro-stmmac-stmmac.cil.i line 22170 function dwmac1000_set_filter
+Not unwinding 
+Unwinding loop 38  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-stmicro-stmmac-stmmac.cil.i line 21921 function dwmac_dma_flush_tx_fifo
+Unwinding loop 38  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-stmicro-stmmac-stmmac.cil.i line 21921 function dwmac_dma_flush_tx_fifo
+Not unwinding 
+Unwinding loop 38  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-stmicro-stmmac-stmmac.cil.i line 21921 function dwmac_dma_flush_tx_fifo
+Unwinding loop 38  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-stmicro-stmmac-stmmac.cil.i line 21921 function dwmac_dma_flush_tx_fifo
+Not unwinding 
+Unwinding loop 38  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-stmicro-stmmac-stmmac.cil.i line 21921 function dwmac_dma_flush_tx_fifo
+Unwinding loop 38  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-stmicro-stmmac-stmmac.cil.i line 21921 function dwmac_dma_flush_tx_fifo
+Not unwinding 
+Unwinding loop 54  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-stmicro-stmmac-stmmac.cil.i line 26458 function stmmac_adjust_systime
+Unwinding loop 53  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-stmicro-stmmac-stmmac.cil.i line 26451 function stmmac_adjust_systime
+Unwinding loop 53  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-stmicro-stmmac-stmmac.cil.i line 26451 function stmmac_adjust_systime
+Not unwinding 
+Unwinding loop 52  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-stmicro-stmmac-stmmac.cil.i line 26404 function stmmac_config_addend
+Unwinding loop 51  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-stmicro-stmmac-stmmac.cil.i line 26397 function stmmac_config_addend
+Unwinding loop 51  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-stmicro-stmmac-stmmac.cil.i line 26397 function stmmac_config_addend
+Not unwinding 
+Unwinding loop 48  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-stmicro-stmmac-stmmac.cil.i line 23773 function dwmac100_dump_dma_regs
+Unwinding loop 48  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-stmicro-stmmac-stmmac.cil.i line 23773 function dwmac100_dump_dma_regs
+Not unwinding 
+Unwinding loop 47  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-stmicro-stmmac-stmmac.cil.i line 23682 function dwmac100_dma_init
+Unwinding loop 46  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-stmicro-stmmac-stmmac.cil.i line 23675 function dwmac100_dma_init
+Unwinding loop 46  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-stmicro-stmmac-stmmac.cil.i line 23675 function dwmac100_dma_init
+Not unwinding 
+Unwinding loop 50  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-stmicro-stmmac-stmmac.cil.i line 26351 function stmmac_init_systime
+Unwinding loop 49  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-stmicro-stmmac-stmmac.cil.i line 26344 function stmmac_init_systime
+Unwinding loop 49  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-stmicro-stmmac-stmmac.cil.i line 26344 function stmmac_init_systime
+Not unwinding 
+Unwinding loop 57  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 57  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 57  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 57  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 54  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-stmicro-stmmac-stmmac.cil.i line 26458 function stmmac_adjust_systime
+Unwinding loop 53  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-stmicro-stmmac-stmmac.cil.i line 26451 function stmmac_adjust_systime
+Unwinding loop 53  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-stmicro-stmmac-stmmac.cil.i line 26451 function stmmac_adjust_systime
+Not unwinding 
+Unwinding loop 52  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-stmicro-stmmac-stmmac.cil.i line 26404 function stmmac_config_addend
+Unwinding loop 51  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-stmicro-stmmac-stmmac.cil.i line 26397 function stmmac_config_addend
+Unwinding loop 51  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-stmicro-stmmac-stmmac.cil.i line 26397 function stmmac_config_addend
+Not unwinding 
+Unwinding loop 47  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-stmicro-stmmac-stmmac.cil.i line 23682 function dwmac100_dma_init
+Unwinding loop 46  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-stmicro-stmmac-stmmac.cil.i line 23675 function dwmac100_dma_init
+Unwinding loop 46  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-stmicro-stmmac-stmmac.cil.i line 23675 function dwmac100_dma_init
+Not unwinding 
+Unwinding loop 50  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-stmicro-stmmac-stmmac.cil.i line 26351 function stmmac_init_systime
+Unwinding loop 49  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-stmicro-stmmac-stmmac.cil.i line 26344 function stmmac_init_systime
+Unwinding loop 49  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-stmicro-stmmac-stmmac.cil.i line 26344 function stmmac_init_systime
+Not unwinding 
+Unwinding loop 57  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 57  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 57  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 57  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+No target candidate for function call *arg0
+No target candidate for function call *priv->hw->mac->pmt
+No target candidate for function call *data->phy_reset
+No target candidate for function call *priv->hw->mode->set_16kib_bfsize
+Unwinding loop 10  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-stmicro-stmmac-stmmac.cil.i line 9573 function init_dma_desc_rings
+No target candidate for function call *ops->map_page
+No target candidate for function call *ops->mapping_error
+No target candidate for function call *priv->hw->mode->init_desc3
+Unwinding loop 10  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-stmicro-stmmac-stmmac.cil.i line 9573 function init_dma_desc_rings
+No target candidate for function call *ops->map_page
+No target candidate for function call *ops->mapping_error
+No target candidate for function call *priv->hw->mode->init_desc3
+Not unwinding 
+No target candidate for function call *priv->hw->mode->init
+No target candidate for function call *priv->hw->mode->init
+No target candidate for function call *priv->hw->mode->init
+No target candidate for function call *priv->hw->mode->init
+Unwinding loop 11  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-stmicro-stmmac-stmmac.cil.i line 9611 function init_dma_desc_rings
+Unwinding loop 11  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-stmicro-stmmac-stmmac.cil.i line 9611 function init_dma_desc_rings
+Not unwinding 
+Unwinding loop 8  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-stmicro-stmmac-stmmac.cil.i line 9354 function stmmac_clear_descriptors
+No target candidate for function call *priv->hw->desc->init_rx_desc
+No target candidate for function call *priv->hw->desc->init_rx_desc
+Unwinding loop 8  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-stmicro-stmmac-stmmac.cil.i line 9354 function stmmac_clear_descriptors
+No target candidate for function call *priv->hw->desc->init_rx_desc
+No target candidate for function call *priv->hw->desc->init_rx_desc
+Not unwinding 
+Unwinding loop 9  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-stmicro-stmmac-stmmac.cil.i line 9374 function stmmac_clear_descriptors
+No target candidate for function call *priv->hw->desc->init_tx_desc
+No target candidate for function call *priv->hw->desc->init_tx_desc
+Unwinding loop 9  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-stmicro-stmmac-stmmac.cil.i line 9374 function stmmac_clear_descriptors
+No target candidate for function call *priv->hw->desc->init_tx_desc
+No target candidate for function call *priv->hw->desc->init_tx_desc
+Not unwinding 
+Unwinding loop 7  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-stmicro-stmmac-stmmac.cil.i line 9279 function stmmac_display_ring
+Unwinding loop 7  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-stmicro-stmmac-stmmac.cil.i line 9279 function stmmac_display_ring
+Not unwinding 
+Unwinding loop 7  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-stmicro-stmmac-stmmac.cil.i line 9279 function stmmac_display_ring
+Unwinding loop 7  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-stmicro-stmmac-stmmac.cil.i line 9279 function stmmac_display_ring
+Not unwinding 
+Unwinding loop 7  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-stmicro-stmmac-stmmac.cil.i line 9279 function stmmac_display_ring
+Unwinding loop 7  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-stmicro-stmmac-stmmac.cil.i line 9279 function stmmac_display_ring
+Not unwinding 
+Unwinding loop 7  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-stmicro-stmmac-stmmac.cil.i line 9279 function stmmac_display_ring
+Unwinding loop 7  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-stmicro-stmmac-stmmac.cil.i line 9279 function stmmac_display_ring
+Not unwinding 
+Unwinding loop 12  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-stmicro-stmmac-stmmac.cil.i line 9635 function init_dma_desc_rings
+No target candidate for function call *ops->unmap_page
+Unwinding loop 12  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-stmicro-stmmac-stmmac.cil.i line 9635 function init_dma_desc_rings
+No target candidate for function call *ops->unmap_page
+Not unwinding 
+No target candidate for function call *priv->hw->dma->init
+No target candidate for function call *priv->hw->mac->set_umac_addr
+No target candidate for function call *priv->plat->bus_setup
+No target candidate for function call *priv->hw->mac->core_init
+No target candidate for function call *priv->hw->dma->dma_mode
+No target candidate
+Function call to "c:linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-stmicro-stmmac-stmmac.cil.i@F@dwmac1000_set_eee_pls": number of arguments doesn't match type definition; some inconsistent rewriting occured
+
+
+Unknown

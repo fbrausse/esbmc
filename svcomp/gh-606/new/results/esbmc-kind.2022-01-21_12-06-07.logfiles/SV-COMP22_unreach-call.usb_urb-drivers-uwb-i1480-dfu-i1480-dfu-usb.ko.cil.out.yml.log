@@ -1,0 +1,31 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/ldv-linux-3.0/usb_urb-drivers-uwb-i1480-dfu-i1480-dfu-usb.ko.cil.out.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-linux-3.0/usb_urb-drivers-uwb-i1480-dfu-i1480-dfu-usb.ko.cil.out.i --64 --witness-output usb_urb-drivers-uwb-i1480-dfu-i1480-dfu-usb.ko.cil.out.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+
+../sv-benchmarks/c/ldv-linux-3.0/usb_urb-drivers-uwb-i1480-dfu-i1480-dfu-usb.ko.cil.out.i:370:17: warning: cast to smaller integer type 'unsigned int' from 'struct lockdep_map *' [-Wpointer-to-int-cast]
+   u8 __padding[(unsigned int )(& ((struct raw_spinlock *)0)->dep_map)] ;
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.0/usb_urb-drivers-uwb-i1480-dfu-i1480-dfu-usb.ko.cil.out.i:4460:50: warning: cast to smaller integer type 'unsigned int' from 'struct device *' [-Wpointer-to-int-cast]
+  return ((struct usb_device *)((char *)__mptr - (unsigned int )(& ((struct usb_device *)0)->dev)));
+                                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.0/usb_urb-drivers-uwb-i1480-dfu-i1480-dfu-usb.ko.cil.out.i:4597:53: warning: cast to smaller integer type 'unsigned int' from 'struct i1480 *' [-Wpointer-to-int-cast]
+  i1480_usb = (struct i1480_usb *)((char *)__mptr - (unsigned int )(& ((struct i1480_usb *)0)->i1480));
+                                                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.0/usb_urb-drivers-uwb-i1480-dfu-i1480-dfu-usb.ko.cil.out.i:4691:53: warning: cast to smaller integer type 'unsigned int' from 'struct i1480 *' [-Wpointer-to-int-cast]
+  i1480_usb = (struct i1480_usb *)((char *)__mptr - (unsigned int )(& ((struct i1480_usb *)0)->i1480));
+                                                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.0/usb_urb-drivers-uwb-i1480-dfu-i1480-dfu-usb.ko.cil.out.i:4971:53: warning: cast to smaller integer type 'unsigned int' from 'struct i1480 *' [-Wpointer-to-int-cast]
+  i1480_usb = (struct i1480_usb *)((char *)__mptr - (unsigned int )(& ((struct i1480_usb *)0)->i1480));
+                                                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.0/usb_urb-drivers-uwb-i1480-dfu-i1480-dfu-usb.ko.cil.out.i:5029:53: warning: cast to smaller integer type 'unsigned int' from 'struct i1480 *' [-Wpointer-to-int-cast]
+  i1480_usb = (struct i1480_usb *)((char *)__mptr - (unsigned int )(& ((struct i1480_usb *)0)->i1480));
+                                                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Function call to "c:usb_urb-drivers-uwb-i1480-dfu-i1480-dfu-usb.ko.cil.out.i@F@i1480_usb_write": number of arguments doesn't match type definition; some inconsistent rewriting occured
+
+
+Unknown

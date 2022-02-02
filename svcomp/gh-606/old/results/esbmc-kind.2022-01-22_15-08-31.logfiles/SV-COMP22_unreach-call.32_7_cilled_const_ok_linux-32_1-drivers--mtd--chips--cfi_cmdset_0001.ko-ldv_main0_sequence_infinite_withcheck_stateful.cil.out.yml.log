@@ -1,0 +1,28 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--mtd--chips--cfi_cmdset_0001.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--mtd--chips--cfi_cmdset_0001.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i --64 --witness-output 32_7_cilled_const_ok_linux-32_1-drivers--mtd--chips--cfi_cmdset_0001.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--mtd--chips--cfi_cmdset_0001.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i:2454:14: warning: incompatible redeclaration of library function 'memcpy' [-Wincompatible-library-redeclaration]
+extern void *memcpy(void *to , void *from , size_t len ) ;
+             ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--mtd--chips--cfi_cmdset_0001.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i:2454:14: note: 'memcpy' is a builtin with type 'void *(void *, const void *, unsigned long)'
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--mtd--chips--cfi_cmdset_0001.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i:13744:17: warning: cast to smaller integer type 'unsigned int' from 'struct notifier_block *' [-Wpointer-to-int-cast]
+  __cil_tmp10 = (unsigned int )__cil_tmp9;
+                ^~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--mtd--chips--cfi_cmdset_0001.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i:13936:1: warning: return type of 'main' is not 'int' [-Wmain-return-type]
+void main(void)
+^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--mtd--chips--cfi_cmdset_0001.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i:13936:1: note: change return type to 'int'
+void main(void)
+^~~~
+int
+Can't construct rvalue reference to array type during dereference
+(It isn't allowed by C anyway)
+
+
+Unknown

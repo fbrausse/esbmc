@@ -1,0 +1,65 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/valid-memsafety.prp -s kinduction --arch 32 ../sv-benchmarks/c/array-memsafety/cstrncpy_unsafe.c
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/array-memsafety/cstrncpy_unsafe.c --32 --witness-output cstrncpy_unsafe.c.graphml --memory-leak-check --no-assertions --incremental-bmc 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/array-memsafety/cstrncpy_unsafe.c: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.128s
+GOTO program processing time: 0.000s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.002s (43 assignments)
+Slicing time: 0.000s (removed 17 assignments)
+Generated 4 VCC(s), 4 remaining after simplification (26 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.000s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.000s
+Runtime decision procedure: 0.016s
+Building error trace
+
+Counterexample:
+
+State 1 file cstrncpy_unsafe.c line 29 function main thread 0
+----------------------------------------------------
+  n = 2 (00000000 00000000 00000000 00000010)
+
+State 2 file cstrncpy_unsafe.c line 5 function cstrncpy thread 0
+----------------------------------------------------
+  dst = 0
+
+State 3 file cstrncpy_unsafe.c line 6 function cstrncpy thread 0
+----------------------------------------------------
+  src = invalid-object
+
+State 4 file cstrncpy_unsafe.c line 11 function cstrncpy thread 0
+----------------------------------------------------
+  n = 1 (00000000 00000000 00000000 00000001)
+
+State 5 file cstrncpy_unsafe.c line 12 function cstrncpy thread 0
+----------------------------------------------------
+  dst = 0 + 1
+
+State 7 file cstrncpy_unsafe.c line 12 function cstrncpy thread 0
+----------------------------------------------------
+Violated property:
+  file cstrncpy_unsafe.c line 12 function cstrncpy
+  dereference failure: invalid pointer
+
+
+VERIFICATION FAILED
+
+Bug found (k = 1)
+
+
+FALSE_DEREF

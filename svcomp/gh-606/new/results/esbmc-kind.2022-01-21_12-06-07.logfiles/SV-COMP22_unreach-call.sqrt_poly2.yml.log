@@ -1,0 +1,132 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/float-benchs/sqrt_poly2.c
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/float-benchs/sqrt_poly2.c --32 --witness-output sqrt_poly2.c.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/float-benchs/sqrt_poly2.c: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.148s
+GOTO program processing time: 0.000s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Symex completed in: 0.006s (52 assignments)
+Slicing time: 0.000s (removed 15 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (37 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.026s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.026s
+Runtime decision procedure: 21.464s
+Building error trace
+
+Counterexample:
+
+State 1 file sqrt_poly2.c line 60 function main thread 0
+----------------------------------------------------
+  x = 1.233925e+1 (01000000 00101000 10101101 10110010 11000000 00101001 01111010 00010011)
+
+State 2 file sqrt_poly2.c line 35 function sqrt_custom thread 0
+----------------------------------------------------
+  (( union u { signed int [2] i; double d; } *)(&x))->d = (unsigned long long int)1.233925e+1
+
+State 3 file sqrt_poly2.c line 35 function sqrt_custom thread 0
+----------------------------------------------------
+  (( union u { signed int [2] i; double d; } *)(&x))->d = (unsigned long long int)1.233925e+1
+
+State 4 file sqrt_poly2.c line 35 function sqrt_custom thread 0
+----------------------------------------------------
+  (( union u { signed int [2] i; double d; } *)(&x))->d = (unsigned long long int)1.233925e+1
+
+State 5 file sqrt_poly2.c line 35 function sqrt_custom thread 0
+----------------------------------------------------
+  (( union u { signed int [2] i; double d; } *)(&x))->d = (unsigned long long int)1.233925e+1
+
+State 6 file sqrt_poly2.c line 35 function sqrt_custom thread 0
+----------------------------------------------------
+  (( union u { signed int [2] i; double d; } *)(&x))->d = (unsigned long long int)1.233925e+1
+
+State 7 file sqrt_poly2.c line 35 function sqrt_custom thread 0
+----------------------------------------------------
+  (( union u { signed int [2] i; double d; } *)(&x))->d = (unsigned long long int)1.233925e+1
+
+State 8 file sqrt_poly2.c line 35 function sqrt_custom thread 0
+----------------------------------------------------
+  (( union u { signed int [2] i; double d; } *)(&x))->d = (unsigned long long int)1.233925e+1
+
+State 9 file sqrt_poly2.c line 35 function sqrt_custom thread 0
+----------------------------------------------------
+  (( union u { signed int [2] i; double d; } *)(&x))->d = (unsigned long long int)1.233925e+1
+
+State 10 file sqrt_poly2.c line 37 function sqrt_custom thread 0
+----------------------------------------------------
+  exp = 1026 (00000000 00000000 00000100 00000010)
+
+State 11 file sqrt_poly2.c line 38 function sqrt_custom thread 0
+----------------------------------------------------
+  (( union u { signed int [2] i; double d; } *)(&x))->i[0] = 3220797971 (10111111 11111001 01111010 00010011)
+
+State 12 file sqrt_poly2.c line 38 function sqrt_custom thread 0
+----------------------------------------------------
+  (( union u { signed int [2] i; double d; } *)(&x))->i[0] = 3220797971 (10111111 11111001 01111010 00010011)
+
+State 13 file sqrt_poly2.c line 38 function sqrt_custom thread 0
+----------------------------------------------------
+  (( union u { signed int [2] i; double d; } *)(&x))->i[0] = 3220797971 (10111111 11111001 01111010 00010011)
+
+State 14 file sqrt_poly2.c line 38 function sqrt_custom thread 0
+----------------------------------------------------
+  (( union u { signed int [2] i; double d; } *)(&x))->i[0] = 3220797971 (10111111 11111001 01111010 00010011)
+
+State 15 file sqrt_poly2.c line 39 function sqrt_custom thread 0
+----------------------------------------------------
+  r = IEEE_MUL((double)4623136000732396051, 5.000000e-1)
+
+State 16 file sqrt_poly2.c line 41 function sqrt_custom thread 0
+----------------------------------------------------
+  r = -1.318273e+1 (11000000 00101010 01011101 10001111 01100100 10010010 01001001 01110000)
+
+State 17 file sqrt_poly2.c line 44 function sqrt_custom thread 0
+----------------------------------------------------
+  exp = 1027 (00000000 00000000 00000100 00000011)
+
+State 18 file sqrt_poly2.c line 50 function sqrt_custom thread 0
+----------------------------------------------------
+  (( union u { signed int [2] i; double d; } *)(&x))->i[0] = 1073741824 (01000000 00000000 00000000 00000000)
+
+State 19 file sqrt_poly2.c line 50 function sqrt_custom thread 0
+----------------------------------------------------
+  (( union u { signed int [2] i; double d; } *)(&x))->i[0] = 1073741824 (01000000 00000000 00000000 00000000)
+
+State 20 file sqrt_poly2.c line 50 function sqrt_custom thread 0
+----------------------------------------------------
+  (( union u { signed int [2] i; double d; } *)(&x))->i[0] = 1073741824 (01000000 00000000 00000000 00000000)
+
+State 21 file sqrt_poly2.c line 50 function sqrt_custom thread 0
+----------------------------------------------------
+  (( union u { signed int [2] i; double d; } *)(&x))->i[0] = 1073741824 (01000000 00000000 00000000 00000000)
+
+State 22 file sqrt_poly2.c line 51 function sqrt_custom thread 0
+----------------------------------------------------
+  r = IEEE_MUL(-1.318273e+1, (double)4623135998585339904)
+
+State 23 file sqrt_poly2.c line 3 function reach_error thread 0
+----------------------------------------------------
+Violated property:
+  file sqrt_poly2.c line 3 function reach_error
+  assertion 0
+  0
+
+
+VERIFICATION FAILED
+
+Bug found (k = 1)
+
+
+FALSE_REACH

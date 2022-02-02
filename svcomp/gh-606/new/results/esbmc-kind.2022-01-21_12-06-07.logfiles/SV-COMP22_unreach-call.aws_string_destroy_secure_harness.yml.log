@@ -1,0 +1,464 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/aws-c-common/aws_string_destroy_secure_harness.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/aws-c-common/aws_string_destroy_secure_harness.i --64 --witness-output aws_string_destroy_secure_harness.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 64-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/aws-c-common/aws_string_destroy_secure_harness.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.727s
+GOTO program processing time: 0.036s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.131s (139 assignments)
+Slicing time: 0.001s (removed 69 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (70 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.004s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.004s
+Runtime decision procedure: 0.483s
+BMC program time: 0.620s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.022s (138 assignments)
+Slicing time: 0.001s (removed 69 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (69 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.004s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.004s
+Runtime decision procedure: 0.471s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 39  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Symex completed in: 0.025s (151 assignments)
+Slicing time: 0.000s (removed 70 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (81 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.005s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.005s
+Runtime decision procedure: 0.495s
+BMC program time: 0.526s
+No bug has been found in the base case
+*** Checking forward condition, k = 3
+Starting Bounded Model Checking
+Unwinding loop 39  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Symex completed in: 0.027s (150 assignments)
+Slicing time: 0.000s (removed 70 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (80 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.005s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.005s
+Runtime decision procedure: 0.514s
+The forward condition is unable to prove the property
+*** Checking inductive step, k = 3
+Starting Bounded Model Checking
+Unwinding loop 39  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Symex completed in: 0.023s (148 assignments)
+Slicing time: 0.001s (removed 78 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (70 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.004s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.004s
+Runtime decision procedure: 0.498s
+The inductive step is unable to prove the property
+*** Checking base case, k = 5
+Starting Bounded Model Checking
+Unwinding loop 39  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  4   file string.c line 272 function __memset_impl
+Not unwinding 
+Symex completed in: 0.025s (163 assignments)
+Slicing time: 0.001s (removed 76 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (87 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.004s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.004s
+Runtime decision procedure: 0.530s
+BMC program time: 0.561s
+No bug has been found in the base case
+*** Checking forward condition, k = 5
+Starting Bounded Model Checking
+Unwinding loop 39  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  4   file string.c line 272 function __memset_impl
+Not unwinding 
+Symex completed in: 0.029s (162 assignments)
+Slicing time: 0.001s (removed 76 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (86 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.005s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.005s
+Runtime decision procedure: 0.481s
+The forward condition is unable to prove the property
+*** Checking base case, k = 7
+Starting Bounded Model Checking
+Unwinding loop 39  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  4   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  5   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  6   file string.c line 272 function __memset_impl
+Not unwinding 
+Symex completed in: 0.028s (175 assignments)
+Slicing time: 0.001s (removed 82 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (93 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.005s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.005s
+Runtime decision procedure: 0.532s
+BMC program time: 0.567s
+No bug has been found in the base case
+*** Checking forward condition, k = 7
+Starting Bounded Model Checking
+Unwinding loop 39  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  4   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  5   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  6   file string.c line 272 function __memset_impl
+Not unwinding 
+Symex completed in: 0.030s (174 assignments)
+Slicing time: 0.001s (removed 82 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (92 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.005s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.005s
+Runtime decision procedure: 0.482s
+The forward condition is unable to prove the property
+*** Checking base case, k = 9
+Starting Bounded Model Checking
+Unwinding loop 39  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  4   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  5   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  6   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  7   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  8   file string.c line 272 function __memset_impl
+Not unwinding 
+Symex completed in: 0.030s (187 assignments)
+Slicing time: 0.001s (removed 88 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (99 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.005s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.005s
+Runtime decision procedure: 0.583s
+BMC program time: 0.620s
+No bug has been found in the base case
+*** Checking forward condition, k = 9
+Starting Bounded Model Checking
+Unwinding loop 39  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  4   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  5   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  6   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  7   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  8   file string.c line 272 function __memset_impl
+Not unwinding 
+Symex completed in: 0.031s (186 assignments)
+Slicing time: 0.001s (removed 88 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (98 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.004s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.004s
+Runtime decision procedure: 0.491s
+The forward condition is unable to prove the property
+*** Checking base case, k = 11
+Starting Bounded Model Checking
+Unwinding loop 39  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  4   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  5   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  6   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  7   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  8   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  9   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  10   file string.c line 272 function __memset_impl
+Not unwinding 
+Symex completed in: 0.034s (199 assignments)
+Slicing time: 0.001s (removed 94 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (105 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.005s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.005s
+Runtime decision procedure: 0.680s
+BMC program time: 0.721s
+No bug has been found in the base case
+*** Checking forward condition, k = 11
+Starting Bounded Model Checking
+Unwinding loop 39  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  4   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  5   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  6   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  7   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  8   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  9   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  10   file string.c line 272 function __memset_impl
+Not unwinding 
+Symex completed in: 0.034s (198 assignments)
+Slicing time: 0.001s (removed 94 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (104 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.005s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.005s
+Runtime decision procedure: 0.505s
+The forward condition is unable to prove the property
+*** Checking base case, k = 13
+Starting Bounded Model Checking
+Unwinding loop 39  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  4   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  5   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  6   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  7   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  8   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  9   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  10   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  11   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  12   file string.c line 272 function __memset_impl
+Not unwinding 
+Symex completed in: 0.034s (211 assignments)
+Slicing time: 0.002s (removed 100 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (111 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.005s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.005s
+Runtime decision procedure: 0.687s
+BMC program time: 0.729s
+No bug has been found in the base case
+*** Checking forward condition, k = 13
+Starting Bounded Model Checking
+Unwinding loop 39  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  4   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  5   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  6   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  7   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  8   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  9   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  10   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  11   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  12   file string.c line 272 function __memset_impl
+Not unwinding 
+Symex completed in: 0.036s (210 assignments)
+Slicing time: 0.001s (removed 100 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (110 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.005s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.005s
+Runtime decision procedure: 0.497s
+The forward condition is unable to prove the property
+*** Checking base case, k = 15
+Starting Bounded Model Checking
+Unwinding loop 39  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  4   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  5   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  6   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  7   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  8   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  9   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  10   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  11   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  12   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  13   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  14   file string.c line 272 function __memset_impl
+Not unwinding 
+Symex completed in: 0.037s (223 assignments)
+Slicing time: 0.001s (removed 106 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (117 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.005s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.005s
+Runtime decision procedure: 0.775s
+BMC program time: 0.819s
+No bug has been found in the base case
+*** Checking forward condition, k = 15
+Starting Bounded Model Checking
+Unwinding loop 39  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  4   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  5   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  6   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  7   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  8   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  9   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  10   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  11   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  12   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  13   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  14   file string.c line 272 function __memset_impl
+Not unwinding 
+Symex completed in: 0.036s (222 assignments)
+Slicing time: 0.002s (removed 106 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (116 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.005s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.005s
+Runtime decision procedure: 0.496s
+The forward condition is unable to prove the property
+*** Checking base case, k = 17
+Starting Bounded Model Checking
+Unwinding loop 39  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  4   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  5   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  6   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  7   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  8   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  9   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  10   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  11   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  12   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  13   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  14   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  15   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  16   file string.c line 272 function __memset_impl
+Not unwinding 
+Symex completed in: 0.040s (235 assignments)
+Slicing time: 0.001s (removed 112 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (123 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.006s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.006s
+Runtime decision procedure: 0.767s
+BMC program time: 0.815s
+No bug has been found in the base case
+*** Checking forward condition, k = 17
+Starting Bounded Model Checking
+Unwinding loop 39  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  4   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  5   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  6   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  7   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  8   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  9   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  10   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  11   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  12   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  13   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  14   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  15   file string.c line 272 function __memset_impl
+Unwinding loop 39  iteration  16   file string.c line 272 function __memset_impl
+Not unwinding 
+Symex completed in: 0.040s (234 assignments)
+Slicing time: 0.001s (removed 112 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (122 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.006s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.006s
+Runtime decision procedure: 0.493s
+BMC program time: 0.542s
+Building successful trace
+
+VERIFICATION SUCCESSFUL
+
+Solution found by the forward condition; all states are reachable (k = 17
+
+../sv-benchmarks/c/aws-c-common/aws_string_destroy_secure_harness.i:1632:45: warning: attribute declaration must precede definition [-Wignored-attributes]
+extern void my_abort (void) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+                                            ^
+../sv-benchmarks/c/aws-c-common/aws_string_destroy_secure_harness.i:232:6: note: previous definition is here
+void my_abort(void) {
+     ^
+../sv-benchmarks/c/aws-c-common/aws_string_destroy_secure_harness.i:5785:12: warning: implicit declaration of function '__ESBMC_atomic_load' is invalid in C99 [-Wimplicit-function-declaration]
+    return __atomic_load_n(&(*(aws_atomic_impl_int_t *)(var)), aws_atomic_priv_xlate_order(memory_order));
+           ^
+esbmc_intrinsics.h:99:5: note: expanded from here
+    __ESBMC_atomic_load(__atomic_load_ptr, &__atomic_load_tmp, (MO));          \
+    ^
+../sv-benchmarks/c/aws-c-common/aws_string_destroy_secure_harness.i:5793:12: warning: implicit declaration of function '__ESBMC_atomic_load' is invalid in C99 [-Wimplicit-function-declaration]
+    return __atomic_load_n(&((var)->value), aws_atomic_priv_xlate_order(memory_order));
+           ^
+esbmc_intrinsics.h:99:5: note: expanded from here
+    __ESBMC_atomic_load(__atomic_load_ptr, &__atomic_load_tmp, (MO));          \
+    ^
+../sv-benchmarks/c/aws-c-common/aws_string_destroy_secure_harness.i:5801:5: warning: implicit declaration of function '__ESBMC_atomic_store' is invalid in C99 [-Wimplicit-function-declaration]
+    __atomic_store_n(&(*(aws_atomic_impl_int_t *)(var)), n, aws_atomic_priv_xlate_order(memory_order));
+    ^
+esbmc_intrinsics.h:107:5: note: expanded from here
+    __ESBMC_atomic_store(__atomic_store_ptr, &__atomic_store_tmp, (MO));       \
+    ^
+../sv-benchmarks/c/aws-c-common/aws_string_destroy_secure_harness.i:5809:5: warning: implicit declaration of function '__ESBMC_atomic_store' is invalid in C99 [-Wimplicit-function-declaration]
+    __atomic_store_n(&((var)->value), p, aws_atomic_priv_xlate_order(memory_order));
+    ^
+esbmc_intrinsics.h:107:5: note: expanded from here
+    __ESBMC_atomic_store(__atomic_store_ptr, &__atomic_store_tmp, (MO));       \
+    ^
+../sv-benchmarks/c/aws-c-common/aws_string_destroy_secure_harness.i:9539:11: warning: initializing 'char *' with an expression of type 'const uint8_t []' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+    char *bytes = str->bytes;
+          ^       ~~~~~~~~~~
+../sv-benchmarks/c/aws-c-common/aws_string_destroy_secure_harness.i:9550:27: warning: passing 'char *' to parameter of type 'const uint8_t *' (aka 'const unsigned char *') converts between pointers to integer types with different sign [-Wpointer-sign]
+        assert_all_zeroes(bytes, len);
+                          ^~~~~
+../sv-benchmarks/c/aws-c-common/aws_string_destroy_secure_harness.i:7124:45: note: passing argument to parameter 'a' here
+void assert_all_zeroes(const uint8_t *const a, const size_t len) {
+                                            ^
+
+TRUE

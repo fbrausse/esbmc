@@ -1,0 +1,383 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/ldv-linux-3.7.3/main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-linux-3.7.3/main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i --64 --witness-output main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 64-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/ldv-linux-3.7.3/main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 1.033s
+GOTO program processing time: 0.147s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.053s (624 assignments)
+Slicing time: 0.000s (removed 578 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (46 assignments)
+BMC program time: 0.053s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.054s (624 assignments)
+Slicing time: 0.001s (removed 578 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (46 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.002s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.002s
+Runtime decision procedure: 0.107s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 49  iteration  1   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 13104 function main
+Unwinding loop 18  iteration  1   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 8118 function vhost_dev_init
+Unwinding loop 18  iteration  2   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 8118 function vhost_dev_init
+Not unwinding 
+**** WARNING: no body for function __builtin_object_size
+Unwinding loop 46  iteration  1   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 11889 function vhost_scsi_set_endpoint
+Unwinding loop 22  iteration  1   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 8410 function vq_memory_access_ok
+Unwinding loop 22  iteration  2   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 8410 function vq_memory_access_ok
+Not unwinding 
+Unwinding loop 46  iteration  2   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 11889 function vhost_scsi_set_endpoint
+Unwinding loop 22  iteration  1   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 8410 function vq_memory_access_ok
+Unwinding loop 22  iteration  2   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 8410 function vq_memory_access_ok
+Not unwinding 
+Not unwinding 
+Unwinding loop 47  iteration  1   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 11936 function vhost_scsi_set_endpoint
+Unwinding loop 3  iteration  1   file string.c line 96 function strcmp
+Unwinding loop 3  iteration  2   file string.c line 96 function strcmp
+Not unwinding 
+Unwinding loop 47  iteration  2   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 11936 function vhost_scsi_set_endpoint
+Unwinding loop 3  iteration  1   file string.c line 96 function strcmp
+Unwinding loop 3  iteration  2   file string.c line 96 function strcmp
+Not unwinding 
+Not unwinding 
+**** WARNING: no body for function __builtin_object_size
+Unwinding loop 48  iteration  1   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 11965 function vhost_scsi_clear_endpoint
+Unwinding loop 22  iteration  1   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 8410 function vq_memory_access_ok
+Unwinding loop 22  iteration  2   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 8410 function vq_memory_access_ok
+Not unwinding 
+Unwinding loop 48  iteration  2   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 11965 function vhost_scsi_clear_endpoint
+Unwinding loop 22  iteration  1   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 8410 function vq_memory_access_ok
+Unwinding loop 22  iteration  2   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 8410 function vq_memory_access_ok
+Not unwinding 
+Not unwinding 
+Unwinding loop 3  iteration  1   file string.c line 96 function strcmp
+Unwinding loop 3  iteration  2   file string.c line 96 function strcmp
+Not unwinding 
+**** WARNING: no body for function __builtin_object_size
+Unwinding loop 23  iteration  1   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 8438 function memory_access_ok
+Unwinding loop 12  iteration  1   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 7807 function vhost_work_flush
+Unwinding loop 12  iteration  2   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 7807 function vhost_work_flush
+Not unwinding 
+Unwinding loop 12  iteration  1   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 7807 function vhost_work_flush
+Unwinding loop 12  iteration  2   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 7807 function vhost_work_flush
+Not unwinding 
+Unwinding loop 12  iteration  1   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 7807 function vhost_work_flush
+Unwinding loop 12  iteration  2   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 7807 function vhost_work_flush
+Not unwinding 
+Unwinding loop 12  iteration  1   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 7807 function vhost_work_flush
+Unwinding loop 12  iteration  2   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 7807 function vhost_work_flush
+Not unwinding 
+Unwinding loop 15  iteration  1   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 8047 function vhost_dev_alloc_iovecs
+Unwinding loop 15  iteration  2   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 8047 function vhost_dev_alloc_iovecs
+Not unwinding 
+Unwinding loop 16  iteration  1   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 8058 function vhost_dev_alloc_iovecs
+Unwinding loop 16  iteration  2   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 8058 function vhost_dev_alloc_iovecs
+Not unwinding 
+**** WARNING: no body for function __builtin_object_size
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+**** WARNING: no body for function __builtin_object_size
+Unwinding loop 24  iteration  1   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 9005 function vhost_dev_ioctl
+Unwinding loop 25  iteration  1   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 9068 function vhost_dev_ioctl
+**** WARNING: no body for function __builtin_object_size
+Unwinding loop 46  iteration  1   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 11889 function vhost_scsi_set_endpoint
+Unwinding loop 22  iteration  1   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 8410 function vq_memory_access_ok
+Unwinding loop 22  iteration  2   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 8410 function vq_memory_access_ok
+Not unwinding 
+Unwinding loop 46  iteration  2   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 11889 function vhost_scsi_set_endpoint
+Unwinding loop 22  iteration  1   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 8410 function vq_memory_access_ok
+Unwinding loop 22  iteration  2   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 8410 function vq_memory_access_ok
+Not unwinding 
+Not unwinding 
+Unwinding loop 47  iteration  1   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 11936 function vhost_scsi_set_endpoint
+Unwinding loop 3  iteration  1   file string.c line 96 function strcmp
+Unwinding loop 3  iteration  2   file string.c line 96 function strcmp
+Not unwinding 
+Unwinding loop 47  iteration  2   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 11936 function vhost_scsi_set_endpoint
+Unwinding loop 3  iteration  1   file string.c line 96 function strcmp
+Unwinding loop 3  iteration  2   file string.c line 96 function strcmp
+Not unwinding 
+Not unwinding 
+**** WARNING: no body for function __builtin_object_size
+Unwinding loop 48  iteration  1   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 11965 function vhost_scsi_clear_endpoint
+Unwinding loop 22  iteration  1   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 8410 function vq_memory_access_ok
+Unwinding loop 22  iteration  2   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 8410 function vq_memory_access_ok
+Not unwinding 
+Unwinding loop 48  iteration  2   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 11965 function vhost_scsi_clear_endpoint
+Unwinding loop 22  iteration  1   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 8410 function vq_memory_access_ok
+Unwinding loop 22  iteration  2   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 8410 function vq_memory_access_ok
+Not unwinding 
+Not unwinding 
+Unwinding loop 3  iteration  1   file string.c line 96 function strcmp
+Unwinding loop 3  iteration  2   file string.c line 96 function strcmp
+Not unwinding 
+**** WARNING: no body for function __builtin_object_size
+Unwinding loop 23  iteration  1   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 8438 function memory_access_ok
+Unwinding loop 12  iteration  1   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 7807 function vhost_work_flush
+Unwinding loop 12  iteration  2   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 7807 function vhost_work_flush
+Not unwinding 
+Unwinding loop 12  iteration  1   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 7807 function vhost_work_flush
+Unwinding loop 12  iteration  2   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 7807 function vhost_work_flush
+Not unwinding 
+Unwinding loop 12  iteration  1   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 7807 function vhost_work_flush
+Unwinding loop 12  iteration  2   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 7807 function vhost_work_flush
+Not unwinding 
+Unwinding loop 12  iteration  1   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 7807 function vhost_work_flush
+Unwinding loop 12  iteration  2   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 7807 function vhost_work_flush
+Not unwinding 
+Unwinding loop 15  iteration  1   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 8047 function vhost_dev_alloc_iovecs
+Unwinding loop 15  iteration  2   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 8047 function vhost_dev_alloc_iovecs
+Not unwinding 
+Unwinding loop 16  iteration  1   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 8058 function vhost_dev_alloc_iovecs
+Unwinding loop 16  iteration  2   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 8058 function vhost_dev_alloc_iovecs
+Not unwinding 
+**** WARNING: no body for function __builtin_object_size
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+**** WARNING: no body for function __builtin_object_size
+Unwinding loop 24  iteration  1   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 9005 function vhost_dev_ioctl
+Unwinding loop 25  iteration  1   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 9068 function vhost_dev_ioctl
+Unwinding loop 5  iteration  1   file string.c line 220 function strstr
+Unwinding loop 5  iteration  2   file string.c line 220 function strstr
+Not unwinding 
+Unwinding loop 6  iteration  1   file string.c line 215 function strstr
+Unwinding loop 5  iteration  1   file string.c line 220 function strstr
+Unwinding loop 5  iteration  2   file string.c line 220 function strstr
+Not unwinding 
+Unwinding loop 6  iteration  2   file string.c line 215 function strstr
+Unwinding loop 5  iteration  1   file string.c line 220 function strstr
+Unwinding loop 5  iteration  2   file string.c line 220 function strstr
+Not unwinding 
+Not unwinding 
+Unwinding loop 5  iteration  1   file string.c line 220 function strstr
+Unwinding loop 5  iteration  2   file string.c line 220 function strstr
+Not unwinding 
+Unwinding loop 6  iteration  1   file string.c line 215 function strstr
+Unwinding loop 5  iteration  1   file string.c line 220 function strstr
+Unwinding loop 5  iteration  2   file string.c line 220 function strstr
+Not unwinding 
+Unwinding loop 6  iteration  2   file string.c line 215 function strstr
+Unwinding loop 5  iteration  1   file string.c line 220 function strstr
+Unwinding loop 5  iteration  2   file string.c line 220 function strstr
+Not unwinding 
+Not unwinding 
+Unwinding loop 5  iteration  1   file string.c line 220 function strstr
+Unwinding loop 5  iteration  2   file string.c line 220 function strstr
+Not unwinding 
+Unwinding loop 6  iteration  1   file string.c line 215 function strstr
+Unwinding loop 5  iteration  1   file string.c line 220 function strstr
+Unwinding loop 5  iteration  2   file string.c line 220 function strstr
+Not unwinding 
+Unwinding loop 6  iteration  2   file string.c line 215 function strstr
+Unwinding loop 5  iteration  1   file string.c line 220 function strstr
+Unwinding loop 5  iteration  2   file string.c line 220 function strstr
+Not unwinding 
+Not unwinding 
+Unwinding loop 2  iteration  1   file string.c line 78 function strlen
+Unwinding loop 2  iteration  2   file string.c line 78 function strlen
+Not unwinding 
+Unwinding loop 5  iteration  1   file string.c line 220 function strstr
+Unwinding loop 5  iteration  2   file string.c line 220 function strstr
+Not unwinding 
+Unwinding loop 6  iteration  1   file string.c line 215 function strstr
+Unwinding loop 5  iteration  1   file string.c line 220 function strstr
+Unwinding loop 5  iteration  2   file string.c line 220 function strstr
+Not unwinding 
+Unwinding loop 6  iteration  2   file string.c line 215 function strstr
+Unwinding loop 5  iteration  1   file string.c line 220 function strstr
+Unwinding loop 5  iteration  2   file string.c line 220 function strstr
+Not unwinding 
+Not unwinding 
+Unwinding loop 49  iteration  2   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 13104 function main
+Unwinding loop 18  iteration  1   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 8118 function vhost_dev_init
+Unwinding loop 18  iteration  2   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 8118 function vhost_dev_init
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 19  iteration  1   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 8303 function vhost_dev_cleanup
+Unwinding loop 12  iteration  1   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 7807 function vhost_work_flush
+Unwinding loop 12  iteration  2   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 7807 function vhost_work_flush
+Not unwinding 
+Unwinding loop 21  iteration  1   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 10771 function vhost_ubuf_put_and_wait
+Unwinding loop 21  iteration  2   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 10771 function vhost_ubuf_put_and_wait
+Not unwinding 
+Unwinding loop 20  iteration  1   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 8245 function vhost_zerocopy_signal_used
+Unwinding loop 28  iteration  1   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 9173 function log_write
+Unwinding loop 28  iteration  2   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 9173 function log_write
+Not unwinding 
+Unwinding loop 28  iteration  1   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 9173 function log_write
+Unwinding loop 28  iteration  2   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 9173 function log_write
+Not unwinding 
+Unwinding loop 20  iteration  2   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 8245 function vhost_zerocopy_signal_used
+Unwinding loop 28  iteration  1   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 9173 function log_write
+Unwinding loop 28  iteration  2   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 9173 function log_write
+Not unwinding 
+Unwinding loop 28  iteration  1   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 9173 function log_write
+Unwinding loop 28  iteration  2   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 9173 function log_write
+Not unwinding 
+Not unwinding 
+Unwinding loop 19  iteration  2   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 8303 function vhost_dev_cleanup
+Unwinding loop 12  iteration  1   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 7807 function vhost_work_flush
+Unwinding loop 12  iteration  2   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 7807 function vhost_work_flush
+Not unwinding 
+Unwinding loop 21  iteration  1   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 10771 function vhost_ubuf_put_and_wait
+Unwinding loop 21  iteration  2   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 10771 function vhost_ubuf_put_and_wait
+Not unwinding 
+Unwinding loop 20  iteration  1   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 8245 function vhost_zerocopy_signal_used
+Unwinding loop 28  iteration  1   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 9173 function log_write
+Unwinding loop 28  iteration  2   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 9173 function log_write
+Not unwinding 
+Unwinding loop 28  iteration  1   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 9173 function log_write
+Unwinding loop 28  iteration  2   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 9173 function log_write
+Not unwinding 
+Unwinding loop 20  iteration  2   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 8245 function vhost_zerocopy_signal_used
+Unwinding loop 28  iteration  1   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 9173 function log_write
+Unwinding loop 28  iteration  2   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 9173 function log_write
+Not unwinding 
+Unwinding loop 28  iteration  1   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 9173 function log_write
+Unwinding loop 28  iteration  2   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 9173 function log_write
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Unwinding loop 17  iteration  1   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 8075 function vhost_dev_free_iovecs
+Unwinding loop 17  iteration  2   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 8075 function vhost_dev_free_iovecs
+Not unwinding 
+**** WARNING: no body for function __builtin_object_size
+Unwinding loop 46  iteration  1   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 11889 function vhost_scsi_set_endpoint
+Unwinding loop 22  iteration  1   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 8410 function vq_memory_access_ok
+Unwinding loop 22  iteration  2   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 8410 function vq_memory_access_ok
+Not unwinding 
+Unwinding loop 46  iteration  2   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 11889 function vhost_scsi_set_endpoint
+Unwinding loop 22  iteration  1   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 8410 function vq_memory_access_ok
+Unwinding loop 22  iteration  2   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 8410 function vq_memory_access_ok
+Not unwinding 
+Not unwinding 
+Unwinding loop 47  iteration  1   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 11936 function vhost_scsi_set_endpoint
+Unwinding loop 3  iteration  1   file string.c line 96 function strcmp
+Unwinding loop 3  iteration  2   file string.c line 96 function strcmp
+Not unwinding 
+Unwinding loop 47  iteration  2   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 11936 function vhost_scsi_set_endpoint
+Unwinding loop 3  iteration  1   file string.c line 96 function strcmp
+Unwinding loop 3  iteration  2   file string.c line 96 function strcmp
+Not unwinding 
+Not unwinding 
+**** WARNING: no body for function __builtin_object_size
+Unwinding loop 48  iteration  1   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 11965 function vhost_scsi_clear_endpoint
+Unwinding loop 22  iteration  1   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 8410 function vq_memory_access_ok
+Unwinding loop 22  iteration  2   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 8410 function vq_memory_access_ok
+Not unwinding 
+Unwinding loop 48  iteration  2   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 11965 function vhost_scsi_clear_endpoint
+Unwinding loop 22  iteration  1   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 8410 function vq_memory_access_ok
+Unwinding loop 22  iteration  2   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 8410 function vq_memory_access_ok
+Not unwinding 
+Not unwinding 
+Unwinding loop 3  iteration  1   file string.c line 96 function strcmp
+Unwinding loop 3  iteration  2   file string.c line 96 function strcmp
+Not unwinding 
+**** WARNING: no body for function __builtin_object_size
+Unwinding loop 23  iteration  1   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 8438 function memory_access_ok
+Unwinding loop 12  iteration  1   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 7807 function vhost_work_flush
+Unwinding loop 12  iteration  2   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 7807 function vhost_work_flush
+Not unwinding 
+Unwinding loop 12  iteration  1   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 7807 function vhost_work_flush
+Unwinding loop 12  iteration  2   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 7807 function vhost_work_flush
+Not unwinding 
+Unwinding loop 12  iteration  1   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 7807 function vhost_work_flush
+Unwinding loop 12  iteration  2   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 7807 function vhost_work_flush
+Not unwinding 
+Unwinding loop 12  iteration  1   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 7807 function vhost_work_flush
+Unwinding loop 12  iteration  2   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 7807 function vhost_work_flush
+Not unwinding 
+Unwinding loop 15  iteration  1   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 8047 function vhost_dev_alloc_iovecs
+Unwinding loop 15  iteration  2   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 8047 function vhost_dev_alloc_iovecs
+Not unwinding 
+Unwinding loop 16  iteration  1   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 8058 function vhost_dev_alloc_iovecs
+Unwinding loop 16  iteration  2   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 8058 function vhost_dev_alloc_iovecs
+Not unwinding 
+**** WARNING: no body for function __builtin_object_size
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+**** WARNING: no body for function __builtin_object_size
+Unwinding loop 24  iteration  1   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 9005 function vhost_dev_ioctl
+Unwinding loop 25  iteration  1   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 9068 function vhost_dev_ioctl
+**** WARNING: no body for function __builtin_object_size
+Unwinding loop 46  iteration  1   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 11889 function vhost_scsi_set_endpoint
+Unwinding loop 22  iteration  1   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 8410 function vq_memory_access_ok
+Unwinding loop 22  iteration  2   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 8410 function vq_memory_access_ok
+Not unwinding 
+Unwinding loop 46  iteration  2   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 11889 function vhost_scsi_set_endpoint
+Unwinding loop 22  iteration  1   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 8410 function vq_memory_access_ok
+Unwinding loop 22  iteration  2   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 8410 function vq_memory_access_ok
+Not unwinding 
+Not unwinding 
+Unwinding loop 47  iteration  1   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 11936 function vhost_scsi_set_endpoint
+Unwinding loop 3  iteration  1   file string.c line 96 function strcmp
+Unwinding loop 3  iteration  2   file string.c line 96 function strcmp
+Not unwinding 
+Unwinding loop 47  iteration  2   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 11936 function vhost_scsi_set_endpoint
+Unwinding loop 3  iteration  1   file string.c line 96 function strcmp
+Unwinding loop 3  iteration  2   file string.c line 96 function strcmp
+Not unwinding 
+Not unwinding 
+**** WARNING: no body for function __builtin_object_size
+Unwinding loop 48  iteration  1   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 11965 function vhost_scsi_clear_endpoint
+Unwinding loop 22  iteration  1   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 8410 function vq_memory_access_ok
+Unwinding loop 22  iteration  2   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 8410 function vq_memory_access_ok
+Not unwinding 
+Unwinding loop 48  iteration  2   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 11965 function vhost_scsi_clear_endpoint
+Unwinding loop 22  iteration  1   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 8410 function vq_memory_access_ok
+Unwinding loop 22  iteration  2   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 8410 function vq_memory_access_ok
+Not unwinding 
+Not unwinding 
+Unwinding loop 3  iteration  1   file string.c line 96 function strcmp
+Unwinding loop 3  iteration  2   file string.c line 96 function strcmp
+Not unwinding 
+**** WARNING: no body for function __builtin_object_size
+Unwinding loop 23  iteration  1   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 8438 function memory_access_ok
+Unwinding loop 12  iteration  1   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 7807 function vhost_work_flush
+Unwinding loop 12  iteration  2   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 7807 function vhost_work_flush
+Not unwinding 
+Unwinding loop 12  iteration  1   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 7807 function vhost_work_flush
+Unwinding loop 12  iteration  2   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 7807 function vhost_work_flush
+Not unwinding 
+Unwinding loop 12  iteration  1   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 7807 function vhost_work_flush
+Unwinding loop 12  iteration  2   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 7807 function vhost_work_flush
+Not unwinding 
+Unwinding loop 12  iteration  1   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 7807 function vhost_work_flush
+Unwinding loop 12  iteration  2   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 7807 function vhost_work_flush
+Not unwinding 
+Unwinding loop 15  iteration  1   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 8047 function vhost_dev_alloc_iovecs
+Unwinding loop 15  iteration  2   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 8047 function vhost_dev_alloc_iovecs
+Not unwinding 
+Unwinding loop 16  iteration  1   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 8058 function vhost_dev_alloc_iovecs
+Unwinding loop 16  iteration  2   file main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i line 8058 function vhost_dev_alloc_iovecs
+Not unwinding 
+**** WARNING: no body for function __builtin_ob
+../sv-benchmarks/c/ldv-linux-3.7.3/main0_drivers-vhost-tcm_vhost-ko--32_7a--linux-3.7.3.i:10794:82: warning: incompatible integer to pointer conversion initializing 'void *' with an expression of type 'unsigned long' [-Wint-conversion]
+static struct mutex tcm_vhost_mutex = {{1}, {{{{{0U}}, 3735899821U, 4294967295U, 0xffffffffffffffffUL, {0, {0, 0}, "tcm_vhost_mutex.wait_lock",
+                                                                                 ^~~~~~~~~~~~~~~~~~~~
+
+Unknown

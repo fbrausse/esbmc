@@ -1,0 +1,160 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/goblint-regression/28-race_reach_94-alloc_region_racing.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/goblint-regression/28-race_reach_94-alloc_region_racing.i --32 --witness-output 28-race_reach_94-alloc_region_racing.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/goblint-regression/28-race_reach_94-alloc_region_racing.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.173s
+GOTO program processing time: 0.004s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+WARNING: k-induction does not support concurrency yet. Disabling inductive step
+Not unwinding 
+Symex completed in: 0.017s (241 assignments)
+Slicing time: 0.001s (removed 127 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (114 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.002s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.002s
+Runtime decision procedure: 0.000s
+BMC program time: 0.020s
+*** Thread interleavings 2 ***
+Not unwinding 
+Symex completed in: 0.001s (66 assignments)
+Slicing time: 0.000s (removed 62 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (4 assignments)
+BMC program time: 0.002s
+*** Thread interleavings 3 ***
+Not unwinding 
+Symex completed in: 0.002s (89 assignments)
+Slicing time: 0.000s (removed 68 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (21 assignments)
+BMC program time: 0.002s
+*** Thread interleavings 4 ***
+Not unwinding 
+Symex completed in: 0.001s (100 assignments)
+Slicing time: 0.001s (removed 78 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (22 assignments)
+BMC program time: 0.002s
+*** Thread interleavings 5 ***
+Not unwinding 
+Symex completed in: 0.002s (123 assignments)
+Slicing time: 0.000s (removed 84 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (39 assignments)
+BMC program time: 0.002s
+*** Thread interleavings 6 ***
+Not unwinding 
+Symex completed in: 0.001s (127 assignments)
+Slicing time: 0.000s (removed 85 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (42 assignments)
+BMC program time: 0.001s
+*** Thread interleavings 7 ***
+Not unwinding 
+Symex completed in: 0.002s (150 assignments)
+Slicing time: 0.001s (removed 91 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (59 assignments)
+BMC program time: 0.003s
+*** Thread interleavings 8 ***
+Not unwinding 
+Symex completed in: 0.001s (158 assignments)
+Slicing time: 0.000s (removed 98 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (60 assignments)
+BMC program time: 0.001s
+*** Thread interleavings 9 ***
+Not unwinding 
+Symex completed in: 0.002s (181 assignments)
+Slicing time: 0.000s (removed 97 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (84 assignments)
+BMC program time: 0.002s
+*** Thread interleavings 10 ***
+Not unwinding 
+Symex completed in: 0.002s (191 assignments)
+Slicing time: 0.000s (removed 106 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (85 assignments)
+BMC program time: 0.002s
+*** Thread interleavings 11 ***
+Not unwinding 
+Symex completed in: 0.002s (214 assignments)
+Slicing time: 0.001s (removed 112 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (102 assignments)
+BMC program time: 0.003s
+*** Thread interleavings 12 ***
+Not unwinding 
+Symex completed in: 0.001s (216 assignments)
+Slicing time: 0.000s (removed 113 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (103 assignments)
+BMC program time: 0.001s
+*** Thread interleavings 13 ***
+Not unwinding 
+Symex completed in: 0.001s (234 assignments)
+Slicing time: 0.000s (removed 122 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (112 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.002s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.002s
+Runtime decision procedure: 0.015s
+Building error trace
+
+Counterexample:
+
+State 1 file 28-race_reach_94-alloc_region_racing.i line 1233 thread 0
+----------------------------------------------------
+  __global_lock = { byte_extract_little_endian(0, 0), byte_extract_little_endian(0, 1), byte_extract_little_endian(0, 2), byte_extract_little_endian(0, 3), byte_extract_little_endian(0, 0), byte_extract_little_endian(0, 1), byte_extract_little_endian(0, 2), byte_extract_little_endian(0, 3), byte_extract_little_endian(0, 0), byte_extract_little_endian(0, 1), byte_extract_little_endian(0, 2), byte_extract_little_endian(0, 3), byte_extract_little_endian(0, 0), byte_extract_little_endian(0, 1), byte_extract_little_endian(0, 2), byte_extract_little_endian(0, 3), byte_extract_little_endian(0, 0), byte_extract_little_endian(0, 1), byte_extract_little_endian(0, 2), byte_extract_little_endian(0, 3), byte_extract_little_endian(byte_extract_little_endian(0, 0), 0), 
+    byte_extract_little_endian(byte_extract_little_endian(0, 1), 0), 
+    byte_extract_little_endian(byte_extract_little_endian(0, 0), 0), 
+    byte_extract_little_endian(byte_extract_little_endian(0, 1), 0) }
+
+State 2 file 28-race_reach_94-alloc_region_racing.i line 1246 thread 0
+----------------------------------------------------
+  A_mutex = { byte_extract_little_endian(0, 0), byte_extract_little_endian(0, 1), byte_extract_little_endian(0, 2), byte_extract_little_endian(0, 3), byte_extract_little_endian(0, 0), byte_extract_little_endian(0, 1), byte_extract_little_endian(0, 2), byte_extract_little_endian(0, 3), byte_extract_little_endian(0, 0), byte_extract_little_endian(0, 1), byte_extract_little_endian(0, 2), byte_extract_little_endian(0, 3), byte_extract_little_endian(0, 0), byte_extract_little_endian(0, 1), byte_extract_little_endian(0, 2), byte_extract_little_endian(0, 3), byte_extract_little_endian(0, 0), byte_extract_little_endian(0, 1), byte_extract_little_endian(0, 2), byte_extract_little_endian(0, 3), byte_extract_little_endian(byte_extract_little_endian(0, 0), 0), 
+    byte_extract_little_endian(byte_extract_little_endian(0, 1), 0), 
+    byte_extract_little_endian(byte_extract_little_endian(0, 0), 0), 
+    byte_extract_little_endian(byte_extract_little_endian(0, 1), 0) }
+
+State 3 file 28-race_reach_94-alloc_region_racing.i line 1247 thread 0
+----------------------------------------------------
+  B_mutex = { byte_extract_little_endian(0, 0), byte_extract_little_endian(0, 1), byte_extract_little_endian(0, 2), byte_extract_little_endian(0, 3), byte_extract_little_endian(0, 0), byte_extract_little_endian(0, 1), byte_extract_little_endian(0, 2), byte_extract_little_endian(0, 3), byte_extract_little_endian(0, 0), byte_extract_little_endian(0, 1), byte_extract_little_endian(0, 2), byte_extract_little_endian(0, 3), byte_extract_little_endian(0, 0), byte_extract_little_endian(0, 1), byte_extract_little_endian(0, 2), byte_extract_little_endian(0, 3), byte_extract_little_endian(0, 0), byte_extract_little_endian(0, 1), byte_extract_little_endian(0, 2), byte_extract_little_endian(0, 3), byte_extract_little_endian(byte_extract_little_endian(0, 0), 0), 
+    byte_extract_little_endian(byte_extract_little_endian(0, 1), 0), 
+    byte_extract_little_endian(byte_extract_little_endian(0, 0), 0), 
+    byte_extract_little_endian(byte_extract_little_endian(0, 1), 0) }
+
+State 5 file 28-race_reach_94-alloc_region_racing.i line 1239 function init thread 1
+----------------------------------------------------
+  p->datum = 7 (00000000 00000000 00000000 00000111)
+
+State 6 file 28-race_reach_94-alloc_region_racing.i line 1240 function init thread 1
+----------------------------------------------------
+  p->next = 0
+
+State 10 file 28-race_reach_94-alloc_region_racing.i line 1243 function insert thread 1
+----------------------------------------------------
+  p->next = ( struct s *)((void *)(&dynamic_1_value))
+
+State 22 file 28-race_reach_94-alloc_region_racing.i line 1227 function reach_error thread 1
+----------------------------------------------------
+Violated property:
+  file 28-race_reach_94-alloc_region_racing.i line 1227 function reach_error
+  assertion 0
+  0
+
+
+VERIFICATION FAILED
+
+Bug found (k = 1)
+
+../sv-benchmarks/c/goblint-regression/28-race_reach_94-alloc_region_racing.i:497:12: warning: declaration of built-in function '__sigsetjmp' requires the declaration of the 'jmp_buf' type, commonly provided in the header <setjmp.h>. [-Wincomplete-setjmp-declaration]
+extern int __sigsetjmp (struct __jmp_buf_tag *__env, int __savemask) __attribute__ ((__nothrow__));
+           ^
+
+FALSE_REACH

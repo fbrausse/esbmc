@@ -1,0 +1,17 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-drivers--tty--mxser.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-drivers--tty--mxser.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i --64 --witness-output 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--tty--mxser.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-drivers--tty--mxser.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i:5274:18: warning: incompatible integer to pointer conversion assigning to 'void *' from 'unsigned long' [-Wint-conversion]
+  _rs.lock.owner = 0xffffffffffffffffUL;
+                 ^ ~~~~~~~~~~~~~~~~~~~~
+Can't construct rvalue reference to array type during dereference
+(It isn't allowed by C anyway)
+
+
+Unknown

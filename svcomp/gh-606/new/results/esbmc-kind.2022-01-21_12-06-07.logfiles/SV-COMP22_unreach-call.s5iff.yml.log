@@ -1,0 +1,107 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/array-fpi/s5iff.c
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/array-fpi/s5iff.c --32 --witness-output s5iff.c.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/array-fpi/s5iff.c: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.077s
+GOTO program processing time: 0.000s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.056s (51 assignments)
+Slicing time: 0.000s (removed 35 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (16 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.000s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.000s
+Runtime decision procedure: 0.000s
+BMC program time: 0.057s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.002s (50 assignments)
+Slicing time: 0.001s (removed 35 assignments)
+Generated 2 VCC(s), 2 remaining after simplification (15 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.000s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.000s
+Runtime decision procedure: 0.002s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file s5iff.c line 32 function main
+Unwinding loop 1  iteration  2   file s5iff.c line 32 function main
+Not unwinding 
+Unwinding loop 2  iteration  1   file s5iff.c line 37 function main
+Unwinding loop 2  iteration  2   file s5iff.c line 37 function main
+Not unwinding 
+Symex completed in: 0.005s (85 assignments)
+Slicing time: 0.000s (removed 43 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (42 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.000s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.000s
+Runtime decision procedure: 1.123s
+Building error trace
+
+Counterexample:
+
+State 1 file s5iff.c line 23 function main thread 0
+----------------------------------------------------
+  N = 1 (00000000 00000000 00000000 00000001)
+
+State 2 file s5iff.c line 31 function main thread 0
+----------------------------------------------------
+  sum[0] = 1 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000001)
+
+State 3 file s5iff.c line 34 function main thread 0
+----------------------------------------------------
+  *(a + i) = 5 (00000000 00000000 00000000 00000101)
+
+State 4 file s5iff.c line 34 function main thread 0
+----------------------------------------------------
+  *(a + i) = 5 (00000000 00000000 00000000 00000101)
+
+State 5 file s5iff.c line 34 function main thread 0
+----------------------------------------------------
+  *(a + i) = 5 (00000000 00000000 00000000 00000101)
+
+State 6 file s5iff.c line 34 function main thread 0
+----------------------------------------------------
+  *(a + i) = 5 (00000000 00000000 00000000 00000101)
+
+State 7 file s5iff.c line 40 function main thread 0
+----------------------------------------------------
+  sum[0] = 6 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000110)
+
+State 8 file s5iff.c line 10 function reach_error thread 0
+----------------------------------------------------
+Violated property:
+  file s5iff.c line 10 function reach_error
+  assertion 0
+  0
+
+
+VERIFICATION FAILED
+
+Bug found (k = 3)
+
+
+FALSE_REACH

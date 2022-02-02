@@ -1,0 +1,72 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/aws-c-common/aws_array_list_capacity_harness.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/aws-c-common/aws_array_list_capacity_harness.i --64 --witness-output aws_array_list_capacity_harness.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 64-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/aws-c-common/aws_array_list_capacity_harness.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.490s
+GOTO program processing time: 0.023s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Symex completed in: 0.124s (251 assignments)
+Slicing time: 0.001s (removed 99 assignments)
+Generated 9 VCC(s), 9 remaining after simplification (152 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.006s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.006s
+Runtime decision procedure: 0.007s
+BMC program time: 0.139s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Symex completed in: 0.029s (242 assignments)
+Slicing time: 0.001s (removed 99 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (143 assignments)
+BMC program time: 0.030s
+Building successful trace
+
+VERIFICATION SUCCESSFUL
+
+Solution found by the forward condition; all states are reachable (k = 1
+
+../sv-benchmarks/c/aws-c-common/aws_array_list_capacity_harness.i:1632:45: warning: attribute declaration must precede definition [-Wignored-attributes]
+extern void my_abort (void) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+                                            ^
+../sv-benchmarks/c/aws-c-common/aws_array_list_capacity_harness.i:232:6: note: previous definition is here
+void my_abort(void) {
+     ^
+../sv-benchmarks/c/aws-c-common/aws_array_list_capacity_harness.i:6158:12: warning: implicit declaration of function '__ESBMC_atomic_load' is invalid in C99 [-Wimplicit-function-declaration]
+    return __atomic_load_n(&(*(aws_atomic_impl_int_t *)(var)), aws_atomic_priv_xlate_order(memory_order));
+           ^
+esbmc_intrinsics.h:99:5: note: expanded from here
+    __ESBMC_atomic_load(__atomic_load_ptr, &__atomic_load_tmp, (MO));          \
+    ^
+../sv-benchmarks/c/aws-c-common/aws_array_list_capacity_harness.i:6166:12: warning: implicit declaration of function '__ESBMC_atomic_load' is invalid in C99 [-Wimplicit-function-declaration]
+    return __atomic_load_n(&((var)->value), aws_atomic_priv_xlate_order(memory_order));
+           ^
+esbmc_intrinsics.h:99:5: note: expanded from here
+    __ESBMC_atomic_load(__atomic_load_ptr, &__atomic_load_tmp, (MO));          \
+    ^
+../sv-benchmarks/c/aws-c-common/aws_array_list_capacity_harness.i:6174:5: warning: implicit declaration of function '__ESBMC_atomic_store' is invalid in C99 [-Wimplicit-function-declaration]
+    __atomic_store_n(&(*(aws_atomic_impl_int_t *)(var)), n, aws_atomic_priv_xlate_order(memory_order));
+    ^
+esbmc_intrinsics.h:107:5: note: expanded from here
+    __ESBMC_atomic_store(__atomic_store_ptr, &__atomic_store_tmp, (MO));       \
+    ^
+../sv-benchmarks/c/aws-c-common/aws_array_list_capacity_harness.i:6182:5: warning: implicit declaration of function '__ESBMC_atomic_store' is invalid in C99 [-Wimplicit-function-declaration]
+    __atomic_store_n(&((var)->value), p, aws_atomic_priv_xlate_order(memory_order));
+    ^
+esbmc_intrinsics.h:107:5: note: expanded from here
+    __ESBMC_atomic_store(__atomic_store_ptr, &__atomic_store_tmp, (MO));       \
+    ^
+
+TRUE

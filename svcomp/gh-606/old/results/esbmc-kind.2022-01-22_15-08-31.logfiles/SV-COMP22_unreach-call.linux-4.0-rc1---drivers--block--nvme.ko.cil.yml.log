@@ -1,0 +1,32 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--block--nvme.ko.cil.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--block--nvme.ko.cil.i --64 --witness-output linux-4.0-rc1---drivers--block--nvme.ko.cil.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--block--nvme.ko.cil.i:7439:9: warning: incompatible function pointer types assigning to 'nvme_completion_fn (*)(struct nvme_queue *, void *, struct nvme_completion *)' (aka 'void (*(*)(struct nvme_queue *, void *, struct nvme_completion *))(struct nvme_queue *, void *, struct nvme_completion *)') from 'void (*)(struct nvme_queue *, void *, struct nvme_completion *)' [-Wincompatible-function-pointer-types]
+    *fn = cmd->fn;
+        ^ ~~~~~~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--block--nvme.ko.cil.i:7548:9: warning: incompatible function pointer types assigning to 'nvme_completion_fn (*)(struct nvme_queue *, void *, struct nvme_completion *)' (aka 'void (*(*)(struct nvme_queue *, void *, struct nvme_completion *))(struct nvme_queue *, void *, struct nvme_completion *)') from 'void (*)(struct nvme_queue *, void *, struct nvme_completion *)' [-Wincompatible-function-pointer-types]
+    *fn = & special_completion;
+        ^ ~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--block--nvme.ko.cil.i:7554:9: warning: incompatible function pointer types assigning to 'nvme_completion_fn (*)(struct nvme_queue *, void *, struct nvme_completion *)' (aka 'void (*(*)(struct nvme_queue *, void *, struct nvme_completion *))(struct nvme_queue *, void *, struct nvme_completion *)') from 'void (*)(struct nvme_queue *, void *, struct nvme_completion *)' [-Wincompatible-function-pointer-types]
+    *fn = cmd->fn;
+        ^ ~~~~~~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--block--nvme.ko.cil.i:8431:54: warning: incompatible pointer types passing 'void (**)(struct nvme_queue *, void *, struct nvme_completion *)' to parameter of type 'nvme_completion_fn (**)(struct nvme_queue *, void *, struct nvme_completion *)' (aka 'void (*(**)(struct nvme_queue *, void *, struct nvme_completion *))(struct nvme_queue *, void *, struct nvme_completion *)') [-Wincompatible-pointer-types]
+  ctx = nvme_finish_cmd(nvmeq, (int )cqe.command_id, & fn);
+                                                     ^~~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--block--nvme.ko.cil.i:7535:89: note: passing argument to parameter 'fn' here
+static void *nvme_finish_cmd(struct nvme_queue *nvmeq , int tag , nvme_completion_fn (**fn)(struct nvme_queue * ,
+                                                                                        ^
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--block--nvme.ko.cil.i:9002:30: warning: incompatible pointer types passing 'void (**)(struct nvme_queue *, void *, struct nvme_completion *)' to parameter of type 'nvme_completion_fn (**)(struct nvme_queue *, void *, struct nvme_completion *)' (aka 'void (*(**)(struct nvme_queue *, void *, struct nvme_completion *))(struct nvme_queue *, void *, struct nvme_completion *)') [-Wincompatible-pointer-types]
+  ctx = cancel_cmd_info(cmd, & fn);
+                             ^~~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--block--nvme.ko.cil.i:7431:80: note: passing argument to parameter 'fn' here
+static void *cancel_cmd_info(struct nvme_cmd_info *cmd , nvme_completion_fn (**fn)(struct nvme_queue * ,
+                                                                               ^
+
+Unknown

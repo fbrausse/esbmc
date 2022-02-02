@@ -1,0 +1,221 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/valid-memsafety.prp -s kinduction --arch 32 ../sv-benchmarks/c/memsafety/20051113-1.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/memsafety/20051113-1.i --32 --witness-output 20051113-1.i.graphml --memory-leak-check --no-assertions --incremental-bmc 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/memsafety/20051113-1.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.157s
+GOTO program processing time: 0.001s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.032s (119 assignments)
+Slicing time: 0.001s (removed 32 assignments)
+Generated 25 VCC(s), 24 remaining after simplification (87 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.003s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.003s
+Runtime decision procedure: 0.081s
+Building error trace
+
+Counterexample:
+
+State 4 file 20051113-1.i line 577 function main thread 0
+----------------------------------------------------
+  p->Count = 3 (00000000 00000000 00000000 00000011)
+
+State 5 file 20051113-1.i line 577 function main thread 0
+----------------------------------------------------
+  p->Count = 3 (00000000 00000000 00000000 00000011)
+
+State 6 file 20051113-1.i line 577 function main thread 0
+----------------------------------------------------
+  p->Count = 3 (00000000 00000000 00000000 00000011)
+
+State 7 file 20051113-1.i line 577 function main thread 0
+----------------------------------------------------
+  p->Count = 3 (00000000 00000000 00000000 00000011)
+
+State 10 file 20051113-1.i line 578 function main thread 0
+----------------------------------------------------
+  (( Union {  Struct1 { signed short int a; unsigned short int b; unsigned short int c; unsigned short int pad$3; unsigned long long int Count; signed long long int Count2; }a;  Struct2 { signed short int a; unsigned short int b; unsigned short int c; unsigned short int pad$3; unsigned long long int d; signed long long int e; signed long long int f; }b; } *)(&p->List[0]))->a.Count = 555 (00000000 00000000 00000000 00000000 00000000 00000000 00000010 00101011)
+
+State 11 file 20051113-1.i line 578 function main thread 0
+----------------------------------------------------
+  (( Union {  Struct1 { signed short int a; unsigned short int b; unsigned short int c; unsigned short int pad$3; unsigned long long int Count; signed long long int Count2; }a;  Struct2 { signed short int a; unsigned short int b; unsigned short int c; unsigned short int pad$3; unsigned long long int d; signed long long int e; signed long long int f; }b; } *)(&p->List[0]))->a.Count = 555 (00000000 00000000 00000000 00000000 00000000 00000000 00000010 00101011)
+
+State 12 file 20051113-1.i line 578 function main thread 0
+----------------------------------------------------
+  (( Union {  Struct1 { signed short int a; unsigned short int b; unsigned short int c; unsigned short int pad$3; unsigned long long int Count; signed long long int Count2; }a;  Struct2 { signed short int a; unsigned short int b; unsigned short int c; unsigned short int pad$3; unsigned long long int d; signed long long int e; signed long long int f; }b; } *)(&p->List[0]))->a.Count = 555 (00000000 00000000 00000000 00000000 00000000 00000000 00000010 00101011)
+
+State 13 file 20051113-1.i line 578 function main thread 0
+----------------------------------------------------
+  (( Union {  Struct1 { signed short int a; unsigned short int b; unsigned short int c; unsigned short int pad$3; unsigned long long int Count; signed long long int Count2; }a;  Struct2 { signed short int a; unsigned short int b; unsigned short int c; unsigned short int pad$3; unsigned long long int d; signed long long int e; signed long long int f; }b; } *)(&p->List[0]))->a.Count = 555 (00000000 00000000 00000000 00000000 00000000 00000000 00000010 00101011)
+
+State 14 file 20051113-1.i line 578 function main thread 0
+----------------------------------------------------
+  (( Union {  Struct1 { signed short int a; unsigned short int b; unsigned short int c; unsigned short int pad$3; unsigned long long int Count; signed long long int Count2; }a;  Struct2 { signed short int a; unsigned short int b; unsigned short int c; unsigned short int pad$3; unsigned long long int d; signed long long int e; signed long long int f; }b; } *)(&p->List[0]))->a.Count = 555 (00000000 00000000 00000000 00000000 00000000 00000000 00000010 00101011)
+
+State 15 file 20051113-1.i line 578 function main thread 0
+----------------------------------------------------
+  (( Union {  Struct1 { signed short int a; unsigned short int b; unsigned short int c; unsigned short int pad$3; unsigned long long int Count; signed long long int Count2; }a;  Struct2 { signed short int a; unsigned short int b; unsigned short int c; unsigned short int pad$3; unsigned long long int d; signed long long int e; signed long long int f; }b; } *)(&p->List[0]))->a.Count = 555 (00000000 00000000 00000000 00000000 00000000 00000000 00000010 00101011)
+
+State 16 file 20051113-1.i line 578 function main thread 0
+----------------------------------------------------
+  (( Union {  Struct1 { signed short int a; unsigned short int b; unsigned short int c; unsigned short int pad$3; unsigned long long int Count; signed long long int Count2; }a;  Struct2 { signed short int a; unsigned short int b; unsigned short int c; unsigned short int pad$3; unsigned long long int d; signed long long int e; signed long long int f; }b; } *)(&p->List[0]))->a.Count = 555 (00000000 00000000 00000000 00000000 00000000 00000000 00000010 00101011)
+
+State 17 file 20051113-1.i line 578 function main thread 0
+----------------------------------------------------
+  (( Union {  Struct1 { signed short int a; unsigned short int b; unsigned short int c; unsigned short int pad$3; unsigned long long int Count; signed long long int Count2; }a;  Struct2 { signed short int a; unsigned short int b; unsigned short int c; unsigned short int pad$3; unsigned long long int d; signed long long int e; signed long long int f; }b; } *)(&p->List[0]))->a.Count = 555 (00000000 00000000 00000000 00000000 00000000 00000000 00000010 00101011)
+
+State 20 file 20051113-1.i line 579 function main thread 0
+----------------------------------------------------
+  (( Union {  Struct1 { signed short int a; unsigned short int b; unsigned short int c; unsigned short int pad$3; unsigned long long int Count; signed long long int Count2; }a;  Struct2 { signed short int a; unsigned short int b; unsigned short int c; unsigned short int pad$3; unsigned long long int d; signed long long int e; signed long long int f; }b; } *)(&p->List[1]))->a.Count = 999 (00000000 00000000 00000000 00000000 00000000 00000000 00000011 11100111)
+
+State 21 file 20051113-1.i line 579 function main thread 0
+----------------------------------------------------
+  (( Union {  Struct1 { signed short int a; unsigned short int b; unsigned short int c; unsigned short int pad$3; unsigned long long int Count; signed long long int Count2; }a;  Struct2 { signed short int a; unsigned short int b; unsigned short int c; unsigned short int pad$3; unsigned long long int d; signed long long int e; signed long long int f; }b; } *)(&p->List[1]))->a.Count = 999 (00000000 00000000 00000000 00000000 00000000 00000000 00000011 11100111)
+
+State 22 file 20051113-1.i line 579 function main thread 0
+----------------------------------------------------
+  (( Union {  Struct1 { signed short int a; unsigned short int b; unsigned short int c; unsigned short int pad$3; unsigned long long int Count; signed long long int Count2; }a;  Struct2 { signed short int a; unsigned short int b; unsigned short int c; unsigned short int pad$3; unsigned long long int d; signed long long int e; signed long long int f; }b; } *)(&p->List[1]))->a.Count = 999 (00000000 00000000 00000000 00000000 00000000 00000000 00000011 11100111)
+
+State 23 file 20051113-1.i line 579 function main thread 0
+----------------------------------------------------
+  (( Union {  Struct1 { signed short int a; unsigned short int b; unsigned short int c; unsigned short int pad$3; unsigned long long int Count; signed long long int Count2; }a;  Struct2 { signed short int a; unsigned short int b; unsigned short int c; unsigned short int pad$3; unsigned long long int d; signed long long int e; signed long long int f; }b; } *)(&p->List[1]))->a.Count = 999 (00000000 00000000 00000000 00000000 00000000 00000000 00000011 11100111)
+
+State 24 file 20051113-1.i line 579 function main thread 0
+----------------------------------------------------
+  (( Union {  Struct1 { signed short int a; unsigned short int b; unsigned short int c; unsigned short int pad$3; unsigned long long int Count; signed long long int Count2; }a;  Struct2 { signed short int a; unsigned short int b; unsigned short int c; unsigned short int pad$3; unsigned long long int d; signed long long int e; signed long long int f; }b; } *)(&p->List[1]))->a.Count = 999 (00000000 00000000 00000000 00000000 00000000 00000000 00000011 11100111)
+
+State 25 file 20051113-1.i line 579 function main thread 0
+----------------------------------------------------
+  (( Union {  Struct1 { signed short int a; unsigned short int b; unsigned short int c; unsigned short int pad$3; unsigned long long int Count; signed long long int Count2; }a;  Struct2 { signed short int a; unsigned short int b; unsigned short int c; unsigned short int pad$3; unsigned long long int d; signed long long int e; signed long long int f; }b; } *)(&p->List[1]))->a.Count = 999 (00000000 00000000 00000000 00000000 00000000 00000000 00000011 11100111)
+
+State 26 file 20051113-1.i line 579 function main thread 0
+----------------------------------------------------
+  (( Union {  Struct1 { signed short int a; unsigned short int b; unsigned short int c; unsigned short int pad$3; unsigned long long int Count; signed long long int Count2; }a;  Struct2 { signed short int a; unsigned short int b; unsigned short int c; unsigned short int pad$3; unsigned long long int d; signed long long int e; signed long long int f; }b; } *)(&p->List[1]))->a.Count = 999 (00000000 00000000 00000000 00000000 00000000 00000000 00000011 11100111)
+
+State 27 file 20051113-1.i line 579 function main thread 0
+----------------------------------------------------
+  (( Union {  Struct1 { signed short int a; unsigned short int b; unsigned short int c; unsigned short int pad$3; unsigned long long int Count; signed long long int Count2; }a;  Struct2 { signed short int a; unsigned short int b; unsigned short int c; unsigned short int pad$3; unsigned long long int d; signed long long int e; signed long long int f; }b; } *)(&p->List[1]))->a.Count = 999 (00000000 00000000 00000000 00000000 00000000 00000000 00000011 11100111)
+
+State 30 file 20051113-1.i line 580 function main thread 0
+----------------------------------------------------
+  (( Union {  Struct1 { signed short int a; unsigned short int b; unsigned short int c; unsigned short int pad$3; unsigned long long int Count; signed long long int Count2; }a;  Struct2 { signed short int a; unsigned short int b; unsigned short int c; unsigned short int pad$3; unsigned long long int d; signed long long int e; signed long long int f; }b; } *)(&p->List[2]))->a.Count = 4311810305 (00000000 00000000 00000000 00000001 00000001 00000001 00000001 00000001)
+
+State 31 file 20051113-1.i line 580 function main thread 0
+----------------------------------------------------
+  (( Union {  Struct1 { signed short int a; unsigned short int b; unsigned short int c; unsigned short int pad$3; unsigned long long int Count; signed long long int Count2; }a;  Struct2 { signed short int a; unsigned short int b; unsigned short int c; unsigned short int pad$3; unsigned long long int d; signed long long int e; signed long long int f; }b; } *)(&p->List[2]))->a.Count = 4311810305 (00000000 00000000 00000000 00000001 00000001 00000001 00000001 00000001)
+
+State 32 file 20051113-1.i line 580 function main thread 0
+----------------------------------------------------
+  (( Union {  Struct1 { signed short int a; unsigned short int b; unsigned short int c; unsigned short int pad$3; unsigned long long int Count; signed long long int Count2; }a;  Struct2 { signed short int a; unsigned short int b; unsigned short int c; unsigned short int pad$3; unsigned long long int d; signed long long int e; signed long long int f; }b; } *)(&p->List[2]))->a.Count = 4311810305 (00000000 00000000 00000000 00000001 00000001 00000001 00000001 00000001)
+
+State 33 file 20051113-1.i line 580 function main thread 0
+----------------------------------------------------
+  (( Union {  Struct1 { signed short int a; unsigned short int b; unsigned short int c; unsigned short int pad$3; unsigned long long int Count; signed long long int Count2; }a;  Struct2 { signed short int a; unsigned short int b; unsigned short int c; unsigned short int pad$3; unsigned long long int d; signed long long int e; signed long long int f; }b; } *)(&p->List[2]))->a.Count = 4311810305 (00000000 00000000 00000000 00000001 00000001 00000001 00000001 00000001)
+
+State 34 file 20051113-1.i line 580 function main thread 0
+----------------------------------------------------
+  (( Union {  Struct1 { signed short int a; unsigned short int b; unsigned short int c; unsigned short int pad$3; unsigned long long int Count; signed long long int Count2; }a;  Struct2 { signed short int a; unsigned short int b; unsigned short int c; unsigned short int pad$3; unsigned long long int d; signed long long int e; signed long long int f; }b; } *)(&p->List[2]))->a.Count = 4311810305 (00000000 00000000 00000000 00000001 00000001 00000001 00000001 00000001)
+
+State 35 file 20051113-1.i line 580 function main thread 0
+----------------------------------------------------
+  (( Union {  Struct1 { signed short int a; unsigned short int b; unsigned short int c; unsigned short int pad$3; unsigned long long int Count; signed long long int Count2; }a;  Struct2 { signed short int a; unsigned short int b; unsigned short int c; unsigned short int pad$3; unsigned long long int d; signed long long int e; signed long long int f; }b; } *)(&p->List[2]))->a.Count = 4311810305 (00000000 00000000 00000000 00000001 00000001 00000001 00000001 00000001)
+
+State 36 file 20051113-1.i line 580 function main thread 0
+----------------------------------------------------
+  (( Union {  Struct1 { signed short int a; unsigned short int b; unsigned short int c; unsigned short int pad$3; unsigned long long int Count; signed long long int Count2; }a;  Struct2 { signed short int a; unsigned short int b; unsigned short int c; unsigned short int pad$3; unsigned long long int d; signed long long int e; signed long long int f; }b; } *)(&p->List[2]))->a.Count = 4311810305 (00000000 00000000 00000000 00000001 00000001 00000001 00000001 00000001)
+
+State 37 file 20051113-1.i line 580 function main thread 0
+----------------------------------------------------
+  (( Union {  Struct1 { signed short int a; unsigned short int b; unsigned short int c; unsigned short int pad$3; unsigned long long int Count; signed long long int Count2; }a;  Struct2 { signed short int a; unsigned short int b; unsigned short int c; unsigned short int pad$3; unsigned long long int d; signed long long int e; signed long long int f; }b; } *)(&p->List[2]))->a.Count = 4311810305 (00000000 00000000 00000000 00000001 00000001 00000001 00000001 00000001)
+
+State 40 file 20051113-1.i line 581 function main thread 0
+----------------------------------------------------
+  (( Union {  Struct1 { signed short int a; unsigned short int b; unsigned short int c; unsigned short int pad$3; unsigned long long int Count; signed long long int Count2; }a;  Struct2 { signed short int a; unsigned short int b; unsigned short int c; unsigned short int pad$3; unsigned long long int d; signed long long int e; signed long long int f; }b; } *)(&p->List[0]))->a.Count2 = 555 (00000000 00000000 00000000 00000000 00000000 00000000 00000010 00101011)
+
+State 41 file 20051113-1.i line 581 function main thread 0
+----------------------------------------------------
+  (( Union {  Struct1 { signed short int a; unsigned short int b; unsigned short int c; unsigned short int pad$3; unsigned long long int Count; signed long long int Count2; }a;  Struct2 { signed short int a; unsigned short int b; unsigned short int c; unsigned short int pad$3; unsigned long long int d; signed long long int e; signed long long int f; }b; } *)(&p->List[0]))->a.Count2 = 555 (00000000 00000000 00000000 00000000 00000000 00000000 00000010 00101011)
+
+State 42 file 20051113-1.i line 581 function main thread 0
+----------------------------------------------------
+  (( Union {  Struct1 { signed short int a; unsigned short int b; unsigned short int c; unsigned short int pad$3; unsigned long long int Count; signed long long int Count2; }a;  Struct2 { signed short int a; unsigned short int b; unsigned short int c; unsigned short int pad$3; unsigned long long int d; signed long long int e; signed long long int f; }b; } *)(&p->List[0]))->a.Count2 = 555 (00000000 00000000 00000000 00000000 00000000 00000000 00000010 00101011)
+
+State 43 file 20051113-1.i line 581 function main thread 0
+----------------------------------------------------
+  (( Union {  Struct1 { signed short int a; unsigned short int b; unsigned short int c; unsigned short int pad$3; unsigned long long int Count; signed long long int Count2; }a;  Struct2 { signed short int a; unsigned short int b; unsigned short int c; unsigned short int pad$3; unsigned long long int d; signed long long int e; signed long long int f; }b; } *)(&p->List[0]))->a.Count2 = 555 (00000000 00000000 00000000 00000000 00000000 00000000 00000010 00101011)
+
+State 44 file 20051113-1.i line 581 function main thread 0
+----------------------------------------------------
+  (( Union {  Struct1 { signed short int a; unsigned short int b; unsigned short int c; unsigned short int pad$3; unsigned long long int Count; signed long long int Count2; }a;  Struct2 { signed short int a; unsigned short int b; unsigned short int c; unsigned short int pad$3; unsigned long long int d; signed long long int e; signed long long int f; }b; } *)(&p->List[0]))->a.Count2 = 555 (00000000 00000000 00000000 00000000 00000000 00000000 00000010 00101011)
+
+State 45 file 20051113-1.i line 581 function main thread 0
+----------------------------------------------------
+  (( Union {  Struct1 { signed short int a; unsigned short int b; unsigned short int c; unsigned short int pad$3; unsigned long long int Count; signed long long int Count2; }a;  Struct2 { signed short int a; unsigned short int b; unsigned short int c; unsigned short int pad$3; unsigned long long int d; signed long long int e; signed long long int f; }b; } *)(&p->List[0]))->a.Count2 = 555 (00000000 00000000 00000000 00000000 00000000 00000000 00000010 00101011)
+
+State 46 file 20051113-1.i line 581 function main thread 0
+----------------------------------------------------
+  (( Union {  Struct1 { signed short int a; unsigned short int b; unsigned short int c; unsigned short int pad$3; unsigned long long int Count; signed long long int Count2; }a;  Struct2 { signed short int a; unsigned short int b; unsigned short int c; unsigned short int pad$3; unsigned long long int d; signed long long int e; signed long long int f; }b; } *)(&p->List[0]))->a.Count2 = 555 (00000000 00000000 00000000 00000000 00000000 00000000 00000010 00101011)
+
+State 47 file 20051113-1.i line 581 function main thread 0
+----------------------------------------------------
+  (( Union {  Struct1 { signed short int a; unsigned short int b; unsigned short int c; unsigned short int pad$3; unsigned long long int Count; signed long long int Count2; }a;  Struct2 { signed short int a; unsigned short int b; unsigned short int c; unsigned short int pad$3; unsigned long long int d; signed long long int e; signed long long int f; }b; } *)(&p->List[0]))->a.Count2 = 555 (00000000 00000000 00000000 00000000 00000000 00000000 00000010 00101011)
+
+State 50 file 20051113-1.i line 582 function main thread 0
+----------------------------------------------------
+  (( Union {  Struct1 { signed short int a; unsigned short int b; unsigned short int c; unsigned short int pad$3; unsigned long long int Count; signed long long int Count2; }a;  Struct2 { signed short int a; unsigned short int b; unsigned short int c; unsigned short int pad$3; unsigned long long int d; signed long long int e; signed long long int f; }b; } *)(&p->List[1]))->a.Count2 = 999 (00000000 00000000 00000000 00000000 00000000 00000000 00000011 11100111)
+
+State 51 file 20051113-1.i line 582 function main thread 0
+----------------------------------------------------
+  (( Union {  Struct1 { signed short int a; unsigned short int b; unsigned short int c; unsigned short int pad$3; unsigned long long int Count; signed long long int Count2; }a;  Struct2 { signed short int a; unsigned short int b; unsigned short int c; unsigned short int pad$3; unsigned long long int d; signed long long int e; signed long long int f; }b; } *)(&p->List[1]))->a.Count2 = 999 (00000000 00000000 00000000 00000000 00000000 00000000 00000011 11100111)
+
+State 52 file 20051113-1.i line 582 function main thread 0
+----------------------------------------------------
+  (( Union {  Struct1 { signed short int a; unsigned short int b; unsigned short int c; unsigned short int pad$3; unsigned long long int Count; signed long long int Count2; }a;  Struct2 { signed short int a; unsigned short int b; unsigned short int c; unsigned short int pad$3; unsigned long long int d; signed long long int e; signed long long int f; }b; } *)(&p->List[1]))->a.Count2 = 999 (00000000 00000000 00000000 00000000 00000000 00000000 00000011 11100111)
+
+State 53 file 20051113-1.i line 582 function main thread 0
+----------------------------------------------------
+  (( Union {  Struct1 { signed short int a; unsigned short int b; unsigned short int c; unsigned short int pad$3; unsigned long long int Count; signed long long int Count2; }a;  Struct2 { signed short int a; unsigned short int b; unsigned short int c; unsigned short int pad$3; unsigned long long int d; signed long long int e; signed long long int f; }b; } *)(&p->List[1]))->a.Count2 = 999 (00000000 00000000 00000000 00000000 00000000 00000000 00000011 11100111)
+
+State 54 file 20051113-1.i line 582 function main thread 0
+----------------------------------------------------
+  (( Union {  Struct1 { signed short int a; unsigned short int b; unsigned short int c; unsigned short int pad$3; unsigned long long int Count; signed long long int Count2; }a;  Struct2 { signed short int a; unsigned short int b; unsigned short int c; unsigned short int pad$3; unsigned long long int d; signed long long int e; signed long long int f; }b; } *)(&p->List[1]))->a.Count2 = 999 (00000000 00000000 00000000 00000000 00000000 00000000 00000011 11100111)
+
+State 55 file 20051113-1.i line 582 function main thread 0
+----------------------------------------------------
+  (( Union {  Struct1 { signed short int a; unsigned short int b; unsigned short int c; unsigned short int pad$3; unsigned long long int Count; signed long long int Count2; }a;  Struct2 { signed short int a; unsigned short int b; unsigned short int c; unsigned short int pad$3; unsigned long long int d; signed long long int e; signed long long int f; }b; } *)(&p->List[1]))->a.Count2 = 999 (00000000 00000000 00000000 00000000 00000000 00000000 00000011 11100111)
+
+State 56 file 20051113-1.i line 582 function main thread 0
+----------------------------------------------------
+  (( Union {  Struct1 { signed short int a; unsigned short int b; unsigned short int c; unsigned short int pad$3; unsigned long long int Count; signed long long int Count2; }a;  Struct2 { signed short int a; unsigned short int b; unsigned short int c; unsigned short int pad$3; unsigned long long int d; signed long long int e; signed long long int f; }b; } *)(&p->List[1]))->a.Count2 = 999 (00000000 00000000 00000000 00000000 00000000 00000000 00000011 11100111)
+
+State 57 file 20051113-1.i line 582 function main thread 0
+----------------------------------------------------
+  (( Union {  Struct1 { signed short int a; unsigned short int b; unsigned short int c; unsigned short int pad$3; unsigned long long int Count; signed long long int Count2; }a;  Struct2 { signed short int a; unsigned short int b; unsigned short int c; unsigned short int pad$3; unsigned long long int d; signed long long int e; signed long long int f; }b; } *)(&p->List[1]))->a.Count2 = 999 (00000000 00000000 00000000 00000000 00000000 00000000 00000011 11100111)
+
+State 59 file 20051113-1.i line 583 function main thread 0
+----------------------------------------------------
+Violated property:
+  file 20051113-1.i line 583 function main
+  dereference failure: array bounds violated
+
+
+VERIFICATION FAILED
+
+Bug found (k = 1)
+
+
+FALSE_DEREF

@@ -1,0 +1,409 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/reducercommutativity/rangesum10.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/reducercommutativity/rangesum10.i --32 --witness-output rangesum10.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/reducercommutativity/rangesum10.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.136s
+GOTO program processing time: 0.001s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.001s (16 assignments)
+Slicing time: 0.000s (removed 14 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (2 assignments)
+BMC program time: 0.001s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.001s (16 assignments)
+Slicing time: 0.000s (removed 14 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (2 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.000s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.000s
+Runtime decision procedure: 0.000s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file rangesum10.i line 17 function init_nondet
+Unwinding loop 1  iteration  2   file rangesum10.i line 17 function init_nondet
+Not unwinding 
+Symex completed in: 0.002s (22 assignments)
+Slicing time: 0.000s (removed 20 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (2 assignments)
+BMC program time: 0.002s
+No bug has been found in the base case
+*** Checking forward condition, k = 3
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file rangesum10.i line 17 function init_nondet
+Unwinding loop 1  iteration  2   file rangesum10.i line 17 function init_nondet
+Not unwinding 
+Symex completed in: 0.001s (22 assignments)
+Slicing time: 0.000s (removed 20 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (2 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.000s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.000s
+Runtime decision procedure: 0.000s
+The forward condition is unable to prove the property
+*** Checking inductive step, k = 3
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file rangesum10.i line 17 function init_nondet
+Unwinding loop 1  iteration  2   file rangesum10.i line 17 function init_nondet
+Not unwinding 
+Unwinding loop 2  iteration  1   file rangesum10.i line 28 function rangesum
+Unwinding loop 2  iteration  2   file rangesum10.i line 28 function rangesum
+Not unwinding 
+Unwinding loop 2  iteration  1   file rangesum10.i line 28 function rangesum
+Unwinding loop 2  iteration  2   file rangesum10.i line 28 function rangesum
+Not unwinding 
+Unwinding loop 3  iteration  1   file rangesum10.i line 54 function main
+Unwinding loop 3  iteration  2   file rangesum10.i line 54 function main
+Not unwinding 
+Unwinding loop 2  iteration  1   file rangesum10.i line 28 function rangesum
+Unwinding loop 2  iteration  2   file rangesum10.i line 28 function rangesum
+Not unwinding 
+Symex completed in: 0.012s (216 assignments)
+Slicing time: 0.002s (removed 35 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (181 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.004s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.004s
+Runtime decision procedure: 2.380s
+The inductive step is unable to prove the property
+*** Checking base case, k = 5
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file rangesum10.i line 17 function init_nondet
+Unwinding loop 1  iteration  2   file rangesum10.i line 17 function init_nondet
+Unwinding loop 1  iteration  3   file rangesum10.i line 17 function init_nondet
+Unwinding loop 1  iteration  4   file rangesum10.i line 17 function init_nondet
+Not unwinding 
+Symex completed in: 0.003s (28 assignments)
+Slicing time: 0.000s (removed 26 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (2 assignments)
+BMC program time: 0.003s
+No bug has been found in the base case
+*** Checking forward condition, k = 5
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file rangesum10.i line 17 function init_nondet
+Unwinding loop 1  iteration  2   file rangesum10.i line 17 function init_nondet
+Unwinding loop 1  iteration  3   file rangesum10.i line 17 function init_nondet
+Unwinding loop 1  iteration  4   file rangesum10.i line 17 function init_nondet
+Not unwinding 
+Symex completed in: 0.002s (28 assignments)
+Slicing time: 0.000s (removed 26 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (2 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.000s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.000s
+Runtime decision procedure: 0.000s
+The forward condition is unable to prove the property
+*** Checking base case, k = 7
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file rangesum10.i line 17 function init_nondet
+Unwinding loop 1  iteration  2   file rangesum10.i line 17 function init_nondet
+Unwinding loop 1  iteration  3   file rangesum10.i line 17 function init_nondet
+Unwinding loop 1  iteration  4   file rangesum10.i line 17 function init_nondet
+Unwinding loop 1  iteration  5   file rangesum10.i line 17 function init_nondet
+Unwinding loop 1  iteration  6   file rangesum10.i line 17 function init_nondet
+Not unwinding 
+Symex completed in: 0.003s (34 assignments)
+Slicing time: 0.000s (removed 32 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (2 assignments)
+BMC program time: 0.003s
+No bug has been found in the base case
+*** Checking forward condition, k = 7
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file rangesum10.i line 17 function init_nondet
+Unwinding loop 1  iteration  2   file rangesum10.i line 17 function init_nondet
+Unwinding loop 1  iteration  3   file rangesum10.i line 17 function init_nondet
+Unwinding loop 1  iteration  4   file rangesum10.i line 17 function init_nondet
+Unwinding loop 1  iteration  5   file rangesum10.i line 17 function init_nondet
+Unwinding loop 1  iteration  6   file rangesum10.i line 17 function init_nondet
+Not unwinding 
+Symex completed in: 0.003s (34 assignments)
+Slicing time: 0.000s (removed 32 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (2 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.000s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.000s
+Runtime decision procedure: 0.001s
+The forward condition is unable to prove the property
+*** Checking base case, k = 9
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file rangesum10.i line 17 function init_nondet
+Unwinding loop 1  iteration  2   file rangesum10.i line 17 function init_nondet
+Unwinding loop 1  iteration  3   file rangesum10.i line 17 function init_nondet
+Unwinding loop 1  iteration  4   file rangesum10.i line 17 function init_nondet
+Unwinding loop 1  iteration  5   file rangesum10.i line 17 function init_nondet
+Unwinding loop 1  iteration  6   file rangesum10.i line 17 function init_nondet
+Unwinding loop 1  iteration  7   file rangesum10.i line 17 function init_nondet
+Unwinding loop 1  iteration  8   file rangesum10.i line 17 function init_nondet
+Not unwinding 
+Symex completed in: 0.003s (40 assignments)
+Slicing time: 0.000s (removed 38 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (2 assignments)
+BMC program time: 0.003s
+No bug has been found in the base case
+*** Checking forward condition, k = 9
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file rangesum10.i line 17 function init_nondet
+Unwinding loop 1  iteration  2   file rangesum10.i line 17 function init_nondet
+Unwinding loop 1  iteration  3   file rangesum10.i line 17 function init_nondet
+Unwinding loop 1  iteration  4   file rangesum10.i line 17 function init_nondet
+Unwinding loop 1  iteration  5   file rangesum10.i line 17 function init_nondet
+Unwinding loop 1  iteration  6   file rangesum10.i line 17 function init_nondet
+Unwinding loop 1  iteration  7   file rangesum10.i line 17 function init_nondet
+Unwinding loop 1  iteration  8   file rangesum10.i line 17 function init_nondet
+Not unwinding 
+Symex completed in: 0.004s (40 assignments)
+Slicing time: 0.000s (removed 38 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (2 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.000s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.000s
+Runtime decision procedure: 0.001s
+The forward condition is unable to prove the property
+*** Checking base case, k = 11
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file rangesum10.i line 17 function init_nondet
+Unwinding loop 1  iteration  2   file rangesum10.i line 17 function init_nondet
+Unwinding loop 1  iteration  3   file rangesum10.i line 17 function init_nondet
+Unwinding loop 1  iteration  4   file rangesum10.i line 17 function init_nondet
+Unwinding loop 1  iteration  5   file rangesum10.i line 17 function init_nondet
+Unwinding loop 1  iteration  6   file rangesum10.i line 17 function init_nondet
+Unwinding loop 1  iteration  7   file rangesum10.i line 17 function init_nondet
+Unwinding loop 1  iteration  8   file rangesum10.i line 17 function init_nondet
+Unwinding loop 1  iteration  9   file rangesum10.i line 17 function init_nondet
+Unwinding loop 1  iteration  10   file rangesum10.i line 17 function init_nondet
+Unwinding loop 2  iteration  1   file rangesum10.i line 28 function rangesum
+Unwinding loop 2  iteration  2   file rangesum10.i line 28 function rangesum
+Unwinding loop 2  iteration  3   file rangesum10.i line 28 function rangesum
+Unwinding loop 2  iteration  4   file rangesum10.i line 28 function rangesum
+Unwinding loop 2  iteration  5   file rangesum10.i line 28 function rangesum
+Unwinding loop 2  iteration  6   file rangesum10.i line 28 function rangesum
+Unwinding loop 2  iteration  7   file rangesum10.i line 28 function rangesum
+Unwinding loop 2  iteration  8   file rangesum10.i line 28 function rangesum
+Unwinding loop 2  iteration  9   file rangesum10.i line 28 function rangesum
+Unwinding loop 2  iteration  10   file rangesum10.i line 28 function rangesum
+Unwinding loop 2  iteration  1   file rangesum10.i line 28 function rangesum
+Unwinding loop 2  iteration  2   file rangesum10.i line 28 function rangesum
+Unwinding loop 2  iteration  3   file rangesum10.i line 28 function rangesum
+Unwinding loop 2  iteration  4   file rangesum10.i line 28 function rangesum
+Unwinding loop 2  iteration  5   file rangesum10.i line 28 function rangesum
+Unwinding loop 2  iteration  6   file rangesum10.i line 28 function rangesum
+Unwinding loop 2  iteration  7   file rangesum10.i line 28 function rangesum
+Unwinding loop 2  iteration  8   file rangesum10.i line 28 function rangesum
+Unwinding loop 2  iteration  9   file rangesum10.i line 28 function rangesum
+Unwinding loop 2  iteration  10   file rangesum10.i line 28 function rangesum
+Unwinding loop 3  iteration  1   file rangesum10.i line 54 function main
+Unwinding loop 3  iteration  2   file rangesum10.i line 54 function main
+Unwinding loop 3  iteration  3   file rangesum10.i line 54 function main
+Unwinding loop 3  iteration  4   file rangesum10.i line 54 function main
+Unwinding loop 3  iteration  5   file rangesum10.i line 54 function main
+Unwinding loop 3  iteration  6   file rangesum10.i line 54 function main
+Unwinding loop 3  iteration  7   file rangesum10.i line 54 function main
+Unwinding loop 3  iteration  8   file rangesum10.i line 54 function main
+Unwinding loop 3  iteration  9   file rangesum10.i line 54 function main
+Unwinding loop 2  iteration  1   file rangesum10.i line 28 function rangesum
+Unwinding loop 2  iteration  2   file rangesum10.i line 28 function rangesum
+Unwinding loop 2  iteration  3   file rangesum10.i line 28 function rangesum
+Unwinding loop 2  iteration  4   file rangesum10.i line 28 function rangesum
+Unwinding loop 2  iteration  5   file rangesum10.i line 28 function rangesum
+Unwinding loop 2  iteration  6   file rangesum10.i line 28 function rangesum
+Unwinding loop 2  iteration  7   file rangesum10.i line 28 function rangesum
+Unwinding loop 2  iteration  8   file rangesum10.i line 28 function rangesum
+Unwinding loop 2  iteration  9   file rangesum10.i line 28 function rangesum
+Unwinding loop 2  iteration  10   file rangesum10.i line 28 function rangesum
+Symex completed in: 0.012s (137 assignments)
+Slicing time: 0.000s (removed 95 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (42 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.001s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.001s
+Runtime decision procedure: 0.102s
+Building error trace
+
+Counterexample:
+
+State 1 file rangesum10.i line 18 function init_nondet thread 0
+----------------------------------------------------
+  *(x + i) = 0 (00000000 00000000 00000000 00000000)
+
+State 2 file rangesum10.i line 18 function init_nondet thread 0
+----------------------------------------------------
+  *(x + i) = -805306368 (11010000 00000000 00000000 00000000)
+
+State 3 file rangesum10.i line 18 function init_nondet thread 0
+----------------------------------------------------
+  *(x + i) = 0 (00000000 00000000 00000000 00000000)
+
+State 4 file rangesum10.i line 18 function init_nondet thread 0
+----------------------------------------------------
+  *(x + i) = 0 (00000000 00000000 00000000 00000000)
+
+State 5 file rangesum10.i line 18 function init_nondet thread 0
+----------------------------------------------------
+  *(x + i) = 0 (00000000 00000000 00000000 00000000)
+
+State 6 file rangesum10.i line 18 function init_nondet thread 0
+----------------------------------------------------
+  *(x + i) = 0 (00000000 00000000 00000000 00000000)
+
+State 7 file rangesum10.i line 18 function init_nondet thread 0
+----------------------------------------------------
+  *(x + i) = -1086319015 (10111111 01000000 00010110 01011001)
+
+State 8 file rangesum10.i line 18 function init_nondet thread 0
+----------------------------------------------------
+  *(x + i) = -2042621111 (10000110 01000000 00010011 01001001)
+
+State 9 file rangesum10.i line 18 function init_nondet thread 0
+----------------------------------------------------
+  *(x + i) = -75764291 (11111011 01111011 11101101 10111101)
+
+State 10 file rangesum10.i line 18 function init_nondet thread 0
+----------------------------------------------------
+  *(x + i) = -1157371754 (10111011 00000011 11101000 10010110)
+
+State 11 file rangesum10.i line 30 function rangesum thread 0
+----------------------------------------------------
+  ret = -1086319015 (11111111 11111111 11111111 11111111 10111111 01000000 00010110 01011001)
+
+State 12 file rangesum10.i line 30 function rangesum thread 0
+----------------------------------------------------
+  ret = -3128940126 (11111111 11111111 11111111 11111111 01000101 10000000 00101001 10100010)
+
+State 13 file rangesum10.i line 30 function rangesum thread 0
+----------------------------------------------------
+  ret = -3204704417 (11111111 11111111 11111111 11111111 01000000 11111100 00010111 01011111)
+
+State 14 file rangesum10.i line 30 function rangesum thread 0
+----------------------------------------------------
+  ret = -4362076171 (11111111 11111111 11111111 11111110 11111011 11111111 11111111 11110101)
+
+State 15 file rangesum10.i line 51 function main thread 0
+----------------------------------------------------
+  temp = 0 (00000000 00000000 00000000 00000000)
+
+State 16 file rangesum10.i line 51 function main thread 0
+----------------------------------------------------
+  x[0] = -805306368 (11010000 00000000 00000000 00000000)
+
+State 17 file rangesum10.i line 51 function main thread 0
+----------------------------------------------------
+  x[1] = 0 (00000000 00000000 00000000 00000000)
+
+State 18 file rangesum10.i line 30 function rangesum thread 0
+----------------------------------------------------
+  ret = -1086319015 (11111111 11111111 11111111 11111111 10111111 01000000 00010110 01011001)
+
+State 19 file rangesum10.i line 30 function rangesum thread 0
+----------------------------------------------------
+  ret = -3128940126 (11111111 11111111 11111111 11111111 01000101 10000000 00101001 10100010)
+
+State 20 file rangesum10.i line 30 function rangesum thread 0
+----------------------------------------------------
+  ret = -3204704417 (11111111 11111111 11111111 11111111 01000000 11111100 00010111 01011111)
+
+State 21 file rangesum10.i line 30 function rangesum thread 0
+----------------------------------------------------
+  ret = -4362076171 (11111111 11111111 11111111 11111110 11111011 11111111 11111111 11110101)
+
+State 22 file rangesum10.i line 53 function main thread 0
+----------------------------------------------------
+  temp = -805306368 (11010000 00000000 00000000 00000000)
+
+State 23 file rangesum10.i line 55 function main thread 0
+----------------------------------------------------
+  x[0] = 0 (00000000 00000000 00000000 00000000)
+
+State 24 file rangesum10.i line 55 function main thread 0
+----------------------------------------------------
+  x[1] = 0 (00000000 00000000 00000000 00000000)
+
+State 25 file rangesum10.i line 55 function main thread 0
+----------------------------------------------------
+  x[2] = 0 (00000000 00000000 00000000 00000000)
+
+State 26 file rangesum10.i line 55 function main thread 0
+----------------------------------------------------
+  x[3] = 0 (00000000 00000000 00000000 00000000)
+
+State 27 file rangesum10.i line 55 function main thread 0
+----------------------------------------------------
+  x[4] = 0 (00000000 00000000 00000000 00000000)
+
+State 28 file rangesum10.i line 55 function main thread 0
+----------------------------------------------------
+  x[5] = -1086319015 (10111111 01000000 00010110 01011001)
+
+State 29 file rangesum10.i line 55 function main thread 0
+----------------------------------------------------
+  x[6] = -2042621111 (10000110 01000000 00010011 01001001)
+
+State 30 file rangesum10.i line 55 function main thread 0
+----------------------------------------------------
+  x[7] = -75764291 (11111011 01111011 11101101 10111101)
+
+State 31 file rangesum10.i line 55 function main thread 0
+----------------------------------------------------
+  x[8] = -1157371754 (10111011 00000011 11101000 10010110)
+
+State 32 file rangesum10.i line 57 function main thread 0
+----------------------------------------------------
+  x[9] = -805306368 (11010000 00000000 00000000 00000000)
+
+State 33 file rangesum10.i line 30 function rangesum thread 0
+----------------------------------------------------
+  ret = -2042621111 (11111111 11111111 11111111 11111111 10000110 01000000 00010011 01001001)
+
+State 34 file rangesum10.i line 30 function rangesum thread 0
+----------------------------------------------------
+  ret = -2118385402 (11111111 11111111 11111111 11111111 10000001 10111100 00000001 00000110)
+
+State 35 file rangesum10.i line 30 function rangesum thread 0
+----------------------------------------------------
+  ret = -3275757156 (11111111 11111111 11111111 11111111 00111100 10111111 11101001 10011100)
+
+State 36 file rangesum10.i line 30 function rangesum thread 0
+----------------------------------------------------
+  ret = -4081063524 (11111111 11111111 11111111 11111111 00001100 10111111 11101001 10011100)
+
+State 37 file rangesum10.i line 12 function reach_error thread 0
+----------------------------------------------------
+Violated property:
+  file rangesum10.i line 12 function reach_error
+  assertion 0
+  0
+
+
+VERIFICATION FAILED
+
+Bug found (k = 11)
+
+
+FALSE_REACH

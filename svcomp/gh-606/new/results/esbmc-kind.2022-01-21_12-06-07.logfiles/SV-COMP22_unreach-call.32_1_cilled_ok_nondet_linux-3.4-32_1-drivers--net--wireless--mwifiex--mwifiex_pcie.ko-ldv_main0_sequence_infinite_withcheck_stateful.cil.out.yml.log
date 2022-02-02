@@ -1,0 +1,24 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/ldv-linux-3.4-simple/32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--net--wireless--mwifiex--mwifiex_pcie.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-linux-3.4-simple/32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--net--wireless--mwifiex--mwifiex_pcie.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i --64 --witness-output 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--net--wireless--mwifiex--mwifiex_pcie.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--net--wireless--mwifiex--mwifiex_pcie.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i:7073:28: warning: incompatible function pointer types initializing 'int (*)(struct pci_dev *, pm_message_t)' (aka 'int (*)(struct pci_dev *, struct pm_message)') with an expression of type 'int (*)(struct pci_dev *, int)' [-Wincompatible-function-pointer-types]
+    & mwifiex_pcie_remove, & mwifiex_pcie_suspend, (int (*)(struct pci_dev *dev ,
+                           ^~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--net--wireless--mwifiex--mwifiex_pcie.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i:14877:1: warning: return type of 'main' is not 'int' [-Wmain-return-type]
+void main(void)
+^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--net--wireless--mwifiex--mwifiex_pcie.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i:14877:1: note: change return type to 'int'
+void main(void)
+^~~~
+int
+Can't construct rvalue reference to array type during dereference
+(It isn't allowed by C anyway)
+
+
+Unknown

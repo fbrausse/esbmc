@@ -1,0 +1,116 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/ldv-linux-3.4-simple/43_1a_cilled_ok_nondet_linux-43_1a-drivers--edac--mce_amd_inj.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-linux-3.4-simple/43_1a_cilled_ok_nondet_linux-43_1a-drivers--edac--mce_amd_inj.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i --64 --witness-output 43_1a_cilled_ok_nondet_linux-43_1a-drivers--edac--mce_amd_inj.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 64-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/ldv-linux-3.4-simple/43_1a_cilled_ok_nondet_linux-43_1a-drivers--edac--mce_amd_inj.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.217s
+GOTO program processing time: 0.004s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.006s (92 assignments)
+Slicing time: 0.001s (removed 74 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (18 assignments)
+BMC program time: 0.007s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.006s (92 assignments)
+Slicing time: 0.000s (removed 74 assignments)
+Generated 3 VCC(s), 3 remaining after simplification (18 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.002s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.002s
+Runtime decision procedure: 0.098s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--edac--mce_amd_inj.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1163 function edac_init_mce_inject
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--edac--mce_amd_inj.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1163 function edac_init_mce_inject
+Not unwinding 
+Unwinding loop 2  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--edac--mce_amd_inj.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1184 function edac_init_mce_inject
+Unwinding loop 2  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--edac--mce_amd_inj.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1184 function edac_init_mce_inject
+Not unwinding 
+Unwinding loop 4  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--edac--mce_amd_inj.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1275 function main
+Unwinding loop 4  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--edac--mce_amd_inj.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1275 function main
+Not unwinding 
+Unwinding loop 3  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--edac--mce_amd_inj.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1224 function edac_exit_mce_inject
+Unwinding loop 3  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--edac--mce_amd_inj.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1224 function edac_exit_mce_inject
+Not unwinding 
+Symex completed in: 0.013s (208 assignments)
+Slicing time: 0.000s (removed 169 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (39 assignments)
+BMC program time: 0.013s
+No bug has been found in the base case
+*** Checking forward condition, k = 3
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--edac--mce_amd_inj.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1163 function edac_init_mce_inject
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--edac--mce_amd_inj.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1163 function edac_init_mce_inject
+Not unwinding 
+Unwinding loop 2  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--edac--mce_amd_inj.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1184 function edac_init_mce_inject
+Unwinding loop 2  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--edac--mce_amd_inj.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1184 function edac_init_mce_inject
+Not unwinding 
+Unwinding loop 4  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--edac--mce_amd_inj.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1275 function main
+Unwinding loop 4  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--edac--mce_amd_inj.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1275 function main
+Not unwinding 
+Unwinding loop 3  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--edac--mce_amd_inj.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1224 function edac_exit_mce_inject
+Unwinding loop 3  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--edac--mce_amd_inj.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1224 function edac_exit_mce_inject
+Not unwinding 
+Symex completed in: 0.013s (208 assignments)
+Slicing time: 0.000s (removed 169 assignments)
+Generated 4 VCC(s), 4 remaining after simplification (39 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.003s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.003s
+Runtime decision procedure: 0.226s
+The forward condition is unable to prove the property
+*** Checking inductive step, k = 3
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--edac--mce_amd_inj.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1163 function edac_init_mce_inject
+Unwinding loop 1  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--edac--mce_amd_inj.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1163 function edac_init_mce_inject
+Not unwinding 
+Unwinding loop 2  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--edac--mce_amd_inj.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1184 function edac_init_mce_inject
+Unwinding loop 2  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--edac--mce_amd_inj.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1184 function edac_init_mce_inject
+Not unwinding 
+Unwinding loop 4  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--edac--mce_amd_inj.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1275 function main
+Unwinding loop 4  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--edac--mce_amd_inj.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1275 function main
+Not unwinding 
+Unwinding loop 3  iteration  1   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--edac--mce_amd_inj.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1224 function edac_exit_mce_inject
+Unwinding loop 3  iteration  2   file 43_1a_cilled_ok_nondet_linux-43_1a-drivers--edac--mce_amd_inj.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1224 function edac_exit_mce_inject
+Not unwinding 
+Symex completed in: 0.015s (243 assignments)
+Slicing time: 0.000s (removed 186 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (57 assignments)
+BMC program time: 0.015s
+Building successful trace
+
+VERIFICATION SUCCESSFUL
+
+Solution found by the inductive step (k = 3)
+
+../sv-benchmarks/c/ldv-linux-3.4-simple/43_1a_cilled_ok_nondet_linux-43_1a-drivers--edac--mce_amd_inj.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i:1241:1: warning: return type of 'main' is not 'int' [-Wmain-return-type]
+void main(void)
+^
+../sv-benchmarks/c/ldv-linux-3.4-simple/43_1a_cilled_ok_nondet_linux-43_1a-drivers--edac--mce_amd_inj.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i:1241:1: note: change return type to 'int'
+void main(void)
+^~~~
+int
+
+TRUE

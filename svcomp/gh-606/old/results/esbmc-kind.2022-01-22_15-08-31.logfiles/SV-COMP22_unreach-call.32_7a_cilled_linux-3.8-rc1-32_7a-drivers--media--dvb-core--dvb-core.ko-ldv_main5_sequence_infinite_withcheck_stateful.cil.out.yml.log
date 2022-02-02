@@ -1,0 +1,60 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-drivers--media--dvb-core--dvb-core.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-drivers--media--dvb-core--dvb-core.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i --64 --witness-output 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--media--dvb-core--dvb-core.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-drivers--media--dvb-core--dvb-core.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:5871:79: warning: incompatible integer to pointer conversion initializing 'void *' with an expression of type 'unsigned long' [-Wint-conversion]
+static struct mutex dvbdev_mutex = {{1}, {{{{{0U}}, 3735899821U, 4294967295U, 0xffffffffffffffffUL, {0, {0, 0}, "dvbdev_mutex.wait_lock",
+                                                                              ^~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-drivers--media--dvb-core--dvb-core.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:5877:87: warning: incompatible integer to pointer conversion initializing 'void *' with an expression of type 'unsigned long' [-Wint-conversion]
+static struct mutex dvbdev_register_lock = {{1}, {{{{{0U}}, 3735899821U, 4294967295U, 0xffffffffffffffffUL, {0, {0, 0}, "dvbdev_register_lock.wait_lock",
+                                                                                      ^~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-drivers--media--dvb-core--dvb-core.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:5888:82: warning: incompatible integer to pointer conversion initializing 'void *' with an expression of type 'unsigned long' [-Wint-conversion]
+static struct rw_semaphore minor_rwsem = {0L, {{{0U}}, 3735899821U, 4294967295U, 0xffffffffffffffffUL, {0, {0, 0}, "minor_rwsem.wait_lock",
+                                                                                 ^~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-drivers--media--dvb-core--dvb-core.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:13471:30: warning: incompatible integer to pointer conversion assigning to 'void *' from 'unsigned long' [-Wint-conversion]
+  __constr_expr_0.lock.owner = 0xffffffffffffffffUL;
+                             ^ ~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-drivers--media--dvb-core--dvb-core.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:13554:81: warning: incompatible integer to pointer conversion initializing 'void *' with an expression of type 'unsigned long' [-Wint-conversion]
+static struct mutex frontend_mutex = {{1}, {{{{{0U}}, 3735899821U, 4294967295U, 0xffffffffffffffffUL, {0, {0, 0}, "frontend_mutex.wait_lock",
+                                                                                ^~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-drivers--media--dvb-core--dvb-core.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:16495:18: warning: incompatible integer to pointer conversion assigning to 'void *' from 'unsigned long' [-Wint-conversion]
+  _rs.lock.owner = 0xffffffffffffffffUL;
+                 ^ ~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-drivers--media--dvb-core--dvb-core.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:16950:56: warning: non-void function does not return a value [-Wreturn-type]
+int* ts_bus_ctrl_dummy(struct dvb_frontend *p, int i) {};
+                                                       ^
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-drivers--media--dvb-core--dvb-core.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:16995:41: warning: equality comparison result unused [-Wunused-comparison]
+  dvb_frontend_private_p2->reinitialise == __VERIFIER_nondet_uint();
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-drivers--media--dvb-core--dvb-core.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:16995:41: note: use '=' to turn this equality comparison into an assignment
+  dvb_frontend_private_p2->reinitialise == __VERIFIER_nondet_uint();
+                                        ^~
+                                        =
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-drivers--media--dvb-core--dvb-core.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:17008:36: warning: incompatible function pointer types assigning to 'int (*)(struct dvb_frontend *, int)' from 'int *(*)(struct dvb_frontend *, int)' [-Wincompatible-function-pointer-types]
+  dvb_frontend_p2->ops.ts_bus_ctrl = &ts_bus_ctrl_dummy;
+                                   ^ ~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-drivers--media--dvb-core--dvb-core.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:17013:9: warning: incompatible integer to pointer conversion initializing 'void *' with an expression of type 'int' [-Wint-conversion]
+  void *var_dvb_frontend_ioctl_30_p2 = __VERIFIER_nondet_int();
+        ^                              ~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-drivers--media--dvb-core--dvb-core.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:17077:8: warning: passing 'const struct file_operations *' to parameter of type 'void *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+  free(file_operations_p);
+       ^~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-drivers--media--dvb-core--dvb-core.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:16949:25: note: passing argument to parameter '__ptr' here
+extern void free (void *__ptr) __attribute__ ((__nothrow__ , __leaf__));
+                        ^
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-drivers--media--dvb-core--dvb-core.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:20871:30: warning: implicit declaration of function 'ldv_xmalloc' is invalid in C99 [-Wimplicit-function-declaration]
+  return *(struct timespec *)ldv_xmalloc(sizeof(struct timespec));
+                             ^
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-drivers--media--dvb-core--dvb-core.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:20871:11: warning: cast to 'struct timespec *' from smaller integer type 'int' [-Wint-to-pointer-cast]
+  return *(struct timespec *)ldv_xmalloc(sizeof(struct timespec));
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Can't construct rvalue reference to array type during dereference
+(It isn't allowed by C anyway)
+
+
+Unknown

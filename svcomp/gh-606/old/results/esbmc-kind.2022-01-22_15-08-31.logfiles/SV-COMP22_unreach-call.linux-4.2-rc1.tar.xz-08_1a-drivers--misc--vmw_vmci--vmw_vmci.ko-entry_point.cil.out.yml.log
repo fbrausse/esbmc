@@ -1,0 +1,177 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-08_1a-drivers--misc--vmw_vmci--vmw_vmci.ko-entry_point.cil.out.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-08_1a-drivers--misc--vmw_vmci--vmw_vmci.ko-entry_point.cil.out.i --64 --witness-output linux-4.2-rc1.tar.xz-08_1a-drivers--misc--vmw_vmci--vmw_vmci.ko-entry_point.cil.out.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 64-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-08_1a-drivers--misc--vmw_vmci--vmw_vmci.ko-entry_point.cil.out.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 2.228s
+GOTO program processing time: 0.744s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.054s (208 assignments)
+Slicing time: 0.001s (removed 191 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (17 assignments)
+BMC program time: 0.055s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.055s (208 assignments)
+Slicing time: 0.000s (removed 191 assignments)
+Generated 2 VCC(s), 2 remaining after simplification (17 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.000s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.000s
+Runtime decision procedure: 0.007s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 28  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--misc--vmw_vmci--vmw_vmci.ko-entry_point.cil.out.i line 8322 function vmci_event_init
+Unwinding loop 28  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--misc--vmw_vmci--vmw_vmci.ko-entry_point.cil.out.i line 8322 function vmci_event_init
+Not unwinding 
+Unwinding loop 31  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--misc--vmw_vmci--vmw_vmci.ko-entry_point.cil.out.i line 8222 function main
+Unwinding loop 28  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--misc--vmw_vmci--vmw_vmci.ko-entry_point.cil.out.i line 8322 function vmci_event_init
+Unwinding loop 28  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--misc--vmw_vmci--vmw_vmci.ko-entry_point.cil.out.i line 8322 function vmci_event_init
+Not unwinding 
+Unwinding loop 31  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--misc--vmw_vmci--vmw_vmci.ko-entry_point.cil.out.i line 8222 function main
+Unwinding loop 28  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--misc--vmw_vmci--vmw_vmci.ko-entry_point.cil.out.i line 8322 function vmci_event_init
+Unwinding loop 28  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--misc--vmw_vmci--vmw_vmci.ko-entry_point.cil.out.i line 8322 function vmci_event_init
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.102s (320 assignments)
+Slicing time: 0.002s (removed 273 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (47 assignments)
+BMC program time: 0.104s
+No bug has been found in the base case
+*** Checking forward condition, k = 3
+Starting Bounded Model Checking
+Unwinding loop 28  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--misc--vmw_vmci--vmw_vmci.ko-entry_point.cil.out.i line 8322 function vmci_event_init
+Unwinding loop 28  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--misc--vmw_vmci--vmw_vmci.ko-entry_point.cil.out.i line 8322 function vmci_event_init
+Not unwinding 
+Unwinding loop 31  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--misc--vmw_vmci--vmw_vmci.ko-entry_point.cil.out.i line 8222 function main
+Unwinding loop 28  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--misc--vmw_vmci--vmw_vmci.ko-entry_point.cil.out.i line 8322 function vmci_event_init
+Unwinding loop 28  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--misc--vmw_vmci--vmw_vmci.ko-entry_point.cil.out.i line 8322 function vmci_event_init
+Not unwinding 
+Unwinding loop 31  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--misc--vmw_vmci--vmw_vmci.ko-entry_point.cil.out.i line 8222 function main
+Unwinding loop 28  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--misc--vmw_vmci--vmw_vmci.ko-entry_point.cil.out.i line 8322 function vmci_event_init
+Unwinding loop 28  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--misc--vmw_vmci--vmw_vmci.ko-entry_point.cil.out.i line 8322 function vmci_event_init
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.100s (320 assignments)
+Slicing time: 0.001s (removed 273 assignments)
+Generated 4 VCC(s), 4 remaining after simplification (47 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.001s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.001s
+Runtime decision procedure: 0.020s
+The forward condition is unable to prove the property
+*** Checking inductive step, k = 3
+Starting Bounded Model Checking
+Unwinding loop 62  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 62  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 62  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 62  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 62  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 62  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 62  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 62  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 62  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 62  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 5  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--misc--vmw_vmci--vmw_vmci.ko-entry_point.cil.out.i line 4953 function ctx_fire_notification
+Unwinding loop 4  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--misc--vmw_vmci--vmw_vmci.ko-entry_point.cil.out.i line 4939 function ctx_fire_notification
+Unwinding loop 4  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--misc--vmw_vmci--vmw_vmci.ko-entry_point.cil.out.i line 4939 function ctx_fire_notification
+Not unwinding 
+Unwinding loop 5  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--misc--vmw_vmci--vmw_vmci.ko-entry_point.cil.out.i line 4953 function ctx_fire_notification
+Unwinding loop 4  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--misc--vmw_vmci--vmw_vmci.ko-entry_point.cil.out.i line 4939 function ctx_fire_notification
+Unwinding loop 4  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--misc--vmw_vmci--vmw_vmci.ko-entry_point.cil.out.i line 4939 function ctx_fire_notification
+Not unwinding 
+Not unwinding 
+Unwinding loop 6  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--misc--vmw_vmci--vmw_vmci.ko-entry_point.cil.out.i line 4979 function ctx_fire_notification
+Unwinding loop 3  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--misc--vmw_vmci--vmw_vmci.ko-entry_point.cil.out.i line 5113 function vmci_ctx_exists
+Unwinding loop 3  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--misc--vmw_vmci--vmw_vmci.ko-entry_point.cil.out.i line 5113 function vmci_ctx_exists
+Not unwinding 
+Unwinding loop 34  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--misc--vmw_vmci--vmw_vmci.ko-entry_point.cil.out.i line 8440 function event_deliver
+No target candidate for function call *cur->callback
+Unwinding loop 34  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--misc--vmw_vmci--vmw_vmci.ko-entry_point.cil.out.i line 8440 function event_deliver
+No target candidate for function call *cur->callback
+Not unwinding 
+Unwinding loop 59  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--misc--vmw_vmci--vmw_vmci.ko-entry_point.cil.out.i line 14955 function vmci_resource_lookup
+Unwinding loop 59  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--misc--vmw_vmci--vmw_vmci.ko-entry_point.cil.out.i line 14955 function vmci_resource_lookup
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+No target candidate for function call *dst_entry->recv_cb
+Unwinding loop 7  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--misc--vmw_vmci--vmw_vmci.ko-entry_point.cil.out.i line 5169 function vmci_ctx_get
+Unwinding loop 7  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--misc--vmw_vmci--vmw_vmci.ko-entry_point.cil.out.i line 5169 function vmci_ctx_get
+Not unwinding 
+**** WARNING: k-induction does not support recursion yet. Disabling inductive step
+Unwinding recursion vmci_ctx_put iteration 1 (3 max)
+Unwinding recursion kref_put iteration 1 (3 max)
+Unwinding recursion kref_sub iteration 1 (3 max)
+Unwinding recursion ctx_free_ctx iteration 1 (3 max)
+Unwinding recursion ctx_fire_notification iteration 1 (3 max)
+Unwinding loop 5  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--misc--vmw_vmci--vmw_vmci.ko-entry_point.cil.out.i line 4953 function ctx_fire_notification
+Unwinding loop 4  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--misc--vmw_vmci--vmw_vmci.ko-entry_point.cil.out.i line 4939 function ctx_fire_notification
+Unwinding loop 4  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--misc--vmw_vmci--vmw_vmci.ko-entry_point.cil.out.i line 4939 function ctx_fire_notification
+Not unwinding 
+Unwinding loop 5  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--misc--vmw_vmci--vmw_vmci.ko-entry_point.cil.out.i line 4953 function ctx_fire_notification
+Unwinding loop 4  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--misc--vmw_vmci--vmw_vmci.ko-entry_point.cil.out.i line 4939 function ctx_fire_notification
+Unwinding loop 4  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--misc--vmw_vmci--vmw_vmci.ko-entry_point.cil.out.i line 4939 function ctx_fire_notification
+Not unwinding 
+Not unwinding 
+Unwinding loop 6  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--misc--vmw_vmci--vmw_vmci.ko-entry_point.cil.out.i line 4979 function ctx_fire_notification
+Unwinding recursion vmci_datagram_dispatch iteration 1 (3 max)
+Unwinding loop 3  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--misc--vmw_vmci--vmw_vmci.ko-entry_point.cil.out.i line 5113 function vmci_ctx_exists
+Unwinding loop 3  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--misc--vmw_vmci--vmw_vmci.ko-entry_point.cil.out.i line 5113 function vmci_ctx_exists
+Not unwinding 
+Unwinding recursion dg_dispatch_as_host iteration 1 (3 max)
+Unwinding loop 34  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--misc--vmw_vmci--vmw_vmci.ko-entry_point.cil.out.i line 8440 function event_deliver
+No target candidate for function call *cur->callback
+Unwinding loop 34  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--misc--vmw_vmci--vmw_vmci.ko-entry_point.cil.out.i line 8440 function event_deliver
+No target candidate for function call *cur->callback
+Not unwinding 
+Unwinding loop 59  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--misc--vmw_vmci--vmw_vmci.ko-entry_point.cil.out.i line 14955 function vmci_resource_lookup
+Unwinding loop 59  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--misc--vmw_vmci--vmw_vmci.ko-entry_point.cil.out.i line 14955 function vmci_resource_lookup
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+No target candidate for function call *dst_entry->recv_cb
+Unwinding recursion vmci_context_get_priv_flags iteration 1 (3 max)
+Unwinding loop 7  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--misc--vmw_vmci--vmw_vmci.ko-entry_point.cil.out.i line 5169 function vmci_ctx_get
+Unwinding loop 7  iteration  2   file linux-4.2-rc1.tar.xz-08_1a-drivers--misc--vmw_vmci--vmw_vmci.ko-entry_point.cil.out.i line 5169 function vmci_ctx_get
+Not unwinding 
+Unwinding recursion vmci_ctx_put iteration 2 (3 max)
+Unwinding recursion kref_put iteration 2 (3 max)
+Unwinding recursion kref_sub iteration 2 (3 max)
+Unwinding recursion ctx_free_ctx iteration 2 (3 max)
+Unwinding recursion ctx_fire_notification iteration 2 (3 max)
+Unwinding loop 5  iteration  1   file linux-4.2-rc1.tar.xz-08_1a-drivers--misc--vmw_vmci--vmw_vmci.ko-entry_point.cil.out.i li
+../sv-benchmarks/c/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-08_1a-drivers--misc--vmw_vmci--vmw_vmci.ko-entry_point.cil.out.i:3989:3: warning: implicitly declaring library function 'memcpy' with type 'void *(void *, const void *, unsigned long)' [-Wimplicit-function-declaration]
+  memcpy(res, (void const *)p, (unsigned long )size);
+  ^
+../sv-benchmarks/c/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-08_1a-drivers--misc--vmw_vmci--vmw_vmci.ko-entry_point.cil.out.i:3989:3: note: include the header <string.h> or explicitly provide a declaration for 'memcpy'
+function call: argument "c:linux-4.2-rc1.tar.xz-08_1a-drivers--misc--vmw_vmci--vmw_vmci.ko-entry_point.cil.out.i@127595@F@vmci_handle_is_equal@h1" type mismatch: got struct, expected struct
+
+
+Unknown

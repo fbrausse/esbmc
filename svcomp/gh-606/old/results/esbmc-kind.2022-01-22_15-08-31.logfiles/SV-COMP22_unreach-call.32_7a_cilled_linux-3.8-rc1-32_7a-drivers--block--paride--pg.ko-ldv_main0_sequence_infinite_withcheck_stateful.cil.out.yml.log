@@ -1,0 +1,287 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i --64 --witness-output 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 64-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.494s
+GOTO program processing time: 0.042s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.012s (39 assignments)
+Slicing time: 0.000s (removed 37 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (2 assignments)
+BMC program time: 0.012s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.010s (39 assignments)
+Slicing time: 0.000s (removed 37 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (2 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.000s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.000s
+Runtime decision procedure: 0.000s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 2  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3038 function pg_init_units
+Unwinding loop 2  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3038 function pg_init_units
+Not unwinding 
+Symex completed in: 0.020s (61 assignments)
+Slicing time: 0.000s (removed 57 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (4 assignments)
+BMC program time: 0.020s
+No bug has been found in the base case
+*** Checking forward condition, k = 3
+Starting Bounded Model Checking
+Unwinding loop 2  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3038 function pg_init_units
+Unwinding loop 2  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3038 function pg_init_units
+Not unwinding 
+Symex completed in: 0.021s (61 assignments)
+Slicing time: 0.000s (removed 57 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (4 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.002s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.002s
+Runtime decision procedure: 0.128s
+The forward condition is unable to prove the property
+*** Checking inductive step, k = 3
+Starting Bounded Model Checking
+Unwinding loop 2  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3038 function pg_init_units
+Unwinding loop 2  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3038 function pg_init_units
+Not unwinding 
+Unwinding loop 10  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3402 function pg_probe
+Unwinding loop 6  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3259 function pg_reset
+Unwinding loop 6  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3259 function pg_reset
+Not unwinding 
+Unwinding loop 7  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3273 function pg_reset
+Unwinding loop 7  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3273 function pg_reset
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 308 function memcmp
+Unwinding loop 1  iteration  2   file string.c line 308 function memcmp
+Not unwinding 
+Unwinding loop 3  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3104 function pg_wait
+Unwinding loop 3  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3104 function pg_wait
+Not unwinding 
+Unwinding loop 3  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3104 function pg_wait
+Unwinding loop 3  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3104 function pg_wait
+Not unwinding 
+Unwinding loop 3  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3104 function pg_wait
+Unwinding loop 3  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3104 function pg_wait
+Not unwinding 
+Unwinding loop 5  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3220 function pg_completion
+Unwinding loop 3  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3104 function pg_wait
+Unwinding loop 3  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3104 function pg_wait
+Not unwinding 
+Unwinding loop 5  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3220 function pg_completion
+Unwinding loop 3  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3104 function pg_wait
+Unwinding loop 3  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3104 function pg_wait
+Not unwinding 
+Not unwinding 
+Unwinding loop 9  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3328 function xs
+Unwinding loop 9  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3328 function xs
+Not unwinding 
+Unwinding loop 9  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3328 function xs
+Unwinding loop 9  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3328 function xs
+Not unwinding 
+Unwinding loop 10  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3402 function pg_probe
+Unwinding loop 6  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3259 function pg_reset
+Unwinding loop 6  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3259 function pg_reset
+Not unwinding 
+Unwinding loop 7  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3273 function pg_reset
+Unwinding loop 7  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3273 function pg_reset
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 308 function memcmp
+Unwinding loop 1  iteration  2   file string.c line 308 function memcmp
+Not unwinding 
+Unwinding loop 3  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3104 function pg_wait
+Unwinding loop 3  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3104 function pg_wait
+Not unwinding 
+Unwinding loop 3  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3104 function pg_wait
+Unwinding loop 3  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3104 function pg_wait
+Not unwinding 
+Unwinding loop 3  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3104 function pg_wait
+Unwinding loop 3  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3104 function pg_wait
+Not unwinding 
+Unwinding loop 5  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3220 function pg_completion
+Unwinding loop 3  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3104 function pg_wait
+Unwinding loop 3  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3104 function pg_wait
+Not unwinding 
+Unwinding loop 5  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3220 function pg_completion
+Unwinding loop 3  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3104 function pg_wait
+Unwinding loop 3  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3104 function pg_wait
+Not unwinding 
+Not unwinding 
+Unwinding loop 9  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3328 function xs
+Unwinding loop 9  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3328 function xs
+Not unwinding 
+Unwinding loop 9  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3328 function xs
+Unwinding loop 9  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3328 function xs
+Not unwinding 
+Not unwinding 
+Unwinding loop 6  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3259 function pg_reset
+Unwinding loop 6  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3259 function pg_reset
+Not unwinding 
+Unwinding loop 7  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3273 function pg_reset
+Unwinding loop 7  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3273 function pg_reset
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 308 function memcmp
+Unwinding loop 1  iteration  2   file string.c line 308 function memcmp
+Not unwinding 
+Unwinding loop 3  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3104 function pg_wait
+Unwinding loop 3  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3104 function pg_wait
+Not unwinding 
+Unwinding loop 3  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3104 function pg_wait
+Unwinding loop 3  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3104 function pg_wait
+Not unwinding 
+Unwinding loop 3  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3104 function pg_wait
+Unwinding loop 3  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3104 function pg_wait
+Not unwinding 
+Unwinding loop 5  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3220 function pg_completion
+Unwinding loop 3  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3104 function pg_wait
+Unwinding loop 3  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3104 function pg_wait
+Not unwinding 
+Unwinding loop 5  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3220 function pg_completion
+Unwinding loop 3  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3104 function pg_wait
+Unwinding loop 3  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3104 function pg_wait
+Not unwinding 
+Not unwinding 
+Unwinding loop 9  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3328 function xs
+Unwinding loop 9  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3328 function xs
+Not unwinding 
+Unwinding loop 9  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3328 function xs
+Unwinding loop 9  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3328 function xs
+Not unwinding 
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3467 function pg_detect
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3467 function pg_detect
+Not unwinding 
+Unwinding loop 12  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3712 function pg_init
+Unwinding loop 12  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3712 function pg_init
+Not unwinding 
+Unwinding loop 13  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3739 function pg_init
+Unwinding loop 13  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3739 function pg_init
+Not unwinding 
+Unwinding loop 16  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3881 function main
+Unwinding loop 6  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3259 function pg_reset
+Unwinding loop 6  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3259 function pg_reset
+Not unwinding 
+Unwinding loop 7  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3273 function pg_reset
+Unwinding loop 7  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3273 function pg_reset
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 308 function memcmp
+Unwinding loop 1  iteration  2   file string.c line 308 function memcmp
+Not unwinding 
+Unwinding loop 3  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3104 function pg_wait
+Unwinding loop 3  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3104 function pg_wait
+Not unwinding 
+Unwinding loop 3  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3104 function pg_wait
+Unwinding loop 3  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3104 function pg_wait
+Not unwinding 
+Unwinding loop 3  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3104 function pg_wait
+Unwinding loop 3  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3104 function pg_wait
+Not unwinding 
+Unwinding loop 5  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3220 function pg_completion
+Unwinding loop 3  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3104 function pg_wait
+Unwinding loop 3  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3104 function pg_wait
+Not unwinding 
+Unwinding loop 5  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3220 function pg_completion
+Unwinding loop 3  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3104 function pg_wait
+Unwinding loop 3  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3104 function pg_wait
+Not unwinding 
+Not unwinding 
+Unwinding loop 16  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3881 function main
+Unwinding loop 6  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3259 function pg_reset
+Unwinding loop 6  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3259 function pg_reset
+Not unwinding 
+Unwinding loop 7  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3273 function pg_reset
+Unwinding loop 7  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3273 function pg_reset
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 308 function memcmp
+Unwinding loop 1  iteration  2   file string.c line 308 function memcmp
+Not unwinding 
+Unwinding loop 3  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3104 function pg_wait
+Unwinding loop 3  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3104 function pg_wait
+Not unwinding 
+Unwinding loop 3  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3104 function pg_wait
+Unwinding loop 3  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3104 function pg_wait
+Not unwinding 
+Unwinding loop 3  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3104 function pg_wait
+Unwinding loop 3  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3104 function pg_wait
+Not unwinding 
+Unwinding loop 5  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3220 function pg_completion
+Unwinding loop 3  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3104 function pg_wait
+Unwinding loop 3  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3104 function pg_wait
+Not unwinding 
+Unwinding loop 5  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3220 function pg_completion
+Unwinding loop 3  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3104 function pg_wait
+Unwinding loop 3  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3104 function pg_wait
+Not unwinding 
+Not unwinding 
+Unwinding loop 3  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3104 function pg_wait
+Unwinding loop 3  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3104 function pg_wait
+Not unwinding 
+Unwinding loop 5  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3220 function pg_completion
+Unwinding loop 3  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3104 function pg_wait
+Unwinding loop 3  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3104 function pg_wait
+Not unwinding 
+Unwinding loop 5  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3220 function pg_completion
+Unwinding loop 3  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3104 function pg_wait
+Unwinding loop 3  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3104 function pg_wait
+Not unwinding 
+Not unwinding 
+Unwinding loop 17  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 17  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+**** WARNING: no body for function __builtin_object_size
+Unwinding loop 6  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3259 function pg_reset
+Unwinding loop 6  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3259 function pg_reset
+Not unwinding 
+Unwinding loop 7  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3273 function pg_reset
+Unwinding loop 7  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3273 function pg_reset
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 308 function memcmp
+Unwinding loop 1  iteration  2   file string.c line 308 function memcmp
+Not unwinding 
+Unwinding loop 3  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3104 function pg_wait
+Unwinding loop 3  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3104 function pg_wait
+Not unwinding 
+Unwinding loop 3  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3104 function pg_wait
+Unwinding loop 3  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3104 function pg_wait
+Not unwinding 
+**** WARNING: no body for function __builtin_object_size
+Not unwinding 
+Unwinding loop 14  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3767 function pg_exit
+Unwinding loop 14  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3767 function pg_exit
+Not unwinding 
+Unwinding loop 15  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3783 function pg_exit
+Unwinding loop 15  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 3783 function pg_exit
+Not unwinding 
+Symex completed in: 62.752s (7462 assignments)
+Slicing time: 0.283s (removed 4311 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (3151 assignments)
+BMC program time: 63.035s
+Building successful trace
+
+VERIFICATION SUCCESSFUL
+
+Solution found by the inductive step (k = 3)
+
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-drivers--block--paride--pg.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i:2996:75: warning: incompatible integer to pointer conversion initializing 'void *' with an expression of type 'unsigned long' [-Wint-conversion]
+static struct mutex pg_mutex = {{1}, {{{{{0U}}, 3735899821U, 4294967295U, 0xffffffffffffffffUL, {0, {0, 0}, "pg_mutex.wait_lock",
+                                                                          ^~~~~~~~~~~~~~~~~~~~
+
+TRUE

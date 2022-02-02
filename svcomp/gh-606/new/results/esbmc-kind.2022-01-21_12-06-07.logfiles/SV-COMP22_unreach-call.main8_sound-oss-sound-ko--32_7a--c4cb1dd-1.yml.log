@@ -1,0 +1,118 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/ldv-commit-tester/main8_sound-oss-sound-ko--32_7a--c4cb1dd-1.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-commit-tester/main8_sound-oss-sound-ko--32_7a--c4cb1dd-1.i --64 --witness-output main8_sound-oss-sound-ko--32_7a--c4cb1dd-1.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 64-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/ldv-commit-tester/main8_sound-oss-sound-ko--32_7a--c4cb1dd-1.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 1.138s
+GOTO program processing time: 0.129s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.018s (114 assignments)
+Slicing time: 0.001s (removed 110 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (4 assignments)
+BMC program time: 0.019s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.019s (114 assignments)
+Slicing time: 0.000s (removed 110 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (4 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.000s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.000s
+Runtime decision procedure: 0.001s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 78  iteration  1   file main8_sound-oss-sound-ko--32_7a--c4cb1dd-1.i line 13338 function main
+No target candidate for function call *tmr___0->tmr_start
+Unwinding loop 78  iteration  2   file main8_sound-oss-sound-ko--32_7a--c4cb1dd-1.i line 13338 function main
+No target candidate for function call *tmr___0->tmr_start
+Not unwinding 
+Symex completed in: 0.108s (1404 assignments)
+Slicing time: 0.001s (removed 1359 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (45 assignments)
+BMC program time: 0.109s
+No bug has been found in the base case
+*** Checking forward condition, k = 3
+Starting Bounded Model Checking
+Unwinding loop 78  iteration  1   file main8_sound-oss-sound-ko--32_7a--c4cb1dd-1.i line 13338 function main
+No target candidate for function call *tmr___0->tmr_start
+Unwinding loop 78  iteration  2   file main8_sound-oss-sound-ko--32_7a--c4cb1dd-1.i line 13338 function main
+No target candidate for function call *tmr___0->tmr_start
+Not unwinding 
+Symex completed in: 0.119s (1404 assignments)
+Slicing time: 0.002s (removed 1359 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (45 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.001s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.001s
+Runtime decision procedure: 0.006s
+The forward condition is unable to prove the property
+*** Checking inductive step, k = 3
+Starting Bounded Model Checking
+Unwinding loop 78  iteration  1   file main8_sound-oss-sound-ko--32_7a--c4cb1dd-1.i line 13338 function main
+No target candidate for function call *tmr___0->tmr_start
+Unwinding loop 78  iteration  2   file main8_sound-oss-sound-ko--32_7a--c4cb1dd-1.i line 13338 function main
+No target candidate for function call *tmr___0->tmr_start
+Not unwinding 
+Symex completed in: 0.124s (1542 assignments)
+Slicing time: 0.007s (removed 1192 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (350 assignments)
+BMC program time: 0.131s
+Building successful trace
+
+VERIFICATION SUCCESSFUL
+
+Solution found by the inductive step (k = 3)
+
+../sv-benchmarks/c/ldv-commit-tester/main8_sound-oss-sound-ko--32_7a--c4cb1dd-1.i:2990:11: warning: implicitly declaring library function 'memcpy' with type 'void *(void *, const void *, unsigned long)' [-Wimplicit-function-declaration]
+  __ret = memcpy((void *)d, (void const *)driver, __len);
+          ^
+../sv-benchmarks/c/ldv-commit-tester/main8_sound-oss-sound-ko--32_7a--c4cb1dd-1.i:2990:11: note: include the header <string.h> or explicitly provide a declaration for 'memcpy'
+../sv-benchmarks/c/ldv-commit-tester/main8_sound-oss-sound-ko--32_7a--c4cb1dd-1.i:4602:11: warning: incompatible integer to pointer conversion initializing 'struct list_head *' with an expression of type 'int' [-Wint-conversion]
+     {{0, 1953723489}, 0UL, & boot_tvec_bases, & do_sequencer_timer, 0UL, 0, 0, {(char)0,
+          ^~~~~~~~~~
+../sv-benchmarks/c/ldv-commit-tester/main8_sound-oss-sound-ko--32_7a--c4cb1dd-1.i:6830:8: warning: incompatible integer to pointer conversion assigning to 'struct page *' from 'unsigned long' [-Wint-conversion]
+  page = 0xffffea0000000000UL + (tmp___1 >> 12);
+       ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-commit-tester/main8_sound-oss-sound-ko--32_7a--c4cb1dd-1.i:6876:8: warning: incompatible integer to pointer conversion assigning to 'struct page *' from 'unsigned long' [-Wint-conversion]
+  page = 0xffffea0000000000UL + (tmp >> 12);
+       ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-commit-tester/main8_sound-oss-sound-ko--32_7a--c4cb1dd-1.i:9376:11: warning: incompatible integer to pointer conversion initializing 'struct list_head *' with an expression of type 'int' [-Wint-conversion]
+     {{0, 1953723489}, 0UL, & boot_tvec_bases, & midi_poll, 0UL, 0, 0, {(char)0, (char)0,
+          ^~~~~~~~~~
+../sv-benchmarks/c/ldv-commit-tester/main8_sound-oss-sound-ko--32_7a--c4cb1dd-1.i:9388:61: warning: incompatible integer to pointer conversion initializing 'void *' with an expression of type 'unsigned long' [-Wint-conversion]
+static spinlock_t lock = {{{{0U}, 3735899821U, 4294967295U, 0xffffffffffffffffUL, {0, 0, "lock", 0, 0UL}}}};
+                                                            ^~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-commit-tester/main8_sound-oss-sound-ko--32_7a--c4cb1dd-1.i:9972:65: warning: incompatible integer to pointer conversion initializing 'void *' with an expression of type 'unsigned long' [-Wint-conversion]
+static spinlock_t lock___0 = {{{{0U}, 3735899821U, 4294967295U, 0xffffffffffffffffUL, {0, 0, "lock", 0, 0UL}}}};
+                                                                ^~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-commit-tester/main8_sound-oss-sound-ko--32_7a--c4cb1dd-1.i:9976:76: warning: incompatible integer to pointer conversion initializing 'void *' with an expression of type 'unsigned long' [-Wint-conversion]
+static wait_queue_head_t seq_sleeper = {{{{{0U}, 3735899821U, 4294967295U, 0xffffffffffffffffUL, {0, 0, "seq_sleeper.lock",
+                                                                           ^~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-commit-tester/main8_sound-oss-sound-ko--32_7a--c4cb1dd-1.i:9979:81: warning: incompatible integer to pointer conversion initializing 'void *' with an expression of type 'unsigned long' [-Wint-conversion]
+static wait_queue_head_t midi_sleeper___0 = {{{{{0U}, 3735899821U, 4294967295U, 0xffffffffffffffffUL, {0, 0, "midi_sleeper.lock",
+                                                                                ^~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-commit-tester/main8_sound-oss-sound-ko--32_7a--c4cb1dd-1.i:12790:65: warning: incompatible integer to pointer conversion initializing 'void *' with an expression of type 'unsigned long' [-Wint-conversion]
+static spinlock_t lock___2 = {{{{0U}, 3735899821U, 4294967295U, 0xffffffffffffffffUL, {0, 0, "lock", 0, 0UL}}}};
+                                                                ^~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-commit-tester/main8_sound-oss-sound-ko--32_7a--c4cb1dd-1.i:12792:11: warning: incompatible integer to pointer conversion initializing 'struct list_head *' with an expression of type 'int' [-Wint-conversion]
+     {{0, 1953723489}, 0UL, & boot_tvec_bases, & poll_def_tmr, 0UL, 0, 0, {(char)0,
+          ^~~~~~~~~~
+
+TRUE

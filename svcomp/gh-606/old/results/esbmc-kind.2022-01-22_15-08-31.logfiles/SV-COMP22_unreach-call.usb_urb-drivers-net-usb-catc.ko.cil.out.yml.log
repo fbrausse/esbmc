@@ -1,0 +1,23 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/ldv-linux-3.0/usb_urb-drivers-net-usb-catc.ko.cil.out.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-linux-3.0/usb_urb-drivers-net-usb-catc.ko.cil.out.i --64 --witness-output usb_urb-drivers-net-usb-catc.ko.cil.out.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+
+../sv-benchmarks/c/ldv-linux-3.0/usb_urb-drivers-net-usb-catc.ko.cil.out.i:417:17: warning: cast to smaller integer type 'unsigned int' from 'struct lockdep_map *' [-Wpointer-to-int-cast]
+   u8 __padding[(unsigned int )(& ((struct raw_spinlock *)0)->dep_map)] ;
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.0/usb_urb-drivers-net-usb-catc.ko.cil.out.i:5068:50: warning: cast to smaller integer type 'unsigned int' from 'struct device *' [-Wpointer-to-int-cast]
+  return ((struct usb_device *)((char *)__mptr - (unsigned int )(& ((struct usb_device *)0)->dev)));
+                                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.0/usb_urb-drivers-net-usb-catc.ko.cil.out.i:6032:53: warning: cast to smaller integer type 'unsigned int' from 'struct list_head *' [-Wpointer-to-int-cast]
+    ha = (struct netdev_hw_addr *)((char *)__mptr - (unsigned int )(& ((struct netdev_hw_addr *)0)->list));
+                                                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.0/usb_urb-drivers-net-usb-catc.ko.cil.out.i:6050:59: warning: cast to smaller integer type 'unsigned int' from 'struct list_head *' [-Wpointer-to-int-cast]
+      ha = (struct netdev_hw_addr *)((char *)__mptr___0 - (unsigned int )(& ((struct netdev_hw_addr *)0)->list));
+                                                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Unknown

@@ -1,0 +1,78 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/product-lines/email_spec11_product23.cil.c
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/product-lines/email_spec11_product23.cil.c --32 --witness-output email_spec11_product23.cil.c.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/product-lines/email_spec11_product23.cil.c: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.184s
+GOTO program processing time: 0.155s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.055s (707 assignments)
+Slicing time: 0.001s (removed 670 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (37 assignments)
+BMC program time: 0.056s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.042s (707 assignments)
+Slicing time: 0.001s (removed 670 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (37 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.002s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.002s
+Runtime decision procedure: 0.126s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 4  iteration  1   file email_spec11_product23.cil.c line 2035 function test
+Unwinding loop 4  iteration  2   file email_spec11_product23.cil.c line 2035 function test
+Not unwinding 
+Symex completed in: 0.304s (3576 assignments)
+Slicing time: 0.028s (removed 2929 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (647 assignments)
+BMC program time: 0.332s
+No bug has been found in the base case
+*** Checking forward condition, k = 3
+Starting Bounded Model Checking
+Unwinding loop 4  iteration  1   file email_spec11_product23.cil.c line 2035 function test
+Unwinding loop 4  iteration  2   file email_spec11_product23.cil.c line 2035 function test
+Not unwinding 
+Symex completed in: 0.317s (3576 assignments)
+Slicing time: 0.029s (removed 2929 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (647 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.010s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.010s
+Runtime decision procedure: 0.462s
+The forward condition is unable to prove the property
+*** Checking inductive step, k = 3
+Starting Bounded Model Checking
+Unwinding loop 4  iteration  1   file email_spec11_product23.cil.c line 2035 function test
+Unwinding loop 4  iteration  2   file email_spec11_product23.cil.c line 2035 function test
+Not unwinding 
+Symex completed in: 0.393s (4279 assignments)
+Slicing time: 0.214s (removed 2240 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (2039 assignments)
+BMC program time: 0.607s
+Building successful trace
+
+VERIFICATION SUCCESSFUL
+
+Solution found by the inductive step (k = 3)
+
+
+TRUE

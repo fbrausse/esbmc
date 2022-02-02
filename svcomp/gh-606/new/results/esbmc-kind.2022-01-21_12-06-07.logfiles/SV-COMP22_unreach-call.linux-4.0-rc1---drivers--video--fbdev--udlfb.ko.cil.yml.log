@@ -1,0 +1,109 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--video--fbdev--udlfb.ko.cil.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--video--fbdev--udlfb.ko.cil.i --64 --witness-output linux-4.0-rc1---drivers--video--fbdev--udlfb.ko.cil.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 64-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--video--fbdev--udlfb.ko.cil.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.876s
+GOTO program processing time: 0.166s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+No target candidate for function call *arg0
+Symex completed in: 0.343s (2206 assignments)
+Slicing time: 0.005s (removed 1713 assignments)
+Generated 4 VCC(s), 4 remaining after simplification (493 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.134s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.134s
+Runtime decision procedure: 11.252s
+Building error trace
+
+Counterexample:
+
+State 1 file linux-4.0-rc1---drivers--video--fbdev--udlfb.ko.cil.i line 11670 function ldv_undef_int thread 0
+----------------------------------------------------
+  tmp = 0 (00000000 00000000 00000000 00000000)
+
+State 2 file linux-4.0-rc1---drivers--video--fbdev--udlfb.ko.cil.i line 11449 function ldv_pre_usb_register_driver thread 0
+----------------------------------------------------
+  nondet = 0 (00000000 00000000 00000000 00000000)
+
+State 3 file linux-4.0-rc1---drivers--video--fbdev--udlfb.ko.cil.i line 11670 function ldv_undef_int thread 0
+----------------------------------------------------
+  tmp = 67108864 (00000100 00000000 00000000 00000000)
+
+State 4 file linux-4.0-rc1---drivers--video--fbdev--udlfb.ko.cil.i line 11670 function ldv_undef_int thread 0
+----------------------------------------------------
+  tmp = 0 (00000000 00000000 00000000 00000000)
+
+State 5 file linux-4.0-rc1---drivers--video--fbdev--udlfb.ko.cil.i line 7185 function dlfb_usb_probe thread 0
+----------------------------------------------------
+  dev = ( struct dlfb_data *)0
+
+State 6 file linux-4.0-rc1---drivers--video--fbdev--udlfb.ko.cil.i line 11670 function ldv_undef_int thread 0
+----------------------------------------------------
+  tmp = 0 (00000000 00000000 00000000 00000000)
+
+State 7 file linux-4.0-rc1---drivers--video--fbdev--udlfb.ko.cil.i line 11670 function ldv_undef_int thread 0
+----------------------------------------------------
+  tmp = 0 (00000000 00000000 00000000 00000000)
+
+State 8 file linux-4.0-rc1---drivers--video--fbdev--udlfb.ko.cil.i line 11670 function ldv_undef_int thread 0
+----------------------------------------------------
+  tmp = 262144 (00000000 00000100 00000000 00000000)
+
+State 9 file linux-4.0-rc1---drivers--video--fbdev--udlfb.ko.cil.i line 11670 function ldv_undef_int thread 0
+----------------------------------------------------
+  tmp = -2147483648 (10000000 00000000 00000000 00000000)
+
+State 10 file linux-4.0-rc1---drivers--video--fbdev--udlfb.ko.cil.i line 11670 function ldv_undef_int thread 0
+----------------------------------------------------
+  tmp = 1 (00000000 00000000 00000000 00000001)
+
+State 11 file linux-4.0-rc1---drivers--video--fbdev--udlfb.ko.cil.i line 11670 function ldv_undef_int thread 0
+----------------------------------------------------
+  tmp = 0 (00000000 00000000 00000000 00000000)
+
+State 12 file linux-4.0-rc1---drivers--video--fbdev--udlfb.ko.cil.i line 6670 function dlfb_setup_modes thread 0
+----------------------------------------------------
+  edid = 0
+
+State 13 file linux-4.0-rc1---drivers--video--fbdev--udlfb.ko.cil.i line 13230 function reach_error thread 0
+----------------------------------------------------
+Violated property:
+  file linux-4.0-rc1---drivers--video--fbdev--udlfb.ko.cil.i line 13230 function reach_error
+  assertion 0
+  0
+
+
+VERIFICATION FAILED
+
+Bug found (k = 1)
+
+
+FALSE_REACH

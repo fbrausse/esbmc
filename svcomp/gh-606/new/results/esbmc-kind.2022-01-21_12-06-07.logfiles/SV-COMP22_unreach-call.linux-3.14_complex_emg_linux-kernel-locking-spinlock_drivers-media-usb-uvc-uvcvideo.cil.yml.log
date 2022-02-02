@@ -1,0 +1,783 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/ldv-linux-3.14/linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-linux-3.14/linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i --64 --witness-output linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 64-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/ldv-linux-3.14/linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 2.297s
+GOTO program processing time: 0.794s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.223s (1361 assignments)
+Slicing time: 0.002s (removed 1003 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (358 assignments)
+BMC program time: 0.225s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.225s (1361 assignments)
+Slicing time: 0.002s (removed 1003 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (358 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.096s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.096s
+Runtime decision procedure: 8.886s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 49  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 9736 function main
+Unwinding loop 49  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 9736 function main
+No target candidate for function call *arg0
+Unwinding loop 3  iteration  1   file string.c line 78 function strlen
+Unwinding loop 3  iteration  2   file string.c line 78 function strlen
+Not unwinding 
+Unwinding loop 88  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 17539 function uvc_find_control
+Unwinding loop 87  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 17505 function __uvc_find_control
+Unwinding loop 86  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 17498 function __uvc_find_control
+Unwinding loop 86  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 17498 function __uvc_find_control
+Not unwinding 
+Unwinding loop 87  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 17505 function __uvc_find_control
+Unwinding loop 86  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 17498 function __uvc_find_control
+Unwinding loop 86  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 17498 function __uvc_find_control
+Not unwinding 
+Not unwinding 
+Unwinding loop 88  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 17539 function uvc_find_control
+Unwinding loop 87  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 17505 function __uvc_find_control
+Unwinding loop 86  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 17498 function __uvc_find_control
+Unwinding loop 86  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 17498 function __uvc_find_control
+Not unwinding 
+Unwinding loop 87  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 17505 function __uvc_find_control
+Unwinding loop 86  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 17498 function __uvc_find_control
+Unwinding loop 86  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 17498 function __uvc_find_control
+Not unwinding 
+Not unwinding 
+Not unwinding 
+No target candidate for function call *mapping->get
+Unwinding loop 89  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 17676 function __uvc_ctrl_get
+Unwinding loop 89  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 17676 function __uvc_ctrl_get
+Not unwinding 
+Unwinding loop 104  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 104  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 104  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 104  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 34  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 8296 function uvc_unregister_video
+Unwinding loop 34  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 8296 function uvc_unregister_video
+Not unwinding 
+Unwinding loop 104  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 104  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 34  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 8296 function uvc_unregister_video
+Unwinding loop 34  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 8296 function uvc_unregister_video
+Not unwinding 
+Unwinding loop 46  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 18926 function uvc_ctrl_resume_device
+Unwinding loop 45  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 18912 function uvc_ctrl_resume_device
+Unwinding loop 45  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 18912 function uvc_ctrl_resume_device
+Not unwinding 
+Unwinding loop 96  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 18248 function uvc_ctrl_commit_entity
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 96  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 18248 function uvc_ctrl_commit_entity
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Not unwinding 
+Unwinding loop 46  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 18926 function uvc_ctrl_resume_device
+Unwinding loop 45  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 18912 function uvc_ctrl_resume_device
+Unwinding loop 45  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 18912 function uvc_ctrl_resume_device
+Not unwinding 
+Unwinding loop 96  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 18248 function uvc_ctrl_commit_entity
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 96  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 18248 function uvc_ctrl_commit_entity
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Unwinding loop 44  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 8769 function __uvc_resume
+Unwinding loop 104  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 104  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 80  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16594 function uvc_init_video
+Unwinding loop 5  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6007 function uvc_find_endpoint
+Unwinding loop 5  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6007 function uvc_find_endpoint
+Not unwinding 
+Unwinding loop 80  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16594 function uvc_init_video
+Unwinding loop 5  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6007 function uvc_find_endpoint
+Unwinding loop 5  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6007 function uvc_find_endpoint
+Not unwinding 
+Not unwinding 
+Unwinding loop 75  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16295 function uvc_alloc_urb_buffers
+Unwinding loop 74  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16277 function uvc_alloc_urb_buffers
+Unwinding loop 73  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16233 function uvc_free_urb_buffers
+Unwinding loop 73  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16233 function uvc_free_urb_buffers
+Not unwinding 
+Unwinding loop 74  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16277 function uvc_alloc_urb_buffers
+Unwinding loop 73  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16233 function uvc_free_urb_buffers
+Unwinding loop 73  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16233 function uvc_free_urb_buffers
+Not unwinding 
+Not unwinding 
+Unwinding loop 78  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16445 function uvc_init_video_isoc
+Unwinding loop 76  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16333 function uvc_uninit_video
+Unwinding loop 76  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16333 function uvc_uninit_video
+Not unwinding 
+Unwinding loop 77  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16438 function uvc_init_video_isoc
+Unwinding loop 77  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16438 function uvc_init_video_isoc
+Not unwinding 
+Unwinding loop 78  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16445 function uvc_init_video_isoc
+Unwinding loop 76  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16333 function uvc_uninit_video
+Unwinding loop 76  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16333 function uvc_uninit_video
+Not unwinding 
+Unwinding loop 77  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16438 function uvc_init_video_isoc
+Unwinding loop 77  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16438 function uvc_init_video_isoc
+Not unwinding 
+Not unwinding 
+Unwinding loop 5  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6007 function uvc_find_endpoint
+Unwinding loop 5  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6007 function uvc_find_endpoint
+Not unwinding 
+Unwinding loop 75  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16295 function uvc_alloc_urb_buffers
+Unwinding loop 74  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16277 function uvc_alloc_urb_buffers
+Unwinding loop 73  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16233 function uvc_free_urb_buffers
+Unwinding loop 73  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16233 function uvc_free_urb_buffers
+Not unwinding 
+Unwinding loop 74  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16277 function uvc_alloc_urb_buffers
+Unwinding loop 73  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16233 function uvc_free_urb_buffers
+Unwinding loop 73  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16233 function uvc_free_urb_buffers
+Not unwinding 
+Not unwinding 
+Unwinding loop 79  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16520 function uvc_init_video_bulk
+Unwinding loop 76  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16333 function uvc_uninit_video
+Unwinding loop 76  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16333 function uvc_uninit_video
+Not unwinding 
+Unwinding loop 79  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16520 function uvc_init_video_bulk
+Unwinding loop 76  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16333 function uvc_uninit_video
+Unwinding loop 76  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16333 function uvc_uninit_video
+Not unwinding 
+Not unwinding 
+Unwinding loop 44  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 8769 function __uvc_resume
+Unwinding loop 104  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 104  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 80  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16594 function uvc_init_video
+Unwinding loop 5  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6007 function uvc_find_endpoint
+Unwinding loop 5  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6007 function uvc_find_endpoint
+Not unwinding 
+Unwinding loop 80  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16594 function uvc_init_video
+Unwinding loop 5  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6007 function uvc_find_endpoint
+Unwinding loop 5  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6007 function uvc_find_endpoint
+Not unwinding 
+Not unwinding 
+Unwinding loop 75  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16295 function uvc_alloc_urb_buffers
+Unwinding loop 74  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16277 function uvc_alloc_urb_buffers
+Unwinding loop 73  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16233 function uvc_free_urb_buffers
+Unwinding loop 73  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16233 function uvc_free_urb_buffers
+Not unwinding 
+Unwinding loop 74  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16277 function uvc_alloc_urb_buffers
+Unwinding loop 73  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16233 function uvc_free_urb_buffers
+Unwinding loop 73  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16233 function uvc_free_urb_buffers
+Not unwinding 
+Not unwinding 
+Unwinding loop 78  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16445 function uvc_init_video_isoc
+Unwinding loop 76  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16333 function uvc_uninit_video
+Unwinding loop 76  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16333 function uvc_uninit_video
+Not unwinding 
+Unwinding loop 77  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16438 function uvc_init_video_isoc
+Unwinding loop 77  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16438 function uvc_init_video_isoc
+Not unwinding 
+Unwinding loop 78  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16445 function uvc_init_video_isoc
+Unwinding loop 76  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16333 function uvc_uninit_video
+Unwinding loop 76  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16333 function uvc_uninit_video
+Not unwinding 
+Unwinding loop 77  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16438 function uvc_init_video_isoc
+Unwinding loop 77  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16438 function uvc_init_video_isoc
+Not unwinding 
+Not unwinding 
+Unwinding loop 5  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6007 function uvc_find_endpoint
+Unwinding loop 5  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6007 function uvc_find_endpoint
+Not unwinding 
+Unwinding loop 75  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16295 function uvc_alloc_urb_buffers
+Unwinding loop 74  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16277 function uvc_alloc_urb_buffers
+Unwinding loop 73  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16233 function uvc_free_urb_buffers
+Unwinding loop 73  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16233 function uvc_free_urb_buffers
+Not unwinding 
+Unwinding loop 74  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16277 function uvc_alloc_urb_buffers
+Unwinding loop 73  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16233 function uvc_free_urb_buffers
+Unwinding loop 73  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16233 function uvc_free_urb_buffers
+Not unwinding 
+Not unwinding 
+Unwinding loop 79  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16520 function uvc_init_video_bulk
+Unwinding loop 76  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16333 function uvc_uninit_video
+Unwinding loop 76  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16333 function uvc_uninit_video
+Not unwinding 
+Unwinding loop 79  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16520 function uvc_init_video_bulk
+Unwinding loop 76  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16333 function uvc_uninit_video
+Unwinding loop 76  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16333 function uvc_uninit_video
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Unwinding loop 44  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 8769 function __uvc_resume
+Unwinding loop 104  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 104  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 80  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16594 function uvc_init_video
+Unwinding loop 5  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6007 function uvc_find_endpoint
+Unwinding loop 5  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6007 function uvc_find_endpoint
+Not unwinding 
+Unwinding loop 80  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16594 function uvc_init_video
+Unwinding loop 5  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6007 function uvc_find_endpoint
+Unwinding loop 5  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6007 function uvc_find_endpoint
+Not unwinding 
+Not unwinding 
+Unwinding loop 75  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16295 function uvc_alloc_urb_buffers
+Unwinding loop 74  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16277 function uvc_alloc_urb_buffers
+Unwinding loop 73  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16233 function uvc_free_urb_buffers
+Unwinding loop 73  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16233 function uvc_free_urb_buffers
+Not unwinding 
+Unwinding loop 74  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16277 function uvc_alloc_urb_buffers
+Unwinding loop 73  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16233 function uvc_free_urb_buffers
+Unwinding loop 73  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16233 function uvc_free_urb_buffers
+Not unwinding 
+Not unwinding 
+Unwinding loop 78  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16445 function uvc_init_video_isoc
+Unwinding loop 76  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16333 function uvc_uninit_video
+Unwinding loop 76  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16333 function uvc_uninit_video
+Not unwinding 
+Unwinding loop 77  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16438 function uvc_init_video_isoc
+Unwinding loop 77  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16438 function uvc_init_video_isoc
+Not unwinding 
+Unwinding loop 78  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16445 function uvc_init_video_isoc
+Unwinding loop 76  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16333 function uvc_uninit_video
+Unwinding loop 76  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16333 function uvc_uninit_video
+Not unwinding 
+Unwinding loop 77  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16438 function uvc_init_video_isoc
+Unwinding loop 77  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16438 function uvc_init_video_isoc
+Not unwinding 
+Not unwinding 
+Unwinding loop 5  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6007 function uvc_find_endpoint
+Unwinding loop 5  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6007 function uvc_find_endpoint
+Not unwinding 
+Unwinding loop 75  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16295 function uvc_alloc_urb_buffers
+Unwinding loop 74  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16277 function uvc_alloc_urb_buffers
+Unwinding loop 73  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16233 function uvc_free_urb_buffers
+Unwinding loop 73  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16233 function uvc_free_urb_buffers
+Not unwinding 
+Unwinding loop 74  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16277 function uvc_alloc_urb_buffers
+Unwinding loop 73  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16233 function uvc_free_urb_buffers
+Unwinding loop 73  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16233 function uvc_free_urb_buffers
+Not unwinding 
+Not unwinding 
+Unwinding loop 79  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16520 function uvc_init_video_bulk
+Unwinding loop 76  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16333 function uvc_uninit_video
+Unwinding loop 76  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16333 function uvc_uninit_video
+Not unwinding 
+Unwinding loop 79  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16520 function uvc_init_video_bulk
+Unwinding loop 76  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16333 function uvc_uninit_video
+Unwinding loop 76  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16333 function uvc_uninit_video
+Not unwinding 
+Not unwinding 
+Unwinding loop 44  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 8769 function __uvc_resume
+Unwinding loop 104  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 104  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 80  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16594 function uvc_init_video
+Unwinding loop 5  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6007 function uvc_find_endpoint
+Unwinding loop 5  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6007 function uvc_find_endpoint
+Not unwinding 
+Unwinding loop 80  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16594 function uvc_init_video
+Unwinding loop 5  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6007 function uvc_find_endpoint
+Unwinding loop 5  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6007 function uvc_find_endpoint
+Not unwinding 
+Not unwinding 
+Unwinding loop 75  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16295 function uvc_alloc_urb_buffers
+Unwinding loop 74  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16277 function uvc_alloc_urb_buffers
+Unwinding loop 73  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16233 function uvc_free_urb_buffers
+Unwinding loop 73  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16233 function uvc_free_urb_buffers
+Not unwinding 
+Unwinding loop 74  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16277 function uvc_alloc_urb_buffers
+Unwinding loop 73  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16233 function uvc_free_urb_buffers
+Unwinding loop 73  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16233 function uvc_free_urb_buffers
+Not unwinding 
+Not unwinding 
+Unwinding loop 78  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16445 function uvc_init_video_isoc
+Unwinding loop 76  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16333 function uvc_uninit_video
+Unwinding loop 76  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16333 function uvc_uninit_video
+Not unwinding 
+Unwinding loop 77  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16438 function uvc_init_video_isoc
+Unwinding loop 77  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16438 function uvc_init_video_isoc
+Not unwinding 
+Unwinding loop 78  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16445 function uvc_init_video_isoc
+Unwinding loop 76  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16333 function uvc_uninit_video
+Unwinding loop 76  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16333 function uvc_uninit_video
+Not unwinding 
+Unwinding loop 77  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16438 function uvc_init_video_isoc
+Unwinding loop 77  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16438 function uvc_init_video_isoc
+Not unwinding 
+Not unwinding 
+Unwinding loop 5  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6007 function uvc_find_endpoint
+Unwinding loop 5  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6007 function uvc_find_endpoint
+Not unwinding 
+Unwinding loop 75  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16295 function uvc_alloc_urb_buffers
+Unwinding loop 74  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16277 function uvc_alloc_urb_buffers
+Unwinding loop 73  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16233 function uvc_free_urb_buffers
+Unwinding loop 73  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16233 function uvc_free_urb_buffers
+Not unwinding 
+Unwinding loop 74  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16277 function uvc_alloc_urb_buffers
+Unwinding loop 73  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16233 function uvc_free_urb_buffers
+Unwinding loop 73  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16233 function uvc_free_urb_buffers
+Not unwinding 
+Not unwinding 
+Unwinding loop 79  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16520 function uvc_init_video_bulk
+Unwinding loop 76  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16333 function uvc_uninit_video
+Unwinding loop 76  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16333 function uvc_uninit_video
+Not unwinding 
+Unwinding loop 79  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16520 function uvc_init_video_bulk
+Unwinding loop 76  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16333 function uvc_uninit_video
+Unwinding loop 76  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 16333 function uvc_uninit_video
+Not unwinding 
+Not unwinding 
+Not unwinding 
+No target candidate for function call *arg0
+No target candidate for function call *arg0
+Unwinding loop 104  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 104  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 23  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 7496 function uvc_parse_control
+Unwinding loop 104  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 104  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 21  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6987 function uvc_alloc_entity
+Unwinding loop 21  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6987 function uvc_alloc_entity
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 22  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 7158 function uvc_parse_standard_control
+Unwinding loop 104  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 104  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 16  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6653 function uvc_parse_streaming
+Unwinding loop 16  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6653 function uvc_parse_streaming
+Not unwinding 
+Unwinding loop 17  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6665 function uvc_parse_streaming
+Unwinding loop 17  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6665 function uvc_parse_streaming
+Not unwinding 
+Unwinding loop 18  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6829 function uvc_parse_streaming
+Unwinding loop 18  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6829 function uvc_parse_streaming
+Not unwinding 
+Unwinding loop 104  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 104  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 19  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6903 function uvc_parse_streaming
+Unwinding loop 6  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6033 function uvc_format_by_guid
+Unwinding loop 2  iteration  1   file string.c line 308 function memcmp
+Unwinding loop 2  iteration  2   file string.c line 308 function memcmp
+Not unwinding 
+Unwinding loop 6  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6033 function uvc_format_by_guid
+Unwinding loop 2  iteration  1   file string.c line 308 function memcmp
+Unwinding loop 2  iteration  2   file string.c line 308 function memcmp
+Not unwinding 
+Not unwinding 
+Unwinding loop 104  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 104  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 15  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6519 function uvc_parse_format
+Unwinding loop 14  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6493 function uvc_parse_format
+Unwinding loop 14  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6493 function uvc_parse_format
+Not unwinding 
+Unwinding loop 15  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6519 function uvc_parse_format
+Unwinding loop 14  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6493 function uvc_parse_format
+Unwinding loop 14  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6493 function uvc_parse_format
+Not unwinding 
+Not unwinding 
+Unwinding loop 19  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6903 function uvc_parse_streaming
+Unwinding loop 6  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6033 function uvc_format_by_guid
+Unwinding loop 2  iteration  1   file string.c line 308 function memcmp
+Unwinding loop 2  iteration  2   file string.c line 308 function memcmp
+Not unwinding 
+Unwinding loop 6  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6033 function uvc_format_by_guid
+Unwinding loop 2  iteration  1   file string.c line 308 function memcmp
+Unwinding loop 2  iteration  2   file string.c line 308 function memcmp
+Not unwinding 
+Not unwinding 
+Unwinding loop 104  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 104  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 15  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6519 function uvc_parse_format
+Unwinding loop 14  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6493 function uvc_parse_format
+Unwinding loop 14  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6493 function uvc_parse_format
+Not unwinding 
+Unwinding loop 15  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6519 function uvc_parse_format
+Unwinding loop 14  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6493 function uvc_parse_format
+Unwinding loop 14  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6493 function uvc_parse_format
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Unwinding loop 20  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6937 function uvc_parse_streaming
+Unwinding loop 5  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6007 function uvc_find_endpoint
+Unwinding loop 5  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6007 function uvc_find_endpoint
+Not unwinding 
+Unwinding loop 20  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6937 function uvc_parse_streaming
+Unwinding loop 5  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6007 function uvc_find_endpoint
+Unwinding loop 5  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6007 function uvc_find_endpoint
+Not unwinding 
+Not unwinding 
+Unwinding loop 22  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 7158 function uvc_parse_standard_control
+Unwinding loop 104  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 104  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 16  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6653 function uvc_parse_streaming
+Unwinding loop 16  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6653 function uvc_parse_streaming
+Not unwinding 
+Unwinding loop 17  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6665 function uvc_parse_streaming
+Unwinding loop 17  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6665 function uvc_parse_streaming
+Not unwinding 
+Unwinding loop 18  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6829 function uvc_parse_streaming
+Unwinding loop 18  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6829 function uvc_parse_streaming
+Not unwinding 
+Unwinding loop 104  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 104  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 19  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6903 function uvc_parse_streaming
+Unwinding loop 6  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6033 function uvc_format_by_guid
+Unwinding loop 2  iteration  1   file string.c line 308 function memcmp
+Unwinding loop 2  iteration  2   file string.c line 308 function memcmp
+Not unwinding 
+Unwinding loop 6  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6033 function uvc_format_by_guid
+Unwinding loop 2  iteration  1   file string.c line 308 function memcmp
+Unwinding loop 2  iteration  2   file string.c line 308 function memcmp
+Not unwinding 
+Not unwinding 
+Unwinding loop 104  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 104  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 15  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6519 function uvc_parse_format
+Unwinding loop 14  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6493 function uvc_parse_format
+Unwinding loop 14  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6493 function uvc_parse_format
+Not unwinding 
+Unwinding loop 15  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6519 function uvc_parse_format
+Unwinding loop 14  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6493 function uvc_parse_format
+Unwinding loop 14  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6493 function uvc_parse_format
+Not unwinding 
+Not unwinding 
+Unwinding loop 19  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6903 function uvc_parse_streaming
+Unwinding loop 6  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6033 function uvc_format_by_guid
+Unwinding loop 2  iteration  1   file string.c line 308 function memcmp
+Unwinding loop 2  iteration  2   file string.c line 308 function memcmp
+Not unwinding 
+Unwinding loop 6  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6033 function uvc_format_by_guid
+Unwinding loop 2  iteration  1   file string.c line 308 function memcmp
+Unwinding loop 2  iteration  2   file string.c line 308 function memcmp
+Not unwinding 
+Not unwinding 
+Unwinding loop 104  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 104  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 15  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6519 function uvc_parse_format
+Unwinding loop 14  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6493 function uvc_parse_format
+Unwinding loop 14  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6493 function uvc_parse_format
+Not unwinding 
+Unwinding loop 15  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6519 function uvc_parse_format
+Unwinding loop 14  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6493 function uvc_parse_format
+Unwinding loop 14  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6493 function uvc_parse_format
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Unwinding loop 20  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6937 function uvc_parse_streaming
+Unwinding loop 5  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6007 function uvc_find_endpoint
+Unwinding loop 5  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6007 function uvc_find_endpoint
+Not unwinding 
+Unwinding loop 20  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6937 function uvc_parse_streaming
+Unwinding loop 5  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6007 function uvc_find_endpoint
+Unwinding loop 5  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6007 function uvc_find_endpoint
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Unwinding loop 104  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 104  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 21  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6987 function uvc_alloc_entity
+Unwinding loop 21  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6987 function uvc_alloc_entity
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 104  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 104  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 21  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6987 function uvc_alloc_entity
+Unwinding loop 21  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6987 function uvc_alloc_entity
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 104  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 104  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 21  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6987 function uvc_alloc_entity
+Unwinding loop 21  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6987 function uvc_alloc_entity
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 104  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 104  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 21  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6987 function uvc_alloc_entity
+Unwinding loop 21  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6987 function uvc_alloc_entity
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 104  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 104  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 21  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6987 function uvc_alloc_entity
+Unwinding loop 21  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6987 function uvc_alloc_entity
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 23  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 7496 function uvc_parse_control
+Unwinding loop 104  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 104  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 21  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6987 function uvc_alloc_entity
+Unwinding loop 21  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6987 function uvc_alloc_entity
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 22  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 7158 function uvc_parse_standard_control
+Unwinding loop 104  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 104  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 16  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6653 function uvc_parse_streaming
+Unwinding loop 16  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6653 function uvc_parse_streaming
+Not unwinding 
+Unwinding loop 17  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6665 function uvc_parse_streaming
+Unwinding loop 17  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6665 function uvc_parse_streaming
+Not unwinding 
+Unwinding loop 18  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6829 function uvc_parse_streaming
+Unwinding loop 18  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6829 function uvc_parse_streaming
+Not unwinding 
+Unwinding loop 104  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 104  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 19  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6903 function uvc_parse_streaming
+Unwinding loop 6  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6033 function uvc_format_by_guid
+Unwinding loop 2  iteration  1   file string.c line 308 function memcmp
+Unwinding loop 2  iteration  2   file string.c line 308 function memcmp
+Not unwinding 
+Unwinding loop 6  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6033 function uvc_format_by_guid
+Unwinding loop 2  iteration  1   file string.c line 308 function memcmp
+Unwinding loop 2  iteration  2   file string.c line 308 function memcmp
+Not unwinding 
+Not unwinding 
+Unwinding loop 104  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 104  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 15  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6519 function uvc_parse_format
+Unwinding loop 14  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6493 function uvc_parse_format
+Unwinding loop 14  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6493 function uvc_parse_format
+Not unwinding 
+Unwinding loop 15  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6519 function uvc_parse_format
+Unwinding loop 14  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6493 function uvc_parse_format
+Unwinding loop 14  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6493 function uvc_parse_format
+Not unwinding 
+Not unwinding 
+Unwinding loop 19  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6903 function uvc_parse_streaming
+Unwinding loop 6  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6033 function uvc_format_by_guid
+Unwinding loop 2  iteration  1   file string.c line 308 function memcmp
+Unwinding loop 2  iteration  2   file string.c line 308 function memcmp
+Not unwinding 
+Unwinding loop 6  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6033 function uvc_format_by_guid
+Unwinding loop 2  iteration  1   file string.c line 308 function memcmp
+Unwinding loop 2  iteration  2   file string.c line 308 function memcmp
+Not unwinding 
+Not unwinding 
+Unwinding loop 104  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 104  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 15  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6519 function uvc_parse_format
+Unwinding loop 14  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6493 function uvc_parse_format
+Unwinding loop 14  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6493 function uvc_parse_format
+Not unwinding 
+Unwinding loop 15  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6519 function uvc_parse_format
+Unwinding loop 14  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6493 function uvc_parse_format
+Unwinding loop 14  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6493 function uvc_parse_format
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Unwinding loop 20  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6937 function uvc_parse_streaming
+Unwinding loop 5  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6007 function uvc_find_endpoint
+Unwinding loop 5  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6007 function uvc_find_endpoint
+Not unwinding 
+Unwinding loop 20  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6937 function uvc_parse_streaming
+Unwinding loop 5  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6007 function uvc_find_endpoint
+Unwinding loop 5  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6007 function uvc_find_endpoint
+Not unwinding 
+Not unwinding 
+Unwinding loop 22  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 7158 function uvc_parse_standard_control
+Unwinding loop 104  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 104  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 16  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6653 function uvc_parse_streaming
+Unwinding loop 16  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6653 function uvc_parse_streaming
+Not unwinding 
+Unwinding loop 17  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6665 function uvc_parse_streaming
+Unwinding loop 17  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6665 function uvc_parse_streaming
+Not unwinding 
+Unwinding loop 18  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6829 function uvc_parse_streaming
+Unwinding loop 18  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6829 function uvc_parse_streaming
+Not unwinding 
+Unwinding loop 104  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 104  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 19  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6903 function uvc_parse_streaming
+Unwinding loop 6  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6033 function uvc_format_by_guid
+Unwinding loop 2  iteration  1   file string.c line 308 function memcmp
+Unwinding loop 2  iteration  2   file string.c line 308 function memcmp
+Not unwinding 
+Unwinding loop 6  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6033 function uvc_format_by_guid
+Unwinding loop 2  iteration  1   file string.c line 308 function memcmp
+Unwinding loop 2  iteration  2   file string.c line 308 function memcmp
+Not unwinding 
+Not unwinding 
+Unwinding loop 104  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 104  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 15  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6519 function uvc_parse_format
+Unwinding loop 14  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6493 function uvc_parse_format
+Unwinding loop 14  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6493 function uvc_parse_format
+Not unwinding 
+Unwinding loop 15  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6519 function uvc_parse_format
+Unwinding loop 14  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6493 function uvc_parse_format
+Unwinding loop 14  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6493 function uvc_parse_format
+Not unwinding 
+Not unwinding 
+Unwinding loop 19  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6903 function uvc_parse_streaming
+Unwinding loop 6  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6033 function uvc_format_by_guid
+Unwinding loop 2  iteration  1   file string.c line 308 function memcmp
+Unwinding loop 2  iteration  2   file string.c line 308 function memcmp
+Not unwinding 
+Unwinding loop 6  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6033 function uvc_format_by_guid
+Unwinding loop 2  iteration  1   file string.c line 308 function memcmp
+Unwinding loop 2  iteration  2   file string.c line 308 function memcmp
+Not unwinding 
+Not unwinding 
+Unwinding loop 104  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 104  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 15  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6519 function uvc_parse_format
+Unwinding loop 14  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6493 function uvc_parse_format
+Unwinding loop 14  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6493 function uvc_parse_format
+Not unwinding 
+Unwinding loop 15  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6519 function uvc_parse_format
+Unwinding loop 14  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6493 function uvc_parse_format
+Unwinding loop 14  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6493 function uvc_parse_format
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Unwinding loop 20  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6937 function uvc_parse_streaming
+Unwinding loop 5  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6007 function uvc_find_endpoint
+Unwinding loop 5  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6007 function uvc_find_endpoint
+Not unwinding 
+Unwinding loop 20  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6937 function uvc_parse_streaming
+Unwinding loop 5  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6007 function uvc_find_endpoint
+Unwinding loop 5  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6007 function uvc_find_endpoint
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Unwinding loop 104  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 104  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 21  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6987 function uvc_alloc_entity
+Unwinding loop 21  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6987 function uvc_alloc_entity
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 104  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 104  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 21  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6987 function uvc_alloc_entity
+Unwinding loop 21  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6987 function uvc_alloc_entity
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 104  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 104  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 21  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6987 function uvc_alloc_entity
+Unwinding loop 21  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6987 function uvc_alloc_entity
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 104  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 104  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 21  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6987 function uvc_alloc_entity
+Unwinding loop 21  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6987 function uvc_alloc_entity
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 104  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 104  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 21  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6987 function uvc_alloc_entity
+Unwinding loop 21  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 6987 function uvc_alloc_entity
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Not unwinding 
+Unwinding loop 4  iteration  1   file string.c line 30 function strcpy
+Unwinding loop 4  iteration  2   file string.c line 30 function strcpy
+Not unwinding 
+Unwinding loop 42  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 19445 function uvc_ctrl_init_device
+Unwinding loop 98  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 19299 function uvc_ctrl_prune_entity
+Unwinding loop 98  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 19299 function uvc_ctrl_prune_entity
+Not unwinding 
+Unwinding loop 41  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 19437 function uvc_ctrl_init_device
+Unwinding loop 99  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i line 19337 function uvc_ctrl_init_ctrl
+Unwinding loop 2  iteration  1   file string.c line 308 function memcmp
+Unwinding
+../sv-benchmarks/c/ldv-linux-3.14/linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i:4085:43: warning: declaration of 'struct v4l2_async_subdev' will not be visible outside of this function [-Wvisibility]
+   bool (*match)(struct device * , struct v4l2_async_subdev * ) ;
+                                          ^
+../sv-benchmarks/c/ldv-linux-3.14/linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-uvc-uvcvideo.cil.i:8064:28: warning: address of stack memory associated with local variable 'buffer' returned [-Wreturn-stack-address]
+  return ((char const *)(& buffer));
+                           ^~~~~~
+Can't construct rvalue reference to array type during dereference
+(It isn't allowed by C anyway)
+
+
+Unknown

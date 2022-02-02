@@ -1,0 +1,208 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/nla-digbench-scaling/cohendiv-ll_unwindbound5.c
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/nla-digbench-scaling/cohendiv-ll_unwindbound5.c --32 --witness-output cohendiv-ll_unwindbound5.c.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/nla-digbench-scaling/cohendiv-ll_unwindbound5.c: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.139s
+GOTO program processing time: 0.002s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.003s (60 assignments)
+Slicing time: 0.000s (removed 29 assignments)
+Generated 6 VCC(s), 6 remaining after simplification (31 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.000s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.000s
+Runtime decision procedure: 0.003s
+BMC program time: 0.007s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.003s (54 assignments)
+Slicing time: 0.000s (removed 42 assignments)
+Generated 2 VCC(s), 2 remaining after simplification (12 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.000s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.000s
+Runtime decision procedure: 0.004s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file cohendiv-ll_unwindbound5.c line 46 function main
+Unwinding loop 1  iteration  2   file cohendiv-ll_unwindbound5.c line 46 function main
+Not unwinding 
+Unwinding loop 2  iteration  1   file cohendiv-ll_unwindbound5.c line 37 function main
+Unwinding loop 1  iteration  1   file cohendiv-ll_unwindbound5.c line 46 function main
+Unwinding loop 1  iteration  2   file cohendiv-ll_unwindbound5.c line 46 function main
+Not unwinding 
+Unwinding loop 2  iteration  2   file cohendiv-ll_unwindbound5.c line 37 function main
+Unwinding loop 1  iteration  1   file cohendiv-ll_unwindbound5.c line 46 function main
+Unwinding loop 1  iteration  2   file cohendiv-ll_unwindbound5.c line 46 function main
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.013s (307 assignments)
+Slicing time: 0.004s (removed 91 assignments)
+Generated 42 VCC(s), 42 remaining after simplification (216 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.004s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.004s
+Runtime decision procedure: 18.433s
+BMC program time: 18.455s
+No bug has been found in the base case
+*** Checking forward condition, k = 3
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file cohendiv-ll_unwindbound5.c line 46 function main
+Unwinding loop 1  iteration  2   file cohendiv-ll_unwindbound5.c line 46 function main
+Not unwinding 
+Unwinding loop 2  iteration  1   file cohendiv-ll_unwindbound5.c line 37 function main
+Unwinding loop 1  iteration  1   file cohendiv-ll_unwindbound5.c line 46 function main
+Unwinding loop 1  iteration  2   file cohendiv-ll_unwindbound5.c line 46 function main
+Not unwinding 
+Unwinding loop 2  iteration  2   file cohendiv-ll_unwindbound5.c line 37 function main
+Unwinding loop 1  iteration  1   file cohendiv-ll_unwindbound5.c line 46 function main
+Unwinding loop 1  iteration  2   file cohendiv-ll_unwindbound5.c line 46 function main
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.013s (265 assignments)
+Slicing time: 0.001s (removed 193 assignments)
+Generated 4 VCC(s), 4 remaining after simplification (72 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.002s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.002s
+Runtime decision procedure: 0.293s
+The forward condition is unable to prove the property
+*** Checking inductive step, k = 3
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file cohendiv-ll_unwindbound5.c line 46 function main
+Unwinding loop 1  iteration  2   file cohendiv-ll_unwindbound5.c line 46 function main
+Not unwinding 
+Unwinding loop 2  iteration  1   file cohendiv-ll_unwindbound5.c line 37 function main
+Unwinding loop 1  iteration  1   file cohendiv-ll_unwindbound5.c line 46 function main
+Unwinding loop 1  iteration  2   file cohendiv-ll_unwindbound5.c line 46 function main
+Not unwinding 
+Unwinding loop 2  iteration  2   file cohendiv-ll_unwindbound5.c line 37 function main
+Unwinding loop 1  iteration  1   file cohendiv-ll_unwindbound5.c line 46 function main
+Unwinding loop 1  iteration  2   file cohendiv-ll_unwindbound5.c line 46 function main
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.014s (434 assignments)
+Slicing time: 0.005s (removed 66 assignments)
+Generated 15 VCC(s), 15 remaining after simplification (368 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.006s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.006s
+Runtime decision procedure: 101.502s
+The inductive step is unable to prove the property
+*** Checking base case, k = 5
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file cohendiv-ll_unwindbound5.c line 46 function main
+Unwinding loop 1  iteration  2   file cohendiv-ll_unwindbound5.c line 46 function main
+Unwinding loop 1  iteration  3   file cohendiv-ll_unwindbound5.c line 46 function main
+Unwinding loop 1  iteration  4   file cohendiv-ll_unwindbound5.c line 46 function main
+Unwinding loop 2  iteration  1   file cohendiv-ll_unwindbound5.c line 37 function main
+Unwinding loop 1  iteration  1   file cohendiv-ll_unwindbound5.c line 46 function main
+Unwinding loop 1  iteration  2   file cohendiv-ll_unwindbound5.c line 46 function main
+Unwinding loop 1  iteration  3   file cohendiv-ll_unwindbound5.c line 46 function main
+Unwinding loop 1  iteration  4   file cohendiv-ll_unwindbound5.c line 46 function main
+Not unwinding 
+Unwinding loop 2  iteration  2   file cohendiv-ll_unwindbound5.c line 37 function main
+Unwinding loop 1  iteration  1   file cohendiv-ll_unwindbound5.c line 46 function main
+Unwinding loop 1  iteration  2   file cohendiv-ll_unwindbound5.c line 46 function main
+Unwinding loop 1  iteration  3   file cohendiv-ll_unwindbound5.c line 46 function main
+Unwinding loop 1  iteration  4   file cohendiv-ll_unwindbound5.c line 46 function main
+Not unwinding 
+Unwinding loop 2  iteration  3   file cohendiv-ll_unwindbound5.c line 37 function main
+Unwinding loop 1  iteration  1   file cohendiv-ll_unwindbound5.c line 46 function main
+Unwinding loop 1  iteration  2   file cohendiv-ll_unwindbound5.c line 46 function main
+Unwinding loop 1  iteration  3   file cohendiv-ll_unwindbound5.c line 46 function main
+Unwinding loop 1  iteration  4   file cohendiv-ll_unwindbound5.c line 46 function main
+Not unwinding 
+Unwinding loop 2  iteration  4   file cohendiv-ll_unwindbound5.c line 37 function main
+Unwinding loop 1  iteration  1   file cohendiv-ll_unwindbound5.c line 46 function main
+Unwinding loop 1  iteration  2   file cohendiv-ll_unwindbound5.c line 46 function main
+Unwinding loop 1  iteration  3   file cohendiv-ll_unwindbound5.c line 46 function main
+Unwinding loop 1  iteration  4   file cohendiv-ll_unwindbound5.c line 46 function main
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.034s (745 assignments)
+Slicing time: 0.022s (removed 174 assignments)
+Generated 106 VCC(s), 106 remaining after simplification (571 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.010s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.010s
+Runtime decision procedure: 93.979s
+BMC program time: 94.046s
+No bug has been found in the base case
+*** Checking forward condition, k = 5
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file cohendiv-ll_unwindbound5.c line 46 function main
+Unwinding loop 1  iteration  2   file cohendiv-ll_unwindbound5.c line 46 function main
+Unwinding loop 1  iteration  3   file cohendiv-ll_unwindbound5.c line 46 function main
+Unwinding loop 1  iteration  4   file cohendiv-ll_unwindbound5.c line 46 function main
+Unwinding loop 2  iteration  1   file cohendiv-ll_unwindbound5.c line 37 function main
+Unwinding loop 1  iteration  1   file cohendiv-ll_unwindbound5.c line 46 function main
+Unwinding loop 1  iteration  2   file cohendiv-ll_unwindbound5.c line 46 function main
+Unwinding loop 1  iteration  3   file cohendiv-ll_unwindbound5.c line 46 function main
+Unwinding loop 1  iteration  4   file cohendiv-ll_unwindbound5.c line 46 function main
+Not unwinding 
+Unwinding loop 2  iteration  2   file cohendiv-ll_unwindbound5.c line 37 function main
+Unwinding loop 1  iteration  1   file cohendiv-ll_unwindbound5.c line 46 function main
+Unwinding loop 1  iteration  2   file cohendiv-ll_unwindbound5.c line 46 function main
+Unwinding loop 1  iteration  3   file cohendiv-ll_unwindbound5.c line 46 function main
+Unwinding loop 1  iteration  4   file cohendiv-ll_unwindbound5.c line 46 function main
+Not unwinding 
+Unwinding loop 2  iteration  3   file cohendiv-ll_unwindbound5.c line 37 function main
+Unwinding loop 1  iteration  1   file cohendiv-ll_unwindbound5.c line 46 function main
+Unwinding loop 1  iteration  2   file cohendiv-ll_unwindbound5.c line 46 function main
+Unwinding loop 1  iteration  3   file cohendiv-ll_unwindbound5.c line 46 function main
+Unwinding loop 1  iteration  4   file cohendiv-ll_unwindbound5.c line 46 function main
+Not unwinding 
+Unwinding loop 2  iteration  4   file cohendiv-ll_unwindbound5.c line 37 function main
+Unwinding loop 1  iteration  1   file cohendiv-ll_unwindbound5.c line 46 function main
+Unwinding loop 1  iteration  2   file cohendiv-ll_unwindbound5.c line 46 function main
+Unwinding loop 1  iteration  3   file cohendiv-ll_unwindbound5.c line 46 function main
+Unwinding loop 1  iteration  4   file cohendiv-ll_unwindbound5.c line 46 function main
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.034s (639 assignments)
+Slicing time: 0.007s (removed 436 assignments)
+Generated 5 VCC(s), 5 remaining after simplification (203 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.004s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.004s
+Runtime decision procedure: 1.028s
+BMC program time: 1.074s
+Building successful trace
+
+VERIFICATION SUCCESSFUL
+
+Solution found by the forward condition; all states are reachable (k = 5
+
+
+TRUE

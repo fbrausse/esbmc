@@ -1,0 +1,52 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/valid-memsafety.prp -s kinduction --arch 32 ../sv-benchmarks/c/pthread-memsafety/fillarray.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/pthread-memsafety/fillarray.i --32 --witness-output fillarray.i.graphml --memory-leak-check --no-assertions --incremental-bmc 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/pthread-memsafety/fillarray.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.203s
+GOTO program processing time: 0.001s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.114s (139 assignments)
+Slicing time: 0.000s (removed 98 assignments)
+Generated 22 VCC(s), 7 remaining after simplification (41 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.001s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.001s
+Runtime decision procedure: 0.043s
+Building error trace
+
+Counterexample:
+
+State 3 file fillarray.i line 1057 function main thread 0
+----------------------------------------------------
+  size = 19 (00000000 00000000 00000000 00010011)
+
+State 14 file fillarray.i line 1044 function t1 thread 1
+----------------------------------------------------
+Violated property:
+  file fillarray.i line 1044 function t1
+  dereference failure: invalidated dynamic object
+
+
+VERIFICATION FAILED
+
+Bug found (k = 1)
+
+../sv-benchmarks/c/pthread-memsafety/fillarray.i:482:12: warning: declaration of built-in function '__sigsetjmp' requires the declaration of the 'jmp_buf' type, commonly provided in the header <setjmp.h>. [-Wincomplete-setjmp-declaration]
+extern int __sigsetjmp (struct __jmp_buf_tag *__env, int __savemask) __attribute__ ((__nothrow__));
+           ^
+
+FALSE_DEREF

@@ -1,0 +1,133 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/ldv-linux-3.4-simple/32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--xen--xenfs--xenfs.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-linux-3.4-simple/32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--xen--xenfs--xenfs.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i --64 --witness-output 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--xen--xenfs--xenfs.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 64-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/ldv-linux-3.4-simple/32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--xen--xenfs--xenfs.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.270s
+GOTO program processing time: 0.015s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.020s (262 assignments)
+Slicing time: 0.001s (removed 242 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (20 assignments)
+BMC program time: 0.021s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.021s (262 assignments)
+Slicing time: 0.000s (removed 242 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (20 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.001s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.001s
+Runtime decision procedure: 0.011s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 3  iteration  1   file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--xen--xenfs--xenfs.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i line 2269 function main
+Unwinding loop 1  iteration  1   file string.c line 78 function strlen
+Unwinding loop 1  iteration  2   file string.c line 78 function strlen
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 78 function strlen
+Unwinding loop 1  iteration  2   file string.c line 78 function strlen
+Not unwinding 
+Unwinding loop 3  iteration  2   file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--xen--xenfs--xenfs.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i line 2269 function main
+Unwinding loop 1  iteration  1   file string.c line 78 function strlen
+Unwinding loop 1  iteration  2   file string.c line 78 function strlen
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 78 function strlen
+Unwinding loop 1  iteration  2   file string.c line 78 function strlen
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.090s (1117 assignments)
+Slicing time: 0.006s (removed 969 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (148 assignments)
+BMC program time: 0.096s
+No bug has been found in the base case
+*** Checking forward condition, k = 3
+Starting Bounded Model Checking
+Unwinding loop 3  iteration  1   file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--xen--xenfs--xenfs.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i line 2269 function main
+Unwinding loop 1  iteration  1   file string.c line 78 function strlen
+Unwinding loop 1  iteration  2   file string.c line 78 function strlen
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 78 function strlen
+Unwinding loop 1  iteration  2   file string.c line 78 function strlen
+Not unwinding 
+Unwinding loop 3  iteration  2   file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--xen--xenfs--xenfs.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i line 2269 function main
+Unwinding loop 1  iteration  1   file string.c line 78 function strlen
+Unwinding loop 1  iteration  2   file string.c line 78 function strlen
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 78 function strlen
+Unwinding loop 1  iteration  2   file string.c line 78 function strlen
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.094s (1117 assignments)
+Slicing time: 0.006s (removed 969 assignments)
+Generated 5 VCC(s), 5 remaining after simplification (148 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.003s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.003s
+Runtime decision procedure: 0.048s
+The forward condition is unable to prove the property
+*** Checking inductive step, k = 3
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file string.c line 78 function strlen
+Unwinding loop 1  iteration  2   file string.c line 78 function strlen
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 78 function strlen
+Unwinding loop 1  iteration  2   file string.c line 78 function strlen
+Not unwinding 
+Unwinding loop 3  iteration  1   file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--xen--xenfs--xenfs.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i line 2269 function main
+Unwinding loop 1  iteration  1   file string.c line 78 function strlen
+Unwinding loop 1  iteration  2   file string.c line 78 function strlen
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 78 function strlen
+Unwinding loop 1  iteration  2   file string.c line 78 function strlen
+Not unwinding 
+Unwinding loop 3  iteration  2   file 32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--xen--xenfs--xenfs.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i line 2269 function main
+Unwinding loop 1  iteration  1   file string.c line 78 function strlen
+Unwinding loop 1  iteration  2   file string.c line 78 function strlen
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 78 function strlen
+Unwinding loop 1  iteration  2   file string.c line 78 function strlen
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.144s (1495 assignments)
+Slicing time: 0.021s (removed 1190 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (305 assignments)
+BMC program time: 0.166s
+Building successful trace
+
+VERIFICATION SUCCESSFUL
+
+Solution found by the inductive step (k = 3)
+
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--xen--xenfs--xenfs.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i:2246:1: warning: return type of 'main' is not 'int' [-Wmain-return-type]
+void main(void)
+^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--xen--xenfs--xenfs.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i:2246:1: note: change return type to 'int'
+void main(void)
+^~~~
+int
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--xen--xenfs--xenfs.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i:2422:30: warning: implicit declaration of function 'ldv_xmalloc' is invalid in C99 [-Wimplicit-function-declaration]
+  return *(struct timespec *)ldv_xmalloc(sizeof(struct timespec));
+                             ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_1_cilled_ok_nondet_linux-3.4-32_1-drivers--xen--xenfs--xenfs.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i:2422:11: warning: cast to 'struct timespec *' from smaller integer type 'int' [-Wint-to-pointer-cast]
+  return *(struct timespec *)ldv_xmalloc(sizeof(struct timespec));
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+TRUE

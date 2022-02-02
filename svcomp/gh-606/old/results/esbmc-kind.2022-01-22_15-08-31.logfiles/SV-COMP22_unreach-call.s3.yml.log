@@ -1,0 +1,389 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/loops/s3.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/loops/s3.i --32 --witness-output s3.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/loops/s3.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.252s
+GOTO program processing time: 0.020s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.523s (587 assignments)
+Slicing time: 0.005s (removed 373 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (214 assignments)
+BMC program time: 0.528s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.559s (587 assignments)
+Slicing time: 0.006s (removed 373 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (214 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.018s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.018s
+Runtime decision procedure: 0.258s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 2  iteration  1   file s3.i line 1132 function ssl3_connect
+Unwinding loop 2  iteration  2   file s3.i line 1132 function ssl3_connect
+Not unwinding 
+Symex completed in: 5.995s (3029 assignments)
+Slicing time: 0.062s (removed 2281 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (748 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.073s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.073s
+Runtime decision procedure: 0.008s
+BMC program time: 6.139s
+No bug has been found in the base case
+*** Checking forward condition, k = 3
+Starting Bounded Model Checking
+Unwinding loop 2  iteration  1   file s3.i line 1132 function ssl3_connect
+Unwinding loop 2  iteration  2   file s3.i line 1132 function ssl3_connect
+Not unwinding 
+Symex completed in: 6.259s (3028 assignments)
+Slicing time: 0.061s (removed 2281 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (747 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.072s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.072s
+Runtime decision procedure: 0.631s
+The forward condition is unable to prove the property
+*** Checking inductive step, k = 3
+Starting Bounded Model Checking
+Unwinding loop 2  iteration  1   file s3.i line 1132 function ssl3_connect
+Unwinding loop 2  iteration  2   file s3.i line 1132 function ssl3_connect
+Not unwinding 
+Symex completed in: 0.891s (3196 assignments)
+Slicing time: 0.171s (removed 2231 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (965 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.040s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.040s
+Runtime decision procedure: 4.044s
+The inductive step is unable to prove the property
+*** Checking base case, k = 5
+Starting Bounded Model Checking
+Unwinding loop 2  iteration  1   file s3.i line 1132 function ssl3_connect
+Unwinding loop 2  iteration  2   file s3.i line 1132 function ssl3_connect
+Unwinding loop 2  iteration  3   file s3.i line 1132 function ssl3_connect
+Unwinding loop 2  iteration  4   file s3.i line 1132 function ssl3_connect
+Not unwinding 
+Symex completed in: 18.334s (5351 assignments)
+Slicing time: 0.176s (removed 4035 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (1316 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.137s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.137s
+Runtime decision procedure: 0.024s
+BMC program time: 18.673s
+No bug has been found in the base case
+*** Checking forward condition, k = 5
+Starting Bounded Model Checking
+Unwinding loop 2  iteration  1   file s3.i line 1132 function ssl3_connect
+Unwinding loop 2  iteration  2   file s3.i line 1132 function ssl3_connect
+Unwinding loop 2  iteration  3   file s3.i line 1132 function ssl3_connect
+Unwinding loop 2  iteration  4   file s3.i line 1132 function ssl3_connect
+Not unwinding 
+Symex completed in: 19.125s (5350 assignments)
+Slicing time: 0.176s (removed 4035 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (1315 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.140s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.140s
+Runtime decision procedure: 0.709s
+The forward condition is unable to prove the property
+*** Checking base case, k = 7
+Starting Bounded Model Checking
+Unwinding loop 2  iteration  1   file s3.i line 1132 function ssl3_connect
+Unwinding loop 2  iteration  2   file s3.i line 1132 function ssl3_connect
+Unwinding loop 2  iteration  3   file s3.i line 1132 function ssl3_connect
+Unwinding loop 2  iteration  4   file s3.i line 1132 function ssl3_connect
+Unwinding loop 2  iteration  5   file s3.i line 1132 function ssl3_connect
+Unwinding loop 2  iteration  6   file s3.i line 1132 function ssl3_connect
+Not unwinding 
+Symex completed in: 37.124s (7673 assignments)
+Slicing time: 0.350s (removed 5789 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (1884 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.197s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.197s
+Runtime decision procedure: 1.054s
+Building error trace
+
+Counterexample:
+
+State 1 file s3.i line 1069 function main thread 0
+----------------------------------------------------
+  s->s3 = ( struct ssl3_state_st *)((void *)(&dynamic_528_value))
+
+State 2 file s3.i line 1070 function main thread 0
+----------------------------------------------------
+  s->ctx = ( struct ssl_ctx_st *)((void *)(&dynamic_529_value))
+
+State 3 file s3.i line 1071 function main thread 0
+----------------------------------------------------
+  s->state = 12292 (00000000 00000000 00110000 00000100)
+
+State 4 file s3.i line 1072 function main thread 0
+----------------------------------------------------
+  s->version = 768 (00000000 00000000 00000011 00000000)
+
+State 5 file s3.i line 1079 function ssl3_connect thread 0
+----------------------------------------------------
+  buf = ( struct buf_mem_st *)721
+
+State 6 file s3.i line 1103 function ssl3_connect thread 0
+----------------------------------------------------
+  s->state = 12292 (00000000 00000000 00110000 00000100)
+
+State 7 file s3.i line 1104 function ssl3_connect thread 0
+----------------------------------------------------
+  s->hit = 0 (00000000 00000000 00000000 00000000)
+
+State 8 file s3.i line 1113 function ssl3_connect thread 0
+----------------------------------------------------
+  cb = dynamic_527_value.info_callback
+
+State 9 file s3.i line 1121 function ssl3_connect thread 0
+----------------------------------------------------
+  s->in_handshake = dynamic_527_value.in_handshake + 1
+
+State 10 file s3.i line 1134 function ssl3_connect thread 0
+----------------------------------------------------
+  state = dynamic_527_value.state
+
+State 11 file s3.i line 1238 function ssl3_connect thread 0
+----------------------------------------------------
+  s->new_session = 1 (00000000 00000000 00000000 00000001)
+
+State 12 file s3.i line 1239 function ssl3_connect thread 0
+----------------------------------------------------
+  s->state = 4096 (00000000 00000000 00010000 00000000)
+
+State 13 file s3.i line 1245 function ssl3_connect thread 0
+----------------------------------------------------
+  s->server = 0 (00000000 00000000 00000000 00000000)
+
+State 14 file s3.i line 1257 function ssl3_connect thread 0
+----------------------------------------------------
+  s->type = 4096 (00000000 00000000 00010000 00000000)
+
+State 15 file s3.i line 1270 function ssl3_connect thread 0
+----------------------------------------------------
+  tmp___4 = -1 (11111111 11111111 11111111 11111111)
+
+State 16 file s3.i line 1277 function ssl3_connect thread 0
+----------------------------------------------------
+  tmp___5 = -1 (11111111 11111111 11111111 11111111)
+
+State 17 file s3.i line 1284 function ssl3_connect thread 0
+----------------------------------------------------
+  s->state = 4368 (00000000 00000000 00010001 00010000)
+
+State 18 file s3.i line 1286 function ssl3_connect thread 0
+----------------------------------------------------
+  s->init_num = 0 (00000000 00000000 00000000 00000000)
+
+State 19 file s3.i line 1620 function ssl3_connect thread 0
+----------------------------------------------------
+  new_state = dynamic_527_value.state
+
+State 20 file s3.i line 1621 function ssl3_connect thread 0
+----------------------------------------------------
+  s->state = 12292 (00000000 00000000 00110000 00000100)
+
+State 21 file s3.i line 1622 function ssl3_connect thread 0
+----------------------------------------------------
+  s->state = 4368 (00000000 00000000 00010001 00010000)
+
+State 22 file s3.i line 1134 function ssl3_connect thread 0
+----------------------------------------------------
+  state = dynamic_527_value.state
+
+State 23 file s3.i line 1290 function ssl3_connect thread 0
+----------------------------------------------------
+  s->shutdown = 0 (00000000 00000000 00000000 00000000)
+
+State 24 file s3.i line 1291 function ssl3_connect thread 0
+----------------------------------------------------
+  ret = 2147483647 (01111111 11111111 11111111 11111111)
+
+State 25 file s3.i line 1302 function ssl3_connect thread 0
+----------------------------------------------------
+  s->state = 4384 (00000000 00000000 00010001 00100000)
+
+State 26 file s3.i line 1303 function ssl3_connect thread 0
+----------------------------------------------------
+  s->init_num = 0 (00000000 00000000 00000000 00000000)
+
+State 27 file s3.i line 1620 function ssl3_connect thread 0
+----------------------------------------------------
+  new_state = dynamic_527_value.state
+
+State 28 file s3.i line 1621 function ssl3_connect thread 0
+----------------------------------------------------
+  s->state = 4368 (00000000 00000000 00010001 00010000)
+
+State 29 file s3.i line 1622 function ssl3_connect thread 0
+----------------------------------------------------
+  s->state = 4384 (00000000 00000000 00010001 00100000)
+
+State 30 file s3.i line 1134 function ssl3_connect thread 0
+----------------------------------------------------
+  state = dynamic_527_value.state
+
+State 31 file s3.i line 1312 function ssl3_connect thread 0
+----------------------------------------------------
+  ret = 2147483647 (01111111 11111111 11111111 11111111)
+
+State 32 file s3.i line 1326 function ssl3_connect thread 0
+----------------------------------------------------
+  s->state = 4400 (00000000 00000000 00010001 00110000)
+
+State 33 file s3.i line 1328 function ssl3_connect thread 0
+----------------------------------------------------
+  s->init_num = 0 (00000000 00000000 00000000 00000000)
+
+State 34 file s3.i line 1620 function ssl3_connect thread 0
+----------------------------------------------------
+  new_state = dynamic_527_value.state
+
+State 35 file s3.i line 1621 function ssl3_connect thread 0
+----------------------------------------------------
+  s->state = 4384 (00000000 00000000 00010001 00100000)
+
+State 36 file s3.i line 1622 function ssl3_connect thread 0
+----------------------------------------------------
+  s->state = 4400 (00000000 00000000 00010001 00110000)
+
+State 37 file s3.i line 1134 function ssl3_connect thread 0
+----------------------------------------------------
+  state = dynamic_527_value.state
+
+State 38 file s3.i line 1335 function ssl3_connect thread 0
+----------------------------------------------------
+  ret = 2147483647 (01111111 11111111 11111111 11111111)
+
+State 39 file s3.i line 1347 function ssl3_connect thread 0
+----------------------------------------------------
+  s->state = 4416 (00000000 00000000 00010001 01000000)
+
+State 40 file s3.i line 1348 function ssl3_connect thread 0
+----------------------------------------------------
+  s->init_num = 0 (00000000 00000000 00000000 00000000)
+
+State 41 file s3.i line 1620 function ssl3_connect thread 0
+----------------------------------------------------
+  new_state = dynamic_527_value.state
+
+State 42 file s3.i line 1621 function ssl3_connect thread 0
+----------------------------------------------------
+  s->state = 4400 (00000000 00000000 00010001 00110000)
+
+State 43 file s3.i line 1622 function ssl3_connect thread 0
+----------------------------------------------------
+  s->state = 4416 (00000000 00000000 00010001 01000000)
+
+State 44 file s3.i line 1134 function ssl3_connect thread 0
+----------------------------------------------------
+  state = dynamic_527_value.state
+
+State 45 file s3.i line 1352 function ssl3_connect thread 0
+----------------------------------------------------
+  ret = 2147483647 (01111111 11111111 11111111 11111111)
+
+State 46 file s3.i line 1363 function ssl3_connect thread 0
+----------------------------------------------------
+  s->state = 4432 (00000000 00000000 00010001 01010000)
+
+State 47 file s3.i line 1364 function ssl3_connect thread 0
+----------------------------------------------------
+  s->init_num = 0 (00000000 00000000 00000000 00000000)
+
+State 48 file s3.i line 1365 function ssl3_connect thread 0
+----------------------------------------------------
+  tmp___6 = 515 (00000000 00000000 00000010 00000011)
+
+State 49 file s3.i line 1620 function ssl3_connect thread 0
+----------------------------------------------------
+  new_state = dynamic_527_value.state
+
+State 50 file s3.i line 1621 function ssl3_connect thread 0
+----------------------------------------------------
+  s->state = 4416 (00000000 00000000 00010001 01000000)
+
+State 51 file s3.i line 1622 function ssl3_connect thread 0
+----------------------------------------------------
+  s->state = 4432 (00000000 00000000 00010001 01010000)
+
+State 52 file s3.i line 1134 function ssl3_connect thread 0
+----------------------------------------------------
+  state = dynamic_527_value.state
+
+State 53 file s3.i line 1375 function ssl3_connect thread 0
+----------------------------------------------------
+  ret = 2147483647 (01111111 11111111 11111111 11111111)
+
+State 54 file s3.i line 1386 function ssl3_connect thread 0
+----------------------------------------------------
+  s->state = 4448 (00000000 00000000 00010001 01100000)
+
+State 55 file s3.i line 1387 function ssl3_connect thread 0
+----------------------------------------------------
+  s->init_num = 0 (00000000 00000000 00000000 00000000)
+
+State 56 file s3.i line 1620 function ssl3_connect thread 0
+----------------------------------------------------
+  new_state = dynamic_527_value.state
+
+State 57 file s3.i line 1621 function ssl3_connect thread 0
+----------------------------------------------------
+  s->state = 4432 (00000000 00000000 00010001 01010000)
+
+State 58 file s3.i line 1622 function ssl3_connect thread 0
+----------------------------------------------------
+  s->state = 4448 (00000000 00000000 00010001 01100000)
+
+State 59 file s3.i line 1391 function ssl3_connect thread 0
+----------------------------------------------------
+  ret = 0 (00000000 00000000 00000000 00000000)
+
+State 60 file s3.i line 3 function reach_error thread 0
+----------------------------------------------------
+Violated property:
+  file s3.i line 3 function reach_error
+  assertion 0
+  0
+
+
+VERIFICATION FAILED
+
+Bug found (k = 7)
+
+
+FALSE_REACH

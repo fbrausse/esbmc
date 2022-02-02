@@ -1,0 +1,619 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/ldv-linux-3.14/linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-linux-3.14/linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i --64 --witness-output linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 64-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/ldv-linux-3.14/linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 7.690s
+GOTO program processing time: 31.168s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.052s (152 assignments)
+Slicing time: 0.001s (removed 150 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (2 assignments)
+BMC program time: 0.053s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.038s (152 assignments)
+Slicing time: 0.001s (removed 150 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (2 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.000s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.000s
+Runtime decision procedure: 0.000s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 104  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 39223 function cxgb3_offload_init
+Unwinding loop 104  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 39223 function cxgb3_offload_init
+Not unwinding 
+Symex completed in: 0.039s (156 assignments)
+Slicing time: 0.000s (removed 154 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (2 assignments)
+BMC program time: 0.039s
+No bug has been found in the base case
+*** Checking forward condition, k = 3
+Starting Bounded Model Checking
+Unwinding loop 104  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 39223 function cxgb3_offload_init
+Unwinding loop 104  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 39223 function cxgb3_offload_init
+Not unwinding 
+Symex completed in: 0.042s (156 assignments)
+Slicing time: 0.000s (removed 154 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (2 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.000s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.000s
+Runtime decision procedure: 0.000s
+The forward condition is unable to prove the property
+*** Checking inductive step, k = 3
+Starting Bounded Model Checking
+Unwinding loop 104  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 39223 function cxgb3_offload_init
+Unwinding loop 104  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 39223 function cxgb3_offload_init
+Not unwinding 
+Unwinding loop 269  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 269  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 96  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 13852 function init_one
+Unwinding loop 96  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 13852 function init_one
+Not unwinding 
+Unwinding loop 269  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 269  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 62  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 22534 function t3_seeprom_read
+Unwinding loop 62  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 22534 function t3_seeprom_read
+Not unwinding 
+Unwinding loop 185  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 22653 function get_vpd_params
+Unwinding loop 62  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 22534 function t3_seeprom_read
+Unwinding loop 62  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 22534 function t3_seeprom_read
+Not unwinding 
+Unwinding loop 185  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 22653 function get_vpd_params
+Unwinding loop 62  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 22534 function t3_seeprom_read
+Unwinding loop 62  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 22534 function t3_seeprom_read
+Not unwinding 
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 186  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 22699 function get_vpd_params
+Unwinding loop 186  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 22699 function get_vpd_params
+Not unwinding 
+Unwinding loop 86  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 26703 function t3_reset_adapter
+Unwinding loop 86  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 26703 function t3_reset_adapter
+Not unwinding 
+Unwinding loop 97  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 13887 function init_one
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Unwinding loop 188  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 22844 function t3_read_flash
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Unwinding loop 38  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 23142 function t3_load_fw
+Unwinding loop 38  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 23142 function t3_load_fw
+Not unwinding 
+Unwinding loop 191  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 23102 function t3_flash_erase_sectors
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Unwinding loop 187  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 22794 function flash_wait_op
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Unwinding loop 187  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 22794 function flash_wait_op
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Not unwinding 
+Unwinding loop 39  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 23179 function t3_load_fw
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Unwinding loop 190  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 22916 function t3_write_flash
+Unwinding loop 189  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 22903 function t3_write_flash
+Unwinding loop 189  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 22903 function t3_write_flash
+Not unwinding 
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Unwinding loop 190  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 22916 function t3_write_flash
+Unwinding loop 189  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 22903 function t3_write_flash
+Unwinding loop 189  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 22903 function t3_write_flash
+Not unwinding 
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Not unwinding 
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Unwinding loop 187  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 22794 function flash_wait_op
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Unwinding loop 187  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 22794 function flash_wait_op
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Not unwinding 
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Unwinding loop 188  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 22844 function t3_read_flash
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Unwinding loop 188  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 22844 function t3_read_flash
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Not unwinding 
+Unwinding loop 180  iteration  1   file string.c line 308 function memcmp
+Unwinding loop 180  iteration  2   file string.c line 308 function memcmp
+Not unwinding 
+Unwinding loop 39  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 23179 function t3_load_fw
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Unwinding loop 190  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 22916 function t3_write_flash
+Unwinding loop 189  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 22903 function t3_write_flash
+Unwinding loop 189  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 22903 function t3_write_flash
+Not unwinding 
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Unwinding loop 190  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 22916 function t3_write_flash
+Unwinding loop 189  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 22903 function t3_write_flash
+Unwinding loop 189  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 22903 function t3_write_flash
+Not unwinding 
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Not unwinding 
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Unwinding loop 187  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 22794 function flash_wait_op
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Unwinding loop 187  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 22794 function flash_wait_op
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Not unwinding 
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Unwinding loop 188  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 22844 function t3_read_flash
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Unwinding loop 188  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 22844 function t3_read_flash
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Not unwinding 
+Unwinding loop 180  iteration  1   file string.c line 308 function memcmp
+Unwinding loop 180  iteration  2   file string.c line 308 function memcmp
+Not unwinding 
+Not unwinding 
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Unwinding loop 190  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 22916 function t3_write_flash
+Unwinding loop 189  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 22903 function t3_write_flash
+Unwinding loop 189  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 22903 function t3_write_flash
+Not unwinding 
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Unwinding loop 187  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 22794 function flash_wait_op
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Unwinding loop 187  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 22794 function flash_wait_op
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Not unwinding 
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Unwinding loop 188  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 22844 function t3_read_flash
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Unwinding loop 188  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 22844 function t3_read_flash
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Not unwinding 
+Unwinding loop 180  iteration  1   file string.c line 308 function memcmp
+Unwinding loop 180  iteration  2   file string.c line 308 function memcmp
+Not unwinding 
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Unwinding loop 40  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 23012 function t3_check_tpsram
+Unwinding loop 40  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 23012 function t3_check_tpsram
+Not unwinding 
+Unwinding loop 41  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 25663 function t3_set_proto_sram
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Unwinding loop 41  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 25663 function t3_set_proto_sram
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Not unwinding 
+Unwinding loop 46  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 24602 function t3_intr_clear
+**** WARNING: no body for function delayed_work_timer_fn
+**** WARNING: no body for function delayed_work_timer_fn
+**** WARNING: k-induction does not support recursion yet. Disabling inductive step
+Unwinding recursion cxgb_open iteration 1 (3 max)
+Unwinding recursion cxgb_up iteration 1 (3 max)
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Unwinding loop 188  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 22844 function t3_read_flash
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Unwinding loop 38  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 23142 function t3_load_fw
+Unwinding loop 38  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 23142 function t3_load_fw
+Not unwinding 
+Unwinding loop 191  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 23102 function t3_flash_erase_sectors
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Unwinding loop 187  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 22794 function flash_wait_op
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Unwinding loop 187  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 22794 function flash_wait_op
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Not unwinding 
+Unwinding loop 39  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 23179 function t3_load_fw
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Unwinding loop 190  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 22916 function t3_write_flash
+Unwinding loop 189  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 22903 function t3_write_flash
+Unwinding loop 189  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 22903 function t3_write_flash
+Not unwinding 
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Unwinding loop 190  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 22916 function t3_write_flash
+Unwinding loop 189  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 22903 function t3_write_flash
+Unwinding loop 189  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 22903 function t3_write_flash
+Not unwinding 
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Not unwinding 
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Unwinding loop 187  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 22794 function flash_wait_op
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Unwinding loop 187  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 22794 function flash_wait_op
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Not unwinding 
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Unwinding loop 188  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 22844 function t3_read_flash
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Unwinding loop 188  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 22844 function t3_read_flash
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Not unwinding 
+Unwinding loop 180  iteration  1   file string.c line 308 function memcmp
+Unwinding loop 180  iteration  2   file string.c line 308 function memcmp
+Not unwinding 
+Unwinding loop 39  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 23179 function t3_load_fw
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Unwinding loop 190  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 22916 function t3_write_flash
+Unwinding loop 189  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 22903 function t3_write_flash
+Unwinding loop 189  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 22903 function t3_write_flash
+Not unwinding 
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Unwinding loop 190  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 22916 function t3_write_flash
+Unwinding loop 189  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 22903 function t3_write_flash
+Unwinding loop 189  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 22903 function t3_write_flash
+Not unwinding 
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Not unwinding 
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Unwinding loop 187  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 22794 function flash_wait_op
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Unwinding loop 187  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 22794 function flash_wait_op
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Not unwinding 
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Unwinding loop 188  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 22844 function t3_read_flash
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Unwinding loop 188  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 22844 function t3_read_flash
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Not unwinding 
+Unwinding loop 180  iteration  1   file string.c line 308 function memcmp
+Unwinding loop 180  iteration  2   file string.c line 308 function memcmp
+Not unwinding 
+Not unwinding 
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Unwinding loop 190  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 22916 function t3_write_flash
+Unwinding loop 189  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 22903 function t3_write_flash
+Unwinding loop 189  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 22903 function t3_write_flash
+Not unwinding 
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Unwinding loop 187  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 22794 function flash_wait_op
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Unwinding loop 187  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 22794 function flash_wait_op
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Not unwinding 
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Unwinding loop 188  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 22844 function t3_read_flash
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Unwinding loop 188  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 22844 function t3_read_flash
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Not unwinding 
+Unwinding loop 180  iteration  1   file string.c line 308 function memcmp
+Unwinding loop 180  iteration  2   file string.c line 308 function memcmp
+Not unwinding 
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Unwinding loop 40  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 23012 function t3_check_tpsram
+Unwinding loop 40  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 23012 function t3_check_tpsram
+Not unwinding 
+Unwinding loop 41  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 25663 function t3_set_proto_sram
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Unwinding loop 41  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 25663 function t3_set_proto_sram
+Unwinding loop 181  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Unwinding loop 181  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 21923 function t3_wait_op_done_val
+Not unwinding 
+Not unwinding 
+Unwinding recursion t3_intr_clear iteration 1 (3 max)
+Unwinding loop 46  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 24602 function t3_intr_clear
+Unwinding recursion t3_port_intr_clear iteration 1 (3 max)
+**** WARNING: no body for function delayed_work_timer_fn
+Unwinding loop 56  iteration  1   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 36929 function cxgb3_event_notify
+No target candidate for function call *client->event_handler
+Unwinding loop 56  iteration  2   file linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i line 36929 function cxgb3_event_notify
+No target candidate for function call *client->event_handler
+Not unwinding 
+Unwinding loop 81  iteration
+../sv-benchmarks/c/ldv-linux-3.14/linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i:5758:4: warning: declaration does not declare anything [-Wmissing-declarations]
+   __u8 ;
+   ^~~~
+../sv-benchmarks/c/ldv-linux-3.14/linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i:6849:4: warning: declaration does not declare anything [-Wmissing-declarations]
+   __u8 ;
+   ^~~~
+../sv-benchmarks/c/ldv-linux-3.14/linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i:6865:4: warning: declaration does not declare anything [-Wmissing-declarations]
+   __u8 ;
+   ^~~~
+../sv-benchmarks/c/ldv-linux-3.14/linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i:6913:4: warning: declaration does not declare anything [-Wmissing-declarations]
+   __u8 ;
+   ^~~~
+../sv-benchmarks/c/ldv-linux-3.14/linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i:9696:35: warning: format string is not a string literal (potentially insecure) [-Wformat-security]
+  snprintf((char *)(& buf), 64UL, tmp);
+                                  ^~~
+../sv-benchmarks/c/ldv-linux-3.14/linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i:9696:35: note: treat the string as an argument to avoid this
+  snprintf((char *)(& buf), 64UL, tmp);
+                                  ^
+                                  "%s", 
+../sv-benchmarks/c/ldv-linux-3.14/linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i:38008:12: warning: incompatible pointer to integer conversion returning 'cxgb3_cpl_handler_func' (aka 'int (*)(struct t3cdev *, struct sk_buff *, void *)') from a function with result type 'int' [-Wint-conversion]
+    return (tmp___1);
+           ^~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.14/linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i:38045:12: warning: incompatible pointer to integer conversion returning 'cxgb3_cpl_handler_func' (aka 'int (*)(struct t3cdev *, struct sk_buff *, void *)') from a function with result type 'int' [-Wint-conversion]
+    return (tmp___1);
+           ^~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.14/linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i:38082:12: warning: incompatible pointer to integer conversion returning 'cxgb3_cpl_handler_func' (aka 'int (*)(struct t3cdev *, struct sk_buff *, void *)') from a function with result type 'int' [-Wint-conversion]
+    return (tmp___1);
+           ^~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.14/linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i:38136:12: warning: incompatible pointer to integer conversion returning 'cxgb3_cpl_handler_func' (aka 'int (*)(struct t3cdev *, struct sk_buff *, void *)') from a function with result type 'int' [-Wint-conversion]
+    return (tmp___3);
+           ^~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.14/linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i:38224:12: warning: incompatible pointer to integer conversion returning 'cxgb3_cpl_handler_func' (aka 'int (*)(struct t3cdev *, struct sk_buff *, void *)') from a function with result type 'int' [-Wint-conversion]
+    return (tmp___1);
+           ^~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.14/linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i:38309:12: warning: incompatible pointer to integer conversion returning 'cxgb3_cpl_handler_func' (aka 'int (*)(struct t3cdev *, struct sk_buff *, void *)') from a function with result type 'int' [-Wint-conversion]
+    return (tmp___3);
+           ^~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.14/linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i:38382:12: warning: incompatible pointer to integer conversion returning 'cxgb3_cpl_handler_func' (aka 'int (*)(struct t3cdev *, struct sk_buff *, void *)') from a function with result type 'int' [-Wint-conversion]
+    return (tmp___1);
+           ^~~~~~~~~
+Function call to "c:linux-3.14_linux-alloc-spinlock_drivers-net-ethernet-chelsio-cxgb3-cxgb3.cil.i@F@get_regs": number of arguments doesn't match type definition; some inconsistent rewriting occured
+
+
+Unknown

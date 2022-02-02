@@ -1,0 +1,44 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/ldv-consumption/linux-3.8-rc1-32_7a-drivers--net--ethernet--intel--e1000e--e1000e.ko-ldv_main1.cil.out.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-consumption/linux-3.8-rc1-32_7a-drivers--net--ethernet--intel--e1000e--e1000e.ko-ldv_main1.cil.out.i --64 --witness-output linux-3.8-rc1-32_7a-drivers--net--ethernet--intel--e1000e--e1000e.ko-ldv_main1.cil.out.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+
+../sv-benchmarks/c/ldv-consumption/linux-3.8-rc1-32_7a-drivers--net--ethernet--intel--e1000e--e1000e.ko-ldv_main1.cil.out.i:7051:79: warning: incompatible integer to pointer conversion initializing 'void *' with an expression of type 'unsigned long' [-Wint-conversion]
+static struct mutex swflag_mutex = {{1}, {{{{{0U}}, 3735899821U, 4294967295U, 0xffffffffffffffffUL, {0, {0, 0}, "swflag_mutex.wait_lock",
+                                                                              ^~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-consumption/linux-3.8-rc1-32_7a-drivers--net--ethernet--intel--e1000e--e1000e.ko-ldv_main1.cil.out.i:9996:76: warning: incompatible integer to pointer conversion initializing 'void *' with an expression of type 'unsigned long' [-Wint-conversion]
+static struct mutex nvm_mutex = {{1}, {{{{{0U}}, 3735899821U, 4294967295U, 0xffffffffffffffffUL, {0, {0, 0}, "nvm_mutex.wait_lock",
+                                                                           ^~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-consumption/linux-3.8-rc1-32_7a-drivers--net--ethernet--intel--e1000e--e1000e.ko-ldv_main1.cil.out.i:22673:34: warning: incompatible integer to pointer conversion passing 'unsigned long' to parameter of type 'struct page *' [-Wint-conversion]
+  addr = (*(ops->map_page))(dev, 0xffffea0000000000UL + (tmp___2 >> 12), (unsigned long )ptr & 4095UL,
+                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-consumption/linux-3.8-rc1-32_7a-drivers--net--ethernet--intel--e1000e--e1000e.ko-ldv_main1.cil.out.i:22676:27: warning: incompatible integer to pointer conversion passing 'unsigned long' to parameter of type 'struct page *' [-Wint-conversion]
+  debug_dma_map_page(dev, 0xffffea0000000000UL + (tmp___3 >> 12), (unsigned long )ptr & 4095UL,
+                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-consumption/linux-3.8-rc1-32_7a-drivers--net--ethernet--intel--e1000e--e1000e.ko-ldv_main1.cil.out.i:22623:64: note: passing argument to parameter here
+extern void debug_dma_map_page(struct device * , struct page * , size_t , size_t ,
+                                                               ^
+../sv-benchmarks/c/ldv-consumption/linux-3.8-rc1-32_7a-drivers--net--ethernet--intel--e1000e--e1000e.ko-ldv_main1.cil.out.i:26372:34: warning: incompatible integer to pointer conversion passing 'unsigned long' to parameter of type 'struct page *' [-Wint-conversion]
+  addr = (*(ops->map_page))(dev, 0xffffea0000000000UL + (tmp___2 >> 12), (unsigned long )ptr & 4095UL,
+                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-consumption/linux-3.8-rc1-32_7a-drivers--net--ethernet--intel--e1000e--e1000e.ko-ldv_main1.cil.out.i:26375:27: warning: incompatible integer to pointer conversion passing 'unsigned long' to parameter of type 'struct page *' [-Wint-conversion]
+  debug_dma_map_page(dev, 0xffffea0000000000UL + (tmp___3 >> 12), (unsigned long )ptr & 4095UL,
+                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-consumption/linux-3.8-rc1-32_7a-drivers--net--ethernet--intel--e1000e--e1000e.ko-ldv_main1.cil.out.i:22623:64: note: passing argument to parameter here
+extern void debug_dma_map_page(struct device * , struct page * , size_t , size_t ,
+                                                               ^
+../sv-benchmarks/c/ldv-consumption/linux-3.8-rc1-32_7a-drivers--net--ethernet--intel--e1000e--e1000e.ko-ldv_main1.cil.out.i:36194:26: warning: implicit declaration of function 'ldv_xmalloc' is invalid in C99 [-Wimplicit-function-declaration]
+  return *(union ktime *)ldv_xmalloc(sizeof(union ktime));
+                         ^
+../sv-benchmarks/c/ldv-consumption/linux-3.8-rc1-32_7a-drivers--net--ethernet--intel--e1000e--e1000e.ko-ldv_main1.cil.out.i:36194:11: warning: cast to 'union ktime *' from smaller integer type 'int' [-Wint-to-pointer-cast]
+  return *(union ktime *)ldv_xmalloc(sizeof(union ktime));
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Can't construct rvalue reference to array type during dereference
+(It isn't allowed by C anyway)
+
+
+Unknown

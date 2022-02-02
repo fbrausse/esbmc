@@ -1,0 +1,77 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/ldv-challenges/linux-3.14__complex_emg__linux-alloc-spinlock__drivers-net-ethernet-dec-tulip-uli526x.cil.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-challenges/linux-3.14__complex_emg__linux-alloc-spinlock__drivers-net-ethernet-dec-tulip-uli526x.cil.i --64 --witness-output linux-3.14__complex_emg__linux-alloc-spinlock__drivers-net-ethernet-dec-tulip-uli526x.cil.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 64-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/ldv-challenges/linux-3.14__complex_emg__linux-alloc-spinlock__drivers-net-ethernet-dec-tulip-uli526x.cil.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.703s
+GOTO program processing time: 0.151s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.055s (497 assignments)
+Slicing time: 0.001s (removed 372 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (125 assignments)
+BMC program time: 0.056s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.057s (497 assignments)
+Slicing time: 0.000s (removed 372 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (125 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.009s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.009s
+Runtime decision procedure: 1.079s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 28  iteration  1   file linux-3.14__complex_emg__linux-alloc-spinlock__drivers-net-ethernet-dec-tulip-uli526x.cil.i line 8718 function main
+No target candidate for function call *arg0
+Unwinding loop 16  iteration  1   file linux-3.14__complex_emg__linux-alloc-spinlock__drivers-net-ethernet-dec-tulip-uli526x.cil.i line 6360 function uli526x_init
+No target candidate for function call *phy->read
+Unwinding loop 16  iteration  2   file linux-3.14__complex_emg__linux-alloc-spinlock__drivers-net-ethernet-dec-tulip-uli526x.cil.i line 6360 function uli526x_init
+No target candidate for function call *phy->read
+Not unwinding 
+No target candidate for function call *phy->read
+No target candidate for function call *phy->write
+No target candidate for function call *phy->read
+Unwinding loop 17  iteration  1   file linux-3.14__complex_emg__linux-alloc-spinlock__drivers-net-ethernet-dec-tulip-uli526x.cil.i line 6391 function uli526x_init
+No target candidate for function call *phy->read
+Unwinding loop 17  iteration  2   file linux-3.14__complex_emg__linux-alloc-spinlock__drivers-net-ethernet-dec-tulip-uli526x.cil.i line 6391 function uli526x_init
+No target candidate for function call *phy->read
+Not unwinding 
+No target candidate for function call *phy->read
+No target candidate for function call *phy->write
+No target candidate for function call *phy->write
+Unwinding loop 18  iteration  1   file linux-3.14__complex_emg__linux-alloc-spinlock__drivers-net-ethernet-dec-tulip-uli526x.cil.i line 7318 function uli526x_descriptor_init
+Unwinding loop 18  iteration  2   file linux-3.14__complex_emg__linux-alloc-spinlock__drivers-net-ethernet-dec-tulip-uli526x.cil.i line 7318 function uli526x_descriptor_init
+Not unwinding 
+No target candidate for function call *arg0
+No target candidate for function call *arg0
+Unwinding loop 22  iteration  1   file linux-3.14__complex_emg__linux-alloc-spinlock__drivers-net-ethernet-dec-tulip-uli526x.cil.i line 7232 function uli526x_free_rxbuffer
+Unwinding loop 22  iteration  2   file linux-3.14__complex_emg__linux-alloc-spinlock__drivers-net-ethernet-dec-tulip-uli526x.cil.i line 7232 function uli526x_free_rxbuffer
+Not unwinding 
+Unwinding loop 16  iteration  1   file linux-3.14__complex_emg__linux-alloc-spinlock__drivers-net-ethernet-dec-tulip-uli526x.cil.i line 6360 function uli526x_init
+No target candidate for function call *phy->read
+Unwinding loop 16  iteration  2   file linux-3.14__complex_emg__linux-alloc-spinlock__drivers-net-ethernet-dec-tulip-uli526x.cil.i line 6360 function uli526x_init
+No target candidate for function call *phy->read
+Not unwinding 
+No target candidate for function call *phy->read
+No target candidate for function call *phy->write
+No target candidate for function call *phy->read
+Unwinding loop 17  iteration  1   file linux-3.14__comp
+Function call to "c:linux-3.14__complex_emg__linux-alloc-spinlock__drivers-net-ethernet-dec-tulip-uli526x.cil.i@F@phy_writeby_cr10": number of arguments doesn't match type definition; some inconsistent rewriting occured
+
+
+Unknown

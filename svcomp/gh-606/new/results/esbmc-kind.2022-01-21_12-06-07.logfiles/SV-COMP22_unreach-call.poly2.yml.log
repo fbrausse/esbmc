@@ -1,0 +1,118 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/array-tiling/poly2.c
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/array-tiling/poly2.c --32 --witness-output poly2.c.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/array-tiling/poly2.c: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.083s
+GOTO program processing time: 0.001s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.069s (60 assignments)
+Slicing time: 0.000s (removed 38 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (22 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.001s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.001s
+Runtime decision procedure: 0.000s
+BMC program time: 0.070s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.011s (59 assignments)
+Slicing time: 0.000s (removed 38 assignments)
+Generated 3 VCC(s), 3 remaining after simplification (21 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.001s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.001s
+Runtime decision procedure: 0.002s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file poly2.c line 24 function main
+Unwinding loop 1  iteration  2   file poly2.c line 24 function main
+Not unwinding 
+Unwinding loop 2  iteration  1   file poly2.c line 29 function main
+Unwinding loop 2  iteration  2   file poly2.c line 29 function main
+Not unwinding 
+Unwinding loop 3  iteration  1   file poly2.c line 35 function main
+Unwinding loop 3  iteration  2   file poly2.c line 35 function main
+Not unwinding 
+Symex completed in: 0.031s (122 assignments)
+Slicing time: 0.001s (removed 58 assignments)
+Generated 3 VCC(s), 3 remaining after simplification (64 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.001s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.001s
+Runtime decision procedure: 0.020s
+BMC program time: 0.053s
+No bug has been found in the base case
+*** Checking forward condition, k = 3
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file poly2.c line 24 function main
+Unwinding loop 1  iteration  2   file poly2.c line 24 function main
+Not unwinding 
+Unwinding loop 2  iteration  1   file poly2.c line 29 function main
+Unwinding loop 2  iteration  2   file poly2.c line 29 function main
+Not unwinding 
+Unwinding loop 3  iteration  1   file poly2.c line 35 function main
+Unwinding loop 3  iteration  2   file poly2.c line 35 function main
+Not unwinding 
+Symex completed in: 0.033s (119 assignments)
+Slicing time: 0.001s (removed 58 assignments)
+Generated 3 VCC(s), 3 remaining after simplification (61 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.001s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.001s
+Runtime decision procedure: 0.006s
+The forward condition is unable to prove the property
+*** Checking inductive step, k = 3
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file poly2.c line 24 function main
+Unwinding loop 1  iteration  2   file poly2.c line 24 function main
+Not unwinding 
+Unwinding loop 2  iteration  1   file poly2.c line 29 function main
+Unwinding loop 2  iteration  2   file poly2.c line 29 function main
+Not unwinding 
+Unwinding loop 3  iteration  1   file poly2.c line 35 function main
+Unwinding loop 3  iteration  2   file poly2.c line 35 function main
+Not unwinding 
+Symex completed in: 0.002s (80 assignments)
+Slicing time: 0.000s (removed 54 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (26 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.000s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.000s
+Runtime decision procedure: 0.001s
+BMC program time: 0.004s
+Building successful trace
+
+VERIFICATION SUCCESSFUL
+
+Solution found by the inductive step (k = 3)
+
+
+TRUE

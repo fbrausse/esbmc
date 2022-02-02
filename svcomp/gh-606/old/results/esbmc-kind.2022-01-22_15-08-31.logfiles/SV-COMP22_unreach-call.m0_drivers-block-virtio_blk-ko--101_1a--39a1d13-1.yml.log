@@ -1,0 +1,105 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/ldv-commit-tester/m0_drivers-block-virtio_blk-ko--101_1a--39a1d13-1.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-commit-tester/m0_drivers-block-virtio_blk-ko--101_1a--39a1d13-1.i --64 --witness-output m0_drivers-block-virtio_blk-ko--101_1a--39a1d13-1.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 64-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/ldv-commit-tester/m0_drivers-block-virtio_blk-ko--101_1a--39a1d13-1.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.433s
+GOTO program processing time: 0.019s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.004s (38 assignments)
+Slicing time: 0.000s (removed 25 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (13 assignments)
+BMC program time: 0.004s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.003s (38 assignments)
+Slicing time: 0.000s (removed 25 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (13 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.000s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.000s
+Runtime decision procedure: 0.002s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 11  iteration  1   file m0_drivers-block-virtio_blk-ko--101_1a--39a1d13-1.i line 4246 function main
+No target candidate for function call *vdev->config->get
+Unwinding loop 11  iteration  2   file m0_drivers-block-virtio_blk-ko--101_1a--39a1d13-1.i line 4246 function main
+No target candidate for function call *vdev->config->get
+Not unwinding 
+Symex completed in: 0.057s (488 assignments)
+Slicing time: 0.002s (removed 404 assignments)
+Generated 2 VCC(s), 2 remaining after simplification (84 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.005s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.005s
+Runtime decision procedure: 0.506s
+Building error trace
+
+Counterexample:
+
+State 1 file m0_drivers-block-virtio_blk-ko--101_1a--39a1d13-1.i line 4244 function main thread 0
+----------------------------------------------------
+  tmp___1 = -1 (11111111 11111111 11111111 11111111)
+
+State 2 file m0_drivers-block-virtio_blk-ko--101_1a--39a1d13-1.i line 4229 function main thread 0
+----------------------------------------------------
+  tmp___0 = 0 (00000000 00000000 00000000 00000000)
+
+State 3 file m0_drivers-block-virtio_blk-ko--101_1a--39a1d13-1.i line 4244 function main thread 0
+----------------------------------------------------
+  tmp___1 = -2147483648 (10000000 00000000 00000000 00000000)
+
+State 4 file m0_drivers-block-virtio_blk-ko--101_1a--39a1d13-1.i line 4229 function main thread 0
+----------------------------------------------------
+  tmp___0 = -2147483648 (10000000 00000000 00000000 00000000)
+
+State 5 file m0_drivers-block-virtio_blk-ko--101_1a--39a1d13-1.i line 4244 function main thread 0
+----------------------------------------------------
+  tmp___1 = 0 (00000000 00000000 00000000 00000000)
+
+State 6 file m0_drivers-block-virtio_blk-ko--101_1a--39a1d13-1.i line 12 function reach_error thread 0
+----------------------------------------------------
+Violated property:
+  file m0_drivers-block-virtio_blk-ko--101_1a--39a1d13-1.i line 12 function reach_error
+  assertion 0
+  0
+
+
+VERIFICATION FAILED
+
+Bug found (k = 3)
+
+../sv-benchmarks/c/ldv-commit-tester/m0_drivers-block-virtio_blk-ko--101_1a--39a1d13-1.i:3505:16: warning: incompatible integer to pointer conversion returning 'int' from a function with result type 'void *' [-Wint-conversion]
+        return (16);
+               ^~~~
+../sv-benchmarks/c/ldv-commit-tester/m0_drivers-block-virtio_blk-ko--101_1a--39a1d13-1.i:3571:19: warning: incompatible integer to pointer conversion passing 'unsigned long' to parameter of type 'struct page *' [-Wint-conversion]
+  sg_set_page(sg, 0xffffea0000000000UL + (tmp >> 12), buflen, (unsigned int )((long )buf) & 4095U);
+                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-commit-tester/m0_drivers-block-virtio_blk-ko--101_1a--39a1d13-1.i:3556:72: note: passing argument to parameter 'page' here
+__inline static void sg_set_page(struct scatterlist *sg , struct page *page , unsigned int len ,
+                                                                       ^
+../sv-benchmarks/c/ldv-commit-tester/m0_drivers-block-virtio_blk-ko--101_1a--39a1d13-1.i:4330:22: warning: incompatible integer to pointer conversion passing 'unsigned long' to parameter of type 'const void *' [-Wint-conversion]
+    tmp = ldv_is_err((unsigned long )ptr);
+                     ^~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-commit-tester/m0_drivers-block-virtio_blk-ko--101_1a--39a1d13-1.i:4304:29: note: passing argument to parameter 'ptr' here
+long ldv_is_err(void const *ptr )
+                            ^
+
+FALSE_REACH

@@ -1,0 +1,115 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/ldv-linux-3.0/module_get_put-drivers-block-drbd-drbd.ko.cil.out-2.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-linux-3.0/module_get_put-drivers-block-drbd-drbd.ko.cil.out-2.i --64 --witness-output module_get_put-drivers-block-drbd-drbd.ko.cil.out-2.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 64-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/ldv-linux-3.0/module_get_put-drivers-block-drbd-drbd.ko.cil.out-2.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 18.370s
+GOTO program processing time: 2.807s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.017s (54 assignments)
+Slicing time: 0.001s (removed 50 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (4 assignments)
+BMC program time: 0.018s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.015s (54 assignments)
+Slicing time: 0.000s (removed 50 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (4 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.000s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.000s
+Runtime decision procedure: 0.001s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 34  iteration  1   file module_get_put-drivers-block-drbd-drbd.ko.cil.out-2.i line 10805 function main
+Unwinding loop 34  iteration  2   file module_get_put-drivers-block-drbd-drbd.ko.cil.out-2.i line 10805 function main
+Not unwinding 
+Unwinding loop 35  iteration  1   file module_get_put-drivers-block-drbd-drbd.ko.cil.out-2.i line 10808 function main
+Unwinding loop 34  iteration  1   file module_get_put-drivers-block-drbd-drbd.ko.cil.out-2.i line 10805 function main
+Unwinding loop 34  iteration  2   file module_get_put-drivers-block-drbd-drbd.ko.cil.out-2.i line 10805 function main
+Not unwinding 
+Unwinding loop 35  iteration  2   file module_get_put-drivers-block-drbd-drbd.ko.cil.out-2.i line 10808 function main
+Unwinding loop 34  iteration  1   file module_get_put-drivers-block-drbd-drbd.ko.cil.out-2.i line 10805 function main
+Unwinding loop 34  iteration  2   file module_get_put-drivers-block-drbd-drbd.ko.cil.out-2.i line 10805 function main
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.095s (699 assignments)
+Slicing time: 0.006s (removed 355 assignments)
+Generated 8 VCC(s), 8 remaining after simplification (344 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.004s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.004s
+Runtime decision procedure: 0.114s
+Building error trace
+
+Counterexample:
+
+State 1 file module_get_put-drivers-block-drbd-drbd.ko.cil.out-2.i line 10802 function main thread 0
+----------------------------------------------------
+  tmp___0 = -2147483648 (10000000 00000000 00000000 00000000)
+
+State 2 file module_get_put-drivers-block-drbd-drbd.ko.cil.out-2.i line 10761 function main thread 0
+----------------------------------------------------
+  tmp = 0 (00000000 00000000 00000000 00000000)
+
+State 3 file module_get_put-drivers-block-drbd-drbd.ko.cil.out-2.i line 12 function reach_error thread 0
+----------------------------------------------------
+Violated property:
+  file module_get_put-drivers-block-drbd-drbd.ko.cil.out-2.i line 12 function reach_error
+  assertion 0
+  0
+
+
+VERIFICATION FAILED
+
+Bug found (k = 3)
+
+../sv-benchmarks/c/ldv-linux-3.0/module_get_put-drivers-block-drbd-drbd.ko.cil.out-2.i:7881:3: warning: ignoring return value of function declared with const attribute [-Wunused-value]
+  __builtin_expect((long )(__ret_warn_on != 0), 0L);
+  ^~~~~~~~~~~~~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.0/module_get_put-drivers-block-drbd-drbd.ko.cil.out-2.i:8511:3: warning: ignoring return value of function declared with const attribute [-Wunused-value]
+  __builtin_expect((long )(__ret_warn_on != 0), 0L);
+  ^~~~~~~~~~~~~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.0/module_get_put-drivers-block-drbd-drbd.ko.cil.out-2.i:8523:3: warning: ignoring return value of function declared with const attribute [-Wunused-value]
+  __builtin_expect((long )(__ret_warn_on___0 != 0), 0L);
+  ^~~~~~~~~~~~~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.0/module_get_put-drivers-block-drbd-drbd.ko.cil.out-2.i:9020:5: warning: ignoring return value of function declared with const attribute [-Wunused-value]
+    __builtin_expect((long )(__ret_warn_on != 0), 0L);
+    ^~~~~~~~~~~~~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.0/module_get_put-drivers-block-drbd-drbd.ko.cil.out-2.i:14740:3: warning: ignoring return value of function declared with const attribute [-Wunused-value]
+  __builtin_expect((long )(__ret_warn_once != 0), 0L);
+  ^~~~~~~~~~~~~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.0/module_get_put-drivers-block-drbd-drbd.ko.cil.out-2.i:24011:36: warning: address of stack memory associated with local variable 'asender_tbl' returned [-Wreturn-stack-address]
+  return ((struct asender_cmd *)(& asender_tbl) + (unsigned long )cmd);
+                                   ^~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.0/module_get_put-drivers-block-drbd-drbd.ko.cil.out-2.i:37447:28: warning: address of stack memory associated with local variable 'buildtag' returned [-Wreturn-stack-address]
+  return ((char const *)(& buildtag));
+                           ^~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.0/module_get_put-drivers-block-drbd-drbd.ko.cil.out-2.i:44640:3: warning: 'memset' will always overflow; destination buffer has size 1, but size argument is 4 [-Wfortify-source]
+  memset((void *)(& primary_args), 0, 4UL);
+  ^
+../sv-benchmarks/c/ldv-linux-3.0/module_get_put-drivers-block-drbd-drbd.ko.cil.out-2.i:46660:3: warning: 'memset' will always overflow; destination buffer has size 1, but size argument is 4 [-Wfortify-source]
+  memset((void *)(& dc), 0, 4UL);
+  ^
+../sv-benchmarks/c/ldv-linux-3.0/module_get_put-drivers-block-drbd-drbd.ko.cil.out-2.i:47999:3: warning: 'memset' will always overflow; destination buffer has size 1, but size argument is 4 [-Wfortify-source]
+  memset((void *)(& args), 0, 4UL);
+  ^
+
+FALSE_REACH

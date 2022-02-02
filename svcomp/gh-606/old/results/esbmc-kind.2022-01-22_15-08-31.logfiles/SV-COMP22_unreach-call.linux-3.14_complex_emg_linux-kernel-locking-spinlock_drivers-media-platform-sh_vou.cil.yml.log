@@ -1,0 +1,17 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/ldv-linux-3.14/linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-platform-sh_vou.cil.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-linux-3.14/linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-platform-sh_vou.cil.i --64 --witness-output linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-platform-sh_vou.cil.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+
+../sv-benchmarks/c/ldv-linux-3.14/linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-platform-sh_vou.cil.i:4044:43: warning: declaration of 'struct v4l2_async_subdev' will not be visible outside of this function [-Wvisibility]
+   bool (*match)(struct device * , struct v4l2_async_subdev * ) ;
+                                          ^
+Can't construct rvalue reference to array type during dereference
+(It isn't allowed by C anyway)
+
+
+Unknown

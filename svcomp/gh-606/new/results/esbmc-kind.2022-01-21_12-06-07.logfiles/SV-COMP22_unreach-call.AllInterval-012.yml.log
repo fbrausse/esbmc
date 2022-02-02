@@ -1,0 +1,224 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/xcsp/AllInterval-012.c
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/xcsp/AllInterval-012.c --32 --witness-output AllInterval-012.c.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/xcsp/AllInterval-012.c: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.105s
+GOTO program processing time: 0.003s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Symex completed in: 0.015s (592 assignments)
+Slicing time: 0.001s (removed 11 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (581 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.005s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.005s
+Runtime decision procedure: 2.588s
+Building error trace
+
+Counterexample:
+
+State 1 file AllInterval-012.c line 28 function main thread 0
+----------------------------------------------------
+  var0 = 7 (00000000 00000000 00000000 00000111)
+
+State 2 file AllInterval-012.c line 32 function main thread 0
+----------------------------------------------------
+  var1 = 6 (00000000 00000000 00000000 00000110)
+
+State 3 file AllInterval-012.c line 36 function main thread 0
+----------------------------------------------------
+  var2 = 3 (00000000 00000000 00000000 00000011)
+
+State 4 file AllInterval-012.c line 40 function main thread 0
+----------------------------------------------------
+  var3 = 11 (00000000 00000000 00000000 00001011)
+
+State 5 file AllInterval-012.c line 44 function main thread 0
+----------------------------------------------------
+  var4 = 0 (00000000 00000000 00000000 00000000)
+
+State 6 file AllInterval-012.c line 48 function main thread 0
+----------------------------------------------------
+  var5 = 10 (00000000 00000000 00000000 00001010)
+
+State 7 file AllInterval-012.c line 52 function main thread 0
+----------------------------------------------------
+  var6 = 1 (00000000 00000000 00000000 00000001)
+
+State 8 file AllInterval-012.c line 56 function main thread 0
+----------------------------------------------------
+  var7 = 8 (00000000 00000000 00000000 00001000)
+
+State 9 file AllInterval-012.c line 60 function main thread 0
+----------------------------------------------------
+  var8 = 2 (00000000 00000000 00000000 00000010)
+
+State 10 file AllInterval-012.c line 64 function main thread 0
+----------------------------------------------------
+  var9 = 4 (00000000 00000000 00000000 00000100)
+
+State 11 file AllInterval-012.c line 68 function main thread 0
+----------------------------------------------------
+  var10 = 9 (00000000 00000000 00000000 00001001)
+
+State 12 file AllInterval-012.c line 72 function main thread 0
+----------------------------------------------------
+  var11 = 5 (00000000 00000000 00000000 00000101)
+
+State 13 file AllInterval-012.c line 76 function main thread 0
+----------------------------------------------------
+  var12 = 1 (00000000 00000000 00000000 00000001)
+
+State 14 file AllInterval-012.c line 80 function main thread 0
+----------------------------------------------------
+  var13 = 3 (00000000 00000000 00000000 00000011)
+
+State 15 file AllInterval-012.c line 84 function main thread 0
+----------------------------------------------------
+  var14 = 8 (00000000 00000000 00000000 00001000)
+
+State 16 file AllInterval-012.c line 88 function main thread 0
+----------------------------------------------------
+  var15 = 11 (00000000 00000000 00000000 00001011)
+
+State 17 file AllInterval-012.c line 92 function main thread 0
+----------------------------------------------------
+  var16 = 10 (00000000 00000000 00000000 00001010)
+
+State 18 file AllInterval-012.c line 96 function main thread 0
+----------------------------------------------------
+  var17 = 9 (00000000 00000000 00000000 00001001)
+
+State 19 file AllInterval-012.c line 100 function main thread 0
+----------------------------------------------------
+  var18 = 7 (00000000 00000000 00000000 00000111)
+
+State 20 file AllInterval-012.c line 104 function main thread 0
+----------------------------------------------------
+  var19 = 6 (00000000 00000000 00000000 00000110)
+
+State 21 file AllInterval-012.c line 108 function main thread 0
+----------------------------------------------------
+  var20 = 2 (00000000 00000000 00000000 00000010)
+
+State 22 file AllInterval-012.c line 112 function main thread 0
+----------------------------------------------------
+  var21 = 5 (00000000 00000000 00000000 00000101)
+
+State 23 file AllInterval-012.c line 116 function main thread 0
+----------------------------------------------------
+  var22 = 4 (00000000 00000000 00000000 00000100)
+
+State 24 file AllInterval-012.c line 242 function main thread 0
+----------------------------------------------------
+  var_for_abs = 1 (00000000 00000000 00000000 00000001)
+
+State 25 file AllInterval-012.c line 243 function main thread 0
+----------------------------------------------------
+  var_for_abs = 1 (00000000 00000000 00000000 00000001)
+
+State 26 file AllInterval-012.c line 245 function main thread 0
+----------------------------------------------------
+  var_for_abs = 3 (00000000 00000000 00000000 00000011)
+
+State 27 file AllInterval-012.c line 246 function main thread 0
+----------------------------------------------------
+  var_for_abs = 3 (00000000 00000000 00000000 00000011)
+
+State 28 file AllInterval-012.c line 248 function main thread 0
+----------------------------------------------------
+  var_for_abs = -8 (11111111 11111111 11111111 11111000)
+
+State 29 file AllInterval-012.c line 249 function main thread 0
+----------------------------------------------------
+  var_for_abs = 8 (00000000 00000000 00000000 00001000)
+
+State 30 file AllInterval-012.c line 251 function main thread 0
+----------------------------------------------------
+  var_for_abs = 11 (00000000 00000000 00000000 00001011)
+
+State 31 file AllInterval-012.c line 252 function main thread 0
+----------------------------------------------------
+  var_for_abs = 11 (00000000 00000000 00000000 00001011)
+
+State 32 file AllInterval-012.c line 254 function main thread 0
+----------------------------------------------------
+  var_for_abs = -10 (11111111 11111111 11111111 11110110)
+
+State 33 file AllInterval-012.c line 255 function main thread 0
+----------------------------------------------------
+  var_for_abs = 10 (00000000 00000000 00000000 00001010)
+
+State 34 file AllInterval-012.c line 257 function main thread 0
+----------------------------------------------------
+  var_for_abs = 9 (00000000 00000000 00000000 00001001)
+
+State 35 file AllInterval-012.c line 258 function main thread 0
+----------------------------------------------------
+  var_for_abs = 9 (00000000 00000000 00000000 00001001)
+
+State 36 file AllInterval-012.c line 260 function main thread 0
+----------------------------------------------------
+  var_for_abs = -7 (11111111 11111111 11111111 11111001)
+
+State 37 file AllInterval-012.c line 261 function main thread 0
+----------------------------------------------------
+  var_for_abs = 7 (00000000 00000000 00000000 00000111)
+
+State 38 file AllInterval-012.c line 263 function main thread 0
+----------------------------------------------------
+  var_for_abs = 6 (00000000 00000000 00000000 00000110)
+
+State 39 file AllInterval-012.c line 264 function main thread 0
+----------------------------------------------------
+  var_for_abs = 6 (00000000 00000000 00000000 00000110)
+
+State 40 file AllInterval-012.c line 266 function main thread 0
+----------------------------------------------------
+  var_for_abs = -2 (11111111 11111111 11111111 11111110)
+
+State 41 file AllInterval-012.c line 267 function main thread 0
+----------------------------------------------------
+  var_for_abs = 2 (00000000 00000000 00000000 00000010)
+
+State 42 file AllInterval-012.c line 269 function main thread 0
+----------------------------------------------------
+  var_for_abs = -5 (11111111 11111111 11111111 11111011)
+
+State 43 file AllInterval-012.c line 270 function main thread 0
+----------------------------------------------------
+  var_for_abs = 5 (00000000 00000000 00000000 00000101)
+
+State 44 file AllInterval-012.c line 272 function main thread 0
+----------------------------------------------------
+  var_for_abs = 4 (00000000 00000000 00000000 00000100)
+
+State 45 file AllInterval-012.c line 273 function main thread 0
+----------------------------------------------------
+  var_for_abs = 4 (00000000 00000000 00000000 00000100)
+
+State 46 file AllInterval-012.c line 17 function reach_error thread 0
+----------------------------------------------------
+Violated property:
+  file AllInterval-012.c line 17 function reach_error
+  assertion 0
+  0
+
+
+VERIFICATION FAILED
+
+Bug found (k = 1)
+
+
+FALSE_REACH

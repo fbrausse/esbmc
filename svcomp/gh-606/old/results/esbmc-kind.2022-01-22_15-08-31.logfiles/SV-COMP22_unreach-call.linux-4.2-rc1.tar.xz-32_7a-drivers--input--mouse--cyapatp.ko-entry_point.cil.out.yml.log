@@ -1,0 +1,32 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--input--mouse--cyapatp.ko-entry_point.cil.out.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--input--mouse--cyapatp.ko-entry_point.cil.out.i --64 --witness-output linux-4.2-rc1.tar.xz-32_7a-drivers--input--mouse--cyapatp.ko-entry_point.cil.out.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+
+../sv-benchmarks/c/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--input--mouse--cyapatp.ko-entry_point.cil.out.i:3835:10: warning: incompatible integer to pointer conversion returning 'long' from a function with result type 'ssize_t *' (aka 'long *') [-Wint-conversion]
+  return __VERIFIER_nondet_long();
+         ^~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--input--mouse--cyapatp.ko-entry_point.cil.out.i:3838:10: warning: incompatible integer to pointer conversion returning 'long' from a function with result type 'ssize_t *' (aka 'long *') [-Wint-conversion]
+  return __VERIFIER_nondet_long();
+         ^~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--input--mouse--cyapatp.ko-entry_point.cil.out.i:6173:35: warning: incompatible function pointer types assigning to 'ssize_t (*)(struct device *, struct device_attribute *, char *)' (aka 'long (*)(struct device *, struct device_attribute *, char *)') from 'ssize_t *(*)(struct device *, struct device_attribute *, char *)' (aka 'long *(*)(struct device *, struct device_attribute *, char *)') [-Wincompatible-function-pointer-types]
+  cyapa_dev_ops_p1->show_baseline = &show_baseline_dummy;
+                                  ^ ~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--input--mouse--cyapatp.ko-entry_point.cil.out.i:6174:37: warning: incompatible function pointer types assigning to 'ssize_t (*)(struct device *, struct device_attribute *, const char *, size_t)' (aka 'long (*)(struct device *, struct device_attribute *, const char *, unsigned long)') from 'ssize_t *(*)(struct device *, struct device_attribute *, const char *, size_t)' (aka 'long *(*)(struct device *, struct device_attribute *, const char *, unsigned long)') [-Wincompatible-function-pointer-types]
+  cyapa_dev_ops_p1->calibrate_store = &calibrate_store_dummy;
+                                    ^ ~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--input--mouse--cyapatp.ko-entry_point.cil.out.i:6730:8: warning: passing 'const struct firmware *' to parameter of type 'void *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+  free(firmware_p1);
+       ^~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--input--mouse--cyapatp.ko-entry_point.cil.out.i:3815:24: note: passing argument to parameter '__ptr' here
+extern void free(void *__ptr) __attribute__ ((__nothrow__ , __leaf__));
+                       ^
+Can't construct rvalue reference to array type during dereference
+(It isn't allowed by C anyway)
+
+
+Unknown

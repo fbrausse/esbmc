@@ -1,0 +1,54 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/valid-memsafety.prp -s kinduction --arch 32 ../sv-benchmarks/c/list-properties/list_flag-2.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/list-properties/list_flag-2.i --32 --witness-output list_flag-2.i.graphml --memory-leak-check --no-assertions --incremental-bmc 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/list-properties/list_flag-2.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.159s
+GOTO program processing time: 0.001s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.004s (72 assignments)
+Slicing time: 0.000s (removed 31 assignments)
+Generated 22 VCC(s), 12 remaining after simplification (41 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.002s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.002s
+Runtime decision procedure: 0.053s
+Building error trace
+
+Counterexample:
+
+State 1 file list_flag-2.i line 532 function main thread 0
+----------------------------------------------------
+  flag = 0 (00000000 00000000 00000000 00000000)
+
+State 3 file list_flag-2.i line 548 function main thread 0
+----------------------------------------------------
+  p->h = 3 (00000000 00000000 00000000 00000011)
+
+State 6 file list_flag-2.i line 558 function main thread 0
+----------------------------------------------------
+Violated property:
+  file list_flag-2.i line 558 function main
+  dereference failure: forgotten memory: dynamic_2_value
+
+
+VERIFICATION FAILED
+
+Bug found (k = 1)
+
+
+FALSE_MEMTRACK

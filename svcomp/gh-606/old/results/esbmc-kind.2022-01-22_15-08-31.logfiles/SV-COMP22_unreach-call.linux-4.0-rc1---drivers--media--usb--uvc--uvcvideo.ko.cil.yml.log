@@ -1,0 +1,17 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--media--usb--uvc--uvcvideo.ko.cil.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--media--usb--uvc--uvcvideo.ko.cil.i --64 --witness-output linux-4.0-rc1---drivers--media--usb--uvc--uvcvideo.ko.cil.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--media--usb--uvc--uvcvideo.ko.cil.i:4146:43: warning: declaration of 'struct v4l2_async_subdev' will not be visible outside of this function [-Wvisibility]
+   bool (*match)(struct device * , struct v4l2_async_subdev * ) ;
+                                          ^
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--media--usb--uvc--uvcvideo.ko.cil.i:8749:28: warning: address of stack memory associated with local variable 'buffer' returned [-Wreturn-stack-address]
+  return ((char const *)(& buffer));
+                           ^~~~~~
+
+Unknown

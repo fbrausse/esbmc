@@ -1,0 +1,73 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/heap-manipulation/bubble_sort_linux-2.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/heap-manipulation/bubble_sort_linux-2.i --32 --witness-output bubble_sort_linux-2.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/heap-manipulation/bubble_sort_linux-2.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.719s
+GOTO program processing time: 0.003s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.145s (203 assignments)
+Slicing time: 0.004s (removed 73 assignments)
+Generated 34 VCC(s), 34 remaining after simplification (130 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.019s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.019s
+Runtime decision procedure: 0.525s
+Building error trace
+
+Counterexample:
+
+State 1 file bubble_sort_linux-2.i line 902 function gl_insert thread 0
+----------------------------------------------------
+  node->value = 0 (00000000 00000000 00000000 00000000)
+
+State 2 file bubble_sort_linux-2.i line 879 function __list_add thread 0
+----------------------------------------------------
+  new->next = ( struct list_head *)(&gl_list)
+
+State 3 file bubble_sort_linux-2.i line 880 function __list_add thread 0
+----------------------------------------------------
+  new->prev = ( struct list_head *)(&gl_list)
+
+State 4 file bubble_sort_linux-2.i line 904 function gl_insert thread 0
+----------------------------------------------------
+  (&node->nested)->next = ( struct list_head *)(( struct list_head {  struct list_head * next;  struct list_head * prev; } *)((unsigned char *)(( struct node *)((void *)(&dynamic_2_value))) + 12))
+
+State 5 file bubble_sort_linux-2.i line 904 function gl_insert thread 0
+----------------------------------------------------
+  (&node->nested)->next = ( struct list_head *)(( struct list_head {  struct list_head * next;  struct list_head * prev; } *)((unsigned char *)(( struct node *)((void *)(&dynamic_2_value))) + 12))
+
+State 7 file bubble_sort_linux-2.i line 860 function inspect thread 0
+----------------------------------------------------
+  node = ( struct node *)(((signed char *)(( struct list_head *)(( struct list_head {  struct list_head * next;  struct list_head * prev; } *)((unsigned char *)(( struct node *)((void *)(&dynamic_2_value))) + 4)))) - ((unsigned int)(( struct list_head {  struct list_head * next;  struct list_head * prev; } *)((unsigned char *)0 + 4))))
+
+State 8 file bubble_sort_linux-2.i line 12 function reach_error thread 0
+----------------------------------------------------
+Violated property:
+  file bubble_sort_linux-2.i line 12 function reach_error
+  assertion 0
+  0
+
+
+VERIFICATION FAILED
+
+Bug found (k = 1)
+
+
+FALSE_REACH

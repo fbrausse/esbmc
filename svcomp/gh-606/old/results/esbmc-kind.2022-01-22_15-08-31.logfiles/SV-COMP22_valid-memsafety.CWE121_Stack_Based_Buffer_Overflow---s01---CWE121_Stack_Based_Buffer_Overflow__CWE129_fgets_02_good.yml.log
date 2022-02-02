@@ -1,0 +1,881 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/valid-memsafety.prp -s kinduction --arch 64 ../sv-benchmarks/c/Juliet_Test/CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/Juliet_Test/CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i --64 --witness-output CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i.graphml --memory-leak-check --no-assertions --incremental-bmc 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 64-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/Juliet_Test/CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.200s
+GOTO program processing time: 0.004s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+**** WARNING: no body for function srand
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.010s (153 assignments)
+Slicing time: 0.000s (removed 117 assignments)
+Generated 13 VCC(s), 5 remaining after simplification (36 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.004s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.004s
+Runtime decision procedure: 0.022s
+BMC program time: 0.037s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+**** WARNING: no body for function srand
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.010s (153 assignments)
+Slicing time: 0.000s (removed 117 assignments)
+Generated 18 VCC(s), 10 remaining after simplification (36 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.004s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.004s
+Runtime decision procedure: 0.608s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+**** WARNING: no body for function srand
+Unwinding loop 4  iteration  1   file io.c line 126 function fgets
+Unwinding loop 4  iteration  2   file io.c line 126 function fgets
+Not unwinding 
+Unwinding loop 5  iteration  1   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Unwinding loop 5  iteration  2   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Not unwinding 
+Unwinding loop 4  iteration  1   file io.c line 126 function fgets
+Unwinding loop 4  iteration  2   file io.c line 126 function fgets
+Not unwinding 
+Unwinding loop 6  iteration  1   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Unwinding loop 6  iteration  2   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Not unwinding 
+Unwinding loop 7  iteration  1   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Unwinding loop 7  iteration  2   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Not unwinding 
+Symex completed in: 0.022s (279 assignments)
+Slicing time: 0.001s (removed 203 assignments)
+Generated 35 VCC(s), 7 remaining after simplification (76 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.004s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.004s
+Runtime decision procedure: 0.025s
+BMC program time: 0.053s
+No bug has been found in the base case
+*** Checking forward condition, k = 3
+Starting Bounded Model Checking
+**** WARNING: no body for function srand
+Unwinding loop 4  iteration  1   file io.c line 126 function fgets
+Unwinding loop 4  iteration  2   file io.c line 126 function fgets
+Not unwinding 
+Unwinding loop 5  iteration  1   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Unwinding loop 5  iteration  2   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Not unwinding 
+Unwinding loop 4  iteration  1   file io.c line 126 function fgets
+Unwinding loop 4  iteration  2   file io.c line 126 function fgets
+Not unwinding 
+Unwinding loop 6  iteration  1   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Unwinding loop 6  iteration  2   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Not unwinding 
+Unwinding loop 7  iteration  1   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Unwinding loop 7  iteration  2   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Not unwinding 
+Symex completed in: 0.022s (279 assignments)
+Slicing time: 0.001s (removed 203 assignments)
+Generated 40 VCC(s), 12 remaining after simplification (76 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.005s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.005s
+Runtime decision procedure: 0.611s
+The forward condition is unable to prove the property
+*** Checking base case, k = 5
+Starting Bounded Model Checking
+**** WARNING: no body for function srand
+Unwinding loop 4  iteration  1   file io.c line 126 function fgets
+Unwinding loop 4  iteration  2   file io.c line 126 function fgets
+Unwinding loop 4  iteration  3   file io.c line 126 function fgets
+Unwinding loop 4  iteration  4   file io.c line 126 function fgets
+Not unwinding 
+Unwinding loop 5  iteration  1   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Unwinding loop 5  iteration  2   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Unwinding loop 5  iteration  3   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Unwinding loop 5  iteration  4   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Not unwinding 
+Unwinding loop 4  iteration  1   file io.c line 126 function fgets
+Unwinding loop 4  iteration  2   file io.c line 126 function fgets
+Unwinding loop 4  iteration  3   file io.c line 126 function fgets
+Unwinding loop 4  iteration  4   file io.c line 126 function fgets
+Not unwinding 
+Unwinding loop 6  iteration  1   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Unwinding loop 6  iteration  2   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Unwinding loop 6  iteration  3   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Unwinding loop 6  iteration  4   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Not unwinding 
+Unwinding loop 7  iteration  1   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Unwinding loop 7  iteration  2   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Unwinding loop 7  iteration  3   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Unwinding loop 7  iteration  4   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Not unwinding 
+Symex completed in: 0.031s (385 assignments)
+Slicing time: 0.001s (removed 275 assignments)
+Generated 55 VCC(s), 7 remaining after simplification (110 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.005s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.005s
+Runtime decision procedure: 0.589s
+BMC program time: 0.628s
+No bug has been found in the base case
+*** Checking forward condition, k = 5
+Starting Bounded Model Checking
+**** WARNING: no body for function srand
+Unwinding loop 4  iteration  1   file io.c line 126 function fgets
+Unwinding loop 4  iteration  2   file io.c line 126 function fgets
+Unwinding loop 4  iteration  3   file io.c line 126 function fgets
+Unwinding loop 4  iteration  4   file io.c line 126 function fgets
+Not unwinding 
+Unwinding loop 5  iteration  1   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Unwinding loop 5  iteration  2   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Unwinding loop 5  iteration  3   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Unwinding loop 5  iteration  4   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Not unwinding 
+Unwinding loop 4  iteration  1   file io.c line 126 function fgets
+Unwinding loop 4  iteration  2   file io.c line 126 function fgets
+Unwinding loop 4  iteration  3   file io.c line 126 function fgets
+Unwinding loop 4  iteration  4   file io.c line 126 function fgets
+Not unwinding 
+Unwinding loop 6  iteration  1   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Unwinding loop 6  iteration  2   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Unwinding loop 6  iteration  3   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Unwinding loop 6  iteration  4   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Not unwinding 
+Unwinding loop 7  iteration  1   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Unwinding loop 7  iteration  2   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Unwinding loop 7  iteration  3   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Unwinding loop 7  iteration  4   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Not unwinding 
+Symex completed in: 0.035s (385 assignments)
+Slicing time: 0.002s (removed 275 assignments)
+Generated 60 VCC(s), 12 remaining after simplification (110 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.005s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.005s
+Runtime decision procedure: 0.568s
+The forward condition is unable to prove the property
+*** Checking base case, k = 7
+Starting Bounded Model Checking
+**** WARNING: no body for function srand
+Unwinding loop 4  iteration  1   file io.c line 126 function fgets
+Unwinding loop 4  iteration  2   file io.c line 126 function fgets
+Unwinding loop 4  iteration  3   file io.c line 126 function fgets
+Unwinding loop 4  iteration  4   file io.c line 126 function fgets
+Unwinding loop 4  iteration  5   file io.c line 126 function fgets
+Unwinding loop 4  iteration  6   file io.c line 126 function fgets
+Not unwinding 
+Unwinding loop 5  iteration  1   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Unwinding loop 5  iteration  2   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Unwinding loop 5  iteration  3   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Unwinding loop 5  iteration  4   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Unwinding loop 5  iteration  5   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Unwinding loop 5  iteration  6   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Not unwinding 
+Unwinding loop 4  iteration  1   file io.c line 126 function fgets
+Unwinding loop 4  iteration  2   file io.c line 126 function fgets
+Unwinding loop 4  iteration  3   file io.c line 126 function fgets
+Unwinding loop 4  iteration  4   file io.c line 126 function fgets
+Unwinding loop 4  iteration  5   file io.c line 126 function fgets
+Unwinding loop 4  iteration  6   file io.c line 126 function fgets
+Not unwinding 
+Unwinding loop 6  iteration  1   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Unwinding loop 6  iteration  2   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Unwinding loop 6  iteration  3   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Unwinding loop 6  iteration  4   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Unwinding loop 6  iteration  5   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Unwinding loop 6  iteration  6   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Not unwinding 
+Unwinding loop 7  iteration  1   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Unwinding loop 7  iteration  2   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Unwinding loop 7  iteration  3   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Unwinding loop 7  iteration  4   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Unwinding loop 7  iteration  5   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Unwinding loop 7  iteration  6   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Not unwinding 
+Symex completed in: 0.044s (491 assignments)
+Slicing time: 0.002s (removed 347 assignments)
+Generated 75 VCC(s), 7 remaining after simplification (144 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.006s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.006s
+Runtime decision procedure: 0.602s
+BMC program time: 0.655s
+No bug has been found in the base case
+*** Checking forward condition, k = 7
+Starting Bounded Model Checking
+**** WARNING: no body for function srand
+Unwinding loop 4  iteration  1   file io.c line 126 function fgets
+Unwinding loop 4  iteration  2   file io.c line 126 function fgets
+Unwinding loop 4  iteration  3   file io.c line 126 function fgets
+Unwinding loop 4  iteration  4   file io.c line 126 function fgets
+Unwinding loop 4  iteration  5   file io.c line 126 function fgets
+Unwinding loop 4  iteration  6   file io.c line 126 function fgets
+Not unwinding 
+Unwinding loop 5  iteration  1   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Unwinding loop 5  iteration  2   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Unwinding loop 5  iteration  3   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Unwinding loop 5  iteration  4   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Unwinding loop 5  iteration  5   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Unwinding loop 5  iteration  6   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Not unwinding 
+Unwinding loop 4  iteration  1   file io.c line 126 function fgets
+Unwinding loop 4  iteration  2   file io.c line 126 function fgets
+Unwinding loop 4  iteration  3   file io.c line 126 function fgets
+Unwinding loop 4  iteration  4   file io.c line 126 function fgets
+Unwinding loop 4  iteration  5   file io.c line 126 function fgets
+Unwinding loop 4  iteration  6   file io.c line 126 function fgets
+Not unwinding 
+Unwinding loop 6  iteration  1   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Unwinding loop 6  iteration  2   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Unwinding loop 6  iteration  3   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Unwinding loop 6  iteration  4   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Unwinding loop 6  iteration  5   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Unwinding loop 6  iteration  6   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Not unwinding 
+Unwinding loop 7  iteration  1   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Unwinding loop 7  iteration  2   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Unwinding loop 7  iteration  3   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Unwinding loop 7  iteration  4   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Unwinding loop 7  iteration  5   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Unwinding loop 7  iteration  6   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Not unwinding 
+Symex completed in: 0.046s (491 assignments)
+Slicing time: 0.002s (removed 347 assignments)
+Generated 80 VCC(s), 12 remaining after simplification (144 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.006s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.006s
+Runtime decision procedure: 0.606s
+The forward condition is unable to prove the property
+*** Checking base case, k = 9
+Starting Bounded Model Checking
+**** WARNING: no body for function srand
+Unwinding loop 4  iteration  1   file io.c line 126 function fgets
+Unwinding loop 4  iteration  2   file io.c line 126 function fgets
+Unwinding loop 4  iteration  3   file io.c line 126 function fgets
+Unwinding loop 4  iteration  4   file io.c line 126 function fgets
+Unwinding loop 4  iteration  5   file io.c line 126 function fgets
+Unwinding loop 4  iteration  6   file io.c line 126 function fgets
+Unwinding loop 4  iteration  7   file io.c line 126 function fgets
+Unwinding loop 4  iteration  8   file io.c line 126 function fgets
+Not unwinding 
+Unwinding loop 5  iteration  1   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Unwinding loop 5  iteration  2   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Unwinding loop 5  iteration  3   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Unwinding loop 5  iteration  4   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Unwinding loop 5  iteration  5   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Unwinding loop 5  iteration  6   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Unwinding loop 5  iteration  7   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Unwinding loop 5  iteration  8   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Not unwinding 
+Unwinding loop 4  iteration  1   file io.c line 126 function fgets
+Unwinding loop 4  iteration  2   file io.c line 126 function fgets
+Unwinding loop 4  iteration  3   file io.c line 126 function fgets
+Unwinding loop 4  iteration  4   file io.c line 126 function fgets
+Unwinding loop 4  iteration  5   file io.c line 126 function fgets
+Unwinding loop 4  iteration  6   file io.c line 126 function fgets
+Unwinding loop 4  iteration  7   file io.c line 126 function fgets
+Unwinding loop 4  iteration  8   file io.c line 126 function fgets
+Not unwinding 
+Unwinding loop 6  iteration  1   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Unwinding loop 6  iteration  2   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Unwinding loop 6  iteration  3   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Unwinding loop 6  iteration  4   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Unwinding loop 6  iteration  5   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Unwinding loop 6  iteration  6   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Unwinding loop 6  iteration  7   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Unwinding loop 6  iteration  8   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Not unwinding 
+Unwinding loop 7  iteration  1   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Unwinding loop 7  iteration  2   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Unwinding loop 7  iteration  3   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Unwinding loop 7  iteration  4   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Unwinding loop 7  iteration  5   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Unwinding loop 7  iteration  6   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Unwinding loop 7  iteration  7   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Unwinding loop 7  iteration  8   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Not unwinding 
+Symex completed in: 0.059s (597 assignments)
+Slicing time: 0.003s (removed 419 assignments)
+Generated 95 VCC(s), 7 remaining after simplification (178 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.006s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.006s
+Runtime decision procedure: 0.630s
+BMC program time: 0.699s
+No bug has been found in the base case
+*** Checking forward condition, k = 9
+Starting Bounded Model Checking
+**** WARNING: no body for function srand
+Unwinding loop 4  iteration  1   file io.c line 126 function fgets
+Unwinding loop 4  iteration  2   file io.c line 126 function fgets
+Unwinding loop 4  iteration  3   file io.c line 126 function fgets
+Unwinding loop 4  iteration  4   file io.c line 126 function fgets
+Unwinding loop 4  iteration  5   file io.c line 126 function fgets
+Unwinding loop 4  iteration  6   file io.c line 126 function fgets
+Unwinding loop 4  iteration  7   file io.c line 126 function fgets
+Unwinding loop 4  iteration  8   file io.c line 126 function fgets
+Not unwinding 
+Unwinding loop 5  iteration  1   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Unwinding loop 5  iteration  2   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Unwinding loop 5  iteration  3   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Unwinding loop 5  iteration  4   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Unwinding loop 5  iteration  5   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Unwinding loop 5  iteration  6   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Unwinding loop 5  iteration  7   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Unwinding loop 5  iteration  8   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Not unwinding 
+Unwinding loop 4  iteration  1   file io.c line 126 function fgets
+Unwinding loop 4  iteration  2   file io.c line 126 function fgets
+Unwinding loop 4  iteration  3   file io.c line 126 function fgets
+Unwinding loop 4  iteration  4   file io.c line 126 function fgets
+Unwinding loop 4  iteration  5   file io.c line 126 function fgets
+Unwinding loop 4  iteration  6   file io.c line 126 function fgets
+Unwinding loop 4  iteration  7   file io.c line 126 function fgets
+Unwinding loop 4  iteration  8   file io.c line 126 function fgets
+Not unwinding 
+Unwinding loop 6  iteration  1   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Unwinding loop 6  iteration  2   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Unwinding loop 6  iteration  3   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Unwinding loop 6  iteration  4   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Unwinding loop 6  iteration  5   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Unwinding loop 6  iteration  6   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Unwinding loop 6  iteration  7   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Unwinding loop 6  iteration  8   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Not unwinding 
+Unwinding loop 7  iteration  1   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Unwinding loop 7  iteration  2   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Unwinding loop 7  iteration  3   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Unwinding loop 7  iteration  4   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Unwinding loop 7  iteration  5   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Unwinding loop 7  iteration  6   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Unwinding loop 7  iteration  7   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Unwinding loop 7  iteration  8   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Not unwinding 
+Symex completed in: 0.060s (597 assignments)
+Slicing time: 0.002s (removed 419 assignments)
+Generated 100 VCC(s), 12 remaining after simplification (178 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.006s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.006s
+Runtime decision procedure: 0.612s
+The forward condition is unable to prove the property
+*** Checking base case, k = 11
+Starting Bounded Model Checking
+**** WARNING: no body for function srand
+Unwinding loop 4  iteration  1   file io.c line 126 function fgets
+Unwinding loop 4  iteration  2   file io.c line 126 function fgets
+Unwinding loop 4  iteration  3   file io.c line 126 function fgets
+Unwinding loop 4  iteration  4   file io.c line 126 function fgets
+Unwinding loop 4  iteration  5   file io.c line 126 function fgets
+Unwinding loop 4  iteration  6   file io.c line 126 function fgets
+Unwinding loop 4  iteration  7   file io.c line 126 function fgets
+Unwinding loop 4  iteration  8   file io.c line 126 function fgets
+Unwinding loop 4  iteration  9   file io.c line 126 function fgets
+Unwinding loop 4  iteration  10   file io.c line 126 function fgets
+Not unwinding 
+Unwinding loop 5  iteration  1   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Unwinding loop 5  iteration  2   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Unwinding loop 5  iteration  3   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Unwinding loop 5  iteration  4   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Unwinding loop 5  iteration  5   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Unwinding loop 5  iteration  6   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Unwinding loop 5  iteration  7   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Unwinding loop 5  iteration  8   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Unwinding loop 5  iteration  9   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Unwinding loop 5  iteration  10   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Unwinding loop 4  iteration  1   file io.c line 126 function fgets
+Unwinding loop 4  iteration  2   file io.c line 126 function fgets
+Unwinding loop 4  iteration  3   file io.c line 126 function fgets
+Unwinding loop 4  iteration  4   file io.c line 126 function fgets
+Unwinding loop 4  iteration  5   file io.c line 126 function fgets
+Unwinding loop 4  iteration  6   file io.c line 126 function fgets
+Unwinding loop 4  iteration  7   file io.c line 126 function fgets
+Unwinding loop 4  iteration  8   file io.c line 126 function fgets
+Unwinding loop 4  iteration  9   file io.c line 126 function fgets
+Unwinding loop 4  iteration  10   file io.c line 126 function fgets
+Not unwinding 
+Unwinding loop 6  iteration  1   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Unwinding loop 6  iteration  2   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Unwinding loop 6  iteration  3   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Unwinding loop 6  iteration  4   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Unwinding loop 6  iteration  5   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Unwinding loop 6  iteration  6   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Unwinding loop 6  iteration  7   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Unwinding loop 6  iteration  8   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Unwinding loop 6  iteration  9   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Unwinding loop 6  iteration  10   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Unwinding loop 7  iteration  1   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Unwinding loop 7  iteration  2   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Unwinding loop 7  iteration  3   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Unwinding loop 7  iteration  4   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Unwinding loop 7  iteration  5   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Unwinding loop 7  iteration  6   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Unwinding loop 7  iteration  7   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Unwinding loop 7  iteration  8   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Unwinding loop 7  iteration  9   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Unwinding loop 7  iteration  10   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Unwinding loop 8  iteration  1   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1068 function goodG2B2
+Unwinding loop 8  iteration  2   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1068 function goodG2B2
+Unwinding loop 8  iteration  3   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1068 function goodG2B2
+Unwinding loop 8  iteration  4   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1068 function goodG2B2
+Unwinding loop 8  iteration  5   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1068 function goodG2B2
+Unwinding loop 8  iteration  6   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1068 function goodG2B2
+Unwinding loop 8  iteration  7   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1068 function goodG2B2
+Unwinding loop 8  iteration  8   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1068 function goodG2B2
+Unwinding loop 8  iteration  9   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1068 function goodG2B2
+Unwinding loop 8  iteration  10   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1068 function goodG2B2
+Symex completed in: 0.078s (742 assignments)
+Slicing time: 0.003s (removed 522 assignments)
+Generated 137 VCC(s), 7 remaining after simplification (220 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.008s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.008s
+Runtime decision procedure: 0.943s
+BMC program time: 1.033s
+No bug has been found in the base case
+*** Checking forward condition, k = 11
+Starting Bounded Model Checking
+**** WARNING: no body for function srand
+Unwinding loop 4  iteration  1   file io.c line 126 function fgets
+Unwinding loop 4  iteration  2   file io.c line 126 function fgets
+Unwinding loop 4  iteration  3   file io.c line 126 function fgets
+Unwinding loop 4  iteration  4   file io.c line 126 function fgets
+Unwinding loop 4  iteration  5   file io.c line 126 function fgets
+Unwinding loop 4  iteration  6   file io.c line 126 function fgets
+Unwinding loop 4  iteration  7   file io.c line 126 function fgets
+Unwinding loop 4  iteration  8   file io.c line 126 function fgets
+Unwinding loop 4  iteration  9   file io.c line 126 function fgets
+Unwinding loop 4  iteration  10   file io.c line 126 function fgets
+Not unwinding 
+Unwinding loop 5  iteration  1   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Unwinding loop 5  iteration  2   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Unwinding loop 5  iteration  3   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Unwinding loop 5  iteration  4   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Unwinding loop 5  iteration  5   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Unwinding loop 5  iteration  6   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Unwinding loop 5  iteration  7   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Unwinding loop 5  iteration  8   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Unwinding loop 5  iteration  9   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Unwinding loop 5  iteration  10   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Unwinding loop 4  iteration  1   file io.c line 126 function fgets
+Unwinding loop 4  iteration  2   file io.c line 126 function fgets
+Unwinding loop 4  iteration  3   file io.c line 126 function fgets
+Unwinding loop 4  iteration  4   file io.c line 126 function fgets
+Unwinding loop 4  iteration  5   file io.c line 126 function fgets
+Unwinding loop 4  iteration  6   file io.c line 126 function fgets
+Unwinding loop 4  iteration  7   file io.c line 126 function fgets
+Unwinding loop 4  iteration  8   file io.c line 126 function fgets
+Unwinding loop 4  iteration  9   file io.c line 126 function fgets
+Unwinding loop 4  iteration  10   file io.c line 126 function fgets
+Not unwinding 
+Unwinding loop 6  iteration  1   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Unwinding loop 6  iteration  2   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Unwinding loop 6  iteration  3   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Unwinding loop 6  iteration  4   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Unwinding loop 6  iteration  5   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Unwinding loop 6  iteration  6   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Unwinding loop 6  iteration  7   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Unwinding loop 6  iteration  8   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Unwinding loop 6  iteration  9   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Unwinding loop 6  iteration  10   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Unwinding loop 7  iteration  1   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Unwinding loop 7  iteration  2   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Unwinding loop 7  iteration  3   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Unwinding loop 7  iteration  4   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Unwinding loop 7  iteration  5   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Unwinding loop 7  iteration  6   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Unwinding loop 7  iteration  7   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Unwinding loop 7  iteration  8   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Unwinding loop 7  iteration  9   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Unwinding loop 7  iteration  10   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Unwinding loop 8  iteration  1   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1068 function goodG2B2
+Unwinding loop 8  iteration  2   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1068 function goodG2B2
+Unwinding loop 8  iteration  3   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1068 function goodG2B2
+Unwinding loop 8  iteration  4   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1068 function goodG2B2
+Unwinding loop 8  iteration  5   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1068 function goodG2B2
+Unwinding loop 8  iteration  6   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1068 function goodG2B2
+Unwinding loop 8  iteration  7   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1068 function goodG2B2
+Unwinding loop 8  iteration  8   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1068 function goodG2B2
+Unwinding loop 8  iteration  9   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1068 function goodG2B2
+Unwinding loop 8  iteration  10   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1068 function goodG2B2
+Symex completed in: 0.077s (742 assignments)
+Slicing time: 0.004s (removed 522 assignments)
+Generated 139 VCC(s), 9 remaining after simplification (220 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.008s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.008s
+Runtime decision procedure: 0.884s
+The forward condition is unable to prove the property
+*** Checking base case, k = 13
+Starting Bounded Model Checking
+**** WARNING: no body for function srand
+Unwinding loop 4  iteration  1   file io.c line 126 function fgets
+Unwinding loop 4  iteration  2   file io.c line 126 function fgets
+Unwinding loop 4  iteration  3   file io.c line 126 function fgets
+Unwinding loop 4  iteration  4   file io.c line 126 function fgets
+Unwinding loop 4  iteration  5   file io.c line 126 function fgets
+Unwinding loop 4  iteration  6   file io.c line 126 function fgets
+Unwinding loop 4  iteration  7   file io.c line 126 function fgets
+Unwinding loop 4  iteration  8   file io.c line 126 function fgets
+Unwinding loop 4  iteration  9   file io.c line 126 function fgets
+Unwinding loop 4  iteration  10   file io.c line 126 function fgets
+Unwinding loop 4  iteration  11   file io.c line 126 function fgets
+Unwinding loop 4  iteration  12   file io.c line 126 function fgets
+Not unwinding 
+Unwinding loop 5  iteration  1   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Unwinding loop 5  iteration  2   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Unwinding loop 5  iteration  3   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Unwinding loop 5  iteration  4   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Unwinding loop 5  iteration  5   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Unwinding loop 5  iteration  6   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Unwinding loop 5  iteration  7   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Unwinding loop 5  iteration  8   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Unwinding loop 5  iteration  9   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Unwinding loop 5  iteration  10   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Unwinding loop 4  iteration  1   file io.c line 126 function fgets
+Unwinding loop 4  iteration  2   file io.c line 126 function fgets
+Unwinding loop 4  iteration  3   file io.c line 126 function fgets
+Unwinding loop 4  iteration  4   file io.c line 126 function fgets
+Unwinding loop 4  iteration  5   file io.c line 126 function fgets
+Unwinding loop 4  iteration  6   file io.c line 126 function fgets
+Unwinding loop 4  iteration  7   file io.c line 126 function fgets
+Unwinding loop 4  iteration  8   file io.c line 126 function fgets
+Unwinding loop 4  iteration  9   file io.c line 126 function fgets
+Unwinding loop 4  iteration  10   file io.c line 126 function fgets
+Unwinding loop 4  iteration  11   file io.c line 126 function fgets
+Unwinding loop 4  iteration  12   file io.c line 126 function fgets
+Not unwinding 
+Unwinding loop 6  iteration  1   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Unwinding loop 6  iteration  2   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Unwinding loop 6  iteration  3   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Unwinding loop 6  iteration  4   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Unwinding loop 6  iteration  5   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Unwinding loop 6  iteration  6   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Unwinding loop 6  iteration  7   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Unwinding loop 6  iteration  8   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Unwinding loop 6  iteration  9   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Unwinding loop 6  iteration  10   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Unwinding loop 7  iteration  1   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Unwinding loop 7  iteration  2   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Unwinding loop 7  iteration  3   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Unwinding loop 7  iteration  4   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Unwinding loop 7  iteration  5   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Unwinding loop 7  iteration  6   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Unwinding loop 7  iteration  7   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Unwinding loop 7  iteration  8   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Unwinding loop 7  iteration  9   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Unwinding loop 7  iteration  10   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Unwinding loop 8  iteration  1   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1068 function goodG2B2
+Unwinding loop 8  iteration  2   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1068 function goodG2B2
+Unwinding loop 8  iteration  3   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1068 function goodG2B2
+Unwinding loop 8  iteration  4   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1068 function goodG2B2
+Unwinding loop 8  iteration  5   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1068 function goodG2B2
+Unwinding loop 8  iteration  6   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1068 function goodG2B2
+Unwinding loop 8  iteration  7   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1068 function goodG2B2
+Unwinding loop 8  iteration  8   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1068 function goodG2B2
+Unwinding loop 8  iteration  9   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1068 function goodG2B2
+Unwinding loop 8  iteration  10   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1068 function goodG2B2
+Symex completed in: 0.093s (830 assignments)
+Slicing time: 0.004s (removed 582 assignments)
+Generated 145 VCC(s), 7 remaining after simplification (248 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.008s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.008s
+Runtime decision procedure: 0.876s
+BMC program time: 0.982s
+No bug has been found in the base case
+*** Checking forward condition, k = 13
+Starting Bounded Model Checking
+**** WARNING: no body for function srand
+Unwinding loop 4  iteration  1   file io.c line 126 function fgets
+Unwinding loop 4  iteration  2   file io.c line 126 function fgets
+Unwinding loop 4  iteration  3   file io.c line 126 function fgets
+Unwinding loop 4  iteration  4   file io.c line 126 function fgets
+Unwinding loop 4  iteration  5   file io.c line 126 function fgets
+Unwinding loop 4  iteration  6   file io.c line 126 function fgets
+Unwinding loop 4  iteration  7   file io.c line 126 function fgets
+Unwinding loop 4  iteration  8   file io.c line 126 function fgets
+Unwinding loop 4  iteration  9   file io.c line 126 function fgets
+Unwinding loop 4  iteration  10   file io.c line 126 function fgets
+Unwinding loop 4  iteration  11   file io.c line 126 function fgets
+Unwinding loop 4  iteration  12   file io.c line 126 function fgets
+Not unwinding 
+Unwinding loop 5  iteration  1   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Unwinding loop 5  iteration  2   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Unwinding loop 5  iteration  3   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Unwinding loop 5  iteration  4   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Unwinding loop 5  iteration  5   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Unwinding loop 5  iteration  6   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Unwinding loop 5  iteration  7   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Unwinding loop 5  iteration  8   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Unwinding loop 5  iteration  9   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Unwinding loop 5  iteration  10   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Unwinding loop 4  iteration  1   file io.c line 126 function fgets
+Unwinding loop 4  iteration  2   file io.c line 126 function fgets
+Unwinding loop 4  iteration  3   file io.c line 126 function fgets
+Unwinding loop 4  iteration  4   file io.c line 126 function fgets
+Unwinding loop 4  iteration  5   file io.c line 126 function fgets
+Unwinding loop 4  iteration  6   file io.c line 126 function fgets
+Unwinding loop 4  iteration  7   file io.c line 126 function fgets
+Unwinding loop 4  iteration  8   file io.c line 126 function fgets
+Unwinding loop 4  iteration  9   file io.c line 126 function fgets
+Unwinding loop 4  iteration  10   file io.c line 126 function fgets
+Unwinding loop 4  iteration  11   file io.c line 126 function fgets
+Unwinding loop 4  iteration  12   file io.c line 126 function fgets
+Not unwinding 
+Unwinding loop 6  iteration  1   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Unwinding loop 6  iteration  2   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Unwinding loop 6  iteration  3   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Unwinding loop 6  iteration  4   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Unwinding loop 6  iteration  5   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Unwinding loop 6  iteration  6   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Unwinding loop 6  iteration  7   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Unwinding loop 6  iteration  8   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Unwinding loop 6  iteration  9   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Unwinding loop 6  iteration  10   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Unwinding loop 7  iteration  1   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Unwinding loop 7  iteration  2   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Unwinding loop 7  iteration  3   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Unwinding loop 7  iteration  4   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Unwinding loop 7  iteration  5   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Unwinding loop 7  iteration  6   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Unwinding loop 7  iteration  7   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Unwinding loop 7  iteration  8   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Unwinding loop 7  iteration  9   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Unwinding loop 7  iteration  10   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Unwinding loop 8  iteration  1   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1068 function goodG2B2
+Unwinding loop 8  iteration  2   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1068 function goodG2B2
+Unwinding loop 8  iteration  3   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1068 function goodG2B2
+Unwinding loop 8  iteration  4   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1068 function goodG2B2
+Unwinding loop 8  iteration  5   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1068 function goodG2B2
+Unwinding loop 8  iteration  6   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1068 function goodG2B2
+Unwinding loop 8  iteration  7   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1068 function goodG2B2
+Unwinding loop 8  iteration  8   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1068 function goodG2B2
+Unwinding loop 8  iteration  9   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1068 function goodG2B2
+Unwinding loop 8  iteration  10   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1068 function goodG2B2
+Symex completed in: 0.093s (830 assignments)
+Slicing time: 0.004s (removed 582 assignments)
+Generated 147 VCC(s), 9 remaining after simplification (248 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.008s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.008s
+Runtime decision procedure: 0.927s
+The forward condition is unable to prove the property
+*** Checking base case, k = 15
+Starting Bounded Model Checking
+**** WARNING: no body for function srand
+Unwinding loop 4  iteration  1   file io.c line 126 function fgets
+Unwinding loop 4  iteration  2   file io.c line 126 function fgets
+Unwinding loop 4  iteration  3   file io.c line 126 function fgets
+Unwinding loop 4  iteration  4   file io.c line 126 function fgets
+Unwinding loop 4  iteration  5   file io.c line 126 function fgets
+Unwinding loop 4  iteration  6   file io.c line 126 function fgets
+Unwinding loop 4  iteration  7   file io.c line 126 function fgets
+Unwinding loop 4  iteration  8   file io.c line 126 function fgets
+Unwinding loop 4  iteration  9   file io.c line 126 function fgets
+Unwinding loop 4  iteration  10   file io.c line 126 function fgets
+Unwinding loop 4  iteration  11   file io.c line 126 function fgets
+Unwinding loop 4  iteration  12   file io.c line 126 function fgets
+Unwinding loop 4  iteration  13   file io.c line 126 function fgets
+Unwinding loop 4  iteration  14   file io.c line 126 function fgets
+Unwinding loop 5  iteration  1   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Unwinding loop 5  iteration  2   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Unwinding loop 5  iteration  3   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Unwinding loop 5  iteration  4   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Unwinding loop 5  iteration  5   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Unwinding loop 5  iteration  6   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Unwinding loop 5  iteration  7   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Unwinding loop 5  iteration  8   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Unwinding loop 5  iteration  9   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Unwinding loop 5  iteration  10   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Unwinding loop 4  iteration  1   file io.c line 126 function fgets
+Unwinding loop 4  iteration  2   file io.c line 126 function fgets
+Unwinding loop 4  iteration  3   file io.c line 126 function fgets
+Unwinding loop 4  iteration  4   file io.c line 126 function fgets
+Unwinding loop 4  iteration  5   file io.c line 126 function fgets
+Unwinding loop 4  iteration  6   file io.c line 126 function fgets
+Unwinding loop 4  iteration  7   file io.c line 126 function fgets
+Unwinding loop 4  iteration  8   file io.c line 126 function fgets
+Unwinding loop 4  iteration  9   file io.c line 126 function fgets
+Unwinding loop 4  iteration  10   file io.c line 126 function fgets
+Unwinding loop 4  iteration  11   file io.c line 126 function fgets
+Unwinding loop 4  iteration  12   file io.c line 126 function fgets
+Unwinding loop 4  iteration  13   file io.c line 126 function fgets
+Unwinding loop 4  iteration  14   file io.c line 126 function fgets
+Unwinding loop 6  iteration  1   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Unwinding loop 6  iteration  2   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Unwinding loop 6  iteration  3   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Unwinding loop 6  iteration  4   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Unwinding loop 6  iteration  5   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Unwinding loop 6  iteration  6   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Unwinding loop 6  iteration  7   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Unwinding loop 6  iteration  8   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Unwinding loop 6  iteration  9   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Unwinding loop 6  iteration  10   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Unwinding loop 7  iteration  1   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Unwinding loop 7  iteration  2   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Unwinding loop 7  iteration  3   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Unwinding loop 7  iteration  4   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Unwinding loop 7  iteration  5   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Unwinding loop 7  iteration  6   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Unwinding loop 7  iteration  7   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Unwinding loop 7  iteration  8   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Unwinding loop 7  iteration  9   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Unwinding loop 7  iteration  10   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Unwinding loop 8  iteration  1   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1068 function goodG2B2
+Unwinding loop 8  iteration  2   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1068 function goodG2B2
+Unwinding loop 8  iteration  3   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1068 function goodG2B2
+Unwinding loop 8  iteration  4   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1068 function goodG2B2
+Unwinding loop 8  iteration  5   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1068 function goodG2B2
+Unwinding loop 8  iteration  6   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1068 function goodG2B2
+Unwinding loop 8  iteration  7   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1068 function goodG2B2
+Unwinding loop 8  iteration  8   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1068 function goodG2B2
+Unwinding loop 8  iteration  9   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1068 function goodG2B2
+Unwinding loop 8  iteration  10   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1068 function goodG2B2
+Symex completed in: 0.104s (876 assignments)
+Slicing time: 0.004s (removed 556 assignments)
+Generated 149 VCC(s), 7 remaining after simplification (320 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.010s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.010s
+Runtime decision procedure: 0.893s
+BMC program time: 1.011s
+No bug has been found in the base case
+*** Checking forward condition, k = 15
+Starting Bounded Model Checking
+**** WARNING: no body for function srand
+Unwinding loop 4  iteration  1   file io.c line 126 function fgets
+Unwinding loop 4  iteration  2   file io.c line 126 function fgets
+Unwinding loop 4  iteration  3   file io.c line 126 function fgets
+Unwinding loop 4  iteration  4   file io.c line 126 function fgets
+Unwinding loop 4  iteration  5   file io.c line 126 function fgets
+Unwinding loop 4  iteration  6   file io.c line 126 function fgets
+Unwinding loop 4  iteration  7   file io.c line 126 function fgets
+Unwinding loop 4  iteration  8   file io.c line 126 function fgets
+Unwinding loop 4  iteration  9   file io.c line 126 function fgets
+Unwinding loop 4  iteration  10   file io.c line 126 function fgets
+Unwinding loop 4  iteration  11   file io.c line 126 function fgets
+Unwinding loop 4  iteration  12   file io.c line 126 function fgets
+Unwinding loop 4  iteration  13   file io.c line 126 function fgets
+Unwinding loop 4  iteration  14   file io.c line 126 function fgets
+Unwinding loop 5  iteration  1   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Unwinding loop 5  iteration  2   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Unwinding loop 5  iteration  3   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Unwinding loop 5  iteration  4   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Unwinding loop 5  iteration  5   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Unwinding loop 5  iteration  6   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Unwinding loop 5  iteration  7   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Unwinding loop 5  iteration  8   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Unwinding loop 5  iteration  9   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Unwinding loop 5  iteration  10   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 932 function goodB2G1
+Unwinding loop 4  iteration  1   file io.c line 126 function fgets
+Unwinding loop 4  iteration  2   file io.c line 126 function fgets
+Unwinding loop 4  iteration  3   file io.c line 126 function fgets
+Unwinding loop 4  iteration  4   file io.c line 126 function fgets
+Unwinding loop 4  iteration  5   file io.c line 126 function fgets
+Unwinding loop 4  iteration  6   file io.c line 126 function fgets
+Unwinding loop 4  iteration  7   file io.c line 126 function fgets
+Unwinding loop 4  iteration  8   file io.c line 126 function fgets
+Unwinding loop 4  iteration  9   file io.c line 126 function fgets
+Unwinding loop 4  iteration  10   file io.c line 126 function fgets
+Unwinding loop 4  iteration  11   file io.c line 126 function fgets
+Unwinding loop 4  iteration  12   file io.c line 126 function fgets
+Unwinding loop 4  iteration  13   file io.c line 126 function fgets
+Unwinding loop 4  iteration  14   file io.c line 126 function fgets
+Unwinding loop 6  iteration  1   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Unwinding loop 6  iteration  2   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Unwinding loop 6  iteration  3   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Unwinding loop 6  iteration  4   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Unwinding loop 6  iteration  5   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Unwinding loop 6  iteration  6   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Unwinding loop 6  iteration  7   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Unwinding loop 6  iteration  8   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Unwinding loop 6  iteration  9   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Unwinding loop 6  iteration  10   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 984 function goodB2G2
+Unwinding loop 7  iteration  1   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Unwinding loop 7  iteration  2   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Unwinding loop 7  iteration  3   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Unwinding loop 7  iteration  4   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Unwinding loop 7  iteration  5   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Unwinding loop 7  iteration  6   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Unwinding loop 7  iteration  7   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Unwinding loop 7  iteration  8   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Unwinding loop 7  iteration  9   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Unwinding loop 7  iteration  10   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1026 function goodG2B1
+Unwinding loop 8  iteration  1   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1068 function goodG2B2
+Unwinding loop 8  iteration  2   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1068 function goodG2B2
+Unwinding loop 8  iteration  3   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1068 function goodG2B2
+Unwinding loop 8  iteration  4   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1068 function goodG2B2
+Unwinding loop 8  iteration  5   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1068 function goodG2B2
+Unwinding loop 8  iteration  6   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1068 function goodG2B2
+Unwinding loop 8  iteration  7   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1068 function goodG2B2
+Unwinding loop 8  iteration  8   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1068 function goodG2B2
+Unwinding loop 8  iteration  9   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1068 function goodG2B2
+Unwinding loop 8  iteration  10   file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_02_good.i line 1068 function goodG2B2
+Symex completed in: 0.105s (876 assignments)
+Slicing time: 0.004s (removed 556 assignments)
+Generated 149 VCC(s), 7 remaining after simplification (320 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.010s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.010s
+Runtime decision procedure: 0.908s
+BMC program time: 1.028s
+Building successful trace
+
+VERIFICATION SUCCESSFUL
+
+Solution found by the forward condition; all states are reachable (k = 15
+
+
+TRUE

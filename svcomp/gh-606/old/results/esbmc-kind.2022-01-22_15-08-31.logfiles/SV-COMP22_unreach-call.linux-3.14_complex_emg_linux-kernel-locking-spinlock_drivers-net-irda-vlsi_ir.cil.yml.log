@@ -1,0 +1,73 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/ldv-linux-3.14/linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-net-irda-vlsi_ir.cil.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-linux-3.14/linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-net-irda-vlsi_ir.cil.i --64 --witness-output linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-net-irda-vlsi_ir.cil.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 64-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/ldv-linux-3.14/linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-net-irda-vlsi_ir.cil.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 1.284s
+GOTO program processing time: 0.418s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.076s (428 assignments)
+Slicing time: 0.001s (removed 307 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (121 assignments)
+BMC program time: 0.077s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.074s (428 assignments)
+Slicing time: 0.001s (removed 307 assignments)
+Generated 2 VCC(s), 2 remaining after simplification (121 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.019s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.019s
+Runtime decision procedure: 2.820s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 19  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-net-irda-vlsi_ir.cil.i line 9582 function vlsi_mod_init
+Unwinding loop 19  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-net-irda-vlsi_ir.cil.i line 9582 function vlsi_mod_init
+Unwinding loop 22  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-net-irda-vlsi_ir.cil.i line 10098 function main
+Unwinding loop 19  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-net-irda-vlsi_ir.cil.i line 9582 function vlsi_mod_init
+Unwinding loop 19  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-net-irda-vlsi_ir.cil.i line 9582 function vlsi_mod_init
+No target candidate for function call *arg0
+Unwinding loop 16  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-net-irda-vlsi_ir.cil.i line 8490 function vlsi_start_clock
+Unwinding loop 16  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-net-irda-vlsi_ir.cil.i line 8490 function vlsi_start_clock
+Not unwinding 
+Unwinding loop 17  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-net-irda-vlsi_ir.cil.i line 8572 function vlsi_clear_regs
+Unwinding loop 17  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-net-irda-vlsi_ir.cil.i line 8572 function vlsi_clear_regs
+Not unwinding 
+No target candidate for function call *arg0
+No target candidate for function call *arg0
+Unwinding loop 15  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-net-irda-vlsi_ir.cil.i line 8449 function vlsi_unarm_tx
+No target candidate for function call *ops->sync_single_for_cpu
+No target candidate for function call *ops->sync_single_for_cpu
+Unwinding loop 15  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-net-irda-vlsi_ir.cil.i line 8449 function vlsi_unarm_tx
+No target candidate for function call *ops->sync_single_for_cpu
+No target candidate for function call *ops->sync_single_for_cpu
+Not unwinding 
+Unwinding loop 12  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-net-irda-vlsi_ir.cil.i line 7838 function vlsi_unarm_rx
+No target candidate for function call *ops->sync_single_for_cpu
+No target candidate for function call *ops->sync_single_for_cpu
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 12  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-net-irda-vlsi_ir.cil.i line 7838 function vlsi_unarm_rx
+No target candidate for function call *ops->sync_singl
+function call: argument "c:linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-net-irda-vlsi_ir.cil.i@189029@F@dev_kfree_skb_any@skb" type mismatch: got code, expected pointer
+
+
+Unknown

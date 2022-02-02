@@ -1,0 +1,57 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/no-overflow.prp -s kinduction --arch 64 ../sv-benchmarks/c/termination-crafted/Benghazi_nondet-1.c
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/termination-crafted/Benghazi_nondet-1.c --64 --witness-output Benghazi_nondet-1.c.graphml --no-pointer-check --no-bounds-check --overflow-check --no-assertions --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 64-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/termination-crafted/Benghazi_nondet-1.c: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.091s
+GOTO program processing time: 0.000s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.000s (25 assignments)
+Slicing time: 0.001s (removed 15 assignments)
+Generated 3 VCC(s), 3 remaining after simplification (10 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.000s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.000s
+Runtime decision procedure: 0.007s
+Building error trace
+
+Counterexample:
+
+State 1 file Benghazi_nondet-1.c line 14 function main thread 0
+----------------------------------------------------
+  x = 2147483647 (01111111 11111111 11111111 11111111)
+
+State 2 file Benghazi_nondet-1.c line 15 function main thread 0
+----------------------------------------------------
+  d1 = -2147483648 (10000000 00000000 00000000 00000000)
+
+State 3 file Benghazi_nondet-1.c line 16 function main thread 0
+----------------------------------------------------
+  d2 = 2147483647 (01111111 11111111 11111111 11111111)
+
+State 4 file Benghazi_nondet-1.c line 18 function main thread 0
+----------------------------------------------------
+Violated property:
+  file Benghazi_nondet-1.c line 18 function main
+  arithmetic overflow on sub
+  !overflow("-", x, d1)
+
+
+VERIFICATION FAILED
+
+Bug found (k = 1)
+
+
+FALSE_OVERFLOW

@@ -1,0 +1,202 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/ntdrivers/cdaudio.i.cil-1.c
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ntdrivers/cdaudio.i.cil-1.c --32 --witness-output cdaudio.i.cil-1.c.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/ntdrivers/cdaudio.i.cil-1.c: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 1.012s
+GOTO program processing time: 0.087s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.010s (69 assignments)
+Slicing time: 0.000s (removed 67 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (2 assignments)
+BMC program time: 0.010s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.006s (69 assignments)
+Slicing time: 0.000s (removed 67 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (2 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.000s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.000s
+Runtime decision procedure: 0.001s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 23  iteration  1   file cdaudio.i.cil-1.c line 7569 function main
+Unwinding loop 23  iteration  2   file cdaudio.i.cil-1.c line 7569 function main
+Not unwinding 
+Symex completed in: 0.006s (73 assignments)
+Slicing time: 0.000s (removed 71 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (2 assignments)
+BMC program time: 0.006s
+No bug has been found in the base case
+*** Checking forward condition, k = 3
+Starting Bounded Model Checking
+Unwinding loop 23  iteration  1   file cdaudio.i.cil-1.c line 7569 function main
+Unwinding loop 23  iteration  2   file cdaudio.i.cil-1.c line 7569 function main
+Not unwinding 
+Symex completed in: 0.007s (73 assignments)
+Slicing time: 0.000s (removed 71 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (2 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.000s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.000s
+Runtime decision procedure: 0.000s
+The forward condition is unable to prove the property
+*** Checking inductive step, k = 3
+Starting Bounded Model Checking
+Unwinding loop 23  iteration  1   file cdaudio.i.cil-1.c line 7569 function main
+Unwinding loop 23  iteration  2   file cdaudio.i.cil-1.c line 7569 function main
+Not unwinding 
+Unwinding loop 24  iteration  1   file cdaudio.i.cil-1.c line 7571 function main
+Unwinding loop 24  iteration  2   file cdaudio.i.cil-1.c line 7571 function main
+Not unwinding 
+Unwinding loop 25  iteration  1   file cdaudio.i.cil-1.c line 7573 function main
+Unwinding loop 25  iteration  2   file cdaudio.i.cil-1.c line 7573 function main
+Not unwinding 
+Unwinding loop 26  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 26  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 26  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 26  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 19  iteration  1   file cdaudio.i.cil-1.c line 6481 function CdAudio535DeviceControl
+Unwinding loop 19  iteration  2   file cdaudio.i.cil-1.c line 6481 function CdAudio535DeviceControl
+Not unwinding 
+Unwinding loop 26  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 26  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 26  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 26  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 26  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 26  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 20  iteration  1   file cdaudio.i.cil-1.c line 6883 function CdAudio435DeviceControl
+Unwinding loop 2
+../sv-benchmarks/c/ntdrivers/cdaudio.i.cil-1.c:2989:22: warning: incompatible pointer types assigning to 'PWSTR' (aka 'unsigned short *') from 'char [15]' [-Wincompatible-pointer-types]
+  queryTable[0].Name = "M\000a\000p\000T\000y\000p\000e\000";
+                     ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ntdrivers/cdaudio.i.cil-1.c:3596:78: warning: incompatible pointer types passing 'char [15]' to parameter of type 'PCWSTR' (aka 'const unsigned short *') [-Wincompatible-pointer-types]
+  status = RtlWriteRegistryValue(1073741824, (WCHAR *)deviceParameterHandle, "M\000a\000p\000T\000y\000p\000e\000",
+                                                                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ntdrivers/cdaudio.i.cil-1.c:2658:70: note: passing argument to parameter 'ValueName' here
+NTSTATUS RtlWriteRegistryValue(ULONG RelativeTo, PCWSTR Path, PCWSTR ValueName, ULONG ValueType, PVOID ValueData, ULONG ValueLength){
+                                                                     ^
+../sv-benchmarks/c/ntdrivers/cdaudio.i.cil-1.c:3673:34: warning: passing 'ULONG *' (aka 'unsigned long *') to parameter of type 'PLONG' (aka 'long *') converts between pointers to integer types with different sign [-Wpointer-sign]
+            InterlockedIncrement(& deviceExtension->PagingPathCount);
+                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ntdrivers/cdaudio.i.cil-1.c:2684:33: note: passing argument to parameter 'Addend' here
+LONG InterlockedIncrement(PLONG Addend ) {
+                                ^
+../sv-benchmarks/c/ntdrivers/cdaudio.i.cil-1.c:3677:34: warning: passing 'ULONG *' (aka 'unsigned long *') to parameter of type 'PLONG' (aka 'long *') converts between pointers to integer types with different sign [-Wpointer-sign]
+            InterlockedDecrement(& deviceExtension->PagingPathCount);
+                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ntdrivers/cdaudio.i.cil-1.c:2687:33: note: passing argument to parameter 'Addend' here
+LONG InterlockedDecrement(PLONG Addend ) {
+                                ^
+../sv-benchmarks/c/ntdrivers/cdaudio.i.cil-1.c:3741:19: warning: assigning to 'PUCHAR' (aka 'unsigned char *') from 'char [17]' converts between pointers to integer types with different sign [-Wpointer-sign]
+  badDriveList[0] = "CD-ROM DRIVE:80 ";
+                  ^ ~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ntdrivers/cdaudio.i.cil-1.c:3742:19: warning: assigning to 'PUCHAR' (aka 'unsigned char *') from 'char [17]' converts between pointers to integer types with different sign [-Wpointer-sign]
+  badDriveList[1] = "CD-ROM DRIVE:82 ";
+                  ^ ~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ntdrivers/cdaudio.i.cil-1.c:3743:19: warning: assigning to 'PUCHAR' (aka 'unsigned char *') from 'char [17]' converts between pointers to integer types with different sign [-Wpointer-sign]
+  badDriveList[2] = "CD-ROM DRIVE:83 ";
+                  ^ ~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ntdrivers/cdaudio.i.cil-1.c:3744:19: warning: assigning to 'PUCHAR' (aka 'unsigned char *') from 'char [17]' converts between pointers to integer types with different sign [-Wpointer-sign]
+  badDriveList[3] = "CD-ROM DRIVE:84 ";
+                  ^ ~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ntdrivers/cdaudio.i.cil-1.c:3745:19: warning: assigning to 'PUCHAR' (aka 'unsigned char *') from 'char [17]' converts between pointers to integer types with different sign [-Wpointer-sign]
+  badDriveList[4] = "CD-ROM DRIVE:841";
+                  ^ ~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ntdrivers/cdaudio.i.cil-1.c:3746:19: warning: assigning to 'PUCHAR' (aka 'unsigned char *') from 'char [17]' converts between pointers to integer types with different sign [-Wpointer-sign]
+  badDriveList[5] = "CD-ROM DRIVE:38 ";
+                  ^ ~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ntdrivers/cdaudio.i.cil-1.c:3747:19: warning: assigning to 'PUCHAR' (aka 'unsigned char *') from 'char [17]' converts between pointers to integer types with different sign [-Wpointer-sign]
+  badDriveList[6] = "CD-ROM DRIVE 4 M";
+                  ^ ~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ntdrivers/cdaudio.i.cil-1.c:3748:19: warning: assigning to 'PUCHAR' (aka 'unsigned char *') from 'char [17]' converts between pointers to integer types with different sign [-Wpointer-sign]
+  badDriveList[7] = "CD-ROM DRIVE:500";
+                  ^ ~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ntdrivers/cdaudio.i.cil-1.c:3749:19: warning: assigning to 'PUCHAR' (aka 'unsigned char *') from 'char [17]' converts between pointers to integer types with different sign [-Wpointer-sign]
+  badDriveList[8] = "CD-ROM DRIVE:400";
+                  ^ ~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ntdrivers/cdaudio.i.cil-1.c:3750:19: warning: assigning to 'PUCHAR' (aka 'unsigned char *') from 'char [17]' converts between pointers to integer types with different sign [-Wpointer-sign]
+  badDriveList[9] = "CD-ROM DRIVE:401";
+                  ^ ~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ntdrivers/cdaudio.i.cil-1.c:3751:20: warning: assigning to 'PUCHAR' (aka 'unsigned char *') from 'char [17]' converts between pointers to integer types with different sign [-Wpointer-sign]
+  badDriveList[10] = "CD-ROM DRIVE:501";
+                   ^ ~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ntdrivers/cdaudio.i.cil-1.c:3752:20: warning: assigning to 'PUCHAR' (aka 'unsigned char *') from 'char [17]' converts between pointers to integer types with different sign [-Wpointer-sign]
+  badDriveList[11] = "CD-ROM DRIVE:900";
+                   ^ ~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ntdrivers/cdaudio.i.cil-1.c:4190:70: warning: implicit truncation from 'int' to bit-field changes value from 16 to 0 [-Wbitfield-constant-conversion]
+                                cdaudioDataOut->TrackData[i].Control = 16;
+                                                                     ^ ~~
+../sv-benchmarks/c/ntdrivers/cdaudio.i.cil-1.c:4704:68: warning: implicit truncation from 'int' to bit-field changes value from 16 to 0 [-Wbitfield-constant-conversion]
+                              cdaudioDataOut->TrackData[i].Control = 16;
+                                                                   ^ ~~
+../sv-benchmarks/c/ntdrivers/cdaudio.i.cil-1.c:5861:70: warning: implicit truncation from 'int' to bit-field changes value from 16 to 0 [-Wbitfield-constant-conversion]
+                                cdaudioDataOut->TrackData[i].Control = 16;
+                                                                     ^ ~~
+../sv-benchmarks/c/ntdrivers/cdaudio.i.cil-1.c:5927:70: warning: implicit truncation from 'int' to bit-field changes value from 16 to 0 [-Wbitfield-constant-conversion]
+                                cdaudioDataOut->TrackData[i].Control = 16;
+                                                                     ^ ~~
+../sv-benchmarks/c/ntdrivers/cdaudio.i.cil-1.c:7460:16: warning: incompatible function pointer types assigning to 'NTSTATUS (*)(PDEVICE_OBJECT, PIRP, PVOID)' (aka 'long (*)(struct _DEVICE_OBJECT *, struct _IRP *, void *)') from 'NTSTATUS (*)(PDEVICE_OBJECT, PIRP, PKEVENT)' (aka 'long (*)(struct _DEVICE_OBJECT *, struct _IRP *, struct _KEVENT *)') [-Wincompatible-function-pointer-types]
+      compFptr = & CdAudioSignalCompletion;
+               ^ ~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ntdrivers/cdaudio.i.cil-1.c:7465:32: warning: incompatible function pointer types assigning to 'NTSTATUS (*)(PDEVICE_OBJECT, PIRP, PVOID)' (aka 'long (*)(struct _DEVICE_OBJECT *, struct _IRP *, void *)') from 'NTSTATUS (*)(PDEVICE_OBJECT, PIRP, PKEVENT)' (aka 'long (*)(struct _DEVICE_OBJECT *, struct _IRP *, struct _KEVENT *)') [-Wincompatible-function-pointer-types]
+  irpSp___0->CompletionRoutine = & CdAudioSignalCompletion;
+                               ^ ~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ntdrivers/cdaudio.i.cil-1.c:7549:12: warning: incompatible integer to pointer conversion assigning to 'NTSTATUS (*)(PDEVICE_OBJECT, PIRP, PVOID)' (aka 'long (*)(struct _DEVICE_OBJECT *, struct _IRP *, void *)') from 'int' [-Wint-conversion]
+  compFptr = compRegistered;
+           ^ ~~~~~~~~~~~~~~
+../sv-benchmarks/c/ntdrivers/cdaudio.i.cil-1.c:7550:10: warning: incompatible pointer to integer conversion assigning to 'int' from 'NTSTATUS (*)(PDEVICE_OBJECT, PIRP, PVOID)' (aka 'long (*)(struct _DEVICE_OBJECT *, struct _IRP *, void *)') [-Wint-conversion]
+  pended = compFptr;
+         ^ ~~~~~~~~
+../sv-benchmarks/c/ntdrivers/cdaudio.i.cil-1.c:7587:14: warning: incompatible integer to pointer conversion assigning to 'NTSTATUS (*)(PDEVICE_OBJECT, PIRP, PVOID)' (aka 'long (*)(struct _DEVICE_OBJECT *, struct _IRP *, void *)') from 'int' [-Wint-conversion]
+    compFptr = compRegistered;
+             ^ ~~~~~~~~~~~~~~
+../sv-benchmarks/c/ntdrivers/cdaudio.i.cil-1.c:7588:12: warning: incompatible pointer to integer conversion assigning to 'int' from 'NTSTATUS (*)(PDEVICE_OBJECT, PIRP, PVOID)' (aka 'long (*)(struct _DEVICE_OBJECT *, struct _IRP *, void *)') [-Wint-conversion]
+    pended = compFptr;
+           ^ ~~~~~~~~
+../sv-benchmarks/c/ntdrivers/cdaudio.i.cil-1.c:7728:9: warning: incompatible pointer to integer conversion assigning to 'int' from 'void *' [-Wint-conversion]
+    tmp = malloc(i);
+        ^ ~~~~~~~~~
+../sv-benchmarks/c/ntdrivers/cdaudio.i.cil-1.c:7882:11: warning: incompatible pointer to integer conversion assigning to 'int' from 'void *' [-Wint-conversion]
+      tmp = malloc(sizeof(IRP ));
+          ^ ~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ntdrivers/cdaudio.i.cil-1.c:7920:11: warning: incompatible pointer to integer conversion assigning to 'int' from 'void *' [-Wint-conversion]
+      tmp = malloc(sizeof(IRP ));
+          ^ ~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ntdrivers/cdaudio.i.cil-1.c:7952:11: warning: incompatible pointer to integer conversion assigning to 'int' from 'void *' [-Wint-conversion]
+      tmp = malloc(sizeof(DEVICE_OBJECT ));
+          ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ntdrivers/cdaudio.i.cil-1.c:8445:13: warning: incompatible pointer to integer conversion assigning to 'int' from 'void *' [-Wint-conversion]
+        tmp = malloc(NumberOfBytes);
+            ^ ~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ntdrivers/cdaudio.i.cil-1.c:8447:16: warning: incompatible integer to pointer conversion returning 'int' from a function with result type 'PVOID' (aka 'void *') [-Wint-conversion]
+        return (tmp);
+               ^~~~~
+Can't construct rvalue reference to array type during dereference
+(It isn't allowed by C anyway)
+
+
+Unknown

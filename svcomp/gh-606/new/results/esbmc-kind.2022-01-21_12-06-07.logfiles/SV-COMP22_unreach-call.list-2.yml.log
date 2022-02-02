@@ -1,0 +1,149 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/list-properties/list-2.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/list-properties/list-2.i --32 --witness-output list-2.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/list-properties/list-2.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.093s
+GOTO program processing time: 0.001s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.002s (75 assignments)
+Slicing time: 0.000s (removed 51 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (24 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.001s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.001s
+Runtime decision procedure: 0.000s
+BMC program time: 0.004s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.002s (74 assignments)
+Slicing time: 0.000s (removed 51 assignments)
+Generated 4 VCC(s), 4 remaining after simplification (23 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.001s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.001s
+Runtime decision procedure: 0.066s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 2  iteration  1   file list-2.i line 536 function main
+Unwinding loop 2  iteration  2   file list-2.i line 536 function main
+Not unwinding 
+Unwinding loop 3  iteration  1   file list-2.i line 543 function main
+Unwinding loop 3  iteration  2   file list-2.i line 543 function main
+Not unwinding 
+Unwinding loop 4  iteration  1   file list-2.i line 552 function main
+Unwinding loop 4  iteration  2   file list-2.i line 552 function main
+Not unwinding 
+Unwinding loop 5  iteration  1   file list-2.i line 554 function main
+Unwinding loop 5  iteration  2   file list-2.i line 554 function main
+Not unwinding 
+Symex completed in: 0.010s (199 assignments)
+Slicing time: 0.001s (removed 99 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (100 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.004s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.004s
+Runtime decision procedure: 0.345s
+Building error trace
+
+Counterexample:
+
+State 1 file list-2.i line 537 function main thread 0
+----------------------------------------------------
+  p->h = 1 (00000000 00000000 00000000 00000001)
+
+State 2 file list-2.i line 540 function main thread 0
+----------------------------------------------------
+  p->n = ( struct node *)((void *)(&dynamic_13_value))
+
+State 3 file list-2.i line 541 function main thread 0
+----------------------------------------------------
+  p = dynamic_11_value.n
+
+State 4 file list-2.i line 537 function main thread 0
+----------------------------------------------------
+  p->h = 1 (00000000 00000000 00000000 00000001)
+
+State 5 file list-2.i line 540 function main thread 0
+----------------------------------------------------
+  p->n = ( struct node *)((void *)(&dynamic_15_value))
+
+State 6 file list-2.i line 541 function main thread 0
+----------------------------------------------------
+  p = dynamic_13_value.n
+
+State 7 file list-2.i line 544 function main thread 0
+----------------------------------------------------
+  p->h = { .h=1, .n=&dynamic_15_value }
+
+State 8 file list-2.i line 547 function main thread 0
+----------------------------------------------------
+  p->n = { .h=1, .n=&dynamic_15_value }
+
+State 9 file list-2.i line 548 function main thread 0
+----------------------------------------------------
+  p = dynamic_15_value.n
+
+State 10 file list-2.i line 544 function main thread 0
+----------------------------------------------------
+  p->h = { .h=2, .n=&dynamic_19_value }
+
+State 11 file list-2.i line 547 function main thread 0
+----------------------------------------------------
+  p->n = { .h=2, .n=&dynamic_19_value }
+
+State 12 file list-2.i line 548 function main thread 0
+----------------------------------------------------
+  p = dynamic_19_value.n
+
+State 13 file list-2.i line 550 function main thread 0
+----------------------------------------------------
+  p->h = { .h=6328504, .n=0 }
+
+State 14 file list-2.i line 555 function main thread 0
+----------------------------------------------------
+  p = dynamic_11_value.n
+
+State 15 file list-2.i line 555 function main thread 0
+----------------------------------------------------
+  p = dynamic_13_value.n
+
+State 16 file list-2.i line 12 function reach_error thread 0
+----------------------------------------------------
+Violated property:
+  file list-2.i line 12 function reach_error
+  assertion 0
+  0
+
+
+VERIFICATION FAILED
+
+Bug found (k = 3)
+
+
+FALSE_REACH

@@ -1,0 +1,99 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/product-lines/minepump_spec5_product53.cil.c
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/product-lines/minepump_spec5_product53.cil.c --32 --witness-output minepump_spec5_product53.cil.c.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/product-lines/minepump_spec5_product53.cil.c: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.183s
+GOTO program processing time: 0.009s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.003s (61 assignments)
+Slicing time: 0.000s (removed 40 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (21 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.000s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.000s
+Runtime decision procedure: 0.000s
+BMC program time: 0.004s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.002s (60 assignments)
+Slicing time: 0.001s (removed 40 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (20 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.000s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.000s
+Runtime decision procedure: 0.002s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 4  iteration  1   file minepump_spec5_product53.cil.c line 697 function test
+Unwinding loop 4  iteration  2   file minepump_spec5_product53.cil.c line 697 function test
+Not unwinding 
+Symex completed in: 0.019s (371 assignments)
+Slicing time: 0.001s (removed 131 assignments)
+Generated 3 VCC(s), 3 remaining after simplification (240 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.003s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.003s
+Runtime decision procedure: 0.005s
+BMC program time: 0.029s
+No bug has been found in the base case
+*** Checking forward condition, k = 3
+Starting Bounded Model Checking
+Unwinding loop 4  iteration  1   file minepump_spec5_product53.cil.c line 697 function test
+Unwinding loop 4  iteration  2   file minepump_spec5_product53.cil.c line 697 function test
+Not unwinding 
+Symex completed in: 0.019s (368 assignments)
+Slicing time: 0.001s (removed 131 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (237 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.003s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.003s
+Runtime decision procedure: 0.008s
+The forward condition is unable to prove the property
+*** Checking inductive step, k = 3
+Starting Bounded Model Checking
+Unwinding loop 4  iteration  1   file minepump_spec5_product53.cil.c line 697 function test
+Unwinding loop 4  iteration  2   file minepump_spec5_product53.cil.c line 697 function test
+Not unwinding 
+Unwinding loop 5  iteration  1   file minepump_spec5_product53.cil.c line 814 function cleanup
+Unwinding loop 5  iteration  2   file minepump_spec5_product53.cil.c line 814 function cleanup
+Not unwinding 
+Symex completed in: 0.079s (1502 assignments)
+Slicing time: 0.010s (removed 378 assignments)
+Generated 3 VCC(s), 3 remaining after simplification (1124 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.019s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.019s
+Runtime decision procedure: 0.281s
+BMC program time: 0.390s
+Building successful trace
+
+VERIFICATION SUCCESSFUL
+
+Solution found by the inductive step (k = 3)
+
+
+TRUE

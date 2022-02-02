@@ -1,0 +1,214 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/nla-digbench/divbin.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/nla-digbench/divbin.i --32 --witness-output divbin.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/nla-digbench/divbin.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.137s
+GOTO program processing time: 0.001s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.002s (43 assignments)
+Slicing time: 0.000s (removed 20 assignments)
+Generated 2 VCC(s), 2 remaining after simplification (23 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.000s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.000s
+Runtime decision procedure: 0.000s
+BMC program time: 0.003s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.001s (41 assignments)
+Slicing time: 0.000s (removed 25 assignments)
+Generated 2 VCC(s), 2 remaining after simplification (16 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.000s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.000s
+Runtime decision procedure: 0.004s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file divbin.i line 35 function main
+Unwinding loop 1  iteration  2   file divbin.i line 35 function main
+Not unwinding 
+Unwinding loop 2  iteration  1   file divbin.i line 39 function main
+Unwinding loop 2  iteration  2   file divbin.i line 39 function main
+Not unwinding 
+Symex completed in: 0.003s (77 assignments)
+Slicing time: 0.000s (removed 20 assignments)
+Generated 4 VCC(s), 4 remaining after simplification (57 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.001s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.001s
+Runtime decision procedure: 2.340s
+BMC program time: 2.345s
+No bug has been found in the base case
+*** Checking forward condition, k = 3
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file divbin.i line 35 function main
+Unwinding loop 1  iteration  2   file divbin.i line 35 function main
+Not unwinding 
+Unwinding loop 2  iteration  1   file divbin.i line 39 function main
+Unwinding loop 2  iteration  2   file divbin.i line 39 function main
+Not unwinding 
+Symex completed in: 0.001s (73 assignments)
+Slicing time: 0.001s (removed 47 assignments)
+Generated 2 VCC(s), 2 remaining after simplification (26 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.000s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.000s
+Runtime decision procedure: 0.038s
+The forward condition is unable to prove the property
+*** Checking inductive step, k = 3
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file divbin.i line 35 function main
+Unwinding loop 1  iteration  2   file divbin.i line 35 function main
+Not unwinding 
+Unwinding loop 2  iteration  1   file divbin.i line 39 function main
+Unwinding loop 2  iteration  2   file divbin.i line 39 function main
+Not unwinding 
+Symex completed in: 0.002s (91 assignments)
+Slicing time: 0.000s (removed 16 assignments)
+Generated 2 VCC(s), 2 remaining after simplification (75 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.001s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.001s
+Runtime decision procedure: 1.453s
+The inductive step is unable to prove the property
+*** Checking base case, k = 5
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file divbin.i line 35 function main
+Unwinding loop 1  iteration  2   file divbin.i line 35 function main
+Unwinding loop 1  iteration  3   file divbin.i line 35 function main
+Unwinding loop 1  iteration  4   file divbin.i line 35 function main
+Not unwinding 
+Unwinding loop 2  iteration  1   file divbin.i line 39 function main
+Unwinding loop 2  iteration  2   file divbin.i line 39 function main
+Unwinding loop 2  iteration  3   file divbin.i line 39 function main
+Unwinding loop 2  iteration  4   file divbin.i line 39 function main
+Not unwinding 
+Symex completed in: 0.005s (111 assignments)
+Slicing time: 0.002s (removed 20 assignments)
+Generated 6 VCC(s), 6 remaining after simplification (91 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.002s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.002s
+Runtime decision procedure: 1.244s
+Building error trace
+
+Counterexample:
+
+State 1 file divbin.i line 28 function main thread 0
+----------------------------------------------------
+  A = 3475957763 (11001111 00101110 11101000 00000011)
+
+State 2 file divbin.i line 29 function main thread 0
+----------------------------------------------------
+  B = 1561051239 (01011101 00001011 11000000 01100111)
+
+State 3 file divbin.i line 33 function main thread 0
+----------------------------------------------------
+  r = 3475957763 (11001111 00101110 11101000 00000011)
+
+State 4 file divbin.i line 34 function main thread 0
+----------------------------------------------------
+  b = 1561051239 (01011101 00001011 11000000 01100111)
+
+State 5 file divbin.i line 37 function main thread 0
+----------------------------------------------------
+  b = 3122102478 (10111010 00010111 10000000 11001110)
+
+State 6 file divbin.i line 37 function main thread 0
+----------------------------------------------------
+  b = 1949237660 (01110100 00101111 00000001 10011100)
+
+State 7 file divbin.i line 37 function main thread 0
+----------------------------------------------------
+  b = 3898475320 (11101000 01011110 00000011 00111000)
+
+State 8 file divbin.i line 43 function main thread 0
+----------------------------------------------------
+  b = 1949237660 (01110100 00101111 00000001 10011100)
+
+State 9 file divbin.i line 46 function main thread 0
+----------------------------------------------------
+  r = 1526720103 (01011010 11111111 11100110 01100111)
+
+State 10 file divbin.i line 42 function main thread 0
+----------------------------------------------------
+  q = 2 (00000000 00000000 00000000 00000010)
+
+State 11 file divbin.i line 43 function main thread 0
+----------------------------------------------------
+  b = 974618830 (00111010 00010111 10000000 11001110)
+
+State 12 file divbin.i line 45 function main thread 0
+----------------------------------------------------
+  q = 3 (00000000 00000000 00000000 00000011)
+
+State 13 file divbin.i line 46 function main thread 0
+----------------------------------------------------
+  r = 552101273 (00100000 11101000 01100101 10011001)
+
+State 14 file divbin.i line 42 function main thread 0
+----------------------------------------------------
+  q = 6 (00000000 00000000 00000000 00000110)
+
+State 15 file divbin.i line 43 function main thread 0
+----------------------------------------------------
+  b = 487309415 (00011101 00001011 11000000 01100111)
+
+State 16 file divbin.i line 45 function main thread 0
+----------------------------------------------------
+  q = 7 (00000000 00000000 00000000 00000111)
+
+State 17 file divbin.i line 46 function main thread 0
+----------------------------------------------------
+  r = 64791858 (00000011 11011100 10100101 00110010)
+
+State 18 file divbin.i line 42 function main thread 0
+----------------------------------------------------
+  q = 14 (00000000 00000000 00000000 00001110)
+
+State 19 file divbin.i line 43 function main thread 0
+----------------------------------------------------
+  b = 243654707 (00001110 10000101 11100000 00110011)
+
+State 20 file divbin.i line 12 function reach_error thread 0
+----------------------------------------------------
+Violated property:
+  file divbin.i line 12 function reach_error
+  assertion 0
+  0
+
+
+VERIFICATION FAILED
+
+Bug found (k = 5)
+
+
+FALSE_REACH

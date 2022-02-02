@@ -1,0 +1,59 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/ldv-challenges/linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-media-pci-zoran-zr36067.cil.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-challenges/linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-media-pci-zoran-zr36067.cil.i --64 --witness-output linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-media-pci-zoran-zr36067.cil.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+
+../sv-benchmarks/c/ldv-challenges/linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-media-pci-zoran-zr36067.cil.i:3891:43: warning: declaration of 'struct v4l2_async_subdev' will not be visible outside of this function [-Wvisibility]
+   bool (*match)(struct device * , struct v4l2_async_subdev * ) ;
+                                          ^
+../sv-benchmarks/c/ldv-challenges/linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-media-pci-zoran-zr36067.cil.i:10106:54: warning: adding 'unsigned int' to a string does not append to the string [-Wstring-plus-int]
+           "zoran_v4l2_buffer_status", (int )*("FAL" + (unsigned int )fh->buffers.active),
+                                               ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-challenges/linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-media-pci-zoran-zr36067.cil.i:10106:54: note: use array indexing to silence this warning
+           "zoran_v4l2_buffer_status", (int )*("FAL" + (unsigned int )fh->buffers.active),
+                                                     ^
+                                               &     [                                  ]
+../sv-benchmarks/c/ldv-challenges/linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-media-pci-zoran-zr36067.cil.i:10107:32: warning: adding 'unsigned int' to a string does not append to the string [-Wstring-plus-int]
+           num, (int )*("UPMD" + (unsigned int )zr->v4l_buffers.buffer[num].state),
+                        ~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-challenges/linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-media-pci-zoran-zr36067.cil.i:10107:32: note: use array indexing to silence this warning
+           num, (int )*("UPMD" + (unsigned int )zr->v4l_buffers.buffer[num].state),
+                               ^
+                        &      [                                                 ]
+../sv-benchmarks/c/ldv-challenges/linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-media-pci-zoran-zr36067.cil.i:11966:62: warning: adding 'unsigned int' to a string does not append to the string [-Wstring-plus-int]
+           (char *)(& zr->name), "zoran_poll", (int )*("FAL" + (unsigned int )fh->buffers.active),
+                                                       ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-challenges/linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-media-pci-zoran-zr36067.cil.i:11966:62: note: use array indexing to silence this warning
+           (char *)(& zr->name), "zoran_poll", (int )*("FAL" + (unsigned int )fh->buffers.active),
+                                                             ^
+                                                       &     [                                  ]
+../sv-benchmarks/c/ldv-challenges/linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-media-pci-zoran-zr36067.cil.i:11967:46: warning: adding 'unsigned int' to a string does not append to the string [-Wstring-plus-int]
+           zr->v4l_sync_tail, (int )*("UPMD" + (unsigned int )zr->v4l_buffers.buffer[frame].state),
+                                      ~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-challenges/linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-media-pci-zoran-zr36067.cil.i:11967:46: note: use array indexing to silence this warning
+           zr->v4l_sync_tail, (int )*("UPMD" + (unsigned int )zr->v4l_buffers.buffer[frame].state),
+                                             ^
+                                      &      [                                                   ]
+../sv-benchmarks/c/ldv-challenges/linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-media-pci-zoran-zr36067.cil.i:11991:62: warning: adding 'unsigned int' to a string does not append to the string [-Wstring-plus-int]
+           (char *)(& zr->name), "zoran_poll", (int )*("FAL" + (unsigned int )fh->buffers.active),
+                                                       ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-challenges/linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-media-pci-zoran-zr36067.cil.i:11991:62: note: use array indexing to silence this warning
+           (char *)(& zr->name), "zoran_poll", (int )*("FAL" + (unsigned int )fh->buffers.active),
+                                                             ^
+                                                       &     [                                  ]
+../sv-benchmarks/c/ldv-challenges/linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-media-pci-zoran-zr36067.cil.i:11992:45: warning: adding 'unsigned int' to a string does not append to the string [-Wstring-plus-int]
+           zr->jpg_que_tail, (int )*("UPMD" + (unsigned int )zr->jpg_buffers.buffer[frame].state),
+                                     ~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-challenges/linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-media-pci-zoran-zr36067.cil.i:11992:45: note: use array indexing to silence this warning
+           zr->jpg_que_tail, (int )*("UPMD" + (unsigned int )zr->jpg_buffers.buffer[frame].state),
+                                            ^
+                                     &      [                                                   ]
+Can't construct rvalue reference to array type during dereference
+(It isn't allowed by C anyway)
+
+
+Unknown

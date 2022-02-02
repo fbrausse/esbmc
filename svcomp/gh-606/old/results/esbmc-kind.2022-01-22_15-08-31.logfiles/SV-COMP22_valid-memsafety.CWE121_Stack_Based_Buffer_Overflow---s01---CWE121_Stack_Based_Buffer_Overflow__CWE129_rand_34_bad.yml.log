@@ -1,0 +1,81 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/valid-memsafety.prp -s kinduction --arch 64 ../sv-benchmarks/c/Juliet_Test/CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_rand_34_bad.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/Juliet_Test/CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_rand_34_bad.i --64 --witness-output CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_rand_34_bad.i.graphml --memory-leak-check --no-assertions --incremental-bmc 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 64-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/Juliet_Test/CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_rand_34_bad.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.130s
+GOTO program processing time: 0.002s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+**** WARNING: no body for function srand
+**** WARNING: no body for function rand
+**** WARNING: no body for function rand
+**** WARNING: no body for function rand
+**** WARNING: no body for function rand
+**** WARNING: no body for function rand
+**** WARNING: no body for function rand
+**** WARNING: no body for function rand
+Not unwinding 
+Symex completed in: 0.003s (73 assignments)
+Slicing time: 0.000s (removed 45 assignments)
+Generated 5 VCC(s), 3 remaining after simplification (28 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.002s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.002s
+Runtime decision procedure: 0.155s
+Building error trace
+
+Counterexample:
+
+State 7 file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_rand_34_bad.i line 878 function CWE121_Stack_Based_Buffer_Overflow__CWE129_rand_34_bad thread 0
+----------------------------------------------------
+  tmp_6 = 13 (00000000 00000000 00000000 00001101)
+
+State 8 file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_rand_34_bad.i line 881 function CWE121_Stack_Based_Buffer_Overflow__CWE129_rand_34_bad thread 0
+----------------------------------------------------
+  data = 13 (00000000 00000000 00000000 00001101)
+
+State 9 file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_rand_34_bad.i line 883 function CWE121_Stack_Based_Buffer_Overflow__CWE129_rand_34_bad thread 0
+----------------------------------------------------
+  { *((unsigned char [4] *)(&myUnion)) } = 13 (00000000 00000000 00000000 00001101)
+
+State 10 file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_rand_34_bad.i line 883 function CWE121_Stack_Based_Buffer_Overflow__CWE129_rand_34_bad thread 0
+----------------------------------------------------
+  { *((unsigned char [4] *)(&myUnion)) } = 13 (00000000 00000000 00000000 00001101)
+
+State 11 file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_rand_34_bad.i line 883 function CWE121_Stack_Based_Buffer_Overflow__CWE129_rand_34_bad thread 0
+----------------------------------------------------
+  { *((unsigned char [4] *)(&myUnion)) } = 13 (00000000 00000000 00000000 00001101)
+
+State 12 file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_rand_34_bad.i line 883 function CWE121_Stack_Based_Buffer_Overflow__CWE129_rand_34_bad thread 0
+----------------------------------------------------
+  { *((unsigned char [4] *)(&myUnion)) } = 13 (00000000 00000000 00000000 00001101)
+
+State 13 file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_rand_34_bad.i line 886 function CWE121_Stack_Based_Buffer_Overflow__CWE129_rand_34_bad thread 0
+----------------------------------------------------
+  data_0 = 13 (00000000 00000000 00000000 00001101)
+
+State 15 file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_rand_34_bad.i line 894 function CWE121_Stack_Based_Buffer_Overflow__CWE129_rand_34_bad thread 0
+----------------------------------------------------
+Violated property:
+  file CWE121_Stack_Based_Buffer_Overflow---s01---CWE121_Stack_Based_Buffer_Overflow__CWE129_rand_34_bad.i line 894 function CWE121_Stack_Based_Buffer_Overflow__CWE129_rand_34_bad
+  array bounds violated: array `buffer' upper bound
+  (signed long int)data_0 < 10
+
+
+VERIFICATION FAILED
+
+Bug found (k = 1)
+
+
+FALSE_DEREF

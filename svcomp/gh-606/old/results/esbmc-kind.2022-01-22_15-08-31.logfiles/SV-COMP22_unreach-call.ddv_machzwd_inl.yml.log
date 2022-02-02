@@ -1,0 +1,147 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/ddv-machzwd/ddv_machzwd_inl.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ddv-machzwd/ddv_machzwd_inl.i --32 --witness-output ddv_machzwd_inl.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/ddv-machzwd/ddv_machzwd_inl.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.287s
+GOTO program processing time: 0.012s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.004s (74 assignments)
+Slicing time: 0.000s (removed 72 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (2 assignments)
+BMC program time: 0.004s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.004s (74 assignments)
+Slicing time: 0.000s (removed 72 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (2 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.000s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.000s
+Runtime decision procedure: 0.000s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 26  iteration  1   file ddv_machzwd_inl.i line 2668 function init_kernel
+Unwinding loop 26  iteration  2   file ddv_machzwd_inl.i line 2668 function init_kernel
+Not unwinding 
+Symex completed in: 0.004s (78 assignments)
+Slicing time: 0.000s (removed 76 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (2 assignments)
+BMC program time: 0.004s
+No bug has been found in the base case
+*** Checking forward condition, k = 3
+Starting Bounded Model Checking
+Unwinding loop 26  iteration  1   file ddv_machzwd_inl.i line 2668 function init_kernel
+Unwinding loop 26  iteration  2   file ddv_machzwd_inl.i line 2668 function init_kernel
+Not unwinding 
+Symex completed in: 0.004s (78 assignments)
+Slicing time: 0.000s (removed 76 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (2 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.000s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.000s
+Runtime decision procedure: 0.001s
+The forward condition is unable to prove the property
+*** Checking inductive step, k = 3
+Starting Bounded Model Checking
+Unwinding loop 26  iteration  1   file ddv_machzwd_inl.i line 2668 function init_kernel
+Unwinding loop 26  iteration  2   file ddv_machzwd_inl.i line 2668 function init_kernel
+Not unwinding 
+Unwinding loop 27  iteration  1   file ddv_machzwd_inl.i line 2672 function init_kernel
+Unwinding loop 27  iteration  2   file ddv_machzwd_inl.i line 2672 function init_kernel
+Not unwinding 
+No target candidate for function call *cdev_registered[cdev_no].cdevp->ops->read
+Unwinding loop 25  iteration  1   file ddv_machzwd_inl.i line 1642 function zf_write
+Unwinding loop 25  iteration  2   file ddv_machzwd_inl.i line 1642 function zf_write
+Not unwinding 
+No target candidate for function call *registered_irq[(signed int)i].handler
+No target candidate for function call *shared_workqueue[(signed int)i]->func
+No target candidate for function call *tasklet_registered[(signed int)i].tasklet->func
+Unwinding loop 28  iteration  1   file ddv_machzwd_inl.i line 2719 function ddv
+No target candidate for function call *cdev_registered[cdev_no].cdevp->ops->read
+Unwinding loop 25  iteration  1   file ddv_machzwd_inl.i line 1642 function zf_write
+Unwinding loop 25  iteration  2   file ddv_machzwd_inl.i line 1642 function zf_write
+Not unwinding 
+No target candidate for function call *registered_irq[(signed int)i].handler
+No target candidate for function call *shared_workqueue[(signed int)i]->func
+No target candidate for function call *tasklet_registered[(signed int)i].tasklet->func
+Unwinding loop 28  iteration  2   file ddv_machzwd_inl.i line 2719 function ddv
+No target candidate for function call *cdev_registered[cdev_no].cdevp->ops->read
+Unwinding loop 25  iteration  1   file ddv_machzwd_inl.i line 1642 function zf_write
+Unwinding loop 25  iteration  2   file ddv_machzwd_inl.i line 1642 function zf_write
+Not unwinding 
+No target candidate for function call *registered_irq[(signed int)i].handler
+No target candidate for function call *shared_workqueue[(signed int)i]->func
+No target candidate for function call *tasklet_registered[(signed int)i].tasklet->func
+Not unwinding 
+Symex completed in: 0.947s (2407 assignments)
+Slicing time: 0.004s (removed 2234 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (173 assignments)
+BMC program time: 0.951s
+Building successful trace
+
+VERIFICATION SUCCESSFUL
+
+Solution found by the inductive step (k = 3)
+
+../sv-benchmarks/c/ddv-machzwd/ddv_machzwd_inl.i:659:1: warning: non-void function does not return a value [-Wreturn-type]
+}
+^
+../sv-benchmarks/c/ddv-machzwd/ddv_machzwd_inl.i:663:1: warning: non-void function does not return a value [-Wreturn-type]
+}
+^
+../sv-benchmarks/c/ddv-machzwd/ddv_machzwd_inl.i:3135:1: warning: non-void function does not return a value [-Wreturn-type]
+}
+^
+../sv-benchmarks/c/ddv-machzwd/ddv_machzwd_inl.i:3159:68: warning: 'sizeof (driver->id_table)' will return the size of the pointer, not the array itself [-Wsizeof-pointer-div]
+ registered_pci_driver.no_pci_device_id = sizeof(driver->id_table) / sizeof(struct pci_device_id);
+                                          ~~~~~~~~~~~~~~~~~~~~~~~~ ^
+../sv-benchmarks/c/ddv-machzwd/ddv_machzwd_inl.i:3752:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+}
+^
+../sv-benchmarks/c/ddv-machzwd/ddv_machzwd_inl.i:3838:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+}
+^
+../sv-benchmarks/c/ddv-machzwd/ddv_machzwd_inl.i:4273:1: warning: non-void function does not return a value [-Wreturn-type]
+}
+^
+../sv-benchmarks/c/ddv-machzwd/ddv_machzwd_inl.i:4283:1: warning: non-void function does not return a value [-Wreturn-type]
+}
+^
+../sv-benchmarks/c/ddv-machzwd/ddv_machzwd_inl.i:4400:1: warning: non-void function does not return a value [-Wreturn-type]
+}
+^
+../sv-benchmarks/c/ddv-machzwd/ddv_machzwd_inl.i:4408:1: warning: non-void function does not return a value [-Wreturn-type]
+}
+^
+../sv-benchmarks/c/ddv-machzwd/ddv_machzwd_inl.i:4416:1: warning: non-void function does not return a value [-Wreturn-type]
+}
+^
+../sv-benchmarks/c/ddv-machzwd/ddv_machzwd_inl.i:4425:1: warning: non-void function does not return a value [-Wreturn-type]
+}
+^
+../sv-benchmarks/c/ddv-machzwd/ddv_machzwd_inl.i:4433:1: warning: non-void function does not return a value [-Wreturn-type]
+}
+^
+../sv-benchmarks/c/ddv-machzwd/ddv_machzwd_inl.i:4441:1: warning: non-void function does not return a value [-Wreturn-type]
+}
+^
+
+TRUE

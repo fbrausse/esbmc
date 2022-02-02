@@ -1,0 +1,381 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/array-fpi/pcompf.c
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/array-fpi/pcompf.c --32 --witness-output pcompf.c.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/array-fpi/pcompf.c: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.132s
+GOTO program processing time: 0.001s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.183s (113 assignments)
+Slicing time: 0.001s (removed 86 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (27 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.000s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.000s
+Runtime decision procedure: 0.001s
+BMC program time: 0.186s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.083s (112 assignments)
+Slicing time: 0.001s (removed 86 assignments)
+Generated 4 VCC(s), 4 remaining after simplification (26 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.000s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.000s
+Runtime decision procedure: 0.003s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file pcompf.c line 36 function main
+Unwinding loop 1  iteration  2   file pcompf.c line 36 function main
+Not unwinding 
+Unwinding loop 2  iteration  1   file pcompf.c line 41 function main
+Unwinding loop 2  iteration  2   file pcompf.c line 41 function main
+Not unwinding 
+Unwinding loop 3  iteration  1   file pcompf.c line 46 function main
+Unwinding loop 3  iteration  2   file pcompf.c line 46 function main
+Not unwinding 
+Unwinding loop 4  iteration  1   file pcompf.c line 51 function main
+Unwinding loop 4  iteration  2   file pcompf.c line 51 function main
+Not unwinding 
+Symex completed in: 0.244s (199 assignments)
+Slicing time: 0.003s (removed 84 assignments)
+Generated 3 VCC(s), 3 remaining after simplification (115 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.004s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.004s
+Runtime decision procedure: 0.175s
+Building error trace
+
+Counterexample:
+
+State 1 file pcompf.c line 23 function main thread 0
+----------------------------------------------------
+  N = 3 (00000000 00000000 00000000 00000011)
+
+State 2 file pcompf.c line 32 function main thread 0
+----------------------------------------------------
+  *(a + 0) = 6 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000110)
+
+State 3 file pcompf.c line 32 function main thread 0
+----------------------------------------------------
+  *(a + 0) = 6 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000110)
+
+State 4 file pcompf.c line 32 function main thread 0
+----------------------------------------------------
+  *(a + 0) = 6 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000110)
+
+State 5 file pcompf.c line 32 function main thread 0
+----------------------------------------------------
+  *(a + 0) = 6 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000110)
+
+State 6 file pcompf.c line 32 function main thread 0
+----------------------------------------------------
+  *(a + 0) = 6 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000110)
+
+State 7 file pcompf.c line 32 function main thread 0
+----------------------------------------------------
+  *(a + 0) = 6 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000110)
+
+State 8 file pcompf.c line 32 function main thread 0
+----------------------------------------------------
+  *(a + 0) = 6 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000110)
+
+State 9 file pcompf.c line 32 function main thread 0
+----------------------------------------------------
+  *(a + 0) = 6 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000110)
+
+State 10 file pcompf.c line 33 function main thread 0
+----------------------------------------------------
+  *(b + 0) = 1 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000001)
+
+State 11 file pcompf.c line 33 function main thread 0
+----------------------------------------------------
+  *(b + 0) = 1 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000001)
+
+State 12 file pcompf.c line 33 function main thread 0
+----------------------------------------------------
+  *(b + 0) = 1 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000001)
+
+State 13 file pcompf.c line 33 function main thread 0
+----------------------------------------------------
+  *(b + 0) = 1 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000001)
+
+State 14 file pcompf.c line 33 function main thread 0
+----------------------------------------------------
+  *(b + 0) = 1 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000001)
+
+State 15 file pcompf.c line 33 function main thread 0
+----------------------------------------------------
+  *(b + 0) = 1 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000001)
+
+State 16 file pcompf.c line 33 function main thread 0
+----------------------------------------------------
+  *(b + 0) = 1 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000001)
+
+State 17 file pcompf.c line 33 function main thread 0
+----------------------------------------------------
+  *(b + 0) = 1 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000001)
+
+State 18 file pcompf.c line 34 function main thread 0
+----------------------------------------------------
+  *(c + 0) = 0 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)
+
+State 19 file pcompf.c line 34 function main thread 0
+----------------------------------------------------
+  *(c + 0) = 0 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)
+
+State 20 file pcompf.c line 34 function main thread 0
+----------------------------------------------------
+  *(c + 0) = 0 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)
+
+State 21 file pcompf.c line 34 function main thread 0
+----------------------------------------------------
+  *(c + 0) = 0 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)
+
+State 22 file pcompf.c line 34 function main thread 0
+----------------------------------------------------
+  *(c + 0) = 0 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)
+
+State 23 file pcompf.c line 34 function main thread 0
+----------------------------------------------------
+  *(c + 0) = 0 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)
+
+State 24 file pcompf.c line 34 function main thread 0
+----------------------------------------------------
+  *(c + 0) = 0 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)
+
+State 25 file pcompf.c line 34 function main thread 0
+----------------------------------------------------
+  *(c + 0) = 0 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)
+
+State 26 file pcompf.c line 38 function main thread 0
+----------------------------------------------------
+  *(a + i) = 12 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00001100)
+
+State 27 file pcompf.c line 38 function main thread 0
+----------------------------------------------------
+  *(a + i) = 12 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00001100)
+
+State 28 file pcompf.c line 38 function main thread 0
+----------------------------------------------------
+  *(a + i) = 12 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00001100)
+
+State 29 file pcompf.c line 38 function main thread 0
+----------------------------------------------------
+  *(a + i) = 12 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00001100)
+
+State 30 file pcompf.c line 38 function main thread 0
+----------------------------------------------------
+  *(a + i) = 12 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00001100)
+
+State 31 file pcompf.c line 38 function main thread 0
+----------------------------------------------------
+  *(a + i) = 12 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00001100)
+
+State 32 file pcompf.c line 38 function main thread 0
+----------------------------------------------------
+  *(a + i) = 12 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00001100)
+
+State 33 file pcompf.c line 38 function main thread 0
+----------------------------------------------------
+  *(a + i) = 12 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00001100)
+
+State 34 file pcompf.c line 38 function main thread 0
+----------------------------------------------------
+  *(a + i) = 18 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00010010)
+
+State 35 file pcompf.c line 38 function main thread 0
+----------------------------------------------------
+  *(a + i) = 18 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00010010)
+
+State 36 file pcompf.c line 38 function main thread 0
+----------------------------------------------------
+  *(a + i) = 18 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00010010)
+
+State 37 file pcompf.c line 38 function main thread 0
+----------------------------------------------------
+  *(a + i) = 18 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00010010)
+
+State 38 file pcompf.c line 38 function main thread 0
+----------------------------------------------------
+  *(a + i) = 18 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00010010)
+
+State 39 file pcompf.c line 38 function main thread 0
+----------------------------------------------------
+  *(a + i) = 18 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00010010)
+
+State 40 file pcompf.c line 38 function main thread 0
+----------------------------------------------------
+  *(a + i) = 18 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00010010)
+
+State 41 file pcompf.c line 38 function main thread 0
+----------------------------------------------------
+  *(a + i) = 18 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00010010)
+
+State 42 file pcompf.c line 43 function main thread 0
+----------------------------------------------------
+  *(b + i) = 7 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000111)
+
+State 43 file pcompf.c line 43 function main thread 0
+----------------------------------------------------
+  *(b + i) = 7 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000111)
+
+State 44 file pcompf.c line 43 function main thread 0
+----------------------------------------------------
+  *(b + i) = 7 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000111)
+
+State 45 file pcompf.c line 43 function main thread 0
+----------------------------------------------------
+  *(b + i) = 7 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000111)
+
+State 46 file pcompf.c line 43 function main thread 0
+----------------------------------------------------
+  *(b + i) = 7 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000111)
+
+State 47 file pcompf.c line 43 function main thread 0
+----------------------------------------------------
+  *(b + i) = 7 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000111)
+
+State 48 file pcompf.c line 43 function main thread 0
+----------------------------------------------------
+  *(b + i) = 7 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000111)
+
+State 49 file pcompf.c line 43 function main thread 0
+----------------------------------------------------
+  *(b + i) = 7 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000111)
+
+State 50 file pcompf.c line 43 function main thread 0
+----------------------------------------------------
+  *(b + i) = 19 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00010011)
+
+State 51 file pcompf.c line 43 function main thread 0
+----------------------------------------------------
+  *(b + i) = 19 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00010011)
+
+State 52 file pcompf.c line 43 function main thread 0
+----------------------------------------------------
+  *(b + i) = 19 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00010011)
+
+State 53 file pcompf.c line 43 function main thread 0
+----------------------------------------------------
+  *(b + i) = 19 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00010011)
+
+State 54 file pcompf.c line 43 function main thread 0
+----------------------------------------------------
+  *(b + i) = 19 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00010011)
+
+State 55 file pcompf.c line 43 function main thread 0
+----------------------------------------------------
+  *(b + i) = 19 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00010011)
+
+State 56 file pcompf.c line 43 function main thread 0
+----------------------------------------------------
+  *(b + i) = 19 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00010011)
+
+State 57 file pcompf.c line 43 function main thread 0
+----------------------------------------------------
+  *(b + i) = 19 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00010011)
+
+State 58 file pcompf.c line 48 function main thread 0
+----------------------------------------------------
+  *(c + i) = 1 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000001)
+
+State 59 file pcompf.c line 48 function main thread 0
+----------------------------------------------------
+  *(c + i) = 1 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000001)
+
+State 60 file pcompf.c line 48 function main thread 0
+----------------------------------------------------
+  *(c + i) = 1 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000001)
+
+State 61 file pcompf.c line 48 function main thread 0
+----------------------------------------------------
+  *(c + i) = 1 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000001)
+
+State 62 file pcompf.c line 48 function main thread 0
+----------------------------------------------------
+  *(c + i) = 1 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000001)
+
+State 63 file pcompf.c line 48 function main thread 0
+----------------------------------------------------
+  *(c + i) = 1 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000001)
+
+State 64 file pcompf.c line 48 function main thread 0
+----------------------------------------------------
+  *(c + i) = 1 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000001)
+
+State 65 file pcompf.c line 48 function main thread 0
+----------------------------------------------------
+  *(c + i) = 1 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000001)
+
+State 66 file pcompf.c line 48 function main thread 0
+----------------------------------------------------
+  *(c + i) = 8 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00001000)
+
+State 67 file pcompf.c line 48 function main thread 0
+----------------------------------------------------
+  *(c + i) = 8 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00001000)
+
+State 68 file pcompf.c line 48 function main thread 0
+----------------------------------------------------
+  *(c + i) = 8 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00001000)
+
+State 69 file pcompf.c line 48 function main thread 0
+----------------------------------------------------
+  *(c + i) = 8 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00001000)
+
+State 70 file pcompf.c line 48 function main thread 0
+----------------------------------------------------
+  *(c + i) = 8 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00001000)
+
+State 71 file pcompf.c line 48 function main thread 0
+----------------------------------------------------
+  *(c + i) = 8 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00001000)
+
+State 72 file pcompf.c line 48 function main thread 0
+----------------------------------------------------
+  *(c + i) = 8 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00001000)
+
+State 73 file pcompf.c line 48 function main thread 0
+----------------------------------------------------
+  *(c + i) = 8 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00001000)
+
+State 74 file pcompf.c line 10 function reach_error thread 0
+----------------------------------------------------
+Violated property:
+  file pcompf.c line 10 function reach_error
+  assertion 0
+  0
+
+
+VERIFICATION FAILED
+
+Bug found (k = 3)
+
+
+FALSE_REACH

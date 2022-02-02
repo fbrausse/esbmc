@@ -1,0 +1,16 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--usb--musb--musb_hdrc.ko.cil.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--usb--musb--musb_hdrc.ko.cil.i --64 --witness-output linux-4.0-rc1---drivers--usb--musb--musb_hdrc.ko.cil.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--usb--musb--musb_hdrc.ko.cil.i:15939:10: warning: incompatible pointer types assigning to 'const u8 (*)[0]' from 'const u8 *' (aka 'const unsigned char *') [-Wincompatible-pointer-types]
+  __mptr = (u8 const *)urb->transfer_buffer;
+         ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Function call to "c:linux-4.0-rc1---drivers--usb--musb--musb_hdrc.ko.cil.i@F@musb_indexed_ep_offset": number of arguments doesn't match type definition; some inconsistent rewriting occured
+
+
+Unknown

@@ -1,0 +1,1177 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/ldv-linux-3.14/linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-linux-3.14/linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i --64 --witness-output linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 64-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/ldv-linux-3.14/linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 4.821s
+GOTO program processing time: 2.366s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.587s (1880 assignments)
+Slicing time: 0.005s (removed 1364 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (516 assignments)
+BMC program time: 0.592s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.587s (1880 assignments)
+Slicing time: 0.005s (removed 1364 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (516 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.293s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.293s
+Runtime decision procedure: 21.259s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 106  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 19248 function main
+Unwinding loop 2  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 7521 function netxen_pcie_sem_lock
+No target candidate for function call *adapter->crb_read
+Unwinding loop 2  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 7521 function netxen_pcie_sem_lock
+No target candidate for function call *adapter->crb_read
+Not unwinding 
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_read
+No target candidate for function call *ops->free
+No target candidate for function call *ops->free
+Unwinding loop 81  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 27419 function netxen_free_hw_resources
+No target candidate for function call *ops->free
+Unwinding loop 81  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 27419 function netxen_free_hw_resources
+No target candidate for function call *ops->free
+Not unwinding 
+Unwinding loop 82  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 27437 function netxen_free_hw_resources
+No target candidate for function call *ops->free
+Unwinding loop 82  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 27437 function netxen_free_hw_resources
+No target candidate for function call *ops->free
+Not unwinding 
+Unwinding loop 80  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22135 function netxen_release_rx_buffers
+Unwinding loop 79  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22129 function netxen_release_rx_buffers
+No target candidate for function call *ops->unmap_page
+Unwinding loop 79  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22129 function netxen_release_rx_buffers
+No target candidate for function call *ops->unmap_page
+Not unwinding 
+Unwinding loop 80  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22135 function netxen_release_rx_buffers
+Unwinding loop 79  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22129 function netxen_release_rx_buffers
+No target candidate for function call *ops->unmap_page
+Unwinding loop 79  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22129 function netxen_release_rx_buffers
+No target candidate for function call *ops->unmap_page
+Not unwinding 
+Not unwinding 
+Unwinding loop 68  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 14048 function netxen_nic_free_irq
+Unwinding loop 45  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 12784 function netxen_napi_del
+Unwinding loop 45  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 12784 function netxen_napi_del
+Not unwinding 
+Unwinding loop 83  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22219 function netxen_free_sw_resources
+Unwinding loop 83  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22219 function netxen_free_sw_resources
+Not unwinding 
+No target candidate for function call *adapter->crb_read
+No target candidate for function call *adapter->crb_write
+Unwinding loop 66  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 23778 function netxen_free_dummy_dma
+No target candidate for function call *adapter->crb_read
+Unwinding loop 66  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 23778 function netxen_free_dummy_dma
+No target candidate for function call *adapter->crb_read
+Not unwinding 
+No target candidate for function call *ops->free
+Unwinding loop 2  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 7521 function netxen_pcie_sem_lock
+No target candidate for function call *adapter->crb_read
+Unwinding loop 2  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 7521 function netxen_pcie_sem_lock
+No target candidate for function call *adapter->crb_read
+Not unwinding 
+No target candidate for function call *adapter->crb_read
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_read
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_read
+No target candidate for function call *adapter->crb_read
+No target candidate for function call *adapter->crb_read
+Unwinding loop 2  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 7521 function netxen_pcie_sem_lock
+No target candidate for function call *adapter->crb_read
+Unwinding loop 2  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 7521 function netxen_pcie_sem_lock
+No target candidate for function call *adapter->crb_read
+Not unwinding 
+No target candidate for function call *adapter->crb_read
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_read
+No target candidate for function call *adapter->crb_read
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_read
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_read
+No target candidate for function call *adapter->crb_read
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_read
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_read
+Unwinding loop 48  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 12994 function netxen_check_hw_init
+No target candidate for function call *adapter->crb_read
+Unwinding loop 48  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 12994 function netxen_check_hw_init
+No target candidate for function call *adapter->crb_read
+Not unwinding 
+Unwinding loop 2  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 7521 function netxen_pcie_sem_lock
+No target candidate for function call *adapter->crb_read
+Unwinding loop 2  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 7521 function netxen_pcie_sem_lock
+No target candidate for function call *adapter->crb_read
+Not unwinding 
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+Unwinding loop 109  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22478 function netxen_wait_rom_done
+No target candidate for function call *adapter->crb_read
+Unwinding loop 109  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22478 function netxen_wait_rom_done
+No target candidate for function call *adapter->crb_read
+Not unwinding 
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_read
+No target candidate for function call *adapter->crb_read
+No target candidate for function call *adapter->crb_read
+Unwinding loop 57  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 23686 function netxen_request_firmware
+Unwinding loop 2  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 7521 function netxen_pcie_sem_lock
+No target candidate for function call *adapter->crb_read
+Unwinding loop 2  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 7521 function netxen_pcie_sem_lock
+No target candidate for function call *adapter->crb_read
+Not unwinding 
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+Unwinding loop 109  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22478 function netxen_wait_rom_done
+No target candidate for function call *adapter->crb_read
+Unwinding loop 109  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22478 function netxen_wait_rom_done
+No target candidate for function call *adapter->crb_read
+Not unwinding 
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_read
+No target candidate for function call *adapter->crb_read
+No target candidate for function call *adapter->crb_read
+Unwinding loop 57  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 23686 function netxen_request_firmware
+Unwinding loop 2  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 7521 function netxen_pcie_sem_lock
+No target candidate for function call *adapter->crb_read
+Unwinding loop 2  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 7521 function netxen_pcie_sem_lock
+No target candidate for function call *adapter->crb_read
+Not unwinding 
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+Unwinding loop 109  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22478 function netxen_wait_rom_done
+No target candidate for function call *adapter->crb_read
+Unwinding loop 109  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22478 function netxen_wait_rom_done
+No target candidate for function call *adapter->crb_read
+Not unwinding 
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_read
+No target candidate for function call *adapter->crb_read
+No target candidate for function call *adapter->crb_read
+Not unwinding 
+Unwinding loop 2  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 7521 function netxen_pcie_sem_lock
+No target candidate for function call *adapter->crb_read
+Unwinding loop 2  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 7521 function netxen_pcie_sem_lock
+No target candidate for function call *adapter->crb_read
+Not unwinding 
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+Unwinding loop 109  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22478 function netxen_wait_rom_done
+No target candidate for function call *adapter->crb_read
+Unwinding loop 109  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22478 function netxen_wait_rom_done
+No target candidate for function call *adapter->crb_read
+Not unwinding 
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_read
+No target candidate for function call *adapter->crb_read
+No target candidate for function call *adapter->crb_read
+Unwinding loop 111  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22833 function nx_get_table_desc
+Unwinding loop 111  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22833 function nx_get_table_desc
+Not unwinding 
+Unwinding loop 112  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22991 function netxen_nic_validate_product_offs
+Unwinding loop 112  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22991 function netxen_nic_validate_product_offs
+Not unwinding 
+Unwinding loop 113  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22996 function netxen_nic_validate_product_offs
+Unwinding loop 112  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22991 function netxen_nic_validate_product_offs
+Unwinding loop 112  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22991 function netxen_nic_validate_product_offs
+Not unwinding 
+Unwinding loop 111  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22833 function nx_get_table_desc
+Unwinding loop 111  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22833 function nx_get_table_desc
+Not unwinding 
+Unwinding loop 111  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22833 function nx_get_table_desc
+Unwinding loop 111  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22833 function nx_get_table_desc
+Not unwinding 
+Unwinding loop 111  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22833 function nx_get_table_desc
+Unwinding loop 111  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22833 function nx_get_table_desc
+Not unwinding 
+Unwinding loop 114  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 23155 function nx_get_fw_version
+Unwinding loop 107  iteration  1   file string.c line 120 function strncmp
+Unwinding loop 107  iteration  2   file string.c line 120 function strncmp
+Not unwinding 
+**** WARNING: no body for function sscanf
+Unwinding loop 114  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 23155 function nx_get_fw_version
+Unwinding loop 107  iteration  1   file string.c line 120 function strncmp
+Unwinding loop 107  iteration  2   file string.c line 120 function strncmp
+Not unwinding 
+**** WARNING: no body for function sscanf
+Not unwinding 
+Unwinding loop 2  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 7521 function netxen_pcie_sem_lock
+No target candidate for function call *adapter->crb_read
+Unwinding loop 2  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 7521 function netxen_pcie_sem_lock
+No target candidate for function call *adapter->crb_read
+Not unwinding 
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+Unwinding loop 109  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22478 function netxen_wait_rom_done
+No target candidate for function call *adapter->crb_read
+Unwinding loop 109  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22478 function netxen_wait_rom_done
+No target candidate for function call *adapter->crb_read
+Not unwinding 
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_read
+No target candidate for function call *adapter->crb_read
+Unwinding loop 2  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 7521 function netxen_pcie_sem_lock
+No target candidate for function call *adapter->crb_read
+Unwinding loop 2  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 7521 function netxen_pcie_sem_lock
+No target candidate for function call *adapter->crb_read
+Not unwinding 
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+Unwinding loop 109  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22478 function netxen_wait_rom_done
+No target candidate for function call *adapter->crb_read
+Unwinding loop 109  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22478 function netxen_wait_rom_done
+No target candidate for function call *adapter->crb_read
+Not unwinding 
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_read
+No target candidate for function call *adapter->crb_read
+Unwinding loop 2  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 7521 function netxen_pcie_sem_lock
+No target candidate for function call *adapter->crb_read
+Unwinding loop 2  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 7521 function netxen_pcie_sem_lock
+No target candidate for function call *adapter->crb_read
+Not unwinding 
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+Unwinding loop 109  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22478 function netxen_wait_rom_done
+No target candidate for function call *adapter->crb_read
+Unwinding loop 109  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22478 function netxen_wait_rom_done
+No target candidate for function call *adapter->crb_read
+Not unwinding 
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_read
+No target candidate for function call *adapter->crb_read
+No target candidate for function call *adapter->crb_read
+No target candidate for function call *adapter->crb_write
+Unwinding loop 58  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 23697 function netxen_request_firmware
+Unwinding loop 2  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 7521 function netxen_pcie_sem_lock
+No target candidate for function call *adapter->crb_read
+Unwinding loop 2  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 7521 function netxen_pcie_sem_lock
+No target candidate for function call *adapter->crb_read
+Not unwinding 
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+Unwinding loop 109  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22478 function netxen_wait_rom_done
+No target candidate for function call *adapter->crb_read
+Unwinding loop 109  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22478 function netxen_wait_rom_done
+No target candidate for function call *adapter->crb_read
+Not unwinding 
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_read
+No target candidate for function call *adapter->crb_read
+No target candidate for function call *adapter->crb_read
+Unwinding loop 57  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 23686 function netxen_request_firmware
+Unwinding loop 2  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 7521 function netxen_pcie_sem_lock
+No target candidate for function call *adapter->crb_read
+Unwinding loop 2  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 7521 function netxen_pcie_sem_lock
+No target candidate for function call *adapter->crb_read
+Not unwinding 
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+Unwinding loop 109  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22478 function netxen_wait_rom_done
+No target candidate for function call *adapter->crb_read
+Unwinding loop 109  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22478 function netxen_wait_rom_done
+No target candidate for function call *adapter->crb_read
+Not unwinding 
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_read
+No target candidate for function call *adapter->crb_read
+No target candidate for function call *adapter->crb_read
+Unwinding loop 57  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 23686 function netxen_request_firmware
+Unwinding loop 2  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 7521 function netxen_pcie_sem_lock
+No target candidate for function call *adapter->crb_read
+Unwinding loop 2  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 7521 function netxen_pcie_sem_lock
+No target candidate for function call *adapter->crb_read
+Not unwinding 
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+Unwinding loop 109  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22478 function netxen_wait_rom_done
+No target candidate for function call *adapter->crb_read
+Unwinding loop 109  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22478 function netxen_wait_rom_done
+No target candidate for function call *adapter->crb_read
+Not unwinding 
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_read
+No target candidate for function call *adapter->crb_read
+No target candidate for function call *adapter->crb_read
+Not unwinding 
+Unwinding loop 2  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 7521 function netxen_pcie_sem_lock
+No target candidate for function call *adapter->crb_read
+Unwinding loop 2  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 7521 function netxen_pcie_sem_lock
+No target candidate for function call *adapter->crb_read
+Not unwinding 
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+Unwinding loop 109  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22478 function netxen_wait_rom_done
+No target candidate for function call *adapter->crb_read
+Unwinding loop 109  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22478 function netxen_wait_rom_done
+No target candidate for function call *adapter->crb_read
+Not unwinding 
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_read
+No target candidate for function call *adapter->crb_read
+No target candidate for function call *adapter->crb_read
+Unwinding loop 111  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22833 function nx_get_table_desc
+Unwinding loop 111  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22833 function nx_get_table_desc
+Not unwinding 
+Unwinding loop 112  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22991 function netxen_nic_validate_product_offs
+Unwinding loop 112  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22991 function netxen_nic_validate_product_offs
+Not unwinding 
+Unwinding loop 113  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22996 function netxen_nic_validate_product_offs
+Unwinding loop 112  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22991 function netxen_nic_validate_product_offs
+Unwinding loop 112  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22991 function netxen_nic_validate_product_offs
+Not unwinding 
+Unwinding loop 111  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22833 function nx_get_table_desc
+Unwinding loop 111  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22833 function nx_get_table_desc
+Not unwinding 
+Unwinding loop 111  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22833 function nx_get_table_desc
+Unwinding loop 111  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22833 function nx_get_table_desc
+Not unwinding 
+Unwinding loop 111  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22833 function nx_get_table_desc
+Unwinding loop 111  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22833 function nx_get_table_desc
+Not unwinding 
+Unwinding loop 114  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 23155 function nx_get_fw_version
+Unwinding loop 107  iteration  1   file string.c line 120 function strncmp
+Unwinding loop 107  iteration  2   file string.c line 120 function strncmp
+Not unwinding 
+**** WARNING: no body for function sscanf
+Unwinding loop 114  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 23155 function nx_get_fw_version
+Unwinding loop 107  iteration  1   file string.c line 120 function strncmp
+Unwinding loop 107  iteration  2   file string.c line 120 function strncmp
+Not unwinding 
+**** WARNING: no body for function sscanf
+Not unwinding 
+Unwinding loop 2  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 7521 function netxen_pcie_sem_lock
+No target candidate for function call *adapter->crb_read
+Unwinding loop 2  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 7521 function netxen_pcie_sem_lock
+No target candidate for function call *adapter->crb_read
+Not unwinding 
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+Unwinding loop 109  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22478 function netxen_wait_rom_done
+No target candidate for function call *adapter->crb_read
+Unwinding loop 109  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22478 function netxen_wait_rom_done
+No target candidate for function call *adapter->crb_read
+Not unwinding 
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_read
+No target candidate for function call *adapter->crb_read
+Unwinding loop 2  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 7521 function netxen_pcie_sem_lock
+No target candidate for function call *adapter->crb_read
+Unwinding loop 2  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 7521 function netxen_pcie_sem_lock
+No target candidate for function call *adapter->crb_read
+Not unwinding 
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+Unwinding loop 109  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22478 function netxen_wait_rom_done
+No target candidate for function call *adapter->crb_read
+Unwinding loop 109  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22478 function netxen_wait_rom_done
+No target candidate for function call *adapter->crb_read
+Not unwinding 
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_read
+No target candidate for function call *adapter->crb_read
+Unwinding loop 2  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 7521 function netxen_pcie_sem_lock
+No target candidate for function call *adapter->crb_read
+Unwinding loop 2  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 7521 function netxen_pcie_sem_lock
+No target candidate for function call *adapter->crb_read
+Not unwinding 
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+Unwinding loop 109  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22478 function netxen_wait_rom_done
+No target candidate for function call *adapter->crb_read
+Unwinding loop 109  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22478 function netxen_wait_rom_done
+No target candidate for function call *adapter->crb_read
+Not unwinding 
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_read
+No target candidate for function call *adapter->crb_read
+No target candidate for function call *adapter->crb_read
+No target candidate for function call *adapter->crb_write
+Unwinding loop 58  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 23697 function netxen_request_firmware
+Unwinding loop 2  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 7521 function netxen_pcie_sem_lock
+No target candidate for function call *adapter->crb_read
+Unwinding loop 2  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 7521 function netxen_pcie_sem_lock
+No target candidate for function call *adapter->crb_read
+Not unwinding 
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+Unwinding loop 109  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22478 function netxen_wait_rom_done
+No target candidate for function call *adapter->crb_read
+Unwinding loop 109  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22478 function netxen_wait_rom_done
+No target candidate for function call *adapter->crb_read
+Not unwinding 
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_read
+No target candidate for function call *adapter->crb_read
+No target candidate for function call *adapter->crb_read
+Unwinding loop 57  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 23686 function netxen_request_firmware
+Unwinding loop 2  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 7521 function netxen_pcie_sem_lock
+No target candidate for function call *adapter->crb_read
+Unwinding loop 2  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 7521 function netxen_pcie_sem_lock
+No target candidate for function call *adapter->crb_read
+Not unwinding 
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+Unwinding loop 109  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22478 function netxen_wait_rom_done
+No target candidate for function call *adapter->crb_read
+Unwinding loop 109  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22478 function netxen_wait_rom_done
+No target candidate for function call *adapter->crb_read
+Not unwinding 
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_read
+No target candidate for function call *adapter->crb_read
+No target candidate for function call *adapter->crb_read
+Unwinding loop 57  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 23686 function netxen_request_firmware
+Unwinding loop 2  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 7521 function netxen_pcie_sem_lock
+No target candidate for function call *adapter->crb_read
+Unwinding loop 2  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 7521 function netxen_pcie_sem_lock
+No target candidate for function call *adapter->crb_read
+Not unwinding 
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+Unwinding loop 109  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22478 function netxen_wait_rom_done
+No target candidate for function call *adapter->crb_read
+Unwinding loop 109  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22478 function netxen_wait_rom_done
+No target candidate for function call *adapter->crb_read
+Not unwinding 
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_read
+No target candidate for function call *adapter->crb_read
+No target candidate for function call *adapter->crb_read
+Not unwinding 
+Unwinding loop 2  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 7521 function netxen_pcie_sem_lock
+No target candidate for function call *adapter->crb_read
+Unwinding loop 2  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 7521 function netxen_pcie_sem_lock
+No target candidate for function call *adapter->crb_read
+Not unwinding 
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+Unwinding loop 109  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22478 function netxen_wait_rom_done
+No target candidate for function call *adapter->crb_read
+Unwinding loop 109  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22478 function netxen_wait_rom_done
+No target candidate for function call *adapter->crb_read
+Not unwinding 
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_read
+No target candidate for function call *adapter->crb_read
+No target candidate for function call *adapter->crb_read
+Unwinding loop 111  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22833 function nx_get_table_desc
+Unwinding loop 111  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22833 function nx_get_table_desc
+Not unwinding 
+Unwinding loop 112  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22991 function netxen_nic_validate_product_offs
+Unwinding loop 112  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22991 function netxen_nic_validate_product_offs
+Not unwinding 
+Unwinding loop 113  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22996 function netxen_nic_validate_product_offs
+Unwinding loop 112  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22991 function netxen_nic_validate_product_offs
+Unwinding loop 112  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22991 function netxen_nic_validate_product_offs
+Not unwinding 
+Unwinding loop 111  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22833 function nx_get_table_desc
+Unwinding loop 111  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22833 function nx_get_table_desc
+Not unwinding 
+Unwinding loop 111  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22833 function nx_get_table_desc
+Unwinding loop 111  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22833 function nx_get_table_desc
+Not unwinding 
+Unwinding loop 111  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22833 function nx_get_table_desc
+Unwinding loop 111  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22833 function nx_get_table_desc
+Not unwinding 
+Unwinding loop 114  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 23155 function nx_get_fw_version
+Unwinding loop 107  iteration  1   file string.c line 120 function strncmp
+Unwinding loop 107  iteration  2   file string.c line 120 function strncmp
+Not unwinding 
+**** WARNING: no body for function sscanf
+Unwinding loop 114  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 23155 function nx_get_fw_version
+Unwinding loop 107  iteration  1   file string.c line 120 function strncmp
+Unwinding loop 107  iteration  2   file string.c line 120 function strncmp
+Not unwinding 
+**** WARNING: no body for function sscanf
+Not unwinding 
+Unwinding loop 2  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 7521 function netxen_pcie_sem_lock
+No target candidate for function call *adapter->crb_read
+Unwinding loop 2  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 7521 function netxen_pcie_sem_lock
+No target candidate for function call *adapter->crb_read
+Not unwinding 
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+Unwinding loop 109  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22478 function netxen_wait_rom_done
+No target candidate for function call *adapter->crb_read
+Unwinding loop 109  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22478 function netxen_wait_rom_done
+No target candidate for function call *adapter->crb_read
+Not unwinding 
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_read
+No target candidate for function call *adapter->crb_read
+Unwinding loop 2  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 7521 function netxen_pcie_sem_lock
+No target candidate for function call *adapter->crb_read
+Unwinding loop 2  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 7521 function netxen_pcie_sem_lock
+No target candidate for function call *adapter->crb_read
+Not unwinding 
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+Unwinding loop 109  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22478 function netxen_wait_rom_done
+No target candidate for function call *adapter->crb_read
+Unwinding loop 109  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22478 function netxen_wait_rom_done
+No target candidate for function call *adapter->crb_read
+Not unwinding 
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_read
+No target candidate for function call *adapter->crb_read
+Unwinding loop 2  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 7521 function netxen_pcie_sem_lock
+No target candidate for function call *adapter->crb_read
+Unwinding loop 2  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 7521 function netxen_pcie_sem_lock
+No target candidate for function call *adapter->crb_read
+Not unwinding 
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+Unwinding loop 109  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22478 function netxen_wait_rom_done
+No target candidate for function call *adapter->crb_read
+Unwinding loop 109  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22478 function netxen_wait_rom_done
+No target candidate for function call *adapter->crb_read
+Not unwinding 
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_read
+No target candidate for function call *adapter->crb_read
+No target candidate for function call *adapter->crb_read
+No target candidate for function call *adapter->crb_write
+Not unwinding 
+No target candidate for function call *adapter->crb_read
+No target candidate for function call *adapter->crb_read
+Unwinding loop 59  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 23242 function netxen_need_fw_reset
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_read
+Unwinding loop 59  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 23242 function netxen_need_fw_reset
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_read
+Not unwinding 
+Unwinding loop 111  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22833 function nx_get_table_desc
+Unwinding loop 111  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22833 function nx_get_table_desc
+Not unwinding 
+Unwinding loop 114  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 23155 function nx_get_fw_version
+Unwinding loop 107  iteration  1   file string.c line 120 function strncmp
+Unwinding loop 107  iteration  2   file string.c line 120 function strncmp
+Not unwinding 
+**** WARNING: no body for function sscanf
+Unwinding loop 114  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 23155 function nx_get_fw_version
+Unwinding loop 107  iteration  1   file string.c line 120 function strncmp
+Unwinding loop 107  iteration  2   file string.c line 120 function strncmp
+Not unwinding 
+**** WARNING: no body for function sscanf
+Not unwinding 
+No target candidate for function call *adapter->crb_read
+No target candidate for function call *adapter->crb_read
+No target candidate for function call *adapter->crb_read
+No target candidate for function call *adapter->crb_read
+No target candidate for function call *adapter->crb_write
+Unwinding loop 2  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 7521 function netxen_pcie_sem_lock
+No target candidate for function call *adapter->crb_read
+Unwinding loop 2  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 7521 function netxen_pcie_sem_lock
+No target candidate for function call *adapter->crb_read
+Not unwinding 
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_read
+Unwinding loop 2  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 7521 function netxen_pcie_sem_lock
+No target candidate for function call *adapter->crb_read
+Unwinding loop 2  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 7521 function netxen_pcie_sem_lock
+No target candidate for function call *adapter->crb_read
+Not unwinding 
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+Unwinding loop 109  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22478 function netxen_wait_rom_done
+No target candidate for function call *adapter->crb_read
+Unwinding loop 109  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22478 function netxen_wait_rom_done
+No target candidate for function call *adapter->crb_read
+Not unwinding 
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_read
+No target candidate for function call *adapter->crb_read
+Unwinding loop 2  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 7521 function netxen_pcie_sem_lock
+No target candidate for function call *adapter->crb_read
+Unwinding loop 2  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 7521 function netxen_pcie_sem_lock
+No target candidate for function call *adapter->crb_read
+Not unwinding 
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+Unwinding loop 109  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22478 function netxen_wait_rom_done
+No target candidate for function call *adapter->crb_read
+Unwinding loop 109  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22478 function netxen_wait_rom_done
+No target candidate for function call *adapter->crb_read
+Not unwinding 
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_read
+No target candidate for function call *adapter->crb_read
+Unwinding loop 2  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 7521 function netxen_pcie_sem_lock
+No target candidate for function call *adapter->crb_read
+Unwinding loop 2  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 7521 function netxen_pcie_sem_lock
+No target candidate for function call *adapter->crb_read
+Not unwinding 
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+Unwinding loop 109  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22478 function netxen_wait_rom_done
+No target candidate for function call *adapter->crb_read
+Unwinding loop 109  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22478 function netxen_wait_rom_done
+No target candidate for function call *adapter->crb_read
+Not unwinding 
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_read
+No target candidate for function call *adapter->crb_read
+Unwinding loop 60  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22691 function netxen_pinit_from_rom
+Unwinding loop 2  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 7521 function netxen_pcie_sem_lock
+No target candidate for function call *adapter->crb_read
+Unwinding loop 2  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 7521 function netxen_pcie_sem_lock
+No target candidate for function call *adapter->crb_read
+Not unwinding 
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+Unwinding loop 109  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22478 function netxen_wait_rom_done
+No target candidate for function call *adapter->crb_read
+Unwinding loop 109  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22478 function netxen_wait_rom_done
+No target candidate for function call *adapter->crb_read
+Not unwinding 
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_read
+No target candidate for function call *adapter->crb_read
+Unwinding loop 2  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 7521 function netxen_pcie_sem_lock
+No target candidate for function call *adapter->crb_read
+Unwinding loop 2  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 7521 function netxen_pcie_sem_lock
+No target candidate for function call *adapter->crb_read
+Not unwinding 
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+Unwinding loop 109  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22478 function netxen_wait_rom_done
+No target candidate for function call *adapter->crb_read
+Unwinding loop 109  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22478 function netxen_wait_rom_done
+No target candidate for function call *adapter->crb_read
+Not unwinding 
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_read
+No target candidate for function call *adapter->crb_read
+Unwinding loop 60  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22691 function netxen_pinit_from_rom
+Unwinding loop 2  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 7521 function netxen_pcie_sem_lock
+No target candidate for function call *adapter->crb_read
+Unwinding loop 2  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 7521 function netxen_pcie_sem_lock
+No target candidate for function call *adapter->crb_read
+Not unwinding 
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+Unwinding loop 109  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22478 function netxen_wait_rom_done
+No target candidate for function call *adapter->crb_read
+Unwinding loop 109  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22478 function netxen_wait_rom_done
+No target candidate for function call *adapter->crb_read
+Not unwinding 
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_read
+No target candidate for function call *adapter->crb_read
+Unwinding loop 2  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 7521 function netxen_pcie_sem_lock
+No target candidate for function call *adapter->crb_read
+Unwinding loop 2  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 7521 function netxen_pcie_sem_lock
+No target candidate for function call *adapter->crb_read
+Not unwinding 
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+Unwinding loop 109  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22478 function netxen_wait_rom_done
+No target candidate for function call *adapter->crb_read
+Unwinding loop 109  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22478 function netxen_wait_rom_done
+No target candidate for function call *adapter->crb_read
+Not unwinding 
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_read
+No target candidate for function call *adapter->crb_read
+Not unwinding 
+Unwinding loop 61  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22781 function netxen_pinit_from_rom
+Unwinding loop 108  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22435 function netxen_decode_crb_addr
+Unwinding loop 108  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22435 function netxen_decode_crb_addr
+Not unwinding 
+No target candidate for function call *adapter->crb_write
+Unwinding loop 61  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22781 function netxen_pinit_from_rom
+Unwinding loop 108  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22435 function netxen_decode_crb_addr
+Unwinding loop 108  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22435 function netxen_decode_crb_addr
+Not unwinding 
+No target candidate for function call *adapter->crb_write
+Not unwinding 
+No target candidate for function call *adapter->crb_read
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+Unwinding loop 111  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22833 function nx_get_table_desc
+Unwinding loop 111  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22833 function nx_get_table_desc
+Not unwinding 
+Unwinding loop 62  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 23370 function netxen_load_firmware
+No target candidate for function call *adapter->pci_mem_write
+Unwinding loop 62  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 23370 function netxen_load_firmware
+No target candidate for function call *adapter->pci_mem_write
+Not unwinding 
+Unwinding loop 64  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 23445 function netxen_load_firmware
+Unwinding loop 2  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 7521 function netxen_pcie_sem_lock
+No target candidate for function call *adapter->crb_read
+Unwinding loop 2  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 7521 function netxen_pcie_sem_lock
+No target candidate for function call *adapter->crb_read
+Not unwinding 
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+Unwinding loop 109  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22478 function netxen_wait_rom_done
+No target candidate for function call *adapter->crb_read
+Unwinding loop 109  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22478 function netxen_wait_rom_done
+No target candidate for function call *adapter->crb_read
+Not unwinding 
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_read
+No target candidate for function call *adapter->crb_read
+Unwinding loop 2  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 7521 function netxen_pcie_sem_lock
+No target candidate for function call *adapter->crb_read
+Unwinding loop 2  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 7521 function netxen_pcie_sem_lock
+No target candidate for function call *adapter->crb_read
+Not unwinding 
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+Unwinding loop 109  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22478 function netxen_wait_rom_done
+No target candidate for function call *adapter->crb_read
+Unwinding loop 109  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22478 function netxen_wait_rom_done
+No target candidate for function call *adapter->crb_read
+Not unwinding 
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_read
+No target candidate for function call *adapter->crb_read
+No target candidate for function call *adapter->pci_mem_write
+Unwinding loop 64  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 23445 function netxen_load_firmware
+Unwinding loop 2  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 7521 function netxen_pcie_sem_lock
+No target candidate for function call *adapter->crb_read
+Unwinding loop 2  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 7521 function netxen_pcie_sem_lock
+No target candidate for function call *adapter->crb_read
+Not unwinding 
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+Unwinding loop 109  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22478 function netxen_wait_rom_done
+No target candidate for function call *adapter->crb_read
+Unwinding loop 109  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22478 function netxen_wait_rom_done
+No target candidate for function call *adapter->crb_read
+Not unwinding 
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_read
+No target candidate for function call *adapter->crb_read
+Unwinding loop 2  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 7521 function netxen_pcie_sem_lock
+No target candidate for function call *adapter->crb_read
+Unwinding loop 2  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 7521 function netxen_pcie_sem_lock
+No target candidate for function call *adapter->crb_read
+Not unwinding 
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+Unwinding loop 109  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22478 function netxen_wait_rom_done
+No target candidate for function call *adapter->crb_read
+Unwinding loop 109  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22478 function netxen_wait_rom_done
+No target candidate for function call *adapter->crb_read
+Not unwinding 
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_read
+No target candidate for function call *adapter->crb_read
+No target candidate for function call *adapter->pci_mem_write
+Not unwinding 
+No target candidate for function call *adapter->crb_read
+No target candidate for function call *adapter->crb_write
+Unwinding loop 49  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 13116 function netxen_pcie_strap_init
+Unwinding loop 49  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 13116 function netxen_pcie_strap_init
+Not unwinding 
+No target candidate for function call *adapter->crb_read
+Unwinding loop 65  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 23841 function netxen_phantom_init
+No target candidate for function call *adapter->crb_read
+Unwinding loop 65  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 23841 function netxen_phantom_init
+No target candidate for function call *adapter->crb_read
+Not unwinding 
+No target candidate for function call *adapter->crb_read
+Unwinding loop 115  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 23874 function netxen_receive_peg_ready
+No target candidate for function call *adapter->crb_read
+Unwinding loop 115  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 23874 function netxen_receive_peg_ready
+No target candidate for function call *adapter->crb_read
+Not unwinding 
+No target candidate for function call *adapter->init_port
+No target candidate for function call *adapter->macaddr_set
+No target candidate for function call *adapter->set_multi
+No target candidate for function call *adapter->set_mtu
+Unwinding loop 133  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 133  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 133  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 133  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 133  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 133  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 46  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 12811 function netxen_napi_enable
+No target candidate for function call *adapter->io_write
+No target candidate for function call *adapter->io_write
+Unwinding loop 46  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 12811 function netxen_napi_enable
+No target candidate for function call *adapter->io_write
+No target candidate for function call *adapter->io_write
+Not unwinding 
+Unwinding loop 133  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 133  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+No target candidate for function call *adapter->crb_read
+No target candidate for function call *adapter->phy_read
+No target candidate for function call *adapter->phy_read
+Unwinding loop 98  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 17432 function netxen_config_indev_addr
+Unwinding loop 96  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 17321 function netxen_list_config_ip
+Unwinding loop 96  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 17321 function netxen_list_config_ip
+Not unwinding 
+Unwinding loop 133  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 133  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 133  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 133  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 98  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 17432 function netxen_config_indev_addr
+Unwinding loop 96  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 17321 function netxen_list_config_ip
+Unwinding loop 96  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 17321 function netxen_list_config_ip
+Not unwinding 
+Unwinding loop 133  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 133  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 133  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 133  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Not unwinding 
+Unwinding loop 86  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 17472 function netxen_restore_indev_addr
+Unwinding loop 133  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 133  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 2  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 7521 function netxen_pcie_sem_lock
+No target candidate for function call *adapter->crb_read
+Unwinding loop 2  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 7521 function netxen_pcie_sem_lock
+No target candidate for function call *adapter->crb_read
+Not unwinding 
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_read
+No target candidate for function call *ops->free
+No target candidate for function call *ops->free
+Unwinding loop 81  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 27419 function netxen_free_hw_resources
+No target candidate for function call *ops->free
+Unwinding loop 81  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 27419 function netxen_free_hw_resources
+No target candidate for function call *ops->free
+Not unwinding 
+Unwinding loop 82  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 27437 function netxen_free_hw_resources
+No target candidate for function call *ops->free
+Unwinding loop 82  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 27437 function netxen_free_hw_resources
+No target candidate for function call *ops->free
+Not unwinding 
+Unwinding loop 80  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22135 function netxen_release_rx_buffers
+Unwinding loop 79  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22129 function netxen_release_rx_buffers
+No target candidate for function call *ops->unmap_page
+Unwinding loop 79  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22129 function netxen_release_rx_buffers
+No target candidate for function call *ops->unmap_page
+Not unwinding 
+Unwinding loop 80  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22135 function netxen_release_rx_buffers
+Unwinding loop 79  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22129 function netxen_release_rx_buffers
+No target candidate for function call *ops->unmap_page
+Unwinding loop 79  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22129 function netxen_release_rx_buffers
+No target candidate for function call *ops->unmap_page
+Not unwinding 
+Not unwinding 
+Unwinding loop 68  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 14048 function netxen_nic_free_irq
+Unwinding loop 45  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 12784 function netxen_napi_del
+Unwinding loop 45  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 12784 function netxen_napi_del
+Not unwinding 
+Unwinding loop 83  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22219 function netxen_free_sw_resources
+Unwinding loop 83  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22219 function netxen_free_sw_resources
+Not unwinding 
+Unwinding loop 2  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 7521 function netxen_pcie_sem_lock
+No target candidate for function call *adapter->crb_read
+Unwinding loop 2  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 7521 function netxen_pcie_sem_lock
+No target candidate for function call *adapter->crb_read
+Not unwinding 
+No target candidate for function call *adapter->crb_read
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_read
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_read
+No target candidate for function call *arg0
+No target candidate for function call *arg0
+Unwinding loop 2  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 7521 function netxen_pcie_sem_lock
+No target candidate for function call *adapter->crb_read
+Unwinding loop 2  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 7521 function netxen_pcie_sem_lock
+No target candidate for function call *adapter->crb_read
+Not unwinding 
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_read
+No target candidate for function call *ops->free
+No target candidate for function call *ops->free
+Unwinding loop 81  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 27419 function netxen_free_hw_resources
+No target candidate for function call *ops->free
+Unwinding loop 81  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 27419 function netxen_free_hw_resources
+No target candidate for function call *ops->free
+Not unwinding 
+Unwinding loop 82  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 27437 function netxen_free_hw_resources
+No target candidate for function call *ops->free
+Unwinding loop 82  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 27437 function netxen_free_hw_resources
+No target candidate for function call *ops->free
+Not unwinding 
+Unwinding loop 80  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22135 function netxen_release_rx_buffers
+Unwinding loop 79  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22129 function netxen_release_rx_buffers
+No target candidate for function call *ops->unmap_page
+Unwinding loop 79  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22129 function netxen_release_rx_buffers
+No target candidate for function call *ops->unmap_page
+Not unwinding 
+Unwinding loop 80  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22135 function netxen_release_rx_buffers
+Unwinding loop 79  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22129 function netxen_release_rx_buffers
+No target candidate for function call *ops->unmap_page
+Unwinding loop 79  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22129 function netxen_release_rx_buffers
+No target candidate for function call *ops->unmap_page
+Not unwinding 
+Not unwinding 
+Unwinding loop 68  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 14048 function netxen_nic_free_irq
+Unwinding loop 45  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 12784 function netxen_napi_del
+Unwinding loop 45  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 12784 function netxen_napi_del
+Not unwinding 
+Unwinding loop 83  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22219 function netxen_free_sw_resources
+Unwinding loop 83  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22219 function netxen_free_sw_resources
+Not unwinding 
+No target candidate for function call *adapter->crb_read
+No target candidate for function call *adapter->crb_write
+Unwinding loop 66  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 23778 function netxen_free_dummy_dma
+No target candidate for function call *adapter->crb_read
+Unwinding loop 66  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 23778 function netxen_free_dummy_dma
+No target candidate for function call *adapter->crb_read
+Not unwinding 
+No target candidate for function call *ops->free
+Unwinding loop 2  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 7521 function netxen_pcie_sem_lock
+No target candidate for function call *adapter->crb_read
+Unwinding loop 2  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 7521 function netxen_pcie_sem_lock
+No target candidate for function call *adapter->crb_read
+Not unwinding 
+No target candidate for function call *adapter->crb_read
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_read
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_read
+No target candidate for function call *adapter->crb_read
+No target candidate for function call *adapter->crb_read
+Unwinding loop 2  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 7521 function netxen_pcie_sem_lock
+No target candidate for function call *adapter->crb_read
+Unwinding loop 2  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 7521 function netxen_pcie_sem_lock
+No target candidate for function call *adapter->crb_read
+Not unwinding 
+No target candidate for function call *adapter->crb_read
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_read
+Unwinding loop 2  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 7521 function netxen_pcie_sem_lock
+No target candidate for function call *adapter->crb_read
+Unwinding loop 2  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 7521 function netxen_pcie_sem_lock
+No target candidate for function call *adapter->crb_read
+Not unwinding 
+No target candidate for function call *adapter->crb_write
+No target candidate for function call *adapter->crb_read
+No target candidate for function call *ops->free
+No target candidate for function call *ops->free
+Unwinding loop 81  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 27419 function netxen_free_hw_resources
+No target candidate for function call *ops->free
+Unwinding loop 81  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 27419 function netxen_free_hw_resources
+No target candidate for function call *ops->free
+Not unwinding 
+Unwinding loop 82  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 27437 function netxen_free_hw_resources
+No target candidate for function call *ops->free
+Unwinding loop 82  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 27437 function netxen_free_hw_resources
+No target candidate for function call *ops->free
+Not unwinding 
+Unwinding loop 80  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22135 function netxen_release_rx_buffers
+Unwinding loop 79  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22129 function netxen_release_rx_buffers
+No target candidate for function call *ops->unmap_page
+Unwinding loop 79  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22129 function netxen_release_rx_buffers
+No target candidate for function call *ops->unmap_page
+Not unwinding 
+Unwinding loop 80  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22135 function netxen_release_rx_buffers
+Unwinding loop 79  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22129 function netxen_release_rx_buffers
+No target candidate for function call *ops->unmap_page
+Unwinding loop 79  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22129 function netxen_release_rx_buffers
+No target candidate for function call *ops->unmap_page
+Not unwinding 
+Not unwinding 
+Unwinding loop 68  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 14048 function netxen_nic_free_irq
+Unwinding loop 45  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 12784 function netxen_napi_del
+Unwinding loop 45  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 12784 function netxen_napi_del
+Not unwinding 
+Unwinding loop 83  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22219 function netxen_free_sw_resources
+Unwinding loop 83  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 22219 function netxen_free_sw_resources
+Not unwinding 
+No target candidate for function call *adapter->crb_read
+No target candidate for function call *adapter->crb_write
+Unwinding loop 66  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 23778 function netxen_free_dummy_dma
+No target candidate for function call *adapter->crb_read
+Unwinding loop 66  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 23778 function netxen_free_dummy_dma
+No target candidate for function call *adapter->crb_read
+Not unwinding 
+No target candidate for function call *ops->free
+Unwinding loop 2  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 7521 function netxen_pcie_sem_lock
+No target candidate for function call *adapter->crb_read
+Unwinding loop 2  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i line 7521 function netxen_pcie_sem_lock
+No target candidate for function call *adapter->crb_read
+Not unwinding 
+No target candidate for function call *adapter->crb_read
+No target candidate for function call *adapter->crb_write
+No target candidate
+Function call to "c:linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-qlogic-netxen-netxen_nic.cil.i@F@netxen_nic_io_write_128M": number of arguments doesn't match type definition; some inconsistent rewriting occured
+
+
+Unknown

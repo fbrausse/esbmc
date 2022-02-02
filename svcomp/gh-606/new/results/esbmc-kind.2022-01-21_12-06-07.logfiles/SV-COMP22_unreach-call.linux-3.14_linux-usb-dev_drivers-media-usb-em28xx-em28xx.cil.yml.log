@@ -1,0 +1,304 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/ldv-challenges/linux-3.14_linux-usb-dev_drivers-media-usb-em28xx-em28xx.cil.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-challenges/linux-3.14_linux-usb-dev_drivers-media-usb-em28xx-em28xx.cil.i --64 --witness-output linux-3.14_linux-usb-dev_drivers-media-usb-em28xx-em28xx.cil.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 64-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/ldv-challenges/linux-3.14_linux-usb-dev_drivers-media-usb-em28xx-em28xx.cil.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 3.417s
+GOTO program processing time: 0.485s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+No target candidate for function call *arg0
+No target candidate for function call *arg0
+No target candidate for function call *arg0
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.462s (909 assignments)
+Slicing time: 0.002s (removed 632 assignments)
+Generated 7 VCC(s), 7 remaining after simplification (277 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.022s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.022s
+Runtime decision procedure: 4.598s
+BMC program time: 5.085s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+No target candidate for function call *arg0
+No target candidate for function call *arg0
+No target candidate for function call *arg0
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.503s (902 assignments)
+Slicing time: 0.002s (removed 674 assignments)
+Generated 9 VCC(s), 9 remaining after simplification (228 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.020s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.020s
+Runtime decision procedure: 3.929s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 57  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 57  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 47  iteration  1   file linux-3.14_linux-usb-dev_drivers-media-usb-em28xx-em28xx.cil.i line 12059 function em28xx_usb_probe
+Unwinding loop 46  iteration  1   file linux-3.14_linux-usb-dev_drivers-media-usb-em28xx-em28xx.cil.i line 12053 function em28xx_usb_probe
+Unwinding loop 46  iteration  2   file linux-3.14_linux-usb-dev_drivers-media-usb-em28xx-em28xx.cil.i line 12053 function em28xx_usb_probe
+Not unwinding 
+Unwinding loop 47  iteration  2   file linux-3.14_linux-usb-dev_drivers-media-usb-em28xx-em28xx.cil.i line 12059 function em28xx_usb_probe
+Unwinding loop 46  iteration  1   file linux-3.14_linux-usb-dev_drivers-media-usb-em28xx-em28xx.cil.i line 12053 function em28xx_usb_probe
+Unwinding loop 46  iteration  2   file linux-3.14_linux-usb-dev_drivers-media-usb-em28xx-em28xx.cil.i line 12053 function em28xx_usb_probe
+Not unwinding 
+Not unwinding 
+Unwinding loop 48  iteration  1   file linux-3.14_linux-usb-dev_drivers-media-usb-em28xx-em28xx.cil.i line 12136 function em28xx_usb_probe
+Unwinding loop 48  iteration  2   file linux-3.14_linux-usb-dev_drivers-media-usb-em28xx-em28xx.cil.i line 12136 function em28xx_usb_probe
+Not unwinding 
+Unwinding loop 57  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 57  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 4  iteration  1   file linux-3.14_linux-usb-dev_drivers-media-usb-em28xx-em28xx.cil.i line 6660 function em28xx_is_ac97_ready
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 4  iteration  2   file linux-3.14_linux-usb-dev_drivers-media-usb-em28xx-em28xx.cil.i line 6660 function em28xx_is_ac97_ready
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 4  iteration  1   file linux-3.14_linux-usb-dev_drivers-media-usb-em28xx-em28xx.cil.i line 6660 function em28xx_is_ac97_ready
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 4  iteration  2   file linux-3.14_linux-usb-dev_drivers-media-usb-em28xx-em28xx.cil.i line 6660 function em28xx_is_ac97_ready
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 4  iteration  1   file linux-3.14_linux-usb-dev_drivers-media-usb-em28xx-em28xx.cil.i line 6660 function em28xx_is_ac97_ready
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 4  iteration  2   file linux-3.14_linux-usb-dev_drivers-media-usb-em28xx-em28xx.cil.i line 6660 function em28xx_is_ac97_ready
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 7  iteration  1   file linux-3.14_linux-usb-dev_drivers-media-usb-em28xx-em28xx.cil.i line 6903 function em28xx_audio_analog_set
+Unwinding loop 4  iteration  1   file linux-3.14_linux-usb-dev_drivers-media-usb-em28xx-em28xx.cil.i line 6660 function em28xx_is_ac97_ready
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 4  iteration  2   file linux-3.14_linux-usb-dev_drivers-media-usb-em28xx-em28xx.cil.i line 6660 function em28xx_is_ac97_ready
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 7  iteration  2   file linux-3.14_linux-usb-dev_drivers-media-usb-em28xx-em28xx.cil.i line 6903 function em28xx_audio_analog_set
+Unwinding loop 4  iteration  1   file linux-3.14_linux-usb-dev_drivers-media-usb-em28xx-em28xx.cil.i line 6660 function em28xx_is_ac97_ready
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 4  iteration  2   file linux-3.14_linux-usb-dev_drivers-media-usb-em28xx-em28xx.cil.i line 6660 function em28xx_is_ac97_ready
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 6  iteration  1   file linux-3.14_linux-usb-dev_drivers-media-usb-em28xx-em28xx.cil.i line 7264 function em28xx_gpio_set
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 6  iteration  2   file linux-3.14_linux-usb-dev_drivers-media-usb-em28xx-em28xx.cil.i line 7264 function em28xx_gpio_set
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 6  iteration  1   file linux-3.14_linux-usb-dev_drivers-media-usb-em28xx-em28xx.cil.i line 7264 function em28xx_gpio_set
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 6  iteration  2   file linux-3.14_linux-usb-dev_drivers-media-usb-em28xx-em28xx.cil.i line 7264 function em28xx_gpio_set
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 5  iteration  1   file linux-3.14_linux-usb-dev_drivers-media-usb-em28xx-em28xx.cil.i line 6787 function set_ac97_input
+Unwinding loop 4  iteration  1   file linux-3.14_linux-usb-dev_drivers-media-usb-em28xx-em28xx.cil.i line 6660 function em28xx_is_ac97_ready
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 4  iteration  2   file linux-3.14_linux-usb-dev_drivers-media-usb-em28xx-em28xx.cil.i line 6660 function em28xx_is_ac97_ready
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 4  iteration  1   file linux-3.14_linux-usb-dev_drivers-media-usb-em28xx-em28xx.cil.i line 6660 function em28xx_is_ac97_ready
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 4  iteration  2   file linux-3.14_linux-usb-dev_drivers-media-usb-em28xx-em28xx.cil.i line 6660 function em28xx_is_ac97_ready
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 5  iteration  2   file linux-3.14_linux-usb-dev_drivers-media-usb-em28xx-em28xx.cil.i line 6787 function set_ac97_input
+Unwinding loop 4  iteration  1   file linux-3.14_linux-usb-dev_drivers-media-usb-em28xx-em28xx.cil.i line 6660 function em28xx_is_ac97_ready
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 4  iteration  2   file linux-3.14_linux-usb-dev_drivers-media-usb-em28xx-em28xx.cil.i line 6660 function em28xx_is_ac97_ready
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 4  iteration  1   file linux-3.14_linux-usb-dev_drivers-media-usb-em28xx-em28xx.cil.i line 6660 function em28xx_is_ac97_ready
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 4  iteration  2   file linux-3.14_linux-usb-dev_drivers-media-usb-em28xx-em28xx.cil.i line 6660 function em28xx_is_ac97_ready
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 4  iteration  1   file linux-3.14_linux-usb-dev_drivers-media-usb-em28xx-em28xx.cil.i line 6660 function em28xx_is_ac97_ready
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 4  iteration  2   file linux-3.14_linux-usb-dev_drivers-media-usb-em28xx-em28xx.cil.i line 6660 function em28xx_is_ac97_ready
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 4  iteration  1   file linux-3.14_linux-usb-dev_drivers-media-usb-em28xx-em28xx.cil.i line 6660 function em28xx_is_ac97_ready
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 4  iteration  2   file linux-3.14_linux-usb-dev_drivers-media-usb-em28xx-em28xx.cil.i line 6660 function em28xx_is_ac97_ready
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 4  iteration  1   file linux-3.14_linux-usb-dev_drivers-media-usb-em28xx-em28xx.cil.i line 6660 function em28xx_is_ac97_ready
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 4  iteration  2   file linux-3.14_linux-usb-dev_drivers-media-usb-em28xx-em28xx.cil.i line 6660 function em28xx_is_ac97_ready
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 8  iteration  1   file linux-3.14_linux-usb-dev_drivers-media-usb-em28xx-em28xx.cil.i line 6953 function em28xx_audio_analog_set
+Unwinding loop 4  iteration  1   file linux-3.14_linux-usb-dev_drivers-media-usb-em28xx-em28xx.cil.i line 6660 function em28xx_is_ac97_ready
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 4  iteration  2   file linux-3.14_linux-usb-dev_drivers-media-usb-em28xx-em28xx.cil.i line 6660 function em28xx_is_ac97_ready
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 8  iteration  2   file linux-3.14_linux-usb-dev_drivers-media-usb-em28xx-em28xx.cil.i line 6953 function em28xx_audio_analog_set
+Unwinding loop 4  iteration  1   file linux-3.14_linux-usb-dev_drivers-media-usb-em28xx-em28xx.cil.i line 6660 function em28xx_is_ac97_ready
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 4  iteration  2   file linux-3.14_linux-usb-dev_drivers-media-usb-em28xx-em28xx.cil.i line 6660 function em28xx_is_ac97_ready
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 18  iteration  1   file linux-3.14_linux-usb-dev_drivers-media-usb-em28xx-em28xx.cil.i line 7903 function em28xx_init_extension
+No target candidate for function call *ops->init
+Unwinding loop 18  iteration  2   file linux-3.14_linux-usb-dev_drivers-media-usb-em28xx-em28xx.cil.i line 7903 function em28xx_init_extension
+No target candidate for function call *ops->init
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 32  iteration  1   file linux-3.14_linux-usb-dev_drivers-media-usb-em28xx-em28xx.cil.i line 10859 function em28xx_pre_card_setup
+Unwinding loop 32  iteration  2   file linux-3.14_linux-usb-dev_drivers-media-usb-em28xx-em28xx.cil.i line 10859 function em28xx_pre_card_setup
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 36  iteration  1   file linux-3.14_linux-usb-dev_drivers-media-usb-em28xx-em28xx.cil.i line 10925 function em28xx_pre_card_setup
+Unwinding loop 36  iteration  2   file linux-3.14_linux-usb-dev_drivers-media-usb-em28xx-em28xx.cil.i line 10925 function em28xx_pre_card_setup
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 39  iteration  1   file linux-3.14_linux-usb-dev_drivers-media-usb-em28xx-em28xx.cil.i line 10975 function em28xx_pre_card_setup
+Unwinding loop 39  iteration  2   file linux-3.14_linux-usb-dev_drivers-media-usb-em28xx-em28xx.cil.i line 10975 function em28xx_pre_card_setup
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 6  iteration  1   file linux-3.14_linux-usb-dev_drivers-media-usb-em28xx-em28xx.cil.i line 7264 function em28
+../sv-benchmarks/c/ldv-challenges/linux-3.14_linux-usb-dev_drivers-media-usb-em28xx-em28xx.cil.i:4794:43: warning: declaration of 'struct v4l2_async_subdev' will not be visible outside of this function [-Wvisibility]
+   bool (*match)(struct device * , struct v4l2_async_subdev * ) ;
+                                          ^
+Can't construct rvalue reference to array type during dereference
+(It isn't allowed by C anyway)
+
+
+Unknown

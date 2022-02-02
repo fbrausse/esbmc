@@ -1,0 +1,174 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/eca-rers2018/Problem11.c
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/eca-rers2018/Problem11.c --32 --witness-output Problem11.c.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/eca-rers2018/Problem11.c: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.370s
+GOTO program processing time: 0.239s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.020s (279 assignments)
+Slicing time: 0.000s (removed 231 assignments)
+Generated 12 VCC(s), 12 remaining after simplification (48 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.001s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.001s
+Runtime decision procedure: 0.001s
+BMC program time: 0.023s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.020s (267 assignments)
+Slicing time: 0.000s (removed 263 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (4 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.000s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.000s
+Runtime decision procedure: 0.002s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file Problem11.c line 2448 function main
+Unwinding loop 1  iteration  2   file Problem11.c line 2448 function main
+Not unwinding 
+Symex completed in: 0.244s (7483 assignments)
+Slicing time: 0.026s (removed 1718 assignments)
+Generated 187 VCC(s), 187 remaining after simplification (5765 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.096s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.096s
+Runtime decision procedure: 25.202s
+Building error trace
+
+Counterexample:
+
+State 1 file Problem11.c line 2452 function main thread 0
+----------------------------------------------------
+  input = 6 (00000000 00000000 00000000 00000110)
+
+State 2 file Problem11.c line 2452 function main thread 0
+----------------------------------------------------
+  input = 5 (00000000 00000000 00000000 00000101)
+
+State 3 file Problem11.c line 1378 function calculate_outputm100 thread 0
+----------------------------------------------------
+  a182175502 = 7 (00000000 00000000 00000000 00000111)
+
+State 4 file Problem11.c line 1379 function calculate_outputm100 thread 0
+----------------------------------------------------
+  a2122722213 = 8 (00000000 00000000 00000000 00001000)
+
+State 5 file Problem11.c line 1380 function calculate_outputm100 thread 0
+----------------------------------------------------
+  a1210734340 = 35 (00000000 00000000 00000000 00100011)
+
+State 6 file Problem11.c line 1382 function calculate_outputm100 thread 0
+----------------------------------------------------
+  a835102539 = 5 (00000000 00000000 00000000 00000101)
+
+State 7 file Problem11.c line 1383 function calculate_outputm100 thread 0
+----------------------------------------------------
+  a268371874 = 49 (00000000 00000000 00000000 00110001)
+
+State 8 file Problem11.c line 1384 function calculate_outputm100 thread 0
+----------------------------------------------------
+  a412613099 = -101 (11111111 11111111 11111111 10011011)
+
+State 9 file Problem11.c line 1385 function calculate_outputm100 thread 0
+----------------------------------------------------
+  a850881173 = 58 (00000000 00000000 00000000 00111010)
+
+State 10 file Problem11.c line 1387 function calculate_outputm100 thread 0
+----------------------------------------------------
+  a1290652559 = 4 (00000000 00000000 00000000 00000100)
+
+State 11 file Problem11.c line 1388 function calculate_outputm100 thread 0
+----------------------------------------------------
+  a665096794 = 11 (00000000 00000000 00000000 00001011)
+
+State 12 file Problem11.c line 1391 function calculate_outputm100 thread 0
+----------------------------------------------------
+  a1001390225 = -56 (11111111 11111111 11111111 11001000)
+
+State 13 file Problem11.c line 1392 function calculate_outputm100 thread 0
+----------------------------------------------------
+  a166920931 = 15 (00000000 00000000 00000000 00001111)
+
+State 14 file Problem11.c line 1394 function calculate_outputm100 thread 0
+----------------------------------------------------
+  a2040628137 = 8 (00000000 00000000 00000000 00001000)
+
+State 15 file Problem11.c line 1395 function calculate_outputm100 thread 0
+----------------------------------------------------
+  a471011792 = 12 (00000000 00000000 00000000 00001100)
+
+State 16 file Problem11.c line 1397 function calculate_outputm100 thread 0
+----------------------------------------------------
+  a2061255735 = 6 (00000000 00000000 00000000 00000110)
+
+State 17 file Problem11.c line 2452 function main thread 0
+----------------------------------------------------
+  input = 8 (00000000 00000000 00000000 00001000)
+
+State 18 file Problem11.c line 2281 function calculate_outputm166 thread 0
+----------------------------------------------------
+  a471011792 = 9 (00000000 00000000 00000000 00001001)
+
+State 19 file Problem11.c line 2285 function calculate_outputm166 thread 0
+----------------------------------------------------
+  a182175502 = 6 (00000000 00000000 00000000 00000110)
+
+State 20 file Problem11.c line 2286 function calculate_outputm166 thread 0
+----------------------------------------------------
+  a2061255735 = 5 (00000000 00000000 00000000 00000101)
+
+State 21 file Problem11.c line 2287 function calculate_outputm166 thread 0
+----------------------------------------------------
+  a665096794 = 10 (00000000 00000000 00000000 00001010)
+
+State 22 file Problem11.c line 2288 function calculate_outputm166 thread 0
+----------------------------------------------------
+  a236788248 = 13 (00000000 00000000 00000000 00001101)
+
+State 23 file Problem11.c line 2289 function calculate_outputm166 thread 0
+----------------------------------------------------
+  a268371874 = -17432 (11111111 11111111 10111011 11101000)
+
+State 24 file Problem11.c line 2290 function calculate_outputm166 thread 0
+----------------------------------------------------
+  a1290652559 = 3 (00000000 00000000 00000000 00000011)
+
+State 25 file Problem11.c line 2292 function calculate_outputm166 thread 0
+----------------------------------------------------
+  a1001390225 = -13816 (11111111 11111111 11001010 00001000)
+
+State 26 file Problem11.c line 12 function reach_error thread 0
+----------------------------------------------------
+Violated property:
+  file Problem11.c line 12 function reach_error
+  assertion 0
+  0
+
+
+VERIFICATION FAILED
+
+Bug found (k = 3)
+
+
+FALSE_REACH

@@ -1,0 +1,57 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/no-overflow.prp -s kinduction --arch 32 ../sv-benchmarks/c/loop-zilu/benchmark44_disjunctive.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/loop-zilu/benchmark44_disjunctive.i --32 --witness-output benchmark44_disjunctive.i.graphml --no-pointer-check --no-bounds-check --overflow-check --no-assertions --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/loop-zilu/benchmark44_disjunctive.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.125s
+GOTO program processing time: 0.001s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.001s (44 assignments)
+Slicing time: 0.001s (removed 19 assignments)
+Generated 7 VCC(s), 7 remaining after simplification (25 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.001s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.001s
+Runtime decision procedure: 0.069s
+Building error trace
+
+Counterexample:
+
+State 1 file benchmark44_disjunctive.i line 20 function main thread 0
+----------------------------------------------------
+  x = -2147483644 (10000000 00000000 00000000 00000100)
+
+State 2 file benchmark44_disjunctive.i line 21 function main thread 0
+----------------------------------------------------
+  y = -2147483643 (10000000 00000000 00000000 00000101)
+
+State 4 file benchmark44_disjunctive.i line 25 function main thread 0
+----------------------------------------------------
+  x = -2147483637 (10000000 00000000 00000000 00001011)
+
+State 5 file benchmark44_disjunctive.i line 25 function main thread 0
+----------------------------------------------------
+Violated property:
+  file benchmark44_disjunctive.i line 25 function main
+  arithmetic overflow on sub
+  !overflow("-", y, 10)
+
+
+VERIFICATION FAILED
+
+Bug found (k = 1)
+
+
+FALSE_OVERFLOW

@@ -1,0 +1,518 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/ldv-linux-3.14/linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-linux-3.14/linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i --64 --witness-output linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 64-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/ldv-linux-3.14/linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 3.873s
+GOTO program processing time: 0.690s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.463s (1078 assignments)
+Slicing time: 0.003s (removed 775 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (303 assignments)
+BMC program time: 0.466s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.486s (1078 assignments)
+Slicing time: 0.002s (removed 775 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (303 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.091s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.091s
+Runtime decision procedure: 15.090s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 19  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 8252 function main
+Unwinding loop 19  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 8252 function main
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 16  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 12388 function pwc_decompress
+Unwinding loop 15  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 12382 function pwc_decompress
+Unwinding loop 15  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 12382 function pwc_decompress
+Not unwinding 
+Unwinding loop 16  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 12388 function pwc_decompress
+Unwinding loop 15  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 12382 function pwc_decompress
+Unwinding loop 15  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 12382 function pwc_decompress
+Not unwinding 
+Not unwinding 
+Unwinding loop 30  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 13259 function pwc_dec23_decompress
+Unwinding loop 46  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 13177 function DecompressBand23
+Unwinding loop 46  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 13177 function DecompressBand23
+Not unwinding 
+Unwinding loop 47  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 13197 function DecompressBand23
+Unwinding loop 39  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 13046 function decode_block
+Unwinding loop 39  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 13046 function decode_block
+Not unwinding 
+Unwinding loop 40  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 13062 function decode_block
+Unwinding loop 40  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 13062 function decode_block
+Not unwinding 
+Unwinding loop 41  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 13075 function decode_block
+Unwinding loop 41  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 13075 function decode_block
+Not unwinding 
+Unwinding loop 48  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 13218 function DecompressBand23
+Unwinding loop 39  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 13046 function decode_block
+Unwinding loop 39  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 13046 function decode_block
+Not unwinding 
+Unwinding loop 40  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 13062 function decode_block
+Unwinding loop 40  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 13062 function decode_block
+Not unwinding 
+Unwinding loop 41  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 13075 function decode_block
+Unwinding loop 41  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 13075 function decode_block
+Not unwinding 
+Unwinding loop 30  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 13259 function pwc_dec23_decompress
+Unwinding loop 46  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 13177 function DecompressBand23
+Unwinding loop 46  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 13177 function DecompressBand23
+Not unwinding 
+Unwinding loop 47  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 13197 function DecompressBand23
+Unwinding loop 39  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 13046 function decode_block
+Unwinding loop 39  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 13046 function decode_block
+Not unwinding 
+Unwinding loop 40  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 13062 function decode_block
+Unwinding loop 40  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 13062 function decode_block
+Not unwinding 
+Unwinding loop 41  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 13075 function decode_block
+Unwinding loop 41  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 13075 function decode_block
+Not unwinding 
+Unwinding loop 48  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 13218 function DecompressBand23
+Unwinding loop 39  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 13046 function decode_block
+Unwinding loop 39  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 13046 function decode_block
+Not unwinding 
+Unwinding loop 40  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 13062 function decode_block
+Unwinding loop 40  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 13062 function decode_block
+Not unwinding 
+Unwinding loop 41  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 13075 function decode_block
+Unwinding loop 41  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 13075 function decode_block
+Not unwinding 
+Not unwinding 
+Unwinding loop 13  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 9863 function pwc_get_size
+Unwinding loop 13  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 9863 function pwc_get_size
+Not unwinding 
+Unwinding loop 13  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 9863 function pwc_get_size
+Unwinding loop 13  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 9863 function pwc_get_size
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 24  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 10276 function set_video_mode_Kiara
+Unwinding loop 24  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 10276 function set_video_mode_Kiara
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 20  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 10203 function set_video_mode_Timon
+Unwinding loop 20  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 10203 function set_video_mode_Timon
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 4  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 6278 function pwc_isoc_init
+Unwinding loop 4  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 6278 function pwc_isoc_init
+Not unwinding 
+Unwinding loop 5  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 6300 function pwc_isoc_init
+Unwinding loop 13  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 9863 function pwc_get_size
+Unwinding loop 13  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 9863 function pwc_get_size
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 24  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 10276 function set_video_mode_Kiara
+Unwinding loop 24  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 10276 function set_video_mode_Kiara
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 20  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 10203 function set_video_mode_Timon
+Unwinding loop 20  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 10203 function set_video_mode_Timon
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 4  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 6278 function pwc_isoc_init
+Unwinding loop 4  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 6278 function pwc_isoc_init
+Not unwinding 
+Unwinding loop 5  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 6300 function pwc_isoc_init
+Unwinding loop 13  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 9863 function pwc_get_size
+Unwinding loop 13  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 9863 function pwc_get_size
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 24  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 10276 function set_video_mode_Kiara
+Unwinding loop 24  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 10276 function set_video_mode_Kiara
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 20  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 10203 function set_video_mode_Timon
+Unwinding loop 20  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 10203 function set_video_mode_Timon
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 4  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 6278 function pwc_isoc_init
+Unwinding loop 4  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 6278 function pwc_isoc_init
+Not unwinding 
+Not unwinding 
+Unwinding loop 7  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 6363 function pwc_isoc_init
+Unwinding loop 10  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 6431 function pwc_iso_stop
+Unwinding loop 10  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 6431 function pwc_iso_stop
+Not unwinding 
+Unwinding loop 10  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 6431 function pwc_iso_stop
+Unwinding loop 10  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 6431 function pwc_iso_stop
+Not unwinding 
+Unwinding loop 6  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 6357 function pwc_isoc_init
+Unwinding loop 6  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 6357 function pwc_isoc_init
+Not unwinding 
+Unwinding loop 12  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 6520 function pwc_cleanup_queued_bufs
+Unwinding loop 12  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 6520 function pwc_cleanup_queued_bufs
+Not unwinding 
+Unwinding loop 10  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 6431 function pwc_iso_stop
+Unwinding loop 10  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 6431 function pwc_iso_stop
+Not unwinding 
+Unwinding loop 12  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 6520 function pwc_cleanup_queued_bufs
+Unwinding loop 12  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 6520 function pwc_cleanup_queued_bufs
+Not unwinding 
+Unwinding loop 10  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 6431 function pwc_iso_stop
+Unwinding loop 10  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 6431 function pwc_iso_stop
+Not unwinding 
+Unwinding loop 12  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 6520 function pwc_cleanup_queued_bufs
+Unwinding loop 12  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 6520 function pwc_cleanup_queued_bufs
+Not unwinding 
+Unwinding loop 10  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 6431 function pwc_iso_stop
+Unwinding loop 10  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 6431 function pwc_iso_stop
+Not unwinding 
+Unwinding loop 12  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 6520 function pwc_cleanup_queued_bufs
+Unwinding loop 12  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 6520 function pwc_cleanup_queued_bufs
+Not unwinding 
+No target candidate for function call *arg0
+No target candidate for function call *arg0
+No target candidate for function call *arg0
+Unwinding loop 50  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 50  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 29  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 11933 function pwc_enum_frameintervals
+Unwinding loop 29  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 11933 function pwc_enum_frameintervals
+Not unwinding 
+Unwinding loop 25  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 10397 function pwc_get_fps_Nala
+Unwinding loop 25  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 10397 function pwc_get_fps_Nala
+Not unwinding 
+Unwinding loop 26  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 10424 function pwc_get_fps_Kiara
+Unwinding loop 26  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 10424 function pwc_get_fps_Kiara
+Not unwinding 
+Unwinding loop 27  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 10451 function pwc_get_fps_Timon
+Unwinding loop 27  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 10451 function pwc_get_fps_Timon
+Not unwinding 
+Unwinding loop 28  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 11902 function pwc_enum_framesizes
+Unwinding loop 28  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 11902 function pwc_enum_framesizes
+Not unwinding 
+Unwinding loop 50  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 50  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 50  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 50  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 2  iteration  1   file string.c line 30 function strcpy
+Unwinding loop 2  iteration  2   file string.c line 30 function strcpy
+Not unwinding 
+Unwinding loop 13  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 9863 function pwc_get_size
+Unwinding loop 13  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 9863 function pwc_get_size
+Not unwinding 
+Unwinding loop 50  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 50  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 13  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 9863 function pwc_get_size
+Unwinding loop 13  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 9863 function pwc_get_size
+Not unwinding 
+Unwinding loop 24  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 10276 function set_video_mode_Kiara
+Unwinding loop 24  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 10276 function set_video_mode_Kiara
+Not unwinding 
+Unwinding loop 37  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 12604 function build_table_color
+Unwinding loop 36  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 12598 function build_table_color
+Unwinding loop 35  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 12590 function build_table_color
+Unwinding loop 35  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 12590 function build_table_color
+Not unwinding 
+Unwinding loop 37  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 12604 function build_table_color
+Unwinding loop 36  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 12598 function build_table_color
+Unwinding loop 35  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 12590 function build_table_color
+Unwinding loop 35  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 12590 function build_table_color
+Not unwinding 
+Unwinding loop 20  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 10203 function set_video_mode_Timon
+Unwinding loop 20  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 10203 function set_video_mode_Timon
+Not unwinding 
+Unwinding loop 37  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 12604 function build_table_color
+Unwinding loop 36  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 12598 function build_table_color
+Unwinding loop 35  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 12590 function build_table_color
+Unwinding loop 35  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 12590 function build_table_color
+Not unwinding 
+Unwinding loop 37  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 12604 function build_table_color
+Unwinding loop 36  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 12598 function build_table_color
+Unwinding loop 35  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 12590 function build_table_color
+Unwinding loop 35  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 12590 function build_table_color
+Not unwinding 
+Unwinding loop 50  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 50  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 13  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 9863 function pwc_get_size
+Unwinding loop 13  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 9863 function pwc_get_size
+Not unwinding 
+Unwinding loop 50  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 50  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Not unwinding 
+Symex completed in: 9.892s (11013 assignments)
+Slicing time: 0.104s (removed 8839 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (2174 assignments)
+BMC program time: 9.996s
+No bug has been found in the base case
+*** Checking forward condition, k = 3
+Starting Bounded Model Checking
+Unwinding loop 19  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 8252 function main
+Unwinding loop 19  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 8252 function main
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 16  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 12388 function pwc_decompress
+Unwinding loop 15  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 12382 function pwc_decompress
+Unwinding loop 15  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 12382 function pwc_decompress
+Not unwinding 
+Unwinding loop 16  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 12388 function pwc_decompress
+Unwinding loop 15  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 12382 function pwc_decompress
+Unwinding loop 15  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 12382 function pwc_decompress
+Not unwinding 
+Not unwinding 
+Unwinding loop 30  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 13259 function pwc_dec23_decompress
+Unwinding loop 46  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 13177 function DecompressBand23
+Unwinding loop 46  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 13177 function DecompressBand23
+Not unwinding 
+Unwinding loop 47  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 13197 function DecompressBand23
+Unwinding loop 39  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 13046 function decode_block
+Unwinding loop 39  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 13046 function decode_block
+Not unwinding 
+Unwinding loop 40  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 13062 function decode_block
+Unwinding loop 40  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 13062 function decode_block
+Not unwinding 
+Unwinding loop 41  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 13075 function decode_block
+Unwinding loop 41  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 13075 function decode_block
+Not unwinding 
+Unwinding loop 48  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 13218 function DecompressBand23
+Unwinding loop 39  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 13046 function decode_block
+Unwinding loop 39  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 13046 function decode_block
+Not unwinding 
+Unwinding loop 40  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 13062 function decode_block
+Unwinding loop 40  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 13062 function decode_block
+Not unwinding 
+Unwinding loop 41  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 13075 function decode_block
+Unwinding loop 41  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 13075 function decode_block
+Not unwinding 
+Unwinding loop 30  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 13259 function pwc_dec23_decompress
+Unwinding loop 46  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 13177 function DecompressBand23
+Unwinding loop 46  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 13177 function DecompressBand23
+Not unwinding 
+Unwinding loop 47  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 13197 function DecompressBand23
+Unwinding loop 39  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 13046 function decode_block
+Unwinding loop 39  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 13046 function decode_block
+Not unwinding 
+Unwinding loop 40  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 13062 function decode_block
+Unwinding loop 40  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 13062 function decode_block
+Not unwinding 
+Unwinding loop 41  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 13075 function decode_block
+Unwinding loop 41  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 13075 function decode_block
+Not unwinding 
+Unwinding loop 48  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 13218 function DecompressBand23
+Unwinding loop 39  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 13046 function decode_block
+Unwinding loop 39  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 13046 function decode_block
+Not unwinding 
+Unwinding loop 40  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 13062 function decode_block
+Unwinding loop 40  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 13062 function decode_block
+Not unwinding 
+Unwinding loop 41  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 13075 function decode_block
+Unwinding loop 41  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 13075 function decode_block
+Not unwinding 
+Not unwinding 
+Unwinding loop 13  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 9863 function pwc_get_size
+Unwinding loop 13  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 9863 function pwc_get_size
+Not unwinding 
+Unwinding loop 13  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 9863 function pwc_get_size
+Unwinding loop 13  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 9863 function pwc_get_size
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 24  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 10276 function set_video_mode_Kiara
+Unwinding loop 24  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 10276 function set_video_mode_Kiara
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 20  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 10203 function set_video_mode_Timon
+Unwinding loop 20  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 10203 function set_video_mode_Timon
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 4  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 6278 function pwc_isoc_init
+Unwinding loop 4  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 6278 function pwc_isoc_init
+Not unwinding 
+Unwinding loop 5  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 6300 function pwc_isoc_init
+Unwinding loop 13  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 9863 function pwc_get_size
+Unwinding loop 13  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 9863 function pwc_get_size
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 24  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 10276 function set_video_mode_Kiara
+Unwinding loop 24  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 10276 function set_video_mode_Kiara
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 20  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 10203 function set_video_mode_Timon
+Unwinding loop 20  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 10203 function set_video_mode_Timon
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 4  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 6278 function pwc_isoc_init
+Unwinding loop 4  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 6278 function pwc_isoc_init
+Not unwinding 
+Unwinding loop 5  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 6300 function pwc_isoc_init
+Unwinding loop 13  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 9863 function pwc_get_size
+Unwinding loop 13  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 9863 function pwc_get_size
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 24  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 10276 function set_video_mode_Kiara
+Unwinding loop 24  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 10276 function set_video_mode_Kiara
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 20  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 10203 function set_video_mode_Timon
+Unwinding loop 20  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 10203 function set_video_mode_Timon
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 4  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 6278 function pwc_isoc_init
+Unwinding loop 4  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 6278 function pwc_isoc_init
+Not unwinding 
+Not unwinding 
+Unwinding loop 7  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 6363 function pwc_isoc_init
+Unwinding loop 10  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 6431 function pwc_iso_stop
+Unwinding loop 10  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 6431 function pwc_iso_stop
+Not unwinding 
+Unwinding loop 10  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 6431 function pwc_iso_stop
+Unwinding loop 10  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 6431 function pwc_iso_stop
+Not unwinding 
+Unwinding loop 6  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 6357 function pwc_isoc_init
+Unwinding loop 6  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 6357 function pwc_isoc_init
+Not unwinding 
+Unwinding loop 12  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 6520 function pwc_cleanup_queued_bufs
+Unwinding loop 12  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 6520 function pwc_cleanup_queued_bufs
+Not unwinding 
+Unwinding loop 10  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 6431 function pwc_iso_stop
+Unwinding loop 10  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 6431 function pwc_iso_stop
+Not unwinding 
+Unwinding loop 12  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 6520 function pwc_cleanup_queued_bufs
+Unwinding loop 12  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 6520 function pwc_cleanup_queued_bufs
+Not unwinding 
+Unwinding loop 10  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 6431 function pwc_iso_stop
+Unwinding loop 10  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 6431 function pwc_iso_stop
+Not unwinding 
+Unwinding loop 12  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 6520 function pwc_cleanup_queued_bufs
+Unwinding loop 12  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 6520 function pwc_cleanup_queued_bufs
+Not unwinding 
+Unwinding loop 10  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 6431 function pwc_iso_stop
+Unwinding loop 10  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 6431 function pwc_iso_stop
+Not unwinding 
+Unwinding loop 12  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 6520 function pwc_cleanup_queued_bufs
+Unwinding loop 12  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 6520 function pwc_cleanup_queued_bufs
+Not unwinding 
+No target candidate for function call *arg0
+No target candidate for function call *arg0
+No target candidate for function call *arg0
+Unwinding loop 50  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 50  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 29  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 11933 function pwc_enum_frameintervals
+Unwinding loop 29  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 11933 function pwc_enum_frameintervals
+Not unwinding 
+Unwinding loop 25  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 10397 function pwc_get_fps_Nala
+Unwinding loop 25  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 10397 function pwc_get_fps_Nala
+Not unwinding 
+Unwinding loop 26  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 10424 function pwc_get_fps_Kiara
+Unwinding loop 26  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 10424 function pwc_get_fps_Kiara
+Not unwinding 
+Unwinding loop 27  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 10451 function pwc_get_fps_Timon
+Unwinding loop 27  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 10451 function pwc_get_fps_Timon
+Not unwinding 
+Unwinding loop 28  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 11902 function pwc_enum_framesizes
+Unwinding loop 28  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 11902 function pwc_enum_framesizes
+Not unwinding 
+Unwinding loop 50  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 50  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 50  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 50  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 2  iteration  1   file string.c line 30 function strcpy
+Unwinding loop 2  iteration  2   file string.c line 30 function strcpy
+Not unwinding 
+Unwinding loop 13  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 9863 function pwc_get_size
+Unwinding loop 13  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 9863 function pwc_get_size
+Not unwinding 
+Unwinding loop 50  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 50  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 13  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 9863 function pwc_get_size
+Unwinding loop 13  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 9863 function pwc_get_size
+Not unwinding 
+Unwinding loop 24  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 10276 function set_video_mode_Kiara
+Unwinding loop 24  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 10276 function set_video_mode_Kiara
+Not unwinding 
+Unwinding loop 37  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 12604 function build_table_color
+Unwinding loop 36  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 12598 function build_table_color
+Unwinding loop 35  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 12590 function build_table_color
+Unwinding loop 35  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 12590 function build_table_color
+Not unwinding 
+Unwinding loop 37  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 12604 function build_table_color
+Unwinding loop 36  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 12598 function build_table_color
+Unwinding loop 35  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 12590 function build_table_color
+Unwinding loop 35  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 12590 function build_table_color
+Not unwinding 
+Unwinding loop 20  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 10203 function set_video_mode_Timon
+Unwinding loop 20  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 10203 function set_video_mode_Timon
+Not unwinding 
+Unwinding loop 37  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 12604 function build_table_color
+Unwinding loop 36  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 12598 function build_table_color
+Unwinding loop 35  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 12590 function build_table_color
+Unwinding loop 35  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 12590 function build_table_color
+Not unwinding 
+Unwinding loop 37  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 12604 function build_table_color
+Unwinding loop 36  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 12598 function build_table_color
+Unwinding loop 35  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 12590 function build_table_color
+Unwinding loop 35  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i line 12590 function build_table_color
+Not unwinding 
+Unwinding loop 50  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 50  iteration  2  
+../sv-benchmarks/c/ldv-linux-3.14/linux-3.14_complex_emg_linux-kernel-locking-spinlock_drivers-media-usb-pwc-pwc.cil.i:4388:43: warning: declaration of 'struct v4l2_async_subdev' will not be visible outside of this function [-Wvisibility]
+   bool (*match)(struct device * , struct v4l2_async_subdev * ) ;
+                                          ^
+
+Unknown

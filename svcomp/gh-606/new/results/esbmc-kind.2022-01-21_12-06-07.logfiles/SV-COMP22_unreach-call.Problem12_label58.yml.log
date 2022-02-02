@@ -1,0 +1,90 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/eca-rers2012/Problem12_label58.c
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/eca-rers2012/Problem12_label58.c --32 --witness-output Problem12_label58.c.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/eca-rers2012/Problem12_label58.c: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.802s
+GOTO program processing time: 0.187s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.037s (100 assignments)
+Slicing time: 0.000s (removed 96 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (4 assignments)
+BMC program time: 0.037s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.034s (100 assignments)
+Slicing time: 0.000s (removed 96 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (4 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.000s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.000s
+Runtime decision procedure: 0.002s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file Problem12_label58.c line 4828 function main
+Unwinding loop 1  iteration  2   file Problem12_label58.c line 4828 function main
+Not unwinding 
+Symex completed in: 0.782s (17133 assignments)
+Slicing time: 0.084s (removed 13380 assignments)
+Generated 2 VCC(s), 2 remaining after simplification (3753 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.072s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.072s
+Runtime decision procedure: 0.076s
+BMC program time: 1.014s
+No bug has been found in the base case
+*** Checking forward condition, k = 3
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file Problem12_label58.c line 4828 function main
+Unwinding loop 1  iteration  2   file Problem12_label58.c line 4828 function main
+Not unwinding 
+Symex completed in: 0.863s (17131 assignments)
+Slicing time: 0.089s (removed 13380 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (3751 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.082s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.082s
+Runtime decision procedure: 4.474s
+The forward condition is unable to prove the property
+*** Checking inductive step, k = 3
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file Problem12_label58.c line 4828 function main
+Unwinding loop 1  iteration  2   file Problem12_label58.c line 4828 function main
+Not unwinding 
+Symex completed in: 1.766s (36184 assignments)
+Slicing time: 2.259s (removed 15414 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (20770 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.562s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.562s
+Runtime decision procedure: 99.895s
+BMC program time: 104.483s
+Building successful trace
+
+VERIFICATION SUCCESSFUL
+
+Solution found by the inductive step (k = 3)
+
+
+TRUE

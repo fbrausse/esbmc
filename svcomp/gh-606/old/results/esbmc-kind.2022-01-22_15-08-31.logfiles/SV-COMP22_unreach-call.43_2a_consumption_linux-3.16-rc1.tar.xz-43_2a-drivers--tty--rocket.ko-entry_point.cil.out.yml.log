@@ -1,0 +1,20 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/ldv-linux-3.16-rc1/43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--rocket.ko-entry_point.cil.out.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-linux-3.16-rc1/43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--rocket.ko-entry_point.cil.out.i --64 --witness-output 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--rocket.ko-entry_point.cil.out.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+
+../sv-benchmarks/c/ldv-linux-3.16-rc1/43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--rocket.ko-entry_point.cil.out.i:3825:27: warning: declaration of 'struct kobject___0' will not be visible outside of this function [-Wvisibility]
+   ssize_t (*show)(struct kobject___0 * , struct attribute___0 * , char * ) ;
+                          ^
+../sv-benchmarks/c/ldv-linux-3.16-rc1/43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--rocket.ko-entry_point.cil.out.i:3826:28: warning: declaration of 'struct kobject___0' will not be visible outside of this function [-Wvisibility]
+   ssize_t (*store)(struct kobject___0 * , struct attribute___0 * , char const * ,
+                           ^
+Can't construct rvalue reference to array type during dereference
+(It isn't allowed by C anyway)
+
+
+Unknown

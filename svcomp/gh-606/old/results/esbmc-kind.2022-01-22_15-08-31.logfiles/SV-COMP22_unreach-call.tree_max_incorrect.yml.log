@@ -1,0 +1,140 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/verifythis/tree_max_incorrect.c
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/verifythis/tree_max_incorrect.c --32 --witness-output tree_max_incorrect.c.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/verifythis/tree_max_incorrect.c: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.086s
+GOTO program processing time: 0.001s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+**** WARNING: k-induction does not support recursion yet. Disabling inductive step
+Unwinding recursion nondet_tree iteration 1 (1 max)
+Unwinding recursion nondet_tree iteration 1 (1 max)
+Unwinding recursion max iteration 1 (1 max)
+Unwinding recursion max iteration 1 (1 max)
+Unwinding recursion check iteration 1 (1 max)
+Unwinding recursion check iteration 1 (1 max)
+Symex completed in: 0.002s (52 assignments)
+Slicing time: 0.000s (removed 23 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (29 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.000s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.000s
+Runtime decision procedure: 0.001s
+BMC program time: 0.004s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Unwinding recursion nondet_tree iteration 1 (1 max)
+Unwinding recursion nondet_tree iteration 1 (1 max)
+Unwinding recursion max iteration 1 (1 max)
+Unwinding recursion max iteration 1 (1 max)
+Unwinding recursion check iteration 1 (1 max)
+Unwinding recursion check iteration 1 (1 max)
+Symex completed in: 0.001s (51 assignments)
+Slicing time: 0.000s (removed 23 assignments)
+Generated 6 VCC(s), 6 remaining after simplification (28 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.000s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.000s
+Runtime decision procedure: 0.011s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding recursion nondet_tree iteration 1 (3 max)
+Unwinding recursion nondet_tree iteration 2 (3 max)
+Unwinding recursion nondet_tree iteration 3 (3 max)
+Unwinding recursion nondet_tree iteration 3 (3 max)
+Unwinding recursion nondet_tree iteration 2 (3 max)
+Unwinding recursion nondet_tree iteration 3 (3 max)
+Unwinding recursion nondet_tree iteration 3 (3 max)
+Unwinding recursion nondet_tree iteration 1 (3 max)
+Unwinding recursion nondet_tree iteration 2 (3 max)
+Unwinding recursion nondet_tree iteration 3 (3 max)
+Unwinding recursion nondet_tree iteration 3 (3 max)
+Unwinding recursion nondet_tree iteration 2 (3 max)
+Unwinding recursion nondet_tree iteration 3 (3 max)
+Unwinding recursion nondet_tree iteration 3 (3 max)
+Unwinding recursion max iteration 1 (3 max)
+Unwinding recursion max iteration 2 (3 max)
+Unwinding recursion max iteration 3 (3 max)
+Unwinding recursion max iteration 3 (3 max)
+Unwinding recursion max iteration 2 (3 max)
+Unwinding recursion max iteration 3 (3 max)
+Unwinding recursion max iteration 3 (3 max)
+Unwinding recursion max iteration 1 (3 max)
+Unwinding recursion max iteration 2 (3 max)
+Unwinding recursion max iteration 3 (3 max)
+Unwinding recursion max iteration 3 (3 max)
+Unwinding recursion max iteration 2 (3 max)
+Unwinding recursion max iteration 3 (3 max)
+Unwinding recursion max iteration 3 (3 max)
+Unwinding recursion check iteration 1 (3 max)
+Unwinding recursion check iteration 2 (3 max)
+Unwinding recursion check iteration 3 (3 max)
+Unwinding recursion check iteration 3 (3 max)
+Unwinding recursion check iteration 2 (3 max)
+Unwinding recursion check iteration 3 (3 max)
+Unwinding recursion check iteration 3 (3 max)
+Unwinding recursion check iteration 1 (3 max)
+Unwinding recursion check iteration 2 (3 max)
+Unwinding recursion check iteration 3 (3 max)
+Unwinding recursion check iteration 3 (3 max)
+Unwinding recursion check iteration 2 (3 max)
+Unwinding recursion check iteration 3 (3 max)
+Unwinding recursion check iteration 3 (3 max)
+Symex completed in: 0.013s (280 assignments)
+Slicing time: 0.001s (removed 95 assignments)
+Generated 7 VCC(s), 7 remaining after simplification (185 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.005s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.005s
+Runtime decision procedure: 0.443s
+Building error trace
+
+Counterexample:
+
+State 1 file tree_max_incorrect.c line 24 function nondet_tree thread 0
+----------------------------------------------------
+  n->data = 528351232 (00011111 01111110 00000000 00000000)
+
+State 2 file tree_max_incorrect.c line 35 function max thread 0
+----------------------------------------------------
+  a = -2147483648 (10000000 00000000 00000000 00000000)
+
+State 3 file tree_max_incorrect.c line 36 function max thread 0
+----------------------------------------------------
+  b = -2147483648 (10000000 00000000 00000000 00000000)
+
+State 4 file tree_max_incorrect.c line 55 function task thread 0
+----------------------------------------------------
+  a = -2147483648 (10000000 00000000 00000000 00000000)
+
+State 5 file tree_max_incorrect.c line 9 function reach_error thread 0
+----------------------------------------------------
+Violated property:
+  file tree_max_incorrect.c line 9 function reach_error
+  assertion 0
+  0
+
+
+VERIFICATION FAILED
+
+Bug found (k = 3)
+
+
+FALSE_REACH

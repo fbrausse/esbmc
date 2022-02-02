@@ -1,0 +1,87 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/loop-industry-pattern/aiob_4.c
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/loop-industry-pattern/aiob_4.c --32 --witness-output aiob_4.c.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/loop-industry-pattern/aiob_4.c: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.089s
+GOTO program processing time: 0.001s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.008s (34 assignments)
+Slicing time: 0.000s (removed 29 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (5 assignments)
+BMC program time: 0.008s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.008s (34 assignments)
+Slicing time: 0.000s (removed 29 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (5 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.001s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.001s
+Runtime decision procedure: 0.032s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file aiob_4.c line 138 function Id_MCDC_89
+Unwinding loop 1  iteration  2   file aiob_4.c line 138 function Id_MCDC_89
+Not unwinding 
+Symex completed in: 0.009s (46 assignments)
+Slicing time: 0.000s (removed 39 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (7 assignments)
+BMC program time: 0.009s
+No bug has been found in the base case
+*** Checking forward condition, k = 3
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file aiob_4.c line 138 function Id_MCDC_89
+Unwinding loop 1  iteration  2   file aiob_4.c line 138 function Id_MCDC_89
+Not unwinding 
+Symex completed in: 0.008s (46 assignments)
+Slicing time: 0.000s (removed 39 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (7 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.001s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.001s
+Runtime decision procedure: 0.032s
+The forward condition is unable to prove the property
+*** Checking inductive step, k = 3
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file aiob_4.c line 138 function Id_MCDC_89
+Unwinding loop 1  iteration  2   file aiob_4.c line 138 function Id_MCDC_89
+Not unwinding 
+Symex completed in: 0.008s (61 assignments)
+Slicing time: 0.001s (removed 33 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (28 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.001s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.001s
+Runtime decision procedure: 0.013s
+BMC program time: 0.023s
+Building successful trace
+
+VERIFICATION SUCCESSFUL
+
+Solution found by the inductive step (k = 3)
+
+../sv-benchmarks/c/loop-industry-pattern/aiob_4.c:138:35: warning: expression result unused [-Wunused-value]
+while((Id_MCDC_93 = Id_MCDC_96 , ("18_6630_4294986945" , __VERIFIER_assert((Id_MCDC_93 >= 0 && Id_MCDC_93 < 42))) , Id_MCDC_95[Id_MCDC_93])[0] != 0x00)
+                                  ^~~~~~~~~~~~~~~~~~~~
+
+TRUE

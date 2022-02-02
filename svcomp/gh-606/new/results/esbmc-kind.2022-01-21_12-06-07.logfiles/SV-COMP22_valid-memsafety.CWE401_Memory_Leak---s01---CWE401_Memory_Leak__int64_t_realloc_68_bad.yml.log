@@ -1,0 +1,50 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/valid-memsafety.prp -s kinduction --arch 64 ../sv-benchmarks/c/Juliet_Test/CWE401_Memory_Leak---s01---CWE401_Memory_Leak__int64_t_realloc_68_bad.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/Juliet_Test/CWE401_Memory_Leak---s01---CWE401_Memory_Leak__int64_t_realloc_68_bad.i --64 --witness-output CWE401_Memory_Leak---s01---CWE401_Memory_Leak__int64_t_realloc_68_bad.i.graphml --memory-leak-check --no-assertions --incremental-bmc 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 64-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/Juliet_Test/CWE401_Memory_Leak---s01---CWE401_Memory_Leak__int64_t_realloc_68_bad.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.116s
+GOTO program processing time: 0.001s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+**** WARNING: no body for function srand
+Not unwinding 
+**** WARNING: no body for function printLongLongLine
+Symex completed in: 0.004s (128 assignments)
+Slicing time: 0.000s (removed 79 assignments)
+Generated 12 VCC(s), 12 remaining after simplification (49 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.002s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.002s
+Runtime decision procedure: 0.233s
+Building error trace
+
+Counterexample:
+
+State 3 file CWE401_Memory_Leak---s01---CWE401_Memory_Leak__int64_t_realloc_68_bad.i line 661 function CWE401_Memory_Leak__int64_t_realloc_68_bad thread 0
+----------------------------------------------------
+  data = &dynamic_2_array[0]
+
+State 10 file CWE401_Memory_Leak---s01---CWE401_Memory_Leak__int64_t_realloc_68_bad.i line 702 function main thread 0
+----------------------------------------------------
+Violated property:
+  file CWE401_Memory_Leak---s01---CWE401_Memory_Leak__int64_t_realloc_68_bad.i line 702 function main
+  dereference failure: forgotten memory: dynamic_2_array
+
+
+VERIFICATION FAILED
+
+Bug found (k = 1)
+
+
+FALSE_MEMTRACK

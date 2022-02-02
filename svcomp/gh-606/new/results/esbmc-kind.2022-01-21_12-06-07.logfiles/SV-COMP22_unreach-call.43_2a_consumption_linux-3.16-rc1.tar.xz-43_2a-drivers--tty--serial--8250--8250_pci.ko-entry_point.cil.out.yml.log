@@ -1,0 +1,374 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/ldv-linux-3.16-rc1/43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-linux-3.16-rc1/43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i --64 --witness-output 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 64-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/ldv-linux-3.16-rc1/43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 1.138s
+GOTO program processing time: 0.104s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.046s (102 assignments)
+Slicing time: 0.000s (removed 87 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (15 assignments)
+BMC program time: 0.046s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.047s (102 assignments)
+Slicing time: 0.000s (removed 87 assignments)
+Generated 2 VCC(s), 2 remaining after simplification (15 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.002s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.002s
+Runtime decision procedure: 0.036s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 18  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 18  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 18  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 18  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Symex completed in: 0.048s (112 assignments)
+Slicing time: 0.001s (removed 97 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (15 assignments)
+BMC program time: 0.049s
+No bug has been found in the base case
+*** Checking forward condition, k = 3
+Starting Bounded Model Checking
+Unwinding loop 18  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 18  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 18  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 18  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Symex completed in: 0.048s (112 assignments)
+Slicing time: 0.000s (removed 97 assignments)
+Generated 2 VCC(s), 2 remaining after simplification (15 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.001s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.001s
+Runtime decision procedure: 0.037s
+The forward condition is unable to prove the property
+*** Checking inductive step, k = 3
+Starting Bounded Model Checking
+Unwinding loop 18  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 18  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 18  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 18  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 18  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 18  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 8  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6189 function find_quirk
+Unwinding loop 8  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6189 function find_quirk
+Not unwinding 
+No target candidate for function call *quirk->probe
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 9  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6344 function serial_pci_guess_board
+Unwinding loop 9  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6344 function serial_pci_guess_board
+Not unwinding 
+Unwinding loop 10  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6367 function serial_pci_guess_board
+Unwinding loop 10  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6367 function serial_pci_guess_board
+Not unwinding 
+Unwinding loop 11  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6392 function serial_pci_guess_board
+Unwinding loop 11  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6392 function serial_pci_guess_board
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 9  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6344 function serial_pci_guess_board
+Unwinding loop 9  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6344 function serial_pci_guess_board
+Not unwinding 
+Unwinding loop 10  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6367 function serial_pci_guess_board
+Unwinding loop 10  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6367 function serial_pci_guess_board
+Not unwinding 
+Unwinding loop 11  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6392 function serial_pci_guess_board
+Unwinding loop 11  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6392 function serial_pci_guess_board
+Not unwinding 
+Unwinding loop 8  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6189 function find_quirk
+Unwinding loop 8  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6189 function find_quirk
+Not unwinding 
+No target candidate for function call *quirk->init
+Unwinding loop 18  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 18  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 12  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6488 function pciserial_init_ports
+No target candidate for function call *quirk->setup
+Unwinding loop 12  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6488 function pciserial_init_ports
+No target candidate for function call *quirk->setup
+Not unwinding 
+No target candidate for function call *quirk->exit
+Unwinding loop 15  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6573 function pciserial_suspend_ports
+Unwinding loop 15  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6573 function pciserial_suspend_ports
+Not unwinding 
+No target candidate for function call *priv->quirk->exit
+Unwinding loop 13  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6524 function pciserial_remove_ports
+Unwinding loop 13  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6524 function pciserial_remove_ports
+Not unwinding 
+Unwinding loop 14  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6538 function pciserial_remove_ports
+Unwinding loop 14  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6538 function pciserial_remove_ports
+Not unwinding 
+Unwinding loop 8  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6189 function find_quirk
+Unwinding loop 8  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6189 function find_quirk
+Not unwinding 
+No target candidate for function call *quirk->exit
+Unwinding loop 13  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6524 function pciserial_remove_ports
+Unwinding loop 13  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6524 function pciserial_remove_ports
+Not unwinding 
+Unwinding loop 14  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6538 function pciserial_remove_ports
+Unwinding loop 14  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6538 function pciserial_remove_ports
+Not unwinding 
+Unwinding loop 8  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6189 function find_quirk
+Unwinding loop 8  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6189 function find_quirk
+Not unwinding 
+No target candidate for function call *quirk->exit
+No target candidate for function call *priv->quirk->init
+Unwinding loop 16  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6610 function pciserial_resume_ports
+Unwinding loop 16  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6610 function pciserial_resume_ports
+Not unwinding 
+Unwinding loop 18  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 18  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 18  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 18  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 15  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6573 function pciserial_suspend_ports
+Unwinding loop 15  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6573 function pciserial_suspend_ports
+Not unwinding 
+No target candidate for function call *priv->quirk->exit
+Unwinding loop 15  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6573 function pciserial_suspend_ports
+Unwinding loop 15  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6573 function pciserial_suspend_ports
+Not unwinding 
+No target candidate for function call *priv->quirk->exit
+Unwinding loop 15  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6573 function pciserial_suspend_ports
+Unwinding loop 15  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6573 function pciserial_suspend_ports
+Not unwinding 
+No target candidate for function call *priv->quirk->exit
+No target candidate for function call *priv->quirk->init
+Unwinding loop 16  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6610 function pciserial_resume_ports
+Unwinding loop 16  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6610 function pciserial_resume_ports
+Not unwinding 
+Unwinding loop 17  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 7409 function main
+Unwinding loop 8  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6189 function find_quirk
+Unwinding loop 8  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6189 function find_quirk
+Not unwinding 
+No target candidate for function call *quirk->probe
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 9  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6344 function serial_pci_guess_board
+Unwinding loop 9  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6344 function serial_pci_guess_board
+Not unwinding 
+Unwinding loop 10  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6367 function serial_pci_guess_board
+Unwinding loop 10  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6367 function serial_pci_guess_board
+Not unwinding 
+Unwinding loop 11  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6392 function serial_pci_guess_board
+Unwinding loop 11  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6392 function serial_pci_guess_board
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 9  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6344 function serial_pci_guess_board
+Unwinding loop 9  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6344 function serial_pci_guess_board
+Not unwinding 
+Unwinding loop 10  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6367 function serial_pci_guess_board
+Unwinding loop 10  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6367 function serial_pci_guess_board
+Not unwinding 
+Unwinding loop 11  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6392 function serial_pci_guess_board
+Unwinding loop 11  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6392 function serial_pci_guess_board
+Not unwinding 
+Unwinding loop 8  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6189 function find_quirk
+Unwinding loop 8  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6189 function find_quirk
+Not unwinding 
+No target candidate for function call *quirk->init
+Unwinding loop 18  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 18  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 12  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6488 function pciserial_init_ports
+No target candidate for function call *quirk->setup
+Unwinding loop 12  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6488 function pciserial_init_ports
+No target candidate for function call *quirk->setup
+Not unwinding 
+No target candidate for function call *quirk->exit
+Unwinding loop 15  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6573 function pciserial_suspend_ports
+Unwinding loop 15  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6573 function pciserial_suspend_ports
+Not unwinding 
+No target candidate for function call *priv->quirk->exit
+Unwinding loop 13  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6524 function pciserial_remove_ports
+Unwinding loop 13  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6524 function pciserial_remove_ports
+Not unwinding 
+Unwinding loop 14  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6538 function pciserial_remove_ports
+Unwinding loop 14  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6538 function pciserial_remove_ports
+Not unwinding 
+Unwinding loop 8  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6189 function find_quirk
+Unwinding loop 8  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6189 function find_quirk
+Not unwinding 
+No target candidate for function call *quirk->exit
+Unwinding loop 13  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6524 function pciserial_remove_ports
+Unwinding loop 13  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6524 function pciserial_remove_ports
+Not unwinding 
+Unwinding loop 14  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6538 function pciserial_remove_ports
+Unwinding loop 14  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6538 function pciserial_remove_ports
+Not unwinding 
+Unwinding loop 8  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6189 function find_quirk
+Unwinding loop 8  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6189 function find_quirk
+Not unwinding 
+No target candidate for function call *quirk->exit
+No target candidate for function call *priv->quirk->init
+Unwinding loop 16  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6610 function pciserial_resume_ports
+Unwinding loop 16  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6610 function pciserial_resume_ports
+Not unwinding 
+Unwinding loop 18  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 18  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 18  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 18  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 15  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6573 function pciserial_suspend_ports
+Unwinding loop 15  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6573 function pciserial_suspend_ports
+Not unwinding 
+No target candidate for function call *priv->quirk->exit
+Unwinding loop 15  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6573 function pciserial_suspend_ports
+Unwinding loop 15  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6573 function pciserial_suspend_ports
+Not unwinding 
+No target candidate for function call *priv->quirk->exit
+Unwinding loop 15  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6573 function pciserial_suspend_ports
+Unwinding loop 15  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6573 function pciserial_suspend_ports
+Not unwinding 
+No target candidate for function call *priv->quirk->exit
+No target candidate for function call *priv->quirk->init
+Unwinding loop 16  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6610 function pciserial_resume_ports
+Unwinding loop 16  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6610 function pciserial_resume_ports
+Not unwinding 
+Unwinding loop 17  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 7409 function main
+Unwinding loop 8  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6189 function find_quirk
+Unwinding loop 8  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6189 function find_quirk
+Not unwinding 
+No target candidate for function call *quirk->probe
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 9  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6344 function serial_pci_guess_board
+Unwinding loop 9  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6344 function serial_pci_guess_board
+Not unwinding 
+Unwinding loop 10  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6367 function serial_pci_guess_board
+Unwinding loop 10  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6367 function serial_pci_guess_board
+Not unwinding 
+Unwinding loop 11  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6392 function serial_pci_guess_board
+Unwinding loop 11  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6392 function serial_pci_guess_board
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 9  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6344 function serial_pci_guess_board
+Unwinding loop 9  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6344 function serial_pci_guess_board
+Not unwinding 
+Unwinding loop 10  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6367 function serial_pci_guess_board
+Unwinding loop 10  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6367 function serial_pci_guess_board
+Not unwinding 
+Unwinding loop 11  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6392 function serial_pci_guess_board
+Unwinding loop 11  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6392 function serial_pci_guess_board
+Not unwinding 
+Unwinding loop 8  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6189 function find_quirk
+Unwinding loop 8  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6189 function find_quirk
+Not unwinding 
+No target candidate for function call *quirk->init
+Unwinding loop 18  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 18  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 12  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6488 function pciserial_init_ports
+No target candidate for function call *quirk->setup
+Unwinding loop 12  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6488 function pciserial_init_ports
+No target candidate for function call *quirk->setup
+Not unwinding 
+No target candidate for function call *quirk->exit
+Unwinding loop 15  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6573 function pciserial_suspend_ports
+Unwinding loop 15  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6573 function pciserial_suspend_ports
+Not unwinding 
+No target candidate for function call *priv->quirk->exit
+Unwinding loop 13  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6524 function pciserial_remove_ports
+Unwinding loop 13  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6524 function pciserial_remove_ports
+Not unwinding 
+Unwinding loop 14  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6538 function pciserial_remove_ports
+Unwinding loop 14  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6538 function pciserial_remove_ports
+Not unwinding 
+Unwinding loop 8  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6189 function find_quirk
+Unwinding loop 8  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6189 function find_quirk
+Not unwinding 
+No target candidate for function call *quirk->exit
+Unwinding loop 13  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6524 function pciserial_remove_ports
+Unwinding loop 13  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6524 function pciserial_remove_ports
+Not unwinding 
+Unwinding loop 14  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6538 function pciserial_remove_ports
+Unwinding loop 14  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6538 function pciserial_remove_ports
+Not unwinding 
+Unwinding loop 8  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6189 function find_quirk
+Unwinding loop 8  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6189 function find_quirk
+Not unwinding 
+No target candidate for function call *quirk->exit
+No target candidate for function call *priv->quirk->init
+Unwinding loop 16  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6610 function pciserial_resume_ports
+Unwinding loop 16  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6610 function pciserial_resume_ports
+Not unwinding 
+Unwinding loop 18  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 18  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 18  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 18  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 15  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6573 function pciserial_suspend_ports
+Unwinding loop 15  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6573 function pciserial_suspend_ports
+Not unwinding 
+No target candidate for function call *priv->quirk->exit
+Unwinding loop 15  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6573 function pciserial_suspend_ports
+Unwinding loop 15  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6573 function pciserial_suspend_ports
+Not unwinding 
+No target candidate for function call *priv->quirk->exit
+Unwinding loop 15  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6573 function pciserial_suspend_ports
+Unwinding loop 15  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6573 function pciserial_suspend_ports
+Not unwinding 
+No target candidate for function call *priv->quirk->exit
+No target candidate for function call *priv->quirk->init
+Unwinding loop 16  iteration  1   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6610 function pciserial_resume_ports
+Unwinding loop 16  iteration  2   file 43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i line 6610 function pciserial_resume_ports
+Not unwinding 
+Not unwinding 
+Symex completed in: 3.674s (5490 assignments)
+Slicing time: 0.115s (removed 3799 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (1691 assignments)
+BMC program time: 3.789s
+Building successful trace
+
+VERIFICATION SUCCESSFUL
+
+Solution found by the inductive step (k = 3)
+
+../sv-benchmarks/c/ldv-linux-3.16-rc1/43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i:3943:27: warning: declaration of 'struct kobject___0' will not be visible outside of this function [-Wvisibility]
+   ssize_t (*show)(struct kobject___0 * , struct attribute___0 * , char * ) ;
+                          ^
+../sv-benchmarks/c/ldv-linux-3.16-rc1/43_2a_consumption_linux-3.16-rc1.tar.xz-43_2a-drivers--tty--serial--8250--8250_pci.ko-entry_point.cil.out.i:3944:28: warning: declaration of 'struct kobject___0' will not be visible outside of this function [-Wvisibility]
+   ssize_t (*store)(struct kobject___0 * , struct attribute___0 * , char const * ,
+                           ^
+
+TRUE

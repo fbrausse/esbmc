@@ -1,0 +1,56 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/floats-cdfpl/newton_2_8.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/floats-cdfpl/newton_2_8.i --32 --witness-output newton_2_8.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/floats-cdfpl/newton_2_8.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.134s
+GOTO program processing time: 0.001s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Symex completed in: 0.002s (27 assignments)
+Slicing time: 0.001s (removed 9 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (18 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.088s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.088s
+Runtime decision procedure: 208.241s
+Building error trace
+
+Counterexample:
+
+State 1 file newton_2_8.i line 30 function main thread 0
+----------------------------------------------------
+  IN = 1.060678e+0f (00111111 10000111 11000100 01001100)
+
+State 2 file newton_2_8.i line 33 function main thread 0
+----------------------------------------------------
+  x = -7.135748e-1f (10111111 00110110 10101100 11010110)
+
+State 3 file newton_2_8.i line 35 function main thread 0
+----------------------------------------------------
+  x = 1.518202e-1f (00111110 00011011 01110110 11000100)
+
+State 4 file newton_2_8.i line 12 function reach_error thread 0
+----------------------------------------------------
+Violated property:
+  file newton_2_8.i line 12 function reach_error
+  assertion 0
+  0
+
+
+VERIFICATION FAILED
+
+Bug found (k = 1)
+
+
+FALSE_REACH

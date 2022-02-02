@@ -1,0 +1,289 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i --64 --witness-output 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 64-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 8.577s
+GOTO program processing time: 1.963s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.011s (141 assignments)
+Slicing time: 0.001s (removed 107 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (34 assignments)
+BMC program time: 0.012s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.011s (141 assignments)
+Slicing time: 0.005s (removed 107 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (34 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.003s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.003s
+Runtime decision procedure: 0.020s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 111  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 15897 function main
+Unwinding loop 71  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 12390 function mlx4_ib_close_sriov
+Unwinding loop 40  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 11482 function mlx4_ib_free_pv_qp_bufs
+No target candidate for function call *dev->dma_ops->unmap_single
+No target candidate for function call *ops->unmap_page
+Unwinding loop 40  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 11482 function mlx4_ib_free_pv_qp_bufs
+No target candidate for function call *dev->dma_ops->unmap_single
+No target candidate for function call *ops->unmap_page
+Not unwinding 
+Unwinding loop 40  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 11482 function mlx4_ib_free_pv_qp_bufs
+No target candidate for function call *dev->dma_ops->unmap_single
+No target candidate for function call *ops->unmap_page
+Unwinding loop 40  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 11482 function mlx4_ib_free_pv_qp_bufs
+No target candidate for function call *dev->dma_ops->unmap_single
+No target candidate for function call *ops->unmap_page
+Not unwinding 
+Unwinding loop 144  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 22602 function _mlx4_ib_mcg_port_cleanup
+Unwinding loop 46  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 22853 function clean_vf_mcast
+Unwinding loop 148  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 22771 function clear_pending_reqs
+Unwinding loop 148  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 22771 function clear_pending_reqs
+Not unwinding 
+Unwinding loop 46  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 22853 function clean_vf_mcast
+Unwinding loop 148  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 22771 function clear_pending_reqs
+Unwinding loop 148  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 22771 function clear_pending_reqs
+Not unwinding 
+Not unwinding 
+Unwinding loop 144  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 22602 function _mlx4_ib_mcg_port_cleanup
+Unwinding loop 46  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 22853 function clean_vf_mcast
+Unwinding loop 148  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 22771 function clear_pending_reqs
+Unwinding loop 148  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 22771 function clear_pending_reqs
+Not unwinding 
+Unwinding loop 46  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 22853 function clean_vf_mcast
+Unwinding loop 148  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 22771 function clear_pending_reqs
+Unwinding loop 148  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 22771 function clear_pending_reqs
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Unwinding loop 49  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 12201 function mlx4_ib_free_demux_ctx
+Unwinding loop 49  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 12201 function mlx4_ib_free_demux_ctx
+Not unwinding 
+Unwinding loop 50  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 12213 function mlx4_ib_free_demux_ctx
+Unwinding loop 40  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 11482 function mlx4_ib_free_pv_qp_bufs
+No target candidate for function call *dev->dma_ops->unmap_single
+No target candidate for function call *ops->unmap_page
+Unwinding loop 40  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 11482 function mlx4_ib_free_pv_qp_bufs
+No target candidate for function call *dev->dma_ops->unmap_single
+No target candidate for function call *ops->unmap_page
+Not unwinding 
+Unwinding loop 40  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 11482 function mlx4_ib_free_pv_qp_bufs
+No target candidate for function call *dev->dma_ops->unmap_single
+No target candidate for function call *ops->unmap_page
+Unwinding loop 40  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 11482 function mlx4_ib_free_pv_qp_bufs
+No target candidate for function call *dev->dma_ops->unmap_single
+No target candidate for function call *ops->unmap_page
+Not unwinding 
+Unwinding loop 50  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 12213 function mlx4_ib_free_demux_ctx
+Unwinding loop 40  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 11482 function mlx4_ib_free_pv_qp_bufs
+No target candidate for function call *dev->dma_ops->unmap_single
+No target candidate for function call *ops->unmap_page
+Unwinding loop 40  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 11482 function mlx4_ib_free_pv_qp_bufs
+No target candidate for function call *dev->dma_ops->unmap_single
+No target candidate for function call *ops->unmap_page
+Not unwinding 
+Unwinding loop 40  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 11482 function mlx4_ib_free_pv_qp_bufs
+No target candidate for function call *dev->dma_ops->unmap_single
+No target candidate for function call *ops->unmap_page
+Unwinding loop 40  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 11482 function mlx4_ib_free_pv_qp_bufs
+No target candidate for function call *dev->dma_ops->unmap_single
+No target candidate for function call *ops->unmap_page
+Not unwinding 
+Not unwinding 
+Unwinding loop 71  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 12390 function mlx4_ib_close_sriov
+Unwinding loop 40  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 11482 function mlx4_ib_free_pv_qp_bufs
+No target candidate for function call *dev->dma_ops->unmap_single
+No target candidate for function call *ops->unmap_page
+Unwinding loop 40  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 11482 function mlx4_ib_free_pv_qp_bufs
+No target candidate for function call *dev->dma_ops->unmap_single
+No target candidate for function call *ops->unmap_page
+Not unwinding 
+Unwinding loop 40  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 11482 function mlx4_ib_free_pv_qp_bufs
+No target candidate for function call *dev->dma_ops->unmap_single
+No target candidate for function call *ops->unmap_page
+Unwinding loop 40  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 11482 function mlx4_ib_free_pv_qp_bufs
+No target candidate for function call *dev->dma_ops->unmap_single
+No target candidate for function call *ops->unmap_page
+Not unwinding 
+Unwinding loop 144  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 22602 function _mlx4_ib_mcg_port_cleanup
+Unwinding loop 46  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 22853 function clean_vf_mcast
+Unwinding loop 148  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 22771 function clear_pending_reqs
+Unwinding loop 148  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 22771 function clear_pending_reqs
+Not unwinding 
+Unwinding loop 46  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 22853 function clean_vf_mcast
+Unwinding loop 148  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 22771 function clear_pending_reqs
+Unwinding loop 148  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 22771 function clear_pending_reqs
+Not unwinding 
+Not unwinding 
+Unwinding loop 144  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 22602 function _mlx4_ib_mcg_port_cleanup
+Unwinding loop 46  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 22853 function clean_vf_mcast
+Unwinding loop 148  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 22771 function clear_pending_reqs
+Unwinding loop 148  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 22771 function clear_pending_reqs
+Not unwinding 
+Unwinding loop 46  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 22853 function clean_vf_mcast
+Unwinding loop 148  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 22771 function clear_pending_reqs
+Unwinding loop 148  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 22771 function clear_pending_reqs
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Unwinding loop 49  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 12201 function mlx4_ib_free_demux_ctx
+Unwinding loop 49  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 12201 function mlx4_ib_free_demux_ctx
+Not unwinding 
+Unwinding loop 50  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 12213 function mlx4_ib_free_demux_ctx
+Unwinding loop 40  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 11482 function mlx4_ib_free_pv_qp_bufs
+No target candidate for function call *dev->dma_ops->unmap_single
+No target candidate for function call *ops->unmap_page
+Unwinding loop 40  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 11482 function mlx4_ib_free_pv_qp_bufs
+No target candidate for function call *dev->dma_ops->unmap_single
+No target candidate for function call *ops->unmap_page
+Not unwinding 
+Unwinding loop 40  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 11482 function mlx4_ib_free_pv_qp_bufs
+No target candidate for function call *dev->dma_ops->unmap_single
+No target candidate for function call *ops->unmap_page
+Unwinding loop 40  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 11482 function mlx4_ib_free_pv_qp_bufs
+No target candidate for function call *dev->dma_ops->unmap_single
+No target candidate for function call *ops->unmap_page
+Not unwinding 
+Unwinding loop 50  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 12213 function mlx4_ib_free_demux_ctx
+Unwinding loop 40  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 11482 function mlx4_ib_free_pv_qp_bufs
+No target candidate for function call *dev->dma_ops->unmap_single
+No target candidate for function call *ops->unmap_page
+Unwinding loop 40  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 11482 function mlx4_ib_free_pv_qp_bufs
+No target candidate for function call *dev->dma_ops->unmap_single
+No target candidate for function call *ops->unmap_page
+Not unwinding 
+Unwinding loop 40  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 11482 function mlx4_ib_free_pv_qp_bufs
+No target candidate for function call *dev->dma_ops->unmap_single
+No target candidate for function call *ops->unmap_page
+Unwinding loop 40  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 11482 function mlx4_ib_free_pv_qp_bufs
+No target candidate for function call *dev->dma_ops->unmap_single
+No target candidate for function call *ops->unmap_page
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Unwinding loop 65  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 23837 function mlx4_ib_cm_paravirt_clean
+Unwinding loop 65  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 23837 function mlx4_ib_cm_paravirt_clean
+Not unwinding 
+Unwinding loop 66  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 23857 function mlx4_ib_cm_paravirt_clean
+Unwinding loop 66  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 23857 function mlx4_ib_cm_paravirt_clean
+Not unwinding 
+Unwinding loop 70  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 23926 function mlx4_ib_cm_paravirt_clean
+Unwinding loop 70  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 23926 function mlx4_ib_cm_paravirt_clean
+Not unwinding 
+Unwinding loop 63  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 24828 function mlx4_ib_destroy_alias_guid_service
+Unwinding loop 62  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 24821 function mlx4_ib_destroy_alias_guid_service
+Unwinding loop 62  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 24821 function mlx4_ib_destroy_alias_guid_service
+Not unwinding 
+Unwinding loop 63  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 24828 function mlx4_ib_destroy_alias_guid_service
+Unwinding loop 62  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 24821 function mlx4_ib_destroy_alias_guid_service
+Unwinding loop 62  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 24821 function mlx4_ib_destroy_alias_guid_service
+Not unwinding 
+Not unwinding 
+Unwinding loop 64  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 24839 function mlx4_ib_destroy_alias_guid_service
+Unwinding loop 64  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 24839 function mlx4_ib_destroy_alias_guid_service
+Not unwinding 
+Unwinding loop 171  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 25987 function unregister_alias_guid_tree
+Unwinding loop 171  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 25987 function unregister_alias_guid_tree
+Not unwinding 
+Unwinding loop 170  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 25893 function unregister_pkey_tree
+Unwinding loop 169  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 25883 function unregister_pkey_tree
+Unwinding loop 169  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 25883 function unregister_pkey_tree
+Not unwinding 
+Unwinding loop 170  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 25893 function unregister_pkey_tree
+Unwinding loop 169  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 25883 function unregister_pkey_tree
+Unwinding loop 169  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 25883 function unregister_pkey_tree
+Not unwinding 
+Not unwinding 
+Unwinding loop 33  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 10814 function mlx4_ib_mad_cleanup
+Unwinding loop 32  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 10804 function mlx4_ib_mad_cleanup
+Unwinding loop 32  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 10804 function mlx4_ib_mad_cleanup
+Unwinding loop 33  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 10814 function mlx4_ib_mad_cleanup
+Unwinding loop 32  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 10804 function mlx4_ib_mad_cleanup
+Unwinding loop 32  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 10804 function mlx4_ib_mad_cleanup
+Not unwinding 
+Unwinding loop 109  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 15587 function mlx4_ib_remove
+Unwinding loop 109  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 15587 function mlx4_ib_remove
+Not unwinding 
+Unwinding loop 110  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 15600 function mlx4_ib_remove
+Unwinding loop 110  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 15600 function mlx4_ib_remove
+Not unwinding 
+Unwinding loop 89  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 15244 function mlx4_ib_free_eqs
+Unwinding loop 89  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 15244 function mlx4_ib_free_eqs
+Not unwinding 
+Unwinding loop 90  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 15296 function mlx4_ib_add
+Unwinding loop 90  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 15296 function mlx4_ib_add
+Not unwinding 
+Unwinding loop 91  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 15316 function mlx4_ib_add
+Unwinding loop 91  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 15316 function mlx4_ib_add
+Not unwinding 
+Unwinding loop 85  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 15164 function mlx4_ib_alloc_eqs
+Unwinding loop 85  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 15164 function mlx4_ib_alloc_eqs
+Not unwinding 
+Unwinding loop 87  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 15203 function mlx4_ib_alloc_eqs
+Unwinding loop 87  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 15203 function mlx4_ib_alloc_eqs
+Not unwinding 
+Unwinding loop 88  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 15216 function mlx4_ib_alloc_eqs
+Unwinding loop 88  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 15216 function mlx4_ib_alloc_eqs
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 92  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 15440 function mlx4_ib_add
+Unwinding loop 92  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i line 15440 function mlx4_ib_add
+Not unwinding 
+Unwinding loop 29  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.o
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i:9351:34: warning: incompatible integer to pointer conversion passing 'unsigned long' to parameter of type 'struct page *' [-Wint-conversion]
+  addr = (*(ops->map_page))(dev, 0xffffea0000000000UL + (tmp___2 >> 12), (unsigned long )ptr & 4095UL,
+                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i:9354:27: warning: incompatible integer to pointer conversion passing 'unsigned long' to parameter of type 'struct page *' [-Wint-conversion]
+  debug_dma_map_page(dev, 0xffffea0000000000UL + (tmp___3 >> 12), (unsigned long )ptr & 4095UL,
+                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i:9321:64: note: passing argument to parameter here
+extern void debug_dma_map_page(struct device * , struct page * , size_t , size_t ,
+                                                               ^
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i:9751:14: warning: incompatible pointer types assigning to 'struct __anonstruct_ext_info_175 *' from 'struct __anonstruct_177 *' [-Wincompatible-pointer-types]
+    ext_info = (struct __anonstruct_177 *)inbox + 256U;
+             ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i:16833:34: warning: incompatible integer to pointer conversion passing 'unsigned long' to parameter of type 'struct page *' [-Wint-conversion]
+  addr = (*(ops->map_page))(dev, 0xffffea0000000000UL + (tmp___2 >> 12), (unsigned long )ptr & 4095UL,
+                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i:16836:27: warning: incompatible integer to pointer conversion passing 'unsigned long' to parameter of type 'struct page *' [-Wint-conversion]
+  debug_dma_map_page(dev, 0xffffea0000000000UL + (tmp___3 >> 12), (unsigned long )ptr & 4095UL,
+                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i:9321:64: note: passing argument to parameter here
+extern void debug_dma_map_page(struct device * , struct page * , size_t , size_t ,
+                                                               ^
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i:22519:22: warning: format specifies type 'unsigned short' but the argument has type 'int' [-Wformat]
+                     (int )tmp___11, tmp___10, (int )group->rec.mtusel_mtu >> 6, (int )group->rec.mtusel_mtu & 63,
+                     ^~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i:27471:28: warning: implicit declaration of function 'ldv_xmalloc' is invalid in C99 [-Wimplicit-function-declaration]
+  return *(struct pgprot *)ldv_xmalloc(sizeof(struct pgprot));
+                           ^
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-drivers--infiniband--hw--mlx4--mlx4_ib.ko-ldv_main4_sequence_infinite_withcheck_stateful.cil.out.i:27471:11: warning: cast to 'struct pgprot *' from smaller integer type 'int' [-Wint-to-pointer-cast]
+  return *(struct pgprot *)ldv_xmalloc(sizeof(struct pgprot));
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Can't construct rvalue reference to array type during dereference
+(It isn't allowed by C anyway)
+
+
+Unknown

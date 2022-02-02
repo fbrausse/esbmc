@@ -1,0 +1,144 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/product-lines/elevator_spec1_product22.cil.c
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/product-lines/elevator_spec1_product22.cil.c --32 --witness-output elevator_spec1_product22.cil.c.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/product-lines/elevator_spec1_product22.cil.c: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.193s
+GOTO program processing time: 0.646s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.019s (225 assignments)
+Slicing time: 0.000s (removed 223 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (2 assignments)
+BMC program time: 0.019s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.017s (225 assignments)
+Slicing time: 0.000s (removed 223 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (2 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.000s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.000s
+Runtime decision procedure: 0.001s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 6  iteration  1   file elevator_spec1_product22.cil.c line 1334 function cleanup
+Unwinding loop 6  iteration  2   file elevator_spec1_product22.cil.c line 1334 function cleanup
+Symex completed in: 0.020s (252 assignments)
+Slicing time: 0.000s (removed 249 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (3 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.000s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.000s
+Runtime decision procedure: 0.000s
+Building error trace
+
+Counterexample:
+
+State 1 file elevator_spec1_product22.cil.c line 3 function reach_error thread 0
+----------------------------------------------------
+Violated property:
+  file elevator_spec1_product22.cil.c line 3 function reach_error
+  assertion 0
+  0
+
+
+VERIFICATION FAILED
+
+Bug found (k = 3)
+
+../sv-benchmarks/c/product-lines/elevator_spec1_product22.cil.c:2951:10: warning: format string is not a string literal (potentially insecure) [-Wformat-security]
+  printf(__cil_tmp6);
+         ^~~~~~~~~~
+../sv-benchmarks/c/product-lines/elevator_spec1_product22.cil.c:2951:10: note: treat the string as an argument to avoid this
+  printf(__cil_tmp6);
+         ^
+         "%s", 
+../sv-benchmarks/c/product-lines/elevator_spec1_product22.cil.c:2956:12: warning: format string is not a string literal (potentially insecure) [-Wformat-security]
+    printf(__cil_tmp7);
+           ^~~~~~~~~~
+../sv-benchmarks/c/product-lines/elevator_spec1_product22.cil.c:2956:12: note: treat the string as an argument to avoid this
+    printf(__cil_tmp7);
+           ^
+           "%s", 
+../sv-benchmarks/c/product-lines/elevator_spec1_product22.cil.c:2961:12: warning: format string is not a string literal (potentially insecure) [-Wformat-security]
+    printf(__cil_tmp8);
+           ^~~~~~~~~~
+../sv-benchmarks/c/product-lines/elevator_spec1_product22.cil.c:2961:12: note: treat the string as an argument to avoid this
+    printf(__cil_tmp8);
+           ^
+           "%s", 
+../sv-benchmarks/c/product-lines/elevator_spec1_product22.cil.c:2966:10: warning: format string is not a string literal (potentially insecure) [-Wformat-security]
+  printf(__cil_tmp9);
+         ^~~~~~~~~~
+../sv-benchmarks/c/product-lines/elevator_spec1_product22.cil.c:2966:10: note: treat the string as an argument to avoid this
+  printf(__cil_tmp9);
+         ^
+         "%s", 
+../sv-benchmarks/c/product-lines/elevator_spec1_product22.cil.c:2970:10: warning: format string is not a string literal (potentially insecure) [-Wformat-security]
+  printf(__cil_tmp11);
+         ^~~~~~~~~~~
+../sv-benchmarks/c/product-lines/elevator_spec1_product22.cil.c:2970:10: note: treat the string as an argument to avoid this
+  printf(__cil_tmp11);
+         ^
+         "%s", 
+../sv-benchmarks/c/product-lines/elevator_spec1_product22.cil.c:2975:12: warning: format string is not a string literal (potentially insecure) [-Wformat-security]
+    printf(__cil_tmp12);
+           ^~~~~~~~~~~
+../sv-benchmarks/c/product-lines/elevator_spec1_product22.cil.c:2975:12: note: treat the string as an argument to avoid this
+    printf(__cil_tmp12);
+           ^
+           "%s", 
+../sv-benchmarks/c/product-lines/elevator_spec1_product22.cil.c:2980:12: warning: format string is not a string literal (potentially insecure) [-Wformat-security]
+    printf(__cil_tmp13);
+           ^~~~~~~~~~~
+../sv-benchmarks/c/product-lines/elevator_spec1_product22.cil.c:2980:12: note: treat the string as an argument to avoid this
+    printf(__cil_tmp13);
+           ^
+           "%s", 
+../sv-benchmarks/c/product-lines/elevator_spec1_product22.cil.c:2985:10: warning: format string is not a string literal (potentially insecure) [-Wformat-security]
+  printf(__cil_tmp14);
+         ^~~~~~~~~~~
+../sv-benchmarks/c/product-lines/elevator_spec1_product22.cil.c:2985:10: note: treat the string as an argument to avoid this
+  printf(__cil_tmp14);
+         ^
+         "%s", 
+../sv-benchmarks/c/product-lines/elevator_spec1_product22.cil.c:3029:10: warning: format string is not a string literal (potentially insecure) [-Wformat-security]
+  printf(__cil_tmp20);
+         ^~~~~~~~~~~
+../sv-benchmarks/c/product-lines/elevator_spec1_product22.cil.c:3029:10: note: treat the string as an argument to avoid this
+  printf(__cil_tmp20);
+         ^
+         "%s", 
+../sv-benchmarks/c/product-lines/elevator_spec1_product22.cil.c:3086:10: warning: format string is not a string literal (potentially insecure) [-Wformat-security]
+  printf(__cil_tmp26);
+         ^~~~~~~~~~~
+../sv-benchmarks/c/product-lines/elevator_spec1_product22.cil.c:3086:10: note: treat the string as an argument to avoid this
+  printf(__cil_tmp26);
+         ^
+         "%s", 
+../sv-benchmarks/c/product-lines/elevator_spec1_product22.cil.c:3102:12: warning: format string is not a string literal (potentially insecure) [-Wformat-security]
+    printf(__cil_tmp2);
+           ^~~~~~~~~~
+../sv-benchmarks/c/product-lines/elevator_spec1_product22.cil.c:3102:12: note: treat the string as an argument to avoid this
+    printf(__cil_tmp2);
+           ^
+           "%s", 
+
+FALSE_REACH

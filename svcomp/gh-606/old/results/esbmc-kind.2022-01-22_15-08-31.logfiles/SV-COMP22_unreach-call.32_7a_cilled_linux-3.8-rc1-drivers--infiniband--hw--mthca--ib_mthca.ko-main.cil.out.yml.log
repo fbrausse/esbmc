@@ -1,0 +1,32 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-drivers--infiniband--hw--mthca--ib_mthca.ko-main.cil.out.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-drivers--infiniband--hw--mthca--ib_mthca.ko-main.cil.out.i --64 --witness-output 32_7a_cilled_linux-3.8-rc1-drivers--infiniband--hw--mthca--ib_mthca.ko-main.cil.out.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-drivers--infiniband--hw--mthca--ib_mthca.ko-main.cil.out.i:4452:78: warning: incompatible integer to pointer conversion initializing 'void *' with an expression of type 'unsigned long' [-Wint-conversion]
+struct mutex mthca_device_mutex = {{1}, {{{{{0U}}, 3735899821U, 4294967295U, 0xffffffffffffffffUL, {0, {0, 0}, "mthca_device_mutex.wait_lock",
+                                                                             ^~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-drivers--infiniband--hw--mthca--ib_mthca.ko-main.cil.out.i:6033:30: warning: incompatible integer to pointer conversion assigning to 'void *' from 'unsigned long' [-Wint-conversion]
+  __constr_expr_0.lock.owner = 0xffffffffffffffffUL;
+                             ^ ~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-drivers--infiniband--hw--mthca--ib_mthca.ko-main.cil.out.i:12375:20: warning: incompatible pointer types assigning to 'struct __anonstruct_page_list_167 *' from 'struct __anonstruct_168 *' [-Wincompatible-pointer-types]
+  array->page_list = (struct __anonstruct_168 *)tmp;
+                   ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-drivers--infiniband--hw--mthca--ib_mthca.ko-main.cil.out.i:23309:19: warning: incompatible integer to pointer conversion passing 'unsigned long' to parameter of type 'struct page *' [-Wint-conversion]
+  sg_set_page(sg, 0xffffea0000000000UL + (tmp >> 12), buflen, (unsigned int )((long )buf) & 4095U);
+                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-drivers--infiniband--hw--mthca--ib_mthca.ko-main.cil.out.i:23272:72: note: passing argument to parameter 'page' here
+__inline static void sg_set_page(struct scatterlist *sg , struct page *page , unsigned int len ,
+                                                                       ^
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-drivers--infiniband--hw--mthca--ib_mthca.ko-main.cil.out.i:25585:69: warning: incompatible integer to pointer conversion initializing 'void *' with an expression of type 'unsigned long' [-Wint-conversion]
+static spinlock_t catas_lock = {{{{{0U}}, 3735899821U, 4294967295U, 0xffffffffffffffffUL, {0, {0, 0}, "catas_lock",
+                                                                    ^~~~~~~~~~~~~~~~~~~~
+Can't construct rvalue reference to array type during dereference
+(It isn't allowed by C anyway)
+
+
+Unknown

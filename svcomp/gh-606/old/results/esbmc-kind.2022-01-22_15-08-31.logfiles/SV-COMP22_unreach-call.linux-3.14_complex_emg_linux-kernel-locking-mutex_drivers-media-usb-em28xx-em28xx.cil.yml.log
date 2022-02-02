@@ -1,0 +1,78 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/ldv-linux-3.14/linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-media-usb-em28xx-em28xx.cil.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-linux-3.14/linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-media-usb-em28xx-em28xx.cil.i --64 --witness-output linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-media-usb-em28xx-em28xx.cil.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 64-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/ldv-linux-3.14/linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-media-usb-em28xx-em28xx.cil.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 5.981s
+GOTO program processing time: 0.922s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.224s (384 assignments)
+Slicing time: 0.001s (removed 313 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (71 assignments)
+BMC program time: 0.225s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.230s (384 assignments)
+Slicing time: 0.001s (removed 313 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (71 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.004s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.004s
+Runtime decision procedure: 0.390s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 48  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-media-usb-em28xx-em28xx.cil.i line 12741 function main
+Unwinding loop 48  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-media-usb-em28xx-em28xx.cil.i line 12741 function main
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 56  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 56  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 19  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-media-usb-em28xx-em28xx.cil.i line 7945 function em28xx_close_extension
+No target candidate for function call *ops->fini
+Unwinding loop 19  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-media-usb-em28xx-em28xx.cil.i line 7945 function em28xx_close_extension
+No target candidate for function call *ops->fini
+Not unwinding 
+Unwinding loop 56  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 56  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 19  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-media-usb-em28xx-em28xx.cil.i line 7945 function em28xx_close_extension
+No target candidate for function call *ops->fini
+Unwinding loop 19  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-media-usb-em28xx-em28xx.cil.i line 7945 function em28xx_close_extension
+No target candidate for function call *ops->fini
+Not unwinding 
+No target candidate for function call *arg0
+No target candidate for function call *arg0
+No target candidate for function call *arg0
+Unwinding loop 56  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 56  iteration  2   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 44  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-media-usb-em28xx-em28xx.cil.i line 12219 function em28xx_usb_probe
+Unwinding loop 43  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-media-usb-em28xx-em28xx.cil.i line 12213 function em28xx_usb_probe
+Unwinding loop 43  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-media-usb-em28xx-em28xx.cil.i line 12213 function em28xx_usb_probe
+Not unwinding 
+Unwinding loop 44  iteration  2   file linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-media-usb-em28xx-em28xx.cil.i line 12219 function em28xx_usb_probe
+Unwinding loop 43  iteration  1   file linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-media-usb-em28xx-em28xx.cil.i line 12213 function em28xx_
+../sv-benchmarks/c/ldv-linux-3.14/linux-3.14_complex_emg_linux-kernel-locking-mutex_drivers-media-usb-em28xx-em28xx.cil.i:4795:43: warning: declaration of 'struct v4l2_async_subdev' will not be visible outside of this function [-Wvisibility]
+   bool (*match)(struct device * , struct v4l2_async_subdev * ) ;
+                                          ^
+Can't construct rvalue reference to array type during dereference
+(It isn't allowed by C anyway)
+
+
+Unknown

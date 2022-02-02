@@ -1,0 +1,841 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/nla-digbench-scaling/egcd2-ll_valuebound10.c
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/nla-digbench-scaling/egcd2-ll_valuebound10.c --32 --witness-output egcd2-ll_valuebound10.c.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/nla-digbench-scaling/egcd2-ll_valuebound10.c: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.091s
+GOTO program processing time: 0.001s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.002s (84 assignments)
+Slicing time: 0.000s (removed 35 assignments)
+Generated 6 VCC(s), 6 remaining after simplification (49 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.000s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.000s
+Runtime decision procedure: 0.001s
+BMC program time: 0.004s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.002s (78 assignments)
+Slicing time: 0.000s (removed 48 assignments)
+Generated 2 VCC(s), 2 remaining after simplification (30 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.001s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.001s
+Runtime decision procedure: 0.003s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  2   file egcd2-ll_valuebound10.c line 47 function main
+Not unwinding 
+Unwinding loop 2  iteration  1   file egcd2-ll_valuebound10.c line 41 function main
+Unwinding loop 1  iteration  1   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  2   file egcd2-ll_valuebound10.c line 47 function main
+Not unwinding 
+Unwinding loop 2  iteration  2   file egcd2-ll_valuebound10.c line 41 function main
+Unwinding loop 1  iteration  1   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  2   file egcd2-ll_valuebound10.c line 47 function main
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.007s (260 assignments)
+Slicing time: 0.001s (removed 64 assignments)
+Generated 38 VCC(s), 38 remaining after simplification (196 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.002s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.002s
+Runtime decision procedure: 2.474s
+BMC program time: 2.485s
+No bug has been found in the base case
+*** Checking forward condition, k = 3
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  2   file egcd2-ll_valuebound10.c line 47 function main
+Not unwinding 
+Unwinding loop 2  iteration  1   file egcd2-ll_valuebound10.c line 41 function main
+Unwinding loop 1  iteration  1   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  2   file egcd2-ll_valuebound10.c line 47 function main
+Not unwinding 
+Unwinding loop 2  iteration  2   file egcd2-ll_valuebound10.c line 41 function main
+Unwinding loop 1  iteration  1   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  2   file egcd2-ll_valuebound10.c line 47 function main
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.008s (222 assignments)
+Slicing time: 0.000s (removed 162 assignments)
+Generated 4 VCC(s), 4 remaining after simplification (60 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.000s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.000s
+Runtime decision procedure: 0.267s
+The forward condition is unable to prove the property
+*** Checking inductive step, k = 3
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  2   file egcd2-ll_valuebound10.c line 47 function main
+Not unwinding 
+Unwinding loop 2  iteration  1   file egcd2-ll_valuebound10.c line 41 function main
+Unwinding loop 1  iteration  1   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  2   file egcd2-ll_valuebound10.c line 47 function main
+Not unwinding 
+Unwinding loop 2  iteration  2   file egcd2-ll_valuebound10.c line 41 function main
+Unwinding loop 1  iteration  1   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  2   file egcd2-ll_valuebound10.c line 47 function main
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.008s (318 assignments)
+Slicing time: 0.001s (removed 40 assignments)
+Generated 14 VCC(s), 14 remaining after simplification (278 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.003s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.003s
+Runtime decision procedure: 12.204s
+The inductive step is unable to prove the property
+*** Checking base case, k = 5
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  2   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  3   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  4   file egcd2-ll_valuebound10.c line 47 function main
+Not unwinding 
+Unwinding loop 2  iteration  1   file egcd2-ll_valuebound10.c line 41 function main
+Unwinding loop 1  iteration  1   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  2   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  3   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  4   file egcd2-ll_valuebound10.c line 47 function main
+Not unwinding 
+Unwinding loop 2  iteration  2   file egcd2-ll_valuebound10.c line 41 function main
+Unwinding loop 1  iteration  1   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  2   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  3   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  4   file egcd2-ll_valuebound10.c line 47 function main
+Not unwinding 
+Unwinding loop 2  iteration  3   file egcd2-ll_valuebound10.c line 41 function main
+Unwinding loop 1  iteration  1   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  2   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  3   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  4   file egcd2-ll_valuebound10.c line 47 function main
+Not unwinding 
+Unwinding loop 2  iteration  4   file egcd2-ll_valuebound10.c line 41 function main
+Unwinding loop 1  iteration  1   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  2   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  3   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  4   file egcd2-ll_valuebound10.c line 47 function main
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.017s (572 assignments)
+Slicing time: 0.008s (removed 96 assignments)
+Generated 102 VCC(s), 102 remaining after simplification (476 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.005s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.005s
+Runtime decision procedure: 12.114s
+BMC program time: 12.145s
+No bug has been found in the base case
+*** Checking forward condition, k = 5
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  2   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  3   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  4   file egcd2-ll_valuebound10.c line 47 function main
+Not unwinding 
+Unwinding loop 2  iteration  1   file egcd2-ll_valuebound10.c line 41 function main
+Unwinding loop 1  iteration  1   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  2   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  3   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  4   file egcd2-ll_valuebound10.c line 47 function main
+Not unwinding 
+Unwinding loop 2  iteration  2   file egcd2-ll_valuebound10.c line 41 function main
+Unwinding loop 1  iteration  1   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  2   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  3   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  4   file egcd2-ll_valuebound10.c line 47 function main
+Not unwinding 
+Unwinding loop 2  iteration  3   file egcd2-ll_valuebound10.c line 41 function main
+Unwinding loop 1  iteration  1   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  2   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  3   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  4   file egcd2-ll_valuebound10.c line 47 function main
+Not unwinding 
+Unwinding loop 2  iteration  4   file egcd2-ll_valuebound10.c line 41 function main
+Unwinding loop 1  iteration  1   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  2   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  3   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  4   file egcd2-ll_valuebound10.c line 47 function main
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.018s (470 assignments)
+Slicing time: 0.001s (removed 356 assignments)
+Generated 6 VCC(s), 6 remaining after simplification (114 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.001s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.001s
+Runtime decision procedure: 0.842s
+The forward condition is unable to prove the property
+*** Checking base case, k = 7
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  2   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  3   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  4   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  5   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  6   file egcd2-ll_valuebound10.c line 47 function main
+Not unwinding 
+Unwinding loop 2  iteration  1   file egcd2-ll_valuebound10.c line 41 function main
+Unwinding loop 1  iteration  1   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  2   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  3   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  4   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  5   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  6   file egcd2-ll_valuebound10.c line 47 function main
+Not unwinding 
+Unwinding loop 2  iteration  2   file egcd2-ll_valuebound10.c line 41 function main
+Unwinding loop 1  iteration  1   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  2   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  3   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  4   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  5   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  6   file egcd2-ll_valuebound10.c line 47 function main
+Not unwinding 
+Unwinding loop 2  iteration  3   file egcd2-ll_valuebound10.c line 41 function main
+Unwinding loop 1  iteration  1   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  2   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  3   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  4   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  5   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  6   file egcd2-ll_valuebound10.c line 47 function main
+Not unwinding 
+Unwinding loop 2  iteration  4   file egcd2-ll_valuebound10.c line 41 function main
+Unwinding loop 1  iteration  1   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  2   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  3   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  4   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  5   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  6   file egcd2-ll_valuebound10.c line 47 function main
+Not unwinding 
+Unwinding loop 2  iteration  5   file egcd2-ll_valuebound10.c line 41 function main
+Unwinding loop 1  iteration  1   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  2   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  3   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  4   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  5   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  6   file egcd2-ll_valuebound10.c line 47 function main
+Not unwinding 
+Unwinding loop 2  iteration  6   file egcd2-ll_valuebound10.c line 41 function main
+Unwinding loop 1  iteration  1   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  2   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  3   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  4   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  5   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  6   file egcd2-ll_valuebound10.c line 47 function main
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.032s (1020 assignments)
+Slicing time: 0.028s (removed 136 assignments)
+Generated 198 VCC(s), 198 remaining after simplification (884 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.010s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.010s
+Runtime decision procedure: 12.549s
+BMC program time: 12.620s
+No bug has been found in the base case
+*** Checking forward condition, k = 7
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  2   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  3   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  4   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  5   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  6   file egcd2-ll_valuebound10.c line 47 function main
+Not unwinding 
+Unwinding loop 2  iteration  1   file egcd2-ll_valuebound10.c line 41 function main
+Unwinding loop 1  iteration  1   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  2   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  3   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  4   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  5   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  6   file egcd2-ll_valuebound10.c line 47 function main
+Not unwinding 
+Unwinding loop 2  iteration  2   file egcd2-ll_valuebound10.c line 41 function main
+Unwinding loop 1  iteration  1   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  2   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  3   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  4   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  5   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  6   file egcd2-ll_valuebound10.c line 47 function main
+Not unwinding 
+Unwinding loop 2  iteration  3   file egcd2-ll_valuebound10.c line 41 function main
+Unwinding loop 1  iteration  1   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  2   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  3   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  4   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  5   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  6   file egcd2-ll_valuebound10.c line 47 function main
+Not unwinding 
+Unwinding loop 2  iteration  4   file egcd2-ll_valuebound10.c line 41 function main
+Unwinding loop 1  iteration  1   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  2   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  3   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  4   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  5   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  6   file egcd2-ll_valuebound10.c line 47 function main
+Not unwinding 
+Unwinding loop 2  iteration  5   file egcd2-ll_valuebound10.c line 41 function main
+Unwinding loop 1  iteration  1   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  2   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  3   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  4   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  5   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  6   file egcd2-ll_valuebound10.c line 47 function main
+Not unwinding 
+Unwinding loop 2  iteration  6   file egcd2-ll_valuebound10.c line 41 function main
+Unwinding loop 1  iteration  1   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  2   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  3   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  4   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  5   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  6   file egcd2-ll_valuebound10.c line 47 function main
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.032s (822 assignments)
+Slicing time: 0.004s (removed 630 assignments)
+Generated 8 VCC(s), 8 remaining after simplification (192 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.002s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.002s
+Runtime decision procedure: 1.769s
+The forward condition is unable to prove the property
+*** Checking base case, k = 9
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  2   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  3   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  4   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  5   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  6   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  7   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  8   file egcd2-ll_valuebound10.c line 47 function main
+Not unwinding 
+Unwinding loop 2  iteration  1   file egcd2-ll_valuebound10.c line 41 function main
+Unwinding loop 1  iteration  1   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  2   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  3   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  4   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  5   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  6   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  7   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  8   file egcd2-ll_valuebound10.c line 47 function main
+Not unwinding 
+Unwinding loop 2  iteration  2   file egcd2-ll_valuebound10.c line 41 function main
+Unwinding loop 1  iteration  1   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  2   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  3   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  4   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  5   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  6   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  7   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  8   file egcd2-ll_valuebound10.c line 47 function main
+Not unwinding 
+Unwinding loop 2  iteration  3   file egcd2-ll_valuebound10.c line 41 function main
+Unwinding loop 1  iteration  1   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  2   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  3   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  4   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  5   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  6   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  7   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  8   file egcd2-ll_valuebound10.c line 47 function main
+Not unwinding 
+Unwinding loop 2  iteration  4   file egcd2-ll_valuebound10.c line 41 function main
+Unwinding loop 1  iteration  1   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  2   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  3   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  4   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  5   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  6   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  7   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  8   file egcd2-ll_valuebound10.c line 47 function main
+Not unwinding 
+Unwinding loop 2  iteration  5   file egcd2-ll_valuebound10.c line 41 function main
+Unwinding loop 1  iteration  1   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  2   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  3   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  4   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  5   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  6   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  7   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  8   file egcd2-ll_valuebound10.c line 47 function main
+Not unwinding 
+Unwinding loop 2  iteration  6   file egcd2-ll_valuebound10.c line 41 function main
+Unwinding loop 1  iteration  1   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  2   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  3   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  4   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  5   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  6   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  7   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  8   file egcd2-ll_valuebound10.c line 47 function main
+Not unwinding 
+Unwinding loop 2  iteration  7   file egcd2-ll_valuebound10.c line 41 function main
+Unwinding loop 1  iteration  1   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  2   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  3   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  4   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  5   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  6   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  7   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  8   file egcd2-ll_valuebound10.c line 47 function main
+Not unwinding 
+Unwinding loop 2  iteration  8   file egcd2-ll_valuebound10.c line 41 function main
+Unwinding loop 1  iteration  1   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  2   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  3   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  4   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  5   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  6   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  7   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  8   file egcd2-ll_valuebound10.c line 47 function main
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.053s (1604 assignments)
+Slicing time: 0.070s (removed 184 assignments)
+Generated 326 VCC(s), 326 remaining after simplification (1420 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.015s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.015s
+Runtime decision procedure: 12.572s
+BMC program time: 12.711s
+No bug has been found in the base case
+*** Checking forward condition, k = 9
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  2   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  3   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  4   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  5   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  6   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  7   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  8   file egcd2-ll_valuebound10.c line 47 function main
+Not unwinding 
+Unwinding loop 2  iteration  1   file egcd2-ll_valuebound10.c line 41 function main
+Unwinding loop 1  iteration  1   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  2   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  3   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  4   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  5   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  6   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  7   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  8   file egcd2-ll_valuebound10.c line 47 function main
+Not unwinding 
+Unwinding loop 2  iteration  2   file egcd2-ll_valuebound10.c line 41 function main
+Unwinding loop 1  iteration  1   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  2   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  3   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  4   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  5   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  6   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  7   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  8   file egcd2-ll_valuebound10.c line 47 function main
+Not unwinding 
+Unwinding loop 2  iteration  3   file egcd2-ll_valuebound10.c line 41 function main
+Unwinding loop 1  iteration  1   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  2   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  3   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  4   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  5   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  6   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  7   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  8   file egcd2-ll_valuebound10.c line 47 function main
+Not unwinding 
+Unwinding loop 2  iteration  4   file egcd2-ll_valuebound10.c line 41 function main
+Unwinding loop 1  iteration  1   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  2   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  3   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  4   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  5   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  6   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  7   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  8   file egcd2-ll_valuebound10.c line 47 function main
+Not unwinding 
+Unwinding loop 2  iteration  5   file egcd2-ll_valuebound10.c line 41 function main
+Unwinding loop 1  iteration  1   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  2   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  3   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  4   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  5   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  6   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  7   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  8   file egcd2-ll_valuebound10.c line 47 function main
+Not unwinding 
+Unwinding loop 2  iteration  6   file egcd2-ll_valuebound10.c line 41 function main
+Unwinding loop 1  iteration  1   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  2   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  3   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  4   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  5   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  6   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  7   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  8   file egcd2-ll_valuebound10.c line 47 function main
+Not unwinding 
+Unwinding loop 2  iteration  7   file egcd2-ll_valuebound10.c line 41 function main
+Unwinding loop 1  iteration  1   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  2   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  3   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  4   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  5   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  6   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  7   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  8   file egcd2-ll_valuebound10.c line 47 function main
+Not unwinding 
+Unwinding loop 2  iteration  8   file egcd2-ll_valuebound10.c line 41 function main
+Unwinding loop 1  iteration  1   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  2   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  3   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  4   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  5   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  6   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  7   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  8   file egcd2-ll_valuebound10.c line 47 function main
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.055s (1278 assignments)
+Slicing time: 0.009s (removed 984 assignments)
+Generated 10 VCC(s), 10 remaining after simplification (294 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.004s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.004s
+Runtime decision procedure: 3.002s
+The forward condition is unable to prove the property
+*** Checking base case, k = 11
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  2   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  3   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  4   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  5   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  6   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  7   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  8   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  9   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  10   file egcd2-ll_valuebound10.c line 47 function main
+Not unwinding 
+Unwinding loop 2  iteration  1   file egcd2-ll_valuebound10.c line 41 function main
+Unwinding loop 1  iteration  1   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  2   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  3   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  4   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  5   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  6   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  7   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  8   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  9   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  10   file egcd2-ll_valuebound10.c line 47 function main
+Not unwinding 
+Unwinding loop 2  iteration  2   file egcd2-ll_valuebound10.c line 41 function main
+Unwinding loop 1  iteration  1   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  2   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  3   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  4   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  5   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  6   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  7   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  8   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  9   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  10   file egcd2-ll_valuebound10.c line 47 function main
+Not unwinding 
+Unwinding loop 2  iteration  3   file egcd2-ll_valuebound10.c line 41 function main
+Unwinding loop 1  iteration  1   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  2   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  3   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  4   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  5   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  6   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  7   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  8   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  9   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  10   file egcd2-ll_valuebound10.c line 47 function main
+Not unwinding 
+Unwinding loop 2  iteration  4   file egcd2-ll_valuebound10.c line 41 function main
+Unwinding loop 1  iteration  1   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  2   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  3   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  4   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  5   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  6   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  7   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  8   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  9   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  10   file egcd2-ll_valuebound10.c line 47 function main
+Not unwinding 
+Unwinding loop 2  iteration  5   file egcd2-ll_valuebound10.c line 41 function main
+Unwinding loop 1  iteration  1   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  2   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  3   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  4   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  5   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  6   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  7   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  8   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  9   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  10   file egcd2-ll_valuebound10.c line 47 function main
+Not unwinding 
+Unwinding loop 2  iteration  6   file egcd2-ll_valuebound10.c line 41 function main
+Unwinding loop 1  iteration  1   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  2   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  3   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  4   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  5   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  6   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  7   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  8   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  9   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  10   file egcd2-ll_valuebound10.c line 47 function main
+Not unwinding 
+Unwinding loop 2  iteration  7   file egcd2-ll_valuebound10.c line 41 function main
+Unwinding loop 1  iteration  1   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  2   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  3   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  4   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  5   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  6   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  7   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  8   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  9   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  10   file egcd2-ll_valuebound10.c line 47 function main
+Not unwinding 
+Unwinding loop 2  iteration  8   file egcd2-ll_valuebound10.c line 41 function main
+Unwinding loop 1  iteration  1   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  2   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  3   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  4   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  5   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  6   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  7   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  8   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  9   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  10   file egcd2-ll_valuebound10.c line 47 function main
+Not unwinding 
+Unwinding loop 2  iteration  9   file egcd2-ll_valuebound10.c line 41 function main
+Unwinding loop 1  iteration  1   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  2   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  3   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  4   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  5   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  6   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  7   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  8   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  9   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  10   file egcd2-ll_valuebound10.c line 47 function main
+Not unwinding 
+Unwinding loop 2  iteration  10   file egcd2-ll_valuebound10.c line 41 function main
+Unwinding loop 1  iteration  1   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  2   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  3   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  4   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  5   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  6   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  7   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  8   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  9   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  10   file egcd2-ll_valuebound10.c line 47 function main
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.080s (2324 assignments)
+Slicing time: 0.153s (removed 240 assignments)
+Generated 486 VCC(s), 486 remaining after simplification (2084 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.026s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.026s
+Runtime decision procedure: 13.860s
+BMC program time: 14.119s
+No bug has been found in the base case
+*** Checking forward condition, k = 11
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  2   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  3   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  4   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  5   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  6   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  7   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  8   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  9   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  10   file egcd2-ll_valuebound10.c line 47 function main
+Not unwinding 
+Unwinding loop 2  iteration  1   file egcd2-ll_valuebound10.c line 41 function main
+Unwinding loop 1  iteration  1   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  2   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  3   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  4   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  5   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  6   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  7   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  8   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  9   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  10   file egcd2-ll_valuebound10.c line 47 function main
+Not unwinding 
+Unwinding loop 2  iteration  2   file egcd2-ll_valuebound10.c line 41 function main
+Unwinding loop 1  iteration  1   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  2   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  3   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  4   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  5   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  6   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  7   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  8   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  9   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  10   file egcd2-ll_valuebound10.c line 47 function main
+Not unwinding 
+Unwinding loop 2  iteration  3   file egcd2-ll_valuebound10.c line 41 function main
+Unwinding loop 1  iteration  1   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  2   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  3   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  4   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  5   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  6   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  7   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  8   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  9   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  10   file egcd2-ll_valuebound10.c line 47 function main
+Not unwinding 
+Unwinding loop 2  iteration  4   file egcd2-ll_valuebound10.c line 41 function main
+Unwinding loop 1  iteration  1   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  2   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  3   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  4   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  5   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  6   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  7   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  8   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  9   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  10   file egcd2-ll_valuebound10.c line 47 function main
+Not unwinding 
+Unwinding loop 2  iteration  5   file egcd2-ll_valuebound10.c line 41 function main
+Unwinding loop 1  iteration  1   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  2   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  3   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  4   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  5   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  6   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  7   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  8   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  9   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  10   file egcd2-ll_valuebound10.c line 47 function main
+Not unwinding 
+Unwinding loop 2  iteration  6   file egcd2-ll_valuebound10.c line 41 function main
+Unwinding loop 1  iteration  1   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  2   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  3   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  4   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  5   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  6   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  7   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  8   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  9   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  10   file egcd2-ll_valuebound10.c line 47 function main
+Not unwinding 
+Unwinding loop 2  iteration  7   file egcd2-ll_valuebound10.c line 41 function main
+Unwinding loop 1  iteration  1   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  2   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  3   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  4   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  5   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  6   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  7   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  8   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  9   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  10   file egcd2-ll_valuebound10.c line 47 function main
+Not unwinding 
+Unwinding loop 2  iteration  8   file egcd2-ll_valuebound10.c line 41 function main
+Unwinding loop 1  iteration  1   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  2   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  3   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  4   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  5   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  6   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  7   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  8   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  9   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  10   file egcd2-ll_valuebound10.c line 47 function main
+Not unwinding 
+Unwinding loop 2  iteration  9   file egcd2-ll_valuebound10.c line 41 function main
+Unwinding loop 1  iteration  1   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  2   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  3   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  4   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  5   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  6   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  7   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  8   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  9   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  10   file egcd2-ll_valuebound10.c line 47 function main
+Not unwinding 
+Unwinding loop 2  iteration  10   file egcd2-ll_valuebound10.c line 41 function main
+Unwinding loop 1  iteration  1   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  2   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  3   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  4   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  5   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  6   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  7   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  8   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  9   file egcd2-ll_valuebound10.c line 47 function main
+Unwinding loop 1  iteration  10   file egcd2-ll_valuebound10.c line 47 function main
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.086s (1838 assignments)
+Slicing time: 0.018s (removed 1418 assignments)
+Generated 12 VCC(s), 12 remaining after simplification (420 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.007s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.007s
+Runtime decision procedure: 4.575s
+BMC program time: 4.686s
+Building successful trace
+
+VERIFICATION SUCCESSFUL
+
+Solution found by the forward condition; all states are reachable (k = 11
+
+
+TRUE

@@ -1,0 +1,224 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/no-overflow.prp -s kinduction --arch 32 ../sv-benchmarks/c/bitvector/byte_add-2.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/bitvector/byte_add-2.i --32 --witness-output byte_add-2.i.graphml --no-pointer-check --no-bounds-check --overflow-check --no-assertions --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/bitvector/byte_add-2.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.126s
+GOTO program processing time: 0.001s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.005s (76 assignments)
+Slicing time: 0.000s (removed 34 assignments)
+Generated 10 VCC(s), 10 remaining after simplification (42 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.001s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.001s
+Runtime decision procedure: 0.001s
+BMC program time: 0.008s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.004s (76 assignments)
+Slicing time: 0.000s (removed 34 assignments)
+Generated 12 VCC(s), 12 remaining after simplification (42 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.001s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.001s
+Runtime decision procedure: 0.001s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file byte_add-2.i line 72 function mp_add
+Unwinding loop 1  iteration  2   file byte_add-2.i line 72 function mp_add
+Not unwinding 
+Unwinding loop 2  iteration  1   file byte_add-2.i line 99 function mp_add
+Unwinding loop 2  iteration  2   file byte_add-2.i line 99 function mp_add
+Not unwinding 
+Symex completed in: 0.010s (183 assignments)
+Slicing time: 0.001s (removed 65 assignments)
+Generated 21 VCC(s), 21 remaining after simplification (118 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.003s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.003s
+Runtime decision procedure: 0.006s
+BMC program time: 0.020s
+No bug has been found in the base case
+*** Checking forward condition, k = 3
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file byte_add-2.i line 72 function mp_add
+Unwinding loop 1  iteration  2   file byte_add-2.i line 72 function mp_add
+Not unwinding 
+Unwinding loop 2  iteration  1   file byte_add-2.i line 99 function mp_add
+Unwinding loop 2  iteration  2   file byte_add-2.i line 99 function mp_add
+Not unwinding 
+Symex completed in: 0.010s (183 assignments)
+Slicing time: 0.001s (removed 65 assignments)
+Generated 23 VCC(s), 23 remaining after simplification (118 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.002s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.002s
+Runtime decision procedure: 0.021s
+The forward condition is unable to prove the property
+*** Checking base case, k = 5
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file byte_add-2.i line 72 function mp_add
+Unwinding loop 1  iteration  2   file byte_add-2.i line 72 function mp_add
+Unwinding loop 1  iteration  3   file byte_add-2.i line 72 function mp_add
+Unwinding loop 1  iteration  4   file byte_add-2.i line 72 function mp_add
+Not unwinding 
+Unwinding loop 2  iteration  1   file byte_add-2.i line 99 function mp_add
+Unwinding loop 2  iteration  2   file byte_add-2.i line 99 function mp_add
+Unwinding loop 2  iteration  3   file byte_add-2.i line 99 function mp_add
+Unwinding loop 2  iteration  4   file byte_add-2.i line 99 function mp_add
+Not unwinding 
+Symex completed in: 0.015s (262 assignments)
+Slicing time: 0.002s (removed 86 assignments)
+Generated 27 VCC(s), 27 remaining after simplification (176 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.004s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.004s
+Runtime decision procedure: 0.059s
+Building error trace
+
+Counterexample:
+
+State 1 file byte_add-2.i line 118 function main thread 0
+----------------------------------------------------
+  a = 61072063 (00000011 10100011 11100010 10111111)
+
+State 2 file byte_add-2.i line 119 function main thread 0
+----------------------------------------------------
+  b = 2172717119 (10000001 10000001 00001000 00111111)
+
+State 3 file byte_add-2.i line 42 function mp_add thread 0
+----------------------------------------------------
+  a0 = 191 (10111111)
+
+State 4 file byte_add-2.i line 43 function mp_add thread 0
+----------------------------------------------------
+  a1 = 226 (11100010)
+
+State 5 file byte_add-2.i line 44 function mp_add thread 0
+----------------------------------------------------
+  a2 = 163 (10100011)
+
+State 6 file byte_add-2.i line 45 function mp_add thread 0
+----------------------------------------------------
+  a3 = 3 (00000011)
+
+State 7 file byte_add-2.i line 46 function mp_add thread 0
+----------------------------------------------------
+  b0 = 63 (00111111)
+
+State 8 file byte_add-2.i line 47 function mp_add thread 0
+----------------------------------------------------
+  b1 = 8 (00001000)
+
+State 9 file byte_add-2.i line 48 function mp_add thread 0
+----------------------------------------------------
+  b2 = 129 (10000001)
+
+State 10 file byte_add-2.i line 49 function mp_add thread 0
+----------------------------------------------------
+  b3 = 129 (10000001)
+
+State 12 file byte_add-2.i line 76 function mp_add thread 0
+----------------------------------------------------
+  partial_sum = 191 (00000000 10111111)
+
+State 14 file byte_add-2.i line 82 function mp_add thread 0
+----------------------------------------------------
+  partial_sum = 254 (00000000 11111110)
+
+State 15 file byte_add-2.i line 91 function mp_add thread 0
+----------------------------------------------------
+  r0 = 254 (11111110)
+
+State 17 file byte_add-2.i line 73 function mp_add thread 0
+----------------------------------------------------
+  partial_sum = 0 (00000000 00000000)
+
+State 19 file byte_add-2.i line 77 function mp_add thread 0
+----------------------------------------------------
+  partial_sum = 226 (00000000 11100010)
+
+State 21 file byte_add-2.i line 83 function mp_add thread 0
+----------------------------------------------------
+  partial_sum = 234 (00000000 11101010)
+
+State 22 file byte_add-2.i line 92 function mp_add thread 0
+----------------------------------------------------
+  r1 = 234 (11101010)
+
+State 24 file byte_add-2.i line 73 function mp_add thread 0
+----------------------------------------------------
+  partial_sum = 0 (00000000 00000000)
+
+State 26 file byte_add-2.i line 78 function mp_add thread 0
+----------------------------------------------------
+  partial_sum = 163 (00000000 10100011)
+
+State 28 file byte_add-2.i line 84 function mp_add thread 0
+----------------------------------------------------
+  partial_sum = 292 (00000001 00100100)
+
+State 29 file byte_add-2.i line 88 function mp_add thread 0
+----------------------------------------------------
+  partial_sum = 36 (00000000 00100100)
+
+State 30 file byte_add-2.i line 93 function mp_add thread 0
+----------------------------------------------------
+  r2 = 36 (00100100)
+
+State 32 file byte_add-2.i line 73 function mp_add thread 0
+----------------------------------------------------
+  partial_sum = 1 (00000000 00000001)
+
+State 34 file byte_add-2.i line 79 function mp_add thread 0
+----------------------------------------------------
+  partial_sum = 4 (00000000 00000100)
+
+State 36 file byte_add-2.i line 85 function mp_add thread 0
+----------------------------------------------------
+  partial_sum = 133 (00000000 10000101)
+
+State 37 file byte_add-2.i line 94 function mp_add thread 0
+----------------------------------------------------
+  r3 = 133 (10000101)
+
+State 41 file byte_add-2.i line 108 function mp_add thread 0
+----------------------------------------------------
+Violated property:
+  file byte_add-2.i line 108 function mp_add
+  arithmetic overflow on shl
+  !overflow("shl", (signed int)r3, 24)
+
+
+VERIFICATION FAILED
+
+Bug found (k = 5)
+
+
+FALSE_OVERFLOW

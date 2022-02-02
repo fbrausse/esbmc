@@ -1,0 +1,20 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/seq-pthread/cs_queue-2.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/seq-pthread/cs_queue-2.i --32 --witness-output cs_queue-2.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+
+../sv-benchmarks/c/seq-pthread/cs_queue-2.i:942:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+}
+^
+../sv-benchmarks/c/seq-pthread/cs_queue-2.i:1124:35: warning: result of comparison of constant -1 with boolean expression is always false [-Wtautological-constant-out-of-range-compare]
+ if ((!empty(&queue[__CS_round])) == (-1))
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ^  ~~~~
+../sv-benchmarks/c/seq-pthread/cs_queue-2.i:1145:2: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ }
+ ^
+
+Unknown

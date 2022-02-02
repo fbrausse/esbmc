@@ -1,0 +1,30 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--net--ethernet--intel--i40evf--i40evf.ko.cil.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--net--ethernet--intel--i40evf--i40evf.ko.cil.i --64 --witness-output linux-4.0-rc1---drivers--net--ethernet--intel--i40evf--i40evf.ko.cil.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--net--ethernet--intel--i40evf--i40evf.ko.cil.i:7974:12: warning: incompatible redeclaration of library function 'vsnprintf' [-Wincompatible-library-redeclaration]
+extern int vsnprintf(char * , size_t , char const * , __va_list_tag * ) ;
+           ^
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--net--ethernet--intel--i40evf--i40evf.ko.cil.i:7974:12: note: 'vsnprintf' is a builtin with type 'int (char *, unsigned long, const char *, struct __va_list_tag *)'
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--net--ethernet--intel--i40evf--i40evf.ko.cil.i:9178:25: warning: incompatible pointer types passing '__va_list_tag *' (aka 'struct __va_list_tag *') to parameter of type 'struct __va_list_tag *' [-Wincompatible-pointer-types]
+  ldv__builtin_va_start((__va_list_tag *)(& argptr));
+                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--net--ethernet--intel--i40evf--i40evf.ko.cil.i:7813:46: note: passing argument to parameter here
+void ldv__builtin_va_start(__builtin_va_list ) ;
+                                             ^
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--net--ethernet--intel--i40evf--i40evf.ko.cil.i:9180:23: warning: incompatible pointer types passing '__va_list_tag *' (aka 'struct __va_list_tag *') to parameter of type 'struct __va_list_tag *' [-Wincompatible-pointer-types]
+  ldv__builtin_va_end((__va_list_tag *)(& argptr));
+                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--net--ethernet--intel--i40evf--i40evf.ko.cil.i:7811:44: note: passing argument to parameter here
+void ldv__builtin_va_end(__builtin_va_list ) ;
+                                           ^
+Can't construct rvalue reference to array type during dereference
+(It isn't allowed by C anyway)
+
+
+Unknown

@@ -1,0 +1,129 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/loops/matrix-2.c
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/loops/matrix-2.c --32 --witness-output matrix-2.c.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/loops/matrix-2.c: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.091s
+GOTO program processing time: 0.001s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.001s (49 assignments)
+Slicing time: 0.000s (removed 29 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (20 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.000s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.000s
+Runtime decision procedure: 0.001s
+BMC program time: 0.003s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.001s (48 assignments)
+Slicing time: 0.000s (removed 29 assignments)
+Generated 4 VCC(s), 4 remaining after simplification (19 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.000s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.000s
+Runtime decision procedure: 0.002s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file matrix-2.c line 23 function main
+Unwinding loop 1  iteration  2   file matrix-2.c line 23 function main
+Not unwinding 
+Unwinding loop 2  iteration  1   file matrix-2.c line 22 function main
+Unwinding loop 1  iteration  1   file matrix-2.c line 23 function main
+Unwinding loop 1  iteration  2   file matrix-2.c line 23 function main
+Not unwinding 
+Unwinding loop 2  iteration  2   file matrix-2.c line 22 function main
+Unwinding loop 1  iteration  1   file matrix-2.c line 23 function main
+Unwinding loop 1  iteration  2   file matrix-2.c line 23 function main
+Not unwinding 
+Not unwinding 
+Unwinding loop 3  iteration  1   file matrix-2.c line 32 function main
+Unwinding loop 3  iteration  2   file matrix-2.c line 32 function main
+Not unwinding 
+Unwinding loop 4  iteration  1   file matrix-2.c line 31 function main
+Unwinding loop 3  iteration  1   file matrix-2.c line 32 function main
+Unwinding loop 3  iteration  2   file matrix-2.c line 32 function main
+Not unwinding 
+Unwinding loop 4  iteration  2   file matrix-2.c line 31 function main
+Unwinding loop 3  iteration  1   file matrix-2.c line 32 function main
+Unwinding loop 3  iteration  2   file matrix-2.c line 32 function main
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.006s (205 assignments)
+Slicing time: 0.001s (removed 99 assignments)
+Generated 9 VCC(s), 9 remaining after simplification (106 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.001s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.001s
+Runtime decision procedure: 0.099s
+Building error trace
+
+Counterexample:
+
+State 1 file matrix-2.c line 16 function main thread 0
+----------------------------------------------------
+  N_LIN = 1 (00000000 00000000 00000000 00000001)
+
+State 2 file matrix-2.c line 17 function main thread 0
+----------------------------------------------------
+  N_COL = 2 (00000000 00000000 00000000 00000010)
+
+State 3 file matrix-2.c line 21 function main thread 0
+----------------------------------------------------
+  maior = -4557284 (11111111 10111010 01110110 00011100)
+
+State 4 file matrix-2.c line 25 function main thread 0
+----------------------------------------------------
+  matriz[0][0] = 116250176 (00000110 11101101 11010110 01000000)
+
+State 5 file matrix-2.c line 28 function main thread 0
+----------------------------------------------------
+  maior = 116250176 (00000110 11101101 11010110 01000000)
+
+State 6 file matrix-2.c line 25 function main thread 0
+----------------------------------------------------
+  matriz[0][0] = 1409627140 (01010100 00000101 00110100 00000100)
+
+State 7 file matrix-2.c line 28 function main thread 0
+----------------------------------------------------
+  maior = 1409627140 (01010100 00000101 00110100 00000100)
+
+State 8 file matrix-2.c line 3 function reach_error thread 0
+----------------------------------------------------
+Violated property:
+  file matrix-2.c line 3 function reach_error
+  assertion 0
+  0
+
+
+VERIFICATION FAILED
+
+Bug found (k = 3)
+
+
+FALSE_REACH

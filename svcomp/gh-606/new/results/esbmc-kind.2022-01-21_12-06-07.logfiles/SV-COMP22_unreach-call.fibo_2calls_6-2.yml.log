@@ -1,0 +1,100 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/recursive-simple/fibo_2calls_6-2.c
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/recursive-simple/fibo_2calls_6-2.c --32 --witness-output fibo_2calls_6-2.c.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/recursive-simple/fibo_2calls_6-2.c: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.084s
+GOTO program processing time: 0.001s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+**** WARNING: k-induction does not support recursion yet. Disabling inductive step
+Unwinding recursion fibo1 iteration 1 (1 max)
+Unwinding recursion fibo1 iteration 1 (1 max)
+Unwinding recursion fibo1 iteration 1 (1 max)
+Unwinding recursion fibo1 iteration 1 (1 max)
+Symex completed in: 0.001s (25 assignments)
+Slicing time: 0.000s (removed 13 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (12 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.000s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.000s
+Runtime decision procedure: 0.000s
+BMC program time: 0.001s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Unwinding recursion fibo1 iteration 1 (1 max)
+Unwinding recursion fibo1 iteration 1 (1 max)
+Unwinding recursion fibo1 iteration 1 (1 max)
+Unwinding recursion fibo1 iteration 1 (1 max)
+Symex completed in: 0.001s (24 assignments)
+Slicing time: 0.000s (removed 13 assignments)
+Generated 4 VCC(s), 4 remaining after simplification (11 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.000s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.000s
+Runtime decision procedure: 0.001s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding recursion fibo1 iteration 1 (3 max)
+Unwinding recursion fibo2 iteration 1 (3 max)
+Unwinding recursion fibo1 iteration 2 (3 max)
+Unwinding recursion fibo2 iteration 2 (3 max)
+Unwinding recursion fibo2 iteration 2 (3 max)
+Unwinding recursion fibo1 iteration 2 (3 max)
+Unwinding recursion fibo2 iteration 1 (3 max)
+Unwinding recursion fibo1 iteration 2 (3 max)
+Unwinding recursion fibo1 iteration 2 (3 max)
+Unwinding recursion fibo1 iteration 1 (3 max)
+Unwinding recursion fibo2 iteration 1 (3 max)
+Unwinding recursion fibo1 iteration 2 (3 max)
+Unwinding recursion fibo1 iteration 2 (3 max)
+Unwinding recursion fibo2 iteration 1 (3 max)
+Unwinding recursion fibo1 iteration 1 (3 max)
+Unwinding recursion fibo2 iteration 1 (3 max)
+Unwinding recursion fibo1 iteration 2 (3 max)
+Unwinding recursion fibo1 iteration 2 (3 max)
+Unwinding recursion fibo2 iteration 1 (3 max)
+Unwinding recursion fibo1 iteration 1 (3 max)
+Unwinding recursion fibo2 iteration 1 (3 max)
+Unwinding recursion fibo2 iteration 1 (3 max)
+Symex completed in: 0.002s (64 assignments)
+Slicing time: 0.000s (removed 61 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (3 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.000s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.000s
+Runtime decision procedure: 0.000s
+Building error trace
+
+Counterexample:
+
+State 1 file fibo_2calls_6-2.c line 4 function reach_error thread 0
+----------------------------------------------------
+Violated property:
+  file fibo_2calls_6-2.c line 4 function reach_error
+  assertion 0
+  0
+
+
+VERIFICATION FAILED
+
+Bug found (k = 3)
+
+
+FALSE_REACH

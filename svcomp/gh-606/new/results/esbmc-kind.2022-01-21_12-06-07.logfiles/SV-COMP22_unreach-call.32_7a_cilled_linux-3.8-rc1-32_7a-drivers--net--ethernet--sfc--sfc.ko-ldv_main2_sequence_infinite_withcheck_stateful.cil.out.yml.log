@@ -1,0 +1,514 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i --64 --witness-output 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 64-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 6.426s
+GOTO program processing time: 1.508s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.060s (115 assignments)
+Slicing time: 0.000s (removed 111 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (4 assignments)
+BMC program time: 0.060s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.039s (115 assignments)
+Slicing time: 0.000s (removed 111 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (4 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.000s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.000s
+Runtime decision procedure: 0.001s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 142  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 19854 function main
+Unwinding loop 138  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 19190 function falcon_probe_nic
+Unwinding loop 138  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 19190 function falcon_probe_nic
+Not unwinding 
+No target candidate for function call *ops->alloc
+Unwinding loop 126  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 17761 function falcon_spi_read
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 123  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 17600 function falcon_spi_wait
+Unwinding loop 123  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 17600 function falcon_spi_wait
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 126  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 17761 function falcon_spi_read
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 123  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 17600 function falcon_spi_wait
+Unwinding loop 123  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 17600 function falcon_spi_wait
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Not unwinding 
+Unwinding loop 133  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 18562 function falcon_read_nvram
+Unwinding loop 133  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 18562 function falcon_read_nvram
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+No target candidate for function call *tmp___5->type->init
+No target candidate for function call *ops->free
+Unwinding loop 136  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 18952 function falcon_reset_sram
+Unwinding loop 136  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 18952 function falcon_reset_sram
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 116  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 16286 function efx_nic_push_rx_indir_table
+Unwinding loop 116  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 16286 function efx_nic_push_rx_indir_table
+Not unwinding 
+No target candidate for function call *tmp___1->type->monitor
+No target candidate for function call *efx->type->reconfigure_port
+No target candidate for function call *efx->phy_op->poll
+Unwinding loop 131  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 19536 function falcon_stop_nic_stats
+Unwinding loop 131  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 19536 function falcon_stop_nic_stats
+Not unwinding 
+Unwinding loop 128  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 17902 function falcon_reset_macs
+Unwinding loop 128  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 17902 function falcon_reset_macs
+Not unwinding 
+Unwinding loop 129  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 17963 function falcon_reset_macs
+Unwinding loop 129  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 17963 function falcon_reset_macs
+Not unwinding 
+Unwinding loop 128  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 17902 function falcon_reset_macs
+Unwinding loop 128  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 17902 function falcon_reset_macs
+Not unwinding 
+Unwinding loop 129  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 17963 function falcon_reset_macs
+Unwinding loop 129  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 17963 function falcon_reset_macs
+Not unwinding 
+Unwinding loop 182  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 24967 function falcon_reset_xaui
+Unwinding loop 182  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 24967 function falcon_reset_xaui
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 181  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 24876 function efx_mdio_phyxgxs_lane_sync
+No target candidate for function call *efx->mdio.mdio_read
+Unwinding loop 181  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 24876 function efx_mdio_phyxgxs_lane_sync
+No target candidate for function call *efx->mdio.mdio_read
+Unwinding loop 131  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 19536 function falcon_stop_nic_stats
+Unwinding loop 131  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 19536 function falcon_stop_nic_stats
+Not unwinding 
+Unwinding loop 183  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 25195 function falcon_xmac_link_ok_retry
+Unwinding loop 182  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 24967 function falcon_reset_xaui
+Unwinding loop 182  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 24967 function falcon_reset_xaui
+Not unwinding 
+Unwinding loop 181  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 24876 function efx_mdio_phyxgxs_lane_sync
+No target candidate for function call *efx->mdio.mdio_read
+Unwinding loop 181  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 24876 function efx_mdio_phyxgxs_lane_sync
+No target candidate for function call *efx->mdio.mdio_read
+No target candidate for function call *efx->phy_op->probe
+No target candidate for function call *ops->alloc
+No target candidate for function call *efx->phy_op->remove
+No target candidate for function call *ops->free
+No target candidate for function call *efx->type->map_reset_reason
+Unwinding loop 128  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 17902 function falcon_reset_macs
+Unwinding loop 128  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 17902 function falcon_reset_macs
+Not unwinding 
+Unwinding loop 129  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 17963 function falcon_reset_macs
+Unwinding loop 129  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 17963 function falcon_reset_macs
+Not unwinding 
+Unwinding loop 131  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 19536 function falcon_stop_nic_stats
+Unwinding loop 131  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 19536 function falcon_stop_nic_stats
+Not unwinding 
+No target candidate for function call *tmp->type->set_id_led
+No target candidate for function call *efx->phy_op->poll
+Unwinding loop 131  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 19536 function falcon_stop_nic_stats
+Unwinding loop 131  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 19536 function falcon_stop_nic_stats
+Not unwinding 
+Unwinding loop 128  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 17902 function falcon_reset_macs
+Unwinding loop 128  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 17902 function falcon_reset_macs
+Not unwinding 
+Unwinding loop 129  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 17963 function falcon_reset_macs
+Unwinding loop 129  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 17963 function falcon_reset_macs
+Not unwinding 
+Unwinding loop 128  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 17902 function falcon_reset_macs
+Unwinding loop 128  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 17902 function falcon_reset_macs
+Not unwinding 
+Unwinding loop 129  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 17963 function falcon_reset_macs
+Unwinding loop 129  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 17963 function falcon_reset_macs
+Not unwinding 
+No target candidate for function call *efx->phy_op->reconfigure
+Unwinding loop 182  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 24967 function falcon_reset_xaui
+Unwinding loop 182  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 24967 function falcon_reset_xaui
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 126  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 17761 function falcon_spi_read
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 123  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 17600 function falcon_spi_wait
+Unwinding loop 123  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 17600 function falcon_spi_wait
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 126  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 17761 function falcon_spi_read
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 123  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 17600 function falcon_spi_wait
+Unwinding loop 123  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 17600 function falcon_spi_wait
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Not unwinding 
+Unwinding loop 133  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 18562 function falcon_read_nvram
+Unwinding loop 133  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 18562 function falcon_read_nvram
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 138  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 19190 function falcon_probe_nic
+Unwinding loop 138  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 19190 function falcon_probe_nic
+Not unwinding 
+No target candidate for function call *ops->alloc
+Unwinding loop 126  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 17761 function falcon_spi_read
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 123  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 17600 function falcon_spi_wait
+Unwinding loop 123  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 17600 function falcon_spi_wait
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 126  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 17761 function falcon_spi_read
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 123  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 17600 function falcon_spi_wait
+Unwinding loop 123  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 17600 function falcon_spi_wait
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Not unwinding 
+Unwinding loop 133  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 18562 function falcon_read_nvram
+Unwinding loop 133  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 18562 function falcon_read_nvram
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+No target candidate for function call *tmp___5->type->init
+No target candidate for function call *ops->free
+Unwinding loop 136  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 18952 function falcon_reset_sram
+Unwinding loop 136  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 18952 function falcon_reset_sram
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 116  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 16286 function efx_nic_push_rx_indir_table
+Unwinding loop 116  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 16286 function efx_nic_push_rx_indir_table
+Not unwinding 
+No target candidate for function call *tmp___1->type->monitor
+No target candidate for function call *efx->type->reconfigure_port
+No target candidate for function call *efx->phy_op->poll
+Unwinding loop 131  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 19536 function falcon_stop_nic_stats
+Unwinding loop 131  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 19536 function falcon_stop_nic_stats
+Not unwinding 
+Unwinding loop 128  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 17902 function falcon_reset_macs
+Unwinding loop 128  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 17902 function falcon_reset_macs
+Not unwinding 
+Unwinding loop 129  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 17963 function falcon_reset_macs
+Unwinding loop 129  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 17963 function falcon_reset_macs
+Not unwinding 
+Unwinding loop 128  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 17902 function falcon_reset_macs
+Unwinding loop 128  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 17902 function falcon_reset_macs
+Not unwinding 
+Unwinding loop 129  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 17963 function falcon_reset_macs
+Unwinding loop 129  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 17963 function falcon_reset_macs
+Not unwinding 
+Unwinding loop 182  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 24967 function falcon_reset_xaui
+Unwinding loop 182  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 24967 function falcon_reset_xaui
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 181  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 24876 function efx_mdio_phyxgxs_lane_sync
+No target candidate for function call *efx->mdio.mdio_read
+Unwinding loop 181  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 24876 function efx_mdio_phyxgxs_lane_sync
+No target candidate for function call *efx->mdio.mdio_read
+Unwinding loop 131  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 19536 function falcon_stop_nic_stats
+Unwinding loop 131  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 19536 function falcon_stop_nic_stats
+Not unwinding 
+Unwinding loop 183  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 25195 function falcon_xmac_link_ok_retry
+Unwinding loop 182  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 24967 function falcon_reset_xaui
+Unwinding loop 182  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 24967 function falcon_reset_xaui
+Not unwinding 
+Unwinding loop 181  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 24876 function efx_mdio_phyxgxs_lane_sync
+No target candidate for function call *efx->mdio.mdio_read
+Unwinding loop 181  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 24876 function efx_mdio_phyxgxs_lane_sync
+No target candidate for function call *efx->mdio.mdio_read
+No target candidate for function call *efx->phy_op->probe
+No target candidate for function call *ops->alloc
+No target candidate for function call *efx->phy_op->remove
+No target candidate for function call *ops->free
+No target candidate for function call *efx->type->map_reset_reason
+Unwinding loop 128  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 17902 function falcon_reset_macs
+Unwinding loop 128  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 17902 function falcon_reset_macs
+Not unwinding 
+Unwinding loop 129  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 17963 function falcon_reset_macs
+Unwinding loop 129  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 17963 function falcon_reset_macs
+Not unwinding 
+Unwinding loop 131  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 19536 function falcon_stop_nic_stats
+Unwinding loop 131  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 19536 function falcon_stop_nic_stats
+Not unwinding 
+No target candidate for function call *tmp->type->set_id_led
+No target candidate for function call *efx->phy_op->poll
+Unwinding loop 131  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 19536 function falcon_stop_nic_stats
+Unwinding loop 131  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 19536 function falcon_stop_nic_stats
+Not unwinding 
+Unwinding loop 128  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 17902 function falcon_reset_macs
+Unwinding loop 128  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 17902 function falcon_reset_macs
+Not unwinding 
+Unwinding loop 129  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 17963 function falcon_reset_macs
+Unwinding loop 129  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 17963 function falcon_reset_macs
+Not unwinding 
+Unwinding loop 128  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 17902 function falcon_reset_macs
+Unwinding loop 128  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 17902 function falcon_reset_macs
+Not unwinding 
+Unwinding loop 129  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 17963 function falcon_reset_macs
+Unwinding loop 129  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 17963 function falcon_reset_macs
+Not unwinding 
+No target candidate for function call *efx->phy_op->reconfigure
+Unwinding loop 182  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 24967 function falcon_reset_xaui
+Unwinding loop 182  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 24967 function falcon_reset_xaui
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+No target candidate for function call *efx->type->reconfigure_port
+No target candidate for function call *efx->type->stop_stats
+Unwinding loop 8  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 7838 function netif_tx_disable
+Unwinding loop 8  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 7838 function netif_tx_disable
+Not unwinding 
+No target candidate for function call *efx->type->prepare_flush
+Unwinding loop 33  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 14767 function efx_nic_flush_queues
+Unwinding loop 31  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 14735 function efx_nic_flush_queues
+Unwinding loop 31  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 14735 function efx_nic_flush_queues
+Not unwinding 
+Unwinding loop 32  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 14760 function efx_nic_flush_queues
+Unwinding loop 32  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 14760 function efx_nic_flush_queues
+Not unwinding 
+Unwinding loop 33  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 14767 function efx_nic_flush_queues
+Unwinding loop 31  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 14735 function efx_nic_flush_queues
+Unwinding loop 31  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 14735 function efx_nic_flush_queues
+Not unwinding 
+Unwinding loop 32  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 14760 function efx_nic_flush_queues
+Unwinding loop 32  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 14760 function efx_nic_flush_queues
+Not unwinding 
+Not unwinding 
+Unwinding loop 37  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 14858 function efx_nic_flush_queues
+Unwinding loop 113  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 33300 function efx_mcdi_flush_rxqs
+Unwinding loop 112  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 33293 function efx_mcdi_flush_rxqs
+Unwinding loop 112  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 33293 function efx_mcdi_flush_rxqs
+Not unwinding 
+Unwinding loop 113  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 33300 function efx_mcdi_flush_rxqs
+Unwinding loop 112  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 33293 function efx_mcdi_flush_rxqs
+Unwinding loop 112  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 33293 function efx_mcdi_flush_rxqs
+Not unwinding 
+Not unwinding 
+Unwinding loop 244  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 32164 function efx_mcdi_acquire
+Unwinding loop 244  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 32164 function efx_mcdi_acquire
+Not unwinding 
+Unwinding loop 239  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 31936 function efx_mcdi_copyin
+Unwinding loop 239  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 31936 function efx_mcdi_copyin
+Not unwinding 
+Unwinding loop 243  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 32042 function efx_mcdi_poll
+Unwinding loop 243  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 32042 function efx_mcdi_poll
+Not unwinding 
+Unwinding loop 245  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 32205 function efx_mcdi_await_completion
+Unwinding loop 245  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 32205 function efx_mcdi_await_completion
+Not unwinding 
+Unwinding loop 243  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 32042 function efx_mcdi_poll
+Unwinding loop 243  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 32042 function efx_mcdi_poll
+Not unwinding 
+Unwinding loop 242  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 31990 function efx_mcdi_copyout
+Unwinding loop 242  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 31990 function efx_mcdi_copyout
+Not unwinding 
+No target candidate for function call *efx->type->map_reset_reason
+Unwinding loop 35  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 14818 function efx_nic_flush_queues
+Unwinding loop 34  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 14810 function efx_nic_flush_queues
+Unwinding loop 34  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 14810 function efx_nic_flush_queues
+Not unwinding 
+Unwinding loop 35  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 14818 function efx_nic_flush_queues
+Unwinding loop 34  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 14810 function efx_nic_flush_queues
+Unwinding loop 34  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 14810 function efx_nic_flush_queues
+Not unwinding 
+Not unwinding 
+Unwinding loop 36  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 14848 function efx_nic_flush_queues
+Unwinding loop 36  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 14848 function efx_nic_flush_queues
+Not unwinding 
+Unwinding loop 37  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 14858 function efx_nic_flush_queues
+Unwinding loop 113  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 33300 function efx_mcdi_flush_rxqs
+Unwinding loop 112  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 33293 function efx_mcdi_flush_rxqs
+Unwinding loop 112  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 33293 function efx_mcdi_flush_rxqs
+Not unwinding 
+Unwinding loop 113  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 33300 function efx_mcdi_flush_rxqs
+Unwinding loop 112  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 33293 function efx_mcdi_flush_rxqs
+Unwinding loop 112  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 33293 function efx_mcdi_flush_rxqs
+Not unwinding 
+Not unwinding 
+Unwinding loop 244  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 32164 function efx_mcdi_acquire
+Unwinding loop 244  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 32164 function efx_mcdi_acquire
+Not unwinding 
+Unwinding loop 239  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 31936 function efx_mcdi_copyin
+Unwinding loop 239  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 31936 function efx_mcdi_copyin
+Not unwinding 
+Unwinding loop 243  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 32042 function efx_mcdi_poll
+Unwinding loop 243  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 32042 function efx_mcdi_poll
+Not unwinding 
+Unwinding loop 245  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 32205 function efx_mcdi_await_completion
+Unwinding loop 245  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 32205 function efx_mcdi_await_completion
+Not unwinding 
+Unwinding loop 243  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 32042 function efx_mcdi_poll
+Unwinding loop 243  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 32042 function efx_mcdi_poll
+Not unwinding 
+Unwinding loop 242  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 31990 function efx_mcdi_copyout
+Unwinding loop 242  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 31990 function efx_mcdi_copyout
+Not unwinding 
+No target candidate for function call *efx->type->map_reset_reason
+Unwinding loop 35  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 14818 function efx_nic_flush_queues
+Unwinding loop 34  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 14810 function efx_nic_flush_queues
+Unwinding loop 34  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 14810 function efx_nic_flush_queues
+Not unwinding 
+Unwinding loop 35  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 14818 function efx_nic_flush_queues
+Unwinding loop 34  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 14810 function efx_nic_flush_queues
+Unwinding loop 34  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 14810 function efx_nic_flush_queues
+Not unwinding 
+Not unwinding 
+Unwinding loop 36  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 14848 function efx_nic_flush_queues
+Unwinding loop 36  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 14848 function efx_nic_flush_queues
+Not unwinding 
+Not unwinding 
+Unwinding loop 111  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 14673 function efx_check_tx_flush_complete
+Unwinding loop 110  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 14662 function efx_check_tx_flush_complete
+Unwinding loop 110  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 14662 function efx_check_tx_flush_complete
+Not unwinding 
+Unwinding loop 111  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 14673 function efx_check_tx_flush_complete
+Unwinding loop 110  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 14662 function efx_check_tx_flush_complete
+Unwinding loop 110  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 14662 function efx_check_tx_flush_complete
+Not unwinding 
+Not unwinding 
+No target candidate for function call *efx->type->finish_flush
+Unwinding loop 30  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 9131 function efx_stop_datapath
+Unwinding loop 3  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 7399 function napi_disable
+Unwinding loop 3  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 7399 function napi_disable
+Not unwinding 
+Unwinding loop 28  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 9105 function efx_stop_datapath
+Unwinding loop 38  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 23506 function efx_fini_rx_queue
+No target candidate for function call *ops->unmap_page
+No target candidate for function call *ops->unmap_page
+Unwinding loop 38  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 23506 function efx_fini_rx_queue
+No target candidate for function call *ops->unmap_page
+No target candidate for function call *ops->unmap_page
+Not unwinding 
+Unwinding loop 28  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 9105 function efx_stop_datapath
+Unwinding loop 38  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 23506 function efx_fini_rx_queue
+No target candidate for function call *ops->unmap_page
+No target candidate for function call *ops->unmap_page
+Unwinding loop 38  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 23506 function efx_fini_rx_queue
+No target candidate for function call *ops->unmap_page
+No target candidate for function call *ops->unmap_page
+Not unwinding 
+Not unwinding 
+Unwinding loop 29  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 9124 function efx_stop_datapath
+Unwinding loop 84  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 21929 function efx_release_tx_buffers
+No target candidate for function call *ops->unmap_page
+No target candidate for function call *ops->unmap_page
+Unwinding loop 84  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 21929 function efx_release_tx_buffers
+No target candidate for function call *ops->unmap_page
+No target candidate for function call *ops->unmap_page
+Not unwinding 
+Unwinding loop 29  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 9124 function efx_stop_datapath
+Unwinding loop 84  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 21929 function efx_release_tx_buffers
+No target candidate for function call *ops->unmap_page
+No target candidate for function call *ops->unmap_page
+Unwinding loop 84  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 21929 function efx_release_tx_buffers
+No target candidate for function call *ops->unmap_page
+No target candidate for function call *ops->unmap_page
+Not unwinding 
+Not unwinding 
+Unwinding loop 30  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 9131 function efx_stop_datapath
+Unwinding loop 3  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 7399 function napi_disable
+Unwinding loop 3  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 7399 function napi_disable
+Not unwinding 
+Unwinding loop 28  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 9105 function efx_stop_datapath
+Unwinding loop 38  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 23506 function efx_fini_rx_queue
+No target candidate for function call *ops->unmap_page
+No target candidate for function call *ops->unmap_page
+Unwinding loop 38  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 23506 function efx_fini_rx_queue
+No target candidate for function call *ops->unmap_page
+No target candidate for function call *ops->unmap_page
+Not unwinding 
+Unwinding loop 28  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 9105 function efx_stop_datapath
+Unwinding loop 38  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i line 23506 function efx_fini_rx_queue
+No target candidate for function call *ops->unmap_page
+No target candidate for function call *ops->unmap_page
+Unwinding loop 38  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethe
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i:9992:30: warning: incompatible pointer types passing 'cpumask_var_t *' (aka 'struct cpumask **') to parameter of type 'cpumask_var_t **' (aka 'struct cpumask ***') [-Wincompatible-pointer-types]
+    tmp = zalloc_cpumask_var(& thread_mask, 208U);
+                             ^~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i:7069:49: note: passing argument to parameter here
+extern bool zalloc_cpumask_var(cpumask_var_t ** , gfp_t ) ;
+                                                ^
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i:21021:34: warning: incompatible integer to pointer conversion passing 'unsigned long' to parameter of type 'struct page *' [-Wint-conversion]
+  addr = (*(ops->map_page))(dev, 0xffffea0000000000UL + (tmp___2 >> 12), (unsigned long )ptr & 4095UL,
+                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i:21024:27: warning: incompatible integer to pointer conversion passing 'unsigned long' to parameter of type 'struct page *' [-Wint-conversion]
+  debug_dma_map_page(dev, 0xffffea0000000000UL + (tmp___3 >> 12), (unsigned long )ptr & 4095UL,
+                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i:20992:64: note: passing argument to parameter here
+extern void debug_dma_map_page(struct device * , struct page * , size_t , size_t ,
+                                                               ^
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i:22611:34: warning: incompatible integer to pointer conversion passing 'unsigned long' to parameter of type 'struct page *' [-Wint-conversion]
+  addr = (*(ops->map_page))(dev, 0xffffea0000000000UL + (tmp___2 >> 12), (unsigned long )ptr & 4095UL,
+                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i:22614:27: warning: incompatible integer to pointer conversion passing 'unsigned long' to parameter of type 'struct page *' [-Wint-conversion]
+  debug_dma_map_page(dev, 0xffffea0000000000UL + (tmp___3 >> 12), (unsigned long )ptr & 4095UL,
+                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i:20992:64: note: passing argument to parameter here
+extern void debug_dma_map_page(struct device * , struct page * , size_t , size_t ,
+                                                               ^
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i:42065:30: warning: implicit declaration of function 'ldv_xmalloc' is invalid in C99 [-Wimplicit-function-declaration]
+  return *(struct timespec *)ldv_xmalloc(sizeof(struct timespec));
+                             ^
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-drivers--net--ethernet--sfc--sfc.ko-ldv_main2_sequence_infinite_withcheck_stateful.cil.out.i:42065:11: warning: cast to 'struct timespec *' from smaller integer type 'int' [-Wint-to-pointer-cast]
+  return *(struct timespec *)ldv_xmalloc(sizeof(struct timespec));
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Can't construct rvalue reference to array type during dereference
+(It isn't allowed by C anyway)
+
+
+Unknown

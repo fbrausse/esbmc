@@ -1,0 +1,483 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i --64 --witness-output 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 64-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.230s
+GOTO program processing time: 0.015s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.003s (34 assignments)
+Slicing time: 0.000s (removed 32 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (2 assignments)
+BMC program time: 0.003s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.002s (34 assignments)
+Slicing time: 0.000s (removed 32 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (2 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.001s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.001s
+Runtime decision procedure: 0.000s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 6  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 798 function init
+Unwinding loop 6  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 798 function init
+Not unwinding 
+Symex completed in: 0.003s (48 assignments)
+Slicing time: 0.000s (removed 46 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (2 assignments)
+BMC program time: 0.003s
+No bug has been found in the base case
+*** Checking forward condition, k = 3
+Starting Bounded Model Checking
+Unwinding loop 6  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 798 function init
+Unwinding loop 6  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 798 function init
+Not unwinding 
+Symex completed in: 0.003s (48 assignments)
+Slicing time: 0.000s (removed 46 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (2 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.000s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.000s
+Runtime decision procedure: 0.000s
+The forward condition is unable to prove the property
+*** Checking inductive step, k = 3
+Starting Bounded Model Checking
+Unwinding loop 6  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 798 function init
+Unwinding loop 6  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 798 function init
+Not unwinding 
+Unwinding loop 12  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1078 function rbtree_test_init
+Unwinding loop 10  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1062 function rbtree_test_init
+Unwinding loop 3  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 637 function insert
+Unwinding loop 3  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 637 function insert
+Not unwinding 
+Unwinding loop 10  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1062 function rbtree_test_init
+Unwinding loop 3  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 637 function insert
+Unwinding loop 3  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 637 function insert
+Not unwinding 
+Not unwinding 
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1072 function rbtree_test_init
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1072 function rbtree_test_init
+Not unwinding 
+Unwinding loop 12  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1078 function rbtree_test_init
+Unwinding loop 10  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1062 function rbtree_test_init
+Unwinding loop 3  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 637 function insert
+Unwinding loop 3  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 637 function insert
+Not unwinding 
+Unwinding loop 10  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1062 function rbtree_test_init
+Unwinding loop 3  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 637 function insert
+Unwinding loop 3  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 637 function insert
+Not unwinding 
+Not unwinding 
+Unwinding loop 11  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1072 function rbtree_test_init
+Unwinding loop 11  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1072 function rbtree_test_init
+Not unwinding 
+Not unwinding 
+Unwinding loop 15  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1115 function rbtree_test_init
+Unwinding loop 6  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 798 function init
+Unwinding loop 6  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 798 function init
+Not unwinding 
+Unwinding loop 13  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1097 function rbtree_test_init
+Unwinding loop 8  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 969 function check
+Unwinding loop 7  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 829 function black_path_count
+Unwinding loop 7  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 829 function black_path_count
+Not unwinding 
+Unwinding loop 8  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 969 function check
+Unwinding loop 7  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 829 function black_path_count
+Unwinding loop 7  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 829 function black_path_count
+Not unwinding 
+Not unwinding 
+Unwinding loop 3  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 637 function insert
+Unwinding loop 3  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 637 function insert
+Not unwinding 
+Unwinding loop 13  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1097 function rbtree_test_init
+Unwinding loop 8  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 969 function check
+Unwinding loop 7  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 829 function black_path_count
+Unwinding loop 7  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 829 function black_path_count
+Not unwinding 
+Unwinding loop 8  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 969 function check
+Unwinding loop 7  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 829 function black_path_count
+Unwinding loop 7  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 829 function black_path_count
+Not unwinding 
+Not unwinding 
+Unwinding loop 3  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 637 function insert
+Unwinding loop 3  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 637 function insert
+Not unwinding 
+Not unwinding 
+Unwinding loop 14  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1108 function rbtree_test_init
+Unwinding loop 8  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 969 function check
+Unwinding loop 7  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 829 function black_path_count
+Unwinding loop 7  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 829 function black_path_count
+Not unwinding 
+Unwinding loop 8  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 969 function check
+Unwinding loop 7  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 829 function black_path_count
+Unwinding loop 7  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 829 function black_path_count
+Not unwinding 
+Not unwinding 
+Unwinding loop 14  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1108 function rbtree_test_init
+Unwinding loop 8  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 969 function check
+Unwinding loop 7  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 829 function black_path_count
+Unwinding loop 7  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 829 function black_path_count
+Not unwinding 
+Unwinding loop 8  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 969 function check
+Unwinding loop 7  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 829 function black_path_count
+Unwinding loop 7  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 829 function black_path_count
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Unwinding loop 8  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 969 function check
+Unwinding loop 7  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 829 function black_path_count
+Unwinding loop 7  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 829 function black_path_count
+Not unwinding 
+Unwinding loop 8  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 969 function check
+Unwinding loop 7  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 829 function black_path_count
+Unwinding loop 7  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 829 function black_path_count
+Not unwinding 
+Not unwinding 
+Unwinding loop 15  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1115 function rbtree_test_init
+Unwinding loop 6  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 798 function init
+Unwinding loop 6  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 798 function init
+Not unwinding 
+Unwinding loop 13  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1097 function rbtree_test_init
+Unwinding loop 8  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 969 function check
+Unwinding loop 7  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 829 function black_path_count
+Unwinding loop 7  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 829 function black_path_count
+Not unwinding 
+Unwinding loop 8  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 969 function check
+Unwinding loop 7  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 829 function black_path_count
+Unwinding loop 7  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 829 function black_path_count
+Not unwinding 
+Not unwinding 
+Unwinding loop 3  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 637 function insert
+Unwinding loop 3  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 637 function insert
+Not unwinding 
+Unwinding loop 13  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1097 function rbtree_test_init
+Unwinding loop 8  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 969 function check
+Unwinding loop 7  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 829 function black_path_count
+Unwinding loop 7  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 829 function black_path_count
+Not unwinding 
+Unwinding loop 8  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 969 function check
+Unwinding loop 7  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 829 function black_path_count
+Unwinding loop 7  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 829 function black_path_count
+Not unwinding 
+Not unwinding 
+Unwinding loop 3  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 637 function insert
+Unwinding loop 3  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 637 function insert
+Not unwinding 
+Not unwinding 
+Unwinding loop 14  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1108 function rbtree_test_init
+Unwinding loop 8  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 969 function check
+Unwinding loop 7  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 829 function black_path_count
+Unwinding loop 7  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 829 function black_path_count
+Not unwinding 
+Unwinding loop 8  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 969 function check
+Unwinding loop 7  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 829 function black_path_count
+Unwinding loop 7  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 829 function black_path_count
+Not unwinding 
+Not unwinding 
+Unwinding loop 14  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1108 function rbtree_test_init
+Unwinding loop 8  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 969 function check
+Unwinding loop 7  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 829 function black_path_count
+Unwinding loop 7  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 829 function black_path_count
+Not unwinding 
+Unwinding loop 8  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 969 function check
+Unwinding loop 7  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 829 function black_path_count
+Unwinding loop 7  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 829 function black_path_count
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Unwinding loop 8  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 969 function check
+Unwinding loop 7  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 829 function black_path_count
+Unwinding loop 7  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 829 function black_path_count
+Not unwinding 
+Unwinding loop 8  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 969 function check
+Unwinding loop 7  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 829 function black_path_count
+Unwinding loop 7  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 829 function black_path_count
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Unwinding loop 6  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 798 function init
+Unwinding loop 6  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 798 function init
+Not unwinding 
+Unwinding loop 18  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1147 function rbtree_test_init
+Unwinding loop 16  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1131 function rbtree_test_init
+Unwinding loop 5  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 770 function insert_augmented
+Unwinding loop 5  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 770 function insert_augmented
+Not unwinding 
+Unwinding loop 16  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1131 function rbtree_test_init
+Unwinding loop 5  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 770 function insert_augmented
+Unwinding loop 5  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 770 function insert_augmented
+Not unwinding 
+Not unwinding 
+Unwinding loop 17  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1141 function rbtree_test_init
+Unwinding loop 2  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 560 function rb_erase_augmented
+Unwinding loop 2  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 560 function rb_erase_augmented
+Not unwinding 
+Unwinding loop 4  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 702 function augment_callbacks_propagate
+Unwinding loop 4  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 702 function augment_callbacks_propagate
+Not unwinding 
+Unwinding loop 4  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 702 function augment_callbacks_propagate
+Unwinding loop 4  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 702 function augment_callbacks_propagate
+Not unwinding 
+Unwinding loop 17  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1141 function rbtree_test_init
+Unwinding loop 2  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 560 function rb_erase_augmented
+Unwinding loop 2  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 560 function rb_erase_augmented
+Not unwinding 
+Unwinding loop 4  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 702 function augment_callbacks_propagate
+Unwinding loop 4  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 702 function augment_callbacks_propagate
+Not unwinding 
+Unwinding loop 4  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 702 function augment_callbacks_propagate
+Unwinding loop 4  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 702 function augment_callbacks_propagate
+Not unwinding 
+Not unwinding 
+Unwinding loop 18  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1147 function rbtree_test_init
+Unwinding loop 16  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1131 function rbtree_test_init
+Unwinding loop 5  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 770 function insert_augmented
+Unwinding loop 5  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 770 function insert_augmented
+Not unwinding 
+Unwinding loop 16  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1131 function rbtree_test_init
+Unwinding loop 5  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 770 function insert_augmented
+Unwinding loop 5  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 770 function insert_augmented
+Not unwinding 
+Not unwinding 
+Unwinding loop 17  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1141 function rbtree_test_init
+Unwinding loop 2  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 560 function rb_erase_augmented
+Unwinding loop 2  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 560 function rb_erase_augmented
+Not unwinding 
+Unwinding loop 4  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 702 function augment_callbacks_propagate
+Unwinding loop 4  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 702 function augment_callbacks_propagate
+Not unwinding 
+Unwinding loop 4  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 702 function augment_callbacks_propagate
+Unwinding loop 4  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 702 function augment_callbacks_propagate
+Not unwinding 
+Unwinding loop 17  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1141 function rbtree_test_init
+Unwinding loop 2  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 560 function rb_erase_augmented
+Unwinding loop 2  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 560 function rb_erase_augmented
+Not unwinding 
+Unwinding loop 4  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 702 function augment_callbacks_propagate
+Unwinding loop 4  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 702 function augment_callbacks_propagate
+Not unwinding 
+Unwinding loop 4  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 702 function augment_callbacks_propagate
+Unwinding loop 4  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 702 function augment_callbacks_propagate
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Unwinding loop 21  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1184 function rbtree_test_init
+Unwinding loop 6  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 798 function init
+Unwinding loop 6  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 798 function init
+Not unwinding 
+Unwinding loop 19  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1166 function rbtree_test_init
+Unwinding loop 8  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 969 function check
+Unwinding loop 7  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 829 function black_path_count
+Unwinding loop 7  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 829 function black_path_count
+Not unwinding 
+Unwinding loop 8  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 969 function check
+Unwinding loop 7  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 829 function black_path_count
+Unwinding loop 7  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 829 function black_path_count
+Not unwinding 
+Not unwinding 
+Unwinding loop 9  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1034 function check_augmented
+Unwinding loop 9  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1034 function check_augmented
+Not unwinding 
+Unwinding loop 5  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 770 function insert_augmented
+Unwinding loop 5  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 770 function insert_augmented
+Not unwinding 
+Unwinding loop 19  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1166 function rbtree_test_init
+Unwinding loop 8  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 969 function check
+Unwinding loop 7  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 829 function black_path_count
+Unwinding loop 7  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 829 function black_path_count
+Not unwinding 
+Unwinding loop 8  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 969 function check
+Unwinding loop 7  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 829 function black_path_count
+Unwinding loop 7  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 829 function black_path_count
+Not unwinding 
+Not unwinding 
+Unwinding loop 9  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1034 function check_augmented
+Unwinding loop 9  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1034 function check_augmented
+Not unwinding 
+Unwinding loop 5  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 770 function insert_augmented
+Unwinding loop 5  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 770 function insert_augmented
+Not unwinding 
+Not unwinding 
+Unwinding loop 20  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1177 function rbtree_test_init
+Unwinding loop 8  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 969 function check
+Unwinding loop 7  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 829 function black_path_count
+Unwinding loop 7  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 829 function black_path_count
+Not unwinding 
+Unwinding loop 8  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 969 function check
+Unwinding loop 7  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 829 function black_path_count
+Unwinding loop 7  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 829 function black_path_count
+Not unwinding 
+Not unwinding 
+Unwinding loop 9  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1034 function check_augmented
+Unwinding loop 9  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1034 function check_augmented
+Not unwinding 
+Unwinding loop 2  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 560 function rb_erase_augmented
+Unwinding loop 2  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 560 function rb_erase_augmented
+Not unwinding 
+Unwinding loop 4  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 702 function augment_callbacks_propagate
+Unwinding loop 4  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 702 function augment_callbacks_propagate
+Not unwinding 
+Unwinding loop 4  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 702 function augment_callbacks_propagate
+Unwinding loop 4  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 702 function augment_callbacks_propagate
+Not unwinding 
+Unwinding loop 20  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1177 function rbtree_test_init
+Unwinding loop 8  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 969 function check
+Unwinding loop 7  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 829 function black_path_count
+Unwinding loop 7  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 829 function black_path_count
+Not unwinding 
+Unwinding loop 8  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 969 function check
+Unwinding loop 7  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 829 function black_path_count
+Unwinding loop 7  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 829 function black_path_count
+Not unwinding 
+Not unwinding 
+Unwinding loop 9  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1034 function check_augmented
+Unwinding loop 9  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1034 function check_augmented
+Not unwinding 
+Unwinding loop 2  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 560 function rb_erase_augmented
+Unwinding loop 2  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 560 function rb_erase_augmented
+Not unwinding 
+Unwinding loop 4  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 702 function augment_callbacks_propagate
+Unwinding loop 4  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 702 function augment_callbacks_propagate
+Not unwinding 
+Unwinding loop 4  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 702 function augment_callbacks_propagate
+Unwinding loop 4  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 702 function augment_callbacks_propagate
+Not unwinding 
+Not unwinding 
+Unwinding loop 8  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 969 function check
+Unwinding loop 7  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 829 function black_path_count
+Unwinding loop 7  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 829 function black_path_count
+Not unwinding 
+Unwinding loop 8  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 969 function check
+Unwinding loop 7  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 829 function black_path_count
+Unwinding loop 7  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 829 function black_path_count
+Not unwinding 
+Not unwinding 
+Unwinding loop 9  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1034 function check_augmented
+Unwinding loop 9  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1034 function check_augmented
+Not unwinding 
+Unwinding loop 21  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1184 function rbtree_test_init
+Unwinding loop 6  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 798 function init
+Unwinding loop 6  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 798 function init
+Not unwinding 
+Unwinding loop 19  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1166 function rbtree_test_init
+Unwinding loop 8  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 969 function check
+Unwinding loop 7  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 829 function black_path_count
+Unwinding loop 7  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 829 function black_path_count
+Not unwinding 
+Unwinding loop 8  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 969 function check
+Unwinding loop 7  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 829 function black_path_count
+Unwinding loop 7  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 829 function black_path_count
+Not unwinding 
+Not unwinding 
+Unwinding loop 9  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1034 function check_augmented
+Unwinding loop 9  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1034 function check_augmented
+Not unwinding 
+Unwinding loop 5  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 770 function insert_augmented
+Unwinding loop 5  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 770 function insert_augmented
+Not unwinding 
+Unwinding loop 19  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1166 function rbtree_test_init
+Unwinding loop 8  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 969 function check
+Unwinding loop 7  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 829 function black_path_count
+Unwinding loop 7  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 829 function black_path_count
+Not unwinding 
+Unwinding loop 8  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 969 function check
+Unwinding loop 7  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 829 function black_path_count
+Unwinding loop 7  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 829 function black_path_count
+Not unwinding 
+Not unwinding 
+Unwinding loop 9  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1034 function check_augmented
+Unwinding loop 9  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1034 function check_augmented
+Not unwinding 
+Unwinding loop 5  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 770 function insert_augmented
+Unwinding loop 5  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 770 function insert_augmented
+Not unwinding 
+Not unwinding 
+Unwinding loop 20  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1177 function rbtree_test_init
+Unwinding loop 8  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 969 function check
+Unwinding loop 7  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 829 function black_path_count
+Unwinding loop 7  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 829 function black_path_count
+Not unwinding 
+Unwinding loop 8  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 969 function check
+Unwinding loop 7  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 829 function black_path_count
+Unwinding loop 7  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 829 function black_path_count
+Not unwinding 
+Not unwinding 
+Unwinding loop 9  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1034 function check_augmented
+Unwinding loop 9  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1034 function check_augmented
+Not unwinding 
+Unwinding loop 2  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 560 function rb_erase_augmented
+Unwinding loop 2  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 560 function rb_erase_augmented
+Not unwinding 
+Unwinding loop 4  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 702 function augment_callbacks_propagate
+Unwinding loop 4  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 702 function augment_callbacks_propagate
+Not unwinding 
+Unwinding loop 4  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 702 function augment_callbacks_propagate
+Unwinding loop 4  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 702 function augment_callbacks_propagate
+Not unwinding 
+Unwinding loop 20  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1177 function rbtree_test_init
+Unwinding loop 8  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 969 function check
+Unwinding loop 7  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 829 function black_path_count
+Unwinding loop 7  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 829 function black_path_count
+Not unwinding 
+Unwinding loop 8  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 969 function check
+Unwinding loop 7  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 829 function black_path_count
+Unwinding loop 7  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 829 function black_path_count
+Not unwinding 
+Not unwinding 
+Unwinding loop 9  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1034 function check_augmented
+Unwinding loop 9  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1034 function check_augmented
+Not unwinding 
+Unwinding loop 2  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 560 function rb_erase_augmented
+Unwinding loop 2  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 560 function rb_erase_augmented
+Not unwinding 
+Unwinding loop 4  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 702 function augment_callbacks_propagate
+Unwinding loop 4  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 702 function augment_callbacks_propagate
+Not unwinding 
+Unwinding loop 4  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 702 function augment_callbacks_propagate
+Unwinding loop 4  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 702 function augment_callbacks_propagate
+Not unwinding 
+Not unwinding 
+Unwinding loop 8  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 969 function check
+Unwinding loop 7  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 829 function black_path_count
+Unwinding loop 7  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 829 function black_path_count
+Not unwinding 
+Unwinding loop 8  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 969 function check
+Unwinding loop 7  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 829 function black_path_count
+Unwinding loop 7  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 829 function black_path_count
+Not unwinding 
+Not unwinding 
+Unwinding loop 9  iteration  1   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1034 function check_augmented
+Unwinding loop 9  iteration  2   file 32_7a_cilled_linux-3.8-rc1-32_7a-lib--rbtree_test.ko-ldv_main0_sequence_infinite_withcheck_stateful.cil.out.i line 1034 function check_augmented
+Not unwinding 
+Not unwinding 
+Symex completed in: 65.324s (12228 assignments)
+Slicing time: 0.114s (removed 7871 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (4357 assignments)
+BMC program time: 65.438s
+Building successful trace
+
+VERIFICATION SUCCESSFUL
+
+Solution found by the inductive step (k = 3)
+
+
+TRUE

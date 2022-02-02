@@ -1,0 +1,208 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/ldv-linux-3.7.3/main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-linux-3.7.3/main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i --64 --witness-output main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 64-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/ldv-linux-3.7.3/main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.853s
+GOTO program processing time: 0.124s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.003s (35 assignments)
+Slicing time: 0.000s (removed 27 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (8 assignments)
+BMC program time: 0.003s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.002s (35 assignments)
+Slicing time: 0.000s (removed 27 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (8 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.000s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.000s
+Runtime decision procedure: 0.001s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 32  iteration  1   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 10684 function main
+Unwinding loop 8  iteration  1   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 6402 function vhost_dev_init
+Unwinding loop 8  iteration  2   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 6402 function vhost_dev_init
+Not unwinding 
+**** WARNING: no body for function __builtin_object_size
+**** WARNING: no body for function __builtin_object_size
+Unwinding loop 13  iteration  1   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 6722 function memory_access_ok
+Unwinding loop 31  iteration  1   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 10511 function vhost_net_set_features
+Unwinding loop 2  iteration  1   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 6091 function vhost_work_flush
+Unwinding loop 2  iteration  2   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 6091 function vhost_work_flush
+Not unwinding 
+Unwinding loop 5  iteration  1   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 6331 function vhost_dev_alloc_iovecs
+Unwinding loop 5  iteration  2   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 6331 function vhost_dev_alloc_iovecs
+Not unwinding 
+Unwinding loop 6  iteration  1   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 6342 function vhost_dev_alloc_iovecs
+Unwinding loop 6  iteration  2   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 6342 function vhost_dev_alloc_iovecs
+Not unwinding 
+**** WARNING: no body for function __builtin_object_size
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+**** WARNING: no body for function __builtin_object_size
+Unwinding loop 14  iteration  1   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 7289 function vhost_dev_ioctl
+Unwinding loop 15  iteration  1   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 7352 function vhost_dev_ioctl
+Unwinding loop 2  iteration  1   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 6091 function vhost_work_flush
+Unwinding loop 2  iteration  2   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 6091 function vhost_work_flush
+Not unwinding 
+Unwinding loop 2  iteration  1   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 6091 function vhost_work_flush
+Unwinding loop 2  iteration  2   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 6091 function vhost_work_flush
+Not unwinding 
+Unwinding loop 2  iteration  1   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 6091 function vhost_work_flush
+Unwinding loop 2  iteration  2   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 6091 function vhost_work_flush
+Not unwinding 
+Unwinding loop 2  iteration  1   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 6091 function vhost_work_flush
+Unwinding loop 2  iteration  2   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 6091 function vhost_work_flush
+Not unwinding 
+**** WARNING: no body for function __builtin_object_size
+**** WARNING: no body for function __builtin_object_size
+Unwinding loop 13  iteration  1   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 6722 function memory_access_ok
+Unwinding loop 31  iteration  1   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 10511 function vhost_net_set_features
+Unwinding loop 2  iteration  1   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 6091 function vhost_work_flush
+Unwinding loop 2  iteration  2   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 6091 function vhost_work_flush
+Not unwinding 
+Unwinding loop 5  iteration  1   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 6331 function vhost_dev_alloc_iovecs
+Unwinding loop 5  iteration  2   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 6331 function vhost_dev_alloc_iovecs
+Not unwinding 
+Unwinding loop 6  iteration  1   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 6342 function vhost_dev_alloc_iovecs
+Unwinding loop 6  iteration  2   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 6342 function vhost_dev_alloc_iovecs
+Not unwinding 
+**** WARNING: no body for function __builtin_object_size
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+**** WARNING: no body for function __builtin_object_size
+Unwinding loop 14  iteration  1   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 7289 function vhost_dev_ioctl
+Unwinding loop 15  iteration  1   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 7352 function vhost_dev_ioctl
+Unwinding loop 2  iteration  1   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 6091 function vhost_work_flush
+Unwinding loop 2  iteration  2   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 6091 function vhost_work_flush
+Not unwinding 
+Unwinding loop 2  iteration  1   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 6091 function vhost_work_flush
+Unwinding loop 2  iteration  2   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 6091 function vhost_work_flush
+Not unwinding 
+Unwinding loop 2  iteration  1   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 6091 function vhost_work_flush
+Unwinding loop 2  iteration  2   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 6091 function vhost_work_flush
+Not unwinding 
+Unwinding loop 2  iteration  1   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 6091 function vhost_work_flush
+Unwinding loop 2  iteration  2   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 6091 function vhost_work_flush
+Not unwinding 
+Unwinding loop 32  iteration  2   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 10684 function main
+Unwinding loop 8  iteration  1   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 6402 function vhost_dev_init
+Unwinding loop 8  iteration  2   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 6402 function vhost_dev_init
+Not unwinding 
+Unwinding loop 2  iteration  1   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 6091 function vhost_work_flush
+Unwinding loop 2  iteration  2   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 6091 function vhost_work_flush
+Not unwinding 
+Unwinding loop 2  iteration  1   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 6091 function vhost_work_flush
+Unwinding loop 2  iteration  2   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 6091 function vhost_work_flush
+Not unwinding 
+Unwinding loop 2  iteration  1   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 6091 function vhost_work_flush
+Unwinding loop 2  iteration  2   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 6091 function vhost_work_flush
+Not unwinding 
+Unwinding loop 2  iteration  1   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 6091 function vhost_work_flush
+Unwinding loop 2  iteration  2   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 6091 function vhost_work_flush
+Not unwinding 
+Unwinding loop 9  iteration  1   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 6587 function vhost_dev_cleanup
+Unwinding loop 2  iteration  1   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 6091 function vhost_work_flush
+Unwinding loop 2  iteration  2   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 6091 function vhost_work_flush
+Not unwinding 
+Unwinding loop 11  iteration  1   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 9055 function vhost_ubuf_put_and_wait
+Unwinding loop 11  iteration  2   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 9055 function vhost_ubuf_put_and_wait
+Not unwinding 
+Unwinding loop 10  iteration  1   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 6529 function vhost_zerocopy_signal_used
+Unwinding loop 18  iteration  1   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 7457 function log_write
+Unwinding loop 18  iteration  2   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 7457 function log_write
+Not unwinding 
+Unwinding loop 18  iteration  1   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 7457 function log_write
+Unwinding loop 18  iteration  2   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 7457 function log_write
+Not unwinding 
+Unwinding loop 10  iteration  2   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 6529 function vhost_zerocopy_signal_used
+Unwinding loop 18  iteration  1   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 7457 function log_write
+Unwinding loop 18  iteration  2   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 7457 function log_write
+Not unwinding 
+Unwinding loop 18  iteration  1   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 7457 function log_write
+Unwinding loop 18  iteration  2   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 7457 function log_write
+Not unwinding 
+Not unwinding 
+Unwinding loop 9  iteration  2   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 6587 function vhost_dev_cleanup
+Unwinding loop 2  iteration  1   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 6091 function vhost_work_flush
+Unwinding loop 2  iteration  2   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 6091 function vhost_work_flush
+Not unwinding 
+Unwinding loop 11  iteration  1   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 9055 function vhost_ubuf_put_and_wait
+Unwinding loop 11  iteration  2   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 9055 function vhost_ubuf_put_and_wait
+Not unwinding 
+Unwinding loop 10  iteration  1   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 6529 function vhost_zerocopy_signal_used
+Unwinding loop 18  iteration  1   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 7457 function log_write
+Unwinding loop 18  iteration  2   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 7457 function log_write
+Not unwinding 
+Unwinding loop 18  iteration  1   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 7457 function log_write
+Unwinding loop 18  iteration  2   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 7457 function log_write
+Not unwinding 
+Unwinding loop 10  iteration  2   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 6529 function vhost_zerocopy_signal_used
+Unwinding loop 18  iteration  1   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 7457 function log_write
+Unwinding loop 18  iteration  2   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 7457 function log_write
+Not unwinding 
+Unwinding loop 18  iteration  1   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 7457 function log_write
+Unwinding loop 18  iteration  2   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 7457 function log_write
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Unwinding loop 7  iteration  1   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 6359 function vhost_dev_free_iovecs
+Unwinding loop 7  iteration  2   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 6359 function vhost_dev_free_iovecs
+Not unwinding 
+Unwinding loop 2  iteration  1   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 6091 function vhost_work_flush
+Unwinding loop 2  iteration  2   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 6091 function vhost_work_flush
+Not unwinding 
+Unwinding loop 2  iteration  1   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 6091 function vhost_work_flush
+Unwinding loop 2  iteration  2   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 6091 function vhost_work_flush
+Not unwinding 
+Unwinding loop 2  iteration  1   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 6091 function vhost_work_flush
+Unwinding loop 2  iteration  2   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 6091 function vhost_work_flush
+Not unwinding 
+Unwinding loop 2  iteration  1   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 6091 function vhost_work_flush
+Unwinding loop 2  iteration  2   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 6091 function vhost_work_flush
+Not unwinding 
+**** WARNING: no body for function __builtin_object_size
+**** WARNING: no body for function __builtin_object_size
+Unwinding loop 13  iteration  1   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 6722 function memory_access_ok
+Unwinding loop 31  iteration  1   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 10511 function vhost_net_set_features
+Unwinding loop 2  iteration  1   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 6091 function vhost_work_flush
+Unwinding loop 2  iteration  2   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 6091 function vhost_work_flush
+Not unwinding 
+Unwinding loop 5  iteration  1   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 6331 function vhost_dev_alloc_iovecs
+Unwinding loop 5  iteration  2   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 6331 function vhost_dev_alloc_iovecs
+Not unwinding 
+Unwinding loop 6  iteration  1   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 6342 function vhost_dev_alloc_iovecs
+Unwinding loop 6  iteration  2   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 6342 function vhost_dev_alloc_iovecs
+Not unwinding 
+**** WARNING: no body for function __builtin_object_size
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Not unwinding 
+**** WARNING: no body for function __builtin_object_size
+Unwinding loop 14  iteration  1   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 7289 function vhost_dev_ioctl
+Unwinding loop 15  iteration  1   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 7352 function vhost_dev_ioctl
+Unwinding loop 2  iteration  1   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 6091 function vhost_work_flush
+Unwinding loop 2  iteration  2   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 6091 function vhost_work_flush
+Not unwinding 
+Unwinding loop 2  iteration  1   file main1_drivers-vhost-vhost_net-ko--32_7a--linux-3.7.3.i line 6091 function vhos
+
+Unknown

@@ -1,0 +1,81 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/product-lines/minepump_spec1_product01.cil.c
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --no-align-check --k-step 2 --floatbv --unlimited-k-steps ../sv-benchmarks/c/product-lines/minepump_spec1_product01.cil.c --32 --witness-output minepump_spec1_product01.cil.c.graphml --no-pointer-check --no-bounds-check --interval-analysis --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/product-lines/minepump_spec1_product01.cil.c: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.179s
+GOTO program processing time: 0.004s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.001s (37 assignments)
+Slicing time: 0.000s (removed 35 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (2 assignments)
+BMC program time: 0.001s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.002s (37 assignments)
+Slicing time: 0.000s (removed 35 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (2 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.000s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.000s
+Runtime decision procedure: 0.000s
+The forward condition is unable to prove the property
+*** Checking base case, k = 3
+Starting Bounded Model Checking
+Unwinding loop 2  iteration  1   file minepump_spec1_product01.cil.c line 386 function test
+Unwinding loop 2  iteration  2   file minepump_spec1_product01.cil.c line 386 function test
+Not unwinding 
+Symex completed in: 0.004s (85 assignments)
+Slicing time: 0.000s (removed 83 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (2 assignments)
+BMC program time: 0.004s
+No bug has been found in the base case
+*** Checking forward condition, k = 3
+Starting Bounded Model Checking
+Unwinding loop 2  iteration  1   file minepump_spec1_product01.cil.c line 386 function test
+Unwinding loop 2  iteration  2   file minepump_spec1_product01.cil.c line 386 function test
+Not unwinding 
+Symex completed in: 0.004s (85 assignments)
+Slicing time: 0.000s (removed 83 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (2 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.000s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.000s
+Runtime decision procedure: 0.001s
+The forward condition is unable to prove the property
+*** Checking inductive step, k = 3
+Starting Bounded Model Checking
+Unwinding loop 2  iteration  1   file minepump_spec1_product01.cil.c line 386 function test
+Unwinding loop 2  iteration  2   file minepump_spec1_product01.cil.c line 386 function test
+Not unwinding 
+Unwinding loop 1  iteration  1   file minepump_spec1_product01.cil.c line 54 function cleanup
+Unwinding loop 1  iteration  2   file minepump_spec1_product01.cil.c line 54 function cleanup
+Not unwinding 
+Symex completed in: 0.007s (163 assignments)
+Slicing time: 0.001s (removed 105 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (58 assignments)
+BMC program time: 0.008s
+Building successful trace
+
+VERIFICATION SUCCESSFUL
+
+Solution found by the inductive step (k = 3)
+
+
+TRUE
