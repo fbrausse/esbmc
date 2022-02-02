@@ -51,6 +51,10 @@ const struct group_opt_templ all_cmd_options[] = {
      boost::program_options::value<std::vector<std::string>>()->value_name(
        "path"),
      "set include path"},
+    {"idirafter",
+     boost::program_options::value<std::vector<std::string>>()->value_name(
+       "path"),
+     "append system include path to search after system headers"},
     {"define,D",
      boost::program_options::value<std::vector<std::string>>()->value_name(
        "macro"),
@@ -58,6 +62,9 @@ const struct group_opt_templ all_cmd_options[] = {
     {"warning,W",
      boost::program_options::value<std::vector<std::string>>(),
      ""},
+    {"sysroot",
+     boost::program_options::value<std::string>()->value_name("<path>"),
+     "set the sysroot for the frontend"},
     {"force,f", boost::program_options::value<std::vector<std::string>>(), ""},
     {"preprocess", NULL, "stop after preprocessing"},
     {"no-inlining", NULL, "disable inlining function calls"},
