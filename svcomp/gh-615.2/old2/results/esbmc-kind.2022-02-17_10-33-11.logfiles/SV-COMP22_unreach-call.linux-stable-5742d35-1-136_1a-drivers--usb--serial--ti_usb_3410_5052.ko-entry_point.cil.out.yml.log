@@ -1,0 +1,100 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/ldv-validator-v0.6/linux-stable-5742d35-1-136_1a-drivers--usb--serial--ti_usb_3410_5052.ko-entry_point.cil.out.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --add-symex-value-sets --no-align-check --k-step 5 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-validator-v0.6/linux-stable-5742d35-1-136_1a-drivers--usb--serial--ti_usb_3410_5052.ko-entry_point.cil.out.i --64 --witness-output linux-stable-5742d35-1-136_1a-drivers--usb--serial--ti_usb_3410_5052.ko-entry_point.cil.out.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --goto-unwind --unlimited-goto-unwind --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 64-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/ldv-validator-v0.6/linux-stable-5742d35-1-136_1a-drivers--usb--serial--ti_usb_3410_5052.ko-entry_point.cil.out.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.699s
+GOTO program processing time: 0.312s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.105s (1038 assignments)
+Slicing time: 0.001s (removed 869 assignments)
+Generated 6 VCC(s), 6 remaining after simplification (169 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.021s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.021s
+Runtime decision procedure: 3.104s
+Building error trace
+
+Counterexample:
+
+State 1 file linux-stable-5742d35-1-136_1a-drivers--usb--serial--ti_usb_3410_5052.ko-entry_point.cil.out.i line 3946 function ldv_zalloc thread 0
+----------------------------------------------------
+  tmp___0 = -1 (11111111 11111111 11111111 11111111)
+
+State 2 file linux-stable-5742d35-1-136_1a-drivers--usb--serial--ti_usb_3410_5052.ko-entry_point.cil.out.i line 3946 function ldv_zalloc thread 0
+----------------------------------------------------
+  tmp___0 = -1 (11111111 11111111 11111111 11111111)
+
+State 3 file linux-stable-5742d35-1-136_1a-drivers--usb--serial--ti_usb_3410_5052.ko-entry_point.cil.out.i line 3946 function ldv_zalloc thread 0
+----------------------------------------------------
+  tmp___0 = -1 (11111111 11111111 11111111 11111111)
+
+State 4 file linux-stable-5742d35-1-136_1a-drivers--usb--serial--ti_usb_3410_5052.ko-entry_point.cil.out.i line 3946 function ldv_zalloc thread 0
+----------------------------------------------------
+  tmp___0 = -1 (11111111 11111111 11111111 11111111)
+
+State 5 file linux-stable-5742d35-1-136_1a-drivers--usb--serial--ti_usb_3410_5052.ko-entry_point.cil.out.i line 3946 function ldv_zalloc thread 0
+----------------------------------------------------
+  tmp___0 = -1 (11111111 11111111 11111111 11111111)
+
+State 6 file linux-stable-5742d35-1-136_1a-drivers--usb--serial--ti_usb_3410_5052.ko-entry_point.cil.out.i line 6398 function main thread 0
+----------------------------------------------------
+  tmp___16 = 1 (00000000 00000000 00000000 00000001)
+
+State 7 file linux-stable-5742d35-1-136_1a-drivers--usb--serial--ti_usb_3410_5052.ko-entry_point.cil.out.i line 6728 function main thread 0
+----------------------------------------------------
+  tmp___18 = 1 (00000000 00000000 00000000 00000001)
+
+State 8 file linux-stable-5742d35-1-136_1a-drivers--usb--serial--ti_usb_3410_5052.ko-entry_point.cil.out.i line 7148 function ldv_usb_serial_register_2 thread 0
+----------------------------------------------------
+  ldv_func_res = 0 (00000000 00000000 00000000 00000000)
+
+State 9 file linux-stable-5742d35-1-136_1a-drivers--usb--serial--ti_usb_3410_5052.ko-entry_point.cil.out.i line 7159 function ldv_usb_serial_register_3 thread 0
+----------------------------------------------------
+  ldv_func_res = 0 (00000000 00000000 00000000 00000000)
+
+State 10 file linux-stable-5742d35-1-136_1a-drivers--usb--serial--ti_usb_3410_5052.ko-entry_point.cil.out.i line 7137 function ldv_usb_register_driver_1 thread 0
+----------------------------------------------------
+  ldv_func_res = -2147483648 (10000000 00000000 00000000 00000000)
+
+State 11 file linux-stable-5742d35-1-136_1a-drivers--usb--serial--ti_usb_3410_5052.ko-entry_point.cil.out.i line 12 function reach_error thread 0
+----------------------------------------------------
+Violated property:
+  file linux-stable-5742d35-1-136_1a-drivers--usb--serial--ti_usb_3410_5052.ko-entry_point.cil.out.i line 12 function reach_error
+  assertion 0
+  0
+
+
+VERIFICATION FAILED
+
+Bug found (k = 1)
+
+
+FALSE_REACH

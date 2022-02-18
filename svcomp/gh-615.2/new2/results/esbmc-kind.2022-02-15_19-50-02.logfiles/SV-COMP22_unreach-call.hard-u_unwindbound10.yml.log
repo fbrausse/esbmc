@@ -1,0 +1,151 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/nla-digbench-scaling/hard-u_unwindbound10.c
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --add-symex-value-sets --no-align-check --k-step 5 --floatbv --unlimited-k-steps ../sv-benchmarks/c/nla-digbench-scaling/hard-u_unwindbound10.c --32 --witness-output hard-u_unwindbound10.c.graphml --no-pointer-check --no-bounds-check --interval-analysis --goto-unwind --unlimited-goto-unwind --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/nla-digbench-scaling/hard-u_unwindbound10.c: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.091s
+GOTO program processing time: 0.001s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.001s (49 assignments)
+Slicing time: 0.000s (removed 20 assignments)
+Generated 6 VCC(s), 6 remaining after simplification (29 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.000s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.000s
+Runtime decision procedure: 0.000s
+BMC program time: 0.002s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.002s (43 assignments)
+Slicing time: 0.000s (removed 33 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (10 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.000s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.000s
+Runtime decision procedure: 0.002s
+The forward condition is unable to prove the property
+*** Checking base case, k = 6
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file hard-u_unwindbound10.c line 35 function main
+Unwinding loop 1  iteration  2   file hard-u_unwindbound10.c line 35 function main
+Unwinding loop 1  iteration  3   file hard-u_unwindbound10.c line 35 function main
+Unwinding loop 1  iteration  4   file hard-u_unwindbound10.c line 35 function main
+Unwinding loop 1  iteration  5   file hard-u_unwindbound10.c line 35 function main
+Not unwinding 
+Unwinding loop 2  iteration  1   file hard-u_unwindbound10.c line 45 function main
+Unwinding loop 2  iteration  2   file hard-u_unwindbound10.c line 45 function main
+Unwinding loop 2  iteration  3   file hard-u_unwindbound10.c line 45 function main
+Unwinding loop 2  iteration  4   file hard-u_unwindbound10.c line 45 function main
+Unwinding loop 2  iteration  5   file hard-u_unwindbound10.c line 45 function main
+Not unwinding 
+Symex completed in: 0.007s (292 assignments)
+Slicing time: 0.002s (removed 83 assignments)
+Generated 26 VCC(s), 26 remaining after simplification (209 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.002s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.002s
+Runtime decision procedure: 5.996s
+Building error trace
+
+Counterexample:
+
+State 1 file hard-u_unwindbound10.c line 26 function main thread 0
+----------------------------------------------------
+  A = 3759588368 (11100000 00010110 11000100 00010000)
+
+State 2 file hard-u_unwindbound10.c line 27 function main thread 0
+----------------------------------------------------
+  B = 3220005545 (10111111 11101101 01100010 10101001)
+
+State 3 file hard-u_unwindbound10.c line 30 function main thread 0
+----------------------------------------------------
+  r = 3759588368 (11100000 00010110 11000100 00010000)
+
+State 4 file hard-u_unwindbound10.c line 31 function main thread 0
+----------------------------------------------------
+  d = 3220005545 (10111111 11101101 01100010 10101001)
+
+State 5 file hard-u_unwindbound10.c line 41 function main thread 0
+----------------------------------------------------
+  d = 2145043794 (01111111 11011010 11000101 01010010)
+
+State 6 file hard-u_unwindbound10.c line 41 function main thread 0
+----------------------------------------------------
+  d = 4290087588 (11111111 10110101 10001010 10100100)
+
+State 7 file hard-u_unwindbound10.c line 45 function main thread 0
+----------------------------------------------------
+  counter = 4 (00000000 00000000 00000000 00000100)
+
+State 8 file hard-u_unwindbound10.c line 51 function main thread 0
+----------------------------------------------------
+  d = 2145043794 (01111111 11011010 11000101 01010010)
+
+State 9 file hard-u_unwindbound10.c line 52 function main thread 0
+----------------------------------------------------
+  p = 2 (00000000 00000000 00000000 00000010)
+
+State 10 file hard-u_unwindbound10.c line 54 function main thread 0
+----------------------------------------------------
+  r = 1614544574 (01100000 00111011 11111110 10111110)
+
+State 11 file hard-u_unwindbound10.c line 55 function main thread 0
+----------------------------------------------------
+  q = 2 (00000000 00000000 00000000 00000010)
+
+State 12 file hard-u_unwindbound10.c line 45 function main thread 0
+----------------------------------------------------
+  counter = 5 (00000000 00000000 00000000 00000101)
+
+State 13 file hard-u_unwindbound10.c line 51 function main thread 0
+----------------------------------------------------
+  d = 1072521897 (00111111 11101101 01100010 10101001)
+
+State 14 file hard-u_unwindbound10.c line 52 function main thread 0
+----------------------------------------------------
+  p = 1 (00000000 00000000 00000000 00000001)
+
+State 15 file hard-u_unwindbound10.c line 54 function main thread 0
+----------------------------------------------------
+  r = 542022677 (00100000 01001110 10011100 00010101)
+
+State 16 file hard-u_unwindbound10.c line 55 function main thread 0
+----------------------------------------------------
+  q = 3 (00000000 00000000 00000000 00000011)
+
+State 17 file hard-u_unwindbound10.c line 45 function main thread 0
+----------------------------------------------------
+  counter = 6 (00000000 00000000 00000000 00000110)
+
+State 18 file hard-u_unwindbound10.c line 8 function reach_error thread 0
+----------------------------------------------------
+Violated property:
+  file hard-u_unwindbound10.c line 8 function reach_error
+  assertion 0
+  0
+
+
+VERIFICATION FAILED
+
+Bug found (k = 6)
+
+
+FALSE_REACH

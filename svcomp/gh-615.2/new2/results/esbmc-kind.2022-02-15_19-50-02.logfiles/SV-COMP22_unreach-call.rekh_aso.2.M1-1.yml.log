@@ -1,0 +1,3604 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/seq-mthreaded/rekh_aso.2.M1-1.c
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --add-symex-value-sets --no-align-check --k-step 5 --floatbv --unlimited-k-steps ../sv-benchmarks/c/seq-mthreaded/rekh_aso.2.M1-1.c --32 --witness-output rekh_aso.2.M1-1.c.graphml --no-pointer-check --no-bounds-check --interval-analysis --goto-unwind --unlimited-goto-unwind --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/seq-mthreaded/rekh_aso.2.M1-1.c: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.805s
+GOTO program processing time: 0.531s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Symex completed in: 2.269s (12942 assignments)
+Slicing time: 1.275s (removed 4476 assignments)
+Generated 24 VCC(s), 24 remaining after simplification (8466 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.190s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.190s
+Runtime decision procedure: 22.012s
+Building error trace
+
+Counterexample:
+
+State 1 file rekh_aso.2.M1-1.c line 508 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_start[26] = 25 (00011001)
+
+State 2 file rekh_aso.2.M1-1.c line 509 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_end[26] = 25 (00011001)
+
+State 3 file rekh_aso.2.M1-1.c line 510 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_min[26] = 25 (00011001)
+
+State 4 file rekh_aso.2.M1-1.c line 511 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_max[26] = 25 (00011001)
+
+State 5 file rekh_aso.2.M1-1.c line 512 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_start[25] = 24 (00011000)
+
+State 6 file rekh_aso.2.M1-1.c line 513 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_end[25] = 24 (00011000)
+
+State 7 file rekh_aso.2.M1-1.c line 514 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_min[25] = 24 (00011000)
+
+State 8 file rekh_aso.2.M1-1.c line 515 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_max[25] = 24 (00011000)
+
+State 9 file rekh_aso.2.M1-1.c line 516 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_start[24] = 23 (00010111)
+
+State 10 file rekh_aso.2.M1-1.c line 517 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_end[24] = 23 (00010111)
+
+State 11 file rekh_aso.2.M1-1.c line 518 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_min[24] = 23 (00010111)
+
+State 12 file rekh_aso.2.M1-1.c line 519 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_max[24] = 23 (00010111)
+
+State 13 file rekh_aso.2.M1-1.c line 520 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_start[23] = 22 (00010110)
+
+State 14 file rekh_aso.2.M1-1.c line 521 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_end[23] = 22 (00010110)
+
+State 15 file rekh_aso.2.M1-1.c line 522 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_min[23] = 22 (00010110)
+
+State 16 file rekh_aso.2.M1-1.c line 523 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_max[23] = 22 (00010110)
+
+State 17 file rekh_aso.2.M1-1.c line 524 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_start[22] = 20 (00010100)
+
+State 18 file rekh_aso.2.M1-1.c line 525 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_end[22] = 20 (00010100)
+
+State 19 file rekh_aso.2.M1-1.c line 526 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_min[22] = 20 (00010100)
+
+State 20 file rekh_aso.2.M1-1.c line 527 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_max[22] = 20 (00010100)
+
+State 21 file rekh_aso.2.M1-1.c line 528 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_start[21] = 19 (00010011)
+
+State 22 file rekh_aso.2.M1-1.c line 529 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_end[21] = 19 (00010011)
+
+State 23 file rekh_aso.2.M1-1.c line 530 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_min[21] = 19 (00010011)
+
+State 24 file rekh_aso.2.M1-1.c line 531 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_max[21] = 19 (00010011)
+
+State 25 file rekh_aso.2.M1-1.c line 532 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_start[20] = 18 (00010010)
+
+State 26 file rekh_aso.2.M1-1.c line 533 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_end[20] = 18 (00010010)
+
+State 27 file rekh_aso.2.M1-1.c line 534 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_min[20] = 18 (00010010)
+
+State 28 file rekh_aso.2.M1-1.c line 535 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_max[20] = 18 (00010010)
+
+State 29 file rekh_aso.2.M1-1.c line 536 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_start[19] = 17 (00010001)
+
+State 30 file rekh_aso.2.M1-1.c line 537 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_end[19] = 17 (00010001)
+
+State 31 file rekh_aso.2.M1-1.c line 538 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_min[19] = 17 (00010001)
+
+State 32 file rekh_aso.2.M1-1.c line 539 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_max[19] = 17 (00010001)
+
+State 33 file rekh_aso.2.M1-1.c line 540 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_start[18] = 16 (00010000)
+
+State 34 file rekh_aso.2.M1-1.c line 541 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_end[18] = 16 (00010000)
+
+State 35 file rekh_aso.2.M1-1.c line 542 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_min[18] = 16 (00010000)
+
+State 36 file rekh_aso.2.M1-1.c line 543 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_max[18] = 16 (00010000)
+
+State 37 file rekh_aso.2.M1-1.c line 544 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_start[17] = 15 (00001111)
+
+State 38 file rekh_aso.2.M1-1.c line 545 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_end[17] = 15 (00001111)
+
+State 39 file rekh_aso.2.M1-1.c line 546 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_min[17] = 15 (00001111)
+
+State 40 file rekh_aso.2.M1-1.c line 547 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_max[17] = 15 (00001111)
+
+State 41 file rekh_aso.2.M1-1.c line 548 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_start[16] = 14 (00001110)
+
+State 42 file rekh_aso.2.M1-1.c line 549 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_end[16] = 14 (00001110)
+
+State 43 file rekh_aso.2.M1-1.c line 550 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_min[16] = 14 (00001110)
+
+State 44 file rekh_aso.2.M1-1.c line 551 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_max[16] = 14 (00001110)
+
+State 45 file rekh_aso.2.M1-1.c line 552 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_start[15] = 13 (00001101)
+
+State 46 file rekh_aso.2.M1-1.c line 553 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_end[15] = 13 (00001101)
+
+State 47 file rekh_aso.2.M1-1.c line 554 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_min[15] = 13 (00001101)
+
+State 48 file rekh_aso.2.M1-1.c line 555 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_max[15] = 13 (00001101)
+
+State 49 file rekh_aso.2.M1-1.c line 556 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_start[14] = 14 (00001110)
+
+State 50 file rekh_aso.2.M1-1.c line 557 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_end[14] = 21 (00010101)
+
+State 51 file rekh_aso.2.M1-1.c line 558 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_min[14] = 13 (00001101)
+
+State 52 file rekh_aso.2.M1-1.c line 559 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_max[14] = 25 (00011001)
+
+State 53 file rekh_aso.2.M1-1.c line 560 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_start[13] = 12 (00001100)
+
+State 54 file rekh_aso.2.M1-1.c line 561 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_end[13] = 12 (00001100)
+
+State 55 file rekh_aso.2.M1-1.c line 562 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_min[13] = 12 (00001100)
+
+State 56 file rekh_aso.2.M1-1.c line 563 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_max[13] = 12 (00001100)
+
+State 57 file rekh_aso.2.M1-1.c line 564 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_start[12] = 11 (00001011)
+
+State 58 file rekh_aso.2.M1-1.c line 565 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_end[12] = 11 (00001011)
+
+State 59 file rekh_aso.2.M1-1.c line 566 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_min[12] = 11 (00001011)
+
+State 60 file rekh_aso.2.M1-1.c line 567 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_max[12] = 11 (00001011)
+
+State 61 file rekh_aso.2.M1-1.c line 568 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_start[11] = 10 (00001010)
+
+State 62 file rekh_aso.2.M1-1.c line 569 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_end[11] = 10 (00001010)
+
+State 63 file rekh_aso.2.M1-1.c line 570 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_min[11] = 10 (00001010)
+
+State 64 file rekh_aso.2.M1-1.c line 571 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_max[11] = 10 (00001010)
+
+State 65 file rekh_aso.2.M1-1.c line 572 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_start[10] = 9 (00001001)
+
+State 66 file rekh_aso.2.M1-1.c line 573 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_end[10] = 9 (00001001)
+
+State 67 file rekh_aso.2.M1-1.c line 574 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_min[10] = 9 (00001001)
+
+State 68 file rekh_aso.2.M1-1.c line 575 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_max[10] = 9 (00001001)
+
+State 69 file rekh_aso.2.M1-1.c line 576 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_start[9] = 7 (00000111)
+
+State 70 file rekh_aso.2.M1-1.c line 577 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_end[9] = 7 (00000111)
+
+State 71 file rekh_aso.2.M1-1.c line 578 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_min[9] = 7 (00000111)
+
+State 72 file rekh_aso.2.M1-1.c line 579 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_max[9] = 7 (00000111)
+
+State 73 file rekh_aso.2.M1-1.c line 580 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_start[8] = 6 (00000110)
+
+State 74 file rekh_aso.2.M1-1.c line 581 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_end[8] = 6 (00000110)
+
+State 75 file rekh_aso.2.M1-1.c line 582 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_min[8] = 6 (00000110)
+
+State 76 file rekh_aso.2.M1-1.c line 583 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_max[8] = 6 (00000110)
+
+State 77 file rekh_aso.2.M1-1.c line 584 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_start[7] = 5 (00000101)
+
+State 78 file rekh_aso.2.M1-1.c line 585 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_end[7] = 5 (00000101)
+
+State 79 file rekh_aso.2.M1-1.c line 586 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_min[7] = 5 (00000101)
+
+State 80 file rekh_aso.2.M1-1.c line 587 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_max[7] = 5 (00000101)
+
+State 81 file rekh_aso.2.M1-1.c line 588 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_start[6] = 4 (00000100)
+
+State 82 file rekh_aso.2.M1-1.c line 589 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_end[6] = 4 (00000100)
+
+State 83 file rekh_aso.2.M1-1.c line 590 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_min[6] = 4 (00000100)
+
+State 84 file rekh_aso.2.M1-1.c line 591 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_max[6] = 4 (00000100)
+
+State 85 file rekh_aso.2.M1-1.c line 592 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_start[5] = 3 (00000011)
+
+State 86 file rekh_aso.2.M1-1.c line 593 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_end[5] = 3 (00000011)
+
+State 87 file rekh_aso.2.M1-1.c line 594 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_min[5] = 3 (00000011)
+
+State 88 file rekh_aso.2.M1-1.c line 595 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_max[5] = 3 (00000011)
+
+State 89 file rekh_aso.2.M1-1.c line 596 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_start[4] = 2 (00000010)
+
+State 90 file rekh_aso.2.M1-1.c line 597 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_end[4] = 2 (00000010)
+
+State 91 file rekh_aso.2.M1-1.c line 598 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_min[4] = 2 (00000010)
+
+State 92 file rekh_aso.2.M1-1.c line 599 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_max[4] = 2 (00000010)
+
+State 93 file rekh_aso.2.M1-1.c line 600 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_start[3] = 1 (00000001)
+
+State 94 file rekh_aso.2.M1-1.c line 601 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_end[3] = 1 (00000001)
+
+State 95 file rekh_aso.2.M1-1.c line 602 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_min[3] = 1 (00000001)
+
+State 96 file rekh_aso.2.M1-1.c line 603 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_max[3] = 1 (00000001)
+
+State 97 file rekh_aso.2.M1-1.c line 604 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_start[2] = 0 (00000000)
+
+State 98 file rekh_aso.2.M1-1.c line 605 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_end[2] = 0 (00000000)
+
+State 99 file rekh_aso.2.M1-1.c line 606 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_min[2] = 0 (00000000)
+
+State 100 file rekh_aso.2.M1-1.c line 607 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_max[2] = 0 (00000000)
+
+State 101 file rekh_aso.2.M1-1.c line 608 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_start[1] = 1 (00000001)
+
+State 102 file rekh_aso.2.M1-1.c line 609 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_end[1] = 8 (00001000)
+
+State 103 file rekh_aso.2.M1-1.c line 610 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_min[1] = 0 (00000000)
+
+State 104 file rekh_aso.2.M1-1.c line 611 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_max[1] = 12 (00001100)
+
+State 105 file rekh_aso.2.M1-1.c line 612 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_start[0] = 9 (00001001)
+
+State 106 file rekh_aso.2.M1-1.c line 613 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_end[0] = 26 (00011010)
+
+State 107 file rekh_aso.2.M1-1.c line 614 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_min[0] = 0 (00000000)
+
+State 108 file rekh_aso.2.M1-1.c line 615 function __startrek_schedule_jobs thread 0
+----------------------------------------------------
+  __startrek_max[0] = 26 (00011010)
+
+State 109 file rekh_aso.2.M1-1.c line 1159 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i___startrek_job_count_OSEK_Task_ts1_[1] = 1 (00000001)
+
+State 110 file rekh_aso.2.M1-1.c line 1160 function __startrek_init_globals thread 0
+----------------------------------------------------
+  ___startrek_job_count_OSEK_Task_ts1_[1] = 1 (00000001)
+
+State 111 file rekh_aso.2.M1-1.c line 1161 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i___startrek_job_count_OSEK_Task_ts1_[2] = 2 (00000010)
+
+State 112 file rekh_aso.2.M1-1.c line 1162 function __startrek_init_globals thread 0
+----------------------------------------------------
+  ___startrek_job_count_OSEK_Task_ts1_[2] = 2 (00000010)
+
+State 113 file rekh_aso.2.M1-1.c line 1163 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i___startrek_job_count_OSEK_Task_ts1_[3] = 3 (00000011)
+
+State 114 file rekh_aso.2.M1-1.c line 1164 function __startrek_init_globals thread 0
+----------------------------------------------------
+  ___startrek_job_count_OSEK_Task_ts1_[3] = 3 (00000011)
+
+State 115 file rekh_aso.2.M1-1.c line 1165 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i___startrek_job_count_OSEK_Task_ts1_[4] = 4 (00000100)
+
+State 116 file rekh_aso.2.M1-1.c line 1166 function __startrek_init_globals thread 0
+----------------------------------------------------
+  ___startrek_job_count_OSEK_Task_ts1_[4] = 4 (00000100)
+
+State 117 file rekh_aso.2.M1-1.c line 1167 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i___startrek_job_count_OSEK_Task_ts1_[5] = 5 (00000101)
+
+State 118 file rekh_aso.2.M1-1.c line 1168 function __startrek_init_globals thread 0
+----------------------------------------------------
+  ___startrek_job_count_OSEK_Task_ts1_[5] = 5 (00000101)
+
+State 119 file rekh_aso.2.M1-1.c line 1169 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i___startrek_job_count_OSEK_Task_ts1_[6] = 6 (00000110)
+
+State 120 file rekh_aso.2.M1-1.c line 1170 function __startrek_init_globals thread 0
+----------------------------------------------------
+  ___startrek_job_count_OSEK_Task_ts1_[6] = 6 (00000110)
+
+State 121 file rekh_aso.2.M1-1.c line 1171 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i___startrek_job_count_OSEK_Task_ts1_[7] = 7 (00000111)
+
+State 122 file rekh_aso.2.M1-1.c line 1172 function __startrek_init_globals thread 0
+----------------------------------------------------
+  ___startrek_job_count_OSEK_Task_ts1_[7] = 7 (00000111)
+
+State 123 file rekh_aso.2.M1-1.c line 1173 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i___startrek_job_count_OSEK_Task_ts1_[8] = 8 (00001000)
+
+State 124 file rekh_aso.2.M1-1.c line 1174 function __startrek_init_globals thread 0
+----------------------------------------------------
+  ___startrek_job_count_OSEK_Task_ts1_[8] = 8 (00001000)
+
+State 125 file rekh_aso.2.M1-1.c line 1175 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i___startrek_job_count_OSEK_Task_ts1_[9] = 8 (00001000)
+
+State 126 file rekh_aso.2.M1-1.c line 1176 function __startrek_init_globals thread 0
+----------------------------------------------------
+  ___startrek_job_count_OSEK_Task_ts1_[9] = 8 (00001000)
+
+State 127 file rekh_aso.2.M1-1.c line 1177 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i___startrek_job_count_OSEK_Task_ts1_[10] = 9 (00001001)
+
+State 128 file rekh_aso.2.M1-1.c line 1178 function __startrek_init_globals thread 0
+----------------------------------------------------
+  ___startrek_job_count_OSEK_Task_ts1_[10] = 9 (00001001)
+
+State 129 file rekh_aso.2.M1-1.c line 1179 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i___startrek_job_count_OSEK_Task_ts1_[11] = 10 (00001010)
+
+State 130 file rekh_aso.2.M1-1.c line 1180 function __startrek_init_globals thread 0
+----------------------------------------------------
+  ___startrek_job_count_OSEK_Task_ts1_[11] = 10 (00001010)
+
+State 131 file rekh_aso.2.M1-1.c line 1181 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i___startrek_job_count_OSEK_Task_ts1_[12] = 11 (00001011)
+
+State 132 file rekh_aso.2.M1-1.c line 1182 function __startrek_init_globals thread 0
+----------------------------------------------------
+  ___startrek_job_count_OSEK_Task_ts1_[12] = 11 (00001011)
+
+State 133 file rekh_aso.2.M1-1.c line 1183 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i___startrek_job_count_OSEK_Task_ts1_[13] = 12 (00001100)
+
+State 134 file rekh_aso.2.M1-1.c line 1184 function __startrek_init_globals thread 0
+----------------------------------------------------
+  ___startrek_job_count_OSEK_Task_ts1_[13] = 12 (00001100)
+
+State 135 file rekh_aso.2.M1-1.c line 1185 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i___startrek_job_count_OSEK_Task_ts1_[14] = 13 (00001101)
+
+State 136 file rekh_aso.2.M1-1.c line 1186 function __startrek_init_globals thread 0
+----------------------------------------------------
+  ___startrek_job_count_OSEK_Task_ts1_[14] = 13 (00001101)
+
+State 137 file rekh_aso.2.M1-1.c line 1187 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i___startrek_job_count_OSEK_Task_ts1_[15] = 14 (00001110)
+
+State 138 file rekh_aso.2.M1-1.c line 1188 function __startrek_init_globals thread 0
+----------------------------------------------------
+  ___startrek_job_count_OSEK_Task_ts1_[15] = 14 (00001110)
+
+State 139 file rekh_aso.2.M1-1.c line 1189 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i___startrek_job_count_OSEK_Task_ts1_[16] = 15 (00001111)
+
+State 140 file rekh_aso.2.M1-1.c line 1190 function __startrek_init_globals thread 0
+----------------------------------------------------
+  ___startrek_job_count_OSEK_Task_ts1_[16] = 15 (00001111)
+
+State 141 file rekh_aso.2.M1-1.c line 1191 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i___startrek_job_count_OSEK_Task_ts1_[17] = 16 (00010000)
+
+State 142 file rekh_aso.2.M1-1.c line 1192 function __startrek_init_globals thread 0
+----------------------------------------------------
+  ___startrek_job_count_OSEK_Task_ts1_[17] = 16 (00010000)
+
+State 143 file rekh_aso.2.M1-1.c line 1193 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i___startrek_job_count_OSEK_Task_ts1_[18] = 17 (00010001)
+
+State 144 file rekh_aso.2.M1-1.c line 1194 function __startrek_init_globals thread 0
+----------------------------------------------------
+  ___startrek_job_count_OSEK_Task_ts1_[18] = 17 (00010001)
+
+State 145 file rekh_aso.2.M1-1.c line 1195 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i___startrek_job_count_OSEK_Task_ts1_[19] = 18 (00010010)
+
+State 146 file rekh_aso.2.M1-1.c line 1196 function __startrek_init_globals thread 0
+----------------------------------------------------
+  ___startrek_job_count_OSEK_Task_ts1_[19] = 18 (00010010)
+
+State 147 file rekh_aso.2.M1-1.c line 1197 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i___startrek_job_count_OSEK_Task_ts1_[20] = 19 (00010011)
+
+State 148 file rekh_aso.2.M1-1.c line 1198 function __startrek_init_globals thread 0
+----------------------------------------------------
+  ___startrek_job_count_OSEK_Task_ts1_[20] = 19 (00010011)
+
+State 149 file rekh_aso.2.M1-1.c line 1199 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i___startrek_job_count_OSEK_Task_ts1_[21] = 20 (00010100)
+
+State 150 file rekh_aso.2.M1-1.c line 1200 function __startrek_init_globals thread 0
+----------------------------------------------------
+  ___startrek_job_count_OSEK_Task_ts1_[21] = 20 (00010100)
+
+State 151 file rekh_aso.2.M1-1.c line 1201 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i___startrek_job_count_OSEK_Task_ts1_[22] = 20 (00010100)
+
+State 152 file rekh_aso.2.M1-1.c line 1202 function __startrek_init_globals thread 0
+----------------------------------------------------
+  ___startrek_job_count_OSEK_Task_ts1_[22] = 20 (00010100)
+
+State 153 file rekh_aso.2.M1-1.c line 1203 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i___startrek_job_count_OSEK_Task_ts1_[23] = 21 (00010101)
+
+State 154 file rekh_aso.2.M1-1.c line 1204 function __startrek_init_globals thread 0
+----------------------------------------------------
+  ___startrek_job_count_OSEK_Task_ts1_[23] = 21 (00010101)
+
+State 155 file rekh_aso.2.M1-1.c line 1205 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i___startrek_job_count_OSEK_Task_ts1_[24] = 22 (00010110)
+
+State 156 file rekh_aso.2.M1-1.c line 1206 function __startrek_init_globals thread 0
+----------------------------------------------------
+  ___startrek_job_count_OSEK_Task_ts1_[24] = 22 (00010110)
+
+State 157 file rekh_aso.2.M1-1.c line 1207 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i___startrek_job_count_OSEK_Task_ts1_[25] = 23 (00010111)
+
+State 158 file rekh_aso.2.M1-1.c line 1208 function __startrek_init_globals thread 0
+----------------------------------------------------
+  ___startrek_job_count_OSEK_Task_ts1_[25] = 23 (00010111)
+
+State 159 file rekh_aso.2.M1-1.c line 1209 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i___startrek_job_count_OSEK_Task_ts1_[26] = 24 (00011000)
+
+State 160 file rekh_aso.2.M1-1.c line 1210 function __startrek_init_globals thread 0
+----------------------------------------------------
+  ___startrek_job_count_OSEK_Task_ts1_[26] = 24 (00011000)
+
+State 161 file rekh_aso.2.M1-1.c line 1211 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i___startrek_job_count_OSEK_Task_ts2_[1] = 0 (00000000)
+
+State 162 file rekh_aso.2.M1-1.c line 1212 function __startrek_init_globals thread 0
+----------------------------------------------------
+  ___startrek_job_count_OSEK_Task_ts2_[1] = 0 (00000000)
+
+State 163 file rekh_aso.2.M1-1.c line 1213 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i___startrek_job_count_OSEK_Task_ts2_[2] = 0 (00000000)
+
+State 164 file rekh_aso.2.M1-1.c line 1214 function __startrek_init_globals thread 0
+----------------------------------------------------
+  ___startrek_job_count_OSEK_Task_ts2_[2] = 0 (00000000)
+
+State 165 file rekh_aso.2.M1-1.c line 1215 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i___startrek_job_count_OSEK_Task_ts2_[3] = 0 (00000000)
+
+State 166 file rekh_aso.2.M1-1.c line 1216 function __startrek_init_globals thread 0
+----------------------------------------------------
+  ___startrek_job_count_OSEK_Task_ts2_[3] = 0 (00000000)
+
+State 167 file rekh_aso.2.M1-1.c line 1217 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i___startrek_job_count_OSEK_Task_ts2_[4] = 0 (00000000)
+
+State 168 file rekh_aso.2.M1-1.c line 1218 function __startrek_init_globals thread 0
+----------------------------------------------------
+  ___startrek_job_count_OSEK_Task_ts2_[4] = 0 (00000000)
+
+State 169 file rekh_aso.2.M1-1.c line 1219 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i___startrek_job_count_OSEK_Task_ts2_[5] = 0 (00000000)
+
+State 170 file rekh_aso.2.M1-1.c line 1220 function __startrek_init_globals thread 0
+----------------------------------------------------
+  ___startrek_job_count_OSEK_Task_ts2_[5] = 0 (00000000)
+
+State 171 file rekh_aso.2.M1-1.c line 1221 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i___startrek_job_count_OSEK_Task_ts2_[6] = 0 (00000000)
+
+State 172 file rekh_aso.2.M1-1.c line 1222 function __startrek_init_globals thread 0
+----------------------------------------------------
+  ___startrek_job_count_OSEK_Task_ts2_[6] = 0 (00000000)
+
+State 173 file rekh_aso.2.M1-1.c line 1223 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i___startrek_job_count_OSEK_Task_ts2_[7] = 0 (00000000)
+
+State 174 file rekh_aso.2.M1-1.c line 1224 function __startrek_init_globals thread 0
+----------------------------------------------------
+  ___startrek_job_count_OSEK_Task_ts2_[7] = 0 (00000000)
+
+State 175 file rekh_aso.2.M1-1.c line 1225 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i___startrek_job_count_OSEK_Task_ts2_[8] = 0 (00000000)
+
+State 176 file rekh_aso.2.M1-1.c line 1226 function __startrek_init_globals thread 0
+----------------------------------------------------
+  ___startrek_job_count_OSEK_Task_ts2_[8] = 0 (00000000)
+
+State 177 file rekh_aso.2.M1-1.c line 1227 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i___startrek_job_count_OSEK_Task_ts2_[9] = 1 (00000001)
+
+State 178 file rekh_aso.2.M1-1.c line 1228 function __startrek_init_globals thread 0
+----------------------------------------------------
+  ___startrek_job_count_OSEK_Task_ts2_[9] = 1 (00000001)
+
+State 179 file rekh_aso.2.M1-1.c line 1229 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i___startrek_job_count_OSEK_Task_ts2_[10] = 1 (00000001)
+
+State 180 file rekh_aso.2.M1-1.c line 1230 function __startrek_init_globals thread 0
+----------------------------------------------------
+  ___startrek_job_count_OSEK_Task_ts2_[10] = 1 (00000001)
+
+State 181 file rekh_aso.2.M1-1.c line 1231 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i___startrek_job_count_OSEK_Task_ts2_[11] = 1 (00000001)
+
+State 182 file rekh_aso.2.M1-1.c line 1232 function __startrek_init_globals thread 0
+----------------------------------------------------
+  ___startrek_job_count_OSEK_Task_ts2_[11] = 1 (00000001)
+
+State 183 file rekh_aso.2.M1-1.c line 1233 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i___startrek_job_count_OSEK_Task_ts2_[12] = 1 (00000001)
+
+State 184 file rekh_aso.2.M1-1.c line 1234 function __startrek_init_globals thread 0
+----------------------------------------------------
+  ___startrek_job_count_OSEK_Task_ts2_[12] = 1 (00000001)
+
+State 185 file rekh_aso.2.M1-1.c line 1235 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i___startrek_job_count_OSEK_Task_ts2_[13] = 1 (00000001)
+
+State 186 file rekh_aso.2.M1-1.c line 1236 function __startrek_init_globals thread 0
+----------------------------------------------------
+  ___startrek_job_count_OSEK_Task_ts2_[13] = 1 (00000001)
+
+State 187 file rekh_aso.2.M1-1.c line 1237 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i___startrek_job_count_OSEK_Task_ts2_[14] = 1 (00000001)
+
+State 188 file rekh_aso.2.M1-1.c line 1238 function __startrek_init_globals thread 0
+----------------------------------------------------
+  ___startrek_job_count_OSEK_Task_ts2_[14] = 1 (00000001)
+
+State 189 file rekh_aso.2.M1-1.c line 1239 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i___startrek_job_count_OSEK_Task_ts2_[15] = 1 (00000001)
+
+State 190 file rekh_aso.2.M1-1.c line 1240 function __startrek_init_globals thread 0
+----------------------------------------------------
+  ___startrek_job_count_OSEK_Task_ts2_[15] = 1 (00000001)
+
+State 191 file rekh_aso.2.M1-1.c line 1241 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i___startrek_job_count_OSEK_Task_ts2_[16] = 1 (00000001)
+
+State 192 file rekh_aso.2.M1-1.c line 1242 function __startrek_init_globals thread 0
+----------------------------------------------------
+  ___startrek_job_count_OSEK_Task_ts2_[16] = 1 (00000001)
+
+State 193 file rekh_aso.2.M1-1.c line 1243 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i___startrek_job_count_OSEK_Task_ts2_[17] = 1 (00000001)
+
+State 194 file rekh_aso.2.M1-1.c line 1244 function __startrek_init_globals thread 0
+----------------------------------------------------
+  ___startrek_job_count_OSEK_Task_ts2_[17] = 1 (00000001)
+
+State 195 file rekh_aso.2.M1-1.c line 1245 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i___startrek_job_count_OSEK_Task_ts2_[18] = 1 (00000001)
+
+State 196 file rekh_aso.2.M1-1.c line 1246 function __startrek_init_globals thread 0
+----------------------------------------------------
+  ___startrek_job_count_OSEK_Task_ts2_[18] = 1 (00000001)
+
+State 197 file rekh_aso.2.M1-1.c line 1247 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i___startrek_job_count_OSEK_Task_ts2_[19] = 1 (00000001)
+
+State 198 file rekh_aso.2.M1-1.c line 1248 function __startrek_init_globals thread 0
+----------------------------------------------------
+  ___startrek_job_count_OSEK_Task_ts2_[19] = 1 (00000001)
+
+State 199 file rekh_aso.2.M1-1.c line 1249 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i___startrek_job_count_OSEK_Task_ts2_[20] = 1 (00000001)
+
+State 200 file rekh_aso.2.M1-1.c line 1250 function __startrek_init_globals thread 0
+----------------------------------------------------
+  ___startrek_job_count_OSEK_Task_ts2_[20] = 1 (00000001)
+
+State 201 file rekh_aso.2.M1-1.c line 1251 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i___startrek_job_count_OSEK_Task_ts2_[21] = 1 (00000001)
+
+State 202 file rekh_aso.2.M1-1.c line 1252 function __startrek_init_globals thread 0
+----------------------------------------------------
+  ___startrek_job_count_OSEK_Task_ts2_[21] = 1 (00000001)
+
+State 203 file rekh_aso.2.M1-1.c line 1253 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i___startrek_job_count_OSEK_Task_ts2_[22] = 2 (00000010)
+
+State 204 file rekh_aso.2.M1-1.c line 1254 function __startrek_init_globals thread 0
+----------------------------------------------------
+  ___startrek_job_count_OSEK_Task_ts2_[22] = 2 (00000010)
+
+State 205 file rekh_aso.2.M1-1.c line 1255 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i___startrek_job_count_OSEK_Task_ts2_[23] = 2 (00000010)
+
+State 206 file rekh_aso.2.M1-1.c line 1256 function __startrek_init_globals thread 0
+----------------------------------------------------
+  ___startrek_job_count_OSEK_Task_ts2_[23] = 2 (00000010)
+
+State 207 file rekh_aso.2.M1-1.c line 1257 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i___startrek_job_count_OSEK_Task_ts2_[24] = 2 (00000010)
+
+State 208 file rekh_aso.2.M1-1.c line 1258 function __startrek_init_globals thread 0
+----------------------------------------------------
+  ___startrek_job_count_OSEK_Task_ts2_[24] = 2 (00000010)
+
+State 209 file rekh_aso.2.M1-1.c line 1259 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i___startrek_job_count_OSEK_Task_ts2_[25] = 2 (00000010)
+
+State 210 file rekh_aso.2.M1-1.c line 1260 function __startrek_init_globals thread 0
+----------------------------------------------------
+  ___startrek_job_count_OSEK_Task_ts2_[25] = 2 (00000010)
+
+State 211 file rekh_aso.2.M1-1.c line 1261 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i___startrek_job_count_OSEK_Task_ts2_[26] = 2 (00000010)
+
+State 212 file rekh_aso.2.M1-1.c line 1262 function __startrek_init_globals thread 0
+----------------------------------------------------
+  ___startrek_job_count_OSEK_Task_ts2_[26] = 2 (00000010)
+
+State 213 file rekh_aso.2.M1-1.c line 1263 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_trans_[1] = 0
+
+State 214 file rekh_aso.2.M1-1.c line 1264 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _trans_[1] = 0
+
+State 215 file rekh_aso.2.M1-1.c line 1265 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_trans_[2] = 0
+
+State 216 file rekh_aso.2.M1-1.c line 1266 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _trans_[2] = 0
+
+State 217 file rekh_aso.2.M1-1.c line 1267 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_trans_[3] = 0
+
+State 218 file rekh_aso.2.M1-1.c line 1268 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _trans_[3] = 0
+
+State 219 file rekh_aso.2.M1-1.c line 1269 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_trans_[4] = 0
+
+State 220 file rekh_aso.2.M1-1.c line 1270 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _trans_[4] = 0
+
+State 221 file rekh_aso.2.M1-1.c line 1271 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_trans_[5] = 0
+
+State 222 file rekh_aso.2.M1-1.c line 1272 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _trans_[5] = 0
+
+State 223 file rekh_aso.2.M1-1.c line 1273 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_trans_[6] = 0
+
+State 224 file rekh_aso.2.M1-1.c line 1274 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _trans_[6] = 0
+
+State 225 file rekh_aso.2.M1-1.c line 1275 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_trans_[7] = 0
+
+State 226 file rekh_aso.2.M1-1.c line 1276 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _trans_[7] = 0
+
+State 227 file rekh_aso.2.M1-1.c line 1277 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_trans_[8] = 0
+
+State 228 file rekh_aso.2.M1-1.c line 1278 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _trans_[8] = 0
+
+State 229 file rekh_aso.2.M1-1.c line 1279 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_trans_[9] = 0
+
+State 230 file rekh_aso.2.M1-1.c line 1280 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _trans_[9] = 0
+
+State 231 file rekh_aso.2.M1-1.c line 1281 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_trans_[10] = 0
+
+State 232 file rekh_aso.2.M1-1.c line 1282 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _trans_[10] = 0
+
+State 233 file rekh_aso.2.M1-1.c line 1283 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_trans_[11] = 0
+
+State 234 file rekh_aso.2.M1-1.c line 1284 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _trans_[11] = 0
+
+State 235 file rekh_aso.2.M1-1.c line 1285 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_trans_[12] = 0
+
+State 236 file rekh_aso.2.M1-1.c line 1286 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _trans_[12] = 0
+
+State 237 file rekh_aso.2.M1-1.c line 1287 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_trans_[13] = 0
+
+State 238 file rekh_aso.2.M1-1.c line 1288 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _trans_[13] = 0
+
+State 239 file rekh_aso.2.M1-1.c line 1289 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_trans_[14] = 0
+
+State 240 file rekh_aso.2.M1-1.c line 1290 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _trans_[14] = 0
+
+State 241 file rekh_aso.2.M1-1.c line 1291 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_trans_[15] = 1
+
+State 242 file rekh_aso.2.M1-1.c line 1292 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _trans_[15] = 1
+
+State 243 file rekh_aso.2.M1-1.c line 1293 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_trans_[16] = 1
+
+State 244 file rekh_aso.2.M1-1.c line 1294 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _trans_[16] = 1
+
+State 245 file rekh_aso.2.M1-1.c line 1295 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_trans_[17] = 1
+
+State 246 file rekh_aso.2.M1-1.c line 1296 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _trans_[17] = 1
+
+State 247 file rekh_aso.2.M1-1.c line 1297 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_trans_[18] = 1
+
+State 248 file rekh_aso.2.M1-1.c line 1298 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _trans_[18] = 1
+
+State 249 file rekh_aso.2.M1-1.c line 1299 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_trans_[19] = 1
+
+State 250 file rekh_aso.2.M1-1.c line 1300 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _trans_[19] = 1
+
+State 251 file rekh_aso.2.M1-1.c line 1301 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_trans_[20] = 1
+
+State 252 file rekh_aso.2.M1-1.c line 1302 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _trans_[20] = 1
+
+State 253 file rekh_aso.2.M1-1.c line 1303 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_trans_[21] = 1
+
+State 254 file rekh_aso.2.M1-1.c line 1304 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _trans_[21] = 1
+
+State 255 file rekh_aso.2.M1-1.c line 1305 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_trans_[22] = 0
+
+State 256 file rekh_aso.2.M1-1.c line 1306 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _trans_[22] = 0
+
+State 257 file rekh_aso.2.M1-1.c line 1307 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_trans_[23] = 0
+
+State 258 file rekh_aso.2.M1-1.c line 1308 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _trans_[23] = 0
+
+State 259 file rekh_aso.2.M1-1.c line 1309 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_trans_[24] = 0
+
+State 260 file rekh_aso.2.M1-1.c line 1310 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _trans_[24] = 0
+
+State 261 file rekh_aso.2.M1-1.c line 1311 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_trans_[25] = 0
+
+State 262 file rekh_aso.2.M1-1.c line 1312 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _trans_[25] = 0
+
+State 263 file rekh_aso.2.M1-1.c line 1313 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_trans_[26] = 0
+
+State 264 file rekh_aso.2.M1-1.c line 1314 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _trans_[26] = 0
+
+State 265 file rekh_aso.2.M1-1.c line 1315 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_cmd_turn_[1] = 0 (00000000)
+
+State 266 file rekh_aso.2.M1-1.c line 1316 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _cmd_turn_[1] = 0 (00000000)
+
+State 267 file rekh_aso.2.M1-1.c line 1317 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_cmd_turn_[2] = 0 (00000000)
+
+State 268 file rekh_aso.2.M1-1.c line 1318 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _cmd_turn_[2] = 0 (00000000)
+
+State 269 file rekh_aso.2.M1-1.c line 1319 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_cmd_turn_[3] = 0 (00000000)
+
+State 270 file rekh_aso.2.M1-1.c line 1320 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _cmd_turn_[3] = 0 (00000000)
+
+State 271 file rekh_aso.2.M1-1.c line 1321 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_cmd_turn_[4] = 0 (00000000)
+
+State 272 file rekh_aso.2.M1-1.c line 1322 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _cmd_turn_[4] = 0 (00000000)
+
+State 273 file rekh_aso.2.M1-1.c line 1323 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_cmd_turn_[5] = 0 (00000000)
+
+State 274 file rekh_aso.2.M1-1.c line 1324 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _cmd_turn_[5] = 0 (00000000)
+
+State 275 file rekh_aso.2.M1-1.c line 1325 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_cmd_turn_[6] = 0 (00000000)
+
+State 276 file rekh_aso.2.M1-1.c line 1326 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _cmd_turn_[6] = 0 (00000000)
+
+State 277 file rekh_aso.2.M1-1.c line 1327 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_cmd_turn_[7] = 0 (00000000)
+
+State 278 file rekh_aso.2.M1-1.c line 1328 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _cmd_turn_[7] = 0 (00000000)
+
+State 279 file rekh_aso.2.M1-1.c line 1329 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_cmd_turn_[8] = 0 (00000000)
+
+State 280 file rekh_aso.2.M1-1.c line 1330 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _cmd_turn_[8] = 0 (00000000)
+
+State 281 file rekh_aso.2.M1-1.c line 1331 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_cmd_turn_[9] = 0 (00000000)
+
+State 282 file rekh_aso.2.M1-1.c line 1332 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _cmd_turn_[9] = 0 (00000000)
+
+State 283 file rekh_aso.2.M1-1.c line 1333 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_cmd_turn_[10] = 0 (00000000)
+
+State 284 file rekh_aso.2.M1-1.c line 1334 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _cmd_turn_[10] = 0 (00000000)
+
+State 285 file rekh_aso.2.M1-1.c line 1335 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_cmd_turn_[11] = 0 (00000000)
+
+State 286 file rekh_aso.2.M1-1.c line 1336 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _cmd_turn_[11] = 0 (00000000)
+
+State 287 file rekh_aso.2.M1-1.c line 1337 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_cmd_turn_[12] = 0 (00000000)
+
+State 288 file rekh_aso.2.M1-1.c line 1338 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _cmd_turn_[12] = 0 (00000000)
+
+State 289 file rekh_aso.2.M1-1.c line 1339 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_cmd_turn_[13] = 0 (00000000)
+
+State 290 file rekh_aso.2.M1-1.c line 1340 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _cmd_turn_[13] = 0 (00000000)
+
+State 291 file rekh_aso.2.M1-1.c line 1341 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_cmd_turn_[14] = 0 (00000000)
+
+State 292 file rekh_aso.2.M1-1.c line 1342 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _cmd_turn_[14] = 0 (00000000)
+
+State 293 file rekh_aso.2.M1-1.c line 1343 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_cmd_turn_[15] = 0 (00000000)
+
+State 294 file rekh_aso.2.M1-1.c line 1344 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _cmd_turn_[15] = 0 (00000000)
+
+State 295 file rekh_aso.2.M1-1.c line 1345 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_cmd_turn_[16] = 0 (00000000)
+
+State 296 file rekh_aso.2.M1-1.c line 1346 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _cmd_turn_[16] = 0 (00000000)
+
+State 297 file rekh_aso.2.M1-1.c line 1347 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_cmd_turn_[17] = 0 (00000000)
+
+State 298 file rekh_aso.2.M1-1.c line 1348 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _cmd_turn_[17] = 0 (00000000)
+
+State 299 file rekh_aso.2.M1-1.c line 1349 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_cmd_turn_[18] = 0 (00000000)
+
+State 300 file rekh_aso.2.M1-1.c line 1350 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _cmd_turn_[18] = 0 (00000000)
+
+State 301 file rekh_aso.2.M1-1.c line 1351 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_cmd_turn_[19] = 0 (00000000)
+
+State 302 file rekh_aso.2.M1-1.c line 1352 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _cmd_turn_[19] = 0 (00000000)
+
+State 303 file rekh_aso.2.M1-1.c line 1353 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_cmd_turn_[20] = 0 (00000000)
+
+State 304 file rekh_aso.2.M1-1.c line 1354 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _cmd_turn_[20] = 0 (00000000)
+
+State 305 file rekh_aso.2.M1-1.c line 1355 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_cmd_turn_[21] = 0 (00000000)
+
+State 306 file rekh_aso.2.M1-1.c line 1356 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _cmd_turn_[21] = 0 (00000000)
+
+State 307 file rekh_aso.2.M1-1.c line 1357 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_cmd_turn_[22] = 0 (00000000)
+
+State 308 file rekh_aso.2.M1-1.c line 1358 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _cmd_turn_[22] = 0 (00000000)
+
+State 309 file rekh_aso.2.M1-1.c line 1359 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_cmd_turn_[23] = 0 (00000000)
+
+State 310 file rekh_aso.2.M1-1.c line 1360 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _cmd_turn_[23] = 0 (00000000)
+
+State 311 file rekh_aso.2.M1-1.c line 1361 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_cmd_turn_[24] = 0 (00000000)
+
+State 312 file rekh_aso.2.M1-1.c line 1362 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _cmd_turn_[24] = 0 (00000000)
+
+State 313 file rekh_aso.2.M1-1.c line 1363 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_cmd_turn_[25] = 0 (00000000)
+
+State 314 file rekh_aso.2.M1-1.c line 1364 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _cmd_turn_[25] = 0 (00000000)
+
+State 315 file rekh_aso.2.M1-1.c line 1365 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_cmd_turn_[26] = 0 (00000000)
+
+State 316 file rekh_aso.2.M1-1.c line 1366 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _cmd_turn_[26] = 0 (00000000)
+
+State 317 file rekh_aso.2.M1-1.c line 1367 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_cmd_forward_[1] = 0 (00000000)
+
+State 318 file rekh_aso.2.M1-1.c line 1368 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _cmd_forward_[1] = 0 (00000000)
+
+State 319 file rekh_aso.2.M1-1.c line 1369 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_cmd_forward_[2] = 0 (00000000)
+
+State 320 file rekh_aso.2.M1-1.c line 1370 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _cmd_forward_[2] = 0 (00000000)
+
+State 321 file rekh_aso.2.M1-1.c line 1371 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_cmd_forward_[3] = 0 (00000000)
+
+State 322 file rekh_aso.2.M1-1.c line 1372 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _cmd_forward_[3] = 0 (00000000)
+
+State 323 file rekh_aso.2.M1-1.c line 1373 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_cmd_forward_[4] = 0 (00000000)
+
+State 324 file rekh_aso.2.M1-1.c line 1374 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _cmd_forward_[4] = 0 (00000000)
+
+State 325 file rekh_aso.2.M1-1.c line 1375 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_cmd_forward_[5] = 0 (00000000)
+
+State 326 file rekh_aso.2.M1-1.c line 1376 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _cmd_forward_[5] = 0 (00000000)
+
+State 327 file rekh_aso.2.M1-1.c line 1377 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_cmd_forward_[6] = 0 (00000000)
+
+State 328 file rekh_aso.2.M1-1.c line 1378 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _cmd_forward_[6] = 0 (00000000)
+
+State 329 file rekh_aso.2.M1-1.c line 1379 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_cmd_forward_[7] = 0 (00000000)
+
+State 330 file rekh_aso.2.M1-1.c line 1380 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _cmd_forward_[7] = 0 (00000000)
+
+State 331 file rekh_aso.2.M1-1.c line 1381 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_cmd_forward_[8] = 0 (00000000)
+
+State 332 file rekh_aso.2.M1-1.c line 1382 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _cmd_forward_[8] = 0 (00000000)
+
+State 333 file rekh_aso.2.M1-1.c line 1383 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_cmd_forward_[9] = 0 (00000000)
+
+State 334 file rekh_aso.2.M1-1.c line 1384 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _cmd_forward_[9] = 0 (00000000)
+
+State 335 file rekh_aso.2.M1-1.c line 1385 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_cmd_forward_[10] = 0 (00000000)
+
+State 336 file rekh_aso.2.M1-1.c line 1386 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _cmd_forward_[10] = 0 (00000000)
+
+State 337 file rekh_aso.2.M1-1.c line 1387 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_cmd_forward_[11] = 0 (00000000)
+
+State 338 file rekh_aso.2.M1-1.c line 1388 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _cmd_forward_[11] = 0 (00000000)
+
+State 339 file rekh_aso.2.M1-1.c line 1389 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_cmd_forward_[12] = 0 (00000000)
+
+State 340 file rekh_aso.2.M1-1.c line 1390 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _cmd_forward_[12] = 0 (00000000)
+
+State 341 file rekh_aso.2.M1-1.c line 1391 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_cmd_forward_[13] = 0 (00000000)
+
+State 342 file rekh_aso.2.M1-1.c line 1392 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _cmd_forward_[13] = 0 (00000000)
+
+State 343 file rekh_aso.2.M1-1.c line 1393 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_cmd_forward_[14] = 0 (00000000)
+
+State 344 file rekh_aso.2.M1-1.c line 1394 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _cmd_forward_[14] = 0 (00000000)
+
+State 345 file rekh_aso.2.M1-1.c line 1395 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_cmd_forward_[15] = 0 (00000000)
+
+State 346 file rekh_aso.2.M1-1.c line 1396 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _cmd_forward_[15] = 0 (00000000)
+
+State 347 file rekh_aso.2.M1-1.c line 1397 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_cmd_forward_[16] = 0 (00000000)
+
+State 348 file rekh_aso.2.M1-1.c line 1398 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _cmd_forward_[16] = 0 (00000000)
+
+State 349 file rekh_aso.2.M1-1.c line 1399 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_cmd_forward_[17] = 0 (00000000)
+
+State 350 file rekh_aso.2.M1-1.c line 1400 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _cmd_forward_[17] = 0 (00000000)
+
+State 351 file rekh_aso.2.M1-1.c line 1401 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_cmd_forward_[18] = 0 (00000000)
+
+State 352 file rekh_aso.2.M1-1.c line 1402 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _cmd_forward_[18] = 0 (00000000)
+
+State 353 file rekh_aso.2.M1-1.c line 1403 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_cmd_forward_[19] = 0 (00000000)
+
+State 354 file rekh_aso.2.M1-1.c line 1404 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _cmd_forward_[19] = 0 (00000000)
+
+State 355 file rekh_aso.2.M1-1.c line 1405 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_cmd_forward_[20] = 0 (00000000)
+
+State 356 file rekh_aso.2.M1-1.c line 1406 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _cmd_forward_[20] = 0 (00000000)
+
+State 357 file rekh_aso.2.M1-1.c line 1407 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_cmd_forward_[21] = 0 (00000000)
+
+State 358 file rekh_aso.2.M1-1.c line 1408 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _cmd_forward_[21] = 0 (00000000)
+
+State 359 file rekh_aso.2.M1-1.c line 1409 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_cmd_forward_[22] = -100 (10011100)
+
+State 360 file rekh_aso.2.M1-1.c line 1410 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _cmd_forward_[22] = -100 (10011100)
+
+State 361 file rekh_aso.2.M1-1.c line 1411 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_cmd_forward_[23] = -120 (10001000)
+
+State 362 file rekh_aso.2.M1-1.c line 1412 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _cmd_forward_[23] = -120 (10001000)
+
+State 363 file rekh_aso.2.M1-1.c line 1413 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_cmd_forward_[24] = -120 (10001000)
+
+State 364 file rekh_aso.2.M1-1.c line 1414 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _cmd_forward_[24] = -120 (10001000)
+
+State 365 file rekh_aso.2.M1-1.c line 1415 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_cmd_forward_[25] = -100 (10011100)
+
+State 366 file rekh_aso.2.M1-1.c line 1416 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _cmd_forward_[25] = -100 (10011100)
+
+State 367 file rekh_aso.2.M1-1.c line 1417 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_cmd_forward_[26] = -100 (10011100)
+
+State 368 file rekh_aso.2.M1-1.c line 1418 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _cmd_forward_[26] = -100 (10011100)
+
+State 369 file rekh_aso.2.M1-1.c line 1419 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_obstacle_flag_[1] = 0
+
+State 370 file rekh_aso.2.M1-1.c line 1420 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _obstacle_flag_[1] = 0
+
+State 371 file rekh_aso.2.M1-1.c line 1421 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_obstacle_flag_[2] = 0
+
+State 372 file rekh_aso.2.M1-1.c line 1422 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _obstacle_flag_[2] = 0
+
+State 373 file rekh_aso.2.M1-1.c line 1423 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_obstacle_flag_[3] = 0
+
+State 374 file rekh_aso.2.M1-1.c line 1424 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _obstacle_flag_[3] = 0
+
+State 375 file rekh_aso.2.M1-1.c line 1425 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_obstacle_flag_[4] = 0
+
+State 376 file rekh_aso.2.M1-1.c line 1426 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _obstacle_flag_[4] = 0
+
+State 377 file rekh_aso.2.M1-1.c line 1427 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_obstacle_flag_[5] = 0
+
+State 378 file rekh_aso.2.M1-1.c line 1428 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _obstacle_flag_[5] = 0
+
+State 379 file rekh_aso.2.M1-1.c line 1429 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_obstacle_flag_[6] = 0
+
+State 380 file rekh_aso.2.M1-1.c line 1430 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _obstacle_flag_[6] = 0
+
+State 381 file rekh_aso.2.M1-1.c line 1431 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_obstacle_flag_[7] = 0
+
+State 382 file rekh_aso.2.M1-1.c line 1432 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _obstacle_flag_[7] = 0
+
+State 383 file rekh_aso.2.M1-1.c line 1433 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_obstacle_flag_[8] = 0
+
+State 384 file rekh_aso.2.M1-1.c line 1434 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _obstacle_flag_[8] = 0
+
+State 385 file rekh_aso.2.M1-1.c line 1435 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_obstacle_flag_[9] = 0
+
+State 386 file rekh_aso.2.M1-1.c line 1436 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _obstacle_flag_[9] = 0
+
+State 387 file rekh_aso.2.M1-1.c line 1437 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_obstacle_flag_[10] = 0
+
+State 388 file rekh_aso.2.M1-1.c line 1438 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _obstacle_flag_[10] = 0
+
+State 389 file rekh_aso.2.M1-1.c line 1439 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_obstacle_flag_[11] = 0
+
+State 390 file rekh_aso.2.M1-1.c line 1440 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _obstacle_flag_[11] = 0
+
+State 391 file rekh_aso.2.M1-1.c line 1441 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_obstacle_flag_[12] = 0
+
+State 392 file rekh_aso.2.M1-1.c line 1442 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _obstacle_flag_[12] = 0
+
+State 393 file rekh_aso.2.M1-1.c line 1443 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_obstacle_flag_[13] = 0
+
+State 394 file rekh_aso.2.M1-1.c line 1444 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _obstacle_flag_[13] = 0
+
+State 395 file rekh_aso.2.M1-1.c line 1445 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_obstacle_flag_[14] = 0
+
+State 396 file rekh_aso.2.M1-1.c line 1446 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _obstacle_flag_[14] = 0
+
+State 397 file rekh_aso.2.M1-1.c line 1447 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_obstacle_flag_[15] = 0
+
+State 398 file rekh_aso.2.M1-1.c line 1448 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _obstacle_flag_[15] = 0
+
+State 399 file rekh_aso.2.M1-1.c line 1449 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_obstacle_flag_[16] = 0
+
+State 400 file rekh_aso.2.M1-1.c line 1450 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _obstacle_flag_[16] = 0
+
+State 401 file rekh_aso.2.M1-1.c line 1451 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_obstacle_flag_[17] = 0
+
+State 402 file rekh_aso.2.M1-1.c line 1452 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _obstacle_flag_[17] = 0
+
+State 403 file rekh_aso.2.M1-1.c line 1453 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_obstacle_flag_[18] = 0
+
+State 404 file rekh_aso.2.M1-1.c line 1454 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _obstacle_flag_[18] = 0
+
+State 405 file rekh_aso.2.M1-1.c line 1455 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_obstacle_flag_[19] = 0
+
+State 406 file rekh_aso.2.M1-1.c line 1456 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _obstacle_flag_[19] = 0
+
+State 407 file rekh_aso.2.M1-1.c line 1457 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_obstacle_flag_[20] = 0
+
+State 408 file rekh_aso.2.M1-1.c line 1458 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _obstacle_flag_[20] = 0
+
+State 409 file rekh_aso.2.M1-1.c line 1459 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_obstacle_flag_[21] = 1
+
+State 410 file rekh_aso.2.M1-1.c line 1460 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _obstacle_flag_[21] = 1
+
+State 411 file rekh_aso.2.M1-1.c line 1461 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_obstacle_flag_[22] = 1
+
+State 412 file rekh_aso.2.M1-1.c line 1462 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _obstacle_flag_[22] = 1
+
+State 413 file rekh_aso.2.M1-1.c line 1463 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_obstacle_flag_[23] = 1
+
+State 414 file rekh_aso.2.M1-1.c line 1464 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _obstacle_flag_[23] = 1
+
+State 415 file rekh_aso.2.M1-1.c line 1465 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_obstacle_flag_[24] = 1
+
+State 416 file rekh_aso.2.M1-1.c line 1466 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _obstacle_flag_[24] = 1
+
+State 417 file rekh_aso.2.M1-1.c line 1467 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_obstacle_flag_[25] = 0
+
+State 418 file rekh_aso.2.M1-1.c line 1468 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _obstacle_flag_[25] = 0
+
+State 419 file rekh_aso.2.M1-1.c line 1469 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_obstacle_flag_[26] = 1
+
+State 420 file rekh_aso.2.M1-1.c line 1470 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _obstacle_flag_[26] = 1
+
+State 421 file rekh_aso.2.M1-1.c line 1471 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_nxtway_gs_mode_[1] = 1 (00000001)
+
+State 422 file rekh_aso.2.M1-1.c line 1472 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _nxtway_gs_mode_[1] = 1 (00000001)
+
+State 423 file rekh_aso.2.M1-1.c line 1473 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_nxtway_gs_mode_[2] = 2 (00000010)
+
+State 424 file rekh_aso.2.M1-1.c line 1474 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _nxtway_gs_mode_[2] = 2 (00000010)
+
+State 425 file rekh_aso.2.M1-1.c line 1475 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_nxtway_gs_mode_[3] = 2 (00000010)
+
+State 426 file rekh_aso.2.M1-1.c line 1476 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _nxtway_gs_mode_[3] = 2 (00000010)
+
+State 427 file rekh_aso.2.M1-1.c line 1477 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_nxtway_gs_mode_[4] = 2 (00000010)
+
+State 428 file rekh_aso.2.M1-1.c line 1478 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _nxtway_gs_mode_[4] = 2 (00000010)
+
+State 429 file rekh_aso.2.M1-1.c line 1479 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_nxtway_gs_mode_[5] = 2 (00000010)
+
+State 430 file rekh_aso.2.M1-1.c line 1480 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _nxtway_gs_mode_[5] = 2 (00000010)
+
+State 431 file rekh_aso.2.M1-1.c line 1481 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_nxtway_gs_mode_[6] = 2 (00000010)
+
+State 432 file rekh_aso.2.M1-1.c line 1482 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _nxtway_gs_mode_[6] = 2 (00000010)
+
+State 433 file rekh_aso.2.M1-1.c line 1483 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_nxtway_gs_mode_[7] = 2 (00000010)
+
+State 434 file rekh_aso.2.M1-1.c line 1484 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _nxtway_gs_mode_[7] = 2 (00000010)
+
+State 435 file rekh_aso.2.M1-1.c line 1485 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_nxtway_gs_mode_[8] = 2 (00000010)
+
+State 436 file rekh_aso.2.M1-1.c line 1486 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _nxtway_gs_mode_[8] = 2 (00000010)
+
+State 437 file rekh_aso.2.M1-1.c line 1487 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_nxtway_gs_mode_[9] = 2 (00000010)
+
+State 438 file rekh_aso.2.M1-1.c line 1488 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _nxtway_gs_mode_[9] = 2 (00000010)
+
+State 439 file rekh_aso.2.M1-1.c line 1489 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_nxtway_gs_mode_[10] = 2 (00000010)
+
+State 440 file rekh_aso.2.M1-1.c line 1490 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _nxtway_gs_mode_[10] = 2 (00000010)
+
+State 441 file rekh_aso.2.M1-1.c line 1491 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_nxtway_gs_mode_[11] = 2 (00000010)
+
+State 442 file rekh_aso.2.M1-1.c line 1492 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _nxtway_gs_mode_[11] = 2 (00000010)
+
+State 443 file rekh_aso.2.M1-1.c line 1493 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_nxtway_gs_mode_[12] = 2 (00000010)
+
+State 444 file rekh_aso.2.M1-1.c line 1494 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _nxtway_gs_mode_[12] = 2 (00000010)
+
+State 445 file rekh_aso.2.M1-1.c line 1495 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_nxtway_gs_mode_[13] = 2 (00000010)
+
+State 446 file rekh_aso.2.M1-1.c line 1496 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _nxtway_gs_mode_[13] = 2 (00000010)
+
+State 447 file rekh_aso.2.M1-1.c line 1497 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_nxtway_gs_mode_[14] = 2 (00000010)
+
+State 448 file rekh_aso.2.M1-1.c line 1498 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _nxtway_gs_mode_[14] = 2 (00000010)
+
+State 449 file rekh_aso.2.M1-1.c line 1499 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_nxtway_gs_mode_[15] = 2 (00000010)
+
+State 450 file rekh_aso.2.M1-1.c line 1500 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _nxtway_gs_mode_[15] = 2 (00000010)
+
+State 451 file rekh_aso.2.M1-1.c line 1501 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_nxtway_gs_mode_[16] = 2 (00000010)
+
+State 452 file rekh_aso.2.M1-1.c line 1502 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _nxtway_gs_mode_[16] = 2 (00000010)
+
+State 453 file rekh_aso.2.M1-1.c line 1503 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_nxtway_gs_mode_[17] = 2 (00000010)
+
+State 454 file rekh_aso.2.M1-1.c line 1504 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _nxtway_gs_mode_[17] = 2 (00000010)
+
+State 455 file rekh_aso.2.M1-1.c line 1505 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_nxtway_gs_mode_[18] = 2 (00000010)
+
+State 456 file rekh_aso.2.M1-1.c line 1506 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _nxtway_gs_mode_[18] = 2 (00000010)
+
+State 457 file rekh_aso.2.M1-1.c line 1507 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_nxtway_gs_mode_[19] = 2 (00000010)
+
+State 458 file rekh_aso.2.M1-1.c line 1508 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _nxtway_gs_mode_[19] = 2 (00000010)
+
+State 459 file rekh_aso.2.M1-1.c line 1509 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_nxtway_gs_mode_[20] = 2 (00000010)
+
+State 460 file rekh_aso.2.M1-1.c line 1510 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _nxtway_gs_mode_[20] = 2 (00000010)
+
+State 461 file rekh_aso.2.M1-1.c line 1511 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_nxtway_gs_mode_[21] = 2 (00000010)
+
+State 462 file rekh_aso.2.M1-1.c line 1512 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _nxtway_gs_mode_[21] = 2 (00000010)
+
+State 463 file rekh_aso.2.M1-1.c line 1513 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_nxtway_gs_mode_[22] = 2 (00000010)
+
+State 464 file rekh_aso.2.M1-1.c line 1514 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _nxtway_gs_mode_[22] = 2 (00000010)
+
+State 465 file rekh_aso.2.M1-1.c line 1515 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_nxtway_gs_mode_[23] = 2 (00000010)
+
+State 466 file rekh_aso.2.M1-1.c line 1516 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _nxtway_gs_mode_[23] = 2 (00000010)
+
+State 467 file rekh_aso.2.M1-1.c line 1517 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_nxtway_gs_mode_[24] = 18 (00010010)
+
+State 468 file rekh_aso.2.M1-1.c line 1518 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _nxtway_gs_mode_[24] = 18 (00010010)
+
+State 469 file rekh_aso.2.M1-1.c line 1519 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_nxtway_gs_mode_[25] = 2 (00000010)
+
+State 470 file rekh_aso.2.M1-1.c line 1520 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _nxtway_gs_mode_[25] = 2 (00000010)
+
+State 471 file rekh_aso.2.M1-1.c line 1521 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i_nxtway_gs_mode_[26] = 2 (00000010)
+
+State 472 file rekh_aso.2.M1-1.c line 1522 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _nxtway_gs_mode_[26] = 2 (00000010)
+
+State 473 file rekh_aso.2.M1-1.c line 1523 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i___startrek_current_priority_[1] = 0 (00000000)
+
+State 474 file rekh_aso.2.M1-1.c line 1524 function __startrek_init_globals thread 0
+----------------------------------------------------
+  ___startrek_current_priority_[1] = 0 (00000000)
+
+State 475 file rekh_aso.2.M1-1.c line 1525 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i___startrek_current_priority_[2] = 1 (00000001)
+
+State 476 file rekh_aso.2.M1-1.c line 1526 function __startrek_init_globals thread 0
+----------------------------------------------------
+  ___startrek_current_priority_[2] = 1 (00000001)
+
+State 477 file rekh_aso.2.M1-1.c line 1527 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i___startrek_current_priority_[3] = 1 (00000001)
+
+State 478 file rekh_aso.2.M1-1.c line 1528 function __startrek_init_globals thread 0
+----------------------------------------------------
+  ___startrek_current_priority_[3] = 1 (00000001)
+
+State 479 file rekh_aso.2.M1-1.c line 1529 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i___startrek_current_priority_[4] = 1 (00000001)
+
+State 480 file rekh_aso.2.M1-1.c line 1530 function __startrek_init_globals thread 0
+----------------------------------------------------
+  ___startrek_current_priority_[4] = 1 (00000001)
+
+State 481 file rekh_aso.2.M1-1.c line 1531 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i___startrek_current_priority_[5] = 1 (00000001)
+
+State 482 file rekh_aso.2.M1-1.c line 1532 function __startrek_init_globals thread 0
+----------------------------------------------------
+  ___startrek_current_priority_[5] = 1 (00000001)
+
+State 483 file rekh_aso.2.M1-1.c line 1533 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i___startrek_current_priority_[6] = 1 (00000001)
+
+State 484 file rekh_aso.2.M1-1.c line 1534 function __startrek_init_globals thread 0
+----------------------------------------------------
+  ___startrek_current_priority_[6] = 1 (00000001)
+
+State 485 file rekh_aso.2.M1-1.c line 1535 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i___startrek_current_priority_[7] = 1 (00000001)
+
+State 486 file rekh_aso.2.M1-1.c line 1536 function __startrek_init_globals thread 0
+----------------------------------------------------
+  ___startrek_current_priority_[7] = 1 (00000001)
+
+State 487 file rekh_aso.2.M1-1.c line 1537 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i___startrek_current_priority_[8] = 1 (00000001)
+
+State 488 file rekh_aso.2.M1-1.c line 1538 function __startrek_init_globals thread 0
+----------------------------------------------------
+  ___startrek_current_priority_[8] = 1 (00000001)
+
+State 489 file rekh_aso.2.M1-1.c line 1539 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i___startrek_current_priority_[9] = 0 (00000000)
+
+State 490 file rekh_aso.2.M1-1.c line 1540 function __startrek_init_globals thread 0
+----------------------------------------------------
+  ___startrek_current_priority_[9] = 0 (00000000)
+
+State 491 file rekh_aso.2.M1-1.c line 1541 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i___startrek_current_priority_[10] = 0 (00000000)
+
+State 492 file rekh_aso.2.M1-1.c line 1542 function __startrek_init_globals thread 0
+----------------------------------------------------
+  ___startrek_current_priority_[10] = 0 (00000000)
+
+State 493 file rekh_aso.2.M1-1.c line 1543 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i___startrek_current_priority_[11] = 0 (00000000)
+
+State 494 file rekh_aso.2.M1-1.c line 1544 function __startrek_init_globals thread 0
+----------------------------------------------------
+  ___startrek_current_priority_[11] = 0 (00000000)
+
+State 495 file rekh_aso.2.M1-1.c line 1545 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i___startrek_current_priority_[12] = 0 (00000000)
+
+State 496 file rekh_aso.2.M1-1.c line 1546 function __startrek_init_globals thread 0
+----------------------------------------------------
+  ___startrek_current_priority_[12] = 0 (00000000)
+
+State 497 file rekh_aso.2.M1-1.c line 1547 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i___startrek_current_priority_[13] = 0 (00000000)
+
+State 498 file rekh_aso.2.M1-1.c line 1548 function __startrek_init_globals thread 0
+----------------------------------------------------
+  ___startrek_current_priority_[13] = 0 (00000000)
+
+State 499 file rekh_aso.2.M1-1.c line 1549 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i___startrek_current_priority_[14] = 0 (00000000)
+
+State 500 file rekh_aso.2.M1-1.c line 1550 function __startrek_init_globals thread 0
+----------------------------------------------------
+  ___startrek_current_priority_[14] = 0 (00000000)
+
+State 501 file rekh_aso.2.M1-1.c line 1551 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i___startrek_current_priority_[15] = 1 (00000001)
+
+State 502 file rekh_aso.2.M1-1.c line 1552 function __startrek_init_globals thread 0
+----------------------------------------------------
+  ___startrek_current_priority_[15] = 1 (00000001)
+
+State 503 file rekh_aso.2.M1-1.c line 1553 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i___startrek_current_priority_[16] = 1 (00000001)
+
+State 504 file rekh_aso.2.M1-1.c line 1554 function __startrek_init_globals thread 0
+----------------------------------------------------
+  ___startrek_current_priority_[16] = 1 (00000001)
+
+State 505 file rekh_aso.2.M1-1.c line 1555 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i___startrek_current_priority_[17] = 1 (00000001)
+
+State 506 file rekh_aso.2.M1-1.c line 1556 function __startrek_init_globals thread 0
+----------------------------------------------------
+  ___startrek_current_priority_[17] = 1 (00000001)
+
+State 507 file rekh_aso.2.M1-1.c line 1557 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i___startrek_current_priority_[18] = 1 (00000001)
+
+State 508 file rekh_aso.2.M1-1.c line 1558 function __startrek_init_globals thread 0
+----------------------------------------------------
+  ___startrek_current_priority_[18] = 1 (00000001)
+
+State 509 file rekh_aso.2.M1-1.c line 1559 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i___startrek_current_priority_[19] = 1 (00000001)
+
+State 510 file rekh_aso.2.M1-1.c line 1560 function __startrek_init_globals thread 0
+----------------------------------------------------
+  ___startrek_current_priority_[19] = 1 (00000001)
+
+State 511 file rekh_aso.2.M1-1.c line 1561 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i___startrek_current_priority_[20] = 1 (00000001)
+
+State 512 file rekh_aso.2.M1-1.c line 1562 function __startrek_init_globals thread 0
+----------------------------------------------------
+  ___startrek_current_priority_[20] = 1 (00000001)
+
+State 513 file rekh_aso.2.M1-1.c line 1563 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i___startrek_current_priority_[21] = 1 (00000001)
+
+State 514 file rekh_aso.2.M1-1.c line 1564 function __startrek_init_globals thread 0
+----------------------------------------------------
+  ___startrek_current_priority_[21] = 1 (00000001)
+
+State 515 file rekh_aso.2.M1-1.c line 1565 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i___startrek_current_priority_[22] = 0 (00000000)
+
+State 516 file rekh_aso.2.M1-1.c line 1566 function __startrek_init_globals thread 0
+----------------------------------------------------
+  ___startrek_current_priority_[22] = 0 (00000000)
+
+State 517 file rekh_aso.2.M1-1.c line 1567 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i___startrek_current_priority_[23] = 0 (00000000)
+
+State 518 file rekh_aso.2.M1-1.c line 1568 function __startrek_init_globals thread 0
+----------------------------------------------------
+  ___startrek_current_priority_[23] = 0 (00000000)
+
+State 519 file rekh_aso.2.M1-1.c line 1569 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i___startrek_current_priority_[24] = 0 (00000000)
+
+State 520 file rekh_aso.2.M1-1.c line 1570 function __startrek_init_globals thread 0
+----------------------------------------------------
+  ___startrek_current_priority_[24] = 0 (00000000)
+
+State 521 file rekh_aso.2.M1-1.c line 1571 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i___startrek_current_priority_[25] = 0 (00000000)
+
+State 522 file rekh_aso.2.M1-1.c line 1572 function __startrek_init_globals thread 0
+----------------------------------------------------
+  ___startrek_current_priority_[25] = 0 (00000000)
+
+State 523 file rekh_aso.2.M1-1.c line 1573 function __startrek_init_globals thread 0
+----------------------------------------------------
+  _i___startrek_current_priority_[26] = 0 (00000000)
+
+State 524 file rekh_aso.2.M1-1.c line 1574 function __startrek_init_globals thread 0
+----------------------------------------------------
+  ___startrek_current_priority_[26] = 0 (00000000)
+
+State 525 file rekh_aso.2.M1-1.c line 1837 function __startrek_hyperperiod thread 0
+----------------------------------------------------
+  __startrek_round = 0 (00000000)
+
+State 526 file rekh_aso.2.M1-1.c line 1839 function __startrek_hyperperiod thread 0
+----------------------------------------------------
+  __startrek_job_end = 0 (00000000)
+
+State 527 file rekh_aso.2.M1-1.c line 3401 function __startrek_read___startrek_current_priority thread 0
+----------------------------------------------------
+  r1 = 0 (00000000)
+
+State 528 file rekh_aso.2.M1-1.c line 469 function __startrek_entry_pt_OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  sp = 0 (00000000)
+
+State 529 file rekh_aso.2.M1-1.c line 3720 function __startrek_write___startrek_current_priority thread 0
+----------------------------------------------------
+  ___startrek_current_priority_[0] = 2 (00000010)
+
+State 530 file rekh_aso.2.M1-1.c line 3441 function __startrek_read_nxtway_gs_mode thread 0
+----------------------------------------------------
+  r1 = 0 (00000000)
+
+State 531 file rekh_aso.2.M1-1.c line 3758 function __startrek_write_nxtway_gs_mode thread 0
+----------------------------------------------------
+  _nxtway_gs_mode_[0] = 1 (00000001)
+
+State 532 file rekh_aso.2.M1-1.c line 3681 function __startrek_read___startrek_job_count_OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  r1 = 0 (00000000)
+
+State 533 file rekh_aso.2.M1-1.c line 3986 function __startrek_write___startrek_job_count_OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  ___startrek_job_count_OSEK_Task_ts1_[0] = 1 (00000001)
+
+State 534 file rekh_aso.2.M1-1.c line 3720 function __startrek_write___startrek_current_priority thread 0
+----------------------------------------------------
+  ___startrek_current_priority_[0] = 0 (00000000)
+
+State 535 file rekh_aso.2.M1-1.c line 1877 function __startrek_hyperperiod thread 0
+----------------------------------------------------
+  __startrek_round = 1 (00000001)
+
+State 536 file rekh_aso.2.M1-1.c line 1879 function __startrek_hyperperiod thread 0
+----------------------------------------------------
+  __startrek_job_end = 8 (00001000)
+
+State 537 file rekh_aso.2.M1-1.c line 3401 function __startrek_read___startrek_current_priority thread 0
+----------------------------------------------------
+  r1 = 0 (00000000)
+
+State 538 file rekh_aso.2.M1-1.c line 420 function __startrek_entry_pt_OSEK_Task_ts2 thread 0
+----------------------------------------------------
+  sp = 0 (00000000)
+
+State 539 file rekh_aso.2.M1-1.c line 3720 function __startrek_write___startrek_current_priority thread 0
+----------------------------------------------------
+  ___startrek_current_priority_[1] = 1 (00000001)
+
+State 540 file rekh_aso.2.M1-1.c line 1692 function __startrek_cs_t1 thread 0
+----------------------------------------------------
+  c1 = 1
+
+State 541 file rekh_aso.2.M1-1.c line 3796 function __startrek_write_obstacle_flag thread 0
+----------------------------------------------------
+  _obstacle_flag_[1] = 0
+
+State 542 file rekh_aso.2.M1-1.c line 1692 function __startrek_cs_t1 thread 0
+----------------------------------------------------
+  c1 = 0
+
+State 543 file rekh_aso.2.M1-1.c line 1696 function __startrek_cs_t1 thread 0
+----------------------------------------------------
+  o2 = 1 (00000001)
+
+State 544 file rekh_aso.2.M1-1.c line 1697 function __startrek_cs_t1 thread 0
+----------------------------------------------------
+  __startrek_round = 8 (00001000)
+
+State 545 file rekh_aso.2.M1-1.c line 3441 function __startrek_read_nxtway_gs_mode thread 0
+----------------------------------------------------
+  r1 = 2 (00000010)
+
+State 546 file rekh_aso.2.M1-1.c line 311 function ecrobot_get_sonar_sensor thread 0
+----------------------------------------------------
+  tmp = 28 (00011100)
+
+State 547 file rekh_aso.2.M1-1.c line 3641 function __startrek_read___startrek_job_count_OSEK_Task_ts2 thread 0
+----------------------------------------------------
+  r1 = 0 (00000000)
+
+State 548 file rekh_aso.2.M1-1.c line 3948 function __startrek_write___startrek_job_count_OSEK_Task_ts2 thread 0
+----------------------------------------------------
+  ___startrek_job_count_OSEK_Task_ts2_[8] = 1 (00000001)
+
+State 549 file rekh_aso.2.M1-1.c line 3720 function __startrek_write___startrek_current_priority thread 0
+----------------------------------------------------
+  ___startrek_current_priority_[8] = 0 (00000000)
+
+State 550 file rekh_aso.2.M1-1.c line 2027 function __startrek_hyperperiod thread 0
+----------------------------------------------------
+  __startrek_round = 9 (00001001)
+
+State 551 file rekh_aso.2.M1-1.c line 2029 function __startrek_hyperperiod thread 0
+----------------------------------------------------
+  __startrek_job_end = 26 (00011010)
+
+State 552 file rekh_aso.2.M1-1.c line 1586 function __startrek_cs_t0 thread 0
+----------------------------------------------------
+  c1 = 1
+
+State 553 file rekh_aso.2.M1-1.c line 3441 function __startrek_read_nxtway_gs_mode thread 0
+----------------------------------------------------
+  r1 = 2 (00000010)
+
+State 554 file rekh_aso.2.M1-1.c line 212 function ecrobot_read_bt_packet thread 0
+----------------------------------------------------
+  *(bt_receive_buf + 0) = 120 (01111000)
+
+State 555 file rekh_aso.2.M1-1.c line 213 function ecrobot_read_bt_packet thread 0
+----------------------------------------------------
+  *(bt_receive_buf + 1) = 0 (00000000)
+
+State 556 file rekh_aso.2.M1-1.c line 1586 function __startrek_cs_t0 thread 0
+----------------------------------------------------
+  c1 = 1
+
+State 557 file rekh_aso.2.M1-1.c line 3481 function __startrek_read_obstacle_flag thread 0
+----------------------------------------------------
+  r1 = 0
+
+State 558 file rekh_aso.2.M1-1.c line 1586 function __startrek_cs_t0 thread 0
+----------------------------------------------------
+  c1 = 0
+
+State 559 file rekh_aso.2.M1-1.c line 1590 function __startrek_cs_t0 thread 0
+----------------------------------------------------
+  o2 = 9 (00001001)
+
+State 560 file rekh_aso.2.M1-1.c line 1591 function __startrek_cs_t0 thread 0
+----------------------------------------------------
+  __startrek_round = 22 (00010110)
+
+State 561 file rekh_aso.2.M1-1.c line 3834 function __startrek_write_cmd_forward thread 0
+----------------------------------------------------
+  _cmd_forward_[22] = -120 (10001000)
+
+State 562 file rekh_aso.2.M1-1.c line 1586 function __startrek_cs_t0 thread 0
+----------------------------------------------------
+  c1 = 0
+
+State 563 file rekh_aso.2.M1-1.c line 1590 function __startrek_cs_t0 thread 0
+----------------------------------------------------
+  o2 = 22 (00010110)
+
+State 564 file rekh_aso.2.M1-1.c line 1591 function __startrek_cs_t0 thread 0
+----------------------------------------------------
+  __startrek_round = 23 (00010111)
+
+State 565 file rekh_aso.2.M1-1.c line 3872 function __startrek_write_cmd_turn thread 0
+----------------------------------------------------
+  _cmd_turn_[23] = 0 (00000000)
+
+State 566 file rekh_aso.2.M1-1.c line 1586 function __startrek_cs_t0 thread 0
+----------------------------------------------------
+  c1 = 0
+
+State 567 file rekh_aso.2.M1-1.c line 1590 function __startrek_cs_t0 thread 0
+----------------------------------------------------
+  o2 = 23 (00010111)
+
+State 568 file rekh_aso.2.M1-1.c line 1591 function __startrek_cs_t0 thread 0
+----------------------------------------------------
+  __startrek_round = 26 (00011010)
+
+State 569 file rekh_aso.2.M1-1.c line 1586 function __startrek_cs_t0 thread 0
+----------------------------------------------------
+  c1 = 1
+
+State 570 file rekh_aso.2.M1-1.c line 2297 function __startrek_hyperperiod thread 0
+----------------------------------------------------
+  __startrek_round = 1 (00000001)
+
+State 571 file rekh_aso.2.M1-1.c line 2299 function __startrek_hyperperiod thread 0
+----------------------------------------------------
+  __startrek_job_end = 1 (00000001)
+
+State 572 file rekh_aso.2.M1-1.c line 3401 function __startrek_read___startrek_current_priority thread 0
+----------------------------------------------------
+  r1 = 1 (00000001)
+
+State 573 file rekh_aso.2.M1-1.c line 469 function __startrek_entry_pt_OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  sp = 1 (00000001)
+
+State 574 file rekh_aso.2.M1-1.c line 3720 function __startrek_write___startrek_current_priority thread 0
+----------------------------------------------------
+  ___startrek_current_priority_[1] = 2 (00000010)
+
+State 575 file rekh_aso.2.M1-1.c line 3441 function __startrek_read_nxtway_gs_mode thread 0
+----------------------------------------------------
+  r1 = 1 (00000001)
+
+State 576 file rekh_aso.2.M1-1.c line 266 function OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  avg_cnt = 1 (00000000 00000000 00000000 00000001)
+
+State 577 file rekh_aso.2.M1-1.c line 192 function ecrobot_get_systick_ms thread 0
+----------------------------------------------------
+  r = 1000 (00000000 00000000 00000011 11101000)
+
+State 578 file rekh_aso.2.M1-1.c line 193 function ecrobot_get_systick_ms thread 0
+----------------------------------------------------
+  timer = 2000 (00000000 00000000 00000111 11010000)
+
+State 579 file rekh_aso.2.M1-1.c line 3758 function __startrek_write_nxtway_gs_mode thread 0
+----------------------------------------------------
+  _nxtway_gs_mode_[1] = 2 (00000010)
+
+State 580 file rekh_aso.2.M1-1.c line 3681 function __startrek_read___startrek_job_count_OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  r1 = 1 (00000001)
+
+State 581 file rekh_aso.2.M1-1.c line 3986 function __startrek_write___startrek_job_count_OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  ___startrek_job_count_OSEK_Task_ts1_[1] = 2 (00000010)
+
+State 582 file rekh_aso.2.M1-1.c line 3720 function __startrek_write___startrek_current_priority thread 0
+----------------------------------------------------
+  ___startrek_current_priority_[1] = 1 (00000001)
+
+State 583 file rekh_aso.2.M1-1.c line 2337 function __startrek_hyperperiod thread 0
+----------------------------------------------------
+  __startrek_round = 2 (00000010)
+
+State 584 file rekh_aso.2.M1-1.c line 2339 function __startrek_hyperperiod thread 0
+----------------------------------------------------
+  __startrek_job_end = 2 (00000010)
+
+State 585 file rekh_aso.2.M1-1.c line 3401 function __startrek_read___startrek_current_priority thread 0
+----------------------------------------------------
+  r1 = 1 (00000001)
+
+State 586 file rekh_aso.2.M1-1.c line 469 function __startrek_entry_pt_OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  sp = 1 (00000001)
+
+State 587 file rekh_aso.2.M1-1.c line 3720 function __startrek_write___startrek_current_priority thread 0
+----------------------------------------------------
+  ___startrek_current_priority_[2] = 2 (00000010)
+
+State 588 file rekh_aso.2.M1-1.c line 3441 function __startrek_read_nxtway_gs_mode thread 0
+----------------------------------------------------
+  r1 = 2 (00000010)
+
+State 589 file rekh_aso.2.M1-1.c line 3601 function __startrek_read_trans thread 0
+----------------------------------------------------
+  r1 = 0
+
+State 590 file rekh_aso.2.M1-1.c line 3481 function __startrek_read_obstacle_flag thread 0
+----------------------------------------------------
+  r1 = 0
+
+State 591 file rekh_aso.2.M1-1.c line 279 function OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  lobstacle = 0
+
+State 592 file rekh_aso.2.M1-1.c line 3561 function __startrek_read_cmd_turn thread 0
+----------------------------------------------------
+  r1 = 0 (00000000)
+
+State 593 file rekh_aso.2.M1-1.c line 281 function OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  task_cmd_turn = 0 (00000000)
+
+State 594 file rekh_aso.2.M1-1.c line 3521 function __startrek_read_cmd_forward thread 0
+----------------------------------------------------
+  r1 = 0 (00000000)
+
+State 595 file rekh_aso.2.M1-1.c line 283 function OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  task_cmd_forward = 0 (00000000)
+
+State 596 file rekh_aso.2.M1-1.c line 222 function ecrobot_get_battery_voltage thread 0
+----------------------------------------------------
+  tmp = 0 (00000000 00000000 00000000 00000000)
+
+State 597 file rekh_aso.2.M1-1.c line 3681 function __startrek_read___startrek_job_count_OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  r1 = 2 (00000010)
+
+State 598 file rekh_aso.2.M1-1.c line 3986 function __startrek_write___startrek_job_count_OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  ___startrek_job_count_OSEK_Task_ts1_[2] = 3 (00000011)
+
+State 599 file rekh_aso.2.M1-1.c line 3720 function __startrek_write___startrek_current_priority thread 0
+----------------------------------------------------
+  ___startrek_current_priority_[2] = 1 (00000001)
+
+State 600 file rekh_aso.2.M1-1.c line 2377 function __startrek_hyperperiod thread 0
+----------------------------------------------------
+  __startrek_round = 3 (00000011)
+
+State 601 file rekh_aso.2.M1-1.c line 2379 function __startrek_hyperperiod thread 0
+----------------------------------------------------
+  __startrek_job_end = 3 (00000011)
+
+State 602 file rekh_aso.2.M1-1.c line 3401 function __startrek_read___startrek_current_priority thread 0
+----------------------------------------------------
+  r1 = 1 (00000001)
+
+State 603 file rekh_aso.2.M1-1.c line 469 function __startrek_entry_pt_OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  sp = 1 (00000001)
+
+State 604 file rekh_aso.2.M1-1.c line 3720 function __startrek_write___startrek_current_priority thread 0
+----------------------------------------------------
+  ___startrek_current_priority_[3] = 2 (00000010)
+
+State 605 file rekh_aso.2.M1-1.c line 3441 function __startrek_read_nxtway_gs_mode thread 0
+----------------------------------------------------
+  r1 = 2 (00000010)
+
+State 606 file rekh_aso.2.M1-1.c line 3601 function __startrek_read_trans thread 0
+----------------------------------------------------
+  r1 = 0
+
+State 607 file rekh_aso.2.M1-1.c line 3481 function __startrek_read_obstacle_flag thread 0
+----------------------------------------------------
+  r1 = 0
+
+State 608 file rekh_aso.2.M1-1.c line 279 function OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  lobstacle = 0
+
+State 609 file rekh_aso.2.M1-1.c line 3561 function __startrek_read_cmd_turn thread 0
+----------------------------------------------------
+  r1 = 0 (00000000)
+
+State 610 file rekh_aso.2.M1-1.c line 281 function OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  task_cmd_turn = 0 (00000000)
+
+State 611 file rekh_aso.2.M1-1.c line 3521 function __startrek_read_cmd_forward thread 0
+----------------------------------------------------
+  r1 = 0 (00000000)
+
+State 612 file rekh_aso.2.M1-1.c line 283 function OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  task_cmd_forward = 0 (00000000)
+
+State 613 file rekh_aso.2.M1-1.c line 222 function ecrobot_get_battery_voltage thread 0
+----------------------------------------------------
+  tmp = 0 (00000000 00000000 00000000 00000000)
+
+State 614 file rekh_aso.2.M1-1.c line 3681 function __startrek_read___startrek_job_count_OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  r1 = 3 (00000011)
+
+State 615 file rekh_aso.2.M1-1.c line 3986 function __startrek_write___startrek_job_count_OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  ___startrek_job_count_OSEK_Task_ts1_[3] = 4 (00000100)
+
+State 616 file rekh_aso.2.M1-1.c line 3720 function __startrek_write___startrek_current_priority thread 0
+----------------------------------------------------
+  ___startrek_current_priority_[3] = 1 (00000001)
+
+State 617 file rekh_aso.2.M1-1.c line 2417 function __startrek_hyperperiod thread 0
+----------------------------------------------------
+  __startrek_round = 4 (00000100)
+
+State 618 file rekh_aso.2.M1-1.c line 2419 function __startrek_hyperperiod thread 0
+----------------------------------------------------
+  __startrek_job_end = 4 (00000100)
+
+State 619 file rekh_aso.2.M1-1.c line 3401 function __startrek_read___startrek_current_priority thread 0
+----------------------------------------------------
+  r1 = 1 (00000001)
+
+State 620 file rekh_aso.2.M1-1.c line 469 function __startrek_entry_pt_OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  sp = 1 (00000001)
+
+State 621 file rekh_aso.2.M1-1.c line 3720 function __startrek_write___startrek_current_priority thread 0
+----------------------------------------------------
+  ___startrek_current_priority_[4] = 2 (00000010)
+
+State 622 file rekh_aso.2.M1-1.c line 3441 function __startrek_read_nxtway_gs_mode thread 0
+----------------------------------------------------
+  r1 = 2 (00000010)
+
+State 623 file rekh_aso.2.M1-1.c line 3601 function __startrek_read_trans thread 0
+----------------------------------------------------
+  r1 = 0
+
+State 624 file rekh_aso.2.M1-1.c line 3481 function __startrek_read_obstacle_flag thread 0
+----------------------------------------------------
+  r1 = 0
+
+State 625 file rekh_aso.2.M1-1.c line 279 function OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  lobstacle = 0
+
+State 626 file rekh_aso.2.M1-1.c line 3561 function __startrek_read_cmd_turn thread 0
+----------------------------------------------------
+  r1 = 0 (00000000)
+
+State 627 file rekh_aso.2.M1-1.c line 281 function OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  task_cmd_turn = 0 (00000000)
+
+State 628 file rekh_aso.2.M1-1.c line 3521 function __startrek_read_cmd_forward thread 0
+----------------------------------------------------
+  r1 = 0 (00000000)
+
+State 629 file rekh_aso.2.M1-1.c line 283 function OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  task_cmd_forward = 0 (00000000)
+
+State 630 file rekh_aso.2.M1-1.c line 222 function ecrobot_get_battery_voltage thread 0
+----------------------------------------------------
+  tmp = 0 (00000000 00000000 00000000 00000000)
+
+State 631 file rekh_aso.2.M1-1.c line 3681 function __startrek_read___startrek_job_count_OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  r1 = 4 (00000100)
+
+State 632 file rekh_aso.2.M1-1.c line 3986 function __startrek_write___startrek_job_count_OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  ___startrek_job_count_OSEK_Task_ts1_[4] = 5 (00000101)
+
+State 633 file rekh_aso.2.M1-1.c line 3720 function __startrek_write___startrek_current_priority thread 0
+----------------------------------------------------
+  ___startrek_current_priority_[4] = 1 (00000001)
+
+State 634 file rekh_aso.2.M1-1.c line 2457 function __startrek_hyperperiod thread 0
+----------------------------------------------------
+  __startrek_round = 5 (00000101)
+
+State 635 file rekh_aso.2.M1-1.c line 2459 function __startrek_hyperperiod thread 0
+----------------------------------------------------
+  __startrek_job_end = 5 (00000101)
+
+State 636 file rekh_aso.2.M1-1.c line 3401 function __startrek_read___startrek_current_priority thread 0
+----------------------------------------------------
+  r1 = 1 (00000001)
+
+State 637 file rekh_aso.2.M1-1.c line 469 function __startrek_entry_pt_OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  sp = 1 (00000001)
+
+State 638 file rekh_aso.2.M1-1.c line 3720 function __startrek_write___startrek_current_priority thread 0
+----------------------------------------------------
+  ___startrek_current_priority_[5] = 2 (00000010)
+
+State 639 file rekh_aso.2.M1-1.c line 3441 function __startrek_read_nxtway_gs_mode thread 0
+----------------------------------------------------
+  r1 = 2 (00000010)
+
+State 640 file rekh_aso.2.M1-1.c line 3601 function __startrek_read_trans thread 0
+----------------------------------------------------
+  r1 = 0
+
+State 641 file rekh_aso.2.M1-1.c line 3481 function __startrek_read_obstacle_flag thread 0
+----------------------------------------------------
+  r1 = 0
+
+State 642 file rekh_aso.2.M1-1.c line 279 function OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  lobstacle = 0
+
+State 643 file rekh_aso.2.M1-1.c line 3561 function __startrek_read_cmd_turn thread 0
+----------------------------------------------------
+  r1 = 0 (00000000)
+
+State 644 file rekh_aso.2.M1-1.c line 281 function OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  task_cmd_turn = 0 (00000000)
+
+State 645 file rekh_aso.2.M1-1.c line 3521 function __startrek_read_cmd_forward thread 0
+----------------------------------------------------
+  r1 = 0 (00000000)
+
+State 646 file rekh_aso.2.M1-1.c line 283 function OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  task_cmd_forward = 0 (00000000)
+
+State 647 file rekh_aso.2.M1-1.c line 222 function ecrobot_get_battery_voltage thread 0
+----------------------------------------------------
+  tmp = 0 (00000000 00000000 00000000 00000000)
+
+State 648 file rekh_aso.2.M1-1.c line 3681 function __startrek_read___startrek_job_count_OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  r1 = 5 (00000101)
+
+State 649 file rekh_aso.2.M1-1.c line 3986 function __startrek_write___startrek_job_count_OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  ___startrek_job_count_OSEK_Task_ts1_[5] = 6 (00000110)
+
+State 650 file rekh_aso.2.M1-1.c line 3720 function __startrek_write___startrek_current_priority thread 0
+----------------------------------------------------
+  ___startrek_current_priority_[5] = 1 (00000001)
+
+State 651 file rekh_aso.2.M1-1.c line 2497 function __startrek_hyperperiod thread 0
+----------------------------------------------------
+  __startrek_round = 6 (00000110)
+
+State 652 file rekh_aso.2.M1-1.c line 2499 function __startrek_hyperperiod thread 0
+----------------------------------------------------
+  __startrek_job_end = 6 (00000110)
+
+State 653 file rekh_aso.2.M1-1.c line 3401 function __startrek_read___startrek_current_priority thread 0
+----------------------------------------------------
+  r1 = 1 (00000001)
+
+State 654 file rekh_aso.2.M1-1.c line 469 function __startrek_entry_pt_OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  sp = 1 (00000001)
+
+State 655 file rekh_aso.2.M1-1.c line 3720 function __startrek_write___startrek_current_priority thread 0
+----------------------------------------------------
+  ___startrek_current_priority_[6] = 2 (00000010)
+
+State 656 file rekh_aso.2.M1-1.c line 3441 function __startrek_read_nxtway_gs_mode thread 0
+----------------------------------------------------
+  r1 = 2 (00000010)
+
+State 657 file rekh_aso.2.M1-1.c line 3601 function __startrek_read_trans thread 0
+----------------------------------------------------
+  r1 = 0
+
+State 658 file rekh_aso.2.M1-1.c line 3481 function __startrek_read_obstacle_flag thread 0
+----------------------------------------------------
+  r1 = 0
+
+State 659 file rekh_aso.2.M1-1.c line 279 function OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  lobstacle = 0
+
+State 660 file rekh_aso.2.M1-1.c line 3561 function __startrek_read_cmd_turn thread 0
+----------------------------------------------------
+  r1 = 0 (00000000)
+
+State 661 file rekh_aso.2.M1-1.c line 281 function OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  task_cmd_turn = 0 (00000000)
+
+State 662 file rekh_aso.2.M1-1.c line 3521 function __startrek_read_cmd_forward thread 0
+----------------------------------------------------
+  r1 = 0 (00000000)
+
+State 663 file rekh_aso.2.M1-1.c line 283 function OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  task_cmd_forward = 0 (00000000)
+
+State 664 file rekh_aso.2.M1-1.c line 222 function ecrobot_get_battery_voltage thread 0
+----------------------------------------------------
+  tmp = 0 (00000000 00000000 00000000 00000000)
+
+State 665 file rekh_aso.2.M1-1.c line 3681 function __startrek_read___startrek_job_count_OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  r1 = 6 (00000110)
+
+State 666 file rekh_aso.2.M1-1.c line 3986 function __startrek_write___startrek_job_count_OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  ___startrek_job_count_OSEK_Task_ts1_[6] = 7 (00000111)
+
+State 667 file rekh_aso.2.M1-1.c line 3720 function __startrek_write___startrek_current_priority thread 0
+----------------------------------------------------
+  ___startrek_current_priority_[6] = 1 (00000001)
+
+State 668 file rekh_aso.2.M1-1.c line 2537 function __startrek_hyperperiod thread 0
+----------------------------------------------------
+  __startrek_round = 7 (00000111)
+
+State 669 file rekh_aso.2.M1-1.c line 2539 function __startrek_hyperperiod thread 0
+----------------------------------------------------
+  __startrek_job_end = 7 (00000111)
+
+State 670 file rekh_aso.2.M1-1.c line 3401 function __startrek_read___startrek_current_priority thread 0
+----------------------------------------------------
+  r1 = 1 (00000001)
+
+State 671 file rekh_aso.2.M1-1.c line 469 function __startrek_entry_pt_OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  sp = 1 (00000001)
+
+State 672 file rekh_aso.2.M1-1.c line 3720 function __startrek_write___startrek_current_priority thread 0
+----------------------------------------------------
+  ___startrek_current_priority_[7] = 2 (00000010)
+
+State 673 file rekh_aso.2.M1-1.c line 3441 function __startrek_read_nxtway_gs_mode thread 0
+----------------------------------------------------
+  r1 = 2 (00000010)
+
+State 674 file rekh_aso.2.M1-1.c line 3601 function __startrek_read_trans thread 0
+----------------------------------------------------
+  r1 = 0
+
+State 675 file rekh_aso.2.M1-1.c line 3481 function __startrek_read_obstacle_flag thread 0
+----------------------------------------------------
+  r1 = 0
+
+State 676 file rekh_aso.2.M1-1.c line 279 function OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  lobstacle = 0
+
+State 677 file rekh_aso.2.M1-1.c line 3561 function __startrek_read_cmd_turn thread 0
+----------------------------------------------------
+  r1 = 0 (00000000)
+
+State 678 file rekh_aso.2.M1-1.c line 281 function OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  task_cmd_turn = 0 (00000000)
+
+State 679 file rekh_aso.2.M1-1.c line 3521 function __startrek_read_cmd_forward thread 0
+----------------------------------------------------
+  r1 = 0 (00000000)
+
+State 680 file rekh_aso.2.M1-1.c line 283 function OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  task_cmd_forward = 0 (00000000)
+
+State 681 file rekh_aso.2.M1-1.c line 222 function ecrobot_get_battery_voltage thread 0
+----------------------------------------------------
+  tmp = 0 (00000000 00000000 00000000 00000000)
+
+State 682 file rekh_aso.2.M1-1.c line 3681 function __startrek_read___startrek_job_count_OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  r1 = 7 (00000111)
+
+State 683 file rekh_aso.2.M1-1.c line 3986 function __startrek_write___startrek_job_count_OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  ___startrek_job_count_OSEK_Task_ts1_[7] = 8 (00001000)
+
+State 684 file rekh_aso.2.M1-1.c line 3720 function __startrek_write___startrek_current_priority thread 0
+----------------------------------------------------
+  ___startrek_current_priority_[7] = 1 (00000001)
+
+State 685 file rekh_aso.2.M1-1.c line 2578 function __startrek_hyperperiod thread 0
+----------------------------------------------------
+  __startrek_round = 9 (00001001)
+
+State 686 file rekh_aso.2.M1-1.c line 2580 function __startrek_hyperperiod thread 0
+----------------------------------------------------
+  __startrek_job_end = 9 (00001001)
+
+State 687 file rekh_aso.2.M1-1.c line 3401 function __startrek_read___startrek_current_priority thread 0
+----------------------------------------------------
+  r1 = 0 (00000000)
+
+State 688 file rekh_aso.2.M1-1.c line 469 function __startrek_entry_pt_OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  sp = 0 (00000000)
+
+State 689 file rekh_aso.2.M1-1.c line 3720 function __startrek_write___startrek_current_priority thread 0
+----------------------------------------------------
+  ___startrek_current_priority_[9] = 2 (00000010)
+
+State 690 file rekh_aso.2.M1-1.c line 3441 function __startrek_read_nxtway_gs_mode thread 0
+----------------------------------------------------
+  r1 = 2 (00000010)
+
+State 691 file rekh_aso.2.M1-1.c line 3601 function __startrek_read_trans thread 0
+----------------------------------------------------
+  r1 = 0
+
+State 692 file rekh_aso.2.M1-1.c line 3481 function __startrek_read_obstacle_flag thread 0
+----------------------------------------------------
+  r1 = 0
+
+State 693 file rekh_aso.2.M1-1.c line 279 function OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  lobstacle = 0
+
+State 694 file rekh_aso.2.M1-1.c line 3561 function __startrek_read_cmd_turn thread 0
+----------------------------------------------------
+  r1 = 0 (00000000)
+
+State 695 file rekh_aso.2.M1-1.c line 281 function OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  task_cmd_turn = 0 (00000000)
+
+State 696 file rekh_aso.2.M1-1.c line 3521 function __startrek_read_cmd_forward thread 0
+----------------------------------------------------
+  r1 = 0 (00000000)
+
+State 697 file rekh_aso.2.M1-1.c line 283 function OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  task_cmd_forward = 0 (00000000)
+
+State 698 file rekh_aso.2.M1-1.c line 222 function ecrobot_get_battery_voltage thread 0
+----------------------------------------------------
+  tmp = 0 (00000000 00000000 00000000 00000000)
+
+State 699 file rekh_aso.2.M1-1.c line 3681 function __startrek_read___startrek_job_count_OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  r1 = 8 (00001000)
+
+State 700 file rekh_aso.2.M1-1.c line 3986 function __startrek_write___startrek_job_count_OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  ___startrek_job_count_OSEK_Task_ts1_[9] = 9 (00001001)
+
+State 701 file rekh_aso.2.M1-1.c line 3720 function __startrek_write___startrek_current_priority thread 0
+----------------------------------------------------
+  ___startrek_current_priority_[9] = 0 (00000000)
+
+State 702 file rekh_aso.2.M1-1.c line 2618 function __startrek_hyperperiod thread 0
+----------------------------------------------------
+  __startrek_round = 10 (00001010)
+
+State 703 file rekh_aso.2.M1-1.c line 2620 function __startrek_hyperperiod thread 0
+----------------------------------------------------
+  __startrek_job_end = 10 (00001010)
+
+State 704 file rekh_aso.2.M1-1.c line 3401 function __startrek_read___startrek_current_priority thread 0
+----------------------------------------------------
+  r1 = 0 (00000000)
+
+State 705 file rekh_aso.2.M1-1.c line 469 function __startrek_entry_pt_OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  sp = 0 (00000000)
+
+State 706 file rekh_aso.2.M1-1.c line 3720 function __startrek_write___startrek_current_priority thread 0
+----------------------------------------------------
+  ___startrek_current_priority_[10] = 2 (00000010)
+
+State 707 file rekh_aso.2.M1-1.c line 3441 function __startrek_read_nxtway_gs_mode thread 0
+----------------------------------------------------
+  r1 = 2 (00000010)
+
+State 708 file rekh_aso.2.M1-1.c line 3601 function __startrek_read_trans thread 0
+----------------------------------------------------
+  r1 = 0
+
+State 709 file rekh_aso.2.M1-1.c line 3481 function __startrek_read_obstacle_flag thread 0
+----------------------------------------------------
+  r1 = 0
+
+State 710 file rekh_aso.2.M1-1.c line 279 function OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  lobstacle = 0
+
+State 711 file rekh_aso.2.M1-1.c line 3561 function __startrek_read_cmd_turn thread 0
+----------------------------------------------------
+  r1 = 0 (00000000)
+
+State 712 file rekh_aso.2.M1-1.c line 281 function OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  task_cmd_turn = 0 (00000000)
+
+State 713 file rekh_aso.2.M1-1.c line 3521 function __startrek_read_cmd_forward thread 0
+----------------------------------------------------
+  r1 = 0 (00000000)
+
+State 714 file rekh_aso.2.M1-1.c line 283 function OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  task_cmd_forward = 0 (00000000)
+
+State 715 file rekh_aso.2.M1-1.c line 222 function ecrobot_get_battery_voltage thread 0
+----------------------------------------------------
+  tmp = 0 (00000000 00000000 00000000 00000000)
+
+State 716 file rekh_aso.2.M1-1.c line 3681 function __startrek_read___startrek_job_count_OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  r1 = 9 (00001001)
+
+State 717 file rekh_aso.2.M1-1.c line 3986 function __startrek_write___startrek_job_count_OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  ___startrek_job_count_OSEK_Task_ts1_[10] = 10 (00001010)
+
+State 718 file rekh_aso.2.M1-1.c line 3720 function __startrek_write___startrek_current_priority thread 0
+----------------------------------------------------
+  ___startrek_current_priority_[10] = 0 (00000000)
+
+State 719 file rekh_aso.2.M1-1.c line 2658 function __startrek_hyperperiod thread 0
+----------------------------------------------------
+  __startrek_round = 11 (00001011)
+
+State 720 file rekh_aso.2.M1-1.c line 2660 function __startrek_hyperperiod thread 0
+----------------------------------------------------
+  __startrek_job_end = 11 (00001011)
+
+State 721 file rekh_aso.2.M1-1.c line 3401 function __startrek_read___startrek_current_priority thread 0
+----------------------------------------------------
+  r1 = 0 (00000000)
+
+State 722 file rekh_aso.2.M1-1.c line 469 function __startrek_entry_pt_OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  sp = 0 (00000000)
+
+State 723 file rekh_aso.2.M1-1.c line 3720 function __startrek_write___startrek_current_priority thread 0
+----------------------------------------------------
+  ___startrek_current_priority_[11] = 2 (00000010)
+
+State 724 file rekh_aso.2.M1-1.c line 3441 function __startrek_read_nxtway_gs_mode thread 0
+----------------------------------------------------
+  r1 = 2 (00000010)
+
+State 725 file rekh_aso.2.M1-1.c line 3601 function __startrek_read_trans thread 0
+----------------------------------------------------
+  r1 = 0
+
+State 726 file rekh_aso.2.M1-1.c line 3481 function __startrek_read_obstacle_flag thread 0
+----------------------------------------------------
+  r1 = 0
+
+State 727 file rekh_aso.2.M1-1.c line 279 function OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  lobstacle = 0
+
+State 728 file rekh_aso.2.M1-1.c line 3561 function __startrek_read_cmd_turn thread 0
+----------------------------------------------------
+  r1 = 0 (00000000)
+
+State 729 file rekh_aso.2.M1-1.c line 281 function OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  task_cmd_turn = 0 (00000000)
+
+State 730 file rekh_aso.2.M1-1.c line 3521 function __startrek_read_cmd_forward thread 0
+----------------------------------------------------
+  r1 = 0 (00000000)
+
+State 731 file rekh_aso.2.M1-1.c line 283 function OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  task_cmd_forward = 0 (00000000)
+
+State 732 file rekh_aso.2.M1-1.c line 222 function ecrobot_get_battery_voltage thread 0
+----------------------------------------------------
+  tmp = 0 (00000000 00000000 00000000 00000000)
+
+State 733 file rekh_aso.2.M1-1.c line 3681 function __startrek_read___startrek_job_count_OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  r1 = 10 (00001010)
+
+State 734 file rekh_aso.2.M1-1.c line 3986 function __startrek_write___startrek_job_count_OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  ___startrek_job_count_OSEK_Task_ts1_[11] = 11 (00001011)
+
+State 735 file rekh_aso.2.M1-1.c line 3720 function __startrek_write___startrek_current_priority thread 0
+----------------------------------------------------
+  ___startrek_current_priority_[11] = 0 (00000000)
+
+State 736 file rekh_aso.2.M1-1.c line 2698 function __startrek_hyperperiod thread 0
+----------------------------------------------------
+  __startrek_round = 12 (00001100)
+
+State 737 file rekh_aso.2.M1-1.c line 2700 function __startrek_hyperperiod thread 0
+----------------------------------------------------
+  __startrek_job_end = 12 (00001100)
+
+State 738 file rekh_aso.2.M1-1.c line 3401 function __startrek_read___startrek_current_priority thread 0
+----------------------------------------------------
+  r1 = 0 (00000000)
+
+State 739 file rekh_aso.2.M1-1.c line 469 function __startrek_entry_pt_OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  sp = 0 (00000000)
+
+State 740 file rekh_aso.2.M1-1.c line 3720 function __startrek_write___startrek_current_priority thread 0
+----------------------------------------------------
+  ___startrek_current_priority_[12] = 2 (00000010)
+
+State 741 file rekh_aso.2.M1-1.c line 3441 function __startrek_read_nxtway_gs_mode thread 0
+----------------------------------------------------
+  r1 = 2 (00000010)
+
+State 742 file rekh_aso.2.M1-1.c line 3601 function __startrek_read_trans thread 0
+----------------------------------------------------
+  r1 = 0
+
+State 743 file rekh_aso.2.M1-1.c line 3481 function __startrek_read_obstacle_flag thread 0
+----------------------------------------------------
+  r1 = 0
+
+State 744 file rekh_aso.2.M1-1.c line 279 function OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  lobstacle = 0
+
+State 745 file rekh_aso.2.M1-1.c line 3561 function __startrek_read_cmd_turn thread 0
+----------------------------------------------------
+  r1 = 0 (00000000)
+
+State 746 file rekh_aso.2.M1-1.c line 281 function OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  task_cmd_turn = 0 (00000000)
+
+State 747 file rekh_aso.2.M1-1.c line 3521 function __startrek_read_cmd_forward thread 0
+----------------------------------------------------
+  r1 = 0 (00000000)
+
+State 748 file rekh_aso.2.M1-1.c line 283 function OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  task_cmd_forward = 0 (00000000)
+
+State 749 file rekh_aso.2.M1-1.c line 222 function ecrobot_get_battery_voltage thread 0
+----------------------------------------------------
+  tmp = 0 (00000000 00000000 00000000 00000000)
+
+State 750 file rekh_aso.2.M1-1.c line 3681 function __startrek_read___startrek_job_count_OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  r1 = 11 (00001011)
+
+State 751 file rekh_aso.2.M1-1.c line 3986 function __startrek_write___startrek_job_count_OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  ___startrek_job_count_OSEK_Task_ts1_[12] = 12 (00001100)
+
+State 752 file rekh_aso.2.M1-1.c line 3720 function __startrek_write___startrek_current_priority thread 0
+----------------------------------------------------
+  ___startrek_current_priority_[12] = 0 (00000000)
+
+State 753 file rekh_aso.2.M1-1.c line 2738 function __startrek_hyperperiod thread 0
+----------------------------------------------------
+  __startrek_round = 13 (00001101)
+
+State 754 file rekh_aso.2.M1-1.c line 2740 function __startrek_hyperperiod thread 0
+----------------------------------------------------
+  __startrek_job_end = 13 (00001101)
+
+State 755 file rekh_aso.2.M1-1.c line 3401 function __startrek_read___startrek_current_priority thread 0
+----------------------------------------------------
+  r1 = 0 (00000000)
+
+State 756 file rekh_aso.2.M1-1.c line 469 function __startrek_entry_pt_OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  sp = 0 (00000000)
+
+State 757 file rekh_aso.2.M1-1.c line 3720 function __startrek_write___startrek_current_priority thread 0
+----------------------------------------------------
+  ___startrek_current_priority_[13] = 2 (00000010)
+
+State 758 file rekh_aso.2.M1-1.c line 3441 function __startrek_read_nxtway_gs_mode thread 0
+----------------------------------------------------
+  r1 = 2 (00000010)
+
+State 759 file rekh_aso.2.M1-1.c line 3601 function __startrek_read_trans thread 0
+----------------------------------------------------
+  r1 = 0
+
+State 760 file rekh_aso.2.M1-1.c line 3481 function __startrek_read_obstacle_flag thread 0
+----------------------------------------------------
+  r1 = 0
+
+State 761 file rekh_aso.2.M1-1.c line 279 function OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  lobstacle = 0
+
+State 762 file rekh_aso.2.M1-1.c line 3561 function __startrek_read_cmd_turn thread 0
+----------------------------------------------------
+  r1 = 0 (00000000)
+
+State 763 file rekh_aso.2.M1-1.c line 281 function OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  task_cmd_turn = 0 (00000000)
+
+State 764 file rekh_aso.2.M1-1.c line 3521 function __startrek_read_cmd_forward thread 0
+----------------------------------------------------
+  r1 = 0 (00000000)
+
+State 765 file rekh_aso.2.M1-1.c line 283 function OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  task_cmd_forward = 0 (00000000)
+
+State 766 file rekh_aso.2.M1-1.c line 222 function ecrobot_get_battery_voltage thread 0
+----------------------------------------------------
+  tmp = 0 (00000000 00000000 00000000 00000000)
+
+State 767 file rekh_aso.2.M1-1.c line 3681 function __startrek_read___startrek_job_count_OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  r1 = 12 (00001100)
+
+State 768 file rekh_aso.2.M1-1.c line 3986 function __startrek_write___startrek_job_count_OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  ___startrek_job_count_OSEK_Task_ts1_[13] = 13 (00001101)
+
+State 769 file rekh_aso.2.M1-1.c line 3720 function __startrek_write___startrek_current_priority thread 0
+----------------------------------------------------
+  ___startrek_current_priority_[13] = 0 (00000000)
+
+State 770 file rekh_aso.2.M1-1.c line 2778 function __startrek_hyperperiod thread 0
+----------------------------------------------------
+  __startrek_round = 14 (00001110)
+
+State 771 file rekh_aso.2.M1-1.c line 2780 function __startrek_hyperperiod thread 0
+----------------------------------------------------
+  __startrek_job_end = 21 (00010101)
+
+State 772 file rekh_aso.2.M1-1.c line 3401 function __startrek_read___startrek_current_priority thread 0
+----------------------------------------------------
+  r1 = 0 (00000000)
+
+State 773 file rekh_aso.2.M1-1.c line 420 function __startrek_entry_pt_OSEK_Task_ts2 thread 0
+----------------------------------------------------
+  sp = 0 (00000000)
+
+State 774 file rekh_aso.2.M1-1.c line 3720 function __startrek_write___startrek_current_priority thread 0
+----------------------------------------------------
+  ___startrek_current_priority_[14] = 1 (00000001)
+
+State 775 file rekh_aso.2.M1-1.c line 1692 function __startrek_cs_t1 thread 0
+----------------------------------------------------
+  c1 = 1
+
+State 776 file rekh_aso.2.M1-1.c line 3796 function __startrek_write_obstacle_flag thread 0
+----------------------------------------------------
+  _obstacle_flag_[14] = 0
+
+State 777 file rekh_aso.2.M1-1.c line 1692 function __startrek_cs_t1 thread 0
+----------------------------------------------------
+  c1 = 1
+
+State 778 file rekh_aso.2.M1-1.c line 3441 function __startrek_read_nxtway_gs_mode thread 0
+----------------------------------------------------
+  r1 = 2 (00000010)
+
+State 779 file rekh_aso.2.M1-1.c line 311 function ecrobot_get_sonar_sensor thread 0
+----------------------------------------------------
+  tmp = 24 (00011000)
+
+State 780 file rekh_aso.2.M1-1.c line 1692 function __startrek_cs_t1 thread 0
+----------------------------------------------------
+  c1 = 1
+
+State 781 file rekh_aso.2.M1-1.c line 3910 function __startrek_write_trans thread 0
+----------------------------------------------------
+  _trans_[14] = 1
+
+State 782 file rekh_aso.2.M1-1.c line 1692 function __startrek_cs_t1 thread 0
+----------------------------------------------------
+  c1 = 0
+
+State 783 file rekh_aso.2.M1-1.c line 1696 function __startrek_cs_t1 thread 0
+----------------------------------------------------
+  o2 = 14 (00001110)
+
+State 784 file rekh_aso.2.M1-1.c line 1697 function __startrek_cs_t1 thread 0
+----------------------------------------------------
+  __startrek_round = 20 (00010100)
+
+State 785 file rekh_aso.2.M1-1.c line 3796 function __startrek_write_obstacle_flag thread 0
+----------------------------------------------------
+  _obstacle_flag_[20] = 1
+
+State 786 file rekh_aso.2.M1-1.c line 1692 function __startrek_cs_t1 thread 0
+----------------------------------------------------
+  c1 = 0
+
+State 787 file rekh_aso.2.M1-1.c line 1696 function __startrek_cs_t1 thread 0
+----------------------------------------------------
+  o2 = 20 (00010100)
+
+State 788 file rekh_aso.2.M1-1.c line 1697 function __startrek_cs_t1 thread 0
+----------------------------------------------------
+  __startrek_round = 21 (00010101)
+
+State 789 file rekh_aso.2.M1-1.c line 3834 function __startrek_write_cmd_forward thread 0
+----------------------------------------------------
+  _cmd_forward_[21] = -100 (10011100)
+
+State 790 file rekh_aso.2.M1-1.c line 1692 function __startrek_cs_t1 thread 0
+----------------------------------------------------
+  c1 = 1
+
+State 791 file rekh_aso.2.M1-1.c line 3872 function __startrek_write_cmd_turn thread 0
+----------------------------------------------------
+  _cmd_turn_[21] = 0 (00000000)
+
+State 792 file rekh_aso.2.M1-1.c line 1692 function __startrek_cs_t1 thread 0
+----------------------------------------------------
+  c1 = 1
+
+State 793 file rekh_aso.2.M1-1.c line 3910 function __startrek_write_trans thread 0
+----------------------------------------------------
+  _trans_[21] = 0
+
+State 794 file rekh_aso.2.M1-1.c line 3641 function __startrek_read___startrek_job_count_OSEK_Task_ts2 thread 0
+----------------------------------------------------
+  r1 = 1 (00000001)
+
+State 795 file rekh_aso.2.M1-1.c line 3948 function __startrek_write___startrek_job_count_OSEK_Task_ts2 thread 0
+----------------------------------------------------
+  ___startrek_job_count_OSEK_Task_ts2_[21] = 2 (00000010)
+
+State 796 file rekh_aso.2.M1-1.c line 3720 function __startrek_write___startrek_current_priority thread 0
+----------------------------------------------------
+  ___startrek_current_priority_[21] = 0 (00000000)
+
+State 797 file rekh_aso.2.M1-1.c line 2918 function __startrek_hyperperiod thread 0
+----------------------------------------------------
+  __startrek_round = 14 (00001110)
+
+State 798 file rekh_aso.2.M1-1.c line 2920 function __startrek_hyperperiod thread 0
+----------------------------------------------------
+  __startrek_job_end = 14 (00001110)
+
+State 799 file rekh_aso.2.M1-1.c line 3401 function __startrek_read___startrek_current_priority thread 0
+----------------------------------------------------
+  r1 = 1 (00000001)
+
+State 800 file rekh_aso.2.M1-1.c line 469 function __startrek_entry_pt_OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  sp = 1 (00000001)
+
+State 801 file rekh_aso.2.M1-1.c line 3720 function __startrek_write___startrek_current_priority thread 0
+----------------------------------------------------
+  ___startrek_current_priority_[14] = 2 (00000010)
+
+State 802 file rekh_aso.2.M1-1.c line 3441 function __startrek_read_nxtway_gs_mode thread 0
+----------------------------------------------------
+  r1 = 2 (00000010)
+
+State 803 file rekh_aso.2.M1-1.c line 3601 function __startrek_read_trans thread 0
+----------------------------------------------------
+  r1 = 1
+
+State 804 file rekh_aso.2.M1-1.c line 222 function ecrobot_get_battery_voltage thread 0
+----------------------------------------------------
+  tmp = 0 (00000000 00000000 00000000 00000000)
+
+State 805 file rekh_aso.2.M1-1.c line 3681 function __startrek_read___startrek_job_count_OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  r1 = 13 (00001101)
+
+State 806 file rekh_aso.2.M1-1.c line 3986 function __startrek_write___startrek_job_count_OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  ___startrek_job_count_OSEK_Task_ts1_[14] = 14 (00001110)
+
+State 807 file rekh_aso.2.M1-1.c line 3720 function __startrek_write___startrek_current_priority thread 0
+----------------------------------------------------
+  ___startrek_current_priority_[14] = 1 (00000001)
+
+State 808 file rekh_aso.2.M1-1.c line 2958 function __startrek_hyperperiod thread 0
+----------------------------------------------------
+  __startrek_round = 15 (00001111)
+
+State 809 file rekh_aso.2.M1-1.c line 2960 function __startrek_hyperperiod thread 0
+----------------------------------------------------
+  __startrek_job_end = 15 (00001111)
+
+State 810 file rekh_aso.2.M1-1.c line 3401 function __startrek_read___startrek_current_priority thread 0
+----------------------------------------------------
+  r1 = 1 (00000001)
+
+State 811 file rekh_aso.2.M1-1.c line 469 function __startrek_entry_pt_OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  sp = 1 (00000001)
+
+State 812 file rekh_aso.2.M1-1.c line 3720 function __startrek_write___startrek_current_priority thread 0
+----------------------------------------------------
+  ___startrek_current_priority_[15] = 2 (00000010)
+
+State 813 file rekh_aso.2.M1-1.c line 3441 function __startrek_read_nxtway_gs_mode thread 0
+----------------------------------------------------
+  r1 = 2 (00000010)
+
+State 814 file rekh_aso.2.M1-1.c line 3601 function __startrek_read_trans thread 0
+----------------------------------------------------
+  r1 = 1
+
+State 815 file rekh_aso.2.M1-1.c line 222 function ecrobot_get_battery_voltage thread 0
+----------------------------------------------------
+  tmp = 0 (00000000 00000000 00000000 00000000)
+
+State 816 file rekh_aso.2.M1-1.c line 3681 function __startrek_read___startrek_job_count_OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  r1 = 14 (00001110)
+
+State 817 file rekh_aso.2.M1-1.c line 3986 function __startrek_write___startrek_job_count_OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  ___startrek_job_count_OSEK_Task_ts1_[15] = 15 (00001111)
+
+State 818 file rekh_aso.2.M1-1.c line 3720 function __startrek_write___startrek_current_priority thread 0
+----------------------------------------------------
+  ___startrek_current_priority_[15] = 1 (00000001)
+
+State 819 file rekh_aso.2.M1-1.c line 2998 function __startrek_hyperperiod thread 0
+----------------------------------------------------
+  __startrek_round = 16 (00010000)
+
+State 820 file rekh_aso.2.M1-1.c line 3000 function __startrek_hyperperiod thread 0
+----------------------------------------------------
+  __startrek_job_end = 16 (00010000)
+
+State 821 file rekh_aso.2.M1-1.c line 3401 function __startrek_read___startrek_current_priority thread 0
+----------------------------------------------------
+  r1 = 1 (00000001)
+
+State 822 file rekh_aso.2.M1-1.c line 469 function __startrek_entry_pt_OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  sp = 1 (00000001)
+
+State 823 file rekh_aso.2.M1-1.c line 3720 function __startrek_write___startrek_current_priority thread 0
+----------------------------------------------------
+  ___startrek_current_priority_[16] = 2 (00000010)
+
+State 824 file rekh_aso.2.M1-1.c line 3441 function __startrek_read_nxtway_gs_mode thread 0
+----------------------------------------------------
+  r1 = 2 (00000010)
+
+State 825 file rekh_aso.2.M1-1.c line 3601 function __startrek_read_trans thread 0
+----------------------------------------------------
+  r1 = 1
+
+State 826 file rekh_aso.2.M1-1.c line 222 function ecrobot_get_battery_voltage thread 0
+----------------------------------------------------
+  tmp = 0 (00000000 00000000 00000000 00000000)
+
+State 827 file rekh_aso.2.M1-1.c line 3681 function __startrek_read___startrek_job_count_OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  r1 = 15 (00001111)
+
+State 828 file rekh_aso.2.M1-1.c line 3986 function __startrek_write___startrek_job_count_OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  ___startrek_job_count_OSEK_Task_ts1_[16] = 16 (00010000)
+
+State 829 file rekh_aso.2.M1-1.c line 3720 function __startrek_write___startrek_current_priority thread 0
+----------------------------------------------------
+  ___startrek_current_priority_[16] = 1 (00000001)
+
+State 830 file rekh_aso.2.M1-1.c line 3038 function __startrek_hyperperiod thread 0
+----------------------------------------------------
+  __startrek_round = 17 (00010001)
+
+State 831 file rekh_aso.2.M1-1.c line 3040 function __startrek_hyperperiod thread 0
+----------------------------------------------------
+  __startrek_job_end = 17 (00010001)
+
+State 832 file rekh_aso.2.M1-1.c line 3401 function __startrek_read___startrek_current_priority thread 0
+----------------------------------------------------
+  r1 = 1 (00000001)
+
+State 833 file rekh_aso.2.M1-1.c line 469 function __startrek_entry_pt_OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  sp = 1 (00000001)
+
+State 834 file rekh_aso.2.M1-1.c line 3720 function __startrek_write___startrek_current_priority thread 0
+----------------------------------------------------
+  ___startrek_current_priority_[17] = 2 (00000010)
+
+State 835 file rekh_aso.2.M1-1.c line 3441 function __startrek_read_nxtway_gs_mode thread 0
+----------------------------------------------------
+  r1 = 2 (00000010)
+
+State 836 file rekh_aso.2.M1-1.c line 3601 function __startrek_read_trans thread 0
+----------------------------------------------------
+  r1 = 1
+
+State 837 file rekh_aso.2.M1-1.c line 222 function ecrobot_get_battery_voltage thread 0
+----------------------------------------------------
+  tmp = 0 (00000000 00000000 00000000 00000000)
+
+State 838 file rekh_aso.2.M1-1.c line 3681 function __startrek_read___startrek_job_count_OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  r1 = 16 (00010000)
+
+State 839 file rekh_aso.2.M1-1.c line 3986 function __startrek_write___startrek_job_count_OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  ___startrek_job_count_OSEK_Task_ts1_[17] = 17 (00010001)
+
+State 840 file rekh_aso.2.M1-1.c line 3720 function __startrek_write___startrek_current_priority thread 0
+----------------------------------------------------
+  ___startrek_current_priority_[17] = 1 (00000001)
+
+State 841 file rekh_aso.2.M1-1.c line 3078 function __startrek_hyperperiod thread 0
+----------------------------------------------------
+  __startrek_round = 18 (00010010)
+
+State 842 file rekh_aso.2.M1-1.c line 3080 function __startrek_hyperperiod thread 0
+----------------------------------------------------
+  __startrek_job_end = 18 (00010010)
+
+State 843 file rekh_aso.2.M1-1.c line 3401 function __startrek_read___startrek_current_priority thread 0
+----------------------------------------------------
+  r1 = 1 (00000001)
+
+State 844 file rekh_aso.2.M1-1.c line 469 function __startrek_entry_pt_OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  sp = 1 (00000001)
+
+State 845 file rekh_aso.2.M1-1.c line 3720 function __startrek_write___startrek_current_priority thread 0
+----------------------------------------------------
+  ___startrek_current_priority_[18] = 2 (00000010)
+
+State 846 file rekh_aso.2.M1-1.c line 3441 function __startrek_read_nxtway_gs_mode thread 0
+----------------------------------------------------
+  r1 = 2 (00000010)
+
+State 847 file rekh_aso.2.M1-1.c line 3601 function __startrek_read_trans thread 0
+----------------------------------------------------
+  r1 = 1
+
+State 848 file rekh_aso.2.M1-1.c line 222 function ecrobot_get_battery_voltage thread 0
+----------------------------------------------------
+  tmp = 0 (00000000 00000000 00000000 00000000)
+
+State 849 file rekh_aso.2.M1-1.c line 3681 function __startrek_read___startrek_job_count_OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  r1 = 17 (00010001)
+
+State 850 file rekh_aso.2.M1-1.c line 3986 function __startrek_write___startrek_job_count_OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  ___startrek_job_count_OSEK_Task_ts1_[18] = 18 (00010010)
+
+State 851 file rekh_aso.2.M1-1.c line 3720 function __startrek_write___startrek_current_priority thread 0
+----------------------------------------------------
+  ___startrek_current_priority_[18] = 1 (00000001)
+
+State 852 file rekh_aso.2.M1-1.c line 3118 function __startrek_hyperperiod thread 0
+----------------------------------------------------
+  __startrek_round = 19 (00010011)
+
+State 853 file rekh_aso.2.M1-1.c line 3120 function __startrek_hyperperiod thread 0
+----------------------------------------------------
+  __startrek_job_end = 19 (00010011)
+
+State 854 file rekh_aso.2.M1-1.c line 3401 function __startrek_read___startrek_current_priority thread 0
+----------------------------------------------------
+  r1 = 1 (00000001)
+
+State 855 file rekh_aso.2.M1-1.c line 469 function __startrek_entry_pt_OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  sp = 1 (00000001)
+
+State 856 file rekh_aso.2.M1-1.c line 3720 function __startrek_write___startrek_current_priority thread 0
+----------------------------------------------------
+  ___startrek_current_priority_[19] = 2 (00000010)
+
+State 857 file rekh_aso.2.M1-1.c line 3441 function __startrek_read_nxtway_gs_mode thread 0
+----------------------------------------------------
+  r1 = 2 (00000010)
+
+State 858 file rekh_aso.2.M1-1.c line 3601 function __startrek_read_trans thread 0
+----------------------------------------------------
+  r1 = 1
+
+State 859 file rekh_aso.2.M1-1.c line 222 function ecrobot_get_battery_voltage thread 0
+----------------------------------------------------
+  tmp = 0 (00000000 00000000 00000000 00000000)
+
+State 860 file rekh_aso.2.M1-1.c line 3681 function __startrek_read___startrek_job_count_OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  r1 = 18 (00010010)
+
+State 861 file rekh_aso.2.M1-1.c line 3986 function __startrek_write___startrek_job_count_OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  ___startrek_job_count_OSEK_Task_ts1_[19] = 19 (00010011)
+
+State 862 file rekh_aso.2.M1-1.c line 3720 function __startrek_write___startrek_current_priority thread 0
+----------------------------------------------------
+  ___startrek_current_priority_[19] = 1 (00000001)
+
+State 863 file rekh_aso.2.M1-1.c line 3158 function __startrek_hyperperiod thread 0
+----------------------------------------------------
+  __startrek_round = 20 (00010100)
+
+State 864 file rekh_aso.2.M1-1.c line 3160 function __startrek_hyperperiod thread 0
+----------------------------------------------------
+  __startrek_job_end = 20 (00010100)
+
+State 865 file rekh_aso.2.M1-1.c line 3401 function __startrek_read___startrek_current_priority thread 0
+----------------------------------------------------
+  r1 = 1 (00000001)
+
+State 866 file rekh_aso.2.M1-1.c line 469 function __startrek_entry_pt_OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  sp = 1 (00000001)
+
+State 867 file rekh_aso.2.M1-1.c line 3720 function __startrek_write___startrek_current_priority thread 0
+----------------------------------------------------
+  ___startrek_current_priority_[20] = 2 (00000010)
+
+State 868 file rekh_aso.2.M1-1.c line 3441 function __startrek_read_nxtway_gs_mode thread 0
+----------------------------------------------------
+  r1 = 2 (00000010)
+
+State 869 file rekh_aso.2.M1-1.c line 3601 function __startrek_read_trans thread 0
+----------------------------------------------------
+  r1 = 1
+
+State 870 file rekh_aso.2.M1-1.c line 222 function ecrobot_get_battery_voltage thread 0
+----------------------------------------------------
+  tmp = 0 (00000000 00000000 00000000 00000000)
+
+State 871 file rekh_aso.2.M1-1.c line 3681 function __startrek_read___startrek_job_count_OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  r1 = 19 (00010011)
+
+State 872 file rekh_aso.2.M1-1.c line 3986 function __startrek_write___startrek_job_count_OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  ___startrek_job_count_OSEK_Task_ts1_[20] = 20 (00010100)
+
+State 873 file rekh_aso.2.M1-1.c line 3720 function __startrek_write___startrek_current_priority thread 0
+----------------------------------------------------
+  ___startrek_current_priority_[20] = 1 (00000001)
+
+State 874 file rekh_aso.2.M1-1.c line 3199 function __startrek_hyperperiod thread 0
+----------------------------------------------------
+  __startrek_round = 22 (00010110)
+
+State 875 file rekh_aso.2.M1-1.c line 3201 function __startrek_hyperperiod thread 0
+----------------------------------------------------
+  __startrek_job_end = 22 (00010110)
+
+State 876 file rekh_aso.2.M1-1.c line 3401 function __startrek_read___startrek_current_priority thread 0
+----------------------------------------------------
+  r1 = 0 (00000000)
+
+State 877 file rekh_aso.2.M1-1.c line 469 function __startrek_entry_pt_OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  sp = 0 (00000000)
+
+State 878 file rekh_aso.2.M1-1.c line 3720 function __startrek_write___startrek_current_priority thread 0
+----------------------------------------------------
+  ___startrek_current_priority_[22] = 2 (00000010)
+
+State 879 file rekh_aso.2.M1-1.c line 3441 function __startrek_read_nxtway_gs_mode thread 0
+----------------------------------------------------
+  r1 = 2 (00000010)
+
+State 880 file rekh_aso.2.M1-1.c line 3601 function __startrek_read_trans thread 0
+----------------------------------------------------
+  r1 = 0
+
+State 881 file rekh_aso.2.M1-1.c line 3481 function __startrek_read_obstacle_flag thread 0
+----------------------------------------------------
+  r1 = 1
+
+State 882 file rekh_aso.2.M1-1.c line 279 function OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  lobstacle = 1
+
+State 883 file rekh_aso.2.M1-1.c line 3561 function __startrek_read_cmd_turn thread 0
+----------------------------------------------------
+  r1 = 0 (00000000)
+
+State 884 file rekh_aso.2.M1-1.c line 281 function OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  task_cmd_turn = 0 (00000000)
+
+State 885 file rekh_aso.2.M1-1.c line 3521 function __startrek_read_cmd_forward thread 0
+----------------------------------------------------
+  r1 = -120 (10001000)
+
+State 886 file rekh_aso.2.M1-1.c line 283 function OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  task_cmd_forward = -120 (10001000)
+
+State 887 file rekh_aso.2.M1-1.c line 222 function ecrobot_get_battery_voltage thread 0
+----------------------------------------------------
+  tmp = 0 (00000000 00000000 00000000 00000000)
+
+State 888 file rekh_aso.2.M1-1.c line 3681 function __startrek_read___startrek_job_count_OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  r1 = 20 (00010100)
+
+State 889 file rekh_aso.2.M1-1.c line 3986 function __startrek_write___startrek_job_count_OSEK_Task_ts1 thread 0
+----------------------------------------------------
+  ___startrek_job_count_OSEK_Task_ts1_[22] = 21 (00010101)
+
+State 890 file rekh_aso.2.M1-1.c line 3720 function __startrek_write___startrek_current_priority thread 0
+----------------------------------------------------
+  ___startrek_current_priority_[22] = 0 (00000000)
+
+State 891 file rekh_aso.2.M1-1.c line 3 function reach_error thread 0
+----------------------------------------------------
+Violated property:
+  file rekh_aso.2.M1-1.c line 3 function reach_error
+  assertion 0
+  0
+
+
+VERIFICATION FAILED
+
+Bug found (k = 1)
+
+
+FALSE_REACH

@@ -1,0 +1,68 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-net--batman-adv--batman-adv.ko-ldv_main15_sequence_infinite_withcheck_stateful.cil.out.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --add-symex-value-sets --no-align-check --k-step 5 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-net--batman-adv--batman-adv.ko-ldv_main15_sequence_infinite_withcheck_stateful.cil.out.i --64 --witness-output 32_7a_cilled_linux-3.8-rc1-32_7a-net--batman-adv--batman-adv.ko-ldv_main15_sequence_infinite_withcheck_stateful.cil.out.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --goto-unwind --unlimited-goto-unwind --k-induction --max-inductive-step 3 
+
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-net--batman-adv--batman-adv.ko-ldv_main15_sequence_infinite_withcheck_stateful.cil.out.i:8361:12: warning: incompatible integer to pointer conversion assigning to 'struct hlist_node **' from 'unsigned long' [-Wint-conversion]
+  n->pprev = 0xdead000000200200UL;
+           ^ ~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-net--batman-adv--batman-adv.ko-ldv_main15_sequence_infinite_withcheck_stateful.cil.out.i:8820:40: warning: incompatible integer to pointer conversion passing 'int' to parameter of type 'void (*)(struct callback_head *)' [-Wint-conversion]
+    kfree_call_rcu(& backbone_gw->rcu, 56);
+                                       ^~
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-net--batman-adv--batman-adv.ko-ldv_main15_sequence_infinite_withcheck_stateful.cil.out.i:8354:60: note: passing argument to parameter here
+extern void kfree_call_rcu(struct callback_head * , void (*)(struct callback_head * ) ) ;
+                                                           ^
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-net--batman-adv--batman-adv.ko-ldv_main15_sequence_infinite_withcheck_stateful.cil.out.i:11119:22: warning: incompatible pointer types passing '__va_list_tag *' (aka 'struct __va_list_tag *') to parameter of type 'struct __va_list_tag *' [-Wincompatible-pointer-types]
+  __builtin_va_start((__va_list_tag *)(& args), fmt);
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-net--batman-adv--batman-adv.ko-ldv_main15_sequence_infinite_withcheck_stateful.cil.out.i:11121:20: warning: incompatible pointer types passing '__va_list_tag *' (aka 'struct __va_list_tag *') to parameter of type 'struct __va_list_tag *' [-Wincompatible-pointer-types]
+  __builtin_va_end((__va_list_tag *)(& args));
+                   ^~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-net--batman-adv--batman-adv.ko-ldv_main15_sequence_infinite_withcheck_stateful.cil.out.i:11143:22: warning: incompatible pointer types passing '__va_list_tag *' (aka 'struct __va_list_tag *') to parameter of type 'struct __va_list_tag *' [-Wincompatible-pointer-types]
+  __builtin_va_start((__va_list_tag *)(& args), fmt);
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-net--batman-adv--batman-adv.ko-ldv_main15_sequence_infinite_withcheck_stateful.cil.out.i:11147:20: warning: incompatible pointer types passing '__va_list_tag *' (aka 'struct __va_list_tag *') to parameter of type 'struct __va_list_tag *' [-Wincompatible-pointer-types]
+  __builtin_va_end((__va_list_tag *)(& args));
+                   ^~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-net--batman-adv--batman-adv.ko-ldv_main15_sequence_infinite_withcheck_stateful.cil.out.i:12174:38: warning: incompatible integer to pointer conversion passing 'int' to parameter of type 'void (*)(struct callback_head *)' [-Wint-conversion]
+    kfree_call_rcu(& dat_entry->rcu, 48);
+                                     ^~
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-net--batman-adv--batman-adv.ko-ldv_main15_sequence_infinite_withcheck_stateful.cil.out.i:8354:60: note: passing argument to parameter here
+extern void kfree_call_rcu(struct callback_head * , void (*)(struct callback_head * ) ) ;
+                                                           ^
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-net--batman-adv--batman-adv.ko-ldv_main15_sequence_infinite_withcheck_stateful.cil.out.i:13473:36: warning: incompatible integer to pointer conversion passing 'int' to parameter of type 'void (*)(struct callback_head *)' [-Wint-conversion]
+    kfree_call_rcu(& gw_node->rcu, 40);
+                                   ^~
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-net--batman-adv--batman-adv.ko-ldv_main15_sequence_infinite_withcheck_stateful.cil.out.i:8354:60: note: passing argument to parameter here
+extern void kfree_call_rcu(struct callback_head * , void (*)(struct callback_head * ) ) ;
+                                                           ^
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-net--batman-adv--batman-adv.ko-ldv_main15_sequence_infinite_withcheck_stateful.cil.out.i:14839:15: warning: incompatible integer to pointer conversion assigning to 'struct list_head *' from 'unsigned long' [-Wint-conversion]
+  entry->prev = 0xdead000000200200UL;
+              ^ ~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-net--batman-adv--batman-adv.ko-ldv_main15_sequence_infinite_withcheck_stateful.cil.out.i:18269:39: warning: incompatible integer to pointer conversion passing 'int' to parameter of type 'void (*)(struct callback_head *)' [-Wint-conversion]
+    kfree_call_rcu(& neigh_node->rcu, 72);
+                                      ^~
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-net--batman-adv--batman-adv.ko-ldv_main15_sequence_infinite_withcheck_stateful.cil.out.i:8354:60: note: passing argument to parameter here
+extern void kfree_call_rcu(struct callback_head * , void (*)(struct callback_head * ) ) ;
+                                                           ^
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-net--batman-adv--batman-adv.ko-ldv_main15_sequence_infinite_withcheck_stateful.cil.out.i:21334:11: warning: incompatible integer to pointer conversion assigning to 'struct hlist_node *' from 'unsigned long' [-Wint-conversion]
+  n->next = 0xdead000000100100UL;
+          ^ ~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-net--batman-adv--batman-adv.ko-ldv_main15_sequence_infinite_withcheck_stateful.cil.out.i:21335:12: warning: incompatible integer to pointer conversion assigning to 'struct hlist_node **' from 'unsigned long' [-Wint-conversion]
+  n->pprev = 0xdead000000200200UL;
+           ^ ~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-net--batman-adv--batman-adv.ko-ldv_main15_sequence_infinite_withcheck_stateful.cil.out.i:24908:50: warning: incompatible integer to pointer conversion passing 'int' to parameter of type 'void (*)(struct callback_head *)' [-Wint-conversion]
+    kfree_call_rcu(& tt_local_entry->common.rcu, 48);
+                                                 ^~
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-net--batman-adv--batman-adv.ko-ldv_main15_sequence_infinite_withcheck_stateful.cil.out.i:8354:60: note: passing argument to parameter here
+extern void kfree_call_rcu(struct callback_head * , void (*)(struct callback_head * ) ) ;
+                                                           ^
+Can't construct rvalue reference to array type during dereference
+(It isn't allowed by C anyway)
+
+
+Unknown

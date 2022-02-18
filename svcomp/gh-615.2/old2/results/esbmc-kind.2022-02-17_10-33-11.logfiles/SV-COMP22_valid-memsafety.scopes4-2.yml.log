@@ -1,0 +1,46 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/valid-memsafety.prp -s kinduction --arch 32 ../sv-benchmarks/c/memsafety-ext3/scopes4-2.c
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --add-symex-value-sets --no-align-check --k-step 5 --floatbv --unlimited-k-steps ../sv-benchmarks/c/memsafety-ext3/scopes4-2.c --32 --witness-output scopes4-2.c.graphml --memory-leak-check --no-assertions --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/memsafety-ext3/scopes4-2.c: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.141s
+GOTO program processing time: 0.001s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Symex completed in: 0.001s (16 assignments)
+Slicing time: 0.000s (removed 14 assignments)
+Generated 2 VCC(s), 1 remaining after simplification (2 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.001s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.001s
+Runtime decision procedure: 0.012s
+Building error trace
+
+Counterexample:
+
+State 1 file scopes4-2.c line 18 function main thread 0
+----------------------------------------------------
+Violated property:
+  file scopes4-2.c line 18 function main
+  dereference failure: accessed expired variable pointer `arr'
+
+
+VERIFICATION FAILED
+
+Bug found (k = 1)
+
+../sv-benchmarks/c/memsafety-ext3/scopes4-2.c:7:12: warning: address of stack memory associated with local variable 'arr' returned [-Wreturn-stack-address]
+    return arr + 1;
+           ^~~
+
+FALSE_DEREF

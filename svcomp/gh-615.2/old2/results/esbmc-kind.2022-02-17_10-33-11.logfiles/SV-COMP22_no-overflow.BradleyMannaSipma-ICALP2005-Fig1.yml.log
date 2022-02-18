@@ -1,0 +1,57 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/no-overflow.prp -s kinduction --arch 64 ../sv-benchmarks/c/termination-crafted-lit/BradleyMannaSipma-ICALP2005-Fig1.c
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --add-symex-value-sets --no-align-check --k-step 5 --floatbv --unlimited-k-steps ../sv-benchmarks/c/termination-crafted-lit/BradleyMannaSipma-ICALP2005-Fig1.c --64 --witness-output BradleyMannaSipma-ICALP2005-Fig1.c.graphml --no-pointer-check --no-bounds-check --overflow-check --no-assertions --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 64-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/termination-crafted-lit/BradleyMannaSipma-ICALP2005-Fig1.c: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.083s
+GOTO program processing time: 0.001s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.001s (38 assignments)
+Slicing time: 0.000s (removed 21 assignments)
+Generated 6 VCC(s), 6 remaining after simplification (17 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.001s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.001s
+Runtime decision procedure: 0.032s
+Building error trace
+
+Counterexample:
+
+State 1 file BradleyMannaSipma-ICALP2005-Fig1.c line 16 function main thread 0
+----------------------------------------------------
+  x = -972267336 (11000110 00001100 01100000 10111000)
+
+State 2 file BradleyMannaSipma-ICALP2005-Fig1.c line 17 function main thread 0
+----------------------------------------------------
+  y = -2146909906 (10000000 00001000 11000001 00101110)
+
+State 3 file BradleyMannaSipma-ICALP2005-Fig1.c line 18 function main thread 0
+----------------------------------------------------
+  N = -972267335 (11000110 00001100 01100000 10111001)
+
+State 5 file BradleyMannaSipma-ICALP2005-Fig1.c line 22 function main thread 0
+----------------------------------------------------
+Violated property:
+  file BradleyMannaSipma-ICALP2005-Fig1.c line 22 function main
+  arithmetic overflow on add
+  !overflow("+", x, y)
+
+
+VERIFICATION FAILED
+
+Bug found (k = 1)
+
+
+FALSE_OVERFLOW

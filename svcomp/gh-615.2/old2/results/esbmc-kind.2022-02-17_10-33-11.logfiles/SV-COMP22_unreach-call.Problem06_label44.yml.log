@@ -1,0 +1,1245 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/eca-rers2012/Problem06_label44.c
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --add-symex-value-sets --no-align-check --k-step 5 --floatbv --unlimited-k-steps ../sv-benchmarks/c/eca-rers2012/Problem06_label44.c --32 --witness-output Problem06_label44.c.graphml --no-pointer-check --no-bounds-check --interval-analysis --goto-unwind --unlimited-goto-unwind --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/eca-rers2012/Problem06_label44.c: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 2.615s
+GOTO program processing time: 1.944s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.352s (2057 assignments)
+Slicing time: 0.003s (removed 2053 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (4 assignments)
+BMC program time: 0.355s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.318s (2057 assignments)
+Slicing time: 0.003s (removed 2053 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (4 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.000s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.000s
+Runtime decision procedure: 0.004s
+The forward condition is unable to prove the property
+*** Checking base case, k = 6
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file Problem06_label44.c line 9483 function main
+Unwinding loop 1  iteration  2   file Problem06_label44.c line 9483 function main
+Unwinding loop 1  iteration  3   file Problem06_label44.c line 9483 function main
+Unwinding loop 1  iteration  4   file Problem06_label44.c line 9483 function main
+Unwinding loop 1  iteration  5   file Problem06_label44.c line 9483 function main
+Not unwinding 
+Symex completed in: 10.613s (191062 assignments)
+Slicing time: 1.486s (removed 84576 assignments)
+Generated 4 VCC(s), 4 remaining after simplification (106486 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 2.359s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 2.359s
+Runtime decision procedure: 20.549s
+Building error trace
+
+Counterexample:
+
+State 1 file Problem06_label44.c line 9487 function main thread 0
+----------------------------------------------------
+  input = 3 (00000000 00000000 00000000 00000011)
+
+State 2 file Problem06_label44.c line 9487 function main thread 0
+----------------------------------------------------
+  input = 3 (00000000 00000000 00000000 00000011)
+
+State 3 file Problem06_label44.c line 9487 function main thread 0
+----------------------------------------------------
+  input = 6 (00000000 00000000 00000000 00000110)
+
+State 4 file Problem06_label44.c line 9487 function main thread 0
+----------------------------------------------------
+  input = 2 (00000000 00000000 00000000 00000010)
+
+State 5 file Problem06_label44.c line 9487 function main thread 0
+----------------------------------------------------
+  input = 6 (00000000 00000000 00000000 00000110)
+
+State 6 file Problem06_label44.c line 9487 function main thread 0
+----------------------------------------------------
+  input = 6 (00000000 00000000 00000000 00000110)
+
+State 7 file Problem06_label44.c line 16 function reach_error thread 0
+----------------------------------------------------
+Violated property:
+  file Problem06_label44.c line 16 function reach_error
+  assertion 0
+  0
+
+
+VERIFICATION FAILED
+
+Bug found (k = 6)
+
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:130:14: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a15==1)){
+                    ~~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:130:14: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a15==1)){
+                   ~   ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:130:14: note: use '=' to turn this equality comparison into an assignment
+                if((a15==1)){
+                       ^~
+                       =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:315:14: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a28==1)){
+                    ~~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:315:14: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a28==1)){
+                   ~   ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:315:14: note: use '=' to turn this equality comparison into an assignment
+                if((a28==1)){
+                       ^~
+                       =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:347:14: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a10==1)){
+                    ~~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:347:14: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a10==1)){
+                   ~   ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:347:14: note: use '=' to turn this equality comparison into an assignment
+                if((a10==1)){
+                       ^~
+                       =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:404:14: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a26==1)){
+                    ~~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:404:14: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a26==1)){
+                   ~   ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:404:14: note: use '=' to turn this equality comparison into an assignment
+                if((a26==1)){
+                       ^~
+                       =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:495:14: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a11==1)){
+                    ~~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:495:14: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a11==1)){
+                   ~   ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:495:14: note: use '=' to turn this equality comparison into an assignment
+                if((a11==1)){
+                       ^~
+                       =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:515:13: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a0==1)){
+                    ~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:515:13: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a0==1)){
+                   ~  ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:515:13: note: use '=' to turn this equality comparison into an assignment
+                if((a0==1)){
+                      ^~
+                      =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:533:14: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a15==1)){
+                    ~~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:533:14: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a15==1)){
+                   ~   ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:533:14: note: use '=' to turn this equality comparison into an assignment
+                if((a15==1)){
+                       ^~
+                       =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:621:14: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a12==1)){
+                    ~~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:621:14: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a12==1)){
+                   ~   ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:621:14: note: use '=' to turn this equality comparison into an assignment
+                if((a12==1)){
+                       ^~
+                       =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:852:14: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a17==1)){
+                    ~~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:852:14: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a17==1)){
+                   ~   ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:852:14: note: use '=' to turn this equality comparison into an assignment
+                if((a17==1)){
+                       ^~
+                       =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:886:13: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a8==1)){
+                    ~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:886:13: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a8==1)){
+                   ~  ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:886:13: note: use '=' to turn this equality comparison into an assignment
+                if((a8==1)){
+                      ^~
+                      =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:960:14: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a28==1)){
+                    ~~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:960:14: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a28==1)){
+                   ~   ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:960:14: note: use '=' to turn this equality comparison into an assignment
+                if((a28==1)){
+                       ^~
+                       =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:979:14: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a12==1)){
+                    ~~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:979:14: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a12==1)){
+                   ~   ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:979:14: note: use '=' to turn this equality comparison into an assignment
+                if((a12==1)){
+                       ^~
+                       =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:1086:14: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a12==1)){
+                    ~~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:1086:14: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a12==1)){
+                   ~   ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:1086:14: note: use '=' to turn this equality comparison into an assignment
+                if((a12==1)){
+                       ^~
+                       =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:1407:14: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a21==1)){
+                    ~~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:1407:14: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a21==1)){
+                   ~   ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:1407:14: note: use '=' to turn this equality comparison into an assignment
+                if((a21==1)){
+                       ^~
+                       =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:1432:13: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a5==1)){
+                    ~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:1432:13: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a5==1)){
+                   ~  ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:1432:13: note: use '=' to turn this equality comparison into an assignment
+                if((a5==1)){
+                      ^~
+                      =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:1470:14: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a11==1)){
+                    ~~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:1470:14: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a11==1)){
+                   ~   ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:1470:14: note: use '=' to turn this equality comparison into an assignment
+                if((a11==1)){
+                       ^~
+                       =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:1645:14: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a27==20)){
+                    ~~~^~~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:1645:14: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a27==20)){
+                   ~   ^   ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:1645:14: note: use '=' to turn this equality comparison into an assignment
+                if((a27==20)){
+                       ^~
+                       =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:1699:13: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a2==1)){
+                    ~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:1699:13: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a2==1)){
+                   ~  ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:1699:13: note: use '=' to turn this equality comparison into an assignment
+                if((a2==1)){
+                      ^~
+                      =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:1909:14: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a28==1)){
+                    ~~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:1909:14: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a28==1)){
+                   ~   ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:1909:14: note: use '=' to turn this equality comparison into an assignment
+                if((a28==1)){
+                       ^~
+                       =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:1928:13: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a6==1)){
+                    ~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:1928:13: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a6==1)){
+                   ~  ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:1928:13: note: use '=' to turn this equality comparison into an assignment
+                if((a6==1)){
+                      ^~
+                      =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:2016:14: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a20==1)){
+                    ~~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:2016:14: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a20==1)){
+                   ~   ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:2016:14: note: use '=' to turn this equality comparison into an assignment
+                if((a20==1)){
+                       ^~
+                       =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:2061:13: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a9==1)){
+                    ~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:2061:13: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a9==1)){
+                   ~  ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:2061:13: note: use '=' to turn this equality comparison into an assignment
+                if((a9==1)){
+                      ^~
+                      =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:2082:14: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a23==1)){
+                    ~~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:2082:14: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a23==1)){
+                   ~   ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:2082:14: note: use '=' to turn this equality comparison into an assignment
+                if((a23==1)){
+                       ^~
+                       =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:2135:13: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a2==1)){
+                    ~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:2135:13: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a2==1)){
+                   ~  ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:2135:13: note: use '=' to turn this equality comparison into an assignment
+                if((a2==1)){
+                      ^~
+                      =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:2214:14: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a22==1)){
+                    ~~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:2214:14: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a22==1)){
+                   ~   ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:2214:14: note: use '=' to turn this equality comparison into an assignment
+                if((a22==1)){
+                       ^~
+                       =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:2303:14: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a16==1)){
+                    ~~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:2303:14: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a16==1)){
+                   ~   ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:2303:14: note: use '=' to turn this equality comparison into an assignment
+                if((a16==1)){
+                       ^~
+                       =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:2345:14: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a29==1)){
+                    ~~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:2345:14: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a29==1)){
+                   ~   ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:2345:14: note: use '=' to turn this equality comparison into an assignment
+                if((a29==1)){
+                       ^~
+                       =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:2390:14: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a15==1)){
+                    ~~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:2390:14: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a15==1)){
+                   ~   ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:2390:14: note: use '=' to turn this equality comparison into an assignment
+                if((a15==1)){
+                       ^~
+                       =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:2527:14: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a16==1)){
+                    ~~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:2527:14: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a16==1)){
+                   ~   ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:2527:14: note: use '=' to turn this equality comparison into an assignment
+                if((a16==1)){
+                       ^~
+                       =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:2689:14: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a16==1)){
+                    ~~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:2689:14: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a16==1)){
+                   ~   ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:2689:14: note: use '=' to turn this equality comparison into an assignment
+                if((a16==1)){
+                       ^~
+                       =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:2766:14: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a29==1)){
+                    ~~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:2766:14: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a29==1)){
+                   ~   ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:2766:14: note: use '=' to turn this equality comparison into an assignment
+                if((a29==1)){
+                       ^~
+                       =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:2818:14: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a22==1)){
+                    ~~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:2818:14: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a22==1)){
+                   ~   ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:2818:14: note: use '=' to turn this equality comparison into an assignment
+                if((a22==1)){
+                       ^~
+                       =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:2837:14: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a15==1)){
+                    ~~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:2837:14: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a15==1)){
+                   ~   ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:2837:14: note: use '=' to turn this equality comparison into an assignment
+                if((a15==1)){
+                       ^~
+                       =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:2887:14: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a12==1)){
+                    ~~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:2887:14: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a12==1)){
+                   ~   ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:2887:14: note: use '=' to turn this equality comparison into an assignment
+                if((a12==1)){
+                       ^~
+                       =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:2974:14: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a17==1)){
+                    ~~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:2974:14: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a17==1)){
+                   ~   ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:2974:14: note: use '=' to turn this equality comparison into an assignment
+                if((a17==1)){
+                       ^~
+                       =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:3073:14: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a20==1)){
+                    ~~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:3073:14: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a20==1)){
+                   ~   ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:3073:14: note: use '=' to turn this equality comparison into an assignment
+                if((a20==1)){
+                       ^~
+                       =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:3198:13: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a6==1)){
+                    ~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:3198:13: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a6==1)){
+                   ~  ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:3198:13: note: use '=' to turn this equality comparison into an assignment
+                if((a6==1)){
+                      ^~
+                      =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:3252:14: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a19==1)){
+                    ~~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:3252:14: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a19==1)){
+                   ~   ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:3252:14: note: use '=' to turn this equality comparison into an assignment
+                if((a19==1)){
+                       ^~
+                       =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:3284:14: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a11==1)){
+                    ~~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:3284:14: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a11==1)){
+                   ~   ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:3284:14: note: use '=' to turn this equality comparison into an assignment
+                if((a11==1)){
+                       ^~
+                       =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:3304:14: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a15==1)){
+                    ~~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:3304:14: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a15==1)){
+                   ~   ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:3304:14: note: use '=' to turn this equality comparison into an assignment
+                if((a15==1)){
+                       ^~
+                       =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:3434:14: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a19==1)){
+                    ~~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:3434:14: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a19==1)){
+                   ~   ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:3434:14: note: use '=' to turn this equality comparison into an assignment
+                if((a19==1)){
+                       ^~
+                       =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:3508:14: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a15==1)){
+                    ~~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:3508:14: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a15==1)){
+                   ~   ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:3508:14: note: use '=' to turn this equality comparison into an assignment
+                if((a15==1)){
+                       ^~
+                       =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:3558:13: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a4==1)){
+                    ~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:3558:13: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a4==1)){
+                   ~  ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:3558:13: note: use '=' to turn this equality comparison into an assignment
+                if((a4==1)){
+                      ^~
+                      =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:3575:14: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a20==1)){
+                    ~~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:3575:14: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a20==1)){
+                   ~   ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:3575:14: note: use '=' to turn this equality comparison into an assignment
+                if((a20==1)){
+                       ^~
+                       =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:3903:13: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a3==14)){
+                    ~~^~~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:3903:13: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a3==14)){
+                   ~  ^   ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:3903:13: note: use '=' to turn this equality comparison into an assignment
+                if((a3==14)){
+                      ^~
+                      =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:4033:14: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a11==1)){
+                    ~~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:4033:14: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a11==1)){
+                   ~   ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:4033:14: note: use '=' to turn this equality comparison into an assignment
+                if((a11==1)){
+                       ^~
+                       =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:4152:13: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a4==1)){
+                    ~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:4152:13: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a4==1)){
+                   ~  ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:4152:13: note: use '=' to turn this equality comparison into an assignment
+                if((a4==1)){
+                      ^~
+                      =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:4249:14: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a26==1)){
+                    ~~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:4249:14: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a26==1)){
+                   ~   ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:4249:14: note: use '=' to turn this equality comparison into an assignment
+                if((a26==1)){
+                       ^~
+                       =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:4363:13: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a8==1)){
+                    ~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:4363:13: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a8==1)){
+                   ~  ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:4363:13: note: use '=' to turn this equality comparison into an assignment
+                if((a8==1)){
+                      ^~
+                      =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:4475:13: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a9==1)){
+                    ~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:4475:13: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a9==1)){
+                   ~  ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:4475:13: note: use '=' to turn this equality comparison into an assignment
+                if((a9==1)){
+                      ^~
+                      =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:4630:14: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a23==1)){
+                    ~~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:4630:14: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a23==1)){
+                   ~   ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:4630:14: note: use '=' to turn this equality comparison into an assignment
+                if((a23==1)){
+                       ^~
+                       =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:4660:14: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a22==1)){
+                    ~~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:4660:14: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a22==1)){
+                   ~   ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:4660:14: note: use '=' to turn this equality comparison into an assignment
+                if((a22==1)){
+                       ^~
+                       =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:4697:13: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a2==1)){
+                    ~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:4697:13: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a2==1)){
+                   ~  ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:4697:13: note: use '=' to turn this equality comparison into an assignment
+                if((a2==1)){
+                      ^~
+                      =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:4775:14: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a24==1)){
+                    ~~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:4775:14: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a24==1)){
+                   ~   ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:4775:14: note: use '=' to turn this equality comparison into an assignment
+                if((a24==1)){
+                       ^~
+                       =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:4803:14: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a24==1)){
+                    ~~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:4803:14: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a24==1)){
+                   ~   ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:4803:14: note: use '=' to turn this equality comparison into an assignment
+                if((a24==1)){
+                       ^~
+                       =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:4847:13: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a1==1)){
+                    ~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:4847:13: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a1==1)){
+                   ~  ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:4847:13: note: use '=' to turn this equality comparison into an assignment
+                if((a1==1)){
+                      ^~
+                      =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:4876:14: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a29==1)){
+                    ~~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:4876:14: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a29==1)){
+                   ~   ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:4876:14: note: use '=' to turn this equality comparison into an assignment
+                if((a29==1)){
+                       ^~
+                       =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:4941:13: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a6==1)){
+                    ~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:4941:13: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a6==1)){
+                   ~  ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:4941:13: note: use '=' to turn this equality comparison into an assignment
+                if((a6==1)){
+                      ^~
+                      =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:5075:13: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a9==1)){
+                    ~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:5075:13: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a9==1)){
+                   ~  ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:5075:13: note: use '=' to turn this equality comparison into an assignment
+                if((a9==1)){
+                      ^~
+                      =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:5130:13: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a3==12)){
+                    ~~^~~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:5130:13: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a3==12)){
+                   ~  ^   ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:5130:13: note: use '=' to turn this equality comparison into an assignment
+                if((a3==12)){
+                      ^~
+                      =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:5149:14: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a15==1)){
+                    ~~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:5149:14: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a15==1)){
+                   ~   ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:5149:14: note: use '=' to turn this equality comparison into an assignment
+                if((a15==1)){
+                       ^~
+                       =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:5177:14: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a13==1)){
+                    ~~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:5177:14: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a13==1)){
+                   ~   ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:5177:14: note: use '=' to turn this equality comparison into an assignment
+                if((a13==1)){
+                       ^~
+                       =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:5348:13: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a3==12)){
+                    ~~^~~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:5348:13: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a3==12)){
+                   ~  ^   ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:5348:13: note: use '=' to turn this equality comparison into an assignment
+                if((a3==12)){
+                      ^~
+                      =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:5516:14: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a16==1)){
+                    ~~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:5516:14: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a16==1)){
+                   ~   ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:5516:14: note: use '=' to turn this equality comparison into an assignment
+                if((a16==1)){
+                       ^~
+                       =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:5620:13: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a8==1)){
+                    ~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:5620:13: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a8==1)){
+                   ~  ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:5620:13: note: use '=' to turn this equality comparison into an assignment
+                if((a8==1)){
+                      ^~
+                      =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:5649:14: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a15==1)){
+                    ~~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:5649:14: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a15==1)){
+                   ~   ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:5649:14: note: use '=' to turn this equality comparison into an assignment
+                if((a15==1)){
+                       ^~
+                       =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:5745:14: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a29==1)){
+                    ~~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:5745:14: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a29==1)){
+                   ~   ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:5745:14: note: use '=' to turn this equality comparison into an assignment
+                if((a29==1)){
+                       ^~
+                       =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:5795:14: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a12==1)){
+                    ~~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:5795:14: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a12==1)){
+                   ~   ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:5795:14: note: use '=' to turn this equality comparison into an assignment
+                if((a12==1)){
+                       ^~
+                       =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:5916:13: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a4==1)){
+                    ~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:5916:13: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a4==1)){
+                   ~  ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:5916:13: note: use '=' to turn this equality comparison into an assignment
+                if((a4==1)){
+                      ^~
+                      =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:6028:13: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a1==1)){
+                    ~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:6028:13: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a1==1)){
+                   ~  ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:6028:13: note: use '=' to turn this equality comparison into an assignment
+                if((a1==1)){
+                      ^~
+                      =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:6127:13: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a6==1)){
+                    ~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:6127:13: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a6==1)){
+                   ~  ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:6127:13: note: use '=' to turn this equality comparison into an assignment
+                if((a6==1)){
+                      ^~
+                      =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:6156:13: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a7==1)){
+                    ~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:6156:13: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a7==1)){
+                   ~  ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:6156:13: note: use '=' to turn this equality comparison into an assignment
+                if((a7==1)){
+                      ^~
+                      =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:6282:14: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a19==1)){
+                    ~~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:6282:14: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a19==1)){
+                   ~   ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:6282:14: note: use '=' to turn this equality comparison into an assignment
+                if((a19==1)){
+                       ^~
+                       =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:6308:13: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a3==14)){
+                    ~~^~~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:6308:13: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a3==14)){
+                   ~  ^   ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:6308:13: note: use '=' to turn this equality comparison into an assignment
+                if((a3==14)){
+                      ^~
+                      =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:6329:14: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a29==1)){
+                    ~~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:6329:14: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a29==1)){
+                   ~   ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:6329:14: note: use '=' to turn this equality comparison into an assignment
+                if((a29==1)){
+                       ^~
+                       =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:6577:14: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a11==1)){
+                    ~~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:6577:14: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a11==1)){
+                   ~   ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:6577:14: note: use '=' to turn this equality comparison into an assignment
+                if((a11==1)){
+                       ^~
+                       =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:6771:14: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a23==1)){
+                    ~~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:6771:14: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a23==1)){
+                   ~   ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:6771:14: note: use '=' to turn this equality comparison into an assignment
+                if((a23==1)){
+                       ^~
+                       =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:6885:14: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a21==1)){
+                    ~~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:6885:14: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a21==1)){
+                   ~   ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:6885:14: note: use '=' to turn this equality comparison into an assignment
+                if((a21==1)){
+                       ^~
+                       =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:6910:14: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a16==1)){
+                    ~~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:6910:14: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a16==1)){
+                   ~   ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:6910:14: note: use '=' to turn this equality comparison into an assignment
+                if((a16==1)){
+                       ^~
+                       =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:6967:14: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a25==1)){
+                    ~~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:6967:14: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a25==1)){
+                   ~   ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:6967:14: note: use '=' to turn this equality comparison into an assignment
+                if((a25==1)){
+                       ^~
+                       =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:7037:14: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a23==1)){
+                    ~~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:7037:14: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a23==1)){
+                   ~   ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:7037:14: note: use '=' to turn this equality comparison into an assignment
+                if((a23==1)){
+                       ^~
+                       =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:7107:13: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a1==1)){
+                    ~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:7107:13: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a1==1)){
+                   ~  ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:7107:13: note: use '=' to turn this equality comparison into an assignment
+                if((a1==1)){
+                      ^~
+                      =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:7165:14: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a20==1)){
+                    ~~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:7165:14: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a20==1)){
+                   ~   ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:7165:14: note: use '=' to turn this equality comparison into an assignment
+                if((a20==1)){
+                       ^~
+                       =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:7185:14: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a10==1)){
+                    ~~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:7185:14: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a10==1)){
+                   ~   ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:7185:14: note: use '=' to turn this equality comparison into an assignment
+                if((a10==1)){
+                       ^~
+                       =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:7203:14: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a23==1)){
+                    ~~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:7203:14: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a23==1)){
+                   ~   ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:7203:14: note: use '=' to turn this equality comparison into an assignment
+                if((a23==1)){
+                       ^~
+                       =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:7241:14: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a13==1)){
+                    ~~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:7241:14: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a13==1)){
+                   ~   ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:7241:14: note: use '=' to turn this equality comparison into an assignment
+                if((a13==1)){
+                       ^~
+                       =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:7348:14: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a19==1)){
+                    ~~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:7348:14: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a19==1)){
+                   ~   ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:7348:14: note: use '=' to turn this equality comparison into an assignment
+                if((a19==1)){
+                       ^~
+                       =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:7410:14: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a22==1)){
+                    ~~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:7410:14: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a22==1)){
+                   ~   ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:7410:14: note: use '=' to turn this equality comparison into an assignment
+                if((a22==1)){
+                       ^~
+                       =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:7427:14: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a14==7)){
+                    ~~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:7427:14: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a14==7)){
+                   ~   ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:7427:14: note: use '=' to turn this equality comparison into an assignment
+                if((a14==7)){
+                       ^~
+                       =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:7451:13: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a9==1)){
+                    ~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:7451:13: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a9==1)){
+                   ~  ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:7451:13: note: use '=' to turn this equality comparison into an assignment
+                if((a9==1)){
+                      ^~
+                      =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:7558:13: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a8==1)){
+                    ~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:7558:13: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a8==1)){
+                   ~  ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:7558:13: note: use '=' to turn this equality comparison into an assignment
+                if((a8==1)){
+                      ^~
+                      =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:7575:14: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a29==1)){
+                    ~~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:7575:14: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a29==1)){
+                   ~   ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:7575:14: note: use '=' to turn this equality comparison into an assignment
+                if((a29==1)){
+                       ^~
+                       =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:7593:13: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a9==1)){
+                    ~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:7593:13: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a9==1)){
+                   ~  ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:7593:13: note: use '=' to turn this equality comparison into an assignment
+                if((a9==1)){
+                      ^~
+                      =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:7680:14: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a17==1)){
+                    ~~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:7680:14: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a17==1)){
+                   ~   ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:7680:14: note: use '=' to turn this equality comparison into an assignment
+                if((a17==1)){
+                       ^~
+                       =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:7716:14: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a17==1)){
+                    ~~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:7716:14: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a17==1)){
+                   ~   ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:7716:14: note: use '=' to turn this equality comparison into an assignment
+                if((a17==1)){
+                       ^~
+                       =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:7810:13: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a8==1)){
+                    ~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:7810:13: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a8==1)){
+                   ~  ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:7810:13: note: use '=' to turn this equality comparison into an assignment
+                if((a8==1)){
+                      ^~
+                      =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:7829:13: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a9==1)){
+                    ~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:7829:13: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a9==1)){
+                   ~  ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:7829:13: note: use '=' to turn this equality comparison into an assignment
+                if((a9==1)){
+                      ^~
+                      =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:7911:13: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a0==1)){
+                    ~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:7911:13: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a0==1)){
+                   ~  ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:7911:13: note: use '=' to turn this equality comparison into an assignment
+                if((a0==1)){
+                      ^~
+                      =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:7967:14: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a20==1)){
+                    ~~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:7967:14: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a20==1)){
+                   ~   ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:7967:14: note: use '=' to turn this equality comparison into an assignment
+                if((a20==1)){
+                       ^~
+                       =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:8145:13: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a5==1)){
+                    ~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:8145:13: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a5==1)){
+                   ~  ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:8145:13: note: use '=' to turn this equality comparison into an assignment
+                if((a5==1)){
+                      ^~
+                      =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:8208:13: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a9==1)){
+                    ~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:8208:13: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a9==1)){
+                   ~  ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:8208:13: note: use '=' to turn this equality comparison into an assignment
+                if((a9==1)){
+                      ^~
+                      =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:8242:14: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a28==1)){
+                    ~~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:8242:14: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a28==1)){
+                   ~   ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:8242:14: note: use '=' to turn this equality comparison into an assignment
+                if((a28==1)){
+                       ^~
+                       =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:8472:14: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a16==1)){
+                    ~~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:8472:14: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a16==1)){
+                   ~   ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:8472:14: note: use '=' to turn this equality comparison into an assignment
+                if((a16==1)){
+                       ^~
+                       =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:8575:14: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a27==21)){
+                    ~~~^~~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:8575:14: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a27==21)){
+                   ~   ^   ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:8575:14: note: use '=' to turn this equality comparison into an assignment
+                if((a27==21)){
+                       ^~
+                       =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:8596:13: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a1==1)){
+                    ~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:8596:13: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a1==1)){
+                   ~  ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:8596:13: note: use '=' to turn this equality comparison into an assignment
+                if((a1==1)){
+                      ^~
+                      =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:8652:14: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a23==1)){
+                    ~~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:8652:14: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a23==1)){
+                   ~   ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:8652:14: note: use '=' to turn this equality comparison into an assignment
+                if((a23==1)){
+                       ^~
+                       =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:8673:14: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a23==1)){
+                    ~~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:8673:14: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a23==1)){
+                   ~   ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:8673:14: note: use '=' to turn this equality comparison into an assignment
+                if((a23==1)){
+                       ^~
+                       =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:8708:14: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a18==1)){
+                    ~~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:8708:14: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a18==1)){
+                   ~   ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:8708:14: note: use '=' to turn this equality comparison into an assignment
+                if((a18==1)){
+                       ^~
+                       =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:8820:14: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a12==1)){
+                    ~~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:8820:14: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a12==1)){
+                   ~   ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:8820:14: note: use '=' to turn this equality comparison into an assignment
+                if((a12==1)){
+                       ^~
+                       =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:8875:13: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a7==1)){
+                    ~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:8875:13: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a7==1)){
+                   ~  ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:8875:13: note: use '=' to turn this equality comparison into an assignment
+                if((a7==1)){
+                      ^~
+                      =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:8892:14: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a17==1)){
+                    ~~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:8892:14: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a17==1)){
+                   ~   ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:8892:14: note: use '=' to turn this equality comparison into an assignment
+                if((a17==1)){
+                       ^~
+                       =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:8936:13: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a8==1)){
+                    ~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:8936:13: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a8==1)){
+                   ~  ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:8936:13: note: use '=' to turn this equality comparison into an assignment
+                if((a8==1)){
+                      ^~
+                      =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:9003:14: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a17==1)){
+                    ~~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:9003:14: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a17==1)){
+                   ~   ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:9003:14: note: use '=' to turn this equality comparison into an assignment
+                if((a17==1)){
+                       ^~
+                       =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:9039:14: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a25==1)){
+                    ~~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:9039:14: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a25==1)){
+                   ~   ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:9039:14: note: use '=' to turn this equality comparison into an assignment
+                if((a25==1)){
+                       ^~
+                       =
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:9261:13: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a9==1)){
+                    ~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:9261:13: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a9==1)){
+                   ~  ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem06_label44.c:9261:13: note: use '=' to turn this equality comparison into an assignment
+                if((a9==1)){
+                      ^~
+                      =
+
+FALSE_REACH

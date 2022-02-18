@@ -1,0 +1,365 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/product-lines/email_spec27_product34.cil.c
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --add-symex-value-sets --no-align-check --k-step 5 --floatbv --unlimited-k-steps ../sv-benchmarks/c/product-lines/email_spec27_product34.cil.c --32 --witness-output email_spec27_product34.cil.c.graphml --no-pointer-check --no-bounds-check --interval-analysis --goto-unwind --unlimited-goto-unwind --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/product-lines/email_spec27_product34.cil.c: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.194s
+GOTO program processing time: 0.195s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.080s (854 assignments)
+Slicing time: 0.001s (removed 815 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (39 assignments)
+BMC program time: 0.081s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.065s (854 assignments)
+Slicing time: 0.001s (removed 815 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (39 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.002s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.002s
+Runtime decision procedure: 0.192s
+The forward condition is unable to prove the property
+*** Checking base case, k = 6
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file email_spec27_product34.cil.c line 1330 function test
+Unwinding loop 1  iteration  2   file email_spec27_product34.cil.c line 1330 function test
+Unwinding loop 1  iteration  3   file email_spec27_product34.cil.c line 1330 function test
+Unwinding loop 1  iteration  4   file email_spec27_product34.cil.c line 1330 function test
+Symex completed in: 0.712s (6800 assignments)
+Slicing time: 0.211s (removed 4308 assignments)
+Generated 6 VCC(s), 6 remaining after simplification (2492 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.029s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.029s
+Runtime decision procedure: 0.544s
+Building error trace
+
+Counterexample:
+bob: 1
+
+rjh: 2
+
+chuck: 3
+
+
+State 4 file email_spec27_product34.cil.c line 1340 function test thread 0
+----------------------------------------------------
+  tmp___9 = -2147483648 (10000000 00000000 00000000 00000000)
+bob added rjhs key
+
+2
+
+456
+
+
+State 8 file email_spec27_product34.cil.c line 1354 function test thread 0
+----------------------------------------------------
+  tmp___8 = 0 (00000000 00000000 00000000 00000000)
+
+State 9 file email_spec27_product34.cil.c line 1365 function test thread 0
+----------------------------------------------------
+  tmp___7 = 0 (00000000 00000000 00000000 00000000)
+
+State 10 file email_spec27_product34.cil.c line 1379 function test thread 0
+----------------------------------------------------
+  tmp___6 = 0 (00000000 00000000 00000000 00000000)
+
+State 11 file email_spec27_product34.cil.c line 1393 function test thread 0
+----------------------------------------------------
+  tmp___5 = 0 (00000000 00000000 00000000 00000000)
+
+State 12 file email_spec27_product34.cil.c line 1407 function test thread 0
+----------------------------------------------------
+  tmp___4 = -2147483648 (10000000 00000000 00000000 00000000)
+
+State 13 file email_spec27_product34.cil.c line 1354 function test thread 0
+----------------------------------------------------
+  tmp___8 = 0 (00000000 00000000 00000000 00000000)
+
+State 14 file email_spec27_product34.cil.c line 1365 function test thread 0
+----------------------------------------------------
+  tmp___7 = 0 (00000000 00000000 00000000 00000000)
+
+State 15 file email_spec27_product34.cil.c line 1379 function test thread 0
+----------------------------------------------------
+  tmp___6 = 0 (00000000 00000000 00000000 00000000)
+
+State 16 file email_spec27_product34.cil.c line 1393 function test thread 0
+----------------------------------------------------
+  tmp___5 = 0 (00000000 00000000 00000000 00000000)
+
+State 17 file email_spec27_product34.cil.c line 1421 function test thread 0
+----------------------------------------------------
+  tmp___3 = 0 (00000000 00000000 00000000 00000000)
+
+State 18 file email_spec27_product34.cil.c line 1435 function test thread 0
+----------------------------------------------------
+  tmp___2 = 0 (00000000 00000000 00000000 00000000)
+
+State 19 file email_spec27_product34.cil.c line 1449 function test thread 0
+----------------------------------------------------
+  tmp___1 = 0 (00000000 00000000 00000000 00000000)
+
+State 20 file email_spec27_product34.cil.c line 1463 function test thread 0
+----------------------------------------------------
+  tmp___0 = 0 (00000000 00000000 00000000 00000000)
+
+State 21 file email_spec27_product34.cil.c line 1477 function test thread 0
+----------------------------------------------------
+  tmp = -2147483648 (10000000 00000000 00000000 00000000)
+
+State 22 file email_spec27_product34.cil.c line 1354 function test thread 0
+----------------------------------------------------
+  tmp___8 = 0 (00000000 00000000 00000000 00000000)
+
+State 23 file email_spec27_product34.cil.c line 1365 function test thread 0
+----------------------------------------------------
+  tmp___7 = 0 (00000000 00000000 00000000 00000000)
+
+State 24 file email_spec27_product34.cil.c line 1379 function test thread 0
+----------------------------------------------------
+  tmp___6 = 0 (00000000 00000000 00000000 00000000)
+
+State 25 file email_spec27_product34.cil.c line 1393 function test thread 0
+----------------------------------------------------
+  tmp___5 = 0 (00000000 00000000 00000000 00000000)
+
+State 26 file email_spec27_product34.cil.c line 1421 function test thread 0
+----------------------------------------------------
+  tmp___3 = 0 (00000000 00000000 00000000 00000000)
+
+State 27 file email_spec27_product34.cil.c line 1435 function test thread 0
+----------------------------------------------------
+  tmp___2 = -2147483648 (10000000 00000000 00000000 00000000)
+Please enter a subject and a message body.
+
+
+
+State 29 file email_spec27_product34.cil.c line 646 function getClientPrivateKey thread 0
+----------------------------------------------------
+  retValue_acc = 123 (00000000 00000000 00000000 01111011)
+
+State 30 file email_spec27_product34.cil.c line 2298 function sign thread 0
+----------------------------------------------------
+  privkey = 123 (00000000 00000000 00000000 01111011)
+
+State 31 file email_spec27_product34.cil.c line 1880 function setEmailSignKey thread 0
+----------------------------------------------------
+  __ste_email_signKey0 = 123 (00000000 00000000 00000000 01111011)
+
+State 32 file email_spec27_product34.cil.c line 190 function getClientAddressBookSize thread 0
+----------------------------------------------------
+  retValue_acc = 1 (00000000 00000000 00000000 00000001)
+
+State 33 file email_spec27_product34.cil.c line 2050 function outgoing__wrappee__AddressBook thread 0
+----------------------------------------------------
+  size = 1 (00000000 00000000 00000000 00000001)
+sending to alias in address book
+
+
+sending to second receipient
+
+
+
+State 36 file email_spec27_product34.cil.c line 476 function getClientAddressBookAddress thread 0
+----------------------------------------------------
+  retValue_acc = 3 (00000000 00000000 00000000 00000011)
+
+State 37 file email_spec27_product34.cil.c line 2060 function outgoing__wrappee__AddressBook thread 0
+----------------------------------------------------
+  second = 3 (00000000 00000000 00000000 00000011)
+
+State 38 file email_spec27_product34.cil.c line 1654 function setEmailTo thread 0
+----------------------------------------------------
+  __ste_email_to0 = 3 (00000000 00000000 00000000 00000011)
+
+State 39 file email_spec27_product34.cil.c line 1635 function getEmailTo thread 0
+----------------------------------------------------
+  retValue_acc = 3 (00000000 00000000 00000000 00000011)
+
+State 40 file email_spec27_product34.cil.c line 2020 function outgoing__wrappee__Encrypt thread 0
+----------------------------------------------------
+  receiver = 3 (00000000 00000000 00000000 00000011)
+
+State 41 file email_spec27_product34.cil.c line 2022 function outgoing__wrappee__Encrypt thread 0
+----------------------------------------------------
+  pubkey = 0 (00000000 00000000 00000000 00000000)
+mail sent
+
+
+State 43 file email_spec27_product34.cil.c line 1635 function getEmailTo thread 0
+----------------------------------------------------
+  retValue_acc = 3 (00000000 00000000 00000000 00000011)
+
+State 44 file email_spec27_product34.cil.c line 2153 function incoming thread 0
+----------------------------------------------------
+  privkey = 789 (00000000 00000000 00000011 00010101)
+
+State 45 file email_spec27_product34.cil.c line 1750 function isEncrypted thread 0
+----------------------------------------------------
+  retValue_acc = 0 (00000000 00000000 00000000 00000000)
+
+State 46 file email_spec27_product34.cil.c line 1750 function isEncrypted thread 0
+----------------------------------------------------
+  retValue_acc = 0 (00000000 00000000 00000000 00000000)
+
+State 47 file email_spec27_product34.cil.c line 1824 function isSigned thread 0
+----------------------------------------------------
+  retValue_acc = 1 (00000000 00000000 00000000 00000001)
+
+State 48 file email_spec27_product34.cil.c line 961 function findPublicKey thread 0
+----------------------------------------------------
+  retValue_acc = 123 (00000000 00000000 00000000 01111011)
+
+State 49 file email_spec27_product34.cil.c line 2352 function verify thread 0
+----------------------------------------------------
+  pubkey = 123 (00000000 00000000 00000000 01111011)
+
+State 50 file email_spec27_product34.cil.c line 1861 function getEmailSignKey thread 0
+----------------------------------------------------
+  retValue_acc = 123 (00000000 00000000 00000000 01111011)
+keypair valid 123 123
+
+State 52 file email_spec27_product34.cil.c line 2269 function isKeyPairValid thread 0
+----------------------------------------------------
+  retValue_acc = 1 (00000000 00000000 00000000 00000001)
+
+State 53 file email_spec27_product34.cil.c line 2093 function deliver thread 0
+----------------------------------------------------
+  __utac__ad__arg1 = 3 (00000000 00000000 00000000 00000011)
+before deliver
+
+
+
+State 55 file email_spec27_product34.cil.c line 1898 function isVerified thread 0
+----------------------------------------------------
+  retValue_acc = 1 (00000000 00000000 00000000 00000001)
+
+State 56 file email_spec27_product34.cil.c line 961 function findPublicKey thread 0
+----------------------------------------------------
+  retValue_acc = 123 (00000000 00000000 00000000 01111011)
+
+State 57 file email_spec27_product34.cil.c line 2389 function __utac_acc__VerifyForward_spec__1 thread 0
+----------------------------------------------------
+  pubkey = 123 (00000000 00000000 00000000 01111011)
+mail delivered
+
+
+
+State 59 file email_spec27_product34.cil.c line 2119 function incoming__wrappee__Forward thread 0
+----------------------------------------------------
+  fwreceiver = 0 (00000000 00000000 00000000 00000000)
+
+State 60 file email_spec27_product34.cil.c line 472 function getClientAddressBookAddress thread 0
+----------------------------------------------------
+  retValue_acc = 2 (00000000 00000000 00000000 00000010)
+
+State 61 file email_spec27_product34.cil.c line 1654 function setEmailTo thread 0
+----------------------------------------------------
+  __ste_email_to0 = 2 (00000000 00000000 00000000 00000010)
+
+State 62 file email_spec27_product34.cil.c line 1635 function getEmailTo thread 0
+----------------------------------------------------
+  retValue_acc = 2 (00000000 00000000 00000000 00000010)
+
+State 63 file email_spec27_product34.cil.c line 2020 function outgoing__wrappee__Encrypt thread 0
+----------------------------------------------------
+  receiver = 2 (00000000 00000000 00000000 00000010)
+
+State 64 file email_spec27_product34.cil.c line 933 function findPublicKey thread 0
+----------------------------------------------------
+  retValue_acc = 456 (00000000 00000000 00000001 11001000)
+
+State 65 file email_spec27_product34.cil.c line 2022 function outgoing__wrappee__Encrypt thread 0
+----------------------------------------------------
+  pubkey = 456 (00000000 00000000 00000001 11001000)
+
+State 66 file email_spec27_product34.cil.c line 1806 function setEmailEncryptionKey thread 0
+----------------------------------------------------
+  __ste_email_encryptionKey0 = 456 (00000000 00000000 00000001 11001000)
+mail sent
+
+
+State 68 file email_spec27_product34.cil.c line 1635 function getEmailTo thread 0
+----------------------------------------------------
+  retValue_acc = 2 (00000000 00000000 00000000 00000010)
+
+State 69 file email_spec27_product34.cil.c line 650 function getClientPrivateKey thread 0
+----------------------------------------------------
+  retValue_acc = 456 (00000000 00000000 00000001 11001000)
+
+State 70 file email_spec27_product34.cil.c line 2153 function incoming thread 0
+----------------------------------------------------
+  privkey = 456 (00000000 00000000 00000001 11001000)
+
+State 71 file email_spec27_product34.cil.c line 1750 function isEncrypted thread 0
+----------------------------------------------------
+  retValue_acc = 1 (00000000 00000000 00000000 00000001)
+
+State 72 file email_spec27_product34.cil.c line 1787 function getEmailEncryptionKey thread 0
+----------------------------------------------------
+  retValue_acc = 456 (00000000 00000000 00000001 11001000)
+keypair valid 456 456
+
+State 74 file email_spec27_product34.cil.c line 2269 function isKeyPairValid thread 0
+----------------------------------------------------
+  retValue_acc = 1 (00000000 00000000 00000000 00000001)
+
+State 75 file email_spec27_product34.cil.c line 1750 function isEncrypted thread 0
+----------------------------------------------------
+  retValue_acc = 0 (00000000 00000000 00000000 00000000)
+
+State 76 file email_spec27_product34.cil.c line 1824 function isSigned thread 0
+----------------------------------------------------
+  retValue_acc = 1 (00000000 00000000 00000000 00000001)
+
+State 77 file email_spec27_product34.cil.c line 2352 function verify thread 0
+----------------------------------------------------
+  pubkey = 0 (00000000 00000000 00000000 00000000)
+
+State 78 file email_spec27_product34.cil.c line 2093 function deliver thread 0
+----------------------------------------------------
+  __utac__ad__arg1 = 2 (00000000 00000000 00000000 00000010)
+before deliver
+
+
+
+State 80 file email_spec27_product34.cil.c line 1898 function isVerified thread 0
+----------------------------------------------------
+  retValue_acc = 1 (00000000 00000000 00000000 00000001)
+
+State 81 file email_spec27_product34.cil.c line 2389 function __utac_acc__VerifyForward_spec__1 thread 0
+----------------------------------------------------
+  pubkey = 0 (00000000 00000000 00000000 00000000)
+
+State 82 file email_spec27_product34.cil.c line 3 function reach_error thread 0
+----------------------------------------------------
+Violated property:
+  file email_spec27_product34.cil.c line 3 function reach_error
+  assertion 0
+  0
+
+
+VERIFICATION FAILED
+
+Bug found (k = 6)
+
+
+FALSE_REACH

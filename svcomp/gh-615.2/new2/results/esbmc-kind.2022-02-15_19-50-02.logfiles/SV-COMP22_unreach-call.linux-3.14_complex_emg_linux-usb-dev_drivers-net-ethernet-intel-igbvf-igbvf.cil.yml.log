@@ -1,0 +1,198 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/ldv-linux-3.14/linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-intel-igbvf-igbvf.cil.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --add-symex-value-sets --no-align-check --k-step 5 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-linux-3.14/linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-intel-igbvf-igbvf.cil.i --64 --witness-output linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-intel-igbvf-igbvf.cil.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --goto-unwind --unlimited-goto-unwind --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 64-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/ldv-linux-3.14/linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-intel-igbvf-igbvf.cil.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 1.088s
+GOTO program processing time: 0.494s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.143s (1005 assignments)
+Slicing time: 0.001s (removed 728 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (277 assignments)
+BMC program time: 0.144s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.146s (1005 assignments)
+Slicing time: 0.002s (removed 728 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (277 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.048s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.048s
+Runtime decision procedure: 7.840s
+The forward condition is unable to prove the property
+*** Checking base case, k = 6
+Starting Bounded Model Checking
+Unwinding loop 34  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-intel-igbvf-igbvf.cil.i line 13947 function main
+Unwinding loop 13  iteration  1   file string.c line 78 function strlen
+Unwinding loop 13  iteration  2   file string.c line 78 function strlen
+Unwinding loop 13  iteration  3   file string.c line 78 function strlen
+Unwinding loop 13  iteration  4   file string.c line 78 function strlen
+Unwinding loop 13  iteration  5   file string.c line 78 function strlen
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  3   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  4   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  5   file string.c line 263 function memcpy
+Not unwinding 
+No target candidate for function call *mac->ops.reset_hw
+No target candidate for function call *mac->ops.init_hw
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  3   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  4   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  5   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  3   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  4   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  5   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 27  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-intel-igbvf-igbvf.cil.i line 11009 function igbvf_set_multi
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  3   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  4   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  5   file string.c line 263 function memcpy
+Not unwinding 
+No target candidate for function call *hw->mac.ops.update_mc_addr_list
+Unwinding loop 26  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-intel-igbvf-igbvf.cil.i line 10865 function igbvf_restore_vlan
+No target candidate for function call *hw->mac.ops.set_vfta
+Unwinding loop 26  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-intel-igbvf-igbvf.cil.i line 10865 function igbvf_restore_vlan
+No target candidate for function call *hw->mac.ops.set_vfta
+Unwinding loop 26  iteration  3   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-intel-igbvf-igbvf.cil.i line 10865 function igbvf_restore_vlan
+No target candidate for function call *hw->mac.ops.set_vfta
+Unwinding loop 26  iteration  4   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-intel-igbvf-igbvf.cil.i line 10865 function igbvf_restore_vlan
+No target candidate for function call *hw->mac.ops.set_vfta
+Unwinding loop 26  iteration  5   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-intel-igbvf-igbvf.cil.i line 10865 function igbvf_restore_vlan
+No target candidate for function call *hw->mac.ops.set_vfta
+Not unwinding 
+No target candidate for function call *mbx->ops.write_posted
+Unwinding loop 18  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-intel-igbvf-igbvf.cil.i line 9547 function igbvf_alloc_rx_buffers
+No target candidate for function call *ops->map_page
+No target candidate for function call *ops->mapping_error
+No target candidate for function call *ops->map_page
+No target candidate for function call *ops->mapping_error
+Unwinding loop 18  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-intel-igbvf-igbvf.cil.i line 9547 function igbvf_alloc_rx_buffers
+No target candidate for function call *ops->map_page
+No target candidate for function call *ops->mapping_error
+No target candidate for function call *ops->map_page
+No target candidate for function call *ops->mapping_error
+Unwinding loop 18  iteration  3   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-intel-igbvf-igbvf.cil.i line 9547 function igbvf_alloc_rx_buffers
+No target candidate for function call *ops->map_page
+No target candidate for function call *ops->mapping_error
+No target candidate for function call *ops->map_page
+No target candidate for function call *ops->mapping_error
+Unwinding loop 18  iteration  4   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-intel-igbvf-igbvf.cil.i line 9547 function igbvf_alloc_rx_buffers
+No target candidate for function call *ops->map_page
+No target candidate for function call *ops->mapping_error
+No target candidate for function call *ops->map_page
+No target candidate for function call *ops->mapping_error
+Unwinding loop 18  iteration  5   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-intel-igbvf-igbvf.cil.i line 9547 function igbvf_alloc_rx_buffers
+No target candidate for function call *ops->map_page
+No target candidate for function call *ops->mapping_error
+No target candidate for function call *ops->map_page
+No target candidate for function call *ops->mapping_error
+Not unwinding 
+No target candidate for function call *arg0
+No target candidate for function call *arg0
+Unwinding loop 36  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 36  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 36  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 36  iteration  4   file string.c line 272 function __memset_impl
+Unwinding loop 36  iteration  5   file string.c line 272 function __memset_impl
+Not unwinding 
+No target candidate for function call *ei->get_variants
+No target candidate for function call *adapter->ei->init_ops
+No target candidate for function call *adapter->hw.mac.ops.init_params
+No target candidate for function call *adapter->hw.mbx.ops.init_params
+Unwinding loop 24  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-intel-igbvf-igbvf.cil.i line 10544 function igbvf_set_interrupt_capability
+Unwinding loop 24  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-intel-igbvf-igbvf.cil.i line 10544 function igbvf_set_interrupt_capability
+Unwinding loop 24  iteration  3   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-ethernet-intel-igbvf-igbvf.cil.i line 10544 function igbvf_set_interrupt_capability
+Unwinding loop 36  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 36  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 36  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 36  iteration  4   file string.c line 272 function __memset_impl
+Unwinding loop 36  iteration  5   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 36  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 36  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 36  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 36  iteration  4   file string.c line 272 function __memset_impl
+Unwinding loop 36  iteration  5   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 15  iteration  1   file string.c line 40 function strncpy
+Unwinding loop 15  iteration  2   file string.c line 40 function strncpy
+Unwinding loop 15  iteration  3   file string.c line 40 function strncpy
+Unwinding loop 15  iteration  4   file string.c line 40 function strncpy
+Unwinding loop 15  iteration  5   file string.c line 40 function strncpy
+Not unwinding 
+Unwinding loop 16  iteration  1   file string.c line 44 function strncpy
+Unwinding loop 16  iteration  2   file string.c line 44 function strncpy
+Unwinding loop 16  iteration  3   file string.c line 44 function strncpy
+Unwinding loop 16  iteration  4   file string.c line 44 function strncpy
+Unwinding loop 16  iteration  5   file string.c line 44 function strncpy
+Not unwinding 
+No target candidate for function call *hw->mac.ops.reset_hw
+No target candidate for function call *hw->mac.ops.read_mac_addr
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  3   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  4   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  5   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  3   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  4   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  5   file string.c line 263 function memcpy
+Not unwinding 
+**** WARNING: k-induction does not support recursion yet. Disabling inductive step
+Unwinding recursion igbvf_watchdog_task iteration 1 (6 max)
+Unwinding recursion igbvf_has_link iteration 1 (6 max)
+Unwinding recursion igbvf_watchdog_task iteration 2 (6 max)
+Unwinding recursion igbvf_has_link iteration 2 (6 max)
+Unwinding recursion igbvf_watchdog_task iteration 3 (6 max)
+Unwinding recursion igbvf_has_link iteration 3 (6 max)
+Unwinding recursion igbvf_watchdog_task iteration 4 (6 max)
+Unwinding recursion igbvf_has_link iteration 4 (6 max)
+Unwinding recursion igbvf_watchdog_task iteration 5 (6 max)
+Unwinding recursion igbvf_has_link iteration 5 (6 max)
+Unwinding recursion igbvf_watchdog_task iteration 6 (6 max)
+Unwinding recursion igbvf_watchdog_task iteration 6 (6 max)
+Unwinding recursion igbvf_reset iteration 1 (6 max)
+Unwinding recursion igbvf_watchdog_task iteration 6 (6 max)
+Unwinding recursion igbvf_reset_task iteration 1 (6 max)
+Unwinding recursion igbvf_reinit_locked iteration 1 (6 max)
+Unwinding recursion igbvf_down iteration 1 (6 max)
+Unwinding recursion igbvf_reset iteration 2 (6 max)
+Unwinding recursion igbvf_watchdog_task iteration 6 (6 max)
+Unwinding recursion igbvf_reset_task iteration 2 (6 max)
+Unwinding recursion igbvf_reinit_locked iteration 2 (6 max)
+Unwinding recursion igbvf_down iteration 2 (6 max)
+Unwinding recursion igbvf_reset iteration 3 (6 max)
+Unwinding recursion igbvf_watchdog_task iteration 6 (6 max)
+Unwinding recursion igbvf_reset_task iteration 3 (6 max)
+Unwinding recursion igbvf_reinit_locked iteration 3 (6 max)
+Unwinding recursion igbvf_down iteration 3 (6 max)
+Unwinding recursion igbvf_reset iteration 4 (6 max)
+Unwinding recursion igbvf_watchdog_task iteration 6 (6 max)
+Unwinding recursion igbvf_reset_task iteration 4 (6 max)
+Unwinding recursio
+
+Unknown

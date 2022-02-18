@@ -1,0 +1,163 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/product-lines/minepump_spec2_product34.cil.c
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --add-symex-value-sets --no-align-check --k-step 5 --floatbv --unlimited-k-steps ../sv-benchmarks/c/product-lines/minepump_spec2_product34.cil.c --32 --witness-output minepump_spec2_product34.cil.c.graphml --no-pointer-check --no-bounds-check --interval-analysis --goto-unwind --unlimited-goto-unwind --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/product-lines/minepump_spec2_product34.cil.c: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.173s
+GOTO program processing time: 0.006s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.003s (67 assignments)
+Slicing time: 0.000s (removed 65 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (2 assignments)
+BMC program time: 0.003s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.003s (67 assignments)
+Slicing time: 0.000s (removed 65 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (2 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.000s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.000s
+Runtime decision procedure: 0.000s
+The forward condition is unable to prove the property
+*** Checking base case, k = 6
+Starting Bounded Model Checking
+Unwinding loop 2  iteration  1   file minepump_spec2_product34.cil.c line 708 function test
+Unwinding loop 2  iteration  2   file minepump_spec2_product34.cil.c line 708 function test
+Unwinding loop 2  iteration  3   file minepump_spec2_product34.cil.c line 708 function test
+Unwinding loop 2  iteration  4   file minepump_spec2_product34.cil.c line 708 function test
+Unwinding loop 2  iteration  5   file minepump_spec2_product34.cil.c line 708 function test
+Not unwinding 
+Symex completed in: 0.015s (382 assignments)
+Slicing time: 0.001s (removed 165 assignments)
+Generated 5 VCC(s), 5 remaining after simplification (217 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.004s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.004s
+Runtime decision procedure: 0.021s
+Building error trace
+
+Counterexample:
+
+State 1 file minepump_spec2_product34.cil.c line 716 function test thread 0
+----------------------------------------------------
+  tmp = 0 (00000000 00000000 00000000 00000000)
+
+State 2 file minepump_spec2_product34.cil.c line 726 function test thread 0
+----------------------------------------------------
+  tmp___0 = 0 (00000000 00000000 00000000 00000000)
+
+State 3 file minepump_spec2_product34.cil.c line 913 function isHighWaterLevel thread 0
+----------------------------------------------------
+  retValue_acc = 0 (00000000 00000000 00000000 00000000)
+
+State 4 file minepump_spec2_product34.cil.c line 195 function isMethaneLevelCritical thread 0
+----------------------------------------------------
+  retValue_acc = 0 (00000000 00000000 00000000 00000000)
+
+State 5 file minepump_spec2_product34.cil.c line 716 function test thread 0
+----------------------------------------------------
+  tmp = 0 (00000000 00000000 00000000 00000000)
+
+State 6 file minepump_spec2_product34.cil.c line 726 function test thread 0
+----------------------------------------------------
+  tmp___0 = 0 (00000000 00000000 00000000 00000000)
+
+State 7 file minepump_spec2_product34.cil.c line 913 function isHighWaterLevel thread 0
+----------------------------------------------------
+  retValue_acc = 0 (00000000 00000000 00000000 00000000)
+
+State 8 file minepump_spec2_product34.cil.c line 195 function isMethaneLevelCritical thread 0
+----------------------------------------------------
+  retValue_acc = 0 (00000000 00000000 00000000 00000000)
+
+State 9 file minepump_spec2_product34.cil.c line 716 function test thread 0
+----------------------------------------------------
+  tmp = 0 (00000000 00000000 00000000 00000000)
+
+State 10 file minepump_spec2_product34.cil.c line 726 function test thread 0
+----------------------------------------------------
+  tmp___0 = 0 (00000000 00000000 00000000 00000000)
+
+State 11 file minepump_spec2_product34.cil.c line 913 function isHighWaterLevel thread 0
+----------------------------------------------------
+  retValue_acc = 0 (00000000 00000000 00000000 00000000)
+
+State 12 file minepump_spec2_product34.cil.c line 195 function isMethaneLevelCritical thread 0
+----------------------------------------------------
+  retValue_acc = 0 (00000000 00000000 00000000 00000000)
+
+State 13 file minepump_spec2_product34.cil.c line 716 function test thread 0
+----------------------------------------------------
+  tmp = 4 (00000000 00000000 00000000 00000100)
+
+State 14 file minepump_spec2_product34.cil.c line 172 function waterRise thread 0
+----------------------------------------------------
+  waterLevel = 2 (00000000 00000000 00000000 00000010)
+
+State 15 file minepump_spec2_product34.cil.c line 726 function test thread 0
+----------------------------------------------------
+  tmp___0 = 1 (00000000 00000000 00000000 00000001)
+
+State 16 file minepump_spec2_product34.cil.c line 913 function isHighWaterLevel thread 0
+----------------------------------------------------
+  retValue_acc = 1 (00000000 00000000 00000000 00000001)
+
+State 17 file minepump_spec2_product34.cil.c line 195 function isMethaneLevelCritical thread 0
+----------------------------------------------------
+  retValue_acc = 1 (00000000 00000000 00000000 00000001)
+
+State 18 file minepump_spec2_product34.cil.c line 858 function isPumpRunning thread 0
+----------------------------------------------------
+  retValue_acc = 1 (00000000 00000000 00000000 00000001)
+
+State 19 file minepump_spec2_product34.cil.c line 716 function test thread 0
+----------------------------------------------------
+  tmp = 2 (00000000 00000000 00000000 00000010)
+
+State 20 file minepump_spec2_product34.cil.c line 726 function test thread 0
+----------------------------------------------------
+  tmp___0 = 0 (00000000 00000000 00000000 00000000)
+
+State 21 file minepump_spec2_product34.cil.c line 160 function lowerWaterLevel thread 0
+----------------------------------------------------
+  waterLevel = 1 (00000000 00000000 00000000 00000001)
+
+State 22 file minepump_spec2_product34.cil.c line 195 function isMethaneLevelCritical thread 0
+----------------------------------------------------
+  retValue_acc = 1 (00000000 00000000 00000000 00000001)
+
+State 23 file minepump_spec2_product34.cil.c line 858 function isPumpRunning thread 0
+----------------------------------------------------
+  retValue_acc = 1 (00000000 00000000 00000000 00000001)
+
+State 24 file minepump_spec2_product34.cil.c line 3 function reach_error thread 0
+----------------------------------------------------
+Violated property:
+  file minepump_spec2_product34.cil.c line 3 function reach_error
+  assertion 0
+  0
+
+
+VERIFICATION FAILED
+
+Bug found (k = 6)
+
+
+FALSE_REACH

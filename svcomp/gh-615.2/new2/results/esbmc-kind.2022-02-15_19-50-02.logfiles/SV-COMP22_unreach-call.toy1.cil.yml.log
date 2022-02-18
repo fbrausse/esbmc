@@ -1,0 +1,449 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/systemc/toy1.cil.c
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --add-symex-value-sets --no-align-check --k-step 5 --floatbv --unlimited-k-steps ../sv-benchmarks/c/systemc/toy1.cil.c --32 --witness-output toy1.cil.c.graphml --no-pointer-check --no-bounds-check --interval-analysis --goto-unwind --unlimited-goto-unwind --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/systemc/toy1.cil.c: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.151s
+GOTO program processing time: 0.062s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.006s (94 assignments)
+Slicing time: 0.000s (removed 92 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (2 assignments)
+BMC program time: 0.006s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.004s (94 assignments)
+Slicing time: 0.000s (removed 92 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (2 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.000s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.000s
+Runtime decision procedure: 0.000s
+The forward condition is unable to prove the property
+*** Checking base case, k = 6
+Starting Bounded Model Checking
+Unwinding loop 5  iteration  1   file toy1.cil.c line 298 function eval
+Unwinding loop 2  iteration  1   file toy1.cil.c line 152 function compute1
+Unwinding loop 3  iteration  1   file toy1.cil.c line 197 function compute2
+Unwinding loop 4  iteration  1   file toy1.cil.c line 242 function write_back
+Unwinding loop 5  iteration  2   file toy1.cil.c line 298 function eval
+Unwinding loop 2  iteration  1   file toy1.cil.c line 152 function compute1
+Unwinding loop 3  iteration  1   file toy1.cil.c line 197 function compute2
+Unwinding loop 4  iteration  1   file toy1.cil.c line 242 function write_back
+Unwinding loop 5  iteration  3   file toy1.cil.c line 298 function eval
+Unwinding loop 2  iteration  1   file toy1.cil.c line 152 function compute1
+Unwinding loop 3  iteration  1   file toy1.cil.c line 197 function compute2
+Unwinding loop 4  iteration  1   file toy1.cil.c line 242 function write_back
+Unwinding loop 5  iteration  4   file toy1.cil.c line 298 function eval
+Unwinding loop 2  iteration  1   file toy1.cil.c line 152 function compute1
+Unwinding loop 3  iteration  1   file toy1.cil.c line 197 function compute2
+Unwinding loop 4  iteration  1   file toy1.cil.c line 242 function write_back
+Unwinding loop 5  iteration  5   file toy1.cil.c line 298 function eval
+Unwinding loop 2  iteration  1   file toy1.cil.c line 152 function compute1
+Unwinding loop 3  iteration  1   file toy1.cil.c line 197 function compute2
+Unwinding loop 4  iteration  1   file toy1.cil.c line 242 function write_back
+Not unwinding 
+Unwinding loop 6  iteration  1   file toy1.cil.c line 545 function start_simulation
+Unwinding loop 2  iteration  1   file toy1.cil.c line 152 function compute1
+Unwinding loop 3  iteration  1   file toy1.cil.c line 197 function compute2
+Unwinding loop 4  iteration  1   file toy1.cil.c line 242 function write_back
+Unwinding loop 5  iteration  1   file toy1.cil.c line 298 function eval
+Unwinding loop 1  iteration  1   file toy1.cil.c line 79 function write_loop
+Unwinding loop 2  iteration  1   file toy1.cil.c line 152 function compute1
+Unwinding loop 3  iteration  1   file toy1.cil.c line 197 function compute2
+Unwinding loop 4  iteration  1   file toy1.cil.c line 242 function write_back
+Unwinding loop 5  iteration  2   file toy1.cil.c line 298 function eval
+Unwinding loop 1  iteration  1   file toy1.cil.c line 79 function write_loop
+Unwinding loop 2  iteration  1   file toy1.cil.c line 152 function compute1
+Unwinding loop 3  iteration  1   file toy1.cil.c line 197 function compute2
+Unwinding loop 4  iteration  1   file toy1.cil.c line 242 function write_back
+Unwinding loop 5  iteration  3   file toy1.cil.c line 298 function eval
+Unwinding loop 1  iteration  1   file toy1.cil.c line 79 function write_loop
+Unwinding loop 2  iteration  1   file toy1.cil.c line 152 function compute1
+Unwinding loop 3  iteration  1   file toy1.cil.c line 197 function compute2
+Unwinding loop 4  iteration  1   file toy1.cil.c line 242 function write_back
+Unwinding loop 5  iteration  4   file toy1.cil.c line 298 function eval
+Unwinding loop 1  iteration  1   file toy1.cil.c line 79 function write_loop
+Unwinding loop 2  iteration  1   file toy1.cil.c line 152 function compute1
+Unwinding loop 3  iteration  1   file toy1.cil.c line 197 function compute2
+Unwinding loop 4  iteration  1   file toy1.cil.c line 242 function write_back
+Unwinding loop 5  iteration  5   file toy1.cil.c line 298 function eval
+Unwinding loop 1  iteration  1   file toy1.cil.c line 79 function write_loop
+Unwinding loop 2  iteration  1   file toy1.cil.c line 152 function compute1
+Unwinding loop 3  iteration  1   file toy1.cil.c line 197 function compute2
+Unwinding loop 4  iteration  1   file toy1.cil.c line 242 function write_back
+Not unwinding 
+Unwinding loop 6  iteration  2   file toy1.cil.c line 545 function start_simulation
+Unwinding loop 1  iteration  1   file toy1.cil.c line 79 function write_loop
+Unwinding loop 2  iteration  1   file toy1.cil.c line 152 function compute1
+Unwinding loop 3  iteration  1   file toy1.cil.c line 197 function compute2
+Unwinding loop 4  iteration  1   file toy1.cil.c line 242 function write_back
+Unwinding loop 5  iteration  1   file toy1.cil.c line 298 function eval
+Unwinding loop 1  iteration  1   file toy1.cil.c line 79 function write_loop
+Unwinding loop 2  iteration  1   file toy1.cil.c line 152 function compute1
+Unwinding loop 3  iteration  1   file toy1.cil.c line 197 function compute2
+Unwinding loop 4  iteration  1   file toy1.cil.c line 242 function write_back
+Unwinding loop 5  iteration  2   file toy1.cil.c line 298 function eval
+Unwinding loop 1  iteration  1   file toy1.cil.c line 79 function write_loop
+Unwinding loop 2  iteration  1   file toy1.cil.c line 152 function compute1
+Unwinding loop 3  iteration  1   file toy1.cil.c line 197 function compute2
+Unwinding loop 4  iteration  1   file toy1.cil.c line 242 function write_back
+Unwinding loop 5  iteration  3   file toy1.cil.c line 298 function eval
+Unwinding loop 1  iteration  1   file toy1.cil.c line 79 function write_loop
+Unwinding loop 2  iteration  1   file toy1.cil.c line 152 function compute1
+Unwinding loop 3  iteration  1   file toy1.cil.c line 197 function compute2
+Unwinding loop 4  iteration  1   file toy1.cil.c line 242 function write_back
+Unwinding loop 5  iteration  4   file toy1.cil.c line 298 function eval
+Unwinding loop 1  iteration  1   file toy1.cil.c line 79 function write_loop
+Unwinding loop 2  iteration  1   file toy1.cil.c line 152 function compute1
+Unwinding loop 3  iteration  1   file toy1.cil.c line 197 function compute2
+Unwinding loop 4  iteration  1   file toy1.cil.c line 242 function write_back
+Unwinding loop 5  iteration  5   file toy1.cil.c line 298 function eval
+Unwinding loop 1  iteration  1   file toy1.cil.c line 79 function write_loop
+Unwinding loop 2  iteration  1   file toy1.cil.c line 152 function compute1
+Unwinding loop 3  iteration  1   file toy1.cil.c line 197 function compute2
+Unwinding loop 4  iteration  1   file toy1.cil.c line 242 function write_back
+Not unwinding 
+Unwinding loop 6  iteration  3   file toy1.cil.c line 545 function start_simulation
+Unwinding loop 1  iteration  1   file toy1.cil.c line 79 function write_loop
+Unwinding loop 2  iteration  1   file toy1.cil.c line 152 function compute1
+Unwinding loop 3  iteration  1   file toy1.cil.c line 197 function compute2
+Unwinding loop 4  iteration  1   file toy1.cil.c line 242 function write_back
+Unwinding loop 5  iteration  1   file toy1.cil.c line 298 function eval
+Unwinding loop 1  iteration  1   file toy1.cil.c line 79 function write_loop
+Unwinding loop 2  iteration  1   file toy1.cil.c line 152 function compute1
+Unwinding loop 3  iteration  1   file toy1.cil.c line 197 function compute2
+Unwinding loop 4  iteration  1   file toy1.cil.c line 242 function write_back
+Unwinding loop 5  iteration  2   file toy1.cil.c line 298 function eval
+Unwinding loop 1  iteration  1   file toy1.cil.c line 79 function write_loop
+Unwinding loop 2  iteration  1   file toy1.cil.c line 152 function compute1
+Unwinding loop 3  iteration  1   file toy1.cil.c line 197 function compute2
+Unwinding loop 4  iteration  1   file toy1.cil.c line 242 function write_back
+Unwinding loop 5  iteration  3   file toy1.cil.c line 298 function eval
+Unwinding loop 1  iteration  1   file toy1.cil.c line 79 function write_loop
+Unwinding loop 2  iteration  1   file toy1.cil.c line 152 function compute1
+Unwinding loop 3  iteration  1   file toy1.cil.c line 197 function compute2
+Unwinding loop 4  iteration  1   file toy1.cil.c line 242 function write_back
+Unwinding loop 5  iteration  4   file toy1.cil.c line 298 function eval
+Unwinding loop 1  iteration  1   file toy1.cil.c line 79 function write_loop
+Unwinding loop 2  iteration  1   file toy1.cil.c line 152 function compute1
+Unwinding loop 3  iteration  1   file toy1.cil.c line 197 function compute2
+Unwinding loop 4  iteration  1   file toy1.cil.c line 242 function write_back
+Unwinding loop 5  iteration  5   file toy1.cil.c line 298 function eval
+Unwinding loop 1  iteration  1   file toy1.cil.c line 79 function write_loop
+Unwinding loop 2  iteration  1   file toy1.cil.c line 152 function compute1
+Unwinding loop 3  iteration  1   file toy1.cil.c line 197 function compute2
+Unwinding loop 4  iteration  1   file toy1.cil.c line 242 function write_back
+Not unwinding 
+Unwinding loop 6  iteration  4   file toy1.cil.c line 545 function start_simulation
+Unwinding loop 1  iteration  1   file toy1.cil.c line 79 function write_loop
+Unwinding loop 2  iteration  1   file toy1.cil.c line 152 function compute1
+Unwinding loop 3  iteration  1   file toy1.cil.c line 197 function compute2
+Unwinding loop 4  iteration  1   file toy1.cil.c line 242 function write_back
+Unwinding loop 5  iteration  1   file toy1.cil.c line 298 function eval
+Unwinding loop 1  iteration  1   file toy1.cil.c line 79 function write_loop
+Unwinding loop 2  iteration  1   file toy1.cil.c line 152 function compute1
+Unwinding loop 3  iteration  1   file toy1.cil.c line 197 function compute2
+Unwinding loop 4  iteration  1   file toy1.cil.c line 242 function write_back
+Unwinding loop 5  iteration  2   file toy1.cil.c line 298 function eval
+Unwinding loop 1  iteration  1   file toy1.cil.c line 79 function write_loop
+Unwinding loop 2  iteration  1   file toy1.cil.c line 152 function compute1
+Unwinding loop 3  iteration  1   file toy1.cil.c line 197 function compute2
+Unwinding loop 4  iteration  1   file toy1.cil.c line 242 function write_back
+Unwinding loop 5  iteration  3   file toy1.cil.c line 298 function eval
+Unwinding loop 1  iteration  1   file toy1.cil.c line 79 function write_loop
+Unwinding loop 2  iteration  1   file toy1.cil.c line 152 function compute1
+Unwinding loop 3  iteration  1   file toy1.cil.c line 197 function compute2
+Unwinding loop 4  iteration  1   file toy1.cil.c line 242 function write_back
+Unwinding loop 5  iteration  4   file toy1.cil.c line 298 function eval
+Unwinding loop 1  iteration  1   file toy1.cil.c line 79 function write_loop
+Unwinding loop 2  iteration  1   file toy1.cil.c line 152 function compute1
+Unwinding loop 3  iteration  1   file toy1.cil.c line 197 function compute2
+Unwinding loop 4  iteration  1   file toy1.cil.c line 242 function write_back
+Unwinding loop 5  iteration  5   file toy1.cil.c line 298 function eval
+Unwinding loop 1  iteration  1   file toy1.cil.c line 79 function write_loop
+Unwinding loop 2  iteration  1   file toy1.cil.c line 152 function compute1
+Unwinding loop 3  iteration  1   file toy1.cil.c line 197 function compute2
+Unwinding loop 4  iteration  1   file toy1.cil.c line 242 function write_back
+Not unwinding 
+Unwinding loop 6  iteration  5   file toy1.cil.c line 545 function start_simulation
+Unwinding loop 1  iteration  1   file toy1.cil.c line 79 function write_loop
+Unwinding loop 2  iteration  1   file toy1.cil.c line 152 function compute1
+Unwinding loop 3  iteration  1   file toy1.cil.c line 197 function compute2
+Unwinding loop 4  iteration  1   file toy1.cil.c line 242 function write_back
+Unwinding loop 5  iteration  1   file toy1.cil.c line 298 function eval
+Unwinding loop 1  iteration  1   file toy1.cil.c line 79 function write_loop
+Unwinding loop 2  iteration  1   file toy1.cil.c line 152 function compute1
+Unwinding loop 3  iteration  1   file toy1.cil.c line 197 function compute2
+Unwinding loop 4  iteration  1   file toy1.cil.c line 242 function write_back
+Unwinding loop 5  iteration  2   file toy1.cil.c line 298 function eval
+Unwinding loop 1  iteration  1   file toy1.cil.c line 79 function write_loop
+Unwinding loop 2  iteration  1   file toy1.cil.c line 152 function compute1
+Unwinding loop 3  iteration  1   file toy1.cil.c line 197 function compute2
+Unwinding loop 4  iteration  1   file toy1.cil.c line 242 function write_back
+Unwinding loop 5  iteration  3   file toy1.cil.c line 298 function eval
+Unwinding loop 1  iteration  1   file toy1.cil.c line 79 function write_loop
+Unwinding loop 2  iteration  1   file toy1.cil.c line 152 function compute1
+Unwinding loop 3  iteration  1   file toy1.cil.c line 197 function compute2
+Unwinding loop 4  iteration  1   file toy1.cil.c line 242 function write_back
+Unwinding loop 5  iteration  4   file toy1.cil.c line 298 function eval
+Unwinding loop 1  iteration  1   file toy1.cil.c line 79 function write_loop
+Unwinding loop 2  iteration  1   file toy1.cil.c line 152 function compute1
+Unwinding loop 3  iteration  1   file toy1.cil.c line 197 function compute2
+Unwinding loop 4  iteration  1   file toy1.cil.c line 242 function write_back
+Unwinding loop 5  iteration  5   file toy1.cil.c line 298 function eval
+Unwinding loop 1  iteration  1   file toy1.cil.c line 79 function write_loop
+Unwinding loop 2  iteration  1   file toy1.cil.c line 152 function compute1
+Unwinding loop 3  iteration  1   file toy1.cil.c line 197 function compute2
+Unwinding loop 4  iteration  1   file toy1.cil.c line 242 function write_back
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.439s (9547 assignments)
+Slicing time: 0.111s (removed 4572 assignments)
+Generated 64 VCC(s), 64 remaining after simplification (4975 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.075s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.075s
+Runtime decision procedure: 1.934s
+Building error trace
+
+Counterexample:
+
+State 1 file toy1.cil.c line 323 function eval thread 0
+----------------------------------------------------
+  tmp = 0 (00000000 00000000 00000000 00000000)
+
+State 2 file toy1.cil.c line 338 function eval thread 0
+----------------------------------------------------
+  tmp___0 = 0 (00000000 00000000 00000000 00000000)
+
+State 3 file toy1.cil.c line 353 function eval thread 0
+----------------------------------------------------
+  tmp___1 = 0 (00000000 00000000 00000000 00000000)
+
+State 4 file toy1.cil.c line 368 function eval thread 0
+----------------------------------------------------
+  tmp___2 = 0 (00000000 00000000 00000000 00000000)
+
+State 5 file toy1.cil.c line 323 function eval thread 0
+----------------------------------------------------
+  tmp = 0 (00000000 00000000 00000000 00000000)
+
+State 6 file toy1.cil.c line 338 function eval thread 0
+----------------------------------------------------
+  tmp___0 = 0 (00000000 00000000 00000000 00000000)
+
+State 7 file toy1.cil.c line 353 function eval thread 0
+----------------------------------------------------
+  tmp___1 = 0 (00000000 00000000 00000000 00000000)
+
+State 8 file toy1.cil.c line 368 function eval thread 0
+----------------------------------------------------
+  tmp___2 = 1 (00000000 00000000 00000000 00000001)
+
+State 9 file toy1.cil.c line 323 function eval thread 0
+----------------------------------------------------
+  tmp = 0 (00000000 00000000 00000000 00000000)
+
+State 10 file toy1.cil.c line 338 function eval thread 0
+----------------------------------------------------
+  tmp___0 = 4 (00000000 00000000 00000000 00000100)
+
+State 11 file toy1.cil.c line 353 function eval thread 0
+----------------------------------------------------
+  tmp___1 = 0 (00000000 00000000 00000000 00000000)
+
+State 12 file toy1.cil.c line 323 function eval thread 0
+----------------------------------------------------
+  tmp = 1 (00000000 00000000 00000000 00000001)
+
+State 13 file toy1.cil.c line 353 function eval thread 0
+----------------------------------------------------
+  tmp___1 = 0 (00000000 00000000 00000000 00000000)
+
+State 14 file toy1.cil.c line 353 function eval thread 0
+----------------------------------------------------
+  tmp___1 = 8 (00000000 00000000 00000000 00001000)
+
+State 15 file toy1.cil.c line 323 function eval thread 0
+----------------------------------------------------
+  tmp = 0 (00000000 00000000 00000000 00000000)
+
+State 16 file toy1.cil.c line 323 function eval thread 0
+----------------------------------------------------
+  tmp = 0 (00000000 00000000 00000000 00000000)
+
+State 17 file toy1.cil.c line 323 function eval thread 0
+----------------------------------------------------
+  tmp = 0 (00000000 00000000 00000000 00000000)
+
+State 18 file toy1.cil.c line 323 function eval thread 0
+----------------------------------------------------
+  tmp = 2 (00000000 00000000 00000000 00000010)
+
+State 19 file toy1.cil.c line 81 function write_loop thread 0
+----------------------------------------------------
+  t = 0 (00000000 00000000 00000000 00000000)
+
+State 20 file toy1.cil.c line 82 function write_loop thread 0
+----------------------------------------------------
+  data = 0 (00000000 00000000 00000000 00000000)
+
+State 21 file toy1.cil.c line 106 function write_loop thread 0
+----------------------------------------------------
+  t_b = 0 (00000000 00000000 00000000 00000000)
+
+State 22 file toy1.cil.c line 338 function eval thread 0
+----------------------------------------------------
+  tmp___0 = 0 (00000000 00000000 00000000 00000000)
+
+State 23 file toy1.cil.c line 353 function eval thread 0
+----------------------------------------------------
+  tmp___1 = 1 (00000000 00000000 00000000 00000001)
+
+State 24 file toy1.cil.c line 205 function compute2 thread 0
+----------------------------------------------------
+  data = 1 (00000000 00000000 00000000 00000001)
+
+State 25 file toy1.cil.c line 368 function eval thread 0
+----------------------------------------------------
+  tmp___2 = 2 (00000000 00000000 00000000 00000010)
+
+State 26 file toy1.cil.c line 249 function write_back thread 0
+----------------------------------------------------
+  c_t = 1 (00000000 00000000 00000000 00000001)
+
+State 27 file toy1.cil.c line 338 function eval thread 0
+----------------------------------------------------
+  tmp___0 = 1 (00000000 00000000 00000000 00000001)
+
+State 28 file toy1.cil.c line 554 function start_simulation thread 0
+----------------------------------------------------
+  c = 1 (00000000 00000000 00000000 00000001)
+
+State 29 file toy1.cil.c line 383 function eval thread 0
+----------------------------------------------------
+  tmp___3 = 0 (00000000 00000000 00000000 00000000)
+
+State 30 file toy1.cil.c line 383 function eval thread 0
+----------------------------------------------------
+  tmp___3 = 0 (00000000 00000000 00000000 00000000)
+
+State 31 file toy1.cil.c line 383 function eval thread 0
+----------------------------------------------------
+  tmp___3 = 1 (00000000 00000000 00000000 00000001)
+
+State 32 file toy1.cil.c line 263 function read thread 0
+----------------------------------------------------
+  d = 1 (00000000 00000000 00000000 00000001)
+
+State 33 file toy1.cil.c line 323 function eval thread 0
+----------------------------------------------------
+  tmp = 0 (00000000 00000000 00000000 00000000)
+
+State 34 file toy1.cil.c line 323 function eval thread 0
+----------------------------------------------------
+  tmp = 2 (00000000 00000000 00000000 00000010)
+
+State 35 file toy1.cil.c line 110 function write_loop thread 0
+----------------------------------------------------
+  t = 0 (00000000 00000000 00000000 00000000)
+
+State 36 file toy1.cil.c line 81 function write_loop thread 0
+----------------------------------------------------
+  t = 1 (00000000 00000000 00000000 00000001)
+
+State 37 file toy1.cil.c line 82 function write_loop thread 0
+----------------------------------------------------
+  data = 1 (00000000 00000000 00000000 00000001)
+
+State 38 file toy1.cil.c line 106 function write_loop thread 0
+----------------------------------------------------
+  t_b = 1 (00000000 00000000 00000000 00000001)
+
+State 39 file toy1.cil.c line 338 function eval thread 0
+----------------------------------------------------
+  tmp___0 = 1 (00000000 00000000 00000000 00000001)
+
+State 40 file toy1.cil.c line 160 function compute1 thread 0
+----------------------------------------------------
+  data = 2 (00000000 00000000 00000000 00000010)
+
+State 41 file toy1.cil.c line 353 function eval thread 0
+----------------------------------------------------
+  tmp___1 = 1 (00000000 00000000 00000000 00000001)
+
+State 42 file toy1.cil.c line 205 function compute2 thread 0
+----------------------------------------------------
+  data = 3 (00000000 00000000 00000000 00000011)
+
+State 43 file toy1.cil.c line 368 function eval thread 0
+----------------------------------------------------
+  tmp___2 = 1 (00000000 00000000 00000000 00000001)
+
+State 44 file toy1.cil.c line 249 function write_back thread 0
+----------------------------------------------------
+  c_t = 3 (00000000 00000000 00000000 00000011)
+
+State 45 file toy1.cil.c line 554 function start_simulation thread 0
+----------------------------------------------------
+  c = 3 (00000000 00000000 00000000 00000011)
+
+State 46 file toy1.cil.c line 383 function eval thread 0
+----------------------------------------------------
+  tmp___3 = 1 (00000000 00000000 00000000 00000001)
+
+State 47 file toy1.cil.c line 263 function read thread 0
+----------------------------------------------------
+  d = 3 (00000000 00000000 00000000 00000011)
+
+State 48 file toy1.cil.c line 323 function eval thread 0
+----------------------------------------------------
+  tmp = 0 (00000000 00000000 00000000 00000000)
+
+State 49 file toy1.cil.c line 323 function eval thread 0
+----------------------------------------------------
+  tmp = 0 (00000000 00000000 00000000 00000000)
+
+State 50 file toy1.cil.c line 323 function eval thread 0
+----------------------------------------------------
+  tmp = 0 (00000000 00000000 00000000 00000000)
+
+State 51 file toy1.cil.c line 323 function eval thread 0
+----------------------------------------------------
+  tmp = 1 (00000000 00000000 00000000 00000001)
+
+State 52 file toy1.cil.c line 110 function write_loop thread 0
+----------------------------------------------------
+  t = 1 (00000000 00000000 00000000 00000001)
+
+State 53 file toy1.cil.c line 3 function reach_error thread 0
+----------------------------------------------------
+Violated property:
+  file toy1.cil.c line 3 function reach_error
+  assertion 0
+  0
+
+
+VERIFICATION FAILED
+
+Bug found (k = 6)
+
+
+FALSE_REACH

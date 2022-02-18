@@ -1,0 +1,576 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/xcsp/CostasArray-16.c
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --add-symex-value-sets --no-align-check --k-step 5 --floatbv --unlimited-k-steps ../sv-benchmarks/c/xcsp/CostasArray-16.c --32 --witness-output CostasArray-16.c.graphml --no-pointer-check --no-bounds-check --interval-analysis --goto-unwind --unlimited-goto-unwind --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/xcsp/CostasArray-16.c: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.225s
+GOTO program processing time: 0.027s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Symex completed in: 0.278s (3686 assignments)
+Slicing time: 0.009s (removed 11 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (3675 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.035s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.035s
+Runtime decision procedure: 184.926s
+Building error trace
+
+Counterexample:
+
+State 1 file CostasArray-16.c line 26 function main thread 0
+----------------------------------------------------
+  var0 = 13 (00000000 00000000 00000000 00001101)
+
+State 2 file CostasArray-16.c line 30 function main thread 0
+----------------------------------------------------
+  var1 = 6 (00000000 00000000 00000000 00000110)
+
+State 3 file CostasArray-16.c line 34 function main thread 0
+----------------------------------------------------
+  var2 = 11 (00000000 00000000 00000000 00001011)
+
+State 4 file CostasArray-16.c line 38 function main thread 0
+----------------------------------------------------
+  var3 = 5 (00000000 00000000 00000000 00000101)
+
+State 5 file CostasArray-16.c line 42 function main thread 0
+----------------------------------------------------
+  var4 = 2 (00000000 00000000 00000000 00000010)
+
+State 6 file CostasArray-16.c line 46 function main thread 0
+----------------------------------------------------
+  var5 = 14 (00000000 00000000 00000000 00001110)
+
+State 7 file CostasArray-16.c line 50 function main thread 0
+----------------------------------------------------
+  var6 = 9 (00000000 00000000 00000000 00001001)
+
+State 8 file CostasArray-16.c line 54 function main thread 0
+----------------------------------------------------
+  var7 = 10 (00000000 00000000 00000000 00001010)
+
+State 9 file CostasArray-16.c line 58 function main thread 0
+----------------------------------------------------
+  var8 = 12 (00000000 00000000 00000000 00001100)
+
+State 10 file CostasArray-16.c line 62 function main thread 0
+----------------------------------------------------
+  var9 = 15 (00000000 00000000 00000000 00001111)
+
+State 11 file CostasArray-16.c line 66 function main thread 0
+----------------------------------------------------
+  var10 = 1 (00000000 00000000 00000000 00000001)
+
+State 12 file CostasArray-16.c line 70 function main thread 0
+----------------------------------------------------
+  var11 = 7 (00000000 00000000 00000000 00000111)
+
+State 13 file CostasArray-16.c line 74 function main thread 0
+----------------------------------------------------
+  var12 = 16 (00000000 00000000 00000000 00010000)
+
+State 14 file CostasArray-16.c line 78 function main thread 0
+----------------------------------------------------
+  var13 = 8 (00000000 00000000 00000000 00001000)
+
+State 15 file CostasArray-16.c line 82 function main thread 0
+----------------------------------------------------
+  var14 = 4 (00000000 00000000 00000000 00000100)
+
+State 16 file CostasArray-16.c line 86 function main thread 0
+----------------------------------------------------
+  var15 = 3 (00000000 00000000 00000000 00000011)
+
+State 17 file CostasArray-16.c line 90 function main thread 0
+----------------------------------------------------
+  var16 = 7 (00000000 00000000 00000000 00000111)
+
+State 18 file CostasArray-16.c line 95 function main thread 0
+----------------------------------------------------
+  var17 = -5 (11111111 11111111 11111111 11111011)
+
+State 19 file CostasArray-16.c line 100 function main thread 0
+----------------------------------------------------
+  var18 = 6 (00000000 00000000 00000000 00000110)
+
+State 20 file CostasArray-16.c line 105 function main thread 0
+----------------------------------------------------
+  var19 = 3 (00000000 00000000 00000000 00000011)
+
+State 21 file CostasArray-16.c line 110 function main thread 0
+----------------------------------------------------
+  var20 = -12 (11111111 11111111 11111111 11110100)
+
+State 22 file CostasArray-16.c line 115 function main thread 0
+----------------------------------------------------
+  var21 = 5 (00000000 00000000 00000000 00000101)
+
+State 23 file CostasArray-16.c line 120 function main thread 0
+----------------------------------------------------
+  var22 = -1 (11111111 11111111 11111111 11111111)
+
+State 24 file CostasArray-16.c line 125 function main thread 0
+----------------------------------------------------
+  var23 = -2 (11111111 11111111 11111111 11111110)
+
+State 25 file CostasArray-16.c line 130 function main thread 0
+----------------------------------------------------
+  var24 = -3 (11111111 11111111 11111111 11111101)
+
+State 26 file CostasArray-16.c line 135 function main thread 0
+----------------------------------------------------
+  var25 = 14 (00000000 00000000 00000000 00001110)
+
+State 27 file CostasArray-16.c line 140 function main thread 0
+----------------------------------------------------
+  var26 = -6 (11111111 11111111 11111111 11111010)
+
+State 28 file CostasArray-16.c line 145 function main thread 0
+----------------------------------------------------
+  var27 = -9 (11111111 11111111 11111111 11110111)
+
+State 29 file CostasArray-16.c line 150 function main thread 0
+----------------------------------------------------
+  var28 = 8 (00000000 00000000 00000000 00001000)
+
+State 30 file CostasArray-16.c line 155 function main thread 0
+----------------------------------------------------
+  var29 = 4 (00000000 00000000 00000000 00000100)
+
+State 31 file CostasArray-16.c line 160 function main thread 0
+----------------------------------------------------
+  var30 = 1 (00000000 00000000 00000000 00000001)
+
+State 32 file CostasArray-16.c line 165 function main thread 0
+----------------------------------------------------
+  var31 = 2 (00000000 00000000 00000000 00000010)
+
+State 33 file CostasArray-16.c line 170 function main thread 0
+----------------------------------------------------
+  var32 = 1 (00000000 00000000 00000000 00000001)
+
+State 34 file CostasArray-16.c line 175 function main thread 0
+----------------------------------------------------
+  var33 = 9 (00000000 00000000 00000000 00001001)
+
+State 35 file CostasArray-16.c line 180 function main thread 0
+----------------------------------------------------
+  var34 = -9 (11111111 11111111 11111111 11110111)
+
+State 36 file CostasArray-16.c line 185 function main thread 0
+----------------------------------------------------
+  var35 = -7 (11111111 11111111 11111111 11111001)
+
+State 37 file CostasArray-16.c line 190 function main thread 0
+----------------------------------------------------
+  var36 = 4 (00000000 00000000 00000000 00000100)
+
+State 38 file CostasArray-16.c line 195 function main thread 0
+----------------------------------------------------
+  var37 = -3 (11111111 11111111 11111111 11111101)
+
+State 39 file CostasArray-16.c line 200 function main thread 0
+----------------------------------------------------
+  var38 = -5 (11111111 11111111 11111111 11111011)
+
+State 40 file CostasArray-16.c line 205 function main thread 0
+----------------------------------------------------
+  var39 = 11 (00000000 00000000 00000000 00001011)
+
+State 41 file CostasArray-16.c line 210 function main thread 0
+----------------------------------------------------
+  var40 = 8 (00000000 00000000 00000000 00001000)
+
+State 42 file CostasArray-16.c line 215 function main thread 0
+----------------------------------------------------
+  var41 = -15 (11111111 11111111 11111111 11110001)
+
+State 43 file CostasArray-16.c line 220 function main thread 0
+----------------------------------------------------
+  var42 = -1 (11111111 11111111 11111111 11111111)
+
+State 44 file CostasArray-16.c line 225 function main thread 0
+----------------------------------------------------
+  var43 = 12 (00000000 00000000 00000000 00001100)
+
+State 45 file CostasArray-16.c line 230 function main thread 0
+----------------------------------------------------
+  var44 = 5 (00000000 00000000 00000000 00000101)
+
+State 46 file CostasArray-16.c line 235 function main thread 0
+----------------------------------------------------
+  var45 = 8 (00000000 00000000 00000000 00001000)
+
+State 47 file CostasArray-16.c line 240 function main thread 0
+----------------------------------------------------
+  var46 = 4 (00000000 00000000 00000000 00000100)
+
+State 48 file CostasArray-16.c line 245 function main thread 0
+----------------------------------------------------
+  var47 = -3 (11111111 11111111 11111111 11111101)
+
+State 49 file CostasArray-16.c line 250 function main thread 0
+----------------------------------------------------
+  var48 = -4 (11111111 11111111 11111111 11111100)
+
+State 50 file CostasArray-16.c line 255 function main thread 0
+----------------------------------------------------
+  var49 = -8 (11111111 11111111 11111111 11111000)
+
+State 51 file CostasArray-16.c line 260 function main thread 0
+----------------------------------------------------
+  var50 = 2 (00000000 00000000 00000000 00000010)
+
+State 52 file CostasArray-16.c line 265 function main thread 0
+----------------------------------------------------
+  var51 = -6 (11111111 11111111 11111111 11111010)
+
+State 53 file CostasArray-16.c line 270 function main thread 0
+----------------------------------------------------
+  var52 = 9 (00000000 00000000 00000000 00001001)
+
+State 54 file CostasArray-16.c line 275 function main thread 0
+----------------------------------------------------
+  var53 = 5 (00000000 00000000 00000000 00000101)
+
+State 55 file CostasArray-16.c line 280 function main thread 0
+----------------------------------------------------
+  var54 = -1 (11111111 11111111 11111111 11111111)
+
+State 56 file CostasArray-16.c line 285 function main thread 0
+----------------------------------------------------
+  var55 = -7 (11111111 11111111 11111111 11111001)
+
+State 57 file CostasArray-16.c line 290 function main thread 0
+----------------------------------------------------
+  var56 = 3 (00000000 00000000 00000000 00000011)
+
+State 58 file CostasArray-16.c line 295 function main thread 0
+----------------------------------------------------
+  var57 = 13 (00000000 00000000 00000000 00001101)
+
+State 59 file CostasArray-16.c line 300 function main thread 0
+----------------------------------------------------
+  var58 = 11 (00000000 00000000 00000000 00001011)
+
+State 60 file CostasArray-16.c line 305 function main thread 0
+----------------------------------------------------
+  var59 = -8 (11111111 11111111 11111111 11111000)
+
+State 61 file CostasArray-16.c line 310 function main thread 0
+----------------------------------------------------
+  var60 = 2 (00000000 00000000 00000000 00000010)
+
+State 62 file CostasArray-16.c line 315 function main thread 0
+----------------------------------------------------
+  var61 = -5 (11111111 11111111 11111111 11111011)
+
+State 63 file CostasArray-16.c line 320 function main thread 0
+----------------------------------------------------
+  var62 = -10 (11111111 11111111 11111111 11110110)
+
+State 64 file CostasArray-16.c line 325 function main thread 0
+----------------------------------------------------
+  var63 = -1 (11111111 11111111 11111111 11111111)
+
+State 65 file CostasArray-16.c line 330 function main thread 0
+----------------------------------------------------
+  var64 = 8 (00000000 00000000 00000000 00001000)
+
+State 66 file CostasArray-16.c line 335 function main thread 0
+----------------------------------------------------
+  var65 = 3 (00000000 00000000 00000000 00000011)
+
+State 67 file CostasArray-16.c line 340 function main thread 0
+----------------------------------------------------
+  var66 = -4 (11111111 11111111 11111111 11111100)
+
+State 68 file CostasArray-16.c line 345 function main thread 0
+----------------------------------------------------
+  var67 = 7 (00000000 00000000 00000000 00000111)
+
+State 69 file CostasArray-16.c line 350 function main thread 0
+----------------------------------------------------
+  var68 = -3 (11111111 11111111 11111111 11111101)
+
+State 70 file CostasArray-16.c line 355 function main thread 0
+----------------------------------------------------
+  var69 = 4 (00000000 00000000 00000000 00000100)
+
+State 71 file CostasArray-16.c line 360 function main thread 0
+----------------------------------------------------
+  var70 = -1 (11111111 11111111 11111111 11111111)
+
+State 72 file CostasArray-16.c line 365 function main thread 0
+----------------------------------------------------
+  var71 = -3 (11111111 11111111 11111111 11111101)
+
+State 73 file CostasArray-16.c line 370 function main thread 0
+----------------------------------------------------
+  var72 = 1 (00000000 00000000 00000000 00000001)
+
+State 74 file CostasArray-16.c line 375 function main thread 0
+----------------------------------------------------
+  var73 = -7 (11111111 11111111 11111111 11111001)
+
+State 75 file CostasArray-16.c line 380 function main thread 0
+----------------------------------------------------
+  var74 = -13 (11111111 11111111 11111111 11110011)
+
+State 76 file CostasArray-16.c line 385 function main thread 0
+----------------------------------------------------
+  var75 = 13 (00000000 00000000 00000000 00001101)
+
+State 77 file CostasArray-16.c line 390 function main thread 0
+----------------------------------------------------
+  var76 = 2 (00000000 00000000 00000000 00000010)
+
+State 78 file CostasArray-16.c line 395 function main thread 0
+----------------------------------------------------
+  var77 = -6 (11111111 11111111 11111111 11111010)
+
+State 79 file CostasArray-16.c line 400 function main thread 0
+----------------------------------------------------
+  var78 = 4 (00000000 00000000 00000000 00000100)
+
+State 80 file CostasArray-16.c line 405 function main thread 0
+----------------------------------------------------
+  var79 = 11 (00000000 00000000 00000000 00001011)
+
+State 81 file CostasArray-16.c line 410 function main thread 0
+----------------------------------------------------
+  var80 = -2 (11111111 11111111 11111111 11111110)
+
+State 82 file CostasArray-16.c line 415 function main thread 0
+----------------------------------------------------
+  var81 = 4 (00000000 00000000 00000000 00000100)
+
+State 83 file CostasArray-16.c line 420 function main thread 0
+----------------------------------------------------
+  var82 = -4 (11111111 11111111 11111111 11111100)
+
+State 84 file CostasArray-16.c line 425 function main thread 0
+----------------------------------------------------
+  var83 = -1 (11111111 11111111 11111111 11111111)
+
+State 85 file CostasArray-16.c line 430 function main thread 0
+----------------------------------------------------
+  var84 = -10 (11111111 11111111 11111111 11110110)
+
+State 86 file CostasArray-16.c line 435 function main thread 0
+----------------------------------------------------
+  var85 = 1 (00000000 00000000 00000000 00000001)
+
+State 87 file CostasArray-16.c line 440 function main thread 0
+----------------------------------------------------
+  var86 = 7 (00000000 00000000 00000000 00000111)
+
+State 88 file CostasArray-16.c line 445 function main thread 0
+----------------------------------------------------
+  var87 = -7 (11111111 11111111 11111111 11111001)
+
+State 89 file CostasArray-16.c line 450 function main thread 0
+----------------------------------------------------
+  var88 = 2 (00000000 00000000 00000000 00000010)
+
+State 90 file CostasArray-16.c line 455 function main thread 0
+----------------------------------------------------
+  var89 = 8 (00000000 00000000 00000000 00001000)
+
+State 91 file CostasArray-16.c line 460 function main thread 0
+----------------------------------------------------
+  var90 = 12 (00000000 00000000 00000000 00001100)
+
+State 92 file CostasArray-16.c line 465 function main thread 0
+----------------------------------------------------
+  var91 = 3 (00000000 00000000 00000000 00000011)
+
+State 93 file CostasArray-16.c line 470 function main thread 0
+----------------------------------------------------
+  var92 = -6 (11111111 11111111 11111111 11111010)
+
+State 94 file CostasArray-16.c line 475 function main thread 0
+----------------------------------------------------
+  var93 = -4 (11111111 11111111 11111111 11111100)
+
+State 95 file CostasArray-16.c line 480 function main thread 0
+----------------------------------------------------
+  var94 = 4 (00000000 00000000 00000000 00000100)
+
+State 96 file CostasArray-16.c line 485 function main thread 0
+----------------------------------------------------
+  var95 = -5 (11111111 11111111 11111111 11111011)
+
+State 97 file CostasArray-16.c line 490 function main thread 0
+----------------------------------------------------
+  var96 = -2 (11111111 11111111 11111111 11111110)
+
+State 98 file CostasArray-16.c line 495 function main thread 0
+----------------------------------------------------
+  var97 = 1 (00000000 00000000 00000000 00000001)
+
+State 99 file CostasArray-16.c line 500 function main thread 0
+----------------------------------------------------
+  var98 = 6 (00000000 00000000 00000000 00000110)
+
+State 100 file CostasArray-16.c line 505 function main thread 0
+----------------------------------------------------
+  var99 = 9 (00000000 00000000 00000000 00001001)
+
+State 101 file CostasArray-16.c line 510 function main thread 0
+----------------------------------------------------
+  var100 = 1 (00000000 00000000 00000000 00000001)
+
+State 102 file CostasArray-16.c line 515 function main thread 0
+----------------------------------------------------
+  var101 = -9 (11111111 11111111 11111111 11110111)
+
+State 103 file CostasArray-16.c line 520 function main thread 0
+----------------------------------------------------
+  var102 = 10 (00000000 00000000 00000000 00001010)
+
+State 104 file CostasArray-16.c line 525 function main thread 0
+----------------------------------------------------
+  var103 = -2 (11111111 11111111 11111111 11111110)
+
+State 105 file CostasArray-16.c line 530 function main thread 0
+----------------------------------------------------
+  var104 = -14 (11111111 11111111 11111111 11110010)
+
+State 106 file CostasArray-16.c line 535 function main thread 0
+----------------------------------------------------
+  var105 = 6 (00000000 00000000 00000000 00000110)
+
+State 107 file CostasArray-16.c line 540 function main thread 0
+----------------------------------------------------
+  var106 = 5 (00000000 00000000 00000000 00000101)
+
+State 108 file CostasArray-16.c line 545 function main thread 0
+----------------------------------------------------
+  var107 = 7 (00000000 00000000 00000000 00000111)
+
+State 109 file CostasArray-16.c line 550 function main thread 0
+----------------------------------------------------
+  var108 = -2 (11111111 11111111 11111111 11111110)
+
+State 110 file CostasArray-16.c line 555 function main thread 0
+----------------------------------------------------
+  var109 = 5 (00000000 00000000 00000000 00000101)
+
+State 111 file CostasArray-16.c line 560 function main thread 0
+----------------------------------------------------
+  var110 = 4 (00000000 00000000 00000000 00000100)
+
+State 112 file CostasArray-16.c line 565 function main thread 0
+----------------------------------------------------
+  var111 = -11 (11111111 11111111 11111111 11110101)
+
+State 113 file CostasArray-16.c line 570 function main thread 0
+----------------------------------------------------
+  var112 = -6 (11111111 11111111 11111111 11111010)
+
+State 114 file CostasArray-16.c line 575 function main thread 0
+----------------------------------------------------
+  var113 = 10 (00000000 00000000 00000000 00001010)
+
+State 115 file CostasArray-16.c line 580 function main thread 0
+----------------------------------------------------
+  var114 = 6 (00000000 00000000 00000000 00000110)
+
+State 116 file CostasArray-16.c line 585 function main thread 0
+----------------------------------------------------
+  var115 = 12 (00000000 00000000 00000000 00001100)
+
+State 117 file CostasArray-16.c line 590 function main thread 0
+----------------------------------------------------
+  var116 = -1 (11111111 11111111 11111111 11111111)
+
+State 118 file CostasArray-16.c line 595 function main thread 0
+----------------------------------------------------
+  var117 = -5 (11111111 11111111 11111111 11111011)
+
+State 119 file CostasArray-16.c line 600 function main thread 0
+----------------------------------------------------
+  var118 = -3 (11111111 11111111 11111111 11111101)
+
+State 120 file CostasArray-16.c line 605 function main thread 0
+----------------------------------------------------
+  var119 = -2 (11111111 11111111 11111111 11111110)
+
+State 121 file CostasArray-16.c line 610 function main thread 0
+----------------------------------------------------
+  var120 = 11 (00000000 00000000 00000000 00001011)
+
+State 122 file CostasArray-16.c line 615 function main thread 0
+----------------------------------------------------
+  var121 = 6 (00000000 00000000 00000000 00000110)
+
+State 123 file CostasArray-16.c line 620 function main thread 0
+----------------------------------------------------
+  var122 = -10 (11111111 11111111 11111111 11110110)
+
+State 124 file CostasArray-16.c line 625 function main thread 0
+----------------------------------------------------
+  var123 = 3 (00000000 00000000 00000000 00000011)
+
+State 125 file CostasArray-16.c line 630 function main thread 0
+----------------------------------------------------
+  var124 = 1 (00000000 00000000 00000000 00000001)
+
+State 126 file CostasArray-16.c line 635 function main thread 0
+----------------------------------------------------
+  var125 = -1 (11111111 11111111 11111111 11111111)
+
+State 127 file CostasArray-16.c line 640 function main thread 0
+----------------------------------------------------
+  var126 = -3 (11111111 11111111 11111111 11111101)
+
+State 128 file CostasArray-16.c line 645 function main thread 0
+----------------------------------------------------
+  var127 = -2 (11111111 11111111 11111111 11111110)
+
+State 129 file CostasArray-16.c line 650 function main thread 0
+----------------------------------------------------
+  var128 = 7 (00000000 00000000 00000000 00000111)
+
+State 130 file CostasArray-16.c line 655 function main thread 0
+----------------------------------------------------
+  var129 = 2 (00000000 00000000 00000000 00000010)
+
+State 131 file CostasArray-16.c line 660 function main thread 0
+----------------------------------------------------
+  var130 = 5 (00000000 00000000 00000000 00000101)
+
+State 132 file CostasArray-16.c line 665 function main thread 0
+----------------------------------------------------
+  var131 = 2 (00000000 00000000 00000000 00000010)
+
+State 133 file CostasArray-16.c line 670 function main thread 0
+----------------------------------------------------
+  var132 = 8 (00000000 00000000 00000000 00001000)
+
+State 134 file CostasArray-16.c line 16 function reach_error thread 0
+----------------------------------------------------
+Violated property:
+  file CostasArray-16.c line 16 function reach_error
+  assertion 0
+  0
+
+
+VERIFICATION FAILED
+
+Bug found (k = 1)
+
+
+FALSE_REACH

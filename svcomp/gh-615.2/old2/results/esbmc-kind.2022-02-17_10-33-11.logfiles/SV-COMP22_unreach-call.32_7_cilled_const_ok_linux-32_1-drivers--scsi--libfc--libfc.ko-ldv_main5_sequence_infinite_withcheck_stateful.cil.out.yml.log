@@ -1,0 +1,597 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --add-symex-value-sets --no-align-check --k-step 5 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i --64 --witness-output 32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --goto-unwind --unlimited-goto-unwind --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 64-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 5.482s
+GOTO program processing time: 0.543s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+No target candidate for function call *__cil_tmp21
+No target candidate for function call *__cil_tmp37
+Not unwinding 
+Not unwinding 
+Not unwinding 
+No target candidate for function call *__cil_tmp35
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+No target candidate for function call *__cil_tmp35
+Not unwinding 
+Not unwinding 
+No target candidate for function call *__cil_tmp23
+Not unwinding 
+No target candidate for function call *__cil_tmp7
+No target candidate for function call *__cil_tmp16
+No target candidate for function call *release
+No target candidate for function call *__cil_tmp36
+No target candidate for function call *__cil_tmp40
+No target candidate for function call *__cil_tmp23
+No target candidate for function call *__cil_tmp23
+No target candidate for function call *__cil_tmp30
+**** WARNING: k-induction does not support recursion yet. Disabling inductive step
+Unwinding recursion fc_lport_error iteration 1 (1 max)
+No target candidate for function call *__cil_tmp36
+Unwinding recursion fc_lport_error iteration 1 (1 max)
+No target candidate for function call *__cil_tmp6
+No target candidate for function call *__cil_tmp7
+No target candidate for function call *__cil_tmp16
+No target candidate for function call *release
+No target candidate for function call *__cil_tmp36
+No target candidate for function call *__cil_tmp40
+No target candidate for function call *__cil_tmp23
+No target candidate for function call *__cil_tmp23
+No target candidate for function call *__cil_tmp30
+Unwinding recursion fc_lport_enter_reset iteration 1 (1 max)
+No target candidate for function call *__cil_tmp36
+Unwinding recursion fc_lport_enter_reset iteration 1 (1 max)
+No target candidate for function call *__cil_tmp7
+No target candidate for function call *__cil_tmp16
+No target candidate for function call *release
+No target candidate for function call *__cil_tmp36
+No target candidate for function call *__cil_tmp40
+No target candidate for function call *__cil_tmp23
+No target candidate for function call *__cil_tmp23
+No target candidate for function call *__cil_tmp30
+Unwinding recursion fc_lport_error iteration 1 (1 max)
+No target candidate for function call *__cil_tmp36
+Unwinding recursion fc_lport_error iteration 1 (1 max)
+No target candidate for function call *__cil_tmp70
+No target candidate for function call *__cil_tmp7
+No target candidate for function call *__cil_tmp16
+No target candidate for function call *release
+No target candidate for function call *__cil_tmp36
+No target candidate for function call *__cil_tmp40
+No target candidate for function call *__cil_tmp23
+No target candidate for function call *__cil_tmp23
+No target candidate for function call *__cil_tmp30
+Unwinding recursion fc_lport_error iteration 1 (1 max)
+No target candidate for function call *__cil_tmp36
+Unwinding recursion fc_lport_error iteration 1 (1 max)
+No target candidate for function call *__cil_tmp7
+No target candidate for function call *__cil_tmp16
+No target candidate for function call *release
+No target candidate for function call *__cil_tmp36
+No target candidate for function call *__cil_tmp40
+No target candidate for function call *__cil_tmp23
+No target candidate for function call *__cil_tmp23
+No target candidate for function call *__cil_tmp30
+Unwinding recursion fc_lport_error iteration 1 (1 max)
+No target candidate for function call *__cil_tmp36
+Unwinding recursion fc_lport_error iteration 1 (1 max)
+No target candidate for function call *__cil_tmp61
+No target candidate for function call *__cil_tmp7
+No target candidate for function call *__cil_tmp16
+No target candidate for function call *release
+No target candidate for function call *__cil_tmp36
+No target candidate for function call *__cil_tmp40
+No target candidate for function call *__cil_tmp23
+No target candidate for function call *__cil_tmp23
+No target candidate for function call *__cil_tmp30
+Unwinding recursion fc_lport_error iteration 1 (1 max)
+No target candidate for function call *__cil_tmp36
+Unwinding recursion fc_lport_error iteration 1 (1 max)
+No target candidate for function call *__cil_tmp65
+Not unwinding 
+Symex completed in: 3.094s (8105 assignments)
+Slicing time: 0.059s (removed 6826 assignments)
+Generated 13 VCC(s), 13 remaining after simplification (1279 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.484s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.484s
+Runtime decision procedure: 71.234s
+Building error trace
+
+Counterexample:
+
+State 1 file 32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i line 35004 function main thread 0
+----------------------------------------------------
+  tmp___8 = 2097152 (00000000 00100000 00000000 00000000)
+
+State 2 file 32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i line 35011 function main thread 0
+----------------------------------------------------
+  tmp___7 = 2 (00000000 00000000 00000000 00000010)
+
+State 3 file 32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i line 26558 function fc_lport_rport_callback thread 0
+----------------------------------------------------
+  __cil_tmp29 = 2 (00000000 00000000 00000000 00000010)
+
+State 4 file 32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i line 26559 function fc_lport_rport_callback thread 0
+----------------------------------------------------
+  __cil_tmp30 = 2 (00000000 00000000 00000000 00000010)
+
+State 5 file 32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i line 57240 function __alloc_skb thread 0
+----------------------------------------------------
+  skb = ( struct sk_buff *)(&dynamic_53_array[0])
+
+State 6 file 32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i line 25885 function _fc_frame_alloc thread 0
+----------------------------------------------------
+  fp = ( struct fc_frame *)(&dynamic_53_array[0])
+
+State 7 file 32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i line 30073 function fc_lport_error thread 0
+----------------------------------------------------
+  __cil_tmp26 = (void *)(&dynamic_53_array[0])
+
+State 8 file 32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i line 30083 function fc_lport_error thread 0
+----------------------------------------------------
+  __cil_tmp29 = 91 (01011011)
+
+State 9 file 32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i line 30084 function fc_lport_error thread 0
+----------------------------------------------------
+  __cil_tmp30 = 91 (00000000 00000000 00000000 01011011)
+
+State 10 file 32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i line 30087 function fc_lport_error thread 0
+----------------------------------------------------
+  __cil_tmp33 = 164 (10100100)
+
+State 11 file 32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i line 30088 function fc_lport_error thread 0
+----------------------------------------------------
+  __cil_tmp34 = 164 (00000000 00000000 00000000 10100100)
+
+State 12 file 32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i line 29844 function fc_lport_enter_reset thread 0
+----------------------------------------------------
+  __cil_tmp20 = 512 (00000000 00000000 00000010 00000000)
+
+State 13 file 32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i line 29845 function fc_lport_enter_reset thread 0
+----------------------------------------------------
+  __cil_tmp21 = 512 (00000000 00000000 00000010 00000000)
+
+State 14 file 32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i line 29852 function fc_lport_enter_reset thread 0
+----------------------------------------------------
+  __cil_tmp24 = 16777231 (00000001 00000000 00000000 00001111)
+
+State 15 file 32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i line 29853 function fc_lport_enter_reset thread 0
+----------------------------------------------------
+  __cil_tmp25 = 16777231 (00000001 00000000 00000000 00001111)
+
+State 16 file 32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i line 57180 function fc_vports_linkchange thread 0
+----------------------------------------------------
+  __cil_tmp7 = INVALID516
+
+State 17 file 32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i line 57181 function fc_vports_linkchange thread 0
+----------------------------------------------------
+  __mptr = INVALID516
+
+State 18 file 32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i line 57187 function fc_vports_linkchange thread 0
+----------------------------------------------------
+  __cil_tmp13 = INVALID516
+
+State 19 file 32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i line 57188 function fc_vports_linkchange thread 0
+----------------------------------------------------
+  __cil_tmp14 = INVALID516 - ((unsigned int)(( struct list_head *)((unsigned long int)0 + 1000)))
+
+State 20 file 32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i line 57189 function fc_vports_linkchange thread 0
+----------------------------------------------------
+  vn_port = ( struct fc_lport *)INVALID516
+
+State 21 file 32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i line 57194 function fc_vports_linkchange thread 0
+----------------------------------------------------
+  __cil_tmp15 = (unsigned long int)INVALID39
+
+State 22 file 32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i line 57195 function fc_vports_linkchange thread 0
+----------------------------------------------------
+  __cil_tmp16 = 272 (00000000 00000000 00000000 00000000 00000000 00000000 00000001 00010000)
+
+State 23 file 32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i line 57196 function fc_vports_linkchange thread 0
+----------------------------------------------------
+  __cil_tmp17 = ( struct list_head *)272
+
+State 24 file 32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i line 57197 function fc_vports_linkchange thread 0
+----------------------------------------------------
+  __cil_tmp18 = (unsigned long int)(&dynamic_32_array[7])
+
+State 25 file 32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i line 57198 function fc_vports_linkchange thread 0
+----------------------------------------------------
+  __cil_tmp19 = (unsigned long int)INVALID516
+
+State 26 file 32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i line 57199 function fc_vports_linkchange thread 0
+----------------------------------------------------
+  __cil_tmp20 = 272 (00000000 00000000 00000000 00000000 00000000 00000000 00000001 00010000)
+
+State 27 file 32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i line 57200 function fc_vports_linkchange thread 0
+----------------------------------------------------
+  __cil_tmp21 = ( struct list_head *)272
+
+State 28 file 32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i line 57201 function fc_vports_linkchange thread 0
+----------------------------------------------------
+  __cil_tmp22 = (unsigned long int)(&dynamic_32_array[7])
+
+State 29 file 32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i line 57180 function fc_vports_linkchange thread 0
+----------------------------------------------------
+  __cil_tmp7 = INVALID16777218
+
+State 30 file 32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i line 57181 function fc_vports_linkchange thread 0
+----------------------------------------------------
+  __mptr = INVALID16777218
+
+State 31 file 32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i line 57187 function fc_vports_linkchange thread 0
+----------------------------------------------------
+  __cil_tmp13 = INVALID16777218
+
+State 32 file 32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i line 57188 function fc_vports_linkchange thread 0
+----------------------------------------------------
+  __cil_tmp14 = INVALID16777218 - ((unsigned int)(( struct list_head *)((unsigned long int)0 + 1000)))
+
+State 33 file 32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i line 57189 function fc_vports_linkchange thread 0
+----------------------------------------------------
+  vn_port = ( struct fc_lport *)INVALID16777218
+
+State 34 file 32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i line 57194 function fc_vports_linkchange thread 0
+----------------------------------------------------
+  __cil_tmp15 = (unsigned long int)INVALID39
+
+State 35 file 32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i line 57195 function fc_vports_linkchange thread 0
+----------------------------------------------------
+  __cil_tmp16 = 272 (00000000 00000000 00000000 00000000 00000000 00000000 00000001 00010000)
+
+State 36 file 32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i line 57196 function fc_vports_linkchange thread 0
+----------------------------------------------------
+  __cil_tmp17 = ( struct list_head *)272
+
+State 37 file 32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i line 57197 function fc_vports_linkchange thread 0
+----------------------------------------------------
+  __cil_tmp18 = (unsigned long int)(&dynamic_32_array[7])
+
+State 38 file 32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i line 57198 function fc_vports_linkchange thread 0
+----------------------------------------------------
+  __cil_tmp19 = (unsigned long int)INVALID16777218
+
+State 39 file 32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i line 57199 function fc_vports_linkchange thread 0
+----------------------------------------------------
+  __cil_tmp20 = 5764607523034230905 (01001111 11111111 11111111 11111111 11111111 11111111 11110000 01111001)
+
+State 40 file 32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i line 57200 function fc_vports_linkchange thread 0
+----------------------------------------------------
+  __cil_tmp21 = ( struct list_head *)5764607523034230905
+
+State 41 file 32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i line 57201 function fc_vports_linkchange thread 0
+----------------------------------------------------
+  __cil_tmp22 = (unsigned long int)(&dynamic_38_array[127])
+
+State 42 file 32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i line 12 function reach_error thread 0
+----------------------------------------------------
+Violated property:
+  file 32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i line 12 function reach_error
+  assertion 0
+  0
+
+
+VERIFICATION FAILED
+
+Bug found (k = 1)
+
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:5065:14: warning: incompatible redeclaration of library function 'memcpy' [-Wincompatible-library-redeclaration]
+extern void *memcpy(void *to , void *from , size_t len ) ;
+             ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:5065:14: note: 'memcpy' is a builtin with type 'void *(void *, const void *, unsigned long)'
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:6591:17: warning: cast to smaller integer type 'unsigned int' from 'struct list_head *' [-Wpointer-to-int-cast]
+  __cil_tmp12 = (unsigned int )__cil_tmp11;
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:6620:19: warning: cast to smaller integer type 'unsigned int' from 'struct list_head *' [-Wpointer-to-int-cast]
+    __cil_tmp27 = (unsigned int )__cil_tmp26;
+                  ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:7583:16: warning: cast to smaller integer type 'unsigned int' from 'struct fc_disc *' [-Wpointer-to-int-cast]
+  __cil_tmp7 = (unsigned int )__cil_tmp6;
+               ^~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:7681:17: warning: cast to smaller integer type 'unsigned int' from 'struct list_head *' [-Wpointer-to-int-cast]
+  __cil_tmp22 = (unsigned int )__cil_tmp21;
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:7735:19: warning: cast to smaller integer type 'unsigned int' from 'struct list_head *' [-Wpointer-to-int-cast]
+    __cil_tmp46 = (unsigned int )__cil_tmp45;
+                  ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:8212:18: warning: cast to smaller integer type 'unsigned int' from 'struct list_head *' [-Wpointer-to-int-cast]
+  __cil_tmp125 = (unsigned int )__cil_tmp124;
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:8224:18: warning: cast to smaller integer type 'unsigned int' from 'struct list_head *' [-Wpointer-to-int-cast]
+  __cil_tmp135 = (unsigned int )__cil_tmp134;
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:8267:20: warning: cast to smaller integer type 'unsigned int' from 'struct list_head *' [-Wpointer-to-int-cast]
+    __cil_tmp154 = (unsigned int )__cil_tmp153;
+                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:8812:17: warning: cast to smaller integer type 'unsigned int' from 'struct list_head *' [-Wpointer-to-int-cast]
+  __cil_tmp37 = (unsigned int )__cil_tmp36;
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:8896:19: warning: cast to smaller integer type 'unsigned int' from 'struct list_head *' [-Wpointer-to-int-cast]
+    __cil_tmp76 = (unsigned int )__cil_tmp75;
+                  ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:9612:16: warning: cast to smaller integer type 'unsigned int' from 'struct work_struct *' [-Wpointer-to-int-cast]
+  __cil_tmp8 = (unsigned int )__cil_tmp7;
+               ^~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:12671:17: warning: cast to smaller integer type 'unsigned int' from 'struct fc_seq *' [-Wpointer-to-int-cast]
+  __cil_tmp20 = (unsigned int )__cil_tmp19;
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:12905:17: warning: cast to smaller integer type 'unsigned int' from 'struct fc_seq *' [-Wpointer-to-int-cast]
+  __cil_tmp10 = (unsigned int )__cil_tmp9;
+                ^~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:12991:16: warning: cast to smaller integer type 'unsigned int' from 'struct fc_seq *' [-Wpointer-to-int-cast]
+  __cil_tmp8 = (unsigned int )__cil_tmp7;
+               ^~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:13028:17: warning: cast to smaller integer type 'unsigned int' from 'struct fc_seq *' [-Wpointer-to-int-cast]
+  __cil_tmp10 = (unsigned int )__cil_tmp9;
+                ^~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:13214:17: warning: cast to smaller integer type 'unsigned int' from 'struct fc_seq *' [-Wpointer-to-int-cast]
+  __cil_tmp10 = (unsigned int )__cil_tmp9;
+                ^~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:13305:17: warning: cast to smaller integer type 'unsigned int' from 'struct work_struct *' [-Wpointer-to-int-cast]
+  __cil_tmp15 = (unsigned int )__cil_tmp14;
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:14121:17: warning: cast to smaller integer type 'unsigned int' from 'struct list_head *' [-Wpointer-to-int-cast]
+  __cil_tmp13 = (unsigned int )__cil_tmp12;
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:14175:19: warning: cast to smaller integer type 'unsigned int' from 'struct list_head *' [-Wpointer-to-int-cast]
+    __cil_tmp37 = (unsigned int )__cil_tmp36;
+                  ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:14332:16: warning: cast to smaller integer type 'unsigned int' from 'struct fc_seq *' [-Wpointer-to-int-cast]
+  __cil_tmp9 = (unsigned int )__cil_tmp8;
+               ^~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:15036:18: warning: cast to smaller integer type 'unsigned int' from 'struct fc_seq *' [-Wpointer-to-int-cast]
+  __cil_tmp166 = (unsigned int )__cil_tmp165;
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:15515:17: warning: cast to smaller integer type 'unsigned int' from 'struct fc_seq *' [-Wpointer-to-int-cast]
+  __cil_tmp12 = (unsigned int )__cil_tmp11;
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:15669:17: warning: cast to smaller integer type 'unsigned int' from 'struct fc_seq *' [-Wpointer-to-int-cast]
+  __cil_tmp16 = (unsigned int )__cil_tmp15;
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:16607:17: warning: cast to smaller integer type 'unsigned int' from 'struct list_head *' [-Wpointer-to-int-cast]
+  __cil_tmp64 = (unsigned int )__cil_tmp63;
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:16663:19: warning: cast to smaller integer type 'unsigned int' from 'struct list_head *' [-Wpointer-to-int-cast]
+    __cil_tmp86 = (unsigned int )__cil_tmp85;
+                  ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:16701:16: warning: cast to smaller integer type 'unsigned int' from 'struct fc_seq *' [-Wpointer-to-int-cast]
+  __cil_tmp7 = (unsigned int )__cil_tmp6;
+               ^~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:16944:19: warning: cast to smaller integer type 'unsigned int' from 'struct fc_seq *' [-Wpointer-to-int-cast]
+    __cil_tmp72 = (unsigned int )__cil_tmp71;
+                  ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:17496:24: warning: cast to smaller integer type 'unsigned int' from 'struct fc_seq *' [-Wpointer-to-int-cast]
+        __cil_tmp176 = (unsigned int )__cil_tmp175;
+                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:18557:17: warning: cast to smaller integer type 'unsigned int' from 'struct list_head *' [-Wpointer-to-int-cast]
+  __cil_tmp18 = (unsigned int )__cil_tmp17;
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:18569:17: warning: cast to smaller integer type 'unsigned int' from 'struct list_head *' [-Wpointer-to-int-cast]
+  __cil_tmp28 = (unsigned int )__cil_tmp27;
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:18645:19: warning: cast to smaller integer type 'unsigned int' from 'struct list_head *' [-Wpointer-to-int-cast]
+    __cil_tmp59 = (unsigned int )__cil_tmp58;
+                  ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:18715:17: warning: cast to smaller integer type 'unsigned int' from 'struct list_head *' [-Wpointer-to-int-cast]
+  __cil_tmp15 = (unsigned int )__cil_tmp14;
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:18779:19: warning: cast to smaller integer type 'unsigned int' from 'struct list_head *' [-Wpointer-to-int-cast]
+    __cil_tmp40 = (unsigned int )__cil_tmp39;
+                  ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:18852:17: warning: cast to smaller integer type 'unsigned int' from 'struct list_head *' [-Wpointer-to-int-cast]
+  __cil_tmp12 = (unsigned int )__cil_tmp11;
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:18907:19: warning: cast to smaller integer type 'unsigned int' from 'struct list_head *' [-Wpointer-to-int-cast]
+    __cil_tmp42 = (unsigned int )__cil_tmp41;
+                  ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:20495:16: warning: cast to smaller integer type 'unsigned int' from 'struct kref *' [-Wpointer-to-int-cast]
+  __cil_tmp8 = (unsigned int )__cil_tmp7;
+               ^~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:20617:17: warning: cast to smaller integer type 'unsigned int' from 'struct list_head *' [-Wpointer-to-int-cast]
+  __cil_tmp16 = (unsigned int )__cil_tmp15;
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:20653:19: warning: cast to smaller integer type 'unsigned int' from 'struct list_head *' [-Wpointer-to-int-cast]
+    __cil_tmp34 = (unsigned int )__cil_tmp33;
+                  ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:20668:17: warning: cast to smaller integer type 'unsigned int' from 'struct list_head *' [-Wpointer-to-int-cast]
+  __cil_tmp42 = (unsigned int )__cil_tmp41;
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:20676:17: warning: cast to smaller integer type 'unsigned int' from 'struct list_head *' [-Wpointer-to-int-cast]
+  __cil_tmp48 = (unsigned int )__cil_tmp47;
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:20702:19: warning: cast to smaller integer type 'unsigned int' from 'struct list_head *' [-Wpointer-to-int-cast]
+    __cil_tmp60 = (unsigned int )__cil_tmp59;
+                  ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:21207:17: warning: cast to smaller integer type 'unsigned int' from 'struct list_head *' [-Wpointer-to-int-cast]
+  __cil_tmp12 = (unsigned int )__cil_tmp11;
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:21215:17: warning: cast to smaller integer type 'unsigned int' from 'struct list_head *' [-Wpointer-to-int-cast]
+  __cil_tmp18 = (unsigned int )__cil_tmp17;
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:21242:19: warning: cast to smaller integer type 'unsigned int' from 'struct list_head *' [-Wpointer-to-int-cast]
+    __cil_tmp30 = (unsigned int )__cil_tmp29;
+                  ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:21364:21: warning: cast to smaller integer type 'unsigned int' from 'struct list_head *' [-Wpointer-to-int-cast]
+      __cil_tmp28 = (unsigned int )__cil_tmp27;
+                    ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:21380:17: warning: cast to smaller integer type 'unsigned int' from 'struct list_head *' [-Wpointer-to-int-cast]
+  __cil_tmp36 = (unsigned int )__cil_tmp35;
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:21430:19: warning: cast to smaller integer type 'unsigned int' from 'struct list_head *' [-Wpointer-to-int-cast]
+    __cil_tmp64 = (unsigned int )__cil_tmp63;
+                  ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:22196:14: warning: incompatible redeclaration of library function 'snprintf' [-Wincompatible-library-redeclaration]
+extern int ( snprintf)(char *buf , size_t size , char *fmt
+             ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:22196:14: note: 'snprintf' is a builtin with type 'int (char *, unsigned long, const char *, ...)'
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:22239:22: warning: incompatible redeclaration of library function 'strlen' [-Wincompatible-library-redeclaration]
+extern unsigned long strlen(char *s ) ;
+                     ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:22239:22: note: 'strlen' is a builtin with type 'unsigned long (const char *)'
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:22240:14: warning: incompatible redeclaration of library function 'strncpy' [-Wincompatible-library-redeclaration]
+extern char *strncpy(char * , char * , __kernel_size_t ) ;
+             ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:22240:14: note: 'strncpy' is a builtin with type 'char *(char *, const char *, unsigned long)'
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:24921:17: warning: cast to smaller integer type 'unsigned int' from 'struct fc_seq *' [-Wpointer-to-int-cast]
+  __cil_tmp23 = (unsigned int )__cil_tmp22;
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:32063:17: warning: cast to smaller integer type 'unsigned int' from 'struct work_struct *' [-Wpointer-to-int-cast]
+  __cil_tmp10 = (unsigned int )__cil_tmp9;
+                ^~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:34985:1: warning: return type of 'main' is not 'int' [-Wmain-return-type]
+void main(void)
+^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:34985:1: note: change return type to 'int'
+void main(void)
+^~~~
+int
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:35328:17: warning: cast to smaller integer type 'unsigned int' from 'struct list_head *' [-Wpointer-to-int-cast]
+  __cil_tmp22 = (unsigned int )__cil_tmp21;
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:35386:19: warning: cast to smaller integer type 'unsigned int' from 'struct list_head *' [-Wpointer-to-int-cast]
+    __cil_tmp47 = (unsigned int )__cil_tmp46;
+                  ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:35733:16: warning: cast to smaller integer type 'unsigned int' from 'struct kref *' [-Wpointer-to-int-cast]
+  __cil_tmp8 = (unsigned int )__cil_tmp7;
+               ^~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:35744:17: warning: cast to smaller integer type 'unsigned int' from 'struct rcu_head *' [-Wpointer-to-int-cast]
+  __cil_tmp18 = (unsigned int )__cil_tmp17;
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:36272:17: warning: cast to smaller integer type 'unsigned int' from 'struct work_struct *' [-Wpointer-to-int-cast]
+  __cil_tmp26 = (unsigned int )__cil_tmp25;
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:37702:16: warning: cast to smaller integer type 'unsigned int' from 'struct work_struct *' [-Wpointer-to-int-cast]
+  __cil_tmp8 = (unsigned int )__cil_tmp7;
+               ^~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:40970:23: warning: cast to smaller integer type 'unsigned int' from 'struct fc_seq *' [-Wpointer-to-int-cast]
+        __cil_tmp23 = (unsigned int )__cil_tmp22;
+                      ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:44802:17: warning: cast to smaller integer type 'unsigned int' from 'struct device *' [-Wpointer-to-int-cast]
+  __cil_tmp10 = (unsigned int )__cil_tmp9;
+                ^~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:46383:27: warning: cast to smaller integer type 'unsigned int' from 'struct fc_seq *' [-Wpointer-to-int-cast]
+            __cil_tmp68 = (unsigned int )__cil_tmp67;
+                          ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:46509:28: warning: cast to smaller integer type 'unsigned int' from 'struct fc_seq *' [-Wpointer-to-int-cast]
+            __cil_tmp139 = (unsigned int )__cil_tmp138;
+                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:47428:27: warning: cast to smaller integer type 'unsigned int' from 'struct fc_seq *' [-Wpointer-to-int-cast]
+            __cil_tmp99 = (unsigned int )__cil_tmp98;
+                          ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:47528:30: warning: cast to smaller integer type 'unsigned int' from 'struct fc_seq *' [-Wpointer-to-int-cast]
+              __cil_tmp155 = (unsigned int )__cil_tmp154;
+                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:47648:28: warning: cast to smaller integer type 'unsigned int' from 'struct fc_seq *' [-Wpointer-to-int-cast]
+            __cil_tmp222 = (unsigned int )__cil_tmp221;
+                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:48013:20: warning: cast to smaller integer type 'unsigned int' from 'struct fc_seq *' [-Wpointer-to-int-cast]
+    __cil_tmp407 = (unsigned int )__cil_tmp406;
+                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:48626:32: warning: cast to smaller integer type 'unsigned int' from 'struct fc_seq *' [-Wpointer-to-int-cast]
+                __cil_tmp143 = (unsigned int )__cil_tmp142;
+                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:49288:28: warning: cast to smaller integer type 'unsigned int' from 'struct fc_seq *' [-Wpointer-to-int-cast]
+            __cil_tmp161 = (unsigned int )__cil_tmp160;
+                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:49410:26: warning: cast to smaller integer type 'unsigned int' from 'struct fc_seq *' [-Wpointer-to-int-cast]
+          __cil_tmp238 = (unsigned int )__cil_tmp237;
+                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:49741:23: warning: cast to smaller integer type 'unsigned int' from 'struct fc_seq *' [-Wpointer-to-int-cast]
+        __cil_tmp91 = (unsigned int )__cil_tmp90;
+                      ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:49934:17: warning: cast to smaller integer type 'unsigned int' from 'struct list_head *' [-Wpointer-to-int-cast]
+  __cil_tmp32 = (unsigned int )__cil_tmp31;
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:50032:19: warning: cast to smaller integer type 'unsigned int' from 'struct list_head *' [-Wpointer-to-int-cast]
+    __cil_tmp63 = (unsigned int )__cil_tmp62;
+                  ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:50786:27: warning: cast to smaller integer type 'unsigned int' from 'struct fc_seq *' [-Wpointer-to-int-cast]
+            __cil_tmp39 = (unsigned int )__cil_tmp38;
+                          ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:50883:29: warning: cast to smaller integer type 'unsigned int' from 'struct fc_seq *' [-Wpointer-to-int-cast]
+              __cil_tmp97 = (unsigned int )__cil_tmp96;
+                            ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:52046:31: warning: cast to smaller integer type 'unsigned int' from 'struct fc_seq *' [-Wpointer-to-int-cast]
+                __cil_tmp51 = (unsigned int )__cil_tmp50;
+                              ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:52165:32: warning: cast to smaller integer type 'unsigned int' from 'struct fc_seq *' [-Wpointer-to-int-cast]
+                __cil_tmp132 = (unsigned int )__cil_tmp131;
+                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:52623:29: warning: cast to smaller integer type 'unsigned int' from 'struct fc_seq *' [-Wpointer-to-int-cast]
+              __cil_tmp30 = (unsigned int )__cil_tmp29;
+                            ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:52729:29: warning: cast to smaller integer type 'unsigned int' from 'struct fc_seq *' [-Wpointer-to-int-cast]
+              __cil_tmp97 = (unsigned int )__cil_tmp96;
+                            ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:52978:17: warning: cast to smaller integer type 'unsigned int' from 'struct fc_seq *' [-Wpointer-to-int-cast]
+  __cil_tmp27 = (unsigned int )__cil_tmp26;
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:53522:19: warning: cast to smaller integer type 'unsigned int' from 'struct device *' [-Wpointer-to-int-cast]
+    __cil_tmp37 = (unsigned int )__cil_tmp36;
+                  ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:54730:30: warning: cast to smaller integer type 'unsigned int' from 'struct fc_seq *' [-Wpointer-to-int-cast]
+              __cil_tmp111 = (unsigned int )__cil_tmp110;
+                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:54849:36: warning: cast to smaller integer type 'unsigned int' from 'struct fc_seq *' [-Wpointer-to-int-cast]
+                    __cil_tmp183 = (unsigned int )__cil_tmp182;
+                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:54949:32: warning: cast to smaller integer type 'unsigned int' from 'struct fc_seq *' [-Wpointer-to-int-cast]
+                __cil_tmp238 = (unsigned int )__cil_tmp237;
+                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:55057:30: warning: cast to smaller integer type 'unsigned int' from 'struct fc_seq *' [-Wpointer-to-int-cast]
+              __cil_tmp304 = (unsigned int )__cil_tmp303;
+                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:55156:30: warning: cast to smaller integer type 'unsigned int' from 'struct fc_seq *' [-Wpointer-to-int-cast]
+              __cil_tmp364 = (unsigned int )__cil_tmp363;
+                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:55256:30: warning: cast to smaller integer type 'unsigned int' from 'struct fc_seq *' [-Wpointer-to-int-cast]
+              __cil_tmp425 = (unsigned int )__cil_tmp424;
+                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:55350:30: warning: cast to smaller integer type 'unsigned int' from 'struct fc_seq *' [-Wpointer-to-int-cast]
+              __cil_tmp480 = (unsigned int )__cil_tmp479;
+                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:55444:30: warning: cast to smaller integer type 'unsigned int' from 'struct fc_seq *' [-Wpointer-to-int-cast]
+              __cil_tmp535 = (unsigned int )__cil_tmp534;
+                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:55538:30: warning: cast to smaller integer type 'unsigned int' from 'struct fc_seq *' [-Wpointer-to-int-cast]
+              __cil_tmp590 = (unsigned int )__cil_tmp589;
+                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:55638:30: warning: cast to smaller integer type 'unsigned int' from 'struct fc_seq *' [-Wpointer-to-int-cast]
+              __cil_tmp651 = (unsigned int )__cil_tmp650;
+                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:55995:19: warning: cast to smaller integer type 'unsigned int' from 'struct device *' [-Wpointer-to-int-cast]
+    __cil_tmp30 = (unsigned int )__cil_tmp29;
+                  ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:56318:19: warning: cast to smaller integer type 'unsigned int' from 'struct device *' [-Wpointer-to-int-cast]
+    __cil_tmp23 = (unsigned int )__cil_tmp22;
+                  ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:56948:17: warning: cast to smaller integer type 'unsigned int' from 'struct list_head *' [-Wpointer-to-int-cast]
+  __cil_tmp21 = (unsigned int )__cil_tmp20;
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:56988:19: warning: cast to smaller integer type 'unsigned int' from 'struct list_head *' [-Wpointer-to-int-cast]
+    __cil_tmp42 = (unsigned int )__cil_tmp41;
+                  ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:57186:17: warning: cast to smaller integer type 'unsigned int' from 'struct list_head *' [-Wpointer-to-int-cast]
+  __cil_tmp12 = (unsigned int )__cil_tmp11;
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--scsi--libfc--libfc.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:57225:19: warning: cast to smaller integer type 'unsigned int' from 'struct list_head *' [-Wpointer-to-int-cast]
+    __cil_tmp36 = (unsigned int )__cil_tmp35;
+                  ^~~~~~~~~~~~~~~~~~~~~~~~~~
+
+FALSE_REACH

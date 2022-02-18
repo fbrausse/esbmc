@@ -1,0 +1,87 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/ldv-challenges/linux-3.8-rc1-32_7a-drivers--usb--core--usbcore.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --add-symex-value-sets --no-align-check --k-step 5 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-challenges/linux-3.8-rc1-32_7a-drivers--usb--core--usbcore.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i --64 --witness-output linux-3.8-rc1-32_7a-drivers--usb--core--usbcore.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --goto-unwind --unlimited-goto-unwind --k-induction --max-inductive-step 3 
+
+../sv-benchmarks/c/ldv-challenges/linux-3.8-rc1-32_7a-drivers--usb--core--usbcore.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i:6041:76: warning: incompatible integer to pointer conversion initializing 'void *' with an expression of type 'unsigned long' [-Wint-conversion]
+static spinlock_t device_state_lock = {{{{{0U}}, 3735899821U, 4294967295U, 0xffffffffffffffffUL, {0, {0, 0}, "device_state_lock",
+                                                                           ^~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-challenges/linux-3.8-rc1-32_7a-drivers--usb--core--usbcore.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i:6043:73: warning: incompatible integer to pointer conversion initializing 'void *' with an expression of type 'unsigned long' [-Wint-conversion]
+static spinlock_t hub_event_lock = {{{{{0U}}, 3735899821U, 4294967295U, 0xffffffffffffffffUL, {0, {0, 0}, "hub_event_lock",
+                                                                        ^~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-challenges/linux-3.8-rc1-32_7a-drivers--usb--core--usbcore.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i:6046:77: warning: incompatible integer to pointer conversion initializing 'void *' with an expression of type 'unsigned long' [-Wint-conversion]
+static wait_queue_head_t khubd_wait = {{{{{{0U}}, 3735899821U, 4294967295U, 0xffffffffffffffffUL, {0, {0, 0}, "khubd_wait.lock",
+                                                                            ^~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-challenges/linux-3.8-rc1-32_7a-drivers--usb--core--usbcore.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i:6054:88: warning: incompatible integer to pointer conversion initializing 'void *' with an expression of type 'unsigned long' [-Wint-conversion]
+struct rw_semaphore ehci_cf_port_reset_rwsem = {0L, {{{0U}}, 3735899821U, 4294967295U, 0xffffffffffffffffUL, {0, {0, 0}, "ehci_cf_port_reset_rwsem.wait_lock",
+                                                                                       ^~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-challenges/linux-3.8-rc1-32_7a-drivers--usb--core--usbcore.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i:7321:15: warning: incompatible pointer types assigning to 'union __anonunion_status_220 *' from 'union __anonunion_222 *' [-Wincompatible-pointer-types]
+  hub->status = (union __anonunion_222 *)tmp___0;
+              ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-challenges/linux-3.8-rc1-32_7a-drivers--usb--core--usbcore.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i:10191:53: warning: incompatible integer to pointer conversion assigning to 'void *' from 'unsigned long' [-Wint-conversion]
+  usb_address0_mutex.wait_lock.ldv_6014.rlock.owner = 0xffffffffffffffffUL;
+                                                    ^ ~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-challenges/linux-3.8-rc1-32_7a-drivers--usb--core--usbcore.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i:12745:34: warning: incompatible integer to pointer conversion passing 'unsigned long' to parameter of type 'struct page *' [-Wint-conversion]
+  addr = (*(ops->map_page))(dev, 0xffffea0000000000UL + (tmp___2 >> 12), (unsigned long )ptr & 4095UL,
+                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-challenges/linux-3.8-rc1-32_7a-drivers--usb--core--usbcore.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i:12748:27: warning: incompatible integer to pointer conversion passing 'unsigned long' to parameter of type 'struct page *' [-Wint-conversion]
+  debug_dma_map_page(dev, 0xffffea0000000000UL + (tmp___3 >> 12), (unsigned long )ptr & 4095UL,
+                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-challenges/linux-3.8-rc1-32_7a-drivers--usb--core--usbcore.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i:12699:64: note: passing argument to parameter here
+extern void debug_dma_map_page(struct device * , struct page * , size_t , size_t ,
+                                                               ^
+../sv-benchmarks/c/ldv-challenges/linux-3.8-rc1-32_7a-drivers--usb--core--usbcore.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i:13114:77: warning: incompatible integer to pointer conversion initializing 'void *' with an expression of type 'unsigned long' [-Wint-conversion]
+struct mutex usb_bus_list_lock = {{1}, {{{{{0U}}, 3735899821U, 4294967295U, 0xffffffffffffffffUL, {0, {0, 0}, "usb_bus_list_lock.wait_lock",
+                                                                            ^~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-challenges/linux-3.8-rc1-32_7a-drivers--usb--core--usbcore.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i:13118:76: warning: incompatible integer to pointer conversion initializing 'void *' with an expression of type 'unsigned long' [-Wint-conversion]
+static spinlock_t hcd_root_hub_lock = {{{{{0U}}, 3735899821U, 4294967295U, 0xffffffffffffffffUL, {0, {0, 0}, "hcd_root_hub_lock",
+                                                                           ^~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-challenges/linux-3.8-rc1-32_7a-drivers--usb--core--usbcore.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i:13120:76: warning: incompatible integer to pointer conversion initializing 'void *' with an expression of type 'unsigned long' [-Wint-conversion]
+static spinlock_t hcd_urb_list_lock = {{{{{0U}}, 3735899821U, 4294967295U, 0xffffffffffffffffUL, {0, {0, 0}, "hcd_urb_list_lock",
+                                                                           ^~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-challenges/linux-3.8-rc1-32_7a-drivers--usb--core--usbcore.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i:13122:78: warning: incompatible integer to pointer conversion initializing 'void *' with an expression of type 'unsigned long' [-Wint-conversion]
+static spinlock_t hcd_urb_unlink_lock = {{{{{0U}}, 3735899821U, 4294967295U, 0xffffffffffffffffUL, {0, {0, 0}, "hcd_urb_unlink_lock",
+                                                                             ^~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-challenges/linux-3.8-rc1-32_7a-drivers--usb--core--usbcore.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i:13124:78: warning: incompatible integer to pointer conversion initializing 'void *' with an expression of type 'unsigned long' [-Wint-conversion]
+wait_queue_head_t usb_kill_urb_queue = {{{{{{0U}}, 3735899821U, 4294967295U, 0xffffffffffffffffUL, {0, {0, 0}, "usb_kill_urb_queue.lock",
+                                                                             ^~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-challenges/linux-3.8-rc1-32_7a-drivers--usb--core--usbcore.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i:13250:11: warning: implicitly declaring library function 'memcpy' with type 'void *(void *, const void *, unsigned long)' [-Wimplicit-function-declaration]
+  __ret = memcpy((void *)data, (void const *)(& langids), __len);
+          ^
+../sv-benchmarks/c/ldv-challenges/linux-3.8-rc1-32_7a-drivers--usb--core--usbcore.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i:13250:11: note: include the header <string.h> or explicitly provide a declaration for 'memcpy'
+../sv-benchmarks/c/ldv-challenges/linux-3.8-rc1-32_7a-drivers--usb--core--usbcore.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i:18574:74: warning: incompatible integer to pointer conversion initializing 'void *' with an expression of type 'unsigned long' [-Wint-conversion]
+static spinlock_t set_config_lock = {{{{{0U}}, 3735899821U, 4294967295U, 0xffffffffffffffffUL, {0, {0, 0}, "set_config_lock",
+                                                                         ^~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-challenges/linux-3.8-rc1-32_7a-drivers--usb--core--usbcore.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i:21878:82: warning: incompatible integer to pointer conversion initializing 'void *' with an expression of type 'unsigned long' [-Wint-conversion]
+static struct rw_semaphore minor_rwsem = {0L, {{{0U}}, 3735899821U, 4294967295U, 0xffffffffffffffffUL, {0, {0, 0}, "minor_rwsem.wait_lock",
+                                                                                 ^~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-challenges/linux-3.8-rc1-32_7a-drivers--usb--core--usbcore.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i:24780:19: warning: incompatible integer to pointer conversion passing 'unsigned long' to parameter of type 'struct page *' [-Wint-conversion]
+  sg_set_page(sg, 0xffffea0000000000UL + (tmp >> 12), buflen, (unsigned int )((long )buf) & 4095U);
+                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-challenges/linux-3.8-rc1-32_7a-drivers--usb--core--usbcore.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i:24741:72: note: passing argument to parameter 'page' here
+__inline static void sg_set_page(struct scatterlist *sg , struct page *page , unsigned int len ,
+                                                                       ^
+../sv-benchmarks/c/ldv-challenges/linux-3.8-rc1-32_7a-drivers--usb--core--usbcore.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i:24797:71: warning: incompatible integer to pointer conversion initializing 'void *' with an expression of type 'unsigned long' [-Wint-conversion]
+struct mutex usbfs_mutex = {{1}, {{{{{0U}}, 3735899821U, 4294967295U, 0xffffffffffffffffUL, {0, {0, 0}, "usbfs_mutex.wait_lock",
+                                                                      ^~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-challenges/linux-3.8-rc1-32_7a-drivers--usb--core--usbcore.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i:29124:99: warning: incompatible integer to pointer conversion initializing 'void *' with an expression of type 'unsigned long' [-Wint-conversion]
+static struct blocking_notifier_head usb_notifier_list = {{0L, {{{0U}}, 3735899821U, 4294967295U, 0xffffffffffffffffUL, {0, {0, 0}, "(usb_notifier_list).rwsem.wait_lock",
+                                                                                                  ^~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-challenges/linux-3.8-rc1-32_7a-drivers--usb--core--usbcore.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i:30009:95: warning: incompatible integer to pointer conversion initializing 'void *' with an expression of type 'unsigned long' [-Wint-conversion]
+static struct device_connect_event device_event = {{1}, {{{{{{0U}}, 3735899821U, 4294967295U, 0xffffffffffffffffUL, {0, {0, 0}, "device_event.wait.lock",
+                                                                                              ^~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-challenges/linux-3.8-rc1-32_7a-drivers--usb--core--usbcore.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i:31193:87: warning: incompatible integer to pointer conversion initializing 'void *' with an expression of type 'unsigned long' [-Wint-conversion]
+static struct rw_semaphore companions_rwsem = {0L, {{{0U}}, 3735899821U, 4294967295U, 0xffffffffffffffffUL, {0, {0, 0}, "companions_rwsem.wait_lock",
+                                                                                      ^~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-challenges/linux-3.8-rc1-32_7a-drivers--usb--core--usbcore.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i:33509:30: warning: implicit declaration of function 'ldv_xmalloc' is invalid in C99 [-Wimplicit-function-declaration]
+  return *(struct timespec *)ldv_xmalloc(sizeof(struct timespec));
+                             ^
+../sv-benchmarks/c/ldv-challenges/linux-3.8-rc1-32_7a-drivers--usb--core--usbcore.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i:33509:11: warning: cast to 'struct timespec *' from smaller integer type 'int' [-Wint-to-pointer-cast]
+  return *(struct timespec *)ldv_xmalloc(sizeof(struct timespec));
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Unknown

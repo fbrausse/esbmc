@@ -1,0 +1,147 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/pthread-divine/tls_destructor_worker.i
+
+
+--------------------------------------------------------------------------------
+
+
+Found pthread benchmark!
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --add-symex-value-sets --no-align-check --k-step 5 --floatbv --unlimited-k-steps ../sv-benchmarks/c/pthread-divine/tls_destructor_worker.i --32  --no-por --context-bound 2 --no-goto-merge --witness-output tls_destructor_worker.i.graphml --no-pointer-check --no-bounds-check --goto-unwind --unlimited-goto-unwind --incremental-bmc 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/pthread-divine/tls_destructor_worker.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.117s
+GOTO program processing time: 0.000s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.010s (210 assignments)
+Slicing time: 0.001s (removed 128 assignments)
+Generated 5 VCC(s), 5 remaining after simplification (82 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.061s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.061s
+Runtime decision procedure: 0.002s
+BMC program time: 0.074s
+*** Thread interleavings 2 ***
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.007s (205 assignments)
+Slicing time: 0.000s (removed 145 assignments)
+Generated 2 VCC(s), 2 remaining after simplification (60 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.002s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.002s
+Runtime decision procedure: 0.000s
+BMC program time: 0.011s
+*** Thread interleavings 3 ***
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.007s (206 assignments)
+Slicing time: 0.001s (removed 145 assignments)
+Generated 2 VCC(s), 2 remaining after simplification (61 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.002s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.002s
+Runtime decision procedure: 0.000s
+BMC program time: 0.011s
+*** Thread interleavings 4 ***
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.005s (207 assignments)
+Slicing time: 0.000s (removed 145 assignments)
+Generated 2 VCC(s), 2 remaining after simplification (62 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.003s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.003s
+Runtime decision procedure: 0.001s
+BMC program time: 0.010s
+*** Thread interleavings 5 ***
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.004s (206 assignments)
+Slicing time: 0.000s (removed 153 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (53 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.002s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.002s
+Runtime decision procedure: 0.113s
+Building error trace
+
+Counterexample:
+
+State 1 file pthread_lib.c line 79 function insert_key_value thread 0
+----------------------------------------------------
+  l->key = 0 (00000000 00000000 00000000 00000000)
+
+State 2 file pthread_lib.c line 80 function insert_key_value thread 0
+----------------------------------------------------
+  l->value = 0
+
+State 3 file pthread_lib.c line 81 function insert_key_value thread 0
+----------------------------------------------------
+  l->next = 0
+
+State 6 file pthread_lib.c line 79 function insert_key_value thread 0
+----------------------------------------------------
+  l->key = 0 (00000000 00000000 00000000 00000000)
+
+State 7 file pthread_lib.c line 80 function insert_key_value thread 0
+----------------------------------------------------
+  l->value = (void *)16
+
+State 8 file pthread_lib.c line 81 function insert_key_value thread 0
+----------------------------------------------------
+  l->next = &dynamic_1_value == 0 ? 0 : &dynamic_1_value
+
+State 12 file pthread_lib.c line 79 function insert_key_value thread 1
+----------------------------------------------------
+  l->key = 0 (00000000 00000000 00000000 00000000)
+
+State 13 file pthread_lib.c line 80 function insert_key_value thread 1
+----------------------------------------------------
+  l->value = (void *)42
+
+State 14 file pthread_lib.c line 81 function insert_key_value thread 1
+----------------------------------------------------
+  l->next = &dynamic_3_value == 0 ? 0 : &dynamic_3_value
+
+State 17 file tls_destructor_worker.i line 698 function dtor thread 1
+----------------------------------------------------
+  val = (signed int)(&dynamic_6_value.key)
+
+State 18 file tls_destructor_worker.i line 696 function reach_error thread 1
+----------------------------------------------------
+Violated property:
+  file tls_destructor_worker.i line 696 function reach_error
+  assertion 0
+  0
+
+
+VERIFICATION FAILED
+
+Bug found (k = 1)
+
+../sv-benchmarks/c/pthread-divine/tls_destructor_worker.i:510:12: warning: declaration of built-in function '__sigsetjmp' requires the declaration of the 'jmp_buf' type, commonly provided in the header <setjmp.h>. [-Wincomplete-setjmp-declaration]
+extern int __sigsetjmp (struct __jmp_buf_tag *__env, int __savemask) __attribute__ ((__nothrow__));
+           ^
+
+FALSE_REACH

@@ -1,0 +1,221 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/aws-c-common/aws_string_eq_ignore_case_harness.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --add-symex-value-sets --no-align-check --k-step 5 --floatbv --unlimited-k-steps ../sv-benchmarks/c/aws-c-common/aws_string_eq_ignore_case_harness.i --64 --witness-output aws_string_eq_ignore_case_harness.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --goto-unwind --unlimited-goto-unwind --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 64-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/aws-c-common/aws_string_eq_ignore_case_harness.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.598s
+GOTO program processing time: 0.036s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.138s (196 assignments)
+Slicing time: 0.001s (removed 69 assignments)
+Generated 3 VCC(s), 3 remaining after simplification (127 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.007s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.007s
+Runtime decision procedure: 0.470s
+BMC program time: 0.617s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.030s (193 assignments)
+Slicing time: 0.001s (removed 69 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (124 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.007s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.007s
+Runtime decision procedure: 0.427s
+The forward condition is unable to prove the property
+*** Checking base case, k = 6
+Starting Bounded Model Checking
+Unwinding loop 30  iteration  1   file aws_string_eq_ignore_case_harness.i line 8005 function aws_array_eq_ignore_case
+Unwinding loop 30  iteration  2   file aws_string_eq_ignore_case_harness.i line 8005 function aws_array_eq_ignore_case
+Unwinding loop 30  iteration  3   file aws_string_eq_ignore_case_harness.i line 8005 function aws_array_eq_ignore_case
+Unwinding loop 30  iteration  4   file aws_string_eq_ignore_case_harness.i line 8005 function aws_array_eq_ignore_case
+Unwinding loop 30  iteration  5   file aws_string_eq_ignore_case_harness.i line 8005 function aws_array_eq_ignore_case
+Not unwinding 
+Symex completed in: 0.051s (241 assignments)
+Slicing time: 0.001s (removed 99 assignments)
+Generated 3 VCC(s), 3 remaining after simplification (142 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.008s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.008s
+Runtime decision procedure: 0.510s
+BMC program time: 0.571s
+No bug has been found in the base case
+*** Checking forward condition, k = 6
+Starting Bounded Model Checking
+Unwinding loop 30  iteration  1   file aws_string_eq_ignore_case_harness.i line 8005 function aws_array_eq_ignore_case
+Unwinding loop 30  iteration  2   file aws_string_eq_ignore_case_harness.i line 8005 function aws_array_eq_ignore_case
+Unwinding loop 30  iteration  3   file aws_string_eq_ignore_case_harness.i line 8005 function aws_array_eq_ignore_case
+Unwinding loop 30  iteration  4   file aws_string_eq_ignore_case_harness.i line 8005 function aws_array_eq_ignore_case
+Unwinding loop 30  iteration  5   file aws_string_eq_ignore_case_harness.i line 8005 function aws_array_eq_ignore_case
+Not unwinding 
+Symex completed in: 0.053s (238 assignments)
+Slicing time: 0.001s (removed 99 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (139 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.008s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.008s
+Runtime decision procedure: 0.464s
+The forward condition is unable to prove the property
+*** Checking base case, k = 11
+Starting Bounded Model Checking
+Unwinding loop 30  iteration  1   file aws_string_eq_ignore_case_harness.i line 8005 function aws_array_eq_ignore_case
+Unwinding loop 30  iteration  2   file aws_string_eq_ignore_case_harness.i line 8005 function aws_array_eq_ignore_case
+Unwinding loop 30  iteration  3   file aws_string_eq_ignore_case_harness.i line 8005 function aws_array_eq_ignore_case
+Unwinding loop 30  iteration  4   file aws_string_eq_ignore_case_harness.i line 8005 function aws_array_eq_ignore_case
+Unwinding loop 30  iteration  5   file aws_string_eq_ignore_case_harness.i line 8005 function aws_array_eq_ignore_case
+Unwinding loop 30  iteration  6   file aws_string_eq_ignore_case_harness.i line 8005 function aws_array_eq_ignore_case
+Unwinding loop 30  iteration  7   file aws_string_eq_ignore_case_harness.i line 8005 function aws_array_eq_ignore_case
+Unwinding loop 30  iteration  8   file aws_string_eq_ignore_case_harness.i line 8005 function aws_array_eq_ignore_case
+Unwinding loop 30  iteration  9   file aws_string_eq_ignore_case_harness.i line 8005 function aws_array_eq_ignore_case
+Unwinding loop 30  iteration  10   file aws_string_eq_ignore_case_harness.i line 8005 function aws_array_eq_ignore_case
+Not unwinding 
+Symex completed in: 0.076s (286 assignments)
+Slicing time: 0.002s (removed 129 assignments)
+Generated 3 VCC(s), 3 remaining after simplification (157 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.008s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.008s
+Runtime decision procedure: 0.529s
+BMC program time: 0.616s
+No bug has been found in the base case
+*** Checking forward condition, k = 11
+Starting Bounded Model Checking
+Unwinding loop 30  iteration  1   file aws_string_eq_ignore_case_harness.i line 8005 function aws_array_eq_ignore_case
+Unwinding loop 30  iteration  2   file aws_string_eq_ignore_case_harness.i line 8005 function aws_array_eq_ignore_case
+Unwinding loop 30  iteration  3   file aws_string_eq_ignore_case_harness.i line 8005 function aws_array_eq_ignore_case
+Unwinding loop 30  iteration  4   file aws_string_eq_ignore_case_harness.i line 8005 function aws_array_eq_ignore_case
+Unwinding loop 30  iteration  5   file aws_string_eq_ignore_case_harness.i line 8005 function aws_array_eq_ignore_case
+Unwinding loop 30  iteration  6   file aws_string_eq_ignore_case_harness.i line 8005 function aws_array_eq_ignore_case
+Unwinding loop 30  iteration  7   file aws_string_eq_ignore_case_harness.i line 8005 function aws_array_eq_ignore_case
+Unwinding loop 30  iteration  8   file aws_string_eq_ignore_case_harness.i line 8005 function aws_array_eq_ignore_case
+Unwinding loop 30  iteration  9   file aws_string_eq_ignore_case_harness.i line 8005 function aws_array_eq_ignore_case
+Unwinding loop 30  iteration  10   file aws_string_eq_ignore_case_harness.i line 8005 function aws_array_eq_ignore_case
+Not unwinding 
+Symex completed in: 0.076s (283 assignments)
+Slicing time: 0.002s (removed 129 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (154 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.009s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.009s
+Runtime decision procedure: 0.478s
+The forward condition is unable to prove the property
+*** Checking base case, k = 16
+Starting Bounded Model Checking
+Unwinding loop 30  iteration  1   file aws_string_eq_ignore_case_harness.i line 8005 function aws_array_eq_ignore_case
+Unwinding loop 30  iteration  2   file aws_string_eq_ignore_case_harness.i line 8005 function aws_array_eq_ignore_case
+Unwinding loop 30  iteration  3   file aws_string_eq_ignore_case_harness.i line 8005 function aws_array_eq_ignore_case
+Unwinding loop 30  iteration  4   file aws_string_eq_ignore_case_harness.i line 8005 function aws_array_eq_ignore_case
+Unwinding loop 30  iteration  5   file aws_string_eq_ignore_case_harness.i line 8005 function aws_array_eq_ignore_case
+Unwinding loop 30  iteration  6   file aws_string_eq_ignore_case_harness.i line 8005 function aws_array_eq_ignore_case
+Unwinding loop 30  iteration  7   file aws_string_eq_ignore_case_harness.i line 8005 function aws_array_eq_ignore_case
+Unwinding loop 30  iteration  8   file aws_string_eq_ignore_case_harness.i line 8005 function aws_array_eq_ignore_case
+Unwinding loop 30  iteration  9   file aws_string_eq_ignore_case_harness.i line 8005 function aws_array_eq_ignore_case
+Unwinding loop 30  iteration  10   file aws_string_eq_ignore_case_harness.i line 8005 function aws_array_eq_ignore_case
+Unwinding loop 30  iteration  11   file aws_string_eq_ignore_case_harness.i line 8005 function aws_array_eq_ignore_case
+Unwinding loop 30  iteration  12   file aws_string_eq_ignore_case_harness.i line 8005 function aws_array_eq_ignore_case
+Unwinding loop 30  iteration  13   file aws_string_eq_ignore_case_harness.i line 8005 function aws_array_eq_ignore_case
+Unwinding loop 30  iteration  14   file aws_string_eq_ignore_case_harness.i line 8005 function aws_array_eq_ignore_case
+Unwinding loop 30  iteration  15   file aws_string_eq_ignore_case_harness.i line 8005 function aws_array_eq_ignore_case
+Not unwinding 
+Symex completed in: 0.104s (331 assignments)
+Slicing time: 0.003s (removed 159 assignments)
+Generated 3 VCC(s), 3 remaining after simplification (172 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.010s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.010s
+Runtime decision procedure: 0.570s
+BMC program time: 0.688s
+No bug has been found in the base case
+*** Checking forward condition, k = 16
+Starting Bounded Model Checking
+Unwinding loop 30  iteration  1   file aws_string_eq_ignore_case_harness.i line 8005 function aws_array_eq_ignore_case
+Unwinding loop 30  iteration  2   file aws_string_eq_ignore_case_harness.i line 8005 function aws_array_eq_ignore_case
+Unwinding loop 30  iteration  3   file aws_string_eq_ignore_case_harness.i line 8005 function aws_array_eq_ignore_case
+Unwinding loop 30  iteration  4   file aws_string_eq_ignore_case_harness.i line 8005 function aws_array_eq_ignore_case
+Unwinding loop 30  iteration  5   file aws_string_eq_ignore_case_harness.i line 8005 function aws_array_eq_ignore_case
+Unwinding loop 30  iteration  6   file aws_string_eq_ignore_case_harness.i line 8005 function aws_array_eq_ignore_case
+Unwinding loop 30  iteration  7   file aws_string_eq_ignore_case_harness.i line 8005 function aws_array_eq_ignore_case
+Unwinding loop 30  iteration  8   file aws_string_eq_ignore_case_harness.i line 8005 function aws_array_eq_ignore_case
+Unwinding loop 30  iteration  9   file aws_string_eq_ignore_case_harness.i line 8005 function aws_array_eq_ignore_case
+Unwinding loop 30  iteration  10   file aws_string_eq_ignore_case_harness.i line 8005 function aws_array_eq_ignore_case
+Unwinding loop 30  iteration  11   file aws_string_eq_ignore_case_harness.i line 8005 function aws_array_eq_ignore_case
+Unwinding loop 30  iteration  12   file aws_string_eq_ignore_case_harness.i line 8005 function aws_array_eq_ignore_case
+Unwinding loop 30  iteration  13   file aws_string_eq_ignore_case_harness.i line 8005 function aws_array_eq_ignore_case
+Unwinding loop 30  iteration  14   file aws_string_eq_ignore_case_harness.i line 8005 function aws_array_eq_ignore_case
+Unwinding loop 30  iteration  15   file aws_string_eq_ignore_case_harness.i line 8005 function aws_array_eq_ignore_case
+Not unwinding 
+Symex completed in: 0.106s (328 assignments)
+Slicing time: 0.003s (removed 159 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (169 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.010s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.010s
+Runtime decision procedure: 0.445s
+BMC program time: 0.565s
+Building successful trace
+
+VERIFICATION SUCCESSFUL
+
+Solution found by the forward condition; all states are reachable (k = 16
+
+../sv-benchmarks/c/aws-c-common/aws_string_eq_ignore_case_harness.i:1632:45: warning: attribute declaration must precede definition [-Wignored-attributes]
+extern void my_abort (void) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+                                            ^
+../sv-benchmarks/c/aws-c-common/aws_string_eq_ignore_case_harness.i:232:6: note: previous definition is here
+void my_abort(void) {
+     ^
+../sv-benchmarks/c/aws-c-common/aws_string_eq_ignore_case_harness.i:5786:12: warning: implicit declaration of function '__ESBMC_atomic_load' is invalid in C99 [-Wimplicit-function-declaration]
+    return __atomic_load_n(&(*(aws_atomic_impl_int_t *)(var)), aws_atomic_priv_xlate_order(memory_order));
+           ^
+esbmc_intrinsics.h:99:5: note: expanded from here
+    __ESBMC_atomic_load(__atomic_load_ptr, &__atomic_load_tmp, (MO));          \
+    ^
+../sv-benchmarks/c/aws-c-common/aws_string_eq_ignore_case_harness.i:5794:12: warning: implicit declaration of function '__ESBMC_atomic_load' is invalid in C99 [-Wimplicit-function-declaration]
+    return __atomic_load_n(&((var)->value), aws_atomic_priv_xlate_order(memory_order));
+           ^
+esbmc_intrinsics.h:99:5: note: expanded from here
+    __ESBMC_atomic_load(__atomic_load_ptr, &__atomic_load_tmp, (MO));          \
+    ^
+../sv-benchmarks/c/aws-c-common/aws_string_eq_ignore_case_harness.i:5802:5: warning: implicit declaration of function '__ESBMC_atomic_store' is invalid in C99 [-Wimplicit-function-declaration]
+    __atomic_store_n(&(*(aws_atomic_impl_int_t *)(var)), n, aws_atomic_priv_xlate_order(memory_order));
+    ^
+esbmc_intrinsics.h:107:5: note: expanded from here
+    __ESBMC_atomic_store(__atomic_store_ptr, &__atomic_store_tmp, (MO));       \
+    ^
+../sv-benchmarks/c/aws-c-common/aws_string_eq_ignore_case_harness.i:5810:5: warning: implicit declaration of function '__ESBMC_atomic_store' is invalid in C99 [-Wimplicit-function-declaration]
+    __atomic_store_n(&((var)->value), p, aws_atomic_priv_xlate_order(memory_order));
+    ^
+esbmc_intrinsics.h:107:5: note: expanded from here
+    __ESBMC_atomic_store(__atomic_store_ptr, &__atomic_store_tmp, (MO));       \
+    ^
+
+TRUE

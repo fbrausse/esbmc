@@ -1,0 +1,186 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/product-lines/email_spec4_product18.cil.c
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --add-symex-value-sets --no-align-check --k-step 5 --floatbv --unlimited-k-steps ../sv-benchmarks/c/product-lines/email_spec4_product18.cil.c --32 --witness-output email_spec4_product18.cil.c.graphml --no-pointer-check --no-bounds-check --interval-analysis --goto-unwind --unlimited-goto-unwind --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/product-lines/email_spec4_product18.cil.c: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.294s
+GOTO program processing time: 0.154s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.094s (733 assignments)
+Slicing time: 0.002s (removed 694 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (39 assignments)
+BMC program time: 0.096s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.083s (733 assignments)
+Slicing time: 0.001s (removed 694 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (39 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.004s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.004s
+Runtime decision procedure: 0.329s
+The forward condition is unable to prove the property
+*** Checking base case, k = 6
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file email_spec4_product18.cil.c line 1978 function test
+Unwinding loop 1  iteration  2   file email_spec4_product18.cil.c line 1978 function test
+Unwinding loop 1  iteration  3   file email_spec4_product18.cil.c line 1978 function test
+Unwinding loop 1  iteration  4   file email_spec4_product18.cil.c line 1978 function test
+Symex completed in: 0.437s (3107 assignments)
+Slicing time: 0.055s (removed 2452 assignments)
+Generated 2 VCC(s), 2 remaining after simplification (655 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.015s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.015s
+Runtime decision procedure: 0.577s
+Building error trace
+
+Counterexample:
+bob: 1
+
+rjh: 2
+
+chuck: 3
+
+
+State 4 file email_spec4_product18.cil.c line 1988 function test thread 0
+----------------------------------------------------
+  tmp___9 = -2147483648 (10000000 00000000 00000000 00000000)
+bob added rjhs key
+
+2
+
+456
+
+
+State 8 file email_spec4_product18.cil.c line 2002 function test thread 0
+----------------------------------------------------
+  tmp___8 = -2147483648 (10000000 00000000 00000000 00000000)
+
+State 9 file email_spec4_product18.cil.c line 2016 function test thread 0
+----------------------------------------------------
+  tmp___7 = 0 (00000000 00000000 00000000 00000000)
+
+State 10 file email_spec4_product18.cil.c line 2030 function test thread 0
+----------------------------------------------------
+  tmp___6 = 0 (00000000 00000000 00000000 00000000)
+
+State 11 file email_spec4_product18.cil.c line 2044 function test thread 0
+----------------------------------------------------
+  tmp___5 = 0 (00000000 00000000 00000000 00000000)
+
+State 12 file email_spec4_product18.cil.c line 2058 function test thread 0
+----------------------------------------------------
+  tmp___4 = 0 (00000000 00000000 00000000 00000000)
+
+State 13 file email_spec4_product18.cil.c line 2069 function test thread 0
+----------------------------------------------------
+  tmp___3 = -2147483648 (10000000 00000000 00000000 00000000)
+
+State 14 file email_spec4_product18.cil.c line 2016 function test thread 0
+----------------------------------------------------
+  tmp___7 = -2147483648 (10000000 00000000 00000000 00000000)
+Please enter a subject and a message body.
+
+
+
+State 16 file email_spec4_product18.cil.c line 646 function getClientPrivateKey thread 0
+----------------------------------------------------
+  retValue_acc = 123 (00000000 00000000 00000000 01111011)
+
+State 17 file email_spec4_product18.cil.c line 2807 function sign thread 0
+----------------------------------------------------
+  privkey = 123 (00000000 00000000 00000000 01111011)
+before mail
+
+
+
+State 19 file email_spec4_product18.cil.c line 1428 function isSigned thread 0
+----------------------------------------------------
+  retValue_acc = 1 (00000000 00000000 00000000 00000001)
+
+State 20 file email_spec4_product18.cil.c line 646 function getClientPrivateKey thread 0
+----------------------------------------------------
+  retValue_acc = 123 (00000000 00000000 00000000 01111011)
+mail sent
+
+mail delivered
+
+
+
+State 23 file email_spec4_product18.cil.c line 603 function getClientAutoResponse thread 0
+----------------------------------------------------
+  retValue_acc = 1 (00000000 00000000 00000000 00000001)
+sending autoresponse
+
+
+
+State 25 file email_spec4_product18.cil.c line 2727 function is_queue_empty thread 0
+----------------------------------------------------
+  retValue_acc = 0 (00000000 00000000 00000000 00000000)
+
+State 26 file email_spec4_product18.cil.c line 2745 function get_queued_email thread 0
+----------------------------------------------------
+  retValue_acc = 1 (00000000 00000000 00000000 00000001)
+
+State 27 file email_spec4_product18.cil.c line 2736 function get_queued_client thread 0
+----------------------------------------------------
+  retValue_acc = 2 (00000000 00000000 00000000 00000010)
+
+State 28 file email_spec4_product18.cil.c line 650 function getClientPrivateKey thread 0
+----------------------------------------------------
+  retValue_acc = 0 (00000000 00000000 00000000 00000000)
+
+State 29 file email_spec4_product18.cil.c line 2807 function sign thread 0
+----------------------------------------------------
+  privkey = 0 (00000000 00000000 00000000 00000000)
+
+State 30 file email_spec4_product18.cil.c line 2603 function mail thread 0
+----------------------------------------------------
+  __utac__ad__arg1 = 2 (00000000 00000000 00000000 00000010)
+
+State 31 file email_spec4_product18.cil.c line 2604 function mail thread 0
+----------------------------------------------------
+  __utac__ad__arg2 = 1 (00000000 00000000 00000000 00000001)
+before mail
+
+
+
+State 33 file email_spec4_product18.cil.c line 1428 function isSigned thread 0
+----------------------------------------------------
+  retValue_acc = 1 (00000000 00000000 00000000 00000001)
+
+State 34 file email_spec4_product18.cil.c line 650 function getClientPrivateKey thread 0
+----------------------------------------------------
+  retValue_acc = 0 (00000000 00000000 00000000 00000000)
+
+State 35 file email_spec4_product18.cil.c line 3 function reach_error thread 0
+----------------------------------------------------
+Violated property:
+  file email_spec4_product18.cil.c line 3 function reach_error
+  assertion 0
+  0
+
+
+VERIFICATION FAILED
+
+Bug found (k = 6)
+
+
+FALSE_REACH

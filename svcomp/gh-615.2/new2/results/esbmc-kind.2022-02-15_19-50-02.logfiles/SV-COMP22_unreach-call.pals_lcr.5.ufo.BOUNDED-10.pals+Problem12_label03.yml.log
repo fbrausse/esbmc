@@ -1,0 +1,105 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/combinations/pals_lcr.5.ufo.BOUNDED-10.pals+Problem12_label03.c
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --add-symex-value-sets --no-align-check --k-step 5 --floatbv --unlimited-k-steps ../sv-benchmarks/c/combinations/pals_lcr.5.ufo.BOUNDED-10.pals+Problem12_label03.c --32 --witness-output pals_lcr.5.ufo.BOUNDED-10.pals+Problem12_label03.c.graphml --no-pointer-check --no-bounds-check --interval-analysis --goto-unwind --unlimited-goto-unwind --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/combinations/pals_lcr.5.ufo.BOUNDED-10.pals+Problem12_label03.c: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 1.227s
+GOTO program processing time: 0.478s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.310s (3347 assignments)
+Slicing time: 0.012s (removed 2294 assignments)
+Generated 10 VCC(s), 10 remaining after simplification (1053 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.024s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.024s
+Runtime decision procedure: 2.939s
+BMC program time: 3.312s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.339s (3337 assignments)
+Slicing time: 0.009s (removed 2294 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (1043 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.025s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.025s
+Runtime decision procedure: 0.050s
+The forward condition is unable to prove the property
+*** Checking base case, k = 6
+Starting Bounded Model Checking
+Unwinding loop 2  iteration  1   file pals_lcr.5.ufo.BOUNDED-10.pals+Problem12_label03.c line 5257 function main2
+Unwinding loop 2  iteration  2   file pals_lcr.5.ufo.BOUNDED-10.pals+Problem12_label03.c line 5257 function main2
+Unwinding loop 2  iteration  3   file pals_lcr.5.ufo.BOUNDED-10.pals+Problem12_label03.c line 5257 function main2
+Unwinding loop 2  iteration  4   file pals_lcr.5.ufo.BOUNDED-10.pals+Problem12_label03.c line 5257 function main2
+Unwinding loop 2  iteration  5   file pals_lcr.5.ufo.BOUNDED-10.pals+Problem12_label03.c line 5257 function main2
+Not unwinding 
+Symex completed in: 5.096s (54881 assignments)
+Slicing time: 1.994s (removed 27336 assignments)
+Generated 15 VCC(s), 15 remaining after simplification (27545 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.902s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.902s
+Runtime decision procedure: 141.175s
+Building error trace
+
+Counterexample:
+
+State 1 file pals_lcr.5.ufo.BOUNDED-10.pals+Problem12_label03.c line 5261 function main2 thread 0
+----------------------------------------------------
+  input = 2 (00000000 00000000 00000000 00000010)
+
+State 2 file pals_lcr.5.ufo.BOUNDED-10.pals+Problem12_label03.c line 5261 function main2 thread 0
+----------------------------------------------------
+  input = 2 (00000000 00000000 00000000 00000010)
+
+State 3 file pals_lcr.5.ufo.BOUNDED-10.pals+Problem12_label03.c line 5261 function main2 thread 0
+----------------------------------------------------
+  input = 3 (00000000 00000000 00000000 00000011)
+
+State 4 file pals_lcr.5.ufo.BOUNDED-10.pals+Problem12_label03.c line 4132 function calculate_output3 thread 0
+----------------------------------------------------
+  a17 = 181130 (00000000 00000010 11000011 10001010)
+
+State 5 file pals_lcr.5.ufo.BOUNDED-10.pals+Problem12_label03.c line 5261 function main2 thread 0
+----------------------------------------------------
+  input = 1 (00000000 00000000 00000000 00000001)
+
+State 6 file pals_lcr.5.ufo.BOUNDED-10.pals+Problem12_label03.c line 4839 function calculate_output3 thread 0
+----------------------------------------------------
+  a17 = -18 (11111111 11111111 11111111 11101110)
+
+State 7 file pals_lcr.5.ufo.BOUNDED-10.pals+Problem12_label03.c line 5261 function main2 thread 0
+----------------------------------------------------
+  input = 1 (00000000 00000000 00000000 00000001)
+
+State 8 file pals_lcr.5.ufo.BOUNDED-10.pals+Problem12_label03.c line 20 function reach_error thread 0
+----------------------------------------------------
+Violated property:
+  file pals_lcr.5.ufo.BOUNDED-10.pals+Problem12_label03.c line 20 function reach_error
+  assertion 0
+  0
+
+
+VERIFICATION FAILED
+
+Bug found (k = 6)
+
+
+FALSE_REACH

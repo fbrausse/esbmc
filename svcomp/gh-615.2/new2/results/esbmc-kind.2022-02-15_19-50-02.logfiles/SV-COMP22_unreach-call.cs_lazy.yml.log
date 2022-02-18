@@ -1,0 +1,498 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/seq-pthread/cs_lazy.i
+
+
+--------------------------------------------------------------------------------
+
+
+Found pthread benchmark!
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --add-symex-value-sets --no-align-check --k-step 5 --floatbv --unlimited-k-steps ../sv-benchmarks/c/seq-pthread/cs_lazy.i --32  --no-por --context-bound 2 --no-goto-merge --witness-output cs_lazy.i.graphml --no-pointer-check --no-bounds-check --goto-unwind --unlimited-goto-unwind --incremental-bmc 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/seq-pthread/cs_lazy.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.186s
+GOTO program processing time: 0.002s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.001s (35 assignments)
+Slicing time: 0.000s (removed 33 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (2 assignments)
+BMC program time: 0.001s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.002s (35 assignments)
+Slicing time: 0.000s (removed 33 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (2 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.001s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.001s
+Runtime decision procedure: 0.000s
+The forward condition is unable to prove the property
+*** Checking base case, k = 6
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file cs_lazy.i line 748 function main
+Unwinding loop 1  iteration  2   file cs_lazy.i line 748 function main
+Unwinding loop 1  iteration  3   file cs_lazy.i line 748 function main
+Unwinding loop 1  iteration  4   file cs_lazy.i line 748 function main
+Unwinding loop 2  iteration  1   file cs_lazy.i line 748 function main
+Unwinding loop 2  iteration  2   file cs_lazy.i line 748 function main
+Unwinding loop 2  iteration  3   file cs_lazy.i line 748 function main
+Unwinding loop 2  iteration  4   file cs_lazy.i line 748 function main
+Symex completed in: 0.285s (1902 assignments)
+Slicing time: 0.024s (removed 341 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (1561 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.144s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.144s
+Runtime decision procedure: 1.198s
+Building error trace
+
+Counterexample:
+
+State 1 file cs_lazy.i line 550 thread 0
+----------------------------------------------------
+  __CS_thread_status = ARRAY_OF(ARRAY_OF(0))
+
+State 2 file cs_lazy.i line 554 thread 0
+----------------------------------------------------
+  __CS_thread_lockedon = ARRAY_OF(ARRAY_OF(0))
+
+State 3 file cs_lazy.i line 749 function main thread 0
+----------------------------------------------------
+  __CS_cp___CS_thread_status[0][0] = 0 (00000000)
+
+State 4 file cs_lazy.i line 750 function main thread 0
+----------------------------------------------------
+  __CS_cp___CS_thread_lockedon[0][0] = (void *)271056896
+
+State 5 file cs_lazy.i line 749 function main thread 0
+----------------------------------------------------
+  __CS_cp___CS_thread_status[0][1] = 0 (00000000)
+
+State 6 file cs_lazy.i line 750 function main thread 0
+----------------------------------------------------
+  __CS_cp___CS_thread_lockedon[0][1] = (void *)343998466
+
+State 7 file cs_lazy.i line 749 function main thread 0
+----------------------------------------------------
+  __CS_cp___CS_thread_status[0][2] = 0 (00000000)
+
+State 8 file cs_lazy.i line 750 function main thread 0
+----------------------------------------------------
+  __CS_cp___CS_thread_lockedon[0][2] = (void *)1048576
+
+State 9 file cs_lazy.i line 749 function main thread 0
+----------------------------------------------------
+  __CS_cp___CS_thread_status[0][3] = 0 (00000000)
+
+State 10 file cs_lazy.i line 750 function main thread 0
+----------------------------------------------------
+  __CS_cp___CS_thread_lockedon[0][3] = (void *)3784310784
+
+State 11 file cs_lazy.i line 752 function main thread 0
+----------------------------------------------------
+  __CS_cp_mutex[0] = 0 (00000000)
+
+State 12 file cs_lazy.i line 753 function main thread 0
+----------------------------------------------------
+  __CS_cp_data[0] = 0 (00000000 00000000 00000000 00000000)
+
+State 13 file cs_lazy.i line 749 function main thread 0
+----------------------------------------------------
+  __CS_cp___CS_thread_status[0][0] = 1 (00000001)
+
+State 14 file cs_lazy.i line 750 function main thread 0
+----------------------------------------------------
+  __CS_cp___CS_thread_lockedon[0][0] = 0
+
+State 15 file cs_lazy.i line 749 function main thread 0
+----------------------------------------------------
+  __CS_cp___CS_thread_status[0][1] = 1 (00000001)
+
+State 16 file cs_lazy.i line 750 function main thread 0
+----------------------------------------------------
+  __CS_cp___CS_thread_lockedon[0][1] = 0
+
+State 17 file cs_lazy.i line 749 function main thread 0
+----------------------------------------------------
+  __CS_cp___CS_thread_status[0][2] = 1 (00000001)
+
+State 18 file cs_lazy.i line 750 function main thread 0
+----------------------------------------------------
+  __CS_cp___CS_thread_lockedon[0][2] = 0
+
+State 19 file cs_lazy.i line 749 function main thread 0
+----------------------------------------------------
+  __CS_cp___CS_thread_status[0][3] = 0 (00000000)
+
+State 20 file cs_lazy.i line 750 function main thread 0
+----------------------------------------------------
+  __CS_cp___CS_thread_lockedon[0][3] = 0
+
+State 21 file cs_lazy.i line 752 function main thread 0
+----------------------------------------------------
+  __CS_cp_mutex[1] = 4 (00000100)
+
+State 22 file cs_lazy.i line 753 function main thread 0
+----------------------------------------------------
+  __CS_cp_data[1] = 0 (00000000 00000000 00000000 00000000)
+
+State 23 file cs_lazy.i line 755 function main thread 0
+----------------------------------------------------
+  __CS_thread_status[1][0] = 1 (00000001)
+
+State 24 file cs_lazy.i line 756 function main thread 0
+----------------------------------------------------
+  __CS_thread_status[1][1] = 1 (00000001)
+
+State 25 file cs_lazy.i line 757 function main thread 0
+----------------------------------------------------
+  __CS_thread_status[1][2] = 1 (00000001)
+
+State 26 file cs_lazy.i line 758 function main thread 0
+----------------------------------------------------
+  __CS_thread_status[1][3] = 0 (00000000)
+
+State 31 file cs_lazy.i line 763 function main thread 0
+----------------------------------------------------
+  mutex[1] = 4 (00000100)
+
+State 32 file cs_lazy.i line 764 function main thread 0
+----------------------------------------------------
+  data[1] = { 0, __CS_cp_data?1!0&0#2[1] }
+
+State 33 file cs_lazy.i line 768 function main thread 0
+----------------------------------------------------
+  __CS_thread_status[0][0] = 1 (00000001)
+
+State 34 file cs_lazy.i line 769 function main thread 0
+----------------------------------------------------
+  __CS_thread[0] = &main_thread
+
+State 35 file cs_lazy.i line 770 function main thread 0
+----------------------------------------------------
+  __CS_thread_allocated[0] = 1 (00000001)
+
+State 36 file cs_lazy.i line 560 function __CS_cs thread 0
+----------------------------------------------------
+  k = 0 (00000000)
+
+State 37 file cs_lazy.i line 562 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_round = 0 (00000000)
+
+State 38 file cs_lazy.i line 563 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_ret = 0 (00000000)
+
+State 39 file cs_lazy.i line 560 function __CS_cs thread 0
+----------------------------------------------------
+  k = 0 (00000000)
+
+State 40 file cs_lazy.i line 562 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_round = 0 (00000000)
+
+State 41 file cs_lazy.i line 563 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_ret = 0 (00000000)
+
+State 42 file cs_lazy.i line 667 function __CS_pthread_create thread 0
+----------------------------------------------------
+  __CS_thread_allocated[1] = 1 (00000001)
+
+State 43 file cs_lazy.i line 668 function __CS_pthread_create thread 0
+----------------------------------------------------
+  __CS_thread_born_round[1] = 0 (00000000)
+
+State 44 file cs_lazy.i line 669 function __CS_pthread_create thread 0
+----------------------------------------------------
+  __CS_thread[1] = &thread1
+
+State 45 file cs_lazy.i line 670 function __CS_pthread_create thread 0
+----------------------------------------------------
+  __CS_thread_status[0][1] = 1 (00000001)
+
+State 46 file cs_lazy.i line 560 function __CS_cs thread 0
+----------------------------------------------------
+  k = 0 (00000000)
+
+State 47 file cs_lazy.i line 562 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_round = 0 (00000000)
+
+State 48 file cs_lazy.i line 563 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_ret = 0 (00000000)
+
+State 49 file cs_lazy.i line 667 function __CS_pthread_create thread 0
+----------------------------------------------------
+  __CS_thread_allocated[2] = 1 (00000001)
+
+State 50 file cs_lazy.i line 668 function __CS_pthread_create thread 0
+----------------------------------------------------
+  __CS_thread_born_round[2] = 0 (00000000)
+
+State 51 file cs_lazy.i line 669 function __CS_pthread_create thread 0
+----------------------------------------------------
+  __CS_thread[2] = &thread2
+
+State 52 file cs_lazy.i line 670 function __CS_pthread_create thread 0
+----------------------------------------------------
+  __CS_thread_status[0][2] = 1 (00000001)
+
+State 53 file cs_lazy.i line 560 function __CS_cs thread 0
+----------------------------------------------------
+  k = 1 (00000001)
+
+State 54 file cs_lazy.i line 562 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_round = 1 (00000001)
+
+State 55 file cs_lazy.i line 563 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_ret = 0 (00000000)
+
+State 56 file cs_lazy.i line 667 function __CS_pthread_create thread 0
+----------------------------------------------------
+  __CS_thread_allocated[3] = 1 (00000001)
+
+State 57 file cs_lazy.i line 668 function __CS_pthread_create thread 0
+----------------------------------------------------
+  __CS_thread_born_round[3] = 1 (00000001)
+
+State 58 file cs_lazy.i line 669 function __CS_pthread_create thread 0
+----------------------------------------------------
+  __CS_thread[3] = &thread3
+
+State 59 file cs_lazy.i line 670 function __CS_pthread_create thread 0
+----------------------------------------------------
+  __CS_thread_status[0][3] = 1 (00000001)
+
+State 60 file cs_lazy.i line 560 function __CS_cs thread 0
+----------------------------------------------------
+  k = 0 (00000000)
+
+State 61 file cs_lazy.i line 562 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_round = 1 (00000001)
+
+State 62 file cs_lazy.i line 563 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_ret = 1 (00000001)
+
+State 63 file cs_lazy.i line 778 function main thread 0
+----------------------------------------------------
+  __CS_round = 0 (00000000)
+
+State 64 file cs_lazy.i line 560 function __CS_cs thread 0
+----------------------------------------------------
+  k = 0 (00000000)
+
+State 65 file cs_lazy.i line 562 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_round = 0 (00000000)
+
+State 66 file cs_lazy.i line 563 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_ret = 0 (00000000)
+
+State 67 file cs_lazy.i line 580 function __CS_pthread_mutex_lock thread 0
+----------------------------------------------------
+  *lock = 4 (00000100)
+
+State 68 file cs_lazy.i line 560 function __CS_cs thread 0
+----------------------------------------------------
+  k = 1 (00000001)
+
+State 69 file cs_lazy.i line 562 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_round = 1 (00000001)
+
+State 70 file cs_lazy.i line 563 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_ret = 0 (00000000)
+
+State 71 file cs_lazy.i line 686 function thread1 thread 0
+----------------------------------------------------
+  data[1] = 1 (00000000 00000000 00000000 00000001)
+
+State 72 file cs_lazy.i line 560 function __CS_cs thread 0
+----------------------------------------------------
+  k = 0 (00000000)
+
+State 73 file cs_lazy.i line 562 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_round = 1 (00000001)
+
+State 74 file cs_lazy.i line 563 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_ret = 0 (00000000)
+
+State 75 file cs_lazy.i line 590 function __CS_pthread_mutex_unlock thread 0
+----------------------------------------------------
+  *lock = 0 (00000000)
+
+State 76 file cs_lazy.i line 560 function __CS_cs thread 0
+----------------------------------------------------
+  k = 0 (00000000)
+
+State 77 file cs_lazy.i line 562 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_round = 1 (00000001)
+
+State 78 file cs_lazy.i line 563 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_ret = 0 (00000000)
+
+State 79 file cs_lazy.i line 781 function main thread 0
+----------------------------------------------------
+  __CS_thread_status[0][1] = 2 (00000010)
+
+State 80 file cs_lazy.i line 784 function main thread 0
+----------------------------------------------------
+  __CS_round = 0 (00000000)
+
+State 81 file cs_lazy.i line 560 function __CS_cs thread 0
+----------------------------------------------------
+  k = 1 (00000001)
+
+State 82 file cs_lazy.i line 562 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_round = 1 (00000001)
+
+State 83 file cs_lazy.i line 563 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_ret = 0 (00000000)
+
+State 84 file cs_lazy.i line 580 function __CS_pthread_mutex_lock thread 0
+----------------------------------------------------
+  *lock = 4 (00000100)
+
+State 85 file cs_lazy.i line 560 function __CS_cs thread 0
+----------------------------------------------------
+  k = 0 (00000000)
+
+State 86 file cs_lazy.i line 562 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_round = 1 (00000001)
+
+State 87 file cs_lazy.i line 563 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_ret = 0 (00000000)
+
+State 88 file cs_lazy.i line 696 function thread2 thread 0
+----------------------------------------------------
+  data[1] = 3 (00000000 00000000 00000000 00000011)
+
+State 89 file cs_lazy.i line 560 function __CS_cs thread 0
+----------------------------------------------------
+  k = 0 (00000000)
+
+State 90 file cs_lazy.i line 562 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_round = 1 (00000001)
+
+State 91 file cs_lazy.i line 563 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_ret = 0 (00000000)
+
+State 92 file cs_lazy.i line 590 function __CS_pthread_mutex_unlock thread 0
+----------------------------------------------------
+  *lock = 0 (00000000)
+
+State 93 file cs_lazy.i line 560 function __CS_cs thread 0
+----------------------------------------------------
+  k = 0 (00000000)
+
+State 94 file cs_lazy.i line 562 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_round = 1 (00000001)
+
+State 95 file cs_lazy.i line 563 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_ret = 1 (00000001)
+
+State 96 file cs_lazy.i line 790 function main thread 0
+----------------------------------------------------
+  __CS_round = 1 (00000001)
+
+State 97 file cs_lazy.i line 560 function __CS_cs thread 0
+----------------------------------------------------
+  k = 0 (00000000)
+
+State 98 file cs_lazy.i line 562 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_round = 1 (00000001)
+
+State 99 file cs_lazy.i line 563 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_ret = 0 (00000000)
+
+State 100 file cs_lazy.i line 580 function __CS_pthread_mutex_lock thread 0
+----------------------------------------------------
+  *lock = 4 (00000100)
+
+State 101 file cs_lazy.i line 560 function __CS_cs thread 0
+----------------------------------------------------
+  k = 0 (00000000)
+
+State 102 file cs_lazy.i line 562 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_round = 1 (00000001)
+
+State 103 file cs_lazy.i line 563 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_ret = 0 (00000000)
+
+State 104 file cs_lazy.i line 560 function __CS_cs thread 0
+----------------------------------------------------
+  k = 0 (00000000)
+
+State 105 file cs_lazy.i line 562 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_round = 1 (00000001)
+
+State 106 file cs_lazy.i line 563 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_ret = 0 (00000000)
+
+State 107 file cs_lazy.i line 793 function main thread 0
+----------------------------------------------------
+  __CS_thread_status[0][3] = 2 (00000010)
+
+State 108 file cs_lazy.i line 13 function reach_error thread 0
+----------------------------------------------------
+Violated property:
+  file cs_lazy.i line 13 function reach_error
+  assertion 0
+  0
+
+
+VERIFICATION FAILED
+
+Bug found (k = 6)
+
+../sv-benchmarks/c/seq-pthread/cs_lazy.i:690:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+}
+^
+../sv-benchmarks/c/seq-pthread/cs_lazy.i:700:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+}
+^
+../sv-benchmarks/c/seq-pthread/cs_lazy.i:719:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+}
+^
+../sv-benchmarks/c/seq-pthread/cs_lazy.i:740:2: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ }
+ ^
+
+FALSE_REACH

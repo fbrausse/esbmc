@@ -1,0 +1,459 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/ldv-linux-3.14/linux-3.14_complex_emg_linux-usb-dev_drivers-net-wireless-rndis_wlan.cil.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --add-symex-value-sets --no-align-check --k-step 5 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-linux-3.14/linux-3.14_complex_emg_linux-usb-dev_drivers-net-wireless-rndis_wlan.cil.i --64 --witness-output linux-3.14_complex_emg_linux-usb-dev_drivers-net-wireless-rndis_wlan.cil.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --goto-unwind --unlimited-goto-unwind --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 64-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/ldv-linux-3.14/linux-3.14_complex_emg_linux-usb-dev_drivers-net-wireless-rndis_wlan.cil.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 1.879s
+GOTO program processing time: 1.090s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.460s (1415 assignments)
+Slicing time: 0.004s (removed 1018 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (397 assignments)
+BMC program time: 0.464s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.457s (1415 assignments)
+Slicing time: 0.003s (removed 1018 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (397 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.181s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.181s
+Runtime decision procedure: 13.759s
+The forward condition is unable to prove the property
+*** Checking base case, k = 6
+Starting Bounded Model Checking
+Unwinding loop 22  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-wireless-rndis_wlan.cil.i line 13444 function main
+Unwinding loop 22  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-wireless-rndis_wlan.cil.i line 13444 function main
+Unwinding loop 24  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  4   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  5   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 24  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  4   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  5   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 5  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-wireless-rndis_wlan.cil.i line 9906 function rndis_connect
+Unwinding loop 5  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-wireless-rndis_wlan.cil.i line 9906 function rndis_connect
+Unwinding loop 5  iteration  3   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-wireless-rndis_wlan.cil.i line 9906 function rndis_connect
+Unwinding loop 5  iteration  4   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-wireless-rndis_wlan.cil.i line 9906 function rndis_connect
+Unwinding loop 5  iteration  5   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-wireless-rndis_wlan.cil.i line 9906 function rndis_connect
+Not unwinding 
+Unwinding loop 6  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-wireless-rndis_wlan.cil.i line 9926 function rndis_connect
+Unwinding loop 6  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-wireless-rndis_wlan.cil.i line 9926 function rndis_connect
+Unwinding loop 6  iteration  3   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-wireless-rndis_wlan.cil.i line 9926 function rndis_connect
+Unwinding loop 6  iteration  4   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-wireless-rndis_wlan.cil.i line 9926 function rndis_connect
+Unwinding loop 6  iteration  5   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-wireless-rndis_wlan.cil.i line 9926 function rndis_connect
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  3   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  4   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  5   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 24  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  4   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  5   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  3   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  4   file string.c line 263 function memcpy
+Unwinding loop 10  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-wireless-rndis_wlan.cil.i line 8784 function restore_keys
+Unwinding loop 24  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  4   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  5   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 10  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-wireless-rndis_wlan.cil.i line 8784 function restore_keys
+Unwinding loop 24  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  4   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  5   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 10  iteration  3   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-wireless-rndis_wlan.cil.i line 8784 function restore_keys
+Unwinding loop 24  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  4   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  5   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 10  iteration  4   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-wireless-rndis_wlan.cil.i line 8784 function restore_keys
+Unwinding loop 24  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  4   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  5   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  3   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  4   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  3   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  4   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  3   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  4   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  3   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  4   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  5   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 24  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  4   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  5   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  3   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  4   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  5   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  3   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  4   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  5   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 24  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  4   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  5   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  3   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  4   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  5   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  3   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  4   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  5   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  3   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  4   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  5   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  3   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  4   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  5   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  3   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  4   file string.c line 263 function memcpy
+Unwinding loop 10  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-wireless-rndis_wlan.cil.i line 8784 function restore_keys
+Unwinding loop 24  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  4   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  5   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 10  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-wireless-rndis_wlan.cil.i line 8784 function restore_keys
+Unwinding loop 24  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  4   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  5   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 10  iteration  3   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-wireless-rndis_wlan.cil.i line 8784 function restore_keys
+Unwinding loop 24  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  4   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  5   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 10  iteration  4   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-wireless-rndis_wlan.cil.i line 8784 function restore_keys
+Unwinding loop 24  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  4   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  5   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 9  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-wireless-rndis_wlan.cil.i line 7928 function disassociate
+Unwinding loop 9  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-wireless-rndis_wlan.cil.i line 7928 function disassociate
+Unwinding loop 9  iteration  3   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-wireless-rndis_wlan.cil.i line 7928 function disassociate
+Unwinding loop 9  iteration  4   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-wireless-rndis_wlan.cil.i line 7928 function disassociate
+Unwinding loop 9  iteration  5   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-wireless-rndis_wlan.cil.i line 7928 function disassociate
+Not unwinding 
+Unwinding loop 24  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  4   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  5   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  3   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  4   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  5   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 24  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  4   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  5   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  3   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  4   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  3   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  4   file string.c line 263 function memcpy
+Unwinding loop 24  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  4   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  5   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 24  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  4   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  5   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 12  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-wireless-rndis_wlan.cil.i line 9190 function remove_pmkid
+Unwinding loop 12  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-wireless-rndis_wlan.cil.i line 9190 function remove_pmkid
+Unwinding loop 12  iteration  3   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-wireless-rndis_wlan.cil.i line 9190 function remove_pmkid
+Unwinding loop 12  iteration  4   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-wireless-rndis_wlan.cil.i line 9190 function remove_pmkid
+Unwinding loop 12  iteration  5   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-wireless-rndis_wlan.cil.i line 9190 function remove_pmkid
+Not unwinding 
+Unwinding loop 13  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-wireless-rndis_wlan.cil.i line 9221 function remove_pmkid
+Unwinding loop 13  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-wireless-rndis_wlan.cil.i line 9221 function remove_pmkid
+Unwinding loop 13  iteration  3   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-wireless-rndis_wlan.cil.i line 9221 function remove_pmkid
+Unwinding loop 13  iteration  4   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-wireless-rndis_wlan.cil.i line 9221 function remove_pmkid
+Unwinding loop 13  iteration  5   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-wireless-rndis_wlan.cil.i line 9221 function remove_pmkid
+Not unwinding 
+Unwinding loop 24  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  4   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  5   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  3   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  4   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  5   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 24  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  4   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  5   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 24  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  4   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  5   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  3   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  4   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  5   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 24  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  4   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  5   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  3   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  4   file string.c line 263 function memcpy
+Unwinding loop 10  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-wireless-rndis_wlan.cil.i line 8784 function restore_keys
+Unwinding loop 24  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  4   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  5   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 10  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-wireless-rndis_wlan.cil.i line 8784 function restore_keys
+Unwinding loop 24  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  4   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  5   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 10  iteration  3   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-wireless-rndis_wlan.cil.i line 8784 function restore_keys
+Unwinding loop 24  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  4   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  5   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 10  iteration  4   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-wireless-rndis_wlan.cil.i line 8784 function restore_keys
+Unwinding loop 24  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  4   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  5   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  3   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  4   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  3   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  4   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  3   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  4   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  3   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  4   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  5   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 24  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  4   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  5   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  3   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  4   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  5   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  3   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  4   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  5   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  3   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  4   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  5   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  3   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  4   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  5   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  3   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  4   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  5   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  3   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  4   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  5   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  3   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  4   file string.c line 263 function memcpy
+Unwinding loop 10  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-wireless-rndis_wlan.cil.i line 8784 function restore_keys
+Unwinding loop 24  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  4   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  5   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 10  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-wireless-rndis_wlan.cil.i line 8784 function restore_keys
+Unwinding loop 24  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  4   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  5   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 10  iteration  3   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-wireless-rndis_wlan.cil.i line 8784 function restore_keys
+Unwinding loop 24  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  4   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  5   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 10  iteration  4   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-wireless-rndis_wlan.cil.i line 8784 function restore_keys
+Unwinding loop 24  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  4   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  5   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 9  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-wireless-rndis_wlan.cil.i line 7928 function disassociate
+Unwinding loop 9  iteration  2   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-wireless-rndis_wlan.cil.i line 7928 function disassociate
+Unwinding loop 9  iteration  3   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-wireless-rndis_wlan.cil.i line 7928 function disassociate
+Unwinding loop 9  iteration  4   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-wireless-rndis_wlan.cil.i line 7928 function disassociate
+Unwinding loop 9  iteration  5   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-wireless-rndis_wlan.cil.i line 7928 function disassociate
+Not unwinding 
+Unwinding loop 24  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  4   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  5   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 24  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  4   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  5   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 1  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  2   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  3   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  4   file string.c line 263 function memcpy
+Unwinding loop 1  iteration  5   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 15  iteration  1   file linux-3.14_complex_emg_linux-usb-dev_drivers-net-wireless-rndis_wlan.cil.i line 9721 function rndis_check_bssid_list
+Unwinding loop 24  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  4   file string.c line 272 function __memset_impl
+Unwinding loop 24  iteration  5   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwi
+Can't construct rvalue reference to array type during dereference
+(It isn't allowed by C anyway)
+
+
+Unknown

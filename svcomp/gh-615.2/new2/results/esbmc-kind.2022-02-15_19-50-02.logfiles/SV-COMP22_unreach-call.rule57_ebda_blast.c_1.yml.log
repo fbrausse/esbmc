@@ -1,0 +1,46 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/ldv-regression/rule57_ebda_blast.c_1.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --add-symex-value-sets --no-align-check --k-step 5 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-regression/rule57_ebda_blast.c_1.i --32 --witness-output rule57_ebda_blast.c_1.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --goto-unwind --unlimited-goto-unwind --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/ldv-regression/rule57_ebda_blast.c_1.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.145s
+GOTO program processing time: 0.002s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Symex completed in: 0.011s (173 assignments)
+Slicing time: 0.000s (removed 137 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (36 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.003s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.003s
+Runtime decision procedure: 0.001s
+BMC program time: 0.016s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Symex completed in: 0.010s (172 assignments)
+Slicing time: 0.000s (removed 137 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (35 assignments)
+BMC program time: 0.011s
+Building successful trace
+
+VERIFICATION SUCCESSFUL
+
+Solution found by the forward condition; all states are reachable (k = 1
+
+../sv-benchmarks/c/ldv-regression/rule57_ebda_blast.c_1.i:46:15: warning: incompatible redeclaration of library function 'calloc' [-Wincompatible-library-redeclaration]
+extern void * calloc (size_t __nmemb, size_t __size)
+              ^
+../sv-benchmarks/c/ldv-regression/rule57_ebda_blast.c_1.i:46:15: note: 'calloc' is a builtin with type 'void *(unsigned int, unsigned int)'
+
+TRUE

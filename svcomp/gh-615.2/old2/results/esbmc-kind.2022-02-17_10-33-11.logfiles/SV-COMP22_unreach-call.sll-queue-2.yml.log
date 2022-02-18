@@ -1,0 +1,165 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/forester-heap/sll-queue-2.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --add-symex-value-sets --no-align-check --k-step 5 --floatbv --unlimited-k-steps ../sv-benchmarks/c/forester-heap/sll-queue-2.i --32 --witness-output sll-queue-2.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --goto-unwind --unlimited-goto-unwind --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/forester-heap/sll-queue-2.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.108s
+GOTO program processing time: 0.002s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.003s (67 assignments)
+Slicing time: 0.000s (removed 42 assignments)
+Generated 3 VCC(s), 3 remaining after simplification (25 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.001s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.001s
+Runtime decision procedure: 0.000s
+BMC program time: 0.005s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.003s (64 assignments)
+Slicing time: 0.000s (removed 42 assignments)
+Generated 3 VCC(s), 3 remaining after simplification (22 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.001s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.001s
+Runtime decision procedure: 0.032s
+The forward condition is unable to prove the property
+*** Checking base case, k = 6
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file sll-queue-2.i line 1002 function main
+Unwinding loop 1  iteration  2   file sll-queue-2.i line 1002 function main
+Unwinding loop 1  iteration  3   file sll-queue-2.i line 1002 function main
+Unwinding loop 1  iteration  4   file sll-queue-2.i line 1002 function main
+Unwinding loop 1  iteration  5   file sll-queue-2.i line 1002 function main
+Not unwinding 
+Unwinding loop 2  iteration  1   file sll-queue-2.i line 1051 function main
+Unwinding loop 2  iteration  2   file sll-queue-2.i line 1051 function main
+Unwinding loop 2  iteration  3   file sll-queue-2.i line 1051 function main
+Unwinding loop 2  iteration  4   file sll-queue-2.i line 1051 function main
+Unwinding loop 2  iteration  5   file sll-queue-2.i line 1051 function main
+Not unwinding 
+Unwinding loop 3  iteration  1   file sll-queue-2.i line 1058 function main
+Unwinding loop 3  iteration  2   file sll-queue-2.i line 1058 function main
+Unwinding loop 3  iteration  3   file sll-queue-2.i line 1058 function main
+Unwinding loop 3  iteration  4   file sll-queue-2.i line 1058 function main
+Unwinding loop 3  iteration  5   file sll-queue-2.i line 1058 function main
+Not unwinding 
+Symex completed in: 0.011s (318 assignments)
+Slicing time: 0.004s (removed 142 assignments)
+Generated 29 VCC(s), 29 remaining after simplification (176 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.004s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.004s
+Runtime decision procedure: 0.339s
+Building error trace
+
+Counterexample:
+
+State 1 file sll-queue-2.i line 997 function main thread 0
+----------------------------------------------------
+  head->next = 0
+
+State 2 file sll-queue-2.i line 998 function main thread 0
+----------------------------------------------------
+  head->data = 0 (00000000 00000000 00000000 00000000)
+
+State 3 file sll-queue-2.i line 1004 function main thread 0
+----------------------------------------------------
+  item->next = ( struct TSLL *)((void *)(&dynamic_11_value))
+
+State 4 file sll-queue-2.i line 1005 function main thread 0
+----------------------------------------------------
+  item = dynamic_9_value.next
+
+State 5 file sll-queue-2.i line 1006 function main thread 0
+----------------------------------------------------
+  item->next = 0
+
+State 6 file sll-queue-2.i line 1010 function main thread 0
+----------------------------------------------------
+  item->data = 1 (00000000 00000000 00000000 00000001)
+
+State 7 file sll-queue-2.i line 1004 function main thread 0
+----------------------------------------------------
+  item->next = ( struct TSLL *)((void *)(&dynamic_13_value))
+
+State 8 file sll-queue-2.i line 1005 function main thread 0
+----------------------------------------------------
+  item = dynamic_11_value.next
+
+State 9 file sll-queue-2.i line 1006 function main thread 0
+----------------------------------------------------
+  item->next = 0
+
+State 10 file sll-queue-2.i line 1015 function main thread 0
+----------------------------------------------------
+  item->data = 2 (00000000 00000000 00000000 00000010)
+
+State 11 file sll-queue-2.i line 1004 function main thread 0
+----------------------------------------------------
+  item->next = ( struct TSLL *)((void *)(&dynamic_15_value))
+
+State 12 file sll-queue-2.i line 1005 function main thread 0
+----------------------------------------------------
+  item = dynamic_13_value.next
+
+State 13 file sll-queue-2.i line 1006 function main thread 0
+----------------------------------------------------
+  item->next = 0
+
+State 14 file sll-queue-2.i line 1020 function main thread 0
+----------------------------------------------------
+  item->data = 3 (00000000 00000000 00000000 00000011)
+
+State 15 file sll-queue-2.i line 1004 function main thread 0
+----------------------------------------------------
+  item->next = ( struct TSLL *)((void *)(&dynamic_17_value))
+
+State 16 file sll-queue-2.i line 1005 function main thread 0
+----------------------------------------------------
+  item = dynamic_15_value.next
+
+State 17 file sll-queue-2.i line 1006 function main thread 0
+----------------------------------------------------
+  item->next = 0
+
+State 18 file sll-queue-2.i line 1020 function main thread 0
+----------------------------------------------------
+  item->data = 3 (00000000 00000000 00000000 00000011)
+
+State 19 file sll-queue-2.i line 985 function reach_error thread 0
+----------------------------------------------------
+Violated property:
+  file sll-queue-2.i line 985 function reach_error
+  assertion 0
+  0
+
+
+VERIFICATION FAILED
+
+Bug found (k = 6)
+
+
+FALSE_REACH

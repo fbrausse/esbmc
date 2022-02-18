@@ -1,0 +1,63 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/valid-memsafety.prp -s kinduction --arch 32 ../sv-benchmarks/c/ntdrivers/floppy.i.cil-3.c
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --add-symex-value-sets --no-align-check --k-step 5 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ntdrivers/floppy.i.cil-3.c --32 --witness-output floppy.i.cil-3.c.graphml --memory-leak-check --no-assertions --k-induction --max-inductive-step 3 
+
+../sv-benchmarks/c/ntdrivers/floppy.i.cil-3.c:2231:34: warning: incompatible pointer types passing 'char [33]' to parameter of type 'const wchar_t *' (aka 'const unsigned short *') [-Wincompatible-pointer-types]
+      swprintf(deviceNameBuffer, "\\\000D\000e\000v\000i\000c\000e\000\\\000F\000l\000o\000p\000p\000y\000%\000d\000",
+                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ntdrivers/floppy.i.cil-3.c:1742:52: note: passing argument to parameter here
+extern int swprintf(wchar_t * , wchar_t const   *  , ...) ;
+                                                   ^
+../sv-benchmarks/c/ntdrivers/floppy.i.cil-3.c:2267:15: warning: passing 'UCHAR [256]' to parameter of type 'char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+      sprintf(arcNameBuffer, "%s(%d)disk(%d)fdisk(%d)", "\\ArcName\\multi", fdcInfo.BusNumber,
+              ^~~~~~~~~~~~~
+../sv-benchmarks/c/ntdrivers/floppy.i.cil-3.c:1741:27: note: passing argument to parameter here
+extern int sprintf(char * , char const   *  , ...) ;
+                          ^
+../sv-benchmarks/c/ntdrivers/floppy.i.cil-3.c:2267:77: warning: format specifies type 'int' but the argument has type 'ULONG' (aka 'unsigned long') [-Wformat]
+      sprintf(arcNameBuffer, "%s(%d)disk(%d)fdisk(%d)", "\\ArcName\\multi", fdcInfo.BusNumber,
+                                 ~~                                         ^~~~~~~~~~~~~~~~~
+                                 %lu
+../sv-benchmarks/c/ntdrivers/floppy.i.cil-3.c:2268:15: warning: format specifies type 'int' but the argument has type 'ULONG' (aka 'unsigned long') [-Wformat]
+              fdcInfo.ControllerNumber, fdcInfo.PeripheralNumber);
+              ^~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ntdrivers/floppy.i.cil-3.c:2268:41: warning: format specifies type 'int' but the argument has type 'ULONG' (aka 'unsigned long') [-Wformat]
+              fdcInfo.ControllerNumber, fdcInfo.PeripheralNumber);
+                                        ^~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ntdrivers/floppy.i.cil-3.c:2637:78: warning: incompatible pointer types passing 'PKTHREAD *' (aka 'struct _KTHREAD **') to parameter of type 'PVOID *' (aka 'void **') [-Wincompatible-pointer-types]
+    status = ObReferenceObjectByHandle(threadHandle, 1048576L, (void *)0, 0, & DisketteExtension->FloppyThread,
+                                                                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ntdrivers/floppy.i.cil-3.c:1917:75: note: passing argument to parameter 'Object' here
+                                                                   PVOID *Object ,
+                                                                          ^
+../sv-benchmarks/c/ntdrivers/floppy.i.cil-3.c:3004:68: warning: incompatible pointer types passing 'char [59]' to parameter of type 'PCWSTR' (aka 'const unsigned short *') [-Wincompatible-pointer-types]
+                              ntStatus = RtlQueryRegistryValues(0, "\\\000R\000e\000g\000i\000s\000t\000r\000y\000\\\000M\000a\000c\000h\000i\000n\000e\000\\\000S\000y\000s\000t\000e\000m\000\\\000D\000I\000S\000K\000",
+                                                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ntdrivers/floppy.i.cil-3.c:1752:104: note: passing argument to parameter 'Path' here
+                                                                                                PCWSTR Path ,
+                                                                                                       ^
+../sv-benchmarks/c/ntdrivers/floppy.i.cil-3.c:3064:57: warning: incompatible pointer types passing 'char [59]' to parameter of type 'PCWSTR' (aka 'const unsigned short *') [-Wincompatible-pointer-types]
+                              RtlDeleteRegistryValue(0, "\\\000R\000e\000g\000i\000s\000t\000r\000y\000\\\000M\000a\000c\000h\000i\000n\000e\000\\\000S\000y\000s\000t\000e\000m\000\\\000D\000I\000S\000K\000",
+                                                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ntdrivers/floppy.i.cil-3.c:1757:104: note: passing argument to parameter 'Path' here
+                                                                                                PCWSTR Path ,
+                                                                                                       ^
+../sv-benchmarks/c/ntdrivers/floppy.i.cil-3.c:6071:16: warning: assigning to 'PCHAR' (aka 'char *') from 'PUCHAR' (aka 'unsigned char *') converts between pointers to integer types with different sign [-Wpointer-sign]
+      ioBuffer = DisketteExtension->IoBuffer;
+               ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ntdrivers/floppy.i.cil-3.c:7075:14: warning: incompatible integer to pointer conversion assigning to 'NTSTATUS (*)(PDEVICE_OBJECT, PIRP, PVOID)' (aka 'long (*)(struct _DEVICE_OBJECT *, struct _IRP *, void *)') from 'int' [-Wint-conversion]
+    compFptr = compRegistered;
+             ^ ~~~~~~~~~~~~~~
+../sv-benchmarks/c/ntdrivers/floppy.i.cil-3.c:7076:12: warning: incompatible pointer to integer conversion assigning to 'int' from 'NTSTATUS (*)(PDEVICE_OBJECT, PIRP, PVOID)' (aka 'long (*)(struct _DEVICE_OBJECT *, struct _IRP *, void *)') [-Wint-conversion]
+    pended = compFptr;
+           ^ ~~~~~~~~
+Can't construct rvalue reference to array type during dereference
+(It isn't allowed by C anyway)
+
+
+Unknown

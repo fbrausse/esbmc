@@ -1,0 +1,14 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/ldv-linux-3.14/linux-3.14_linux-drivers-clk1_drivers-net-ethernet-intel-i40e-i40e.cil.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --add-symex-value-sets --no-align-check --k-step 5 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-linux-3.14/linux-3.14_linux-drivers-clk1_drivers-net-ethernet-intel-i40e-i40e.cil.i --64 --witness-output linux-3.14_linux-drivers-clk1_drivers-net-ethernet-intel-i40e-i40e.cil.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --goto-unwind --unlimited-goto-unwind --k-induction --max-inductive-step 3 
+
+../sv-benchmarks/c/ldv-linux-3.14/linux-3.14_linux-drivers-clk1_drivers-net-ethernet-intel-i40e-i40e.cil.i:9867:22: warning: address of stack memory associated with local variable 'buf' returned [-Wreturn-stack-address]
+  return ((char *)(& buf));
+                     ^~~
+
+Unknown

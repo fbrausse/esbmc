@@ -1,0 +1,235 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/openssl/s3_clnt.blast.02.i.cil-1.c
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --add-symex-value-sets --no-align-check --k-step 5 --floatbv --unlimited-k-steps ../sv-benchmarks/c/openssl/s3_clnt.blast.02.i.cil-1.c --32 --witness-output s3_clnt.blast.02.i.cil-1.c.graphml --no-pointer-check --no-bounds-check --interval-analysis --goto-unwind --unlimited-goto-unwind --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/openssl/s3_clnt.blast.02.i.cil-1.c: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.227s
+GOTO program processing time: 0.035s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.653s (600 assignments)
+Slicing time: 0.004s (removed 378 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (222 assignments)
+BMC program time: 0.657s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.709s (600 assignments)
+Slicing time: 0.004s (removed 378 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (222 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.021s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.021s
+Runtime decision procedure: 0.451s
+The forward condition is unable to prove the property
+*** Checking base case, k = 6
+Starting Bounded Model Checking
+Unwinding loop 2  iteration  1   file s3_clnt.blast.02.i.cil-1.c line 1130 function ssl3_connect
+Unwinding loop 2  iteration  2   file s3_clnt.blast.02.i.cil-1.c line 1130 function ssl3_connect
+Unwinding loop 2  iteration  3   file s3_clnt.blast.02.i.cil-1.c line 1130 function ssl3_connect
+Unwinding loop 2  iteration  4   file s3_clnt.blast.02.i.cil-1.c line 1130 function ssl3_connect
+Unwinding loop 2  iteration  5   file s3_clnt.blast.02.i.cil-1.c line 1130 function ssl3_connect
+Not unwinding 
+Symex completed in: 32.903s (5050 assignments)
+Slicing time: 0.222s (removed 3402 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (1648 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.169s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.169s
+Runtime decision procedure: 2.440s
+Building error trace
+
+Counterexample:
+
+State 1 file s3_clnt.blast.02.i.cil-1.c line 1071 function main thread 0
+----------------------------------------------------
+  s->s3 = ( struct ssl3_state_st *)((void *)(&dynamic_62_value))
+
+State 2 file s3_clnt.blast.02.i.cil-1.c line 1072 function main thread 0
+----------------------------------------------------
+  s->ctx = ( struct ssl_ctx_st *)((void *)(&dynamic_63_value))
+
+State 3 file s3_clnt.blast.02.i.cil-1.c line 1073 function main thread 0
+----------------------------------------------------
+  s->session = ( struct ssl_session_st *)((void *)(&dynamic_64_value))
+
+State 4 file s3_clnt.blast.02.i.cil-1.c line 1074 function main thread 0
+----------------------------------------------------
+  s->state = 12292 (00000000 00000000 00110000 00000100)
+
+State 5 file s3_clnt.blast.02.i.cil-1.c line 1075 function main thread 0
+----------------------------------------------------
+  s->version = 768 (00000000 00000000 00000011 00000000)
+
+State 6 file s3_clnt.blast.02.i.cil-1.c line 1093 function ssl3_connect thread 0
+----------------------------------------------------
+  tmp___3 = -2147483648 (10000000 00000000 00000000 00000000)
+
+State 7 file s3_clnt.blast.02.i.cil-1.c line 1094 function ssl3_connect thread 0
+----------------------------------------------------
+  tmp___4 = -1 (11111111 11111111 11111111 11111111)
+
+State 8 file s3_clnt.blast.02.i.cil-1.c line 1095 function ssl3_connect thread 0
+----------------------------------------------------
+  tmp___5 = -1 (11111111 11111111 11111111 11111111)
+
+State 9 file s3_clnt.blast.02.i.cil-1.c line 1096 function ssl3_connect thread 0
+----------------------------------------------------
+  tmp___6 = -1 (11111111 11111111 11111111 11111111)
+
+State 10 file s3_clnt.blast.02.i.cil-1.c line 1097 function ssl3_connect thread 0
+----------------------------------------------------
+  tmp___7 = -2147483648 (10000000 00000000 00000000 00000000)
+
+State 11 file s3_clnt.blast.02.i.cil-1.c line 1098 function ssl3_connect thread 0
+----------------------------------------------------
+  tmp___8 = -2147483648 (10000000 00000000 00000000 00000000)
+
+State 12 file s3_clnt.blast.02.i.cil-1.c line 1099 function ssl3_connect thread 0
+----------------------------------------------------
+  tmp___9 = 0 (00000000 00000000 00000000 00000000)
+
+State 13 file s3_clnt.blast.02.i.cil-1.c line 1104 function ssl3_connect thread 0
+----------------------------------------------------
+  s->hit = 0 (00000000 00000000 00000000 00000000)
+
+State 14 file s3_clnt.blast.02.i.cil-1.c line 1105 function ssl3_connect thread 0
+----------------------------------------------------
+  s->state = 12292 (00000000 00000000 00110000 00000100)
+
+State 15 file s3_clnt.blast.02.i.cil-1.c line 1111 function ssl3_connect thread 0
+----------------------------------------------------
+  cb = dynamic_61_value.info_callback
+
+State 16 file s3_clnt.blast.02.i.cil-1.c line 1119 function ssl3_connect thread 0
+----------------------------------------------------
+  s->in_handshake = dynamic_61_value.in_handshake + 1
+
+State 17 file s3_clnt.blast.02.i.cil-1.c line 1132 function ssl3_connect thread 0
+----------------------------------------------------
+  state = dynamic_61_value.state
+
+State 18 file s3_clnt.blast.02.i.cil-1.c line 1236 function ssl3_connect thread 0
+----------------------------------------------------
+  s->new_session = 1 (00000000 00000000 00000000 00000001)
+
+State 19 file s3_clnt.blast.02.i.cil-1.c line 1237 function ssl3_connect thread 0
+----------------------------------------------------
+  s->state = 4096 (00000000 00000000 00010000 00000000)
+
+State 20 file s3_clnt.blast.02.i.cil-1.c line 1243 function ssl3_connect thread 0
+----------------------------------------------------
+  s->server = 0 (00000000 00000000 00000000 00000000)
+
+State 21 file s3_clnt.blast.02.i.cil-1.c line 1255 function ssl3_connect thread 0
+----------------------------------------------------
+  s->type = 4096 (00000000 00000000 00010000 00000000)
+
+State 22 file s3_clnt.blast.02.i.cil-1.c line 1286 function ssl3_connect thread 0
+----------------------------------------------------
+  s->state = 4368 (00000000 00000000 00010001 00010000)
+
+State 23 file s3_clnt.blast.02.i.cil-1.c line 1288 function ssl3_connect thread 0
+----------------------------------------------------
+  s->init_num = 0 (00000000 00000000 00000000 00000000)
+
+State 24 file s3_clnt.blast.02.i.cil-1.c line 1132 function ssl3_connect thread 0
+----------------------------------------------------
+  state = dynamic_61_value.state
+
+State 25 file s3_clnt.blast.02.i.cil-1.c line 1292 function ssl3_connect thread 0
+----------------------------------------------------
+  s->shutdown = 0 (00000000 00000000 00000000 00000000)
+
+State 26 file s3_clnt.blast.02.i.cil-1.c line 1293 function ssl3_connect thread 0
+----------------------------------------------------
+  ret = 2147483647 (01111111 11111111 11111111 11111111)
+
+State 27 file s3_clnt.blast.02.i.cil-1.c line 1308 function ssl3_connect thread 0
+----------------------------------------------------
+  s->state = 4384 (00000000 00000000 00010001 00100000)
+
+State 28 file s3_clnt.blast.02.i.cil-1.c line 1309 function ssl3_connect thread 0
+----------------------------------------------------
+  s->init_num = 0 (00000000 00000000 00000000 00000000)
+
+State 29 file s3_clnt.blast.02.i.cil-1.c line 1132 function ssl3_connect thread 0
+----------------------------------------------------
+  state = dynamic_61_value.state
+
+State 30 file s3_clnt.blast.02.i.cil-1.c line 1318 function ssl3_connect thread 0
+----------------------------------------------------
+  ret = 2147483647 (01111111 11111111 11111111 11111111)
+
+State 31 file s3_clnt.blast.02.i.cil-1.c line 1332 function ssl3_connect thread 0
+----------------------------------------------------
+  s->state = 4400 (00000000 00000000 00010001 00110000)
+
+State 32 file s3_clnt.blast.02.i.cil-1.c line 1334 function ssl3_connect thread 0
+----------------------------------------------------
+  s->init_num = 0 (00000000 00000000 00000000 00000000)
+
+State 33 file s3_clnt.blast.02.i.cil-1.c line 1132 function ssl3_connect thread 0
+----------------------------------------------------
+  state = dynamic_61_value.state
+
+State 34 file s3_clnt.blast.02.i.cil-1.c line 1341 function ssl3_connect thread 0
+----------------------------------------------------
+  ret = 2147483647 (01111111 11111111 11111111 11111111)
+
+State 35 file s3_clnt.blast.02.i.cil-1.c line 1353 function ssl3_connect thread 0
+----------------------------------------------------
+  s->state = 4416 (00000000 00000000 00010001 01000000)
+
+State 36 file s3_clnt.blast.02.i.cil-1.c line 1354 function ssl3_connect thread 0
+----------------------------------------------------
+  s->init_num = 0 (00000000 00000000 00000000 00000000)
+
+State 37 file s3_clnt.blast.02.i.cil-1.c line 1132 function ssl3_connect thread 0
+----------------------------------------------------
+  state = dynamic_61_value.state
+
+State 38 file s3_clnt.blast.02.i.cil-1.c line 1358 function ssl3_connect thread 0
+----------------------------------------------------
+  ret = 2147483647 (01111111 11111111 11111111 11111111)
+
+State 39 file s3_clnt.blast.02.i.cil-1.c line 1369 function ssl3_connect thread 0
+----------------------------------------------------
+  s->state = 4432 (00000000 00000000 00010001 01010000)
+
+State 40 file s3_clnt.blast.02.i.cil-1.c line 1370 function ssl3_connect thread 0
+----------------------------------------------------
+  s->init_num = 0 (00000000 00000000 00000000 00000000)
+
+State 41 file s3_clnt.blast.02.i.cil-1.c line 1380 function ssl3_connect thread 0
+----------------------------------------------------
+  ret = 0 (00000000 00000000 00000000 00000000)
+
+State 42 file s3_clnt.blast.02.i.cil-1.c line 3 function reach_error thread 0
+----------------------------------------------------
+Violated property:
+  file s3_clnt.blast.02.i.cil-1.c line 3 function reach_error
+  assertion 0
+  0
+
+
+VERIFICATION FAILED
+
+Bug found (k = 6)
+
+
+FALSE_REACH

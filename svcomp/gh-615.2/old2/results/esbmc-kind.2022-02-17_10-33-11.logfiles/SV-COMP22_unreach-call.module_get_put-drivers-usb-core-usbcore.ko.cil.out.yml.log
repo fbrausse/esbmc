@@ -1,0 +1,132 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/ldv-linux-3.0/module_get_put-drivers-usb-core-usbcore.ko.cil.out.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --add-symex-value-sets --no-align-check --k-step 5 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-linux-3.0/module_get_put-drivers-usb-core-usbcore.ko.cil.out.i --64 --witness-output module_get_put-drivers-usb-core-usbcore.ko.cil.out.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --goto-unwind --unlimited-goto-unwind --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 64-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/ldv-linux-3.0/module_get_put-drivers-usb-core-usbcore.ko.cil.out.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 6.823s
+GOTO program processing time: 1.561s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.097s (188 assignments)
+Slicing time: 0.000s (removed 184 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (4 assignments)
+BMC program time: 0.097s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.094s (188 assignments)
+Slicing time: 0.000s (removed 184 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (4 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.000s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.000s
+Runtime decision procedure: 0.001s
+The forward condition is unable to prove the property
+*** Checking base case, k = 6
+Starting Bounded Model Checking
+Unwinding loop 166  iteration  1   file module_get_put-drivers-usb-core-usbcore.ko.cil.out.i line 21595 function main
+No target candidate for function call *file->f_op->open
+Unwinding loop 166  iteration  2   file module_get_put-drivers-usb-core-usbcore.ko.cil.out.i line 21595 function main
+No target candidate for function call *file->f_op->open
+Unwinding loop 166  iteration  3   file module_get_put-drivers-usb-core-usbcore.ko.cil.out.i line 21595 function main
+No target candidate for function call *file->f_op->open
+Unwinding loop 166  iteration  4   file module_get_put-drivers-usb-core-usbcore.ko.cil.out.i line 21595 function main
+No target candidate for function call *file->f_op->open
+Unwinding loop 166  iteration  5   file module_get_put-drivers-usb-core-usbcore.ko.cil.out.i line 21595 function main
+No target candidate for function call *file->f_op->open
+Not unwinding 
+Symex completed in: 0.456s (723 assignments)
+Slicing time: 0.004s (removed 411 assignments)
+Generated 11 VCC(s), 11 remaining after simplification (312 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.020s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.020s
+Runtime decision procedure: 11.970s
+Building error trace
+
+Counterexample:
+
+State 1 file module_get_put-drivers-usb-core-usbcore.ko.cil.out.i line 21592 function main thread 0
+----------------------------------------------------
+  tmp___0 = 1 (00000000 00000000 00000000 00000001)
+
+State 2 file module_get_put-drivers-usb-core-usbcore.ko.cil.out.i line 21563 function main thread 0
+----------------------------------------------------
+  tmp = 0 (00000000 00000000 00000000 00000000)
+
+State 3 file module_get_put-drivers-usb-core-usbcore.ko.cil.out.i line 21223 function usb_open thread 0
+----------------------------------------------------
+  c = ( struct file_operations *)-2147483648
+
+State 4 file module_get_put-drivers-usb-core-usbcore.ko.cil.out.i line 21233 function usb_open thread 0
+----------------------------------------------------
+  new_fops = invalid-object
+
+State 5 file module_get_put-drivers-usb-core-usbcore.ko.cil.out.i line 21245 function usb_open thread 0
+----------------------------------------------------
+  old_fops = INVALID4294967295
+
+State 6 file module_get_put-drivers-usb-core-usbcore.ko.cil.out.i line 4902 function ldv_try_module_get thread 0
+----------------------------------------------------
+  ldv_module_refcounter = 3 (00000000 00000000 00000000 00000011)
+
+State 7 file module_get_put-drivers-usb-core-usbcore.ko.cil.out.i line 4922 function ldv_module_put thread 0
+----------------------------------------------------
+  ldv_module_refcounter = 2 (00000000 00000000 00000000 00000010)
+
+State 8 file module_get_put-drivers-usb-core-usbcore.ko.cil.out.i line 12 function reach_error thread 0
+----------------------------------------------------
+Violated property:
+  file module_get_put-drivers-usb-core-usbcore.ko.cil.out.i line 12 function reach_error
+  assertion 0
+  0
+
+
+VERIFICATION FAILED
+
+Bug found (k = 6)
+
+../sv-benchmarks/c/ldv-linux-3.0/module_get_put-drivers-usb-core-usbcore.ko.cil.out.i:5401:5: warning: ignoring return value of function declared with const attribute [-Wunused-value]
+    __builtin_expect((long )(__ret_warn_on != 0), 0L);
+    ^~~~~~~~~~~~~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.0/module_get_put-drivers-usb-core-usbcore.ko.cil.out.i:5416:5: warning: ignoring return value of function declared with const attribute [-Wunused-value]
+    __builtin_expect((long )(__ret_warn_on___0 != 0), 0L);
+    ^~~~~~~~~~~~~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.0/module_get_put-drivers-usb-core-usbcore.ko.cil.out.i:11837:15: warning: implicitly declaring library function 'memcpy' with type 'void *(void *, const void *, unsigned long)' [-Wimplicit-function-declaration]
+      __ret = memcpy((void *)data, (void const *)(& langids), __len);
+              ^
+../sv-benchmarks/c/ldv-linux-3.0/module_get_put-drivers-usb-core-usbcore.ko.cil.out.i:11837:15: note: include the header <string.h> or explicitly provide a declaration for 'memcpy'
+../sv-benchmarks/c/ldv-linux-3.0/module_get_put-drivers-usb-core-usbcore.ko.cil.out.i:12810:5: warning: ignoring return value of function declared with const attribute [-Wunused-value]
+    __builtin_expect((long )(__ret_warn_once != 0), 0L);
+    ^~~~~~~~~~~~~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.0/module_get_put-drivers-usb-core-usbcore.ko.cil.out.i:21223:5: warning: incompatible integer to pointer conversion assigning to 'const struct file_operations *' from 'int' [-Wint-conversion]
+  c = __VERIFIER_nondet_int();
+    ^ ~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.0/module_get_put-drivers-usb-core-usbcore.ko.cil.out.i:21757:3: warning: ignoring return value of function declared with const attribute [-Wunused-value]
+  __builtin_expect((long )(__ret_warn_on != 0), 0L);
+  ^~~~~~~~~~~~~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.0/module_get_put-drivers-usb-core-usbcore.ko.cil.out.i:24005:7: warning: ignoring return value of function declared with const attribute [-Wunused-value]
+      __builtin_expect((long )(__ret_warn_on != 0), 0L);
+      ^~~~~~~~~~~~~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.0/module_get_put-drivers-usb-core-usbcore.ko.cil.out.i:33018:30: warning: implicit declaration of function 'ldv_xmalloc' is invalid in C99 [-Wimplicit-function-declaration]
+  return *(struct timespec *)ldv_xmalloc(sizeof(struct timespec));
+                             ^
+../sv-benchmarks/c/ldv-linux-3.0/module_get_put-drivers-usb-core-usbcore.ko.cil.out.i:33018:11: warning: cast to 'struct timespec *' from smaller integer type 'int' [-Wint-to-pointer-cast]
+  return *(struct timespec *)ldv_xmalloc(sizeof(struct timespec));
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+FALSE_REACH

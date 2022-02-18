@@ -1,0 +1,221 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/eca-rers2012/Problem11_label31.c
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --add-symex-value-sets --no-align-check --k-step 5 --floatbv --unlimited-k-steps ../sv-benchmarks/c/eca-rers2012/Problem11_label31.c --32 --witness-output Problem11_label31.c.graphml --no-pointer-check --no-bounds-check --interval-analysis --goto-unwind --unlimited-goto-unwind --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/eca-rers2012/Problem11_label31.c: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.242s
+GOTO program processing time: 0.045s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.017s (329 assignments)
+Slicing time: 0.000s (removed 325 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (4 assignments)
+BMC program time: 0.017s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.016s (329 assignments)
+Slicing time: 0.000s (removed 325 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (4 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.000s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.000s
+Runtime decision procedure: 0.002s
+The forward condition is unable to prove the property
+*** Checking base case, k = 6
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file Problem11_label31.c line 1044 function main
+Unwinding loop 1  iteration  2   file Problem11_label31.c line 1044 function main
+Unwinding loop 1  iteration  3   file Problem11_label31.c line 1044 function main
+Unwinding loop 1  iteration  4   file Problem11_label31.c line 1044 function main
+Unwinding loop 1  iteration  5   file Problem11_label31.c line 1044 function main
+Not unwinding 
+Symex completed in: 0.361s (10159 assignments)
+Slicing time: 0.109s (removed 4682 assignments)
+Generated 5 VCC(s), 5 remaining after simplification (5477 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.101s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.101s
+Runtime decision procedure: 217.258s
+Building error trace
+
+Counterexample:
+
+State 1 file Problem11_label31.c line 1048 function main thread 0
+----------------------------------------------------
+  input = 2 (00000000 00000000 00000000 00000010)
+
+State 2 file Problem11_label31.c line 1048 function main thread 0
+----------------------------------------------------
+  input = 1 (00000000 00000000 00000000 00000001)
+
+State 3 file Problem11_label31.c line 803 function calculate_output thread 0
+----------------------------------------------------
+  a29 = 192 (00000000 00000000 00000000 11000000)
+
+State 4 file Problem11_label31.c line 804 function calculate_output thread 0
+----------------------------------------------------
+  a23 = -599908 (11111111 11110110 11011000 10011100)
+
+State 5 file Problem11_label31.c line 1048 function main thread 0
+----------------------------------------------------
+  input = 2 (00000000 00000000 00000000 00000010)
+
+State 6 file Problem11_label31.c line 428 function calculate_output thread 0
+----------------------------------------------------
+  a29 = -554195 (11111111 11110111 10001011 00101101)
+
+State 7 file Problem11_label31.c line 1048 function main thread 0
+----------------------------------------------------
+  input = 4 (00000000 00000000 00000000 00000100)
+
+State 8 file Problem11_label31.c line 251 function calculate_output thread 0
+----------------------------------------------------
+  a29 = 257 (00000000 00000000 00000001 00000001)
+
+State 9 file Problem11_label31.c line 252 function calculate_output thread 0
+----------------------------------------------------
+  a23 = 38 (00000000 00000000 00000000 00100110)
+
+State 10 file Problem11_label31.c line 1048 function main thread 0
+----------------------------------------------------
+  input = 4 (00000000 00000000 00000000 00000100)
+
+State 11 file Problem11_label31.c line 12 function reach_error thread 0
+----------------------------------------------------
+Violated property:
+  file Problem11_label31.c line 12 function reach_error
+  assertion 0
+  0
+
+
+VERIFICATION FAILED
+
+Bug found (k = 6)
+
+../sv-benchmarks/c/eca-rers2012/Problem11_label31.c:488:13: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a8==17)){
+                    ~~^~~~
+../sv-benchmarks/c/eca-rers2012/Problem11_label31.c:488:13: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a8==17)){
+                   ~  ^   ~
+../sv-benchmarks/c/eca-rers2012/Problem11_label31.c:488:13: note: use '=' to turn this equality comparison into an assignment
+                if((a8==17)){
+                      ^~
+                      =
+../sv-benchmarks/c/eca-rers2012/Problem11_label31.c:498:13: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a8==16)){
+                    ~~^~~~
+../sv-benchmarks/c/eca-rers2012/Problem11_label31.c:498:13: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a8==16)){
+                   ~  ^   ~
+../sv-benchmarks/c/eca-rers2012/Problem11_label31.c:498:13: note: use '=' to turn this equality comparison into an assignment
+                if((a8==16)){
+                      ^~
+                      =
+../sv-benchmarks/c/eca-rers2012/Problem11_label31.c:597:13: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a3==1)){
+                    ~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem11_label31.c:597:13: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a3==1)){
+                   ~  ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem11_label31.c:597:13: note: use '=' to turn this equality comparison into an assignment
+                if((a3==1)){
+                      ^~
+                      =
+../sv-benchmarks/c/eca-rers2012/Problem11_label31.c:614:13: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a4==1)){
+                    ~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem11_label31.c:614:13: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a4==1)){
+                   ~  ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem11_label31.c:614:13: note: use '=' to turn this equality comparison into an assignment
+                if((a4==1)){
+                      ^~
+                      =
+../sv-benchmarks/c/eca-rers2012/Problem11_label31.c:728:14: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a25==9)){
+                    ~~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem11_label31.c:728:14: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a25==9)){
+                   ~   ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem11_label31.c:728:14: note: use '=' to turn this equality comparison into an assignment
+                if((a25==9)){
+                       ^~
+                       =
+../sv-benchmarks/c/eca-rers2012/Problem11_label31.c:768:13: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a8==17)){
+                    ~~^~~~
+../sv-benchmarks/c/eca-rers2012/Problem11_label31.c:768:13: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a8==17)){
+                   ~  ^   ~
+../sv-benchmarks/c/eca-rers2012/Problem11_label31.c:768:13: note: use '=' to turn this equality comparison into an assignment
+                if((a8==17)){
+                      ^~
+                      =
+../sv-benchmarks/c/eca-rers2012/Problem11_label31.c:815:13: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a8==15)){
+                    ~~^~~~
+../sv-benchmarks/c/eca-rers2012/Problem11_label31.c:815:13: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a8==15)){
+                   ~  ^   ~
+../sv-benchmarks/c/eca-rers2012/Problem11_label31.c:815:13: note: use '=' to turn this equality comparison into an assignment
+                if((a8==15)){
+                      ^~
+                      =
+../sv-benchmarks/c/eca-rers2012/Problem11_label31.c:876:13: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a4==1)){
+                    ~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem11_label31.c:876:13: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a4==1)){
+                   ~  ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem11_label31.c:876:13: note: use '=' to turn this equality comparison into an assignment
+                if((a4==1)){
+                      ^~
+                      =
+../sv-benchmarks/c/eca-rers2012/Problem11_label31.c:914:13: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a8==16)){
+                    ~~^~~~
+../sv-benchmarks/c/eca-rers2012/Problem11_label31.c:914:13: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a8==16)){
+                   ~  ^   ~
+../sv-benchmarks/c/eca-rers2012/Problem11_label31.c:914:13: note: use '=' to turn this equality comparison into an assignment
+                if((a8==16)){
+                      ^~
+                      =
+../sv-benchmarks/c/eca-rers2012/Problem11_label31.c:926:13: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a3==1)){
+                    ~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem11_label31.c:926:13: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a3==1)){
+                   ~  ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem11_label31.c:926:13: note: use '=' to turn this equality comparison into an assignment
+                if((a3==1)){
+                      ^~
+                      =
+../sv-benchmarks/c/eca-rers2012/Problem11_label31.c:980:13: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a4==1)){
+                    ~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem11_label31.c:980:13: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a4==1)){
+                   ~  ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem11_label31.c:980:13: note: use '=' to turn this equality comparison into an assignment
+                if((a4==1)){
+                      ^~
+                      =
+
+FALSE_REACH

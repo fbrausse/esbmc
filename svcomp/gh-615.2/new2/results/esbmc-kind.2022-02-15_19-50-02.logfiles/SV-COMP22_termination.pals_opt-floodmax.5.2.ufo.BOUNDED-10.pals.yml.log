@@ -1,0 +1,54 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/termination.prp -s kinduction --arch 32 ../sv-benchmarks/c/seq-mthreaded/pals_opt-floodmax.5.2.ufo.BOUNDED-10.pals.c
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --add-symex-value-sets --no-align-check --k-step 5 --floatbv --unlimited-k-steps ../sv-benchmarks/c/seq-mthreaded/pals_opt-floodmax.5.2.ufo.BOUNDED-10.pals.c --32 --witness-output pals_opt-floodmax.5.2.ufo.BOUNDED-10.pals.c.graphml --no-pointer-check --no-bounds-check --no-assertions --termination --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/seq-mthreaded/pals_opt-floodmax.5.2.ufo.BOUNDED-10.pals.c: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.174s
+GOTO program processing time: 0.004s
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.447s (2346 assignments)
+Slicing time: 0.019s (removed 1650 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (696 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.009s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.009s
+Runtime decision procedure: 0.056s
+The forward condition is unable to prove the property
+*** Checking forward condition, k = 6
+Starting Bounded Model Checking
+Unwinding loop 2  iteration  1   file pals_opt-floodmax.5.2.ufo.BOUNDED-10.pals.c line 2876 function main
+Unwinding loop 2  iteration  2   file pals_opt-floodmax.5.2.ufo.BOUNDED-10.pals.c line 2876 function main
+Unwinding loop 2  iteration  3   file pals_opt-floodmax.5.2.ufo.BOUNDED-10.pals.c line 2876 function main
+Unwinding loop 2  iteration  4   file pals_opt-floodmax.5.2.ufo.BOUNDED-10.pals.c line 2876 function main
+Unwinding loop 2  iteration  5   file pals_opt-floodmax.5.2.ufo.BOUNDED-10.pals.c line 2876 function main
+Not unwinding 
+Symex completed in: 0.685s (5331 assignments)
+Slicing time: 0.026s (removed 2675 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (2656 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.032s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.032s
+Runtime decision procedure: 0.052s
+BMC program time: 0.795s
+Building successful trace
+
+VERIFICATION SUCCESSFUL
+
+Solution found by the forward condition; all states are reachable (k = 6
+
+
+TRUE

@@ -1,0 +1,29 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-drivers--gpu--drm--ttm--ttm.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --add-symex-value-sets --no-align-check --k-step 5 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-drivers--gpu--drm--ttm--ttm.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i --64 --witness-output 32_7a_cilled_linux-3.8-rc1-32_7a-drivers--gpu--drm--ttm--ttm.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --goto-unwind --unlimited-goto-unwind --k-induction --max-inductive-step 3 
+
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-drivers--gpu--drm--ttm--ttm.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:9877:73: warning: incompatible integer to pointer conversion initializing 'void *' with an expression of type 'unsigned long' [-Wint-conversion]
+static wait_queue_head_t exit_q = {{{{{{0U}}, 3735899821U, 4294967295U, 0xffffffffffffffffUL, {0, {0, 0}, "exit_q.lock",
+                                                                        ^~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-drivers--gpu--drm--ttm--ttm.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:13539:15: warning: incompatible integer to pointer conversion assigning to 'struct page *' from 'unsigned long' [-Wint-conversion]
+    d_page->p = 0xffffea0000000000UL + (tmp___0 >> 12);
+              ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-drivers--gpu--drm--ttm--ttm.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:15702:28: warning: implicit declaration of function 'ldv_xmalloc' is invalid in C99 [-Wimplicit-function-declaration]
+  return *(struct pgprot *)ldv_xmalloc(sizeof(struct pgprot));
+                           ^
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-drivers--gpu--drm--ttm--ttm.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:15702:11: warning: cast to 'struct pgprot *' from smaller integer type 'int' [-Wint-to-pointer-cast]
+  return *(struct pgprot *)ldv_xmalloc(sizeof(struct pgprot));
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-drivers--gpu--drm--ttm--ttm.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:15793:28: warning: implicit declaration of function 'ldv_xmalloc' is invalid in C99 [-Wimplicit-function-declaration]
+  return *(struct pgprot *)ldv_xmalloc(sizeof(struct pgprot));
+                           ^
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-32_7a-drivers--gpu--drm--ttm--ttm.ko-ldv_main5_sequence_infinite_withcheck_stateful.cil.out.i:15793:11: warning: cast to 'struct pgprot *' from smaller integer type 'int' [-Wint-to-pointer-cast]
+  return *(struct pgprot *)ldv_xmalloc(sizeof(struct pgprot));
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Unknown

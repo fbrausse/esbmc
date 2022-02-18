@@ -1,0 +1,497 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/array-fpi/indp3f.c
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --add-symex-value-sets --no-align-check --k-step 5 --floatbv --unlimited-k-steps ../sv-benchmarks/c/array-fpi/indp3f.c --32 --witness-output indp3f.c.graphml --no-pointer-check --no-bounds-check --interval-analysis --goto-unwind --unlimited-goto-unwind --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/array-fpi/indp3f.c: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.094s
+GOTO program processing time: 0.000s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.085s (90 assignments)
+Slicing time: 0.000s (removed 59 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (31 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.000s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.000s
+Runtime decision procedure: 0.000s
+BMC program time: 0.086s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.027s (89 assignments)
+Slicing time: 0.000s (removed 59 assignments)
+Generated 5 VCC(s), 5 remaining after simplification (30 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.000s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.000s
+Runtime decision procedure: 0.002s
+The forward condition is unable to prove the property
+*** Checking base case, k = 6
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file indp3f.c line 30 function main
+Unwinding loop 1  iteration  2   file indp3f.c line 30 function main
+Unwinding loop 1  iteration  3   file indp3f.c line 30 function main
+Unwinding loop 1  iteration  4   file indp3f.c line 30 function main
+Unwinding loop 1  iteration  5   file indp3f.c line 30 function main
+Not unwinding 
+Unwinding loop 2  iteration  1   file indp3f.c line 35 function main
+Unwinding loop 2  iteration  2   file indp3f.c line 35 function main
+Unwinding loop 2  iteration  3   file indp3f.c line 35 function main
+Unwinding loop 2  iteration  4   file indp3f.c line 35 function main
+Unwinding loop 2  iteration  5   file indp3f.c line 35 function main
+Not unwinding 
+Unwinding loop 3  iteration  1   file indp3f.c line 40 function main
+Unwinding loop 3  iteration  2   file indp3f.c line 40 function main
+Unwinding loop 3  iteration  3   file indp3f.c line 40 function main
+Unwinding loop 3  iteration  4   file indp3f.c line 40 function main
+Unwinding loop 3  iteration  5   file indp3f.c line 40 function main
+Not unwinding 
+Unwinding loop 4  iteration  1   file indp3f.c line 45 function main
+Unwinding loop 4  iteration  2   file indp3f.c line 45 function main
+Unwinding loop 4  iteration  3   file indp3f.c line 45 function main
+Unwinding loop 4  iteration  4   file indp3f.c line 45 function main
+Unwinding loop 4  iteration  5   file indp3f.c line 45 function main
+Not unwinding 
+Unwinding loop 5  iteration  1   file indp3f.c line 50 function main
+Unwinding loop 5  iteration  2   file indp3f.c line 50 function main
+Unwinding loop 5  iteration  3   file indp3f.c line 50 function main
+Unwinding loop 5  iteration  4   file indp3f.c line 50 function main
+Unwinding loop 5  iteration  5   file indp3f.c line 50 function main
+Not unwinding 
+Symex completed in: 0.168s (365 assignments)
+Slicing time: 0.005s (removed 117 assignments)
+Generated 6 VCC(s), 6 remaining after simplification (248 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.005s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.005s
+Runtime decision procedure: 1.017s
+Building error trace
+
+Counterexample:
+
+State 1 file indp3f.c line 23 function main thread 0
+----------------------------------------------------
+  N = 3 (00000000 00000000 00000000 00000011)
+
+State 2 file indp3f.c line 32 function main thread 0
+----------------------------------------------------
+  *(a + i) = 1 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000001)
+
+State 3 file indp3f.c line 32 function main thread 0
+----------------------------------------------------
+  *(a + i) = 1 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000001)
+
+State 4 file indp3f.c line 32 function main thread 0
+----------------------------------------------------
+  *(a + i) = 1 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000001)
+
+State 5 file indp3f.c line 32 function main thread 0
+----------------------------------------------------
+  *(a + i) = 1 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000001)
+
+State 6 file indp3f.c line 32 function main thread 0
+----------------------------------------------------
+  *(a + i) = 1 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000001)
+
+State 7 file indp3f.c line 32 function main thread 0
+----------------------------------------------------
+  *(a + i) = 1 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000001)
+
+State 8 file indp3f.c line 32 function main thread 0
+----------------------------------------------------
+  *(a + i) = 1 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000001)
+
+State 9 file indp3f.c line 32 function main thread 0
+----------------------------------------------------
+  *(a + i) = 1 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000001)
+
+State 10 file indp3f.c line 32 function main thread 0
+----------------------------------------------------
+  *(a + i) = 0 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)
+
+State 11 file indp3f.c line 32 function main thread 0
+----------------------------------------------------
+  *(a + i) = 0 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)
+
+State 12 file indp3f.c line 32 function main thread 0
+----------------------------------------------------
+  *(a + i) = 0 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)
+
+State 13 file indp3f.c line 32 function main thread 0
+----------------------------------------------------
+  *(a + i) = 0 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)
+
+State 14 file indp3f.c line 32 function main thread 0
+----------------------------------------------------
+  *(a + i) = 0 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)
+
+State 15 file indp3f.c line 32 function main thread 0
+----------------------------------------------------
+  *(a + i) = 0 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)
+
+State 16 file indp3f.c line 32 function main thread 0
+----------------------------------------------------
+  *(a + i) = 0 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)
+
+State 17 file indp3f.c line 32 function main thread 0
+----------------------------------------------------
+  *(a + i) = 0 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)
+
+State 18 file indp3f.c line 32 function main thread 0
+----------------------------------------------------
+  *(a + i) = 1 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000001)
+
+State 19 file indp3f.c line 32 function main thread 0
+----------------------------------------------------
+  *(a + i) = 1 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000001)
+
+State 20 file indp3f.c line 32 function main thread 0
+----------------------------------------------------
+  *(a + i) = 1 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000001)
+
+State 21 file indp3f.c line 32 function main thread 0
+----------------------------------------------------
+  *(a + i) = 1 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000001)
+
+State 22 file indp3f.c line 32 function main thread 0
+----------------------------------------------------
+  *(a + i) = 1 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000001)
+
+State 23 file indp3f.c line 32 function main thread 0
+----------------------------------------------------
+  *(a + i) = 1 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000001)
+
+State 24 file indp3f.c line 32 function main thread 0
+----------------------------------------------------
+  *(a + i) = 1 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000001)
+
+State 25 file indp3f.c line 32 function main thread 0
+----------------------------------------------------
+  *(a + i) = 1 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000001)
+
+State 26 file indp3f.c line 37 function main thread 0
+----------------------------------------------------
+  *(a + i) = 1 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000001)
+
+State 27 file indp3f.c line 37 function main thread 0
+----------------------------------------------------
+  *(a + i) = 1 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000001)
+
+State 28 file indp3f.c line 37 function main thread 0
+----------------------------------------------------
+  *(a + i) = 1 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000001)
+
+State 29 file indp3f.c line 37 function main thread 0
+----------------------------------------------------
+  *(a + i) = 1 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000001)
+
+State 30 file indp3f.c line 37 function main thread 0
+----------------------------------------------------
+  *(a + i) = 1 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000001)
+
+State 31 file indp3f.c line 37 function main thread 0
+----------------------------------------------------
+  *(a + i) = 1 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000001)
+
+State 32 file indp3f.c line 37 function main thread 0
+----------------------------------------------------
+  *(a + i) = 1 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000001)
+
+State 33 file indp3f.c line 37 function main thread 0
+----------------------------------------------------
+  *(a + i) = 1 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000001)
+
+State 34 file indp3f.c line 37 function main thread 0
+----------------------------------------------------
+  *(a + i) = 1 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000001)
+
+State 35 file indp3f.c line 37 function main thread 0
+----------------------------------------------------
+  *(a + i) = 1 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000001)
+
+State 36 file indp3f.c line 37 function main thread 0
+----------------------------------------------------
+  *(a + i) = 1 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000001)
+
+State 37 file indp3f.c line 37 function main thread 0
+----------------------------------------------------
+  *(a + i) = 1 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000001)
+
+State 38 file indp3f.c line 37 function main thread 0
+----------------------------------------------------
+  *(a + i) = 1 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000001)
+
+State 39 file indp3f.c line 37 function main thread 0
+----------------------------------------------------
+  *(a + i) = 1 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000001)
+
+State 40 file indp3f.c line 37 function main thread 0
+----------------------------------------------------
+  *(a + i) = 1 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000001)
+
+State 41 file indp3f.c line 37 function main thread 0
+----------------------------------------------------
+  *(a + i) = 1 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000001)
+
+State 42 file indp3f.c line 37 function main thread 0
+----------------------------------------------------
+  *(a + i) = 3 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000011)
+
+State 43 file indp3f.c line 37 function main thread 0
+----------------------------------------------------
+  *(a + i) = 3 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000011)
+
+State 44 file indp3f.c line 37 function main thread 0
+----------------------------------------------------
+  *(a + i) = 3 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000011)
+
+State 45 file indp3f.c line 37 function main thread 0
+----------------------------------------------------
+  *(a + i) = 3 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000011)
+
+State 46 file indp3f.c line 37 function main thread 0
+----------------------------------------------------
+  *(a + i) = 3 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000011)
+
+State 47 file indp3f.c line 37 function main thread 0
+----------------------------------------------------
+  *(a + i) = 3 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000011)
+
+State 48 file indp3f.c line 37 function main thread 0
+----------------------------------------------------
+  *(a + i) = 3 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000011)
+
+State 49 file indp3f.c line 37 function main thread 0
+----------------------------------------------------
+  *(a + i) = 3 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000011)
+
+State 50 file indp3f.c line 42 function main thread 0
+----------------------------------------------------
+  *(a + i) = 1 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000001)
+
+State 51 file indp3f.c line 42 function main thread 0
+----------------------------------------------------
+  *(a + i) = 1 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000001)
+
+State 52 file indp3f.c line 42 function main thread 0
+----------------------------------------------------
+  *(a + i) = 1 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000001)
+
+State 53 file indp3f.c line 42 function main thread 0
+----------------------------------------------------
+  *(a + i) = 1 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000001)
+
+State 54 file indp3f.c line 42 function main thread 0
+----------------------------------------------------
+  *(a + i) = 1 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000001)
+
+State 55 file indp3f.c line 42 function main thread 0
+----------------------------------------------------
+  *(a + i) = 1 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000001)
+
+State 56 file indp3f.c line 42 function main thread 0
+----------------------------------------------------
+  *(a + i) = 1 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000001)
+
+State 57 file indp3f.c line 42 function main thread 0
+----------------------------------------------------
+  *(a + i) = 1 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000001)
+
+State 58 file indp3f.c line 42 function main thread 0
+----------------------------------------------------
+  *(a + i) = 2 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000010)
+
+State 59 file indp3f.c line 42 function main thread 0
+----------------------------------------------------
+  *(a + i) = 2 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000010)
+
+State 60 file indp3f.c line 42 function main thread 0
+----------------------------------------------------
+  *(a + i) = 2 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000010)
+
+State 61 file indp3f.c line 42 function main thread 0
+----------------------------------------------------
+  *(a + i) = 2 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000010)
+
+State 62 file indp3f.c line 42 function main thread 0
+----------------------------------------------------
+  *(a + i) = 2 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000010)
+
+State 63 file indp3f.c line 42 function main thread 0
+----------------------------------------------------
+  *(a + i) = 2 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000010)
+
+State 64 file indp3f.c line 42 function main thread 0
+----------------------------------------------------
+  *(a + i) = 2 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000010)
+
+State 65 file indp3f.c line 42 function main thread 0
+----------------------------------------------------
+  *(a + i) = 2 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000010)
+
+State 66 file indp3f.c line 42 function main thread 0
+----------------------------------------------------
+  *(a + i) = 5 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000101)
+
+State 67 file indp3f.c line 42 function main thread 0
+----------------------------------------------------
+  *(a + i) = 5 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000101)
+
+State 68 file indp3f.c line 42 function main thread 0
+----------------------------------------------------
+  *(a + i) = 5 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000101)
+
+State 69 file indp3f.c line 42 function main thread 0
+----------------------------------------------------
+  *(a + i) = 5 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000101)
+
+State 70 file indp3f.c line 42 function main thread 0
+----------------------------------------------------
+  *(a + i) = 5 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000101)
+
+State 71 file indp3f.c line 42 function main thread 0
+----------------------------------------------------
+  *(a + i) = 5 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000101)
+
+State 72 file indp3f.c line 42 function main thread 0
+----------------------------------------------------
+  *(a + i) = 5 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000101)
+
+State 73 file indp3f.c line 42 function main thread 0
+----------------------------------------------------
+  *(a + i) = 5 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000101)
+
+State 74 file indp3f.c line 47 function main thread 0
+----------------------------------------------------
+  *(a + i) = 0 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)
+
+State 75 file indp3f.c line 47 function main thread 0
+----------------------------------------------------
+  *(a + i) = 0 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)
+
+State 76 file indp3f.c line 47 function main thread 0
+----------------------------------------------------
+  *(a + i) = 0 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)
+
+State 77 file indp3f.c line 47 function main thread 0
+----------------------------------------------------
+  *(a + i) = 0 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)
+
+State 78 file indp3f.c line 47 function main thread 0
+----------------------------------------------------
+  *(a + i) = 0 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)
+
+State 79 file indp3f.c line 47 function main thread 0
+----------------------------------------------------
+  *(a + i) = 0 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)
+
+State 80 file indp3f.c line 47 function main thread 0
+----------------------------------------------------
+  *(a + i) = 0 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)
+
+State 81 file indp3f.c line 47 function main thread 0
+----------------------------------------------------
+  *(a + i) = 0 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)
+
+State 82 file indp3f.c line 47 function main thread 0
+----------------------------------------------------
+  *(a + i) = 1 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000001)
+
+State 83 file indp3f.c line 47 function main thread 0
+----------------------------------------------------
+  *(a + i) = 1 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000001)
+
+State 84 file indp3f.c line 47 function main thread 0
+----------------------------------------------------
+  *(a + i) = 1 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000001)
+
+State 85 file indp3f.c line 47 function main thread 0
+----------------------------------------------------
+  *(a + i) = 1 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000001)
+
+State 86 file indp3f.c line 47 function main thread 0
+----------------------------------------------------
+  *(a + i) = 1 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000001)
+
+State 87 file indp3f.c line 47 function main thread 0
+----------------------------------------------------
+  *(a + i) = 1 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000001)
+
+State 88 file indp3f.c line 47 function main thread 0
+----------------------------------------------------
+  *(a + i) = 1 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000001)
+
+State 89 file indp3f.c line 47 function main thread 0
+----------------------------------------------------
+  *(a + i) = 1 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000001)
+
+State 90 file indp3f.c line 47 function main thread 0
+----------------------------------------------------
+  *(a + i) = 4 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000100)
+
+State 91 file indp3f.c line 47 function main thread 0
+----------------------------------------------------
+  *(a + i) = 4 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000100)
+
+State 92 file indp3f.c line 47 function main thread 0
+----------------------------------------------------
+  *(a + i) = 4 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000100)
+
+State 93 file indp3f.c line 47 function main thread 0
+----------------------------------------------------
+  *(a + i) = 4 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000100)
+
+State 94 file indp3f.c line 47 function main thread 0
+----------------------------------------------------
+  *(a + i) = 4 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000100)
+
+State 95 file indp3f.c line 47 function main thread 0
+----------------------------------------------------
+  *(a + i) = 4 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000100)
+
+State 96 file indp3f.c line 47 function main thread 0
+----------------------------------------------------
+  *(a + i) = 4 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000100)
+
+State 97 file indp3f.c line 47 function main thread 0
+----------------------------------------------------
+  *(a + i) = 4 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000100)
+
+State 98 file indp3f.c line 10 function reach_error thread 0
+----------------------------------------------------
+Violated property:
+  file indp3f.c line 10 function reach_error
+  assertion 0
+  0
+
+
+VERIFICATION FAILED
+
+Bug found (k = 6)
+
+
+FALSE_REACH

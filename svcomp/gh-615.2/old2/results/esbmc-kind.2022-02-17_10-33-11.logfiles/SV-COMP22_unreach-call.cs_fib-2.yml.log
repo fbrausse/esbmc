@@ -1,0 +1,869 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/seq-pthread/cs_fib-2.i
+
+
+--------------------------------------------------------------------------------
+
+
+Found pthread benchmark!
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --add-symex-value-sets --no-align-check --k-step 5 --floatbv --unlimited-k-steps ../sv-benchmarks/c/seq-pthread/cs_fib-2.i --32  --no-por --context-bound 2 --no-goto-merge --witness-output cs_fib-2.i.graphml --no-pointer-check --no-bounds-check --goto-unwind --unlimited-goto-unwind --incremental-bmc 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/seq-pthread/cs_fib-2.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.128s
+GOTO program processing time: 0.002s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.001s (50 assignments)
+Slicing time: 0.000s (removed 46 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (4 assignments)
+BMC program time: 0.001s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.001s (50 assignments)
+Slicing time: 0.000s (removed 46 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (4 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.000s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.000s
+Runtime decision procedure: 0.001s
+The forward condition is unable to prove the property
+*** Checking base case, k = 6
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file cs_fib-2.i line 760 function main
+Unwinding loop 1  iteration  2   file cs_fib-2.i line 760 function main
+Unwinding loop 1  iteration  3   file cs_fib-2.i line 760 function main
+Unwinding loop 2  iteration  1   file cs_fib-2.i line 760 function main
+Unwinding loop 2  iteration  2   file cs_fib-2.i line 760 function main
+Unwinding loop 2  iteration  3   file cs_fib-2.i line 760 function main
+Unwinding loop 3  iteration  1   file cs_fib-2.i line 760 function main
+Unwinding loop 3  iteration  2   file cs_fib-2.i line 760 function main
+Unwinding loop 3  iteration  3   file cs_fib-2.i line 760 function main
+Unwinding loop 4  iteration  1   file cs_fib-2.i line 760 function main
+Unwinding loop 4  iteration  2   file cs_fib-2.i line 760 function main
+Unwinding loop 4  iteration  3   file cs_fib-2.i line 760 function main
+Unwinding loop 5  iteration  1   file cs_fib-2.i line 760 function main
+Unwinding loop 5  iteration  2   file cs_fib-2.i line 760 function main
+Unwinding loop 5  iteration  3   file cs_fib-2.i line 760 function main
+Unwinding loop 6  iteration  1   file cs_fib-2.i line 760 function main
+Unwinding loop 6  iteration  2   file cs_fib-2.i line 760 function main
+Unwinding loop 6  iteration  3   file cs_fib-2.i line 760 function main
+Symex completed in: 0.109s (1425 assignments)
+Slicing time: 0.009s (removed 258 assignments)
+Generated 7 VCC(s), 7 remaining after simplification (1167 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.079s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.079s
+Runtime decision procedure: 38.197s
+Building error trace
+
+Counterexample:
+
+State 1 file cs_fib-2.i line 563 thread 0
+----------------------------------------------------
+  __CS_thread_status = ARRAY_OF(ARRAY_OF(0))
+
+State 2 file cs_fib-2.i line 567 thread 0
+----------------------------------------------------
+  __CS_thread_lockedon = ARRAY_OF(ARRAY_OF(0))
+
+State 3 file cs_fib-2.i line 699 thread 0
+----------------------------------------------------
+  __CS_u = { byte_extract_little_endian(0, 0), byte_extract_little_endian(0, 1), byte_extract_little_endian(0, 2), byte_extract_little_endian(0, 3), byte_extract_little_endian(0, 0), byte_extract_little_endian(0, 1), byte_extract_little_endian(0, 2), byte_extract_little_endian(0, 3), byte_extract_little_endian(0, 0), byte_extract_little_endian(0, 1), byte_extract_little_endian(0, 2), byte_extract_little_endian(0, 3), byte_extract_little_endian(0, 0), byte_extract_little_endian(0, 1), byte_extract_little_endian(0, 2), byte_extract_little_endian(0, 3), byte_extract_little_endian(0, 0), byte_extract_little_endian(0, 1), byte_extract_little_endian(0, 2), byte_extract_little_endian(0, 3), byte_extract_little_endian(0, 0), byte_extract_little_endian(0, 1), byte_extract_little_endian(0, 2), byte_extract_little_endian(0, 3) }
+
+State 6 file cs_fib-2.i line 761 function main thread 0
+----------------------------------------------------
+  __CS_cp___CS_thread_status[0][0] = 0 (00000000)
+
+State 7 file cs_fib-2.i line 762 function main thread 0
+----------------------------------------------------
+  __CS_cp___CS_thread_lockedon[0][0] = (void *)2952790546
+
+State 8 file cs_fib-2.i line 761 function main thread 0
+----------------------------------------------------
+  __CS_cp___CS_thread_status[0][1] = 0 (00000000)
+
+State 9 file cs_fib-2.i line 762 function main thread 0
+----------------------------------------------------
+  __CS_cp___CS_thread_lockedon[0][1] = (void *)291504386
+
+State 10 file cs_fib-2.i line 761 function main thread 0
+----------------------------------------------------
+  __CS_cp___CS_thread_status[0][2] = 0 (00000000)
+
+State 11 file cs_fib-2.i line 762 function main thread 0
+----------------------------------------------------
+  __CS_cp___CS_thread_lockedon[0][2] = (void *)570425346
+
+State 12 file cs_fib-2.i line 764 function main thread 0
+----------------------------------------------------
+  __CS_cp_i[0] = 0 (00000000 00000000 00000000 00000000)
+
+State 13 file cs_fib-2.i line 765 function main thread 0
+----------------------------------------------------
+  __CS_cp_j[0] = 0 (00000000 00000000 00000000 00000000)
+
+State 14 file cs_fib-2.i line 761 function main thread 0
+----------------------------------------------------
+  __CS_cp___CS_thread_status[0][0] = 1 (00000001)
+
+State 15 file cs_fib-2.i line 762 function main thread 0
+----------------------------------------------------
+  __CS_cp___CS_thread_lockedon[0][0] = 0
+
+State 16 file cs_fib-2.i line 761 function main thread 0
+----------------------------------------------------
+  __CS_cp___CS_thread_status[0][1] = 1 (00000001)
+
+State 17 file cs_fib-2.i line 762 function main thread 0
+----------------------------------------------------
+  __CS_cp___CS_thread_lockedon[0][1] = 0
+
+State 18 file cs_fib-2.i line 761 function main thread 0
+----------------------------------------------------
+  __CS_cp___CS_thread_status[0][2] = 1 (00000001)
+
+State 19 file cs_fib-2.i line 762 function main thread 0
+----------------------------------------------------
+  __CS_cp___CS_thread_lockedon[0][2] = 0
+
+State 20 file cs_fib-2.i line 764 function main thread 0
+----------------------------------------------------
+  __CS_cp_i[1] = 2 (00000000 00000000 00000000 00000010)
+
+State 21 file cs_fib-2.i line 765 function main thread 0
+----------------------------------------------------
+  __CS_cp_j[1] = 3 (00000000 00000000 00000000 00000011)
+
+State 22 file cs_fib-2.i line 761 function main thread 0
+----------------------------------------------------
+  __CS_cp___CS_thread_status[0][0] = 1 (00000001)
+
+State 23 file cs_fib-2.i line 762 function main thread 0
+----------------------------------------------------
+  __CS_cp___CS_thread_lockedon[0][0] = 0
+
+State 24 file cs_fib-2.i line 761 function main thread 0
+----------------------------------------------------
+  __CS_cp___CS_thread_status[0][1] = 1 (00000001)
+
+State 25 file cs_fib-2.i line 762 function main thread 0
+----------------------------------------------------
+  __CS_cp___CS_thread_lockedon[0][1] = 0
+
+State 26 file cs_fib-2.i line 761 function main thread 0
+----------------------------------------------------
+  __CS_cp___CS_thread_status[0][2] = 1 (00000001)
+
+State 27 file cs_fib-2.i line 762 function main thread 0
+----------------------------------------------------
+  __CS_cp___CS_thread_lockedon[0][2] = 0
+
+State 28 file cs_fib-2.i line 764 function main thread 0
+----------------------------------------------------
+  __CS_cp_i[2] = 5 (00000000 00000000 00000000 00000101)
+
+State 29 file cs_fib-2.i line 765 function main thread 0
+----------------------------------------------------
+  __CS_cp_j[2] = 8 (00000000 00000000 00000000 00001000)
+
+State 30 file cs_fib-2.i line 761 function main thread 0
+----------------------------------------------------
+  __CS_cp___CS_thread_status[0][0] = 1 (00000001)
+
+State 31 file cs_fib-2.i line 762 function main thread 0
+----------------------------------------------------
+  __CS_cp___CS_thread_lockedon[0][0] = 0
+
+State 32 file cs_fib-2.i line 761 function main thread 0
+----------------------------------------------------
+  __CS_cp___CS_thread_status[0][1] = 1 (00000001)
+
+State 33 file cs_fib-2.i line 762 function main thread 0
+----------------------------------------------------
+  __CS_cp___CS_thread_lockedon[0][1] = 0
+
+State 34 file cs_fib-2.i line 761 function main thread 0
+----------------------------------------------------
+  __CS_cp___CS_thread_status[0][2] = 1 (00000001)
+
+State 35 file cs_fib-2.i line 762 function main thread 0
+----------------------------------------------------
+  __CS_cp___CS_thread_lockedon[0][2] = 0
+
+State 36 file cs_fib-2.i line 764 function main thread 0
+----------------------------------------------------
+  __CS_cp_i[3] = 13 (00000000 00000000 00000000 00001101)
+
+State 37 file cs_fib-2.i line 765 function main thread 0
+----------------------------------------------------
+  __CS_cp_j[3] = 21 (00000000 00000000 00000000 00010101)
+
+State 38 file cs_fib-2.i line 761 function main thread 0
+----------------------------------------------------
+  __CS_cp___CS_thread_status[0][0] = 1 (00000001)
+
+State 39 file cs_fib-2.i line 762 function main thread 0
+----------------------------------------------------
+  __CS_cp___CS_thread_lockedon[0][0] = 0
+
+State 40 file cs_fib-2.i line 761 function main thread 0
+----------------------------------------------------
+  __CS_cp___CS_thread_status[0][1] = 1 (00000001)
+
+State 41 file cs_fib-2.i line 762 function main thread 0
+----------------------------------------------------
+  __CS_cp___CS_thread_lockedon[0][1] = 0
+
+State 42 file cs_fib-2.i line 761 function main thread 0
+----------------------------------------------------
+  __CS_cp___CS_thread_status[0][2] = 1 (00000001)
+
+State 43 file cs_fib-2.i line 762 function main thread 0
+----------------------------------------------------
+  __CS_cp___CS_thread_lockedon[0][2] = 0
+
+State 44 file cs_fib-2.i line 764 function main thread 0
+----------------------------------------------------
+  __CS_cp_i[4] = 34 (00000000 00000000 00000000 00100010)
+
+State 45 file cs_fib-2.i line 765 function main thread 0
+----------------------------------------------------
+  __CS_cp_j[4] = 55 (00000000 00000000 00000000 00110111)
+
+State 46 file cs_fib-2.i line 761 function main thread 0
+----------------------------------------------------
+  __CS_cp___CS_thread_status[0][0] = 1 (00000001)
+
+State 47 file cs_fib-2.i line 762 function main thread 0
+----------------------------------------------------
+  __CS_cp___CS_thread_lockedon[0][0] = 0
+
+State 48 file cs_fib-2.i line 761 function main thread 0
+----------------------------------------------------
+  __CS_cp___CS_thread_status[0][1] = 1 (00000001)
+
+State 49 file cs_fib-2.i line 762 function main thread 0
+----------------------------------------------------
+  __CS_cp___CS_thread_lockedon[0][1] = 0
+
+State 50 file cs_fib-2.i line 761 function main thread 0
+----------------------------------------------------
+  __CS_cp___CS_thread_status[0][2] = 1 (00000001)
+
+State 51 file cs_fib-2.i line 762 function main thread 0
+----------------------------------------------------
+  __CS_cp___CS_thread_lockedon[0][2] = 0
+
+State 52 file cs_fib-2.i line 764 function main thread 0
+----------------------------------------------------
+  __CS_cp_i[5] = 89 (00000000 00000000 00000000 01011001)
+
+State 53 file cs_fib-2.i line 765 function main thread 0
+----------------------------------------------------
+  __CS_cp_j[5] = 144 (00000000 00000000 00000000 10010000)
+
+State 54 file cs_fib-2.i line 767 function main thread 0
+----------------------------------------------------
+  __CS_thread_status[1][0] = 1 (00000001)
+
+State 55 file cs_fib-2.i line 768 function main thread 0
+----------------------------------------------------
+  __CS_thread_status[2][0] = 1 (00000001)
+
+State 56 file cs_fib-2.i line 769 function main thread 0
+----------------------------------------------------
+  __CS_thread_status[3][0] = 1 (00000001)
+
+State 57 file cs_fib-2.i line 770 function main thread 0
+----------------------------------------------------
+  __CS_thread_status[4][0] = 1 (00000001)
+
+State 58 file cs_fib-2.i line 771 function main thread 0
+----------------------------------------------------
+  __CS_thread_status[5][0] = 1 (00000001)
+
+State 59 file cs_fib-2.i line 772 function main thread 0
+----------------------------------------------------
+  __CS_thread_status[1][1] = 1 (00000001)
+
+State 60 file cs_fib-2.i line 773 function main thread 0
+----------------------------------------------------
+  __CS_thread_status[2][1] = 1 (00000001)
+
+State 61 file cs_fib-2.i line 774 function main thread 0
+----------------------------------------------------
+  __CS_thread_status[3][1] = 1 (00000001)
+
+State 62 file cs_fib-2.i line 775 function main thread 0
+----------------------------------------------------
+  __CS_thread_status[4][1] = 1 (00000001)
+
+State 63 file cs_fib-2.i line 776 function main thread 0
+----------------------------------------------------
+  __CS_thread_status[5][1] = 1 (00000001)
+
+State 64 file cs_fib-2.i line 777 function main thread 0
+----------------------------------------------------
+  __CS_thread_status[1][2] = 1 (00000001)
+
+State 65 file cs_fib-2.i line 778 function main thread 0
+----------------------------------------------------
+  __CS_thread_status[2][2] = 1 (00000001)
+
+State 66 file cs_fib-2.i line 779 function main thread 0
+----------------------------------------------------
+  __CS_thread_status[3][2] = 1 (00000001)
+
+State 67 file cs_fib-2.i line 780 function main thread 0
+----------------------------------------------------
+  __CS_thread_status[4][2] = 1 (00000001)
+
+State 68 file cs_fib-2.i line 781 function main thread 0
+----------------------------------------------------
+  __CS_thread_status[5][2] = 1 (00000001)
+
+State 84 file cs_fib-2.i line 797 function main thread 0
+----------------------------------------------------
+  i[1] = { 1, __CS_cp_i?1!0&0#6[1], 0, 0, 0, 0 }
+
+State 85 file cs_fib-2.i line 798 function main thread 0
+----------------------------------------------------
+  i[2] = 5 (00000000 00000000 00000000 00000101)
+
+State 86 file cs_fib-2.i line 799 function main thread 0
+----------------------------------------------------
+  i[3] = 13 (00000000 00000000 00000000 00001101)
+
+State 87 file cs_fib-2.i line 800 function main thread 0
+----------------------------------------------------
+  i[4] = 34 (00000000 00000000 00000000 00100010)
+
+State 88 file cs_fib-2.i line 801 function main thread 0
+----------------------------------------------------
+  i[5] = 89 (00000000 00000000 00000000 01011001)
+
+State 89 file cs_fib-2.i line 802 function main thread 0
+----------------------------------------------------
+  j[1] = { 1, __CS_cp_j?1!0&0#6[1], 0, 0, 0, 0 }
+
+State 90 file cs_fib-2.i line 803 function main thread 0
+----------------------------------------------------
+  j[2] = 8 (00000000 00000000 00000000 00001000)
+
+State 91 file cs_fib-2.i line 804 function main thread 0
+----------------------------------------------------
+  j[3] = 21 (00000000 00000000 00000000 00010101)
+
+State 92 file cs_fib-2.i line 805 function main thread 0
+----------------------------------------------------
+  j[4] = 55 (00000000 00000000 00000000 00110111)
+
+State 93 file cs_fib-2.i line 806 function main thread 0
+----------------------------------------------------
+  j[5] = 144 (00000000 00000000 00000000 10010000)
+
+State 94 file cs_fib-2.i line 810 function main thread 0
+----------------------------------------------------
+  __CS_thread_status[0][0] = 1 (00000001)
+
+State 95 file cs_fib-2.i line 811 function main thread 0
+----------------------------------------------------
+  __CS_thread[0] = &main_thread
+
+State 96 file cs_fib-2.i line 812 function main thread 0
+----------------------------------------------------
+  __CS_thread_allocated[0] = 1 (00000001)
+
+State 97 file cs_fib-2.i line 573 function __CS_cs thread 0
+----------------------------------------------------
+  k = 0 (00000000)
+
+State 98 file cs_fib-2.i line 575 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_round = 0 (00000000)
+
+State 99 file cs_fib-2.i line 576 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_ret = 0 (00000000)
+
+State 100 file cs_fib-2.i line 686 function __CS_pthread_create thread 0
+----------------------------------------------------
+  __CS_thread_allocated[1] = 1 (00000001)
+
+State 101 file cs_fib-2.i line 687 function __CS_pthread_create thread 0
+----------------------------------------------------
+  __CS_thread_born_round[1] = 0 (00000000)
+
+State 102 file cs_fib-2.i line 688 function __CS_pthread_create thread 0
+----------------------------------------------------
+  __CS_thread[1] = &t1
+
+State 103 file cs_fib-2.i line 689 function __CS_pthread_create thread 0
+----------------------------------------------------
+  __CS_thread_status[0][1] = 1 (00000001)
+
+State 104 file cs_fib-2.i line 573 function __CS_cs thread 0
+----------------------------------------------------
+  k = 0 (00000000)
+
+State 105 file cs_fib-2.i line 575 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_round = 0 (00000000)
+
+State 106 file cs_fib-2.i line 576 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_ret = 0 (00000000)
+
+State 107 file cs_fib-2.i line 686 function __CS_pthread_create thread 0
+----------------------------------------------------
+  __CS_thread_allocated[2] = 1 (00000001)
+
+State 108 file cs_fib-2.i line 687 function __CS_pthread_create thread 0
+----------------------------------------------------
+  __CS_thread_born_round[2] = 0 (00000000)
+
+State 109 file cs_fib-2.i line 688 function __CS_pthread_create thread 0
+----------------------------------------------------
+  __CS_thread[2] = &t2
+
+State 110 file cs_fib-2.i line 689 function __CS_pthread_create thread 0
+----------------------------------------------------
+  __CS_thread_status[0][2] = 1 (00000001)
+
+State 111 file cs_fib-2.i line 573 function __CS_cs thread 0
+----------------------------------------------------
+  k = 5 (00000101)
+
+State 112 file cs_fib-2.i line 575 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_round = 5 (00000101)
+
+State 113 file cs_fib-2.i line 576 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_ret = 0 (00000000)
+
+State 114 file cs_fib-2.i line 573 function __CS_cs thread 0
+----------------------------------------------------
+  k = 0 (00000000)
+
+State 115 file cs_fib-2.i line 575 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_round = 5 (00000101)
+
+State 116 file cs_fib-2.i line 576 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_ret = 0 (00000000)
+
+State 117 file cs_fib-2.i line 817 function main thread 0
+----------------------------------------------------
+  __CS_thread_status[0][0] = 2 (00000010)
+
+State 118 file cs_fib-2.i line 820 function main thread 0
+----------------------------------------------------
+  __CS_round = 0 (00000000)
+
+State 119 file cs_fib-2.i line 573 function __CS_cs thread 0
+----------------------------------------------------
+  k = 0 (00000000)
+
+State 120 file cs_fib-2.i line 575 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_round = 0 (00000000)
+
+State 121 file cs_fib-2.i line 576 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_ret = 0 (00000000)
+
+State 122 file cs_fib-2.i line 573 function __CS_cs thread 0
+----------------------------------------------------
+  k = 0 (00000000)
+
+State 123 file cs_fib-2.i line 575 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_round = 0 (00000000)
+
+State 124 file cs_fib-2.i line 576 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_ret = 0 (00000000)
+
+State 125 file cs_fib-2.i line 707 function t1 thread 0
+----------------------------------------------------
+  (( union __CS__u { signed int [6] i; signed int [6] j; } *)(&__CS_u))->i[0] = 1 (00000000 00000000 00000000 00000001)
+
+State 126 file cs_fib-2.i line 707 function t1 thread 0
+----------------------------------------------------
+  (( union __CS__u { signed int [6] i; signed int [6] j; } *)(&__CS_u))->i[0] = 1 (00000000 00000000 00000000 00000001)
+
+State 127 file cs_fib-2.i line 707 function t1 thread 0
+----------------------------------------------------
+  (( union __CS__u { signed int [6] i; signed int [6] j; } *)(&__CS_u))->i[0] = 1 (00000000 00000000 00000000 00000001)
+
+State 128 file cs_fib-2.i line 707 function t1 thread 0
+----------------------------------------------------
+  (( union __CS__u { signed int [6] i; signed int [6] j; } *)(&__CS_u))->i[0] = 1 (00000000 00000000 00000000 00000001)
+
+State 129 file cs_fib-2.i line 708 function t1 thread 0
+----------------------------------------------------
+  i[0] = 2 (00000000 00000000 00000000 00000010)
+
+State 130 file cs_fib-2.i line 573 function __CS_cs thread 0
+----------------------------------------------------
+  k = 1 (00000001)
+
+State 131 file cs_fib-2.i line 575 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_round = 1 (00000001)
+
+State 132 file cs_fib-2.i line 576 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_ret = 0 (00000000)
+
+State 133 file cs_fib-2.i line 707 function t1 thread 0
+----------------------------------------------------
+  (( union __CS__u { signed int [6] i; signed int [6] j; } *)(&__CS_u))->i[1] = 2 (00000000 00000000 00000000 00000010)
+
+State 134 file cs_fib-2.i line 707 function t1 thread 0
+----------------------------------------------------
+  (( union __CS__u { signed int [6] i; signed int [6] j; } *)(&__CS_u))->i[1] = 2 (00000000 00000000 00000000 00000010)
+
+State 135 file cs_fib-2.i line 707 function t1 thread 0
+----------------------------------------------------
+  (( union __CS__u { signed int [6] i; signed int [6] j; } *)(&__CS_u))->i[1] = 2 (00000000 00000000 00000000 00000010)
+
+State 136 file cs_fib-2.i line 707 function t1 thread 0
+----------------------------------------------------
+  (( union __CS__u { signed int [6] i; signed int [6] j; } *)(&__CS_u))->i[1] = 2 (00000000 00000000 00000000 00000010)
+
+State 137 file cs_fib-2.i line 708 function t1 thread 0
+----------------------------------------------------
+  i[1] = 5 (00000000 00000000 00000000 00000101)
+
+State 138 file cs_fib-2.i line 573 function __CS_cs thread 0
+----------------------------------------------------
+  k = 1 (00000001)
+
+State 139 file cs_fib-2.i line 575 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_round = 2 (00000010)
+
+State 140 file cs_fib-2.i line 576 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_ret = 0 (00000000)
+
+State 141 file cs_fib-2.i line 707 function t1 thread 0
+----------------------------------------------------
+  (( union __CS__u { signed int [6] i; signed int [6] j; } *)(&__CS_u))->i[2] = 5 (00000000 00000000 00000000 00000101)
+
+State 142 file cs_fib-2.i line 707 function t1 thread 0
+----------------------------------------------------
+  (( union __CS__u { signed int [6] i; signed int [6] j; } *)(&__CS_u))->i[2] = 5 (00000000 00000000 00000000 00000101)
+
+State 143 file cs_fib-2.i line 707 function t1 thread 0
+----------------------------------------------------
+  (( union __CS__u { signed int [6] i; signed int [6] j; } *)(&__CS_u))->i[2] = 5 (00000000 00000000 00000000 00000101)
+
+State 144 file cs_fib-2.i line 707 function t1 thread 0
+----------------------------------------------------
+  (( union __CS__u { signed int [6] i; signed int [6] j; } *)(&__CS_u))->i[2] = 5 (00000000 00000000 00000000 00000101)
+
+State 145 file cs_fib-2.i line 708 function t1 thread 0
+----------------------------------------------------
+  i[2] = 13 (00000000 00000000 00000000 00001101)
+
+State 146 file cs_fib-2.i line 573 function __CS_cs thread 0
+----------------------------------------------------
+  k = 1 (00000001)
+
+State 147 file cs_fib-2.i line 575 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_round = 3 (00000011)
+
+State 148 file cs_fib-2.i line 576 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_ret = 0 (00000000)
+
+State 149 file cs_fib-2.i line 707 function t1 thread 0
+----------------------------------------------------
+  (( union __CS__u { signed int [6] i; signed int [6] j; } *)(&__CS_u))->i[3] = 13 (00000000 00000000 00000000 00001101)
+
+State 150 file cs_fib-2.i line 707 function t1 thread 0
+----------------------------------------------------
+  (( union __CS__u { signed int [6] i; signed int [6] j; } *)(&__CS_u))->i[3] = 13 (00000000 00000000 00000000 00001101)
+
+State 151 file cs_fib-2.i line 707 function t1 thread 0
+----------------------------------------------------
+  (( union __CS__u { signed int [6] i; signed int [6] j; } *)(&__CS_u))->i[3] = 13 (00000000 00000000 00000000 00001101)
+
+State 152 file cs_fib-2.i line 707 function t1 thread 0
+----------------------------------------------------
+  (( union __CS__u { signed int [6] i; signed int [6] j; } *)(&__CS_u))->i[3] = 13 (00000000 00000000 00000000 00001101)
+
+State 153 file cs_fib-2.i line 708 function t1 thread 0
+----------------------------------------------------
+  i[3] = 34 (00000000 00000000 00000000 00100010)
+
+State 154 file cs_fib-2.i line 573 function __CS_cs thread 0
+----------------------------------------------------
+  k = 1 (00000001)
+
+State 155 file cs_fib-2.i line 575 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_round = 4 (00000100)
+
+State 156 file cs_fib-2.i line 576 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_ret = 0 (00000000)
+
+State 157 file cs_fib-2.i line 707 function t1 thread 0
+----------------------------------------------------
+  (( union __CS__u { signed int [6] i; signed int [6] j; } *)(&__CS_u))->i[4] = 34 (00000000 00000000 00000000 00100010)
+
+State 158 file cs_fib-2.i line 707 function t1 thread 0
+----------------------------------------------------
+  (( union __CS__u { signed int [6] i; signed int [6] j; } *)(&__CS_u))->i[4] = 34 (00000000 00000000 00000000 00100010)
+
+State 159 file cs_fib-2.i line 707 function t1 thread 0
+----------------------------------------------------
+  (( union __CS__u { signed int [6] i; signed int [6] j; } *)(&__CS_u))->i[4] = 34 (00000000 00000000 00000000 00100010)
+
+State 160 file cs_fib-2.i line 707 function t1 thread 0
+----------------------------------------------------
+  (( union __CS__u { signed int [6] i; signed int [6] j; } *)(&__CS_u))->i[4] = 34 (00000000 00000000 00000000 00100010)
+
+State 161 file cs_fib-2.i line 708 function t1 thread 0
+----------------------------------------------------
+  i[4] = 89 (00000000 00000000 00000000 01011001)
+
+State 162 file cs_fib-2.i line 573 function __CS_cs thread 0
+----------------------------------------------------
+  k = 1 (00000001)
+
+State 163 file cs_fib-2.i line 575 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_round = 5 (00000101)
+
+State 164 file cs_fib-2.i line 576 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_ret = 1 (00000001)
+
+State 165 file cs_fib-2.i line 826 function main thread 0
+----------------------------------------------------
+  __CS_round = 0 (00000000)
+
+State 166 file cs_fib-2.i line 573 function __CS_cs thread 0
+----------------------------------------------------
+  k = 0 (00000000)
+
+State 167 file cs_fib-2.i line 575 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_round = 0 (00000000)
+
+State 168 file cs_fib-2.i line 576 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_ret = 0 (00000000)
+
+State 169 file cs_fib-2.i line 573 function __CS_cs thread 0
+----------------------------------------------------
+  k = 0 (00000000)
+
+State 170 file cs_fib-2.i line 575 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_round = 0 (00000000)
+
+State 171 file cs_fib-2.i line 576 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_ret = 0 (00000000)
+
+State 172 file cs_fib-2.i line 722 function t2 thread 0
+----------------------------------------------------
+  (( union __CS__u { signed int [6] i; signed int [6] j; } *)(&__CS_u))->j[0] = 1 (00000000 00000000 00000000 00000001)
+
+State 173 file cs_fib-2.i line 722 function t2 thread 0
+----------------------------------------------------
+  (( union __CS__u { signed int [6] i; signed int [6] j; } *)(&__CS_u))->j[0] = 1 (00000000 00000000 00000000 00000001)
+
+State 174 file cs_fib-2.i line 722 function t2 thread 0
+----------------------------------------------------
+  (( union __CS__u { signed int [6] i; signed int [6] j; } *)(&__CS_u))->j[0] = 1 (00000000 00000000 00000000 00000001)
+
+State 175 file cs_fib-2.i line 722 function t2 thread 0
+----------------------------------------------------
+  (( union __CS__u { signed int [6] i; signed int [6] j; } *)(&__CS_u))->j[0] = 1 (00000000 00000000 00000000 00000001)
+
+State 176 file cs_fib-2.i line 723 function t2 thread 0
+----------------------------------------------------
+  j[0] = 3 (00000000 00000000 00000000 00000011)
+
+State 177 file cs_fib-2.i line 573 function __CS_cs thread 0
+----------------------------------------------------
+  k = 1 (00000001)
+
+State 178 file cs_fib-2.i line 575 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_round = 1 (00000001)
+
+State 179 file cs_fib-2.i line 576 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_ret = 0 (00000000)
+
+State 180 file cs_fib-2.i line 722 function t2 thread 0
+----------------------------------------------------
+  (( union __CS__u { signed int [6] i; signed int [6] j; } *)(&__CS_u))->j[1] = 3 (00000000 00000000 00000000 00000011)
+
+State 181 file cs_fib-2.i line 722 function t2 thread 0
+----------------------------------------------------
+  (( union __CS__u { signed int [6] i; signed int [6] j; } *)(&__CS_u))->j[1] = 3 (00000000 00000000 00000000 00000011)
+
+State 182 file cs_fib-2.i line 722 function t2 thread 0
+----------------------------------------------------
+  (( union __CS__u { signed int [6] i; signed int [6] j; } *)(&__CS_u))->j[1] = 3 (00000000 00000000 00000000 00000011)
+
+State 183 file cs_fib-2.i line 722 function t2 thread 0
+----------------------------------------------------
+  (( union __CS__u { signed int [6] i; signed int [6] j; } *)(&__CS_u))->j[1] = 3 (00000000 00000000 00000000 00000011)
+
+State 184 file cs_fib-2.i line 723 function t2 thread 0
+----------------------------------------------------
+  j[1] = 8 (00000000 00000000 00000000 00001000)
+
+State 185 file cs_fib-2.i line 573 function __CS_cs thread 0
+----------------------------------------------------
+  k = 1 (00000001)
+
+State 186 file cs_fib-2.i line 575 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_round = 2 (00000010)
+
+State 187 file cs_fib-2.i line 576 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_ret = 0 (00000000)
+
+State 188 file cs_fib-2.i line 722 function t2 thread 0
+----------------------------------------------------
+  (( union __CS__u { signed int [6] i; signed int [6] j; } *)(&__CS_u))->j[2] = 8 (00000000 00000000 00000000 00001000)
+
+State 189 file cs_fib-2.i line 722 function t2 thread 0
+----------------------------------------------------
+  (( union __CS__u { signed int [6] i; signed int [6] j; } *)(&__CS_u))->j[2] = 8 (00000000 00000000 00000000 00001000)
+
+State 190 file cs_fib-2.i line 722 function t2 thread 0
+----------------------------------------------------
+  (( union __CS__u { signed int [6] i; signed int [6] j; } *)(&__CS_u))->j[2] = 8 (00000000 00000000 00000000 00001000)
+
+State 191 file cs_fib-2.i line 722 function t2 thread 0
+----------------------------------------------------
+  (( union __CS__u { signed int [6] i; signed int [6] j; } *)(&__CS_u))->j[2] = 8 (00000000 00000000 00000000 00001000)
+
+State 192 file cs_fib-2.i line 723 function t2 thread 0
+----------------------------------------------------
+  j[2] = 21 (00000000 00000000 00000000 00010101)
+
+State 193 file cs_fib-2.i line 573 function __CS_cs thread 0
+----------------------------------------------------
+  k = 1 (00000001)
+
+State 194 file cs_fib-2.i line 575 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_round = 3 (00000011)
+
+State 195 file cs_fib-2.i line 576 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_ret = 0 (00000000)
+
+State 196 file cs_fib-2.i line 722 function t2 thread 0
+----------------------------------------------------
+  (( union __CS__u { signed int [6] i; signed int [6] j; } *)(&__CS_u))->j[3] = 21 (00000000 00000000 00000000 00010101)
+
+State 197 file cs_fib-2.i line 722 function t2 thread 0
+----------------------------------------------------
+  (( union __CS__u { signed int [6] i; signed int [6] j; } *)(&__CS_u))->j[3] = 21 (00000000 00000000 00000000 00010101)
+
+State 198 file cs_fib-2.i line 722 function t2 thread 0
+----------------------------------------------------
+  (( union __CS__u { signed int [6] i; signed int [6] j; } *)(&__CS_u))->j[3] = 21 (00000000 00000000 00000000 00010101)
+
+State 199 file cs_fib-2.i line 722 function t2 thread 0
+----------------------------------------------------
+  (( union __CS__u { signed int [6] i; signed int [6] j; } *)(&__CS_u))->j[3] = 21 (00000000 00000000 00000000 00010101)
+
+State 200 file cs_fib-2.i line 723 function t2 thread 0
+----------------------------------------------------
+  j[3] = 55 (00000000 00000000 00000000 00110111)
+
+State 201 file cs_fib-2.i line 573 function __CS_cs thread 0
+----------------------------------------------------
+  k = 1 (00000001)
+
+State 202 file cs_fib-2.i line 575 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_round = 4 (00000100)
+
+State 203 file cs_fib-2.i line 576 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_ret = 0 (00000000)
+
+State 204 file cs_fib-2.i line 722 function t2 thread 0
+----------------------------------------------------
+  (( union __CS__u { signed int [6] i; signed int [6] j; } *)(&__CS_u))->j[4] = 55 (00000000 00000000 00000000 00110111)
+
+State 205 file cs_fib-2.i line 722 function t2 thread 0
+----------------------------------------------------
+  (( union __CS__u { signed int [6] i; signed int [6] j; } *)(&__CS_u))->j[4] = 55 (00000000 00000000 00000000 00110111)
+
+State 206 file cs_fib-2.i line 722 function t2 thread 0
+----------------------------------------------------
+  (( union __CS__u { signed int [6] i; signed int [6] j; } *)(&__CS_u))->j[4] = 55 (00000000 00000000 00000000 00110111)
+
+State 207 file cs_fib-2.i line 722 function t2 thread 0
+----------------------------------------------------
+  (( union __CS__u { signed int [6] i; signed int [6] j; } *)(&__CS_u))->j[4] = 55 (00000000 00000000 00000000 00110111)
+
+State 208 file cs_fib-2.i line 723 function t2 thread 0
+----------------------------------------------------
+  j[4] = 144 (00000000 00000000 00000000 10010000)
+
+State 209 file cs_fib-2.i line 573 function __CS_cs thread 0
+----------------------------------------------------
+  k = 1 (00000001)
+
+State 210 file cs_fib-2.i line 575 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_round = 5 (00000101)
+
+State 211 file cs_fib-2.i line 576 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_ret = 1 (00000001)
+
+State 212 file cs_fib-2.i line 16 function reach_error thread 0
+----------------------------------------------------
+Violated property:
+  file cs_fib-2.i line 16 function reach_error
+  assertion 0
+  0
+
+
+VERIFICATION FAILED
+
+Bug found (k = 6)
+
+../sv-benchmarks/c/seq-pthread/cs_fib-2.i:714:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+}
+^
+../sv-benchmarks/c/seq-pthread/cs_fib-2.i:729:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+}
+^
+../sv-benchmarks/c/seq-pthread/cs_fib-2.i:752:2: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ }
+ ^
+
+FALSE_REACH

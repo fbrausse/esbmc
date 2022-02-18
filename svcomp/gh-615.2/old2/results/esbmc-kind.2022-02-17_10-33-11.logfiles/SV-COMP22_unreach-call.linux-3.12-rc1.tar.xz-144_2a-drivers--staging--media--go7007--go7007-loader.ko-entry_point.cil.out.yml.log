@@ -1,0 +1,233 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/ldv-linux-3.12-rc1/linux-3.12-rc1.tar.xz-144_2a-drivers--staging--media--go7007--go7007-loader.ko-entry_point.cil.out.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --add-symex-value-sets --no-align-check --k-step 5 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-linux-3.12-rc1/linux-3.12-rc1.tar.xz-144_2a-drivers--staging--media--go7007--go7007-loader.ko-entry_point.cil.out.i --64 --witness-output linux-3.12-rc1.tar.xz-144_2a-drivers--staging--media--go7007--go7007-loader.ko-entry_point.cil.out.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --goto-unwind --unlimited-goto-unwind --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 64-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/ldv-linux-3.12-rc1/linux-3.12-rc1.tar.xz-144_2a-drivers--staging--media--go7007--go7007-loader.ko-entry_point.cil.out.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.429s
+GOTO program processing time: 0.032s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.021s (212 assignments)
+Slicing time: 0.000s (removed 178 assignments)
+Generated 2 VCC(s), 2 remaining after simplification (34 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.003s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.003s
+Runtime decision procedure: 0.000s
+BMC program time: 0.025s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.021s (210 assignments)
+Slicing time: 0.000s (removed 180 assignments)
+Generated 3 VCC(s), 3 remaining after simplification (30 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.002s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.002s
+Runtime decision procedure: 0.130s
+The forward condition is unable to prove the property
+*** Checking base case, k = 6
+Starting Bounded Model Checking
+Unwinding loop 5  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 5  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 5  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 5  iteration  4   file string.c line 272 function __memset_impl
+Unwinding loop 5  iteration  5   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 5  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 5  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 5  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 5  iteration  4   file string.c line 272 function __memset_impl
+Unwinding loop 5  iteration  5   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 3  iteration  1   file linux-3.12-rc1.tar.xz-144_2a-drivers--staging--media--go7007--go7007-loader.ko-entry_point.cil.out.i line 3661 function main
+Unwinding loop 2  iteration  1   file linux-3.12-rc1.tar.xz-144_2a-drivers--staging--media--go7007--go7007-loader.ko-entry_point.cil.out.i line 3459 function go7007_loader_probe
+Unwinding loop 2  iteration  2   file linux-3.12-rc1.tar.xz-144_2a-drivers--staging--media--go7007--go7007-loader.ko-entry_point.cil.out.i line 3459 function go7007_loader_probe
+Unwinding loop 2  iteration  3   file linux-3.12-rc1.tar.xz-144_2a-drivers--staging--media--go7007--go7007-loader.ko-entry_point.cil.out.i line 3459 function go7007_loader_probe
+Unwinding loop 2  iteration  4   file linux-3.12-rc1.tar.xz-144_2a-drivers--staging--media--go7007--go7007-loader.ko-entry_point.cil.out.i line 3459 function go7007_loader_probe
+Unwinding loop 2  iteration  5   file linux-3.12-rc1.tar.xz-144_2a-drivers--staging--media--go7007--go7007-loader.ko-entry_point.cil.out.i line 3459 function go7007_loader_probe
+Not unwinding 
+Unwinding loop 5  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 5  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 5  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 5  iteration  4   file string.c line 272 function __memset_impl
+Unwinding loop 5  iteration  5   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 3  iteration  2   file linux-3.12-rc1.tar.xz-144_2a-drivers--staging--media--go7007--go7007-loader.ko-entry_point.cil.out.i line 3661 function main
+Unwinding loop 2  iteration  1   file linux-3.12-rc1.tar.xz-144_2a-drivers--staging--media--go7007--go7007-loader.ko-entry_point.cil.out.i line 3459 function go7007_loader_probe
+Unwinding loop 2  iteration  2   file linux-3.12-rc1.tar.xz-144_2a-drivers--staging--media--go7007--go7007-loader.ko-entry_point.cil.out.i line 3459 function go7007_loader_probe
+Unwinding loop 2  iteration  3   file linux-3.12-rc1.tar.xz-144_2a-drivers--staging--media--go7007--go7007-loader.ko-entry_point.cil.out.i line 3459 function go7007_loader_probe
+Unwinding loop 2  iteration  4   file linux-3.12-rc1.tar.xz-144_2a-drivers--staging--media--go7007--go7007-loader.ko-entry_point.cil.out.i line 3459 function go7007_loader_probe
+Unwinding loop 2  iteration  5   file linux-3.12-rc1.tar.xz-144_2a-drivers--staging--media--go7007--go7007-loader.ko-entry_point.cil.out.i line 3459 function go7007_loader_probe
+Not unwinding 
+Unwinding loop 5  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 5  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 5  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 5  iteration  4   file string.c line 272 function __memset_impl
+Unwinding loop 5  iteration  5   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 3  iteration  3   file linux-3.12-rc1.tar.xz-144_2a-drivers--staging--media--go7007--go7007-loader.ko-entry_point.cil.out.i line 3661 function main
+Unwinding loop 2  iteration  1   file linux-3.12-rc1.tar.xz-144_2a-drivers--staging--media--go7007--go7007-loader.ko-entry_point.cil.out.i line 3459 function go7007_loader_probe
+Unwinding loop 2  iteration  2   file linux-3.12-rc1.tar.xz-144_2a-drivers--staging--media--go7007--go7007-loader.ko-entry_point.cil.out.i line 3459 function go7007_loader_probe
+Unwinding loop 2  iteration  3   file linux-3.12-rc1.tar.xz-144_2a-drivers--staging--media--go7007--go7007-loader.ko-entry_point.cil.out.i line 3459 function go7007_loader_probe
+Unwinding loop 2  iteration  4   file linux-3.12-rc1.tar.xz-144_2a-drivers--staging--media--go7007--go7007-loader.ko-entry_point.cil.out.i line 3459 function go7007_loader_probe
+Unwinding loop 2  iteration  5   file linux-3.12-rc1.tar.xz-144_2a-drivers--staging--media--go7007--go7007-loader.ko-entry_point.cil.out.i line 3459 function go7007_loader_probe
+Not unwinding 
+Unwinding loop 5  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 5  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 5  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 5  iteration  4   file string.c line 272 function __memset_impl
+Unwinding loop 5  iteration  5   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 3  iteration  4   file linux-3.12-rc1.tar.xz-144_2a-drivers--staging--media--go7007--go7007-loader.ko-entry_point.cil.out.i line 3661 function main
+Unwinding loop 2  iteration  1   file linux-3.12-rc1.tar.xz-144_2a-drivers--staging--media--go7007--go7007-loader.ko-entry_point.cil.out.i line 3459 function go7007_loader_probe
+Unwinding loop 2  iteration  2   file linux-3.12-rc1.tar.xz-144_2a-drivers--staging--media--go7007--go7007-loader.ko-entry_point.cil.out.i line 3459 function go7007_loader_probe
+Unwinding loop 2  iteration  3   file linux-3.12-rc1.tar.xz-144_2a-drivers--staging--media--go7007--go7007-loader.ko-entry_point.cil.out.i line 3459 function go7007_loader_probe
+Unwinding loop 2  iteration  4   file linux-3.12-rc1.tar.xz-144_2a-drivers--staging--media--go7007--go7007-loader.ko-entry_point.cil.out.i line 3459 function go7007_loader_probe
+Unwinding loop 2  iteration  5   file linux-3.12-rc1.tar.xz-144_2a-drivers--staging--media--go7007--go7007-loader.ko-entry_point.cil.out.i line 3459 function go7007_loader_probe
+Not unwinding 
+Unwinding loop 5  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 5  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 5  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 5  iteration  4   file string.c line 272 function __memset_impl
+Unwinding loop 5  iteration  5   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 3  iteration  5   file linux-3.12-rc1.tar.xz-144_2a-drivers--staging--media--go7007--go7007-loader.ko-entry_point.cil.out.i line 3661 function main
+Unwinding loop 2  iteration  1   file linux-3.12-rc1.tar.xz-144_2a-drivers--staging--media--go7007--go7007-loader.ko-entry_point.cil.out.i line 3459 function go7007_loader_probe
+Unwinding loop 2  iteration  2   file linux-3.12-rc1.tar.xz-144_2a-drivers--staging--media--go7007--go7007-loader.ko-entry_point.cil.out.i line 3459 function go7007_loader_probe
+Unwinding loop 2  iteration  3   file linux-3.12-rc1.tar.xz-144_2a-drivers--staging--media--go7007--go7007-loader.ko-entry_point.cil.out.i line 3459 function go7007_loader_probe
+Unwinding loop 2  iteration  4   file linux-3.12-rc1.tar.xz-144_2a-drivers--staging--media--go7007--go7007-loader.ko-entry_point.cil.out.i line 3459 function go7007_loader_probe
+Unwinding loop 2  iteration  5   file linux-3.12-rc1.tar.xz-144_2a-drivers--staging--media--go7007--go7007-loader.ko-entry_point.cil.out.i line 3459 function go7007_loader_probe
+Not unwinding 
+Unwinding loop 5  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 5  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 5  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 5  iteration  4   file string.c line 272 function __memset_impl
+Unwinding loop 5  iteration  5   file string.c line 272 function __memset_impl
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.366s (2584 assignments)
+Slicing time: 0.027s (removed 1816 assignments)
+Generated 3 VCC(s), 3 remaining after simplification (768 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.116s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.116s
+Runtime decision procedure: 16.802s
+Building error trace
+
+Counterexample:
+
+State 1 file linux-3.12-rc1.tar.xz-144_2a-drivers--staging--media--go7007--go7007-loader.ko-entry_point.cil.out.i line 3351 function ldv_zalloc thread 0
+----------------------------------------------------
+  tmp___0 = -1 (11111111 11111111 11111111 11111111)
+
+State 2 file linux-3.12-rc1.tar.xz-144_2a-drivers--staging--media--go7007--go7007-loader.ko-entry_point.cil.out.i line 3591 function main thread 0
+----------------------------------------------------
+  tmp___0 = 1 (00000000 00000000 00000000 00000001)
+
+State 3 file linux-3.12-rc1.tar.xz-144_2a-drivers--staging--media--go7007--go7007-loader.ko-entry_point.cil.out.i line 3625 function main thread 0
+----------------------------------------------------
+  tmp___2 = 1 (00000000 00000000 00000000 00000001)
+
+State 4 file linux-3.12-rc1.tar.xz-144_2a-drivers--staging--media--go7007--go7007-loader.ko-entry_point.cil.out.i line 3697 function ldv_usb_register_driver_4 thread 0
+----------------------------------------------------
+  ldv_func_res = 0 (00000000 00000000 00000000 00000000)
+
+State 5 file linux-3.12-rc1.tar.xz-144_2a-drivers--staging--media--go7007--go7007-loader.ko-entry_point.cil.out.i line 3351 function ldv_zalloc thread 0
+----------------------------------------------------
+  tmp___0 = 31 (00000000 00000000 00000000 00011111)
+
+State 6 file linux-3.12-rc1.tar.xz-144_2a-drivers--staging--media--go7007--go7007-loader.ko-entry_point.cil.out.i line 3591 function main thread 0
+----------------------------------------------------
+  tmp___0 = 1 (00000000 00000000 00000000 00000001)
+
+State 7 file linux-3.12-rc1.tar.xz-144_2a-drivers--staging--media--go7007--go7007-loader.ko-entry_point.cil.out.i line 3625 function main thread 0
+----------------------------------------------------
+  tmp___2 = 1 (00000000 00000000 00000000 00000001)
+
+State 8 file linux-3.12-rc1.tar.xz-144_2a-drivers--staging--media--go7007--go7007-loader.ko-entry_point.cil.out.i line 3591 function main thread 0
+----------------------------------------------------
+  tmp___0 = 1 (00000000 00000000 00000000 00000001)
+
+State 9 file linux-3.12-rc1.tar.xz-144_2a-drivers--staging--media--go7007--go7007-loader.ko-entry_point.cil.out.i line 3625 function main thread 0
+----------------------------------------------------
+  tmp___2 = 1 (00000000 00000000 00000000 00000001)
+
+State 10 file linux-3.12-rc1.tar.xz-144_2a-drivers--staging--media--go7007--go7007-loader.ko-entry_point.cil.out.i line 3591 function main thread 0
+----------------------------------------------------
+  tmp___0 = 1 (00000000 00000000 00000000 00000001)
+
+State 11 file linux-3.12-rc1.tar.xz-144_2a-drivers--staging--media--go7007--go7007-loader.ko-entry_point.cil.out.i line 3625 function main thread 0
+----------------------------------------------------
+  tmp___2 = 1 (00000000 00000000 00000000 00000001)
+
+State 12 file linux-3.12-rc1.tar.xz-144_2a-drivers--staging--media--go7007--go7007-loader.ko-entry_point.cil.out.i line 3591 function main thread 0
+----------------------------------------------------
+  tmp___0 = 0 (00000000 00000000 00000000 00000000)
+
+State 13 file linux-3.12-rc1.tar.xz-144_2a-drivers--staging--media--go7007--go7007-loader.ko-entry_point.cil.out.i line 3595 function main thread 0
+----------------------------------------------------
+  tmp___1 = 0 (00000000 00000000 00000000 00000000)
+
+State 14 file linux-3.12-rc1.tar.xz-144_2a-drivers--staging--media--go7007--go7007-loader.ko-entry_point.cil.out.i line 3334 function ldv_malloc thread 0
+----------------------------------------------------
+  tmp___0 = 0 (00000000 00000000 00000000 00000000)
+
+State 15 file linux-3.12-rc1.tar.xz-144_2a-drivers--staging--media--go7007--go7007-loader.ko-entry_point.cil.out.i line 3820 function ldv_interface_to_usbdev thread 0
+----------------------------------------------------
+  result = &dynamic_88_array[0]
+
+State 16 file linux-3.12-rc1.tar.xz-144_2a-drivers--staging--media--go7007--go7007-loader.ko-entry_point.cil.out.i line 3366 function ldv_undef_int thread 0
+----------------------------------------------------
+  tmp = 1 (00000000 00000000 00000000 00000001)
+
+State 17 file linux-3.12-rc1.tar.xz-144_2a-drivers--staging--media--go7007--go7007-loader.ko-entry_point.cil.out.i line 3835 function ldv_get_dev thread 0
+----------------------------------------------------
+  dev_counter = 1 (00000000 00000000 00000000 00000001)
+
+State 18 file linux-3.12-rc1.tar.xz-144_2a-drivers--staging--media--go7007--go7007-loader.ko-entry_point.cil.out.i line 3836 function ldv_get_dev thread 0
+----------------------------------------------------
+  usb_dev = &dynamic_88_array[0]
+
+State 19 file linux-3.12-rc1.tar.xz-144_2a-drivers--staging--media--go7007--go7007-loader.ko-entry_point.cil.out.i line 3591 function main thread 0
+----------------------------------------------------
+  tmp___0 = 1 (00000000 00000000 00000000 00000001)
+
+State 20 file linux-3.12-rc1.tar.xz-144_2a-drivers--staging--media--go7007--go7007-loader.ko-entry_point.cil.out.i line 3625 function main thread 0
+----------------------------------------------------
+  tmp___2 = 0 (00000000 00000000 00000000 00000000)
+
+State 21 file linux-3.12-rc1.tar.xz-144_2a-drivers--staging--media--go7007--go7007-loader.ko-entry_point.cil.out.i line 12 function reach_error thread 0
+----------------------------------------------------
+Violated property:
+  file linux-3.12-rc1.tar.xz-144_2a-drivers--staging--media--go7007--go7007-loader.ko-entry_point.cil.out.i line 12 function reach_error
+  assertion 0
+  0
+
+
+VERIFICATION FAILED
+
+Bug found (k = 6)
+
+
+FALSE_REACH

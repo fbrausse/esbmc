@@ -1,0 +1,61 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/no-overflow.prp -s kinduction --arch 64 ../sv-benchmarks/c/termination-crafted/4NestedWith3Variables-2.c
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --add-symex-value-sets --no-align-check --k-step 5 --floatbv --unlimited-k-steps ../sv-benchmarks/c/termination-crafted/4NestedWith3Variables-2.c --64 --witness-output 4NestedWith3Variables-2.c.graphml --no-pointer-check --no-bounds-check --overflow-check --no-assertions --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 64-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/termination-crafted/4NestedWith3Variables-2.c: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.069s
+GOTO program processing time: 0.001s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.000s (30 assignments)
+Slicing time: 0.001s (removed 15 assignments)
+Generated 8 VCC(s), 8 remaining after simplification (15 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.000s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.000s
+Runtime decision procedure: 0.081s
+Building error trace
+
+Counterexample:
+
+State 1 file 4NestedWith3Variables-2.c line 19 function main thread 0
+----------------------------------------------------
+  q = 2147221505 (01111111 11111100 00000000 00000001)
+
+State 2 file 4NestedWith3Variables-2.c line 20 function main thread 0
+----------------------------------------------------
+  a = 0 (00000000 00000000 00000000 00000000)
+
+State 3 file 4NestedWith3Variables-2.c line 21 function main thread 0
+----------------------------------------------------
+  b = -2147483646 (10000000 00000000 00000000 00000010)
+
+State 6 file 4NestedWith3Variables-2.c line 24 function main thread 0
+----------------------------------------------------
+  olda = 0 (00000000 00000000 00000000 00000000)
+
+State 8 file 4NestedWith3Variables-2.c line 25 function main thread 0
+----------------------------------------------------
+Violated property:
+  file 4NestedWith3Variables-2.c line 25 function main
+  arithmetic overflow on mul
+  !overflow("*", 4, b)
+
+
+VERIFICATION FAILED
+
+Bug found (k = 1)
+
+
+FALSE_OVERFLOW

@@ -1,0 +1,253 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--isdn--capi--kernelcapi.ko-ldv_main3_sequence_infinite_withcheck_stateful.cil.out.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --add-symex-value-sets --no-align-check --k-step 5 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--isdn--capi--kernelcapi.ko-ldv_main3_sequence_infinite_withcheck_stateful.cil.out.i --64 --witness-output 32_7_cilled_const_ok_linux-32_1-drivers--isdn--capi--kernelcapi.ko-ldv_main3_sequence_infinite_withcheck_stateful.cil.out.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --goto-unwind --unlimited-goto-unwind --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 64-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--isdn--capi--kernelcapi.ko-ldv_main3_sequence_infinite_withcheck_stateful.cil.out.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 1.333s
+GOTO program processing time: 0.113s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+No target candidate for function call *__cil_tmp12
+Not unwinding 
+Symex completed in: 0.188s (1086 assignments)
+Slicing time: 0.003s (removed 1014 assignments)
+Generated 5 VCC(s), 5 remaining after simplification (72 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.003s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.003s
+Runtime decision procedure: 0.135s
+Building error trace
+
+Counterexample:
+
+State 1 file 32_7_cilled_const_ok_linux-32_1-drivers--isdn--capi--kernelcapi.ko-ldv_main3_sequence_infinite_withcheck_stateful.cil.out.i line 13725 function main thread 0
+----------------------------------------------------
+  tmp___0 = -2147483648 (10000000 00000000 00000000 00000000)
+
+State 2 file 32_7_cilled_const_ok_linux-32_1-drivers--isdn--capi--kernelcapi.ko-ldv_main3_sequence_infinite_withcheck_stateful.cil.out.i line 13762 function main thread 0
+----------------------------------------------------
+  tmp = 12 (00000000 00000000 00000000 00001100)
+
+State 3 file 32_7_cilled_const_ok_linux-32_1-drivers--isdn--capi--kernelcapi.ko-ldv_main3_sequence_infinite_withcheck_stateful.cil.out.i line 12 function reach_error thread 0
+----------------------------------------------------
+Violated property:
+  file 32_7_cilled_const_ok_linux-32_1-drivers--isdn--capi--kernelcapi.ko-ldv_main3_sequence_infinite_withcheck_stateful.cil.out.i line 12 function reach_error
+  assertion 0
+  0
+
+
+VERIFICATION FAILED
+
+Bug found (k = 1)
+
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--isdn--capi--kernelcapi.ko-ldv_main3_sequence_infinite_withcheck_stateful.cil.out.i:2810:14: warning: incompatible redeclaration of library function 'sprintf' [-Wincompatible-library-redeclaration]
+extern int ( sprintf)(char *buf , char *fmt , ...) ;
+             ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--isdn--capi--kernelcapi.ko-ldv_main3_sequence_infinite_withcheck_stateful.cil.out.i:2810:14: note: 'sprintf' is a builtin with type 'int (char *, const char *, ...)'
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--isdn--capi--kernelcapi.ko-ldv_main3_sequence_infinite_withcheck_stateful.cil.out.i:2884:14: warning: incompatible redeclaration of library function 'memcpy' [-Wincompatible-library-redeclaration]
+extern void *memcpy(void *to , void *from , size_t len ) ;
+             ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--isdn--capi--kernelcapi.ko-ldv_main3_sequence_infinite_withcheck_stateful.cil.out.i:2884:14: note: 'memcpy' is a builtin with type 'void *(void *, const void *, unsigned long)'
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--isdn--capi--kernelcapi.ko-ldv_main3_sequence_infinite_withcheck_stateful.cil.out.i:2886:12: warning: incompatible redeclaration of library function 'strcmp' [-Wincompatible-library-redeclaration]
+extern int strcmp(char *cs , char *ct ) ;
+           ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--isdn--capi--kernelcapi.ko-ldv_main3_sequence_infinite_withcheck_stateful.cil.out.i:2886:12: note: 'strcmp' is a builtin with type 'int (const char *, const char *)'
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--isdn--capi--kernelcapi.ko-ldv_main3_sequence_infinite_withcheck_stateful.cil.out.i:2887:15: warning: incompatible redeclaration of library function 'strlcpy' [-Wincompatible-library-redeclaration]
+extern size_t strlcpy(char * , char * , size_t ) ;
+              ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--isdn--capi--kernelcapi.ko-ldv_main3_sequence_infinite_withcheck_stateful.cil.out.i:2887:15: note: 'strlcpy' is a builtin with type 'unsigned long (char *, const char *, unsigned long)'
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--isdn--capi--kernelcapi.ko-ldv_main3_sequence_infinite_withcheck_stateful.cil.out.i:4136:16: warning: cast to smaller integer type 'unsigned int' from 'struct work_struct *' [-Wpointer-to-int-cast]
+  __cil_tmp6 = (unsigned int )__cil_tmp5;
+               ^~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--isdn--capi--kernelcapi.ko-ldv_main3_sequence_infinite_withcheck_stateful.cil.out.i:4335:16: warning: cast to smaller integer type 'unsigned int' from 'struct work_struct *' [-Wpointer-to-int-cast]
+  __cil_tmp9 = (unsigned int )__cil_tmp8;
+               ^~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--isdn--capi--kernelcapi.ko-ldv_main3_sequence_infinite_withcheck_stateful.cil.out.i:7016:25: warning: cast to smaller integer type 'unsigned int' from 'struct list_head *' [-Wpointer-to-int-cast]
+          __cil_tmp43 = (unsigned int )__cil_tmp42;
+                        ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--isdn--capi--kernelcapi.ko-ldv_main3_sequence_infinite_withcheck_stateful.cil.out.i:7057:25: warning: cast to smaller integer type 'unsigned int' from 'struct list_head *' [-Wpointer-to-int-cast]
+          __cil_tmp59 = (unsigned int )__cil_tmp58;
+                        ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--isdn--capi--kernelcapi.ko-ldv_main3_sequence_infinite_withcheck_stateful.cil.out.i:7541:23: warning: cast to smaller integer type 'unsigned int' from 'struct list_head *' [-Wpointer-to-int-cast]
+        __cil_tmp52 = (unsigned int )__cil_tmp51;
+                      ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--isdn--capi--kernelcapi.ko-ldv_main3_sequence_infinite_withcheck_stateful.cil.out.i:7933:14: warning: incompatible redeclaration of library function 'vsnprintf' [-Wincompatible-library-redeclaration]
+extern int ( vsnprintf)(char *buf , size_t size , char *fmt ,
+             ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--isdn--capi--kernelcapi.ko-ldv_main3_sequence_infinite_withcheck_stateful.cil.out.i:7933:14: note: 'vsnprintf' is a builtin with type 'int (char *, unsigned long, const char *, struct __va_list_tag *)'
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--isdn--capi--kernelcapi.ko-ldv_main3_sequence_infinite_withcheck_stateful.cil.out.i:7935:14: warning: incompatible redeclaration of library function 'memmove' [-Wincompatible-library-redeclaration]
+extern void *memmove(void *dest , void *src , size_t count ) ;
+             ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--isdn--capi--kernelcapi.ko-ldv_main3_sequence_infinite_withcheck_stateful.cil.out.i:7935:14: note: 'memmove' is a builtin with type 'void *(void *, const void *, unsigned long)'
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--isdn--capi--kernelcapi.ko-ldv_main3_sequence_infinite_withcheck_stateful.cil.out.i:8513:23: warning: cast to smaller integer type 'unsigned int' from '__u32 *' (aka 'unsigned int *') [-Wpointer-to-int-cast]
+        {3, (size_t )((unsigned int )(& ((_cmsg *)0)->adr.adrController))},
+                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--isdn--capi--kernelcapi.ko-ldv_main3_sequence_infinite_withcheck_stateful.cil.out.i:8514:23: warning: cast to smaller integer type 'unsigned int' from '_cmstruct *' (aka 'enum __anonenum__cmstruct_213 *') [-Wpointer-to-int-cast]
+        {5, (size_t )((unsigned int )(& ((_cmsg *)0)->AdditionalInfo))},
+                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--isdn--capi--kernelcapi.ko-ldv_main3_sequence_infinite_withcheck_stateful.cil.out.i:8515:23: warning: cast to smaller integer type 'unsigned int' from '_cstruct *' (aka 'unsigned char **') [-Wpointer-to-int-cast]
+        {4, (size_t )((unsigned int )(& ((_cmsg *)0)->B1configuration))},
+                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--isdn--capi--kernelcapi.ko-ldv_main3_sequence_infinite_withcheck_stateful.cil.out.i:8516:23: warning: cast to smaller integer type 'unsigned int' from '__u16 *' (aka 'unsigned short *') [-Wpointer-to-int-cast]
+        {2, (size_t )((unsigned int )(& ((_cmsg *)0)->B1protocol))},
+                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--isdn--capi--kernelcapi.ko-ldv_main3_sequence_infinite_withcheck_stateful.cil.out.i:8517:23: warning: cast to smaller integer type 'unsigned int' from '_cstruct *' (aka 'unsigned char **') [-Wpointer-to-int-cast]
+        {4, (size_t )((unsigned int )(& ((_cmsg *)0)->B2configuration))},
+                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--isdn--capi--kernelcapi.ko-ldv_main3_sequence_infinite_withcheck_stateful.cil.out.i:8518:23: warning: cast to smaller integer type 'unsigned int' from '__u16 *' (aka 'unsigned short *') [-Wpointer-to-int-cast]
+        {2, (size_t )((unsigned int )(& ((_cmsg *)0)->B2protocol))},
+                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--isdn--capi--kernelcapi.ko-ldv_main3_sequence_infinite_withcheck_stateful.cil.out.i:8519:23: warning: cast to smaller integer type 'unsigned int' from '_cstruct *' (aka 'unsigned char **') [-Wpointer-to-int-cast]
+        {4, (size_t )((unsigned int )(& ((_cmsg *)0)->B3configuration))},
+                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--isdn--capi--kernelcapi.ko-ldv_main3_sequence_infinite_withcheck_stateful.cil.out.i:8520:23: warning: cast to smaller integer type 'unsigned int' from '__u16 *' (aka 'unsigned short *') [-Wpointer-to-int-cast]
+        {2, (size_t )((unsigned int )(& ((_cmsg *)0)->B3protocol))},
+                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--isdn--capi--kernelcapi.ko-ldv_main3_sequence_infinite_withcheck_stateful.cil.out.i:8521:23: warning: cast to smaller integer type 'unsigned int' from '_cstruct *' (aka 'unsigned char **') [-Wpointer-to-int-cast]
+        {4, (size_t )((unsigned int )(& ((_cmsg *)0)->BC))},
+                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--isdn--capi--kernelcapi.ko-ldv_main3_sequence_infinite_withcheck_stateful.cil.out.i:8522:23: warning: cast to smaller integer type 'unsigned int' from '_cstruct *' (aka 'unsigned char **') [-Wpointer-to-int-cast]
+        {4, (size_t )((unsigned int )(& ((_cmsg *)0)->BChannelinformation))},
+                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--isdn--capi--kernelcapi.ko-ldv_main3_sequence_infinite_withcheck_stateful.cil.out.i:8523:23: warning: cast to smaller integer type 'unsigned int' from '_cmstruct *' (aka 'enum __anonenum__cmstruct_213 *') [-Wpointer-to-int-cast]
+        {5, (size_t )((unsigned int )(& ((_cmsg *)0)->BProtocol))},
+                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--isdn--capi--kernelcapi.ko-ldv_main3_sequence_infinite_withcheck_stateful.cil.out.i:8524:23: warning: cast to smaller integer type 'unsigned int' from '_cstruct *' (aka 'unsigned char **') [-Wpointer-to-int-cast]
+        {4, (size_t )((unsigned int )(& ((_cmsg *)0)->CalledPartyNumber))},
+                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--isdn--capi--kernelcapi.ko-ldv_main3_sequence_infinite_withcheck_stateful.cil.out.i:8525:23: warning: cast to smaller integer type 'unsigned int' from '_cstruct *' (aka 'unsigned char **') [-Wpointer-to-int-cast]
+        {4, (size_t )((unsigned int )(& ((_cmsg *)0)->CalledPartySubaddress))},
+                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--isdn--capi--kernelcapi.ko-ldv_main3_sequence_infinite_withcheck_stateful.cil.out.i:8526:23: warning: cast to smaller integer type 'unsigned int' from '_cstruct *' (aka 'unsigned char **') [-Wpointer-to-int-cast]
+        {4, (size_t )((unsigned int )(& ((_cmsg *)0)->CallingPartyNumber))},
+                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--isdn--capi--kernelcapi.ko-ldv_main3_sequence_infinite_withcheck_stateful.cil.out.i:8527:23: warning: cast to smaller integer type 'unsigned int' from '_cstruct *' (aka 'unsigned char **') [-Wpointer-to-int-cast]
+        {4, (size_t )((unsigned int )(& ((_cmsg *)0)->CallingPartySubaddress))},
+                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--isdn--capi--kernelcapi.ko-ldv_main3_sequence_infinite_withcheck_stateful.cil.out.i:8528:23: warning: cast to smaller integer type 'unsigned int' from '__u32 *' (aka 'unsigned int *') [-Wpointer-to-int-cast]
+        {3, (size_t )((unsigned int )(& ((_cmsg *)0)->CIPmask))},
+                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--isdn--capi--kernelcapi.ko-ldv_main3_sequence_infinite_withcheck_stateful.cil.out.i:8529:23: warning: cast to smaller integer type 'unsigned int' from '__u32 *' (aka 'unsigned int *') [-Wpointer-to-int-cast]
+        {3, (size_t )((unsigned int )(& ((_cmsg *)0)->CIPmask2))},
+                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--isdn--capi--kernelcapi.ko-ldv_main3_sequence_infinite_withcheck_stateful.cil.out.i:8530:23: warning: cast to smaller integer type 'unsigned int' from '__u16 *' (aka 'unsigned short *') [-Wpointer-to-int-cast]
+        {2, (size_t )((unsigned int )(& ((_cmsg *)0)->CIPValue))},
+                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--isdn--capi--kernelcapi.ko-ldv_main3_sequence_infinite_withcheck_stateful.cil.out.i:8531:23: warning: cast to smaller integer type 'unsigned int' from '__u32 *' (aka 'unsigned int *') [-Wpointer-to-int-cast]
+        {3, (size_t )((unsigned int )(& ((_cmsg *)0)->Class))},
+                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--isdn--capi--kernelcapi.ko-ldv_main3_sequence_infinite_withcheck_stateful.cil.out.i:8532:23: warning: cast to smaller integer type 'unsigned int' from '_cstruct *' (aka 'unsigned char **') [-Wpointer-to-int-cast]
+        {4, (size_t )((unsigned int )(& ((_cmsg *)0)->ConnectedNumber))},
+                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--isdn--capi--kernelcapi.ko-ldv_main3_sequence_infinite_withcheck_stateful.cil.out.i:8533:23: warning: cast to smaller integer type 'unsigned int' from '_cstruct *' (aka 'unsigned char **') [-Wpointer-to-int-cast]
+        {4, (size_t )((unsigned int )(& ((_cmsg *)0)->ConnectedSubaddress))},
+                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--isdn--capi--kernelcapi.ko-ldv_main3_sequence_infinite_withcheck_stateful.cil.out.i:8534:23: warning: cast to smaller integer type 'unsigned int' from '__u32 *' (aka 'unsigned int *') [-Wpointer-to-int-cast]
+        {3, (size_t )((unsigned int )(& ((_cmsg *)0)->Data))},
+                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--isdn--capi--kernelcapi.ko-ldv_main3_sequence_infinite_withcheck_stateful.cil.out.i:8535:23: warning: cast to smaller integer type 'unsigned int' from '__u16 *' (aka 'unsigned short *') [-Wpointer-to-int-cast]
+        {2, (size_t )((unsigned int )(& ((_cmsg *)0)->DataHandle))},
+                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--isdn--capi--kernelcapi.ko-ldv_main3_sequence_infinite_withcheck_stateful.cil.out.i:8536:23: warning: cast to smaller integer type 'unsigned int' from '__u16 *' (aka 'unsigned short *') [-Wpointer-to-int-cast]
+        {2, (size_t )((unsigned int )(& ((_cmsg *)0)->DataLength))},
+                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--isdn--capi--kernelcapi.ko-ldv_main3_sequence_infinite_withcheck_stateful.cil.out.i:8537:23: warning: cast to smaller integer type 'unsigned int' from '_cstruct *' (aka 'unsigned char **') [-Wpointer-to-int-cast]
+        {4, (size_t )((unsigned int )(& ((_cmsg *)0)->FacilityConfirmationParameter))},
+                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--isdn--capi--kernelcapi.ko-ldv_main3_sequence_infinite_withcheck_stateful.cil.out.i:8539:17: warning: cast to smaller integer type 'unsigned int' from '_cstruct *' (aka 'unsigned char **') [-Wpointer-to-int-cast]
+      (size_t )((unsigned int )(& ((_cmsg *)0)->Facilitydataarray))},
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--isdn--capi--kernelcapi.ko-ldv_main3_sequence_infinite_withcheck_stateful.cil.out.i:8540:23: warning: cast to smaller integer type 'unsigned int' from '_cstruct *' (aka 'unsigned char **') [-Wpointer-to-int-cast]
+        {4, (size_t )((unsigned int )(& ((_cmsg *)0)->FacilityIndicationParameter))},
+                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--isdn--capi--kernelcapi.ko-ldv_main3_sequence_infinite_withcheck_stateful.cil.out.i:8542:17: warning: cast to smaller integer type 'unsigned int' from '_cstruct *' (aka 'unsigned char **') [-Wpointer-to-int-cast]
+      (size_t )((unsigned int )(& ((_cmsg *)0)->FacilityRequestParameter))},
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--isdn--capi--kernelcapi.ko-ldv_main3_sequence_infinite_withcheck_stateful.cil.out.i:8543:23: warning: cast to smaller integer type 'unsigned int' from '__u16 *' (aka 'unsigned short *') [-Wpointer-to-int-cast]
+        {2, (size_t )((unsigned int )(& ((_cmsg *)0)->FacilitySelector))},
+                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--isdn--capi--kernelcapi.ko-ldv_main3_sequence_infinite_withcheck_stateful.cil.out.i:8544:23: warning: cast to smaller integer type 'unsigned int' from '__u16 *' (aka 'unsigned short *') [-Wpointer-to-int-cast]
+        {2, (size_t )((unsigned int )(& ((_cmsg *)0)->Flags))},
+                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--isdn--capi--kernelcapi.ko-ldv_main3_sequence_infinite_withcheck_stateful.cil.out.i:8545:23: warning: cast to smaller integer type 'unsigned int' from '__u32 *' (aka 'unsigned int *') [-Wpointer-to-int-cast]
+        {3, (size_t )((unsigned int )(& ((_cmsg *)0)->Function))},
+                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--isdn--capi--kernelcapi.ko-ldv_main3_sequence_infinite_withcheck_stateful.cil.out.i:8546:23: warning: cast to smaller integer type 'unsigned int' from '_cstruct *' (aka 'unsigned char **') [-Wpointer-to-int-cast]
+        {4, (size_t )((unsigned int )(& ((_cmsg *)0)->HLC))},
+                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--isdn--capi--kernelcapi.ko-ldv_main3_sequence_infinite_withcheck_stateful.cil.out.i:8547:23: warning: cast to smaller integer type 'unsigned int' from '__u16 *' (aka 'unsigned short *') [-Wpointer-to-int-cast]
+        {2, (size_t )((unsigned int )(& ((_cmsg *)0)->Info))},
+                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--isdn--capi--kernelcapi.ko-ldv_main3_sequence_infinite_withcheck_stateful.cil.out.i:8548:23: warning: cast to smaller integer type 'unsigned int' from '_cstruct *' (aka 'unsigned char **') [-Wpointer-to-int-cast]
+        {4, (size_t )((unsigned int )(& ((_cmsg *)0)->InfoElement))},
+                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--isdn--capi--kernelcapi.ko-ldv_main3_sequence_infinite_withcheck_stateful.cil.out.i:8549:23: warning: cast to smaller integer type 'unsigned int' from '__u32 *' (aka 'unsigned int *') [-Wpointer-to-int-cast]
+        {3, (size_t )((unsigned int )(& ((_cmsg *)0)->InfoMask))},
+                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--isdn--capi--kernelcapi.ko-ldv_main3_sequence_infinite_withcheck_stateful.cil.out.i:8550:23: warning: cast to smaller integer type 'unsigned int' from '__u16 *' (aka 'unsigned short *') [-Wpointer-to-int-cast]
+        {2, (size_t )((unsigned int )(& ((_cmsg *)0)->InfoNumber))},
+                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--isdn--capi--kernelcapi.ko-ldv_main3_sequence_infinite_withcheck_stateful.cil.out.i:8551:23: warning: cast to smaller integer type 'unsigned int' from '_cstruct *' (aka 'unsigned char **') [-Wpointer-to-int-cast]
+        {4, (size_t )((unsigned int )(& ((_cmsg *)0)->Keypadfacility))},
+                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--isdn--capi--kernelcapi.ko-ldv_main3_sequence_infinite_withcheck_stateful.cil.out.i:8552:23: warning: cast to smaller integer type 'unsigned int' from '_cstruct *' (aka 'unsigned char **') [-Wpointer-to-int-cast]
+        {4, (size_t )((unsigned int )(& ((_cmsg *)0)->LLC))},
+                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--isdn--capi--kernelcapi.ko-ldv_main3_sequence_infinite_withcheck_stateful.cil.out.i:8553:23: warning: cast to smaller integer type 'unsigned int' from '_cstruct *' (aka 'unsigned char **') [-Wpointer-to-int-cast]
+        {4, (size_t )((unsigned int )(& ((_cmsg *)0)->ManuData))},
+                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--isdn--capi--kernelcapi.ko-ldv_main3_sequence_infinite_withcheck_stateful.cil.out.i:8554:23: warning: cast to smaller integer type 'unsigned int' from '__u32 *' (aka 'unsigned int *') [-Wpointer-to-int-cast]
+        {3, (size_t )((unsigned int )(& ((_cmsg *)0)->ManuID))},
+                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--isdn--capi--kernelcapi.ko-ldv_main3_sequence_infinite_withcheck_stateful.cil.out.i:8555:23: warning: cast to smaller integer type 'unsigned int' from '_cstruct *' (aka 'unsigned char **') [-Wpointer-to-int-cast]
+        {4, (size_t )((unsigned int )(& ((_cmsg *)0)->NCPI))},
+                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--isdn--capi--kernelcapi.ko-ldv_main3_sequence_infinite_withcheck_stateful.cil.out.i:8556:23: warning: cast to smaller integer type 'unsigned int' from '__u16 *' (aka 'unsigned short *') [-Wpointer-to-int-cast]
+        {2, (size_t )((unsigned int )(& ((_cmsg *)0)->Reason))},
+                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--isdn--capi--kernelcapi.ko-ldv_main3_sequence_infinite_withcheck_stateful.cil.out.i:8557:23: warning: cast to smaller integer type 'unsigned int' from '__u16 *' (aka 'unsigned short *') [-Wpointer-to-int-cast]
+        {2, (size_t )((unsigned int )(& ((_cmsg *)0)->Reason_B3))},
+                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--isdn--capi--kernelcapi.ko-ldv_main3_sequence_infinite_withcheck_stateful.cil.out.i:8558:23: warning: cast to smaller integer type 'unsigned int' from '__u16 *' (aka 'unsigned short *') [-Wpointer-to-int-cast]
+        {2, (size_t )((unsigned int )(& ((_cmsg *)0)->Reject))},
+                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--isdn--capi--kernelcapi.ko-ldv_main3_sequence_infinite_withcheck_stateful.cil.out.i:8559:23: warning: cast to smaller integer type 'unsigned int' from '_cstruct *' (aka 'unsigned char **') [-Wpointer-to-int-cast]
+        {4, (size_t )((unsigned int )(& ((_cmsg *)0)->Useruserdata))}};
+                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--isdn--capi--kernelcapi.ko-ldv_main3_sequence_infinite_withcheck_stateful.cil.out.i:12514:19: warning: cast to smaller integer type 'unsigned int' from 'struct list_head *' [-Wpointer-to-int-cast]
+    __cil_tmp11 = (unsigned int )__cil_tmp10;
+                  ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--isdn--capi--kernelcapi.ko-ldv_main3_sequence_infinite_withcheck_stateful.cil.out.i:12610:19: warning: cast to smaller integer type 'unsigned int' from 'struct list_head *' [-Wpointer-to-int-cast]
+    __cil_tmp11 = (unsigned int )__cil_tmp10;
+                  ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--isdn--capi--kernelcapi.ko-ldv_main3_sequence_infinite_withcheck_stateful.cil.out.i:12697:19: warning: cast to smaller integer type 'unsigned int' from 'struct list_head *' [-Wpointer-to-int-cast]
+    __cil_tmp10 = (unsigned int )__cil_tmp9;
+                  ^~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--isdn--capi--kernelcapi.ko-ldv_main3_sequence_infinite_withcheck_stateful.cil.out.i:12769:19: warning: cast to smaller integer type 'unsigned int' from 'struct list_head *' [-Wpointer-to-int-cast]
+    __cil_tmp13 = (unsigned int )__cil_tmp12;
+                  ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--isdn--capi--kernelcapi.ko-ldv_main3_sequence_infinite_withcheck_stateful.cil.out.i:12861:19: warning: cast to smaller integer type 'unsigned int' from 'struct list_head *' [-Wpointer-to-int-cast]
+    __cil_tmp13 = (unsigned int )__cil_tmp12;
+                  ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--isdn--capi--kernelcapi.ko-ldv_main3_sequence_infinite_withcheck_stateful.cil.out.i:13516:16: warning: cast to smaller integer type 'unsigned int' from 'struct list_head *' [-Wpointer-to-int-cast]
+  __cil_tmp9 = (unsigned int )__cil_tmp8;
+               ^~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--isdn--capi--kernelcapi.ko-ldv_main3_sequence_infinite_withcheck_stateful.cil.out.i:13678:1: warning: return type of 'main' is not 'int' [-Wmain-return-type]
+void main(void)
+^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--isdn--capi--kernelcapi.ko-ldv_main3_sequence_infinite_withcheck_stateful.cil.out.i:13678:1: note: change return type to 'int'
+void main(void)
+^~~~
+int
+
+FALSE_REACH

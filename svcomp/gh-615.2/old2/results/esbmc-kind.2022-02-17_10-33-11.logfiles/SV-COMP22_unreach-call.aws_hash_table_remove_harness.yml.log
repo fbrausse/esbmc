@@ -1,0 +1,667 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/aws-c-common/aws_hash_table_remove_harness.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --add-symex-value-sets --no-align-check --k-step 5 --floatbv --unlimited-k-steps ../sv-benchmarks/c/aws-c-common/aws_hash_table_remove_harness.i --64 --witness-output aws_hash_table_remove_harness.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --goto-unwind --unlimited-goto-unwind --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 64-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/aws-c-common/aws_hash_table_remove_harness.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.751s
+GOTO program processing time: 0.041s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.513s (918 assignments)
+Slicing time: 0.032s (removed 188 assignments)
+Generated 29 VCC(s), 29 remaining after simplification (730 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.060s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.060s
+Runtime decision procedure: 179.224s
+Building error trace
+
+Counterexample:
+
+State 1 file aws_hash_table_remove_harness.i line 6810 function ensure_allocated_hash_table thread 0
+----------------------------------------------------
+  num_entries = 4 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000100)
+
+State 2 file aws_hash_table_remove_harness.i line 2500 function aws_mul_u64_checked thread 0
+----------------------------------------------------
+  *r = 96 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 01100000)
+
+State 3 file aws_hash_table_remove_harness.i line 2544 function aws_add_u64_checked thread 0
+----------------------------------------------------
+  *r = 176 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 10110000)
+
+State 4 file aws_hash_table_remove_harness.i line 6817 function ensure_allocated_hash_table thread 0
+----------------------------------------------------
+  impl->size = 4 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000100)
+
+State 5 file aws_hash_table_remove_harness.i line 6817 function ensure_allocated_hash_table thread 0
+----------------------------------------------------
+  impl->size = 4 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000100)
+
+State 6 file aws_hash_table_remove_harness.i line 6817 function ensure_allocated_hash_table thread 0
+----------------------------------------------------
+  impl->size = 4 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000100)
+
+State 7 file aws_hash_table_remove_harness.i line 6817 function ensure_allocated_hash_table thread 0
+----------------------------------------------------
+  impl->size = 4 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000100)
+
+State 8 file aws_hash_table_remove_harness.i line 6817 function ensure_allocated_hash_table thread 0
+----------------------------------------------------
+  impl->size = 4 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000100)
+
+State 9 file aws_hash_table_remove_harness.i line 6817 function ensure_allocated_hash_table thread 0
+----------------------------------------------------
+  impl->size = 4 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000100)
+
+State 10 file aws_hash_table_remove_harness.i line 6817 function ensure_allocated_hash_table thread 0
+----------------------------------------------------
+  impl->size = 4 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000100)
+
+State 11 file aws_hash_table_remove_harness.i line 6817 function ensure_allocated_hash_table thread 0
+----------------------------------------------------
+  impl->size = 4 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000100)
+
+State 12 file aws_hash_table_remove_harness.i line 6818 function ensure_allocated_hash_table thread 0
+----------------------------------------------------
+  map->p_impl = ( struct hash_table_state *)(&dynamic_2_array[0])
+
+State 13 file aws_hash_table_remove_harness.i line 10025 function hash_table_state_is_valid thread 0
+----------------------------------------------------
+  hash_fn_nonnull = (unsigned long int (*)(void *))9223372036854775711 != (unsigned long int (*)(void *))0
+
+State 14 file aws_hash_table_remove_harness.i line 10030 function hash_table_state_is_valid thread 0
+----------------------------------------------------
+  equals_fn_nonnull = (_Bool (*)(void *, void *))9151031864016699131 != (_Bool (*)(void *, void *))0
+
+State 15 file aws_hash_table_remove_harness.i line 10036 function hash_table_state_is_valid thread 0
+----------------------------------------------------
+  alloc_nonnull = ( struct aws_allocator *)8145533982285496320 != ( struct aws_allocator *)0
+
+State 16 file aws_hash_table_remove_harness.i line 10041 function hash_table_state_is_valid thread 0
+----------------------------------------------------
+  size_at_least_two = 1
+
+State 17 file aws_hash_table_remove_harness.i line 10044 function hash_table_state_is_valid thread 0
+----------------------------------------------------
+  size_is_power_of_two = 1
+
+State 18 file aws_hash_table_remove_harness.i line 10047 function hash_table_state_is_valid thread 0
+----------------------------------------------------
+  entry_count = 1
+
+State 19 file aws_hash_table_remove_harness.i line 10050 function hash_table_state_is_valid thread 0
+----------------------------------------------------
+  max_load = 1
+
+State 20 file aws_hash_table_remove_harness.i line 10053 function hash_table_state_is_valid thread 0
+----------------------------------------------------
+  mask_is_correct = 1
+
+State 21 file aws_hash_table_remove_harness.i line 10056 function hash_table_state_is_valid thread 0
+----------------------------------------------------
+  max_load_factor_bounded = (double)4534674464799352422 == 9.500000e-1
+
+State 22 file aws_hash_table_remove_harness.i line 10059 function hash_table_state_is_valid thread 0
+----------------------------------------------------
+  slots_allocated = !(( struct hash_table_entry {  struct aws_hash_element { void * key; void * value; }element; unsigned long int hash_code; } *)((unsigned char *)(&dynamic_2_array[0]) + 80) == 0)
+
+State 23 file aws_hash_table_remove_harness.i line 10136 function aws_hash_table_remove_harness thread 0
+----------------------------------------------------
+  map.p_impl->destroy_key_fn = (unsigned long int)0
+
+State 24 file aws_hash_table_remove_harness.i line 10136 function aws_hash_table_remove_harness thread 0
+----------------------------------------------------
+  map.p_impl->destroy_key_fn = (unsigned long int)0
+
+State 25 file aws_hash_table_remove_harness.i line 10136 function aws_hash_table_remove_harness thread 0
+----------------------------------------------------
+  map.p_impl->destroy_key_fn = (unsigned long int)0
+
+State 26 file aws_hash_table_remove_harness.i line 10136 function aws_hash_table_remove_harness thread 0
+----------------------------------------------------
+  map.p_impl->destroy_key_fn = (unsigned long int)0
+
+State 27 file aws_hash_table_remove_harness.i line 10136 function aws_hash_table_remove_harness thread 0
+----------------------------------------------------
+  map.p_impl->destroy_key_fn = (unsigned long int)0
+
+State 28 file aws_hash_table_remove_harness.i line 10136 function aws_hash_table_remove_harness thread 0
+----------------------------------------------------
+  map.p_impl->destroy_key_fn = (unsigned long int)0
+
+State 29 file aws_hash_table_remove_harness.i line 10136 function aws_hash_table_remove_harness thread 0
+----------------------------------------------------
+  map.p_impl->destroy_key_fn = (unsigned long int)0
+
+State 30 file aws_hash_table_remove_harness.i line 10136 function aws_hash_table_remove_harness thread 0
+----------------------------------------------------
+  map.p_impl->destroy_key_fn = (unsigned long int)0
+
+State 31 file aws_hash_table_remove_harness.i line 10139 function aws_hash_table_remove_harness thread 0
+----------------------------------------------------
+  map.p_impl->destroy_value_fn = (unsigned long int)0
+
+State 32 file aws_hash_table_remove_harness.i line 10139 function aws_hash_table_remove_harness thread 0
+----------------------------------------------------
+  map.p_impl->destroy_value_fn = (unsigned long int)0
+
+State 33 file aws_hash_table_remove_harness.i line 10139 function aws_hash_table_remove_harness thread 0
+----------------------------------------------------
+  map.p_impl->destroy_value_fn = (unsigned long int)0
+
+State 34 file aws_hash_table_remove_harness.i line 10139 function aws_hash_table_remove_harness thread 0
+----------------------------------------------------
+  map.p_impl->destroy_value_fn = (unsigned long int)0
+
+State 35 file aws_hash_table_remove_harness.i line 10139 function aws_hash_table_remove_harness thread 0
+----------------------------------------------------
+  map.p_impl->destroy_value_fn = (unsigned long int)0
+
+State 36 file aws_hash_table_remove_harness.i line 10139 function aws_hash_table_remove_harness thread 0
+----------------------------------------------------
+  map.p_impl->destroy_value_fn = (unsigned long int)0
+
+State 37 file aws_hash_table_remove_harness.i line 10139 function aws_hash_table_remove_harness thread 0
+----------------------------------------------------
+  map.p_impl->destroy_value_fn = (unsigned long int)0
+
+State 38 file aws_hash_table_remove_harness.i line 10139 function aws_hash_table_remove_harness thread 0
+----------------------------------------------------
+  map.p_impl->destroy_value_fn = (unsigned long int)0
+
+State 39 file aws_hash_table_remove_harness.i line 10142 function aws_hash_table_remove_harness thread 0
+----------------------------------------------------
+  map.p_impl->equals_fn = (unsigned long int)(&uninterpreted_equals_assert_inputs_nonnull)
+
+State 40 file aws_hash_table_remove_harness.i line 10142 function aws_hash_table_remove_harness thread 0
+----------------------------------------------------
+  map.p_impl->equals_fn = (unsigned long int)(&uninterpreted_equals_assert_inputs_nonnull)
+
+State 41 file aws_hash_table_remove_harness.i line 10142 function aws_hash_table_remove_harness thread 0
+----------------------------------------------------
+  map.p_impl->equals_fn = (unsigned long int)(&uninterpreted_equals_assert_inputs_nonnull)
+
+State 42 file aws_hash_table_remove_harness.i line 10142 function aws_hash_table_remove_harness thread 0
+----------------------------------------------------
+  map.p_impl->equals_fn = (unsigned long int)(&uninterpreted_equals_assert_inputs_nonnull)
+
+State 43 file aws_hash_table_remove_harness.i line 10142 function aws_hash_table_remove_harness thread 0
+----------------------------------------------------
+  map.p_impl->equals_fn = (unsigned long int)(&uninterpreted_equals_assert_inputs_nonnull)
+
+State 44 file aws_hash_table_remove_harness.i line 10142 function aws_hash_table_remove_harness thread 0
+----------------------------------------------------
+  map.p_impl->equals_fn = (unsigned long int)(&uninterpreted_equals_assert_inputs_nonnull)
+
+State 45 file aws_hash_table_remove_harness.i line 10142 function aws_hash_table_remove_harness thread 0
+----------------------------------------------------
+  map.p_impl->equals_fn = (unsigned long int)(&uninterpreted_equals_assert_inputs_nonnull)
+
+State 46 file aws_hash_table_remove_harness.i line 10142 function aws_hash_table_remove_harness thread 0
+----------------------------------------------------
+  map.p_impl->equals_fn = (unsigned long int)(&uninterpreted_equals_assert_inputs_nonnull)
+
+State 47 file aws_hash_table_remove_harness.i line 10143 function aws_hash_table_remove_harness thread 0
+----------------------------------------------------
+  map.p_impl->hash_fn = (unsigned long int)(&uninterpreted_hasher)
+
+State 48 file aws_hash_table_remove_harness.i line 10143 function aws_hash_table_remove_harness thread 0
+----------------------------------------------------
+  map.p_impl->hash_fn = (unsigned long int)(&uninterpreted_hasher)
+
+State 49 file aws_hash_table_remove_harness.i line 10143 function aws_hash_table_remove_harness thread 0
+----------------------------------------------------
+  map.p_impl->hash_fn = (unsigned long int)(&uninterpreted_hasher)
+
+State 50 file aws_hash_table_remove_harness.i line 10143 function aws_hash_table_remove_harness thread 0
+----------------------------------------------------
+  map.p_impl->hash_fn = (unsigned long int)(&uninterpreted_hasher)
+
+State 51 file aws_hash_table_remove_harness.i line 10143 function aws_hash_table_remove_harness thread 0
+----------------------------------------------------
+  map.p_impl->hash_fn = (unsigned long int)(&uninterpreted_hasher)
+
+State 52 file aws_hash_table_remove_harness.i line 10143 function aws_hash_table_remove_harness thread 0
+----------------------------------------------------
+  map.p_impl->hash_fn = (unsigned long int)(&uninterpreted_hasher)
+
+State 53 file aws_hash_table_remove_harness.i line 10143 function aws_hash_table_remove_harness thread 0
+----------------------------------------------------
+  map.p_impl->hash_fn = (unsigned long int)(&uninterpreted_hasher)
+
+State 54 file aws_hash_table_remove_harness.i line 10143 function aws_hash_table_remove_harness thread 0
+----------------------------------------------------
+  map.p_impl->hash_fn = (unsigned long int)(&uninterpreted_hasher)
+
+State 55 file aws_hash_table_remove_harness.i line 6840 function hash_table_state_has_an_empty_slot thread 0
+----------------------------------------------------
+  empty_slot_idx = 0 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)
+
+State 56 file aws_hash_table_remove_harness.i line 10158 function aws_hash_table_remove_harness thread 0
+----------------------------------------------------
+  old_state = { .hash_fn=(unsigned long int (*)(void *))(CONCAT(CONCAT(CONCAT(CONCAT(CONCAT(CONCAT(CONCAT(symex_dynamic::dynamic_2_array&0#48[7], symex_dynamic::dynamic_2_array&0#48[6]), symex_dynamic::dynamic_2_array&0#48[5]), symex_dynamic::dynamic_2_array&0#48[4]), symex_dynamic::dynamic_2_array&0#48[3]), symex_dynamic::dynamic_2_array&0#48[2]), symex_dynamic::dynamic_2_array&0#48[1]), symex_dynamic::dynamic_2_array&0#48[0])), .equals_fn=(_Bool (*)(void *, void *))(CONCAT(CONCAT(CONCAT(CONCAT(CONCAT(CONCAT(CONCAT(symex_dynamic::dynamic_2_array&0#48[15], symex_dynamic::dynamic_2_array&0#48[14]), symex_dynamic::dynamic_2_array&0#48[13]), symex_dynamic::dynamic_2_array&0#48[12]), symex_dynamic::dynamic_2_array&0#48[11]), symex_dynamic::dynamic_2_array&0#48[10]), symex_dynamic::dynamic_2_array&0#48[9]), symex_dynamic::dynamic_2_array&0#48[8])),
+    .destroy_key_fn=(void (*)(void *))(CONCAT(CONCAT(CONCAT(CONCAT(CONCAT(CONCAT(CONCAT(symex_dynamic::dynamic_2_array&0#48[23], symex_dynamic::dynamic_2_array&0#48[22]), symex_dynamic::dynamic_2_array&0#48[21]), symex_dynamic::dynamic_2_array&0#48[20]), symex_dynamic::dynamic_2_array&0#48[19]), symex_dynamic::dynamic_2_array&0#48[18]), symex_dynamic::dynamic_2_array&0#48[17]), symex_dynamic::dynamic_2_array&0#48[16])),
+    .destroy_value_fn=(void (*)(void *))(CONCAT(CONCAT(CONCAT(CONCAT(CONCAT(CONCAT(CONCAT(symex_dynamic::dynamic_2_array&0#48[31], symex_dynamic::dynamic_2_array&0#48[30]), symex_dynamic::dynamic_2_array&0#48[29]), symex_dynamic::dynamic_2_array&0#48[28]), symex_dynamic::dynamic_2_array&0#48[27]), symex_dynamic::dynamic_2_array&0#48[26]), symex_dynamic::dynamic_2_array&0#48[25]), symex_dynamic::dynamic_2_array&0#48[24])),
+    .alloc=( struct aws_allocator *)(CONCAT(CONCAT(CONCAT(CONCAT(CONCAT(CONCAT(CONCAT(symex_dynamic::dynamic_2_array&0#48[39], symex_dynamic::dynamic_2_array&0#48[38]), symex_dynamic::dynamic_2_array&0#48[37]), symex_dynamic::dynamic_2_array&0#48[36]), symex_dynamic::dynamic_2_array&0#48[35]), symex_dynamic::dynamic_2_array&0#48[34]), symex_dynamic::dynamic_2_array&0#48[33]), symex_dynamic::dynamic_2_array&0#48[32])),
+    .size=CONCAT(CONCAT(CONCAT(CONCAT(CONCAT(CONCAT(CONCAT(symex_dynamic::dynamic_2_array&0#48[47], symex_dynamic::dynamic_2_array&0#48[46]), symex_dynamic::dynamic_2_array&0#48[45]), symex_dynamic::dynamic_2_array&0#48[44]), symex_dynamic::dynamic_2_array&0#48[43]), symex_dynamic::dynamic_2_array&0#48[42]), symex_dynamic::dynamic_2_array&0#48[41]), symex_dynamic::dynamic_2_array&0#48[40]),
+    .entry_count=CONCAT(CONCAT(CONCAT(CONCAT(CONCAT(CONCAT(CONCAT(symex_dynamic::dynamic_2_array&0#48[55], symex_dynamic::dynamic_2_array&0#48[54]), symex_dynamic::dynamic_2_array&0#48[53]), symex_dynamic::dynamic_2_array&0#48[52]), symex_dynamic::dynamic_2_array&0#48[51]), symex_dynamic::dynamic_2_array&0#48[50]), symex_dynamic::dynamic_2_array&0#48[49]), symex_dynamic::dynamic_2_array&0#48[48]),
+    .max_load=CONCAT(CONCAT(CONCAT(CONCAT(CONCAT(CONCAT(CONCAT(symex_dynamic::dynamic_2_array&0#48[63], symex_dynamic::dynamic_2_array&0#48[62]), symex_dynamic::dynamic_2_array&0#48[61]), symex_dynamic::dynamic_2_array&0#48[60]), symex_dynamic::dynamic_2_array&0#48[59]), symex_dynamic::dynamic_2_array&0#48[58]), symex_dynamic::dynamic_2_array&0#48[57]), symex_dynamic::dynamic_2_array&0#48[56]),
+    .mask=CONCAT(CONCAT(CONCAT(CONCAT(CONCAT(CONCAT(CONCAT(symex_dynamic::dynamic_2_array&0#48[71], symex_dynamic::dynamic_2_array&0#48[70]), symex_dynamic::dynamic_2_array&0#48[69]), symex_dynamic::dynamic_2_array&0#48[68]), symex_dynamic::dynamic_2_array&0#48[67]), symex_dynamic::dynamic_2_array&0#48[66]), symex_dynamic::dynamic_2_array&0#48[65]), symex_dynamic::dynamic_2_array&0#48[64]),
+    .max_load_factor=(double)(CONCAT(CONCAT(CONCAT(CONCAT(CONCAT(CONCAT(CONCAT(symex_dynamic::dynamic_2_array&0#48[79], symex_dynamic::dynamic_2_array&0#48[78]), symex_dynamic::dynamic_2_array&0#48[77]), symex_dynamic::dynamic_2_array&0#48[76]), symex_dynamic::dynamic_2_array&0#48[75]), symex_dynamic::dynamic_2_array&0#48[74]), symex_dynamic::dynamic_2_array&0#48[73]), symex_dynamic::dynamic_2_array&0#48[72])),
+    .slots=( struct hash_table_entry {  struct aws_hash_element { void * key; void * value; }element; unsigned long int hash_code; } [1])(CONCAT(CONCAT(CONCAT(CONCAT(CONCAT(CONCAT(CONCAT(CONCAT(CONCAT(CONCAT(CONCAT(CONCAT(CONCAT(CONCAT(CONCAT(CONCAT(CONCAT(CONCAT(CONCAT(CONCAT(CONCAT(CONCAT(CONCAT(symex_dynamic::dynamic_2_array&0#48[663], symex_dynamic::dynamic_2_array&0#48[662]), symex_dynamic::dynamic_2_array&0#48[661]), symex_dynamic::dynamic_2_array&0#48[660]), symex_dynamic::dynamic_2_array&0#48[659]), symex_dynamic::dynamic_2_array&0#48[658]), symex_dynamic::dynamic_2_array&0#48[657]), symex_dynamic::dynamic_2_array&0#48[656]), symex_dynamic::dynamic_2_array&0#48[655]), symex_dynamic::dynamic_2_array&0#48[654]), symex_dynamic::dynamic_2_array&0#48[653]), symex_dynamic::dynamic_2_array&0#48[652]), symex_dynamic::dynamic_2_array&0#48[651]), symex_dynamic::dynamic_2_array&0#48[650]), symex_dynamic::dynamic_2_array&0#48[649]), symex_dynamic::dynamic_2_array&0#48[648]), symex_dynamic::dynamic_2_array&0#48[647]), symex_dynamic::dynamic_2_array&0#48[646]), symex_dynamic::dynamic_2_array&0#48[645]), symex_dynamic::dynamic_2_array&0#48[644]), symex_dynamic::dynamic_2_array&0#48[643]), symex_dynamic::dynamic_2_array&0#48[642]), symex_dynamic::dynamic_2_array&0#48[641]), symex_dynamic::dynamic_2_array&0#48[640])) }
+
+State 57 file aws_hash_table_remove_harness.i line 10025 function hash_table_state_is_valid thread 0
+----------------------------------------------------
+  hash_fn_nonnull = (unsigned long int (*)(void *))3454498408704770048 != (unsigned long int (*)(void *))0
+
+State 58 file aws_hash_table_remove_harness.i line 10030 function hash_table_state_is_valid thread 0
+----------------------------------------------------
+  equals_fn_nonnull = (_Bool (*)(void *, void *))2287546031904063230 != (_Bool (*)(void *, void *))0
+
+State 59 file aws_hash_table_remove_harness.i line 10036 function hash_table_state_is_valid thread 0
+----------------------------------------------------
+  alloc_nonnull = ( struct aws_allocator *)2302824845483638526 != ( struct aws_allocator *)0
+
+State 60 file aws_hash_table_remove_harness.i line 10041 function hash_table_state_is_valid thread 0
+----------------------------------------------------
+  size_at_least_two = 1
+
+State 61 file aws_hash_table_remove_harness.i line 10044 function hash_table_state_is_valid thread 0
+----------------------------------------------------
+  size_is_power_of_two = 1
+
+State 62 file aws_hash_table_remove_harness.i line 10047 function hash_table_state_is_valid thread 0
+----------------------------------------------------
+  entry_count = 1
+
+State 63 file aws_hash_table_remove_harness.i line 10050 function hash_table_state_is_valid thread 0
+----------------------------------------------------
+  max_load = 1
+
+State 64 file aws_hash_table_remove_harness.i line 10053 function hash_table_state_is_valid thread 0
+----------------------------------------------------
+  mask_is_correct = 1
+
+State 65 file aws_hash_table_remove_harness.i line 10056 function hash_table_state_is_valid thread 0
+----------------------------------------------------
+  max_load_factor_bounded = (double)4534674464799352422 == 9.500000e-1
+
+State 66 file aws_hash_table_remove_harness.i line 10059 function hash_table_state_is_valid thread 0
+----------------------------------------------------
+  slots_allocated = !(( struct hash_table_entry {  struct aws_hash_element { void * key; void * value; }element; unsigned long int hash_code; } *)((unsigned char *)(&dynamic_2_array[0]) + 80) == 0)
+
+State 67 file aws_hash_table_remove_harness.i line 10025 function hash_table_state_is_valid thread 0
+----------------------------------------------------
+  hash_fn_nonnull = (unsigned long int (*)(void *))3454498408704770048 != (unsigned long int (*)(void *))0
+
+State 68 file aws_hash_table_remove_harness.i line 10030 function hash_table_state_is_valid thread 0
+----------------------------------------------------
+  equals_fn_nonnull = (_Bool (*)(void *, void *))2287546031904063230 != (_Bool (*)(void *, void *))0
+
+State 69 file aws_hash_table_remove_harness.i line 10036 function hash_table_state_is_valid thread 0
+----------------------------------------------------
+  alloc_nonnull = ( struct aws_allocator *)2302824845483638526 != ( struct aws_allocator *)0
+
+State 70 file aws_hash_table_remove_harness.i line 10041 function hash_table_state_is_valid thread 0
+----------------------------------------------------
+  size_at_least_two = 1
+
+State 71 file aws_hash_table_remove_harness.i line 10044 function hash_table_state_is_valid thread 0
+----------------------------------------------------
+  size_is_power_of_two = 1
+
+State 72 file aws_hash_table_remove_harness.i line 10047 function hash_table_state_is_valid thread 0
+----------------------------------------------------
+  entry_count = 1
+
+State 73 file aws_hash_table_remove_harness.i line 10050 function hash_table_state_is_valid thread 0
+----------------------------------------------------
+  max_load = 1
+
+State 74 file aws_hash_table_remove_harness.i line 10053 function hash_table_state_is_valid thread 0
+----------------------------------------------------
+  mask_is_correct = 1
+
+State 75 file aws_hash_table_remove_harness.i line 10056 function hash_table_state_is_valid thread 0
+----------------------------------------------------
+  max_load_factor_bounded = (double)4534674464799352422 == 9.500000e-1
+
+State 76 file aws_hash_table_remove_harness.i line 10059 function hash_table_state_is_valid thread 0
+----------------------------------------------------
+  slots_allocated = !(( struct hash_table_entry {  struct aws_hash_element { void * key; void * value; }element; unsigned long int hash_code; } *)((unsigned char *)(&dynamic_2_array[0]) + 80) == 0)
+
+State 77 file aws_hash_table_remove_harness.i line 9677 function aws_hash_table_remove thread 0
+----------------------------------------------------
+  state = map.p_impl
+
+State 78 file aws_hash_table_remove_harness.i line 10025 function hash_table_state_is_valid thread 0
+----------------------------------------------------
+  hash_fn_nonnull = (unsigned long int (*)(void *))3454498408704770048 != (unsigned long int (*)(void *))0
+
+State 79 file aws_hash_table_remove_harness.i line 10030 function hash_table_state_is_valid thread 0
+----------------------------------------------------
+  equals_fn_nonnull = (_Bool (*)(void *, void *))2287546031904063230 != (_Bool (*)(void *, void *))0
+
+State 80 file aws_hash_table_remove_harness.i line 10036 function hash_table_state_is_valid thread 0
+----------------------------------------------------
+  alloc_nonnull = ( struct aws_allocator *)2302824845483638526 != ( struct aws_allocator *)0
+
+State 81 file aws_hash_table_remove_harness.i line 10041 function hash_table_state_is_valid thread 0
+----------------------------------------------------
+  size_at_least_two = 1
+
+State 82 file aws_hash_table_remove_harness.i line 10044 function hash_table_state_is_valid thread 0
+----------------------------------------------------
+  size_is_power_of_two = 1
+
+State 83 file aws_hash_table_remove_harness.i line 10047 function hash_table_state_is_valid thread 0
+----------------------------------------------------
+  entry_count = 1
+
+State 84 file aws_hash_table_remove_harness.i line 10050 function hash_table_state_is_valid thread 0
+----------------------------------------------------
+  max_load = 1
+
+State 85 file aws_hash_table_remove_harness.i line 10053 function hash_table_state_is_valid thread 0
+----------------------------------------------------
+  mask_is_correct = 1
+
+State 86 file aws_hash_table_remove_harness.i line 10056 function hash_table_state_is_valid thread 0
+----------------------------------------------------
+  max_load_factor_bounded = (double)4534674464799352422 == 9.500000e-1
+
+State 87 file aws_hash_table_remove_harness.i line 10059 function hash_table_state_is_valid thread 0
+----------------------------------------------------
+  slots_allocated = !(( struct hash_table_entry {  struct aws_hash_element { void * key; void * value; }element; unsigned long int hash_code; } *)((unsigned char *)(&dynamic_2_array[0]) + 80) == 0)
+
+State 88 file aws_hash_table_remove_harness.i line 9111 function s_hash_for thread 0
+----------------------------------------------------
+  hash_code = 3527963377626251266 (00110000 11110101 11011000 00000000 00000000 00000000 00000000 00000010)
+
+State 89 file aws_hash_table_remove_harness.i line 9678 function aws_hash_table_remove thread 0
+----------------------------------------------------
+  hash_code = 3527963377626251266 (00110000 11110101 11011000 00000000 00000000 00000000 00000000 00000010)
+
+State 90 file aws_hash_table_remove_harness.i line 9327 function s_find_entry thread 0
+----------------------------------------------------
+  entry = ( struct hash_table_entry *)(( struct hash_table_entry {  struct aws_hash_element { void * key; void * value; }element; unsigned long int hash_code; } *)((unsigned char *)(&dynamic_2_array[0]) + 128))
+
+State 91 file aws_hash_table_remove_harness.i line 9368 function s_find_entry1 thread 0
+----------------------------------------------------
+  index = 3 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000011)
+
+State 92 file aws_hash_table_remove_harness.i line 9371 function s_find_entry1 thread 0
+----------------------------------------------------
+  entry = ( struct hash_table_entry *)(( struct hash_table_entry {  struct aws_hash_element { void * key; void * value; }element; unsigned long int hash_code; } *)((unsigned char *)(&dynamic_2_array[0]) + 152))
+
+State 93 file aws_hash_table_remove_harness.i line 10025 function hash_table_state_is_valid thread 0
+----------------------------------------------------
+  hash_fn_nonnull = (unsigned long int (*)(void *))3454498408704770048 != (unsigned long int (*)(void *))0
+
+State 94 file aws_hash_table_remove_harness.i line 10030 function hash_table_state_is_valid thread 0
+----------------------------------------------------
+  equals_fn_nonnull = (_Bool (*)(void *, void *))2287546031904063230 != (_Bool (*)(void *, void *))0
+
+State 95 file aws_hash_table_remove_harness.i line 10036 function hash_table_state_is_valid thread 0
+----------------------------------------------------
+  alloc_nonnull = ( struct aws_allocator *)2302824845483638526 != ( struct aws_allocator *)0
+
+State 96 file aws_hash_table_remove_harness.i line 10041 function hash_table_state_is_valid thread 0
+----------------------------------------------------
+  size_at_least_two = 1
+
+State 97 file aws_hash_table_remove_harness.i line 10044 function hash_table_state_is_valid thread 0
+----------------------------------------------------
+  size_is_power_of_two = 1
+
+State 98 file aws_hash_table_remove_harness.i line 10047 function hash_table_state_is_valid thread 0
+----------------------------------------------------
+  entry_count = 1
+
+State 99 file aws_hash_table_remove_harness.i line 10050 function hash_table_state_is_valid thread 0
+----------------------------------------------------
+  max_load = 1
+
+State 100 file aws_hash_table_remove_harness.i line 10053 function hash_table_state_is_valid thread 0
+----------------------------------------------------
+  mask_is_correct = 1
+
+State 101 file aws_hash_table_remove_harness.i line 10056 function hash_table_state_is_valid thread 0
+----------------------------------------------------
+  max_load_factor_bounded = (double)4534674464799352422 == 9.500000e-1
+
+State 102 file aws_hash_table_remove_harness.i line 10059 function hash_table_state_is_valid thread 0
+----------------------------------------------------
+  slots_allocated = !(( struct hash_table_entry {  struct aws_hash_element { void * key; void * value; }element; unsigned long int hash_code; } *)((unsigned char *)(&dynamic_2_array[0]) + 80) == 0)
+
+State 103 file aws_hash_table_remove_harness.i line 9152 function s_hash_keys_eq thread 0
+----------------------------------------------------
+  rval = 1
+
+State 104 file aws_hash_table_remove_harness.i line 10025 function hash_table_state_is_valid thread 0
+----------------------------------------------------
+  hash_fn_nonnull = (unsigned long int (*)(void *))3454498408704770048 != (unsigned long int (*)(void *))0
+
+State 105 file aws_hash_table_remove_harness.i line 10030 function hash_table_state_is_valid thread 0
+----------------------------------------------------
+  equals_fn_nonnull = (_Bool (*)(void *, void *))2287546031904063230 != (_Bool (*)(void *, void *))0
+
+State 106 file aws_hash_table_remove_harness.i line 10036 function hash_table_state_is_valid thread 0
+----------------------------------------------------
+  alloc_nonnull = ( struct aws_allocator *)2302824845483638526 != ( struct aws_allocator *)0
+
+State 107 file aws_hash_table_remove_harness.i line 10041 function hash_table_state_is_valid thread 0
+----------------------------------------------------
+  size_at_least_two = 1
+
+State 108 file aws_hash_table_remove_harness.i line 10044 function hash_table_state_is_valid thread 0
+----------------------------------------------------
+  size_is_power_of_two = 1
+
+State 109 file aws_hash_table_remove_harness.i line 10047 function hash_table_state_is_valid thread 0
+----------------------------------------------------
+  entry_count = 1
+
+State 110 file aws_hash_table_remove_harness.i line 10050 function hash_table_state_is_valid thread 0
+----------------------------------------------------
+  max_load = 1
+
+State 111 file aws_hash_table_remove_harness.i line 10053 function hash_table_state_is_valid thread 0
+----------------------------------------------------
+  mask_is_correct = 1
+
+State 112 file aws_hash_table_remove_harness.i line 10056 function hash_table_state_is_valid thread 0
+----------------------------------------------------
+  max_load_factor_bounded = (double)4534674464799352422 == 9.500000e-1
+
+State 113 file aws_hash_table_remove_harness.i line 10059 function hash_table_state_is_valid thread 0
+----------------------------------------------------
+  slots_allocated = !(( struct hash_table_entry {  struct aws_hash_element { void * key; void * value; }element; unsigned long int hash_code; } *)((unsigned char *)(&dynamic_2_array[0]) + 80) == 0)
+
+State 114 file aws_hash_table_remove_harness.i line 9401 function s_find_entry1 thread 0
+----------------------------------------------------
+  *p_entry = &dynamic_2_array[152]
+
+State 115 file aws_hash_table_remove_harness.i line 9686 function aws_hash_table_remove thread 0
+----------------------------------------------------
+  rv = 0 (00000000 00000000 00000000 00000000)
+
+State 116 file aws_hash_table_remove_harness.i line 10025 function hash_table_state_is_valid thread 0
+----------------------------------------------------
+  hash_fn_nonnull = (unsigned long int (*)(void *))3454498408704770048 != (unsigned long int (*)(void *))0
+
+State 117 file aws_hash_table_remove_harness.i line 10030 function hash_table_state_is_valid thread 0
+----------------------------------------------------
+  equals_fn_nonnull = (_Bool (*)(void *, void *))2287546031904063230 != (_Bool (*)(void *, void *))0
+
+State 118 file aws_hash_table_remove_harness.i line 10036 function hash_table_state_is_valid thread 0
+----------------------------------------------------
+  alloc_nonnull = ( struct aws_allocator *)2302824845483638526 != ( struct aws_allocator *)0
+
+State 119 file aws_hash_table_remove_harness.i line 10041 function hash_table_state_is_valid thread 0
+----------------------------------------------------
+  size_at_least_two = 1
+
+State 120 file aws_hash_table_remove_harness.i line 10044 function hash_table_state_is_valid thread 0
+----------------------------------------------------
+  size_is_power_of_two = 1
+
+State 121 file aws_hash_table_remove_harness.i line 10047 function hash_table_state_is_valid thread 0
+----------------------------------------------------
+  entry_count = 1
+
+State 122 file aws_hash_table_remove_harness.i line 10050 function hash_table_state_is_valid thread 0
+----------------------------------------------------
+  max_load = 1
+
+State 123 file aws_hash_table_remove_harness.i line 10053 function hash_table_state_is_valid thread 0
+----------------------------------------------------
+  mask_is_correct = 1
+
+State 124 file aws_hash_table_remove_harness.i line 10056 function hash_table_state_is_valid thread 0
+----------------------------------------------------
+  max_load_factor_bounded = (double)4534674464799352422 == 9.500000e-1
+
+State 125 file aws_hash_table_remove_harness.i line 10059 function hash_table_state_is_valid thread 0
+----------------------------------------------------
+  slots_allocated = !(( struct hash_table_entry {  struct aws_hash_element { void * key; void * value; }element; unsigned long int hash_code; } *)((unsigned char *)(&dynamic_2_array[0]) + 80) == 0)
+
+State 126 file aws_hash_table_remove_harness.i line 9627 function s_remove_entry thread 0
+----------------------------------------------------
+  state->entry_count = 0 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)
+
+State 127 file aws_hash_table_remove_harness.i line 9627 function s_remove_entry thread 0
+----------------------------------------------------
+  state->entry_count = 0 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)
+
+State 128 file aws_hash_table_remove_harness.i line 9627 function s_remove_entry thread 0
+----------------------------------------------------
+  state->entry_count = 0 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)
+
+State 129 file aws_hash_table_remove_harness.i line 9627 function s_remove_entry thread 0
+----------------------------------------------------
+  state->entry_count = 0 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)
+
+State 130 file aws_hash_table_remove_harness.i line 9627 function s_remove_entry thread 0
+----------------------------------------------------
+  state->entry_count = 0 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)
+
+State 131 file aws_hash_table_remove_harness.i line 9627 function s_remove_entry thread 0
+----------------------------------------------------
+  state->entry_count = 0 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)
+
+State 132 file aws_hash_table_remove_harness.i line 9627 function s_remove_entry thread 0
+----------------------------------------------------
+  state->entry_count = 0 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)
+
+State 133 file aws_hash_table_remove_harness.i line 9627 function s_remove_entry thread 0
+----------------------------------------------------
+  state->entry_count = 0 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)
+
+State 134 file aws_hash_table_remove_harness.i line 10025 function hash_table_state_is_valid thread 0
+----------------------------------------------------
+  hash_fn_nonnull = (unsigned long int (*)(void *))3454498408704770048 != (unsigned long int (*)(void *))0
+
+State 135 file aws_hash_table_remove_harness.i line 10030 function hash_table_state_is_valid thread 0
+----------------------------------------------------
+  equals_fn_nonnull = (_Bool (*)(void *, void *))2287546031904063230 != (_Bool (*)(void *, void *))0
+
+State 136 file aws_hash_table_remove_harness.i line 10036 function hash_table_state_is_valid thread 0
+----------------------------------------------------
+  alloc_nonnull = ( struct aws_allocator *)2302824845483638526 != ( struct aws_allocator *)0
+
+State 137 file aws_hash_table_remove_harness.i line 10041 function hash_table_state_is_valid thread 0
+----------------------------------------------------
+  size_at_least_two = 1
+
+State 138 file aws_hash_table_remove_harness.i line 10044 function hash_table_state_is_valid thread 0
+----------------------------------------------------
+  size_is_power_of_two = 1
+
+State 139 file aws_hash_table_remove_harness.i line 10047 function hash_table_state_is_valid thread 0
+----------------------------------------------------
+  entry_count = 1
+
+State 140 file aws_hash_table_remove_harness.i line 10050 function hash_table_state_is_valid thread 0
+----------------------------------------------------
+  max_load = 1
+
+State 141 file aws_hash_table_remove_harness.i line 10053 function hash_table_state_is_valid thread 0
+----------------------------------------------------
+  mask_is_correct = 1
+
+State 142 file aws_hash_table_remove_harness.i line 10056 function hash_table_state_is_valid thread 0
+----------------------------------------------------
+  max_load_factor_bounded = (double)4534674464799352422 == 9.500000e-1
+
+State 143 file aws_hash_table_remove_harness.i line 10059 function hash_table_state_is_valid thread 0
+----------------------------------------------------
+  slots_allocated = !(( struct hash_table_entry {  struct aws_hash_element { void * key; void * value; }element; unsigned long int hash_code; } *)((unsigned char *)(&dynamic_2_array[0]) + 80) == 0)
+
+State 144 file aws_hash_table_remove_harness.i line 9159 function s_index_for thread 0
+----------------------------------------------------
+  index = (unsigned long int)((&dynamic_2_array[0] + 152) - (( struct hash_table_entry {  struct aws_hash_element { void * key; void * value; }element; unsigned long int hash_code; } *)((unsigned char *)(&dynamic_2_array[0]) + 80)))
+
+State 145 file aws_hash_table_remove_harness.i line 208 function reach_error thread 0
+----------------------------------------------------
+Violated property:
+  file aws_hash_table_remove_harness.i line 208 function reach_error
+  assertion 0
+  0
+
+
+VERIFICATION FAILED
+
+Bug found (k = 1)
+
+../sv-benchmarks/c/aws-c-common/aws_hash_table_remove_harness.i:1632:45: warning: attribute declaration must precede definition [-Wignored-attributes]
+extern void my_abort (void) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+                                            ^
+../sv-benchmarks/c/aws-c-common/aws_hash_table_remove_harness.i:232:6: note: previous definition is here
+void my_abort(void) {
+     ^
+../sv-benchmarks/c/aws-c-common/aws_hash_table_remove_harness.i:5834:12: warning: implicit declaration of function '__ESBMC_atomic_load' is invalid in C99 [-Wimplicit-function-declaration]
+    return __atomic_load_n(&(*(aws_atomic_impl_int_t *)(var)), aws_atomic_priv_xlate_order(memory_order));
+           ^
+esbmc_intrinsics.h:99:5: note: expanded from here
+    __ESBMC_atomic_load(__atomic_load_ptr, &__atomic_load_tmp, (MO));          \
+    ^
+../sv-benchmarks/c/aws-c-common/aws_hash_table_remove_harness.i:5842:12: warning: implicit declaration of function '__ESBMC_atomic_load' is invalid in C99 [-Wimplicit-function-declaration]
+    return __atomic_load_n(&((var)->value), aws_atomic_priv_xlate_order(memory_order));
+           ^
+esbmc_intrinsics.h:99:5: note: expanded from here
+    __ESBMC_atomic_load(__atomic_load_ptr, &__atomic_load_tmp, (MO));          \
+    ^
+../sv-benchmarks/c/aws-c-common/aws_hash_table_remove_harness.i:5850:5: warning: implicit declaration of function '__ESBMC_atomic_store' is invalid in C99 [-Wimplicit-function-declaration]
+    __atomic_store_n(&(*(aws_atomic_impl_int_t *)(var)), n, aws_atomic_priv_xlate_order(memory_order));
+    ^
+esbmc_intrinsics.h:107:5: note: expanded from here
+    __ESBMC_atomic_store(__atomic_store_ptr, &__atomic_store_tmp, (MO));       \
+    ^
+../sv-benchmarks/c/aws-c-common/aws_hash_table_remove_harness.i:5858:5: warning: implicit declaration of function '__ESBMC_atomic_store' is invalid in C99 [-Wimplicit-function-declaration]
+    __atomic_store_n(&((var)->value), p, aws_atomic_priv_xlate_order(memory_order));
+    ^
+esbmc_intrinsics.h:107:5: note: expanded from here
+    __ESBMC_atomic_store(__atomic_store_ptr, &__atomic_store_tmp, (MO));       \
+    ^
+../sv-benchmarks/c/aws-c-common/aws_hash_table_remove_harness.i:10162:63: warning: address of 'p_elem' will always evaluate to 'true' [-Wpointer-bool-conversion]
+    assume_abort_if_not(((((sizeof(*(&p_elem)))) == 0) || (((&p_elem)))));
+                                                       ~~     ^~~~~~
+../sv-benchmarks/c/aws-c-common/aws_hash_table_remove_harness.i:10163:68: warning: address of 'was_present' will always evaluate to 'true' [-Wpointer-bool-conversion]
+    assume_abort_if_not(((((sizeof(*(&was_present)))) == 0) || (((&was_present)))));
+                                                            ~~     ^~~~~~~~~~~
+
+FALSE_REACH

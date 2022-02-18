@@ -1,0 +1,254 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/loops/bubble_sort-2.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --add-symex-value-sets --no-align-check --k-step 5 --floatbv --unlimited-k-steps ../sv-benchmarks/c/loops/bubble_sort-2.i --32 --witness-output bubble_sort-2.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --goto-unwind --unlimited-goto-unwind --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/loops/bubble_sort-2.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.127s
+GOTO program processing time: 0.005s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.031s (538 assignments)
+Slicing time: 0.004s (removed 207 assignments)
+Generated 34 VCC(s), 34 remaining after simplification (331 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.022s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.022s
+Runtime decision procedure: 8.019s
+Building error trace
+
+Counterexample:
+
+State 1 file bubble_sort-2.i line 683 function gl_read thread 0
+----------------------------------------------------
+  tmp = 4210753 (00000000 01000000 01000000 01000001)
+
+State 2 file bubble_sort-2.i line 649 function gl_insert thread 0
+----------------------------------------------------
+  *(signed int *)node = 4210753 (00000000 01000000 01000000 01000001)
+
+State 3 file bubble_sort-2.i line 649 function gl_insert thread 0
+----------------------------------------------------
+  *(signed int *)node = 4210753 (00000000 01000000 01000000 01000001)
+
+State 4 file bubble_sort-2.i line 649 function gl_insert thread 0
+----------------------------------------------------
+  *(signed int *)node = 4210753 (00000000 01000000 01000000 01000001)
+
+State 5 file bubble_sort-2.i line 649 function gl_insert thread 0
+----------------------------------------------------
+  *(signed int *)node = 4210753 (00000000 01000000 01000000 01000001)
+
+State 6 file bubble_sort-2.i line 575 function __list_add thread 0
+----------------------------------------------------
+  *( struct list_head * *)new = (unsigned int)(( struct list_head *)(&gl_list))
+
+State 7 file bubble_sort-2.i line 575 function __list_add thread 0
+----------------------------------------------------
+  *( struct list_head * *)new = (unsigned int)(( struct list_head *)(&gl_list))
+
+State 8 file bubble_sort-2.i line 575 function __list_add thread 0
+----------------------------------------------------
+  *( struct list_head * *)new = (unsigned int)(( struct list_head *)(&gl_list))
+
+State 9 file bubble_sort-2.i line 575 function __list_add thread 0
+----------------------------------------------------
+  *( struct list_head * *)new = (unsigned int)(( struct list_head *)(&gl_list))
+
+State 10 file bubble_sort-2.i line 578 function __list_add thread 0
+----------------------------------------------------
+  *( struct list_head * *)__cil_tmp7 = (unsigned int)(( struct list_head *)(&gl_list))
+
+State 11 file bubble_sort-2.i line 578 function __list_add thread 0
+----------------------------------------------------
+  *( struct list_head * *)__cil_tmp7 = (unsigned int)(( struct list_head *)(&gl_list))
+
+State 12 file bubble_sort-2.i line 578 function __list_add thread 0
+----------------------------------------------------
+  *( struct list_head * *)__cil_tmp7 = (unsigned int)(( struct list_head *)(&gl_list))
+
+State 13 file bubble_sort-2.i line 578 function __list_add thread 0
+----------------------------------------------------
+  *( struct list_head * *)__cil_tmp7 = (unsigned int)(( struct list_head *)(&gl_list))
+
+State 14 file bubble_sort-2.i line 662 function gl_insert thread 0
+----------------------------------------------------
+  *( struct list_head * *)__cil_tmp9 = (unsigned int)(( struct list_head *)((unsigned int)(( struct node *)(&dynamic_2_array[0])) + 12))
+
+State 15 file bubble_sort-2.i line 662 function gl_insert thread 0
+----------------------------------------------------
+  *( struct list_head * *)__cil_tmp9 = (unsigned int)(( struct list_head *)((unsigned int)(( struct node *)(&dynamic_2_array[0])) + 12))
+
+State 16 file bubble_sort-2.i line 662 function gl_insert thread 0
+----------------------------------------------------
+  *( struct list_head * *)__cil_tmp9 = (unsigned int)(( struct list_head *)((unsigned int)(( struct node *)(&dynamic_2_array[0])) + 12))
+
+State 17 file bubble_sort-2.i line 662 function gl_insert thread 0
+----------------------------------------------------
+  *( struct list_head * *)__cil_tmp9 = (unsigned int)(( struct list_head *)((unsigned int)(( struct node *)(&dynamic_2_array[0])) + 12))
+
+State 18 file bubble_sort-2.i line 667 function gl_insert thread 0
+----------------------------------------------------
+  *( struct list_head * *)__cil_tmp13 = (unsigned int)(( struct list_head *)((unsigned int)(( struct node *)(&dynamic_2_array[0])) + 12))
+
+State 19 file bubble_sort-2.i line 667 function gl_insert thread 0
+----------------------------------------------------
+  *( struct list_head * *)__cil_tmp13 = (unsigned int)(( struct list_head *)((unsigned int)(( struct node *)(&dynamic_2_array[0])) + 12))
+
+State 20 file bubble_sort-2.i line 667 function gl_insert thread 0
+----------------------------------------------------
+  *( struct list_head * *)__cil_tmp13 = (unsigned int)(( struct list_head *)((unsigned int)(( struct node *)(&dynamic_2_array[0])) + 12))
+
+State 21 file bubble_sort-2.i line 667 function gl_insert thread 0
+----------------------------------------------------
+  *( struct list_head * *)__cil_tmp13 = (unsigned int)(( struct list_head *)((unsigned int)(( struct node *)(&dynamic_2_array[0])) + 12))
+
+State 22 file bubble_sort-2.i line 685 function gl_read thread 0
+----------------------------------------------------
+  tmp___0 = 0 (00000000 00000000 00000000 00000000)
+
+State 23 file bubble_sort-2.i line 198 function inspect thread 0
+----------------------------------------------------
+  __cil_tmp6 = (signed int)((unsigned int)(( struct list_head *)((unsigned int)(( struct node *)(&dynamic_2_array[0])) + 4)) != (unsigned int)(( struct list_head *)(&gl_list)))
+
+State 24 file bubble_sort-2.i line 219 function inspect thread 0
+----------------------------------------------------
+  __cil_tmp12 = (signed int)((unsigned int)(( struct list_head *)((unsigned int)(( struct node *)(&dynamic_2_array[0])) + 4)) != (unsigned int)(( struct list_head *)(&gl_list)))
+
+State 25 file bubble_sort-2.i line 253 function inspect thread 0
+----------------------------------------------------
+  __cil_tmp17 = ( struct list_head *)1073741825
+
+State 26 file bubble_sort-2.i line 254 function inspect thread 0
+----------------------------------------------------
+  __cil_tmp18 = (unsigned int)(&gl_list)
+
+State 27 file bubble_sort-2.i line 255 function inspect thread 0
+----------------------------------------------------
+  __cil_tmp19 = (signed int)(1073741825 != (unsigned int)(( struct list_head *)((unsigned int)(( struct node *)(&dynamic_2_array[0])) + 4)))
+
+State 28 file bubble_sort-2.i line 274 function inspect thread 0
+----------------------------------------------------
+  __cil_tmp23 = ( struct list_head *)1073741825
+
+State 29 file bubble_sort-2.i line 275 function inspect thread 0
+----------------------------------------------------
+  __cil_tmp24 = (unsigned int)(&gl_list)
+
+State 30 file bubble_sort-2.i line 276 function inspect thread 0
+----------------------------------------------------
+  __cil_tmp25 = (signed int)(1073741825 != (unsigned int)(( struct list_head *)((unsigned int)(( struct node *)(&dynamic_2_array[0])) + 4)))
+
+State 31 file bubble_sort-2.i line 294 function inspect thread 0
+----------------------------------------------------
+  __cil_tmp32 = ((signed char *)(( struct list_head *)((unsigned int)(( struct node *)(&dynamic_2_array[0])) + 4))) - ((unsigned int)(( struct list_head *)((unsigned int)0 + 4)))
+
+State 32 file bubble_sort-2.i line 295 function inspect thread 0
+----------------------------------------------------
+  __cil_tmp33 = ( struct node *)(&dynamic_2_array[0])
+
+State 33 file bubble_sort-2.i line 296 function inspect thread 0
+----------------------------------------------------
+  node = &dynamic_2_array[0]
+
+State 34 file bubble_sort-2.i line 314 function inspect thread 0
+----------------------------------------------------
+  __cil_tmp34 = (unsigned int)(&dynamic_2_array[0])
+
+State 35 file bubble_sort-2.i line 315 function inspect thread 0
+----------------------------------------------------
+  __cil_tmp35 = 1318060031 (01001110 10001111 11111111 11111111)
+
+State 36 file bubble_sort-2.i line 316 function inspect thread 0
+----------------------------------------------------
+  __cil_tmp36 = ( struct list_head *)1318060031
+
+State 37 file bubble_sort-2.i line 317 function inspect thread 0
+----------------------------------------------------
+  __cil_tmp37 = (unsigned int)(&dynamic_2_array[12])
+
+State 38 file bubble_sort-2.i line 318 function inspect thread 0
+----------------------------------------------------
+  __cil_tmp38 = (unsigned int)(&dynamic_2_array[0])
+
+State 39 file bubble_sort-2.i line 319 function inspect thread 0
+----------------------------------------------------
+  __cil_tmp39 = 1318060031 (01001110 10001111 11111111 11111111)
+
+State 40 file bubble_sort-2.i line 320 function inspect thread 0
+----------------------------------------------------
+  __cil_tmp40 = ( struct list_head *)1301217023
+
+State 41 file bubble_sort-2.i line 321 function inspect thread 0
+----------------------------------------------------
+  __cil_tmp41 = (unsigned int)(&dynamic_2_array[12])
+
+State 42 file bubble_sort-2.i line 322 function inspect thread 0
+----------------------------------------------------
+  __cil_tmp42 = 1 (00000000 00000000 00000000 00000001)
+
+State 43 file bubble_sort-2.i line 338 function inspect thread 0
+----------------------------------------------------
+  __cil_tmp43 = (unsigned int)(&dynamic_2_array[0])
+
+State 44 file bubble_sort-2.i line 339 function inspect thread 0
+----------------------------------------------------
+  __cil_tmp44 = 1318060031 (01001110 10001111 11111111 11111111)
+
+State 45 file bubble_sort-2.i line 340 function inspect thread 0
+----------------------------------------------------
+  __cil_tmp45 = ( struct list_head *)1318060031
+
+State 46 file bubble_sort-2.i line 341 function inspect thread 0
+----------------------------------------------------
+  __cil_tmp46 = (unsigned int)(&dynamic_2_array[12])
+
+State 47 file bubble_sort-2.i line 343 function inspect thread 0
+----------------------------------------------------
+  __cil_tmp48 = (unsigned int)(&dynamic_2_array[0])
+
+State 48 file bubble_sort-2.i line 344 function inspect thread 0
+----------------------------------------------------
+  __cil_tmp49 = 1318060035 (01001110 10010000 00000000 00000011)
+
+State 49 file bubble_sort-2.i line 345 function inspect thread 0
+----------------------------------------------------
+  __cil_tmp50 = ( struct list_head *)1301217015
+
+State 50 file bubble_sort-2.i line 346 function inspect thread 0
+----------------------------------------------------
+  __cil_tmp51 = (unsigned int)(&dynamic_2_array[4])
+
+State 51 file bubble_sort-2.i line 347 function inspect thread 0
+----------------------------------------------------
+  __cil_tmp52 = 0 (00000000 00000000 00000000 00000000)
+
+State 52 file bubble_sort-2.i line 12 function reach_error thread 0
+----------------------------------------------------
+Violated property:
+  file bubble_sort-2.i line 12 function reach_error
+  assertion 0
+  0
+
+
+VERIFICATION FAILED
+
+Bug found (k = 1)
+
+
+FALSE_REACH

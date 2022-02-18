@@ -1,0 +1,656 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/aws-c-common/aws_byte_buf_secure_zero_harness.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --add-symex-value-sets --no-align-check --k-step 5 --floatbv --unlimited-k-steps ../sv-benchmarks/c/aws-c-common/aws_byte_buf_secure_zero_harness.i --64 --witness-output aws_byte_buf_secure_zero_harness.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --goto-unwind --unlimited-goto-unwind --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 64-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/aws-c-common/aws_byte_buf_secure_zero_harness.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.568s
+GOTO program processing time: 0.030s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.102s (101 assignments)
+Slicing time: 0.000s (removed 43 assignments)
+Generated 4 VCC(s), 4 remaining after simplification (58 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.002s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.002s
+Runtime decision procedure: 0.001s
+BMC program time: 0.106s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.013s (97 assignments)
+Slicing time: 0.001s (removed 43 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (54 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.002s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.002s
+Runtime decision procedure: 0.211s
+The forward condition is unable to prove the property
+*** Checking base case, k = 6
+Starting Bounded Model Checking
+Unwinding loop 30  iteration  1   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  2   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  3   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  4   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  5   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Not unwinding 
+Symex completed in: 0.020s (131 assignments)
+Slicing time: 0.001s (removed 59 assignments)
+Generated 4 VCC(s), 4 remaining after simplification (72 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.002s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.002s
+Runtime decision procedure: 0.263s
+BMC program time: 0.287s
+No bug has been found in the base case
+*** Checking forward condition, k = 6
+Starting Bounded Model Checking
+Unwinding loop 30  iteration  1   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  2   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  3   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  4   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  5   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Not unwinding 
+Symex completed in: 0.020s (127 assignments)
+Slicing time: 0.000s (removed 59 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (68 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.002s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.002s
+Runtime decision procedure: 0.249s
+The forward condition is unable to prove the property
+*** Checking base case, k = 11
+Starting Bounded Model Checking
+Unwinding loop 30  iteration  1   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  2   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  3   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  4   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  5   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  6   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  7   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  8   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  9   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  10   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Not unwinding 
+Symex completed in: 0.024s (161 assignments)
+Slicing time: 0.001s (removed 74 assignments)
+Generated 4 VCC(s), 4 remaining after simplification (87 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.003s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.003s
+Runtime decision procedure: 0.301s
+BMC program time: 0.330s
+No bug has been found in the base case
+*** Checking forward condition, k = 11
+Starting Bounded Model Checking
+Unwinding loop 30  iteration  1   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  2   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  3   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  4   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  5   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  6   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  7   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  8   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  9   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  10   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Not unwinding 
+Symex completed in: 0.025s (157 assignments)
+Slicing time: 0.000s (removed 74 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (83 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.004s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.004s
+Runtime decision procedure: 0.246s
+The forward condition is unable to prove the property
+*** Checking base case, k = 16
+Starting Bounded Model Checking
+Unwinding loop 30  iteration  1   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  2   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  3   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  4   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  5   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  6   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  7   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  8   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  9   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  10   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  11   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  12   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  13   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  14   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  15   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Not unwinding 
+Symex completed in: 0.031s (191 assignments)
+Slicing time: 0.001s (removed 89 assignments)
+Generated 4 VCC(s), 4 remaining after simplification (102 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.003s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.003s
+Runtime decision procedure: 0.376s
+BMC program time: 0.412s
+No bug has been found in the base case
+*** Checking forward condition, k = 16
+Starting Bounded Model Checking
+Unwinding loop 30  iteration  1   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  2   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  3   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  4   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  5   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  6   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  7   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  8   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  9   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  10   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  11   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  12   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  13   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  14   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  15   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Not unwinding 
+Symex completed in: 0.033s (187 assignments)
+Slicing time: 0.001s (removed 89 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (98 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.004s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.004s
+Runtime decision procedure: 0.247s
+The forward condition is unable to prove the property
+*** Checking base case, k = 21
+Starting Bounded Model Checking
+Unwinding loop 30  iteration  1   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  2   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  3   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  4   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  5   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  6   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  7   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  8   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  9   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  10   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  11   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  12   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  13   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  14   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  15   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  16   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  17   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  18   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  19   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  20   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Not unwinding 
+Symex completed in: 0.035s (221 assignments)
+Slicing time: 0.002s (removed 104 assignments)
+Generated 4 VCC(s), 4 remaining after simplification (117 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.004s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.004s
+Runtime decision procedure: 0.452s
+BMC program time: 0.494s
+No bug has been found in the base case
+*** Checking forward condition, k = 21
+Starting Bounded Model Checking
+Unwinding loop 30  iteration  1   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  2   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  3   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  4   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  5   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  6   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  7   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  8   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  9   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  10   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  11   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  12   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  13   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  14   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  15   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  16   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  17   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  18   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  19   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  20   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Not unwinding 
+Symex completed in: 0.036s (217 assignments)
+Slicing time: 0.001s (removed 104 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (113 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.004s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.004s
+Runtime decision procedure: 0.236s
+The forward condition is unable to prove the property
+*** Checking base case, k = 26
+Starting Bounded Model Checking
+Unwinding loop 30  iteration  1   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  2   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  3   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  4   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  5   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  6   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  7   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  8   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  9   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  10   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  11   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  12   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  13   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  14   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  15   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  16   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  17   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  18   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  19   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  20   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  21   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  22   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  23   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  24   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  25   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Not unwinding 
+Symex completed in: 0.044s (251 assignments)
+Slicing time: 0.001s (removed 119 assignments)
+Generated 4 VCC(s), 4 remaining after simplification (132 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.004s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.004s
+Runtime decision procedure: 0.570s
+BMC program time: 0.620s
+No bug has been found in the base case
+*** Checking forward condition, k = 26
+Starting Bounded Model Checking
+Unwinding loop 30  iteration  1   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  2   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  3   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  4   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  5   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  6   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  7   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  8   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  9   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  10   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  11   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  12   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  13   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  14   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  15   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  16   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  17   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  18   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  19   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  20   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  21   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  22   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  23   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  24   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  25   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Not unwinding 
+Symex completed in: 0.044s (247 assignments)
+Slicing time: 0.002s (removed 119 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (128 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.005s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.005s
+Runtime decision procedure: 0.342s
+The forward condition is unable to prove the property
+*** Checking base case, k = 31
+Starting Bounded Model Checking
+Unwinding loop 30  iteration  1   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  2   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  3   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  4   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  5   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  6   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  7   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  8   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  9   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  10   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  11   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  12   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  13   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  14   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  15   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  16   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  17   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  18   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  19   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  20   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  21   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  22   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  23   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  24   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  25   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  26   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  27   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  28   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  29   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  30   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Not unwinding 
+Symex completed in: 0.049s (281 assignments)
+Slicing time: 0.002s (removed 134 assignments)
+Generated 4 VCC(s), 4 remaining after simplification (147 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.005s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.005s
+Runtime decision procedure: 0.840s
+BMC program time: 0.897s
+No bug has been found in the base case
+*** Checking forward condition, k = 31
+Starting Bounded Model Checking
+Unwinding loop 30  iteration  1   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  2   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  3   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  4   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  5   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  6   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  7   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  8   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  9   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  10   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  11   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  12   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  13   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  14   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  15   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  16   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  17   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  18   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  19   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  20   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  21   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  22   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  23   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  24   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  25   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  26   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  27   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  28   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  29   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  30   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Not unwinding 
+Symex completed in: 0.049s (277 assignments)
+Slicing time: 0.002s (removed 134 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (143 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.005s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.005s
+Runtime decision procedure: 0.262s
+The forward condition is unable to prove the property
+*** Checking base case, k = 36
+Starting Bounded Model Checking
+Unwinding loop 30  iteration  1   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  2   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  3   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  4   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  5   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  6   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  7   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  8   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  9   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  10   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  11   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  12   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  13   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  14   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  15   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  16   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  17   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  18   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  19   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  20   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  21   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  22   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  23   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  24   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  25   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  26   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  27   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  28   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  29   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  30   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  31   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  32   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  33   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  34   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  35   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Not unwinding 
+Symex completed in: 0.054s (311 assignments)
+Slicing time: 0.002s (removed 149 assignments)
+Generated 4 VCC(s), 4 remaining after simplification (162 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.005s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.005s
+Runtime decision procedure: 1.081s
+BMC program time: 1.143s
+No bug has been found in the base case
+*** Checking forward condition, k = 36
+Starting Bounded Model Checking
+Unwinding loop 30  iteration  1   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  2   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  3   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  4   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  5   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  6   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  7   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  8   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  9   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  10   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  11   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  12   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  13   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  14   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  15   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  16   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  17   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  18   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  19   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  20   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  21   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  22   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  23   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  24   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  25   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  26   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  27   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  28   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  29   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  30   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  31   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  32   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  33   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  34   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  35   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Not unwinding 
+Symex completed in: 0.055s (307 assignments)
+Slicing time: 0.002s (removed 149 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (158 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.005s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.005s
+Runtime decision procedure: 0.335s
+The forward condition is unable to prove the property
+*** Checking base case, k = 41
+Starting Bounded Model Checking
+Unwinding loop 30  iteration  1   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  2   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  3   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  4   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  5   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  6   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  7   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  8   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  9   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  10   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  11   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  12   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  13   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  14   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  15   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  16   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  17   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  18   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  19   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  20   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  21   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  22   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  23   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  24   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  25   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  26   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  27   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  28   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  29   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  30   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  31   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  32   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  33   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  34   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  35   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  36   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  37   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  38   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  39   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  40   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Not unwinding 
+Symex completed in: 0.065s (341 assignments)
+Slicing time: 0.003s (removed 164 assignments)
+Generated 4 VCC(s), 4 remaining after simplification (177 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.005s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.005s
+Runtime decision procedure: 1.390s
+BMC program time: 1.465s
+No bug has been found in the base case
+*** Checking forward condition, k = 41
+Starting Bounded Model Checking
+Unwinding loop 30  iteration  1   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  2   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  3   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  4   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  5   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  6   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  7   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  8   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  9   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  10   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  11   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  12   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  13   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  14   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  15   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  16   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  17   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  18   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  19   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  20   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  21   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  22   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  23   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  24   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  25   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  26   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  27   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  28   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  29   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  30   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  31   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  32   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  33   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  34   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  35   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  36   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  37   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  38   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  39   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Unwinding loop 30  iteration  40   file aws_byte_buf_secure_zero_harness.i line 7335 function memset_impl
+Not unwinding 
+Symex completed in: 0.061s (337 assignments)
+Slicing time: 0.003s (removed 164 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (173 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.006s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.006s
+Runtime decision procedure: 0.002s
+BMC program time: 0.073s
+Building successful trace
+
+VERIFICATION SUCCESSFUL
+
+Solution found by the forward condition; all states are reachable (k = 41
+
+../sv-benchmarks/c/aws-c-common/aws_byte_buf_secure_zero_harness.i:1632:45: warning: attribute declaration must precede definition [-Wignored-attributes]
+extern void my_abort (void) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+                                            ^
+../sv-benchmarks/c/aws-c-common/aws_byte_buf_secure_zero_harness.i:232:6: note: previous definition is here
+void my_abort(void) {
+     ^
+../sv-benchmarks/c/aws-c-common/aws_byte_buf_secure_zero_harness.i:5785:12: warning: implicit declaration of function '__ESBMC_atomic_load' is invalid in C99 [-Wimplicit-function-declaration]
+    return __atomic_load_n(&(*(aws_atomic_impl_int_t *)(var)), aws_atomic_priv_xlate_order(memory_order));
+           ^
+esbmc_intrinsics.h:99:5: note: expanded from here
+    __ESBMC_atomic_load(__atomic_load_ptr, &__atomic_load_tmp, (MO));          \
+    ^
+../sv-benchmarks/c/aws-c-common/aws_byte_buf_secure_zero_harness.i:5793:12: warning: implicit declaration of function '__ESBMC_atomic_load' is invalid in C99 [-Wimplicit-function-declaration]
+    return __atomic_load_n(&((var)->value), aws_atomic_priv_xlate_order(memory_order));
+           ^
+esbmc_intrinsics.h:99:5: note: expanded from here
+    __ESBMC_atomic_load(__atomic_load_ptr, &__atomic_load_tmp, (MO));          \
+    ^
+../sv-benchmarks/c/aws-c-common/aws_byte_buf_secure_zero_harness.i:5801:5: warning: implicit declaration of function '__ESBMC_atomic_store' is invalid in C99 [-Wimplicit-function-declaration]
+    __atomic_store_n(&(*(aws_atomic_impl_int_t *)(var)), n, aws_atomic_priv_xlate_order(memory_order));
+    ^
+esbmc_intrinsics.h:107:5: note: expanded from here
+    __ESBMC_atomic_store(__atomic_store_ptr, &__atomic_store_tmp, (MO));       \
+    ^
+../sv-benchmarks/c/aws-c-common/aws_byte_buf_secure_zero_harness.i:5809:5: warning: implicit declaration of function '__ESBMC_atomic_store' is invalid in C99 [-Wimplicit-function-declaration]
+    __atomic_store_n(&((var)->value), p, aws_atomic_priv_xlate_order(memory_order));
+    ^
+esbmc_intrinsics.h:107:5: note: expanded from here
+    __ESBMC_atomic_store(__atomic_store_ptr, &__atomic_store_tmp, (MO));       \
+    ^
+
+TRUE

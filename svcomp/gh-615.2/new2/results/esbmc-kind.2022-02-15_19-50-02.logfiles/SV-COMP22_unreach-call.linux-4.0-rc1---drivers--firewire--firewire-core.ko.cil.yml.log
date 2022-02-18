@@ -1,0 +1,173 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--firewire--firewire-core.ko.cil.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --add-symex-value-sets --no-align-check --k-step 5 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--firewire--firewire-core.ko.cil.i --64 --witness-output linux-4.0-rc1---drivers--firewire--firewire-core.ko.cil.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --goto-unwind --unlimited-goto-unwind --k-induction --max-inductive-step 3 
+
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--firewire--firewire-core.ko.cil.i:4841:25: warning: incompatible pointer types passing '__va_list_tag *' (aka 'struct __va_list_tag *') to parameter of type 'struct __va_list_tag *' [-Wincompatible-pointer-types]
+  ldv__builtin_va_start((__va_list_tag *)(& args));
+                        ^~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--firewire--firewire-core.ko.cil.i:4405:46: note: passing argument to parameter here
+void ldv__builtin_va_start(__builtin_va_list ) ;
+                                             ^
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--firewire--firewire-core.ko.cil.i:4846:23: warning: incompatible pointer types passing '__va_list_tag *' (aka 'struct __va_list_tag *') to parameter of type 'struct __va_list_tag *' [-Wincompatible-pointer-types]
+  ldv__builtin_va_end((__va_list_tag *)(& args));
+                      ^~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--firewire--firewire-core.ko.cil.i:4403:44: note: passing argument to parameter here
+void ldv__builtin_va_end(__builtin_va_list ) ;
+                                           ^
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--firewire--firewire-core.ko.cil.i:4858:25: warning: incompatible pointer types passing '__va_list_tag *' (aka 'struct __va_list_tag *') to parameter of type 'struct __va_list_tag *' [-Wincompatible-pointer-types]
+  ldv__builtin_va_start((__va_list_tag *)(& args));
+                        ^~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--firewire--firewire-core.ko.cil.i:4405:46: note: passing argument to parameter here
+void ldv__builtin_va_start(__builtin_va_list ) ;
+                                             ^
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--firewire--firewire-core.ko.cil.i:4863:23: warning: incompatible pointer types passing '__va_list_tag *' (aka 'struct __va_list_tag *') to parameter of type 'struct __va_list_tag *' [-Wincompatible-pointer-types]
+  ldv__builtin_va_end((__va_list_tag *)(& args));
+                      ^~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--firewire--firewire-core.ko.cil.i:4403:44: note: passing argument to parameter here
+void ldv__builtin_va_end(__builtin_va_list ) ;
+                                           ^
+Couldn't convert expression in unrecognised format
+code_printf
+* operands : 
+  0: address_of
+    * pointer_obj : index
+        * source_value : symbol
+            * name : symex_dynamic::dynamic_72_array
+            * renamelev : Level 1 (global)
+            * level1_num : 0
+            * level2_num : 0
+            * thread_num : 0
+            * node_num : 0
+            * type : array
+              * subtype : signedbv
+                  * width : 8
+              * array_size : constant_int
+                  * value : 1
+                  * type : unsignedbv
+                    * width : 32
+              * size_is_infinite : false
+        * index : constant_int
+            * value : 0
+            * type : unsignedbv
+              * width : 64
+        * type : signedbv
+          * width : 8
+    * type : pointer
+      * subtype : signedbv
+          * width : 8
+  1: constant_int
+    * value : 4096
+    * type : unsignedbv
+      * width : 64
+  2: address_of
+    * pointer_obj : index
+        * source_value : constant_string
+            * value : ieee1394:ven%08Xmo%08Xsp%08Xver%08X
+            * type : string
+              * width : 36
+        * index : constant_int
+            * value : 0
+            * type : signedbv
+              * width : 64
+        * type : signedbv
+          * width : 8
+    * type : pointer
+      * subtype : signedbv
+          * width : 8
+  3: index
+    * source_value : symbol
+        * name : c:linux-4.0-rc1---drivers--firewire--firewire-core.ko.cil.i@299386@F@get_modalias@id
+        * renamelev : Level 2
+        * level1_num : 2
+        * level2_num : 4
+        * thread_num : 0
+        * node_num : 0
+        * type : array
+          * subtype : signedbv
+              * width : 32
+          * array_size : constant_int
+              * value : 4
+              * type : signedbv
+                * width : 32
+          * size_is_infinite : false
+    * index : constant_int
+        * value : 0
+        * type : signedbv
+          * width : 64
+    * type : signedbv
+      * width : 32
+  4: index
+    * source_value : symbol
+        * name : c:linux-4.0-rc1---drivers--firewire--firewire-core.ko.cil.i@299386@F@get_modalias@id
+        * renamelev : Level 2
+        * level1_num : 2
+        * level2_num : 4
+        * thread_num : 0
+        * node_num : 0
+        * type : array
+          * subtype : signedbv
+              * width : 32
+          * array_size : constant_int
+              * value : 4
+              * type : signedbv
+                * width : 32
+          * size_is_infinite : false
+    * index : constant_int
+        * value : 1
+        * type : signedbv
+          * width : 64
+    * type : signedbv
+      * width : 32
+  5: index
+    * source_value : symbol
+        * name : c:linux-4.0-rc1---drivers--firewire--firewire-core.ko.cil.i@299386@F@get_modalias@id
+        * renamelev : Level 2
+        * level1_num : 2
+        * level2_num : 4
+        * thread_num : 0
+        * node_num : 0
+        * type : array
+          * subtype : signedbv
+              * width : 32
+          * array_size : constant_int
+              * value : 4
+              * type : signedbv
+                * width : 32
+          * size_is_infinite : false
+    * index : constant_int
+        * value : 2
+        * type : signedbv
+          * width : 64
+    * type : signedbv
+      * width : 32
+  6: index
+    * source_value : symbol
+        * name : c:linux-4.0-rc1---drivers--firewire--firewire-core.ko.cil.i@299386@F@get_modalias@id
+        * renamelev : Level 2
+        * level1_num : 2
+        * level2_num : 4
+        * thread_num : 0
+        * node_num : 0
+        * type : array
+          * subtype : signedbv
+              * width : 32
+          * array_size : constant_int
+              * value : 4
+              * type : signedbv
+                * width : 32
+          * size_is_infinite : false
+    * index : constant_int
+        * value : 3
+        * type : signedbv
+          * width : 64
+    * type : signedbv
+      * width : 32
+
+* type : empty
+
+Unknown

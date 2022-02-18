@@ -1,0 +1,204 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/valid-memsafety.prp -s kinduction --arch 32 ../sv-benchmarks/c/forester-heap/sll-rb-cnstr_1-2.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --add-symex-value-sets --no-align-check --k-step 5 --floatbv --unlimited-k-steps ../sv-benchmarks/c/forester-heap/sll-rb-cnstr_1-2.i --32 --witness-output sll-rb-cnstr_1-2.i.graphml --memory-leak-check --no-assertions --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/forester-heap/sll-rb-cnstr_1-2.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.101s
+GOTO program processing time: 0.001s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.005s (133 assignments)
+Slicing time: 0.000s (removed 51 assignments)
+Generated 62 VCC(s), 36 remaining after simplification (82 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.001s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.001s
+Runtime decision procedure: 0.001s
+BMC program time: 0.008s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.005s (133 assignments)
+Slicing time: 0.000s (removed 51 assignments)
+Generated 65 VCC(s), 39 remaining after simplification (82 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.001s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.001s
+Runtime decision procedure: 0.066s
+The forward condition is unable to prove the property
+*** Checking base case, k = 6
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file sll-rb-cnstr_1-2.i line 1013 function main
+Unwinding loop 1  iteration  2   file sll-rb-cnstr_1-2.i line 1013 function main
+Unwinding loop 1  iteration  3   file sll-rb-cnstr_1-2.i line 1013 function main
+Unwinding loop 1  iteration  4   file sll-rb-cnstr_1-2.i line 1013 function main
+Unwinding loop 1  iteration  5   file sll-rb-cnstr_1-2.i line 1013 function main
+Not unwinding 
+Unwinding loop 2  iteration  1   file sll-rb-cnstr_1-2.i line 1041 function main
+Unwinding loop 2  iteration  2   file sll-rb-cnstr_1-2.i line 1041 function main
+Unwinding loop 2  iteration  3   file sll-rb-cnstr_1-2.i line 1041 function main
+Unwinding loop 2  iteration  4   file sll-rb-cnstr_1-2.i line 1041 function main
+Unwinding loop 2  iteration  5   file sll-rb-cnstr_1-2.i line 1041 function main
+Not unwinding 
+Unwinding loop 3  iteration  1   file sll-rb-cnstr_1-2.i line 1054 function main
+Unwinding loop 3  iteration  2   file sll-rb-cnstr_1-2.i line 1054 function main
+Unwinding loop 3  iteration  3   file sll-rb-cnstr_1-2.i line 1054 function main
+Unwinding loop 3  iteration  4   file sll-rb-cnstr_1-2.i line 1054 function main
+Unwinding loop 3  iteration  5   file sll-rb-cnstr_1-2.i line 1054 function main
+Not unwinding 
+Symex completed in: 0.102s (1673 assignments)
+Slicing time: 0.045s (removed 134 assignments)
+Generated 1818 VCC(s), 1076 remaining after simplification (1539 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.027s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.027s
+Runtime decision procedure: 1.257s
+Building error trace
+
+Counterexample:
+
+State 2 file sll-rb-cnstr_1-2.i line 1007 function main thread 0
+----------------------------------------------------
+  list->next = 0
+
+State 4 file sll-rb-cnstr_1-2.i line 1008 function main thread 0
+----------------------------------------------------
+  list->colour = 1 (00000000 00000000 00000000 00000001)
+
+State 6 file sll-rb-cnstr_1-2.i line 1016 function main thread 0
+----------------------------------------------------
+  end->next = ( struct TSLL *)((void *)(&dynamic_13_value))
+
+State 8 file sll-rb-cnstr_1-2.i line 1017 function main thread 0
+----------------------------------------------------
+  end = dynamic_11_value.next
+
+State 10 file sll-rb-cnstr_1-2.i line 1018 function main thread 0
+----------------------------------------------------
+  end->next = 0
+
+State 12 file sll-rb-cnstr_1-2.i line 1026 function main thread 0
+----------------------------------------------------
+  end->colour = 0 (00000000 00000000 00000000 00000000)
+
+State 14 file sll-rb-cnstr_1-2.i line 1027 function main thread 0
+----------------------------------------------------
+  end->next = ( struct TSLL *)((void *)(&dynamic_15_value))
+
+State 16 file sll-rb-cnstr_1-2.i line 1028 function main thread 0
+----------------------------------------------------
+  end = dynamic_13_value.next
+
+State 18 file sll-rb-cnstr_1-2.i line 1029 function main thread 0
+----------------------------------------------------
+  end->next = 0
+
+State 20 file sll-rb-cnstr_1-2.i line 1030 function main thread 0
+----------------------------------------------------
+  end->colour = 1 (00000000 00000000 00000000 00000001)
+
+State 23 file sll-rb-cnstr_1-2.i line 1016 function main thread 0
+----------------------------------------------------
+  end->next = ( struct TSLL *)((void *)(&dynamic_17_value))
+
+State 26 file sll-rb-cnstr_1-2.i line 1017 function main thread 0
+----------------------------------------------------
+  end = dynamic_15_value.next
+
+State 30 file sll-rb-cnstr_1-2.i line 1018 function main thread 0
+----------------------------------------------------
+  end->next = { .next=&dynamic_17_value, .colour=1 }
+
+State 34 file sll-rb-cnstr_1-2.i line 1022 function main thread 0
+----------------------------------------------------
+  end->colour = { .next=&dynamic_17_value, .colour=1 }
+
+State 40 file sll-rb-cnstr_1-2.i line 1016 function main thread 0
+----------------------------------------------------
+  end->next = ( struct TSLL *)((void *)(&dynamic_21_value))
+
+State 46 file sll-rb-cnstr_1-2.i line 1017 function main thread 0
+----------------------------------------------------
+  end = dynamic_17_value.next
+
+State 52 file sll-rb-cnstr_1-2.i line 1018 function main thread 0
+----------------------------------------------------
+  end->next = { .next=&dynamic_21_value, .colour=1 }
+
+State 58 file sll-rb-cnstr_1-2.i line 1026 function main thread 0
+----------------------------------------------------
+  end->colour = { .next=&dynamic_21_value, .colour=1 }
+
+State 64 file sll-rb-cnstr_1-2.i line 1027 function main thread 0
+----------------------------------------------------
+  end->next = { .next=&dynamic_21_value, .colour=1 }
+
+State 70 file sll-rb-cnstr_1-2.i line 1028 function main thread 0
+----------------------------------------------------
+  end = dynamic_21_value.next
+
+State 76 file sll-rb-cnstr_1-2.i line 1029 function main thread 0
+----------------------------------------------------
+  end->next = { .next=0, .colour=1 }
+
+State 82 file sll-rb-cnstr_1-2.i line 1030 function main thread 0
+----------------------------------------------------
+  end->colour = { .next=0, .colour=1 }
+
+State 93 file sll-rb-cnstr_1-2.i line 1050 function main thread 0
+----------------------------------------------------
+  end = dynamic_11_value.next
+
+State 110 file sll-rb-cnstr_1-2.i line 1045 function main thread 0
+----------------------------------------------------
+  end = dynamic_13_value.next
+
+State 124 file sll-rb-cnstr_1-2.i line 1046 function main thread 0
+----------------------------------------------------
+  end = dynamic_15_value.next
+
+State 151 file sll-rb-cnstr_1-2.i line 1050 function main thread 0
+----------------------------------------------------
+  end = dynamic_17_value.next
+
+State 178 file sll-rb-cnstr_1-2.i line 1045 function main thread 0
+----------------------------------------------------
+  end = dynamic_21_value.next
+
+State 191 file sll-rb-cnstr_1-2.i line 1046 function main thread 0
+----------------------------------------------------
+  end = dynamic_23_value.next
+
+State 192 file sll-rb-cnstr_1-2.i line 1049 function main thread 0
+----------------------------------------------------
+Violated property:
+  file sll-rb-cnstr_1-2.i line 1049 function main
+  dereference failure: NULL pointer
+
+
+VERIFICATION FAILED
+
+Bug found (k = 6)
+
+
+FALSE_DEREF

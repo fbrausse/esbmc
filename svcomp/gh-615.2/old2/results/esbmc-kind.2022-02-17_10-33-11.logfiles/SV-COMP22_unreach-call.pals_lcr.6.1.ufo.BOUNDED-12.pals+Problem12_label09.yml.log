@@ -1,0 +1,821 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/combinations/pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --add-symex-value-sets --no-align-check --k-step 5 --floatbv --unlimited-k-steps ../sv-benchmarks/c/combinations/pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c --32 --witness-output pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c.graphml --no-pointer-check --no-bounds-check --interval-analysis --goto-unwind --unlimited-goto-unwind --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/combinations/pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.794s
+GOTO program processing time: 0.315s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.211s (4123 assignments)
+Slicing time: 0.007s (removed 2599 assignments)
+Generated 12 VCC(s), 12 remaining after simplification (1524 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.021s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.021s
+Runtime decision procedure: 0.958s
+Building error trace
+
+Counterexample:
+
+State 1 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 441 function main1 thread 0
+----------------------------------------------------
+  r1 = 0 (00000000)
+
+State 2 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 442 function main1 thread 0
+----------------------------------------------------
+  id1 = 120 (01111000)
+
+State 3 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 443 function main1 thread 0
+----------------------------------------------------
+  st1 = 0 (00000000)
+
+State 4 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 444 function main1 thread 0
+----------------------------------------------------
+  send1 = 120 (01111000)
+
+State 5 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 445 function main1 thread 0
+----------------------------------------------------
+  mode1 = 0
+
+State 6 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 446 function main1 thread 0
+----------------------------------------------------
+  id2 = 90 (01011010)
+
+State 7 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 447 function main1 thread 0
+----------------------------------------------------
+  st2 = 0 (00000000)
+
+State 8 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 448 function main1 thread 0
+----------------------------------------------------
+  send2 = 90 (01011010)
+
+State 9 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 449 function main1 thread 0
+----------------------------------------------------
+  mode2 = 0
+
+State 10 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 450 function main1 thread 0
+----------------------------------------------------
+  id3 = 89 (01011001)
+
+State 11 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 451 function main1 thread 0
+----------------------------------------------------
+  st3 = 0 (00000000)
+
+State 12 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 452 function main1 thread 0
+----------------------------------------------------
+  send3 = 89 (01011001)
+
+State 13 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 453 function main1 thread 0
+----------------------------------------------------
+  mode3 = 0
+
+State 14 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 454 function main1 thread 0
+----------------------------------------------------
+  id4 = 82 (01010010)
+
+State 15 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 455 function main1 thread 0
+----------------------------------------------------
+  st4 = 0 (00000000)
+
+State 16 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 456 function main1 thread 0
+----------------------------------------------------
+  send4 = 82 (01010010)
+
+State 17 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 457 function main1 thread 0
+----------------------------------------------------
+  mode4 = 0
+
+State 18 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 458 function main1 thread 0
+----------------------------------------------------
+  id5 = 71 (01000111)
+
+State 19 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 459 function main1 thread 0
+----------------------------------------------------
+  st5 = 0 (00000000)
+
+State 20 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 460 function main1 thread 0
+----------------------------------------------------
+  send5 = 71 (01000111)
+
+State 21 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 461 function main1 thread 0
+----------------------------------------------------
+  mode5 = 0
+
+State 22 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 462 function main1 thread 0
+----------------------------------------------------
+  id6 = 72 (01001000)
+
+State 23 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 463 function main1 thread 0
+----------------------------------------------------
+  st6 = 0 (00000000)
+
+State 24 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 464 function main1 thread 0
+----------------------------------------------------
+  send6 = 72 (01001000)
+
+State 25 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 465 function main1 thread 0
+----------------------------------------------------
+  mode6 = 0
+
+State 26 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 104 function node1 thread 0
+----------------------------------------------------
+  p1_new = 120 (01111000)
+
+State 27 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 129 function node2 thread 0
+----------------------------------------------------
+  p2_new = 90 (01011010)
+
+State 28 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 154 function node3 thread 0
+----------------------------------------------------
+  p3_new = 89 (01011001)
+
+State 29 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 179 function node4 thread 0
+----------------------------------------------------
+  p4_new = 82 (01010010)
+
+State 30 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 204 function node5 thread 0
+----------------------------------------------------
+  p5_new = 71 (01000111)
+
+State 31 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 229 function node6 thread 0
+----------------------------------------------------
+  p6_new = 72 (01001000)
+
+State 32 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 489 function main1 thread 0
+----------------------------------------------------
+  p1_old = 120 (01111000)
+
+State 33 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 491 function main1 thread 0
+----------------------------------------------------
+  p2_old = 90 (01011010)
+
+State 34 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 493 function main1 thread 0
+----------------------------------------------------
+  p3_old = 89 (01011001)
+
+State 35 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 495 function main1 thread 0
+----------------------------------------------------
+  p4_old = 82 (01010010)
+
+State 36 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 497 function main1 thread 0
+----------------------------------------------------
+  p5_old = 71 (01000111)
+
+State 37 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 499 function main1 thread 0
+----------------------------------------------------
+  p6_old = 72 (01001000)
+
+State 38 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 89 function node1 thread 0
+----------------------------------------------------
+  r1 = 1 (00000001)
+
+State 39 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 90 function node1 thread 0
+----------------------------------------------------
+  m1 = 72 (01001000)
+
+State 40 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 99 function node1 thread 0
+----------------------------------------------------
+  send1 = 72 (01001000)
+
+State 41 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 117 function node2 thread 0
+----------------------------------------------------
+  m2 = 120 (01111000)
+
+State 42 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 121 function node2 thread 0
+----------------------------------------------------
+  send2 = 120 (01111000)
+
+State 43 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 142 function node3 thread 0
+----------------------------------------------------
+  m3 = 90 (01011010)
+
+State 44 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 146 function node3 thread 0
+----------------------------------------------------
+  send3 = 90 (01011010)
+
+State 45 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 167 function node4 thread 0
+----------------------------------------------------
+  m4 = 89 (01011001)
+
+State 46 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 171 function node4 thread 0
+----------------------------------------------------
+  send4 = 89 (01011001)
+
+State 47 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 192 function node5 thread 0
+----------------------------------------------------
+  m5 = 82 (01010010)
+
+State 48 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 196 function node5 thread 0
+----------------------------------------------------
+  send5 = 82 (01010010)
+
+State 49 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 217 function node6 thread 0
+----------------------------------------------------
+  m6 = 71 (01000111)
+
+State 50 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 489 function main1 thread 0
+----------------------------------------------------
+  p1_old = -1 (11111111)
+
+State 51 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 491 function main1 thread 0
+----------------------------------------------------
+  p2_old = -1 (11111111)
+
+State 52 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 493 function main1 thread 0
+----------------------------------------------------
+  p3_old = -1 (11111111)
+
+State 53 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 495 function main1 thread 0
+----------------------------------------------------
+  p4_old = -1 (11111111)
+
+State 54 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 497 function main1 thread 0
+----------------------------------------------------
+  p5_old = -1 (11111111)
+
+State 55 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 499 function main1 thread 0
+----------------------------------------------------
+  p6_old = -1 (11111111)
+
+State 56 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 104 function node1 thread 0
+----------------------------------------------------
+  p1_new = 72 (01001000)
+
+State 57 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 129 function node2 thread 0
+----------------------------------------------------
+  p2_new = 120 (01111000)
+
+State 58 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 154 function node3 thread 0
+----------------------------------------------------
+  p3_new = 90 (01011010)
+
+State 59 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 179 function node4 thread 0
+----------------------------------------------------
+  p4_new = 89 (01011001)
+
+State 60 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 204 function node5 thread 0
+----------------------------------------------------
+  p5_new = 82 (01010010)
+
+State 61 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 229 function node6 thread 0
+----------------------------------------------------
+  p6_new = 72 (01001000)
+
+State 62 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 489 function main1 thread 0
+----------------------------------------------------
+  p1_old = 72 (01001000)
+
+State 63 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 491 function main1 thread 0
+----------------------------------------------------
+  p2_old = 120 (01111000)
+
+State 64 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 493 function main1 thread 0
+----------------------------------------------------
+  p3_old = 90 (01011010)
+
+State 65 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 495 function main1 thread 0
+----------------------------------------------------
+  p4_old = 89 (01011001)
+
+State 66 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 497 function main1 thread 0
+----------------------------------------------------
+  p5_old = 82 (01010010)
+
+State 67 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 499 function main1 thread 0
+----------------------------------------------------
+  p6_old = 72 (01001000)
+
+State 68 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 89 function node1 thread 0
+----------------------------------------------------
+  r1 = 2 (00000010)
+
+State 69 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 90 function node1 thread 0
+----------------------------------------------------
+  m1 = 72 (01001000)
+
+State 70 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 99 function node1 thread 0
+----------------------------------------------------
+  send1 = 72 (01001000)
+
+State 71 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 117 function node2 thread 0
+----------------------------------------------------
+  m2 = 72 (01001000)
+
+State 72 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 142 function node3 thread 0
+----------------------------------------------------
+  m3 = 120 (01111000)
+
+State 73 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 146 function node3 thread 0
+----------------------------------------------------
+  send3 = 120 (01111000)
+
+State 74 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 167 function node4 thread 0
+----------------------------------------------------
+  m4 = 90 (01011010)
+
+State 75 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 171 function node4 thread 0
+----------------------------------------------------
+  send4 = 90 (01011010)
+
+State 76 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 192 function node5 thread 0
+----------------------------------------------------
+  m5 = 89 (01011001)
+
+State 77 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 196 function node5 thread 0
+----------------------------------------------------
+  send5 = 89 (01011001)
+
+State 78 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 217 function node6 thread 0
+----------------------------------------------------
+  m6 = 82 (01010010)
+
+State 79 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 221 function node6 thread 0
+----------------------------------------------------
+  send6 = 82 (01010010)
+
+State 80 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 489 function main1 thread 0
+----------------------------------------------------
+  p1_old = -1 (11111111)
+
+State 81 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 491 function main1 thread 0
+----------------------------------------------------
+  p2_old = -1 (11111111)
+
+State 82 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 493 function main1 thread 0
+----------------------------------------------------
+  p3_old = -1 (11111111)
+
+State 83 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 495 function main1 thread 0
+----------------------------------------------------
+  p4_old = -1 (11111111)
+
+State 84 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 497 function main1 thread 0
+----------------------------------------------------
+  p5_old = -1 (11111111)
+
+State 85 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 499 function main1 thread 0
+----------------------------------------------------
+  p6_old = -1 (11111111)
+
+State 86 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 104 function node1 thread 0
+----------------------------------------------------
+  p1_new = 72 (01001000)
+
+State 87 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 129 function node2 thread 0
+----------------------------------------------------
+  p2_new = 120 (01111000)
+
+State 88 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 154 function node3 thread 0
+----------------------------------------------------
+  p3_new = 120 (01111000)
+
+State 89 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 179 function node4 thread 0
+----------------------------------------------------
+  p4_new = 90 (01011010)
+
+State 90 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 204 function node5 thread 0
+----------------------------------------------------
+  p5_new = 89 (01011001)
+
+State 91 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 229 function node6 thread 0
+----------------------------------------------------
+  p6_new = 82 (01010010)
+
+State 92 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 489 function main1 thread 0
+----------------------------------------------------
+  p1_old = 72 (01001000)
+
+State 93 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 491 function main1 thread 0
+----------------------------------------------------
+  p2_old = 120 (01111000)
+
+State 94 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 493 function main1 thread 0
+----------------------------------------------------
+  p3_old = 120 (01111000)
+
+State 95 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 495 function main1 thread 0
+----------------------------------------------------
+  p4_old = 90 (01011010)
+
+State 96 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 497 function main1 thread 0
+----------------------------------------------------
+  p5_old = 89 (01011001)
+
+State 97 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 499 function main1 thread 0
+----------------------------------------------------
+  p6_old = 82 (01010010)
+
+State 98 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 89 function node1 thread 0
+----------------------------------------------------
+  r1 = 3 (00000011)
+
+State 99 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 90 function node1 thread 0
+----------------------------------------------------
+  m1 = 82 (01010010)
+
+State 100 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 99 function node1 thread 0
+----------------------------------------------------
+  send1 = 82 (01010010)
+
+State 101 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 117 function node2 thread 0
+----------------------------------------------------
+  m2 = 72 (01001000)
+
+State 102 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 142 function node3 thread 0
+----------------------------------------------------
+  m3 = 120 (01111000)
+
+State 103 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 146 function node3 thread 0
+----------------------------------------------------
+  send3 = 120 (01111000)
+
+State 104 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 167 function node4 thread 0
+----------------------------------------------------
+  m4 = 120 (01111000)
+
+State 105 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 171 function node4 thread 0
+----------------------------------------------------
+  send4 = 120 (01111000)
+
+State 106 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 192 function node5 thread 0
+----------------------------------------------------
+  m5 = 90 (01011010)
+
+State 107 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 196 function node5 thread 0
+----------------------------------------------------
+  send5 = 90 (01011010)
+
+State 108 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 217 function node6 thread 0
+----------------------------------------------------
+  m6 = 89 (01011001)
+
+State 109 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 221 function node6 thread 0
+----------------------------------------------------
+  send6 = 89 (01011001)
+
+State 110 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 489 function main1 thread 0
+----------------------------------------------------
+  p1_old = -1 (11111111)
+
+State 111 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 491 function main1 thread 0
+----------------------------------------------------
+  p2_old = -1 (11111111)
+
+State 112 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 493 function main1 thread 0
+----------------------------------------------------
+  p3_old = -1 (11111111)
+
+State 113 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 495 function main1 thread 0
+----------------------------------------------------
+  p4_old = -1 (11111111)
+
+State 114 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 497 function main1 thread 0
+----------------------------------------------------
+  p5_old = -1 (11111111)
+
+State 115 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 499 function main1 thread 0
+----------------------------------------------------
+  p6_old = -1 (11111111)
+
+State 116 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 104 function node1 thread 0
+----------------------------------------------------
+  p1_new = 82 (01010010)
+
+State 117 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 129 function node2 thread 0
+----------------------------------------------------
+  p2_new = 120 (01111000)
+
+State 118 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 154 function node3 thread 0
+----------------------------------------------------
+  p3_new = 120 (01111000)
+
+State 119 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 179 function node4 thread 0
+----------------------------------------------------
+  p4_new = 120 (01111000)
+
+State 120 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 204 function node5 thread 0
+----------------------------------------------------
+  p5_new = 90 (01011010)
+
+State 121 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 229 function node6 thread 0
+----------------------------------------------------
+  p6_new = 89 (01011001)
+
+State 122 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 489 function main1 thread 0
+----------------------------------------------------
+  p1_old = 82 (01010010)
+
+State 123 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 491 function main1 thread 0
+----------------------------------------------------
+  p2_old = 120 (01111000)
+
+State 124 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 493 function main1 thread 0
+----------------------------------------------------
+  p3_old = 120 (01111000)
+
+State 125 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 495 function main1 thread 0
+----------------------------------------------------
+  p4_old = 120 (01111000)
+
+State 126 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 497 function main1 thread 0
+----------------------------------------------------
+  p5_old = 90 (01011010)
+
+State 127 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 499 function main1 thread 0
+----------------------------------------------------
+  p6_old = 89 (01011001)
+
+State 128 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 89 function node1 thread 0
+----------------------------------------------------
+  r1 = 4 (00000100)
+
+State 129 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 90 function node1 thread 0
+----------------------------------------------------
+  m1 = 89 (01011001)
+
+State 130 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 99 function node1 thread 0
+----------------------------------------------------
+  send1 = 89 (01011001)
+
+State 131 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 117 function node2 thread 0
+----------------------------------------------------
+  m2 = 82 (01010010)
+
+State 132 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 142 function node3 thread 0
+----------------------------------------------------
+  m3 = 120 (01111000)
+
+State 133 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 146 function node3 thread 0
+----------------------------------------------------
+  send3 = 120 (01111000)
+
+State 134 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 167 function node4 thread 0
+----------------------------------------------------
+  m4 = 120 (01111000)
+
+State 135 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 171 function node4 thread 0
+----------------------------------------------------
+  send4 = 120 (01111000)
+
+State 136 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 192 function node5 thread 0
+----------------------------------------------------
+  m5 = 120 (01111000)
+
+State 137 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 196 function node5 thread 0
+----------------------------------------------------
+  send5 = 120 (01111000)
+
+State 138 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 217 function node6 thread 0
+----------------------------------------------------
+  m6 = 90 (01011010)
+
+State 139 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 221 function node6 thread 0
+----------------------------------------------------
+  send6 = 90 (01011010)
+
+State 140 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 489 function main1 thread 0
+----------------------------------------------------
+  p1_old = -1 (11111111)
+
+State 141 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 491 function main1 thread 0
+----------------------------------------------------
+  p2_old = -1 (11111111)
+
+State 142 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 493 function main1 thread 0
+----------------------------------------------------
+  p3_old = -1 (11111111)
+
+State 143 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 495 function main1 thread 0
+----------------------------------------------------
+  p4_old = -1 (11111111)
+
+State 144 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 497 function main1 thread 0
+----------------------------------------------------
+  p5_old = -1 (11111111)
+
+State 145 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 499 function main1 thread 0
+----------------------------------------------------
+  p6_old = -1 (11111111)
+
+State 146 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 104 function node1 thread 0
+----------------------------------------------------
+  p1_new = 89 (01011001)
+
+State 147 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 129 function node2 thread 0
+----------------------------------------------------
+  p2_new = 120 (01111000)
+
+State 148 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 154 function node3 thread 0
+----------------------------------------------------
+  p3_new = 120 (01111000)
+
+State 149 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 179 function node4 thread 0
+----------------------------------------------------
+  p4_new = 120 (01111000)
+
+State 150 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 204 function node5 thread 0
+----------------------------------------------------
+  p5_new = 120 (01111000)
+
+State 151 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 229 function node6 thread 0
+----------------------------------------------------
+  p6_new = 90 (01011010)
+
+State 152 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 489 function main1 thread 0
+----------------------------------------------------
+  p1_old = 89 (01011001)
+
+State 153 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 491 function main1 thread 0
+----------------------------------------------------
+  p2_old = 120 (01111000)
+
+State 154 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 493 function main1 thread 0
+----------------------------------------------------
+  p3_old = 120 (01111000)
+
+State 155 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 495 function main1 thread 0
+----------------------------------------------------
+  p4_old = 120 (01111000)
+
+State 156 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 497 function main1 thread 0
+----------------------------------------------------
+  p5_old = 120 (01111000)
+
+State 157 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 499 function main1 thread 0
+----------------------------------------------------
+  p6_old = 90 (01011010)
+
+State 158 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 89 function node1 thread 0
+----------------------------------------------------
+  r1 = 5 (00000101)
+
+State 159 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 90 function node1 thread 0
+----------------------------------------------------
+  m1 = 90 (01011010)
+
+State 160 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 99 function node1 thread 0
+----------------------------------------------------
+  send1 = 90 (01011010)
+
+State 161 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 117 function node2 thread 0
+----------------------------------------------------
+  m2 = 89 (01011001)
+
+State 162 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 142 function node3 thread 0
+----------------------------------------------------
+  m3 = 120 (01111000)
+
+State 163 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 146 function node3 thread 0
+----------------------------------------------------
+  send3 = 120 (01111000)
+
+State 164 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 167 function node4 thread 0
+----------------------------------------------------
+  m4 = 120 (01111000)
+
+State 165 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 171 function node4 thread 0
+----------------------------------------------------
+  send4 = 120 (01111000)
+
+State 166 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 192 function node5 thread 0
+----------------------------------------------------
+  m5 = 120 (01111000)
+
+State 167 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 196 function node5 thread 0
+----------------------------------------------------
+  send5 = 120 (01111000)
+
+State 168 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 217 function node6 thread 0
+----------------------------------------------------
+  m6 = 120 (01111000)
+
+State 169 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 221 function node6 thread 0
+----------------------------------------------------
+  send6 = 120 (01111000)
+
+State 170 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 489 function main1 thread 0
+----------------------------------------------------
+  p1_old = -1 (11111111)
+
+State 171 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 491 function main1 thread 0
+----------------------------------------------------
+  p2_old = -1 (11111111)
+
+State 172 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 493 function main1 thread 0
+----------------------------------------------------
+  p3_old = -1 (11111111)
+
+State 173 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 495 function main1 thread 0
+----------------------------------------------------
+  p4_old = -1 (11111111)
+
+State 174 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 497 function main1 thread 0
+----------------------------------------------------
+  p5_old = -1 (11111111)
+
+State 175 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 499 function main1 thread 0
+----------------------------------------------------
+  p6_old = -1 (11111111)
+
+State 176 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 104 function node1 thread 0
+----------------------------------------------------
+  p1_new = 90 (01011010)
+
+State 177 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 129 function node2 thread 0
+----------------------------------------------------
+  p2_new = 120 (01111000)
+
+State 178 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 154 function node3 thread 0
+----------------------------------------------------
+  p3_new = 120 (01111000)
+
+State 179 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 179 function node4 thread 0
+----------------------------------------------------
+  p4_new = 120 (01111000)
+
+State 180 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 204 function node5 thread 0
+----------------------------------------------------
+  p5_new = 120 (01111000)
+
+State 181 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 229 function node6 thread 0
+----------------------------------------------------
+  p6_new = 120 (01111000)
+
+State 182 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 489 function main1 thread 0
+----------------------------------------------------
+  p1_old = 90 (01011010)
+
+State 183 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 491 function main1 thread 0
+----------------------------------------------------
+  p2_old = 120 (01111000)
+
+State 184 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 493 function main1 thread 0
+----------------------------------------------------
+  p3_old = 120 (01111000)
+
+State 185 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 495 function main1 thread 0
+----------------------------------------------------
+  p4_old = 120 (01111000)
+
+State 186 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 497 function main1 thread 0
+----------------------------------------------------
+  p5_old = 120 (01111000)
+
+State 187 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 499 function main1 thread 0
+----------------------------------------------------
+  p6_old = 120 (01111000)
+
+State 188 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 89 function node1 thread 0
+----------------------------------------------------
+  r1 = 6 (00000110)
+
+State 189 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 90 function node1 thread 0
+----------------------------------------------------
+  m1 = 120 (01111000)
+
+State 190 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 117 function node2 thread 0
+----------------------------------------------------
+  m2 = 90 (01011010)
+
+State 191 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 142 function node3 thread 0
+----------------------------------------------------
+  m3 = 120 (01111000)
+
+State 192 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 167 function node4 thread 0
+----------------------------------------------------
+  m4 = 120 (01111000)
+
+State 193 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 192 function node5 thread 0
+----------------------------------------------------
+  m5 = 120 (01111000)
+
+State 194 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 217 function node6 thread 0
+----------------------------------------------------
+  m6 = 120 (01111000)
+
+State 195 file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 20 function reach_error thread 0
+----------------------------------------------------
+Violated property:
+  file pals_lcr.6.1.ufo.BOUNDED-12.pals+Problem12_label09.c line 20 function reach_error
+  assertion 0
+  0
+
+
+VERIFICATION FAILED
+
+Bug found (k = 1)
+
+
+FALSE_REACH

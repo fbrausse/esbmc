@@ -1,0 +1,35 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/valid-memsafety.prp -s kinduction --arch 64 ../sv-benchmarks/c/openbsd-6.2/if_etherip-fixed-double-free-invalid-deref2.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --add-symex-value-sets --no-align-check --k-step 5 --floatbv --unlimited-k-steps ../sv-benchmarks/c/openbsd-6.2/if_etherip-fixed-double-free-invalid-deref2.i --64 --witness-output if_etherip-fixed-double-free-invalid-deref2.i.graphml --memory-leak-check --no-assertions --k-induction --max-inductive-step 3 
+
+../sv-benchmarks/c/openbsd-6.2/if_etherip-fixed-double-free-invalid-deref2.i:344:36: warning: declaration of built-in function 'setjmp' requires the declaration of the 'jmp_buf' type, commonly provided in the header <setjmp.h>. [-Wincomplete-setjmp-declaration]
+__attribute__((returns_twice)) int setjmp(label_t *);
+                                   ^
+../sv-benchmarks/c/openbsd-6.2/if_etherip-fixed-double-free-invalid-deref2.i:345:36: warning: declaration of built-in function 'longjmp' requires the declaration of the 'jmp_buf' type, commonly provided in the header <setjmp.h>. [-Wincomplete-setjmp-declaration]
+__attribute__((__noreturn__)) void longjmp(label_t *);
+                                   ^
+../sv-benchmarks/c/openbsd-6.2/if_etherip-fixed-double-free-invalid-deref2.i:1670:6: warning: declaration of built-in function 'savectx' requires the declaration of the 'jmp_buf' type, commonly provided in the header <setjmp.h>. [-Wincomplete-setjmp-declaration]
+void savectx(struct pcb *);
+     ^
+../sv-benchmarks/c/openbsd-6.2/if_etherip-fixed-double-free-invalid-deref2.i:7931:27: warning: taking address of packed member 'ip6_src' of class or structure 'ip6_hdr' may result in an unaligned pointer value [-Waddress-of-packed-member]
+  error = in6_embedscope(&ip6->ip6_src, src, ((void *)0));
+                          ^~~~~~~~~~~~
+../sv-benchmarks/c/openbsd-6.2/if_etherip-fixed-double-free-invalid-deref2.i:7934:27: warning: taking address of packed member 'ip6_dst' of class or structure 'ip6_hdr' may result in an unaligned pointer value [-Waddress-of-packed-member]
+  error = in6_embedscope(&ip6->ip6_dst, dst, ((void *)0));
+                          ^~~~~~~~~~~~
+../sv-benchmarks/c/openbsd-6.2/if_etherip-fixed-double-free-invalid-deref2.i:7963:29: warning: taking address of packed member 'ip6_src' of class or structure 'ip6_hdr' may result in an unaligned pointer value [-Waddress-of-packed-member]
+  in6_recoverscope(&ipsrc, &ip6->ip6_src);
+                            ^~~~~~~~~~~~
+../sv-benchmarks/c/openbsd-6.2/if_etherip-fixed-double-free-invalid-deref2.i:7964:29: warning: taking address of packed member 'ip6_dst' of class or structure 'ip6_hdr' may result in an unaligned pointer value [-Waddress-of-packed-member]
+  in6_recoverscope(&ipdst, &ip6->ip6_dst);
+                            ^~~~~~~~~~~~
+Can't construct rvalue reference to array type during dereference
+(It isn't allowed by C anyway)
+
+
+Unknown
