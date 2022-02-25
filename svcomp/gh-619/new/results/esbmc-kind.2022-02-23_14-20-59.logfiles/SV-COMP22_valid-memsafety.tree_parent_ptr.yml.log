@@ -1,0 +1,174 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/valid-memsafety.prp -s kinduction --arch 32 ../sv-benchmarks/c/memsafety-ext/tree_parent_ptr.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --add-symex-value-sets --no-align-check --k-step 5 --floatbv --unlimited-k-steps ../sv-benchmarks/c/memsafety-ext/tree_parent_ptr.i --32 --witness-output tree_parent_ptr.i.graphml --memory-leak-check --no-assertions --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/memsafety-ext/tree_parent_ptr.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.152s
+GOTO program processing time: 0.001s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.012s (182 assignments)
+Slicing time: 0.001s (removed 91 assignments)
+Generated 82 VCC(s), 45 remaining after simplification (91 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.005s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.005s
+Runtime decision procedure: 0.300s
+BMC program time: 0.319s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.007s (182 assignments)
+Slicing time: 0.000s (removed 91 assignments)
+Generated 85 VCC(s), 48 remaining after simplification (91 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.003s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.003s
+Runtime decision procedure: 0.241s
+The forward condition is unable to prove the property
+*** Checking base case, k = 6
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file tree_parent_ptr.i line 540 function main
+Unwinding loop 1  iteration  2   file tree_parent_ptr.i line 540 function main
+Unwinding loop 1  iteration  3   file tree_parent_ptr.i line 540 function main
+Unwinding loop 1  iteration  4   file tree_parent_ptr.i line 540 function main
+Unwinding loop 1  iteration  5   file tree_parent_ptr.i line 540 function main
+Not unwinding 
+Unwinding loop 2  iteration  1   file tree_parent_ptr.i line 538 function main
+Unwinding loop 1  iteration  1   file tree_parent_ptr.i line 540 function main
+Unwinding loop 1  iteration  2   file tree_parent_ptr.i line 540 function main
+Unwinding loop 1  iteration  3   file tree_parent_ptr.i line 540 function main
+Unwinding loop 1  iteration  4   file tree_parent_ptr.i line 540 function main
+Unwinding loop 1  iteration  5   file tree_parent_ptr.i line 540 function main
+Not unwinding 
+Unwinding loop 2  iteration  2   file tree_parent_ptr.i line 538 function main
+Unwinding loop 1  iteration  1   file tree_parent_ptr.i line 540 function main
+Unwinding loop 1  iteration  2   file tree_parent_ptr.i line 540 function main
+Unwinding loop 1  iteration  3   file tree_parent_ptr.i line 540 function main
+Unwinding loop 1  iteration  4   file tree_parent_ptr.i line 540 function main
+Unwinding loop 1  iteration  5   file tree_parent_ptr.i line 540 function main
+Not unwinding 
+Unwinding loop 2  iteration  3   file tree_parent_ptr.i line 538 function main
+Unwinding loop 1  iteration  1   file tree_parent_ptr.i line 540 function main
+Unwinding loop 1  iteration  2   file tree_parent_ptr.i line 540 function main
+Unwinding loop 1  iteration  3   file tree_parent_ptr.i line 540 function main
+Unwinding loop 1  iteration  4   file tree_parent_ptr.i line 540 function main
+Unwinding loop 1  iteration  5   file tree_parent_ptr.i line 540 function main
+Not unwinding 
+Unwinding loop 2  iteration  4   file tree_parent_ptr.i line 538 function main
+Unwinding loop 1  iteration  1   file tree_parent_ptr.i line 540 function main
+Unwinding loop 1  iteration  2   file tree_parent_ptr.i line 540 function main
+Unwinding loop 1  iteration  3   file tree_parent_ptr.i line 540 function main
+Unwinding loop 1  iteration  4   file tree_parent_ptr.i line 540 function main
+Unwinding loop 1  iteration  5   file tree_parent_ptr.i line 540 function main
+Not unwinding 
+Unwinding loop 2  iteration  5   file tree_parent_ptr.i line 538 function main
+Unwinding loop 1  iteration  1   file tree_parent_ptr.i line 540 function main
+Unwinding loop 1  iteration  2   file tree_parent_ptr.i line 540 function main
+Unwinding loop 1  iteration  3   file tree_parent_ptr.i line 540 function main
+Unwinding loop 1  iteration  4   file tree_parent_ptr.i line 540 function main
+Unwinding loop 1  iteration  5   file tree_parent_ptr.i line 540 function main
+Not unwinding 
+Not unwinding 
+Unwinding loop 3  iteration  1   file tree_parent_ptr.i line 563 function main
+Unwinding loop 3  iteration  2   file tree_parent_ptr.i line 563 function main
+Unwinding loop 3  iteration  3   file tree_parent_ptr.i line 563 function main
+Unwinding loop 3  iteration  4   file tree_parent_ptr.i line 563 function main
+Unwinding loop 3  iteration  5   file tree_parent_ptr.i line 563 function main
+Not unwinding 
+Symex completed in: 0.086s (1504 assignments)
+Slicing time: 0.022s (removed 283 assignments)
+Generated 1094 VCC(s), 637 remaining after simplification (1221 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.039s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.039s
+Runtime decision procedure: 7.662s
+Building error trace
+
+Counterexample:
+
+State 2 file tree_parent_ptr.i line 535 function main thread 0
+----------------------------------------------------
+  root->left = 0
+
+State 4 file tree_parent_ptr.i line 536 function main thread 0
+----------------------------------------------------
+  root->right = 0
+
+State 6 file tree_parent_ptr.i line 537 function main thread 0
+----------------------------------------------------
+  root->parent = 0
+
+State 11 file tree_parent_ptr.i line 547 function main thread 0
+----------------------------------------------------
+  n->left = ( struct TreeNode *)((void *)(&dynamic_30_value))
+
+State 14 file tree_parent_ptr.i line 548 function main thread 0
+----------------------------------------------------
+  n->left->left = 0
+
+State 17 file tree_parent_ptr.i line 549 function main thread 0
+----------------------------------------------------
+  n->left->right = 0
+
+State 20 file tree_parent_ptr.i line 550 function main thread 0
+----------------------------------------------------
+  n->left->parent = ( struct TreeNode *)((void *)(&dynamic_21_value))
+
+State 23 file tree_parent_ptr.i line 553 function main thread 0
+----------------------------------------------------
+  n->right = ( struct TreeNode *)((void *)(&dynamic_32_value))
+
+State 26 file tree_parent_ptr.i line 554 function main thread 0
+----------------------------------------------------
+  n->right->left = 0
+
+State 29 file tree_parent_ptr.i line 555 function main thread 0
+----------------------------------------------------
+  n->right->right = 0
+
+State 32 file tree_parent_ptr.i line 556 function main thread 0
+----------------------------------------------------
+  n->right->parent = ( struct TreeNode *)((void *)(&dynamic_21_value))
+
+State 36 file tree_parent_ptr.i line 542 function main thread 0
+----------------------------------------------------
+  n = dynamic_21_value.left
+
+State 40 file tree_parent_ptr.i line 542 function main thread 0
+----------------------------------------------------
+  n = dynamic_30_value.left
+
+State 41 file tree_parent_ptr.i line 542 function main thread 0
+----------------------------------------------------
+Violated property:
+  file tree_parent_ptr.i line 542 function main
+  dereference failure: NULL pointer
+
+
+VERIFICATION FAILED
+
+Bug found (k = 6)
+
+
+FALSE_DEREF

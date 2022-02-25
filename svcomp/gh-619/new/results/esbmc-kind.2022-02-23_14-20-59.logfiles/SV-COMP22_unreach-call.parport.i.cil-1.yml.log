@@ -1,0 +1,51 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/ntdrivers/parport.i.cil-1.c
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --add-symex-value-sets --no-align-check --k-step 5 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ntdrivers/parport.i.cil-1.c --32 --witness-output parport.i.cil-1.c.graphml --no-pointer-check --no-bounds-check --interval-analysis --goto-unwind --unlimited-goto-unwind --k-induction --max-inductive-step 3 
+
+../sv-benchmarks/c/ntdrivers/parport.i.cil-1.c:2158:27: warning: incompatible pointer types passing 'PKINTERRUPT *' (aka 'struct _KINTERRUPT **') to parameter of type 'struct _KINTERRUPT *'; dereference with * [-Wincompatible-pointer-types]
+        (*ServiceRoutine)(InterruptObject, ServiceContext);
+                          ^~~~~~~~~~~~~~~
+                          *
+../sv-benchmarks/c/ntdrivers/parport.i.cil-1.c:5864:79: warning: incompatible pointer types passing 'PUCHAR [4]' to parameter of type 'PULONG' (aka 'unsigned long *') [-Wincompatible-pointer-types]
+  Status = PptBuildResourceList(Extension, sizeof(ChipAddr) / sizeof(ULONG ), ChipAddr,
+                                                                              ^~~~~~~~
+../sv-benchmarks/c/ntdrivers/parport.i.cil-1.c:4945:84: note: passing argument to parameter 'Addresses' here
+NTSTATUS PptBuildResourceList(PDEVICE_EXTENSION Extension , ULONG Partial , PULONG Addresses ,
+                                                                                   ^
+../sv-benchmarks/c/ntdrivers/parport.i.cil-1.c:7747:16: warning: incompatible function pointer types assigning to 'NTSTATUS (*)(PDEVICE_OBJECT, PIRP, PVOID)' (aka 'long (*)(struct _DEVICE_OBJECT *, struct _IRP *, void *)') from 'NTSTATUS (*)(PDEVICE_OBJECT, PIRP, PKEVENT)' (aka 'long (*)(struct _DEVICE_OBJECT *, struct _IRP *, struct _KEVENT *)') [-Wincompatible-function-pointer-types]
+      compFptr = & PptSynchCompletionRoutine;
+               ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ntdrivers/parport.i.cil-1.c:7753:32: warning: incompatible function pointer types assigning to 'NTSTATUS (*)(PDEVICE_OBJECT, PIRP, PVOID)' (aka 'long (*)(struct _DEVICE_OBJECT *, struct _IRP *, void *)') from 'NTSTATUS (*)(PDEVICE_OBJECT, PIRP, PKEVENT)' (aka 'long (*)(struct _DEVICE_OBJECT *, struct _IRP *, struct _KEVENT *)') [-Wincompatible-function-pointer-types]
+  irpSp___0->CompletionRoutine = & PptSynchCompletionRoutine;
+                               ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ntdrivers/parport.i.cil-1.c:8067:20: warning: incompatible function pointer types assigning to 'NTSTATUS (*)(PDEVICE_OBJECT, PIRP, PVOID)' (aka 'long (*)(struct _DEVICE_OBJECT *, struct _IRP *, void *)') from 'NTSTATUS (*)(PDEVICE_OBJECT, PIRP, PDEVICE_EXTENSION)' (aka 'long (*)(struct _DEVICE_OBJECT *, struct _IRP *, struct _DEVICE_EXTENSION *)') [-Wincompatible-function-pointer-types]
+          compFptr = & PptPowerComplete;
+                   ^ ~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ntdrivers/parport.i.cil-1.c:8073:36: warning: incompatible function pointer types assigning to 'NTSTATUS (*)(PDEVICE_OBJECT, PIRP, PVOID)' (aka 'long (*)(struct _DEVICE_OBJECT *, struct _IRP *, void *)') from 'NTSTATUS (*)(PDEVICE_OBJECT, PIRP, PDEVICE_EXTENSION)' (aka 'long (*)(struct _DEVICE_OBJECT *, struct _IRP *, struct _DEVICE_EXTENSION *)') [-Wincompatible-function-pointer-types]
+      irpSp___0->CompletionRoutine = & PptPowerComplete;
+                                   ^ ~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ntdrivers/parport.i.cil-1.c:9202:37: warning: incompatible function pointer types assigning to 'NTSTATUS (*)(PVOID, UCHAR)' (aka 'long (*)(void *, unsigned char)') from 'NTSTATUS (*)(PDEVICE_EXTENSION, UCHAR)' (aka 'long (*)(struct _DEVICE_EXTENSION *, unsigned char)') [-Wincompatible-function-pointer-types]
+  Extension->PnpInfo.TrySetChipMode = & PptSetChipMode;
+                                    ^ ~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ntdrivers/parport.i.cil-1.c:9203:36: warning: incompatible function pointer types assigning to 'NTSTATUS (*)(PVOID, UCHAR)' (aka 'long (*)(void *, unsigned char)') from 'NTSTATUS (*)(PDEVICE_EXTENSION, UCHAR)' (aka 'long (*)(struct _DEVICE_EXTENSION *, unsigned char)') [-Wincompatible-function-pointer-types]
+  Extension->PnpInfo.ClearChipMode = & PptClearChipMode;
+                                   ^ ~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ntdrivers/parport.i.cil-1.c:9655:12: warning: incompatible integer to pointer conversion assigning to 'NTSTATUS (*)(PDEVICE_OBJECT, PIRP, PVOID)' (aka 'long (*)(struct _DEVICE_OBJECT *, struct _IRP *, void *)') from 'int' [-Wint-conversion]
+  compFptr = compRegistered;
+           ^ ~~~~~~~~~~~~~~
+../sv-benchmarks/c/ntdrivers/parport.i.cil-1.c:9656:10: warning: incompatible pointer to integer conversion assigning to 'int' from 'NTSTATUS (*)(PDEVICE_OBJECT, PIRP, PVOID)' (aka 'long (*)(struct _DEVICE_OBJECT *, struct _IRP *, void *)') [-Wint-conversion]
+  pended = compFptr;
+         ^ ~~~~~~~~
+../sv-benchmarks/c/ntdrivers/parport.i.cil-1.c:9684:14: warning: incompatible integer to pointer conversion assigning to 'NTSTATUS (*)(PDEVICE_OBJECT, PIRP, PVOID)' (aka 'long (*)(struct _DEVICE_OBJECT *, struct _IRP *, void *)') from 'int' [-Wint-conversion]
+    compFptr = compRegistered;
+             ^ ~~~~~~~~~~~~~~
+../sv-benchmarks/c/ntdrivers/parport.i.cil-1.c:9685:12: warning: incompatible pointer to integer conversion assigning to 'int' from 'NTSTATUS (*)(PDEVICE_OBJECT, PIRP, PVOID)' (aka 'long (*)(struct _DEVICE_OBJECT *, struct _IRP *, void *)') [-Wint-conversion]
+    pended = compFptr;
+           ^ ~~~~~~~~
+
+Unknown

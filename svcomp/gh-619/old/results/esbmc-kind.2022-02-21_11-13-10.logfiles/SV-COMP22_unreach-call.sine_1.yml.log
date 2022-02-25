@@ -1,0 +1,56 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/floats-cdfpl/sine_1.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --add-symex-value-sets --no-align-check --k-step 5 --floatbv --unlimited-k-steps ../sv-benchmarks/c/floats-cdfpl/sine_1.i --32 --witness-output sine_1.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --goto-unwind --unlimited-goto-unwind --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/floats-cdfpl/sine_1.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.126s
+GOTO program processing time: 0.000s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Symex completed in: 0.001s (19 assignments)
+Slicing time: 0.000s (removed 9 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (10 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.020s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.020s
+Runtime decision procedure: 53.525s
+Building error trace
+
+Counterexample:
+
+State 1 file sine_1.i line 29 function main thread 0
+----------------------------------------------------
+  IN = 1.433169e+0f (00111111 10110111 01110010 00010111)
+
+State 2 file sine_1.i line 32 function main thread 0
+----------------------------------------------------
+  x = 1.433169e+0f (00111111 10110111 01110010 00010111)
+
+State 3 file sine_1.i line 34 function main thread 0
+----------------------------------------------------
+  result = 9.954034e-1f (00111111 01111110 11010010 11000010)
+
+State 4 file sine_1.i line 21 function reach_error thread 0
+----------------------------------------------------
+Violated property:
+  file sine_1.i line 21 function reach_error
+  assertion 0
+  0
+
+
+VERIFICATION FAILED
+
+Bug found (k = 1)
+
+
+FALSE_REACH

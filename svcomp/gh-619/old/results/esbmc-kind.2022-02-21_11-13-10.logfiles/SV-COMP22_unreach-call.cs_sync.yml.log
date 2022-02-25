@@ -1,0 +1,139 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/seq-pthread/cs_sync.i
+
+
+--------------------------------------------------------------------------------
+
+
+Found pthread benchmark!
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --add-symex-value-sets --no-align-check --k-step 5 --floatbv --unlimited-k-steps ../sv-benchmarks/c/seq-pthread/cs_sync.i --32  --no-por --context-bound 2 --no-goto-merge --witness-output cs_sync.i.graphml --no-pointer-check --no-bounds-check --goto-unwind --unlimited-goto-unwind --incremental-bmc 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/seq-pthread/cs_sync.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.131s
+GOTO program processing time: 0.001s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.175s (1887 assignments)
+Slicing time: 0.011s (removed 395 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (1492 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.093s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.093s
+Runtime decision procedure: 0.917s
+BMC program time: 1.197s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.194s (1886 assignments)
+Slicing time: 0.011s (removed 395 assignments)
+Generated 4 VCC(s), 4 remaining after simplification (1491 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.037s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.037s
+Runtime decision procedure: 1.083s
+The forward condition is unable to prove the property
+*** Checking base case, k = 6
+Starting Bounded Model Checking
+Unwinding loop 3  iteration  1   file cs_sync.i line 931 function thread1
+Unwinding loop 3  iteration  2   file cs_sync.i line 931 function thread1
+Unwinding loop 3  iteration  3   file cs_sync.i line 931 function thread1
+Unwinding loop 3  iteration  4   file cs_sync.i line 931 function thread1
+Unwinding loop 3  iteration  5   file cs_sync.i line 931 function thread1
+Not unwinding 
+Unwinding loop 4  iteration  1   file cs_sync.i line 949 function thread2
+Unwinding loop 4  iteration  2   file cs_sync.i line 949 function thread2
+Unwinding loop 4  iteration  3   file cs_sync.i line 949 function thread2
+Unwinding loop 4  iteration  4   file cs_sync.i line 949 function thread2
+Unwinding loop 4  iteration  5   file cs_sync.i line 949 function thread2
+Not unwinding 
+Unwinding loop 3  iteration  1   file cs_sync.i line 931 function thread1
+Unwinding loop 3  iteration  2   file cs_sync.i line 931 function thread1
+Unwinding loop 3  iteration  3   file cs_sync.i line 931 function thread1
+Unwinding loop 3  iteration  4   file cs_sync.i line 931 function thread1
+Unwinding loop 3  iteration  5   file cs_sync.i line 931 function thread1
+Not unwinding 
+Unwinding loop 4  iteration  1   file cs_sync.i line 949 function thread2
+Unwinding loop 4  iteration  2   file cs_sync.i line 949 function thread2
+Unwinding loop 4  iteration  3   file cs_sync.i line 949 function thread2
+Unwinding loop 4  iteration  4   file cs_sync.i line 949 function thread2
+Unwinding loop 4  iteration  5   file cs_sync.i line 949 function thread2
+Not unwinding 
+Symex completed in: 0.443s (2847 assignments)
+Slicing time: 0.021s (removed 575 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (2272 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.061s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.061s
+Runtime decision procedure: 10.206s
+BMC program time: 10.731s
+No bug has been found in the base case
+*** Checking forward condition, k = 6
+Starting Bounded Model Checking
+Unwinding loop 3  iteration  1   file cs_sync.i line 931 function thread1
+Unwinding loop 3  iteration  2   file cs_sync.i line 931 function thread1
+Unwinding loop 3  iteration  3   file cs_sync.i line 931 function thread1
+Unwinding loop 3  iteration  4   file cs_sync.i line 931 function thread1
+Unwinding loop 3  iteration  5   file cs_sync.i line 931 function thread1
+Not unwinding 
+Unwinding loop 4  iteration  1   file cs_sync.i line 949 function thread2
+Unwinding loop 4  iteration  2   file cs_sync.i line 949 function thread2
+Unwinding loop 4  iteration  3   file cs_sync.i line 949 function thread2
+Unwinding loop 4  iteration  4   file cs_sync.i line 949 function thread2
+Unwinding loop 4  iteration  5   file cs_sync.i line 949 function thread2
+Not unwinding 
+Unwinding loop 3  iteration  1   file cs_sync.i line 931 function thread1
+Unwinding loop 3  iteration  2   file cs_sync.i line 931 function thread1
+Unwinding loop 3  iteration  3   file cs_sync.i line 931 function thread1
+Unwinding loop 3  iteration  4   file cs_sync.i line 931 function thread1
+Unwinding loop 3  iteration  5   file cs_sync.i line 931 function thread1
+Not unwinding 
+Unwinding loop 4  iteration  1   file cs_sync.i line 949 function thread2
+Unwinding loop 4  iteration  2   file cs_sync.i line 949 function thread2
+Unwinding loop 4  iteration  3   file cs_sync.i line 949 function thread2
+Unwinding loop 4  iteration  4   file cs_sync.i line 949 function thread2
+Unwinding loop 4  iteration  5   file cs_sync.i line 949 function thread2
+Not unwinding 
+Symex completed in: 0.633s (2846 assignments)
+Slicing time: 0.021s (removed 575 assignments)
+Generated 4 VCC(s), 4 remaining after simplification (2271 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.078s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.078s
+Runtime decision procedure: 0.067s
+BMC program time: 0.799s
+Building successful trace
+
+VERIFICATION SUCCESSFUL
+
+Solution found by the forward condition; all states are reachable (k = 6
+
+../sv-benchmarks/c/seq-pthread/cs_sync.i:943:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+}
+^
+../sv-benchmarks/c/seq-pthread/cs_sync.i:961:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+}
+^
+../sv-benchmarks/c/seq-pthread/cs_sync.i:994:2: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ }
+ ^
+
+TRUE

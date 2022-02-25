@@ -1,0 +1,105 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/nla-digbench-scaling/egcd-ll_unwindbound2.c
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --add-symex-value-sets --no-align-check --k-step 5 --floatbv --unlimited-k-steps ../sv-benchmarks/c/nla-digbench-scaling/egcd-ll_unwindbound2.c --32 --witness-output egcd-ll_unwindbound2.c.graphml --no-pointer-check --no-bounds-check --interval-analysis --goto-unwind --unlimited-goto-unwind --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/nla-digbench-scaling/egcd-ll_unwindbound2.c: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.090s
+GOTO program processing time: 0.001s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.002s (68 assignments)
+Slicing time: 0.000s (removed 38 assignments)
+Generated 5 VCC(s), 5 remaining after simplification (30 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.000s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.000s
+Runtime decision procedure: 0.001s
+BMC program time: 0.004s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.001s (63 assignments)
+Slicing time: 0.000s (removed 50 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (13 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.000s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.000s
+Runtime decision procedure: 0.003s
+The forward condition is unable to prove the property
+*** Checking base case, k = 6
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file egcd-ll_unwindbound2.c line 34 function main
+Unwinding loop 1  iteration  2   file egcd-ll_unwindbound2.c line 34 function main
+Symex completed in: 0.003s (109 assignments)
+Slicing time: 0.000s (removed 34 assignments)
+Generated 9 VCC(s), 9 remaining after simplification (75 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.001s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.001s
+Runtime decision procedure: 1.573s
+Building error trace
+
+Counterexample:
+
+State 1 file egcd-ll_unwindbound2.c line 22 function main thread 0
+----------------------------------------------------
+  x = 1073741825 (01000000 00000000 00000000 00000001)
+
+State 2 file egcd-ll_unwindbound2.c line 23 function main thread 0
+----------------------------------------------------
+  y = 536870912 (00100000 00000000 00000000 00000000)
+
+State 3 file egcd-ll_unwindbound2.c line 27 function main thread 0
+----------------------------------------------------
+  a = 1073741825 (00000000 00000000 00000000 00000000 01000000 00000000 00000000 00000001)
+
+State 4 file egcd-ll_unwindbound2.c line 28 function main thread 0
+----------------------------------------------------
+  b = 536870912 (00000000 00000000 00000000 00000000 00100000 00000000 00000000 00000000)
+
+State 5 file egcd-ll_unwindbound2.c line 43 function main thread 0
+----------------------------------------------------
+  a = 536870913 (00000000 00000000 00000000 00000000 00100000 00000000 00000000 00000001)
+
+State 6 file egcd-ll_unwindbound2.c line 43 function main thread 0
+----------------------------------------------------
+  a = 1 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000001)
+
+State 7 file egcd-ll_unwindbound2.c line 44 function main thread 0
+----------------------------------------------------
+  p = 1 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000001)
+
+State 8 file egcd-ll_unwindbound2.c line 45 function main thread 0
+----------------------------------------------------
+  r = -2 (11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111110)
+
+State 9 file egcd-ll_unwindbound2.c line 4 function reach_error thread 0
+----------------------------------------------------
+Violated property:
+  file egcd-ll_unwindbound2.c line 4 function reach_error
+  assertion 0
+  0
+
+
+VERIFICATION FAILED
+
+Bug found (k = 6)
+
+
+FALSE_REACH

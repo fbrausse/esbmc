@@ -1,0 +1,197 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/nla-digbench-scaling/egcd2-ll_unwindbound5.c
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --add-symex-value-sets --no-align-check --k-step 5 --floatbv --unlimited-k-steps ../sv-benchmarks/c/nla-digbench-scaling/egcd2-ll_unwindbound5.c --32 --witness-output egcd2-ll_unwindbound5.c.graphml --no-pointer-check --no-bounds-check --interval-analysis --goto-unwind --unlimited-goto-unwind --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/nla-digbench-scaling/egcd2-ll_unwindbound5.c: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.130s
+GOTO program processing time: 0.002s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.003s (84 assignments)
+Slicing time: 0.000s (removed 41 assignments)
+Generated 6 VCC(s), 6 remaining after simplification (43 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.001s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.001s
+Runtime decision procedure: 0.001s
+BMC program time: 0.006s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.003s (78 assignments)
+Slicing time: 0.000s (removed 54 assignments)
+Generated 2 VCC(s), 2 remaining after simplification (24 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.000s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.000s
+Runtime decision procedure: 0.554s
+The forward condition is unable to prove the property
+*** Checking base case, k = 6
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file egcd2-ll_unwindbound5.c line 46 function main
+Unwinding loop 1  iteration  2   file egcd2-ll_unwindbound5.c line 46 function main
+Unwinding loop 1  iteration  3   file egcd2-ll_unwindbound5.c line 46 function main
+Unwinding loop 1  iteration  4   file egcd2-ll_unwindbound5.c line 46 function main
+Unwinding loop 2  iteration  1   file egcd2-ll_unwindbound5.c line 40 function main
+Unwinding loop 1  iteration  1   file egcd2-ll_unwindbound5.c line 46 function main
+Unwinding loop 1  iteration  2   file egcd2-ll_unwindbound5.c line 46 function main
+Unwinding loop 1  iteration  3   file egcd2-ll_unwindbound5.c line 46 function main
+Unwinding loop 1  iteration  4   file egcd2-ll_unwindbound5.c line 46 function main
+Unwinding loop 1  iteration  5   file egcd2-ll_unwindbound5.c line 46 function main
+Not unwinding 
+Unwinding loop 2  iteration  2   file egcd2-ll_unwindbound5.c line 40 function main
+Unwinding loop 1  iteration  1   file egcd2-ll_unwindbound5.c line 46 function main
+Unwinding loop 1  iteration  2   file egcd2-ll_unwindbound5.c line 46 function main
+Unwinding loop 1  iteration  3   file egcd2-ll_unwindbound5.c line 46 function main
+Unwinding loop 1  iteration  4   file egcd2-ll_unwindbound5.c line 46 function main
+Unwinding loop 1  iteration  5   file egcd2-ll_unwindbound5.c line 46 function main
+Not unwinding 
+Unwinding loop 2  iteration  3   file egcd2-ll_unwindbound5.c line 40 function main
+Unwinding loop 1  iteration  1   file egcd2-ll_unwindbound5.c line 46 function main
+Unwinding loop 1  iteration  2   file egcd2-ll_unwindbound5.c line 46 function main
+Unwinding loop 1  iteration  3   file egcd2-ll_unwindbound5.c line 46 function main
+Unwinding loop 1  iteration  4   file egcd2-ll_unwindbound5.c line 46 function main
+Unwinding loop 1  iteration  5   file egcd2-ll_unwindbound5.c line 46 function main
+Not unwinding 
+Unwinding loop 2  iteration  4   file egcd2-ll_unwindbound5.c line 40 function main
+Unwinding loop 1  iteration  1   file egcd2-ll_unwindbound5.c line 46 function main
+Unwinding loop 1  iteration  2   file egcd2-ll_unwindbound5.c line 46 function main
+Unwinding loop 1  iteration  3   file egcd2-ll_unwindbound5.c line 46 function main
+Unwinding loop 1  iteration  4   file egcd2-ll_unwindbound5.c line 46 function main
+Unwinding loop 1  iteration  5   file egcd2-ll_unwindbound5.c line 46 function main
+Not unwinding 
+Unwinding loop 2  iteration  5   file egcd2-ll_unwindbound5.c line 40 function main
+Unwinding loop 1  iteration  1   file egcd2-ll_unwindbound5.c line 46 function main
+Unwinding loop 1  iteration  2   file egcd2-ll_unwindbound5.c line 46 function main
+Unwinding loop 1  iteration  3   file egcd2-ll_unwindbound5.c line 46 function main
+Unwinding loop 1  iteration  4   file egcd2-ll_unwindbound5.c line 46 function main
+Unwinding loop 1  iteration  5   file egcd2-ll_unwindbound5.c line 46 function main
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.052s (1094 assignments)
+Slicing time: 0.050s (removed 250 assignments)
+Generated 138 VCC(s), 138 remaining after simplification (844 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.014s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.014s
+Runtime decision procedure: 16.390s
+Building error trace
+
+Counterexample:
+
+State 1 file egcd2-ll_unwindbound5.c line 22 function main thread 0
+----------------------------------------------------
+  x = 28769 (00000000 00000000 01110000 01100001)
+
+State 2 file egcd2-ll_unwindbound5.c line 23 function main thread 0
+----------------------------------------------------
+  y = 12320 (00000000 00000000 00110000 00100000)
+
+State 3 file egcd2-ll_unwindbound5.c line 27 function main thread 0
+----------------------------------------------------
+  a = 28769 (00000000 00000000 00000000 00000000 00000000 00000000 01110000 01100001)
+
+State 4 file egcd2-ll_unwindbound5.c line 28 function main thread 0
+----------------------------------------------------
+  b = 12320 (00000000 00000000 00000000 00000000 00000000 00000000 00110000 00100000)
+
+State 5 file egcd2-ll_unwindbound5.c line 35 function main thread 0
+----------------------------------------------------
+  xy = 354434080 (00000000 00000000 00000000 00000000 00010101 00100000 00111100 00100000)
+
+State 6 file egcd2-ll_unwindbound5.c line 36 function main thread 0
+----------------------------------------------------
+  yy = 151782400 (00000000 00000000 00000000 00000000 00001001 00001100 00000100 00000000)
+
+State 7 file egcd2-ll_unwindbound5.c line 43 function main thread 0
+----------------------------------------------------
+  c = 28769 (00000000 00000000 00000000 00000000 00000000 00000000 01110000 01100001)
+
+State 8 file egcd2-ll_unwindbound5.c line 53 function main thread 0
+----------------------------------------------------
+  c = 16449 (00000000 00000000 00000000 00000000 00000000 00000000 01000000 01000001)
+
+State 9 file egcd2-ll_unwindbound5.c line 53 function main thread 0
+----------------------------------------------------
+  c = 4129 (00000000 00000000 00000000 00000000 00000000 00000000 00010000 00100001)
+
+State 10 file egcd2-ll_unwindbound5.c line 57 function main thread 0
+----------------------------------------------------
+  a = 12320 (00000000 00000000 00000000 00000000 00000000 00000000 00110000 00100000)
+
+State 11 file egcd2-ll_unwindbound5.c line 58 function main thread 0
+----------------------------------------------------
+  b = 4129 (00000000 00000000 00000000 00000000 00000000 00000000 00010000 00100001)
+
+State 12 file egcd2-ll_unwindbound5.c line 66 function main thread 0
+----------------------------------------------------
+  s = -2 (11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111110)
+
+State 13 file egcd2-ll_unwindbound5.c line 40 function main thread 0
+----------------------------------------------------
+  counter = 5 (00000000 00000000 00000000 00000101)
+
+State 14 file egcd2-ll_unwindbound5.c line 43 function main thread 0
+----------------------------------------------------
+  c = 12320 (00000000 00000000 00000000 00000000 00000000 00000000 00110000 00100000)
+
+State 15 file egcd2-ll_unwindbound5.c line 46 function main thread 0
+----------------------------------------------------
+  counter = 6 (00000000 00000000 00000000 00000110)
+
+State 16 file egcd2-ll_unwindbound5.c line 57 function main thread 0
+----------------------------------------------------
+  a = 4129 (00000000 00000000 00000000 00000000 00000000 00000000 00010000 00100001)
+
+State 17 file egcd2-ll_unwindbound5.c line 58 function main thread 0
+----------------------------------------------------
+  b = 12320 (00000000 00000000 00000000 00000000 00000000 00000000 00110000 00100000)
+
+State 18 file egcd2-ll_unwindbound5.c line 63 function main thread 0
+----------------------------------------------------
+  q = 0 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)
+
+State 19 file egcd2-ll_unwindbound5.c line 65 function main thread 0
+----------------------------------------------------
+  r = -2 (11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111110)
+
+State 20 file egcd2-ll_unwindbound5.c line 66 function main thread 0
+----------------------------------------------------
+  s = 1 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000001)
+
+State 21 file egcd2-ll_unwindbound5.c line 40 function main thread 0
+----------------------------------------------------
+  counter = 7 (00000000 00000000 00000000 00000111)
+
+State 22 file egcd2-ll_unwindbound5.c line 4 function reach_error thread 0
+----------------------------------------------------
+Violated property:
+  file egcd2-ll_unwindbound5.c line 4 function reach_error
+  assertion 0
+  0
+
+
+VERIFICATION FAILED
+
+Bug found (k = 6)
+
+
+FALSE_REACH

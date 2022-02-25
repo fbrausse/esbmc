@@ -1,0 +1,677 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/valid-memsafety.prp -s kinduction --arch 32 ../sv-benchmarks/c/memsafety/20020406-1.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --add-symex-value-sets --no-align-check --k-step 5 --floatbv --unlimited-k-steps ../sv-benchmarks/c/memsafety/20020406-1.i --32 --witness-output 20020406-1.i.graphml --memory-leak-check --no-assertions --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/memsafety/20020406-1.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.202s
+GOTO program processing time: 0.003s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+**** WARNING: k-induction does not support recursion yet. Disabling inductive step
+Unwinding recursion DUPFFexgcd iteration 1 (1 max)
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.162s (616 assignments)
+Slicing time: 0.004s (removed 202 assignments)
+Generated 190 VCC(s), 186 remaining after simplification (414 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.028s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.028s
+Runtime decision procedure: 4.084s
+BMC program time: 4.279s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Unwinding recursion DUPFFexgcd iteration 1 (1 max)
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.064s (616 assignments)
+Slicing time: 0.004s (removed 202 assignments)
+Generated 197 VCC(s), 193 remaining after simplification (414 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.027s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.027s
+Runtime decision procedure: 4.067s
+The forward condition is unable to prove the property
+*** Checking base case, k = 6
+Starting Bounded Model Checking
+Unwinding recursion DUPFFexgcd iteration 1 (6 max)
+Unwinding recursion DUPFFexgcd iteration 2 (6 max)
+Unwinding recursion DUPFFexgcd iteration 3 (6 max)
+Unwinding recursion DUPFFexgcd iteration 4 (6 max)
+Unwinding recursion DUPFFexgcd iteration 5 (6 max)
+Unwinding recursion DUPFFexgcd iteration 6 (6 max)
+Unwinding loop 27  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  4   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  5   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 27  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  4   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  5   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 27  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  4   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  5   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 27  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  4   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  5   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 25  iteration  1   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  2   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  3   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  4   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  5   file 20020406-1.i line 938 function DUPFFexgcd
+Not unwinding 
+Unwinding loop 26  iteration  1   file 20020406-1.i line 934 function DUPFFexgcd
+Unwinding loop 25  iteration  1   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  2   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  3   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  4   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  5   file 20020406-1.i line 938 function DUPFFexgcd
+Not unwinding 
+Unwinding loop 26  iteration  2   file 20020406-1.i line 934 function DUPFFexgcd
+Unwinding loop 25  iteration  1   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  2   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  3   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  4   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  5   file 20020406-1.i line 938 function DUPFFexgcd
+Not unwinding 
+Unwinding loop 26  iteration  3   file 20020406-1.i line 934 function DUPFFexgcd
+Unwinding loop 25  iteration  1   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  2   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  3   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  4   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  5   file 20020406-1.i line 938 function DUPFFexgcd
+Not unwinding 
+Unwinding loop 26  iteration  4   file 20020406-1.i line 934 function DUPFFexgcd
+Unwinding loop 25  iteration  1   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  2   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  3   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  4   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  5   file 20020406-1.i line 938 function DUPFFexgcd
+Not unwinding 
+Unwinding loop 26  iteration  5   file 20020406-1.i line 934 function DUPFFexgcd
+Unwinding loop 25  iteration  1   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  2   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  3   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  4   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  5   file 20020406-1.i line 938 function DUPFFexgcd
+Not unwinding 
+Not unwinding 
+Unwinding loop 27  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  4   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  5   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 27  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  4   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  5   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 27  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  4   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  5   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 27  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  4   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  5   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 25  iteration  1   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  2   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  3   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  4   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  5   file 20020406-1.i line 938 function DUPFFexgcd
+Not unwinding 
+Unwinding loop 26  iteration  1   file 20020406-1.i line 934 function DUPFFexgcd
+Unwinding loop 25  iteration  1   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  2   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  3   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  4   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  5   file 20020406-1.i line 938 function DUPFFexgcd
+Not unwinding 
+Unwinding loop 26  iteration  2   file 20020406-1.i line 934 function DUPFFexgcd
+Unwinding loop 25  iteration  1   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  2   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  3   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  4   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  5   file 20020406-1.i line 938 function DUPFFexgcd
+Not unwinding 
+Unwinding loop 26  iteration  3   file 20020406-1.i line 934 function DUPFFexgcd
+Unwinding loop 25  iteration  1   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  2   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  3   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  4   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  5   file 20020406-1.i line 938 function DUPFFexgcd
+Not unwinding 
+Unwinding loop 26  iteration  4   file 20020406-1.i line 934 function DUPFFexgcd
+Unwinding loop 25  iteration  1   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  2   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  3   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  4   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  5   file 20020406-1.i line 938 function DUPFFexgcd
+Not unwinding 
+Unwinding loop 26  iteration  5   file 20020406-1.i line 934 function DUPFFexgcd
+Unwinding loop 25  iteration  1   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  2   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  3   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  4   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  5   file 20020406-1.i line 938 function DUPFFexgcd
+Not unwinding 
+Not unwinding 
+Unwinding loop 27  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  4   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  5   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 27  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  4   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  5   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 27  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  4   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  5   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 27  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  4   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  5   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 25  iteration  1   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  2   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  3   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  4   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  5   file 20020406-1.i line 938 function DUPFFexgcd
+Not unwinding 
+Unwinding loop 26  iteration  1   file 20020406-1.i line 934 function DUPFFexgcd
+Unwinding loop 25  iteration  1   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  2   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  3   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  4   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  5   file 20020406-1.i line 938 function DUPFFexgcd
+Not unwinding 
+Unwinding loop 26  iteration  2   file 20020406-1.i line 934 function DUPFFexgcd
+Unwinding loop 25  iteration  1   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  2   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  3   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  4   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  5   file 20020406-1.i line 938 function DUPFFexgcd
+Not unwinding 
+Unwinding loop 26  iteration  3   file 20020406-1.i line 934 function DUPFFexgcd
+Unwinding loop 25  iteration  1   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  2   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  3   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  4   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  5   file 20020406-1.i line 938 function DUPFFexgcd
+Not unwinding 
+Unwinding loop 26  iteration  4   file 20020406-1.i line 934 function DUPFFexgcd
+Unwinding loop 25  iteration  1   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  2   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  3   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  4   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  5   file 20020406-1.i line 938 function DUPFFexgcd
+Not unwinding 
+Unwinding loop 26  iteration  5   file 20020406-1.i line 934 function DUPFFexgcd
+Unwinding loop 25  iteration  1   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  2   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  3   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  4   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  5   file 20020406-1.i line 938 function DUPFFexgcd
+Not unwinding 
+Not unwinding 
+Unwinding loop 27  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  4   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  5   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 27  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  4   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  5   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 27  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  4   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  5   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 27  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  4   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  5   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 25  iteration  1   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  2   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  3   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  4   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  5   file 20020406-1.i line 938 function DUPFFexgcd
+Not unwinding 
+Unwinding loop 26  iteration  1   file 20020406-1.i line 934 function DUPFFexgcd
+Unwinding loop 25  iteration  1   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  2   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  3   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  4   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  5   file 20020406-1.i line 938 function DUPFFexgcd
+Not unwinding 
+Unwinding loop 26  iteration  2   file 20020406-1.i line 934 function DUPFFexgcd
+Unwinding loop 25  iteration  1   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  2   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  3   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  4   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  5   file 20020406-1.i line 938 function DUPFFexgcd
+Not unwinding 
+Unwinding loop 26  iteration  3   file 20020406-1.i line 934 function DUPFFexgcd
+Unwinding loop 25  iteration  1   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  2   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  3   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  4   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  5   file 20020406-1.i line 938 function DUPFFexgcd
+Not unwinding 
+Unwinding loop 26  iteration  4   file 20020406-1.i line 934 function DUPFFexgcd
+Unwinding loop 25  iteration  1   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  2   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  3   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  4   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  5   file 20020406-1.i line 938 function DUPFFexgcd
+Not unwinding 
+Unwinding loop 26  iteration  5   file 20020406-1.i line 934 function DUPFFexgcd
+Unwinding loop 25  iteration  1   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  2   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  3   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  4   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  5   file 20020406-1.i line 938 function DUPFFexgcd
+Not unwinding 
+Not unwinding 
+Unwinding loop 27  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  4   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  5   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 27  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  4   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  5   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 27  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  4   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  5   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 27  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  4   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  5   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 25  iteration  1   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  2   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  3   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  4   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  5   file 20020406-1.i line 938 function DUPFFexgcd
+Not unwinding 
+Unwinding loop 26  iteration  1   file 20020406-1.i line 934 function DUPFFexgcd
+Unwinding loop 25  iteration  1   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  2   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  3   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  4   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  5   file 20020406-1.i line 938 function DUPFFexgcd
+Not unwinding 
+Unwinding loop 26  iteration  2   file 20020406-1.i line 934 function DUPFFexgcd
+Unwinding loop 25  iteration  1   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  2   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  3   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  4   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  5   file 20020406-1.i line 938 function DUPFFexgcd
+Not unwinding 
+Unwinding loop 26  iteration  3   file 20020406-1.i line 934 function DUPFFexgcd
+Unwinding loop 25  iteration  1   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  2   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  3   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  4   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  5   file 20020406-1.i line 938 function DUPFFexgcd
+Not unwinding 
+Unwinding loop 26  iteration  4   file 20020406-1.i line 934 function DUPFFexgcd
+Unwinding loop 25  iteration  1   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  2   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  3   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  4   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  5   file 20020406-1.i line 938 function DUPFFexgcd
+Not unwinding 
+Unwinding loop 26  iteration  5   file 20020406-1.i line 934 function DUPFFexgcd
+Unwinding loop 25  iteration  1   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  2   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  3   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  4   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  5   file 20020406-1.i line 938 function DUPFFexgcd
+Not unwinding 
+Not unwinding 
+Unwinding loop 27  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  4   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  5   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 27  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  4   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  5   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 27  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  4   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  5   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 27  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  4   file string.c line 272 function __memset_impl
+Unwinding loop 27  iteration  5   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 25  iteration  1   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  2   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  3   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  4   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  5   file 20020406-1.i line 938 function DUPFFexgcd
+Not unwinding 
+Unwinding loop 26  iteration  1   file 20020406-1.i line 934 function DUPFFexgcd
+Unwinding loop 25  iteration  1   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  2   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  3   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  4   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  5   file 20020406-1.i line 938 function DUPFFexgcd
+Not unwinding 
+Unwinding loop 26  iteration  2   file 20020406-1.i line 934 function DUPFFexgcd
+Unwinding loop 25  iteration  1   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  2   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  3   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  4   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  5   file 20020406-1.i line 938 function DUPFFexgcd
+Not unwinding 
+Unwinding loop 26  iteration  3   file 20020406-1.i line 934 function DUPFFexgcd
+Unwinding loop 25  iteration  1   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  2   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  3   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  4   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  5   file 20020406-1.i line 938 function DUPFFexgcd
+Not unwinding 
+Unwinding loop 26  iteration  4   file 20020406-1.i line 934 function DUPFFexgcd
+Unwinding loop 25  iteration  1   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  2   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  3   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  4   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  5   file 20020406-1.i line 938 function DUPFFexgcd
+Not unwinding 
+Unwinding loop 26  iteration  5   file 20020406-1.i line 934 function DUPFFexgcd
+Unwinding loop 25  iteration  1   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  2   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  3   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  4   file 20020406-1.i line 938 function DUPFFexgcd
+Unwinding loop 25  iteration  5   file 20020406-1.i line 938 function DUPFFexgcd
+Not unwinding 
+Not unwinding 
+Symex completed in: 3.232s (12751 assignments)
+Slicing time: 0.456s (removed 6577 assignments)
+Generated 4260 VCC(s), 4246 remaining after simplification (6174 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.523s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.523s
+Runtime decision procedure: 14.920s
+Building error trace
+
+Counterexample:
+
+State 3 file 20020406-1.i line 895 function DUPFFnew thread 0
+----------------------------------------------------
+  ans->coeffs = (unsigned int)0
+
+State 4 file 20020406-1.i line 895 function DUPFFnew thread 0
+----------------------------------------------------
+  ans->coeffs = (unsigned int)0
+
+State 5 file 20020406-1.i line 895 function DUPFFnew thread 0
+----------------------------------------------------
+  ans->coeffs = (unsigned int)0
+
+State 6 file 20020406-1.i line 895 function DUPFFnew thread 0
+----------------------------------------------------
+  ans->coeffs = (unsigned int)0
+
+State 9 file 20020406-1.i line 897 function DUPFFnew thread 0
+----------------------------------------------------
+  ans->coeffs = (unsigned int)((unsigned int *)(&dynamic_26_array[0]))
+
+State 10 file 20020406-1.i line 897 function DUPFFnew thread 0
+----------------------------------------------------
+  ans->coeffs = (unsigned int)((unsigned int *)(&dynamic_26_array[0]))
+
+State 11 file 20020406-1.i line 897 function DUPFFnew thread 0
+----------------------------------------------------
+  ans->coeffs = (unsigned int)((unsigned int *)(&dynamic_26_array[0]))
+
+State 12 file 20020406-1.i line 897 function DUPFFnew thread 0
+----------------------------------------------------
+  ans->coeffs = (unsigned int)((unsigned int *)(&dynamic_26_array[0]))
+
+State 18 file 20020406-1.i line 900 function DUPFFnew thread 0
+----------------------------------------------------
+  ans->maxdeg = 1 (00000000 00000000 00000000 00000001)
+
+State 19 file 20020406-1.i line 900 function DUPFFnew thread 0
+----------------------------------------------------
+  ans->maxdeg = 1 (00000000 00000000 00000000 00000001)
+
+State 20 file 20020406-1.i line 900 function DUPFFnew thread 0
+----------------------------------------------------
+  ans->maxdeg = 1 (00000000 00000000 00000000 00000001)
+
+State 21 file 20020406-1.i line 900 function DUPFFnew thread 0
+----------------------------------------------------
+  ans->maxdeg = 1 (00000000 00000000 00000000 00000001)
+
+State 24 file 20020406-1.i line 901 function DUPFFnew thread 0
+----------------------------------------------------
+  ans->deg = 4294967295 (11111111 11111111 11111111 11111111)
+
+State 25 file 20020406-1.i line 901 function DUPFFnew thread 0
+----------------------------------------------------
+  ans->deg = 4294967295 (11111111 11111111 11111111 11111111)
+
+State 26 file 20020406-1.i line 901 function DUPFFnew thread 0
+----------------------------------------------------
+  ans->deg = 4294967295 (11111111 11111111 11111111 11111111)
+
+State 27 file 20020406-1.i line 901 function DUPFFnew thread 0
+----------------------------------------------------
+  ans->deg = 4294967295 (11111111 11111111 11111111 11111111)
+
+State 36 file 20020406-1.i line 967 function main thread 0
+----------------------------------------------------
+  *(f->coeffs + 1) = 1 (00000000 00000000 00000000 00000001)
+
+State 37 file 20020406-1.i line 967 function main thread 0
+----------------------------------------------------
+  *(f->coeffs + 1) = 1 (00000000 00000000 00000000 00000001)
+
+State 38 file 20020406-1.i line 967 function main thread 0
+----------------------------------------------------
+  *(f->coeffs + 1) = 1 (00000000 00000000 00000000 00000001)
+
+State 39 file 20020406-1.i line 967 function main thread 0
+----------------------------------------------------
+  *(f->coeffs + 1) = 1 (00000000 00000000 00000000 00000001)
+
+State 42 file 20020406-1.i line 967 function main thread 0
+----------------------------------------------------
+  f->deg = 1 (00000000 00000000 00000000 00000001)
+
+State 43 file 20020406-1.i line 967 function main thread 0
+----------------------------------------------------
+  f->deg = 1 (00000000 00000000 00000000 00000001)
+
+State 44 file 20020406-1.i line 967 function main thread 0
+----------------------------------------------------
+  f->deg = 1 (00000000 00000000 00000000 00000001)
+
+State 45 file 20020406-1.i line 967 function main thread 0
+----------------------------------------------------
+  f->deg = 1 (00000000 00000000 00000000 00000001)
+
+State 48 file 20020406-1.i line 895 function DUPFFnew thread 0
+----------------------------------------------------
+  ans->coeffs = (unsigned int)0
+
+State 49 file 20020406-1.i line 895 function DUPFFnew thread 0
+----------------------------------------------------
+  ans->coeffs = (unsigned int)0
+
+State 50 file 20020406-1.i line 895 function DUPFFnew thread 0
+----------------------------------------------------
+  ans->coeffs = (unsigned int)0
+
+State 51 file 20020406-1.i line 895 function DUPFFnew thread 0
+----------------------------------------------------
+  ans->coeffs = (unsigned int)0
+
+State 54 file 20020406-1.i line 897 function DUPFFnew thread 0
+----------------------------------------------------
+  ans->coeffs = (unsigned int)((unsigned int *)(&dynamic_28_array[0]))
+
+State 55 file 20020406-1.i line 897 function DUPFFnew thread 0
+----------------------------------------------------
+  ans->coeffs = (unsigned int)((unsigned int *)(&dynamic_28_array[0]))
+
+State 56 file 20020406-1.i line 897 function DUPFFnew thread 0
+----------------------------------------------------
+  ans->coeffs = (unsigned int)((unsigned int *)(&dynamic_28_array[0]))
+
+State 57 file 20020406-1.i line 897 function DUPFFnew thread 0
+----------------------------------------------------
+  ans->coeffs = (unsigned int)((unsigned int *)(&dynamic_28_array[0]))
+
+State 63 file 20020406-1.i line 900 function DUPFFnew thread 0
+----------------------------------------------------
+  ans->maxdeg = 2 (00000000 00000000 00000000 00000010)
+
+State 64 file 20020406-1.i line 900 function DUPFFnew thread 0
+----------------------------------------------------
+  ans->maxdeg = 2 (00000000 00000000 00000000 00000010)
+
+State 65 file 20020406-1.i line 900 function DUPFFnew thread 0
+----------------------------------------------------
+  ans->maxdeg = 2 (00000000 00000000 00000000 00000010)
+
+State 66 file 20020406-1.i line 900 function DUPFFnew thread 0
+----------------------------------------------------
+  ans->maxdeg = 2 (00000000 00000000 00000000 00000010)
+
+State 69 file 20020406-1.i line 901 function DUPFFnew thread 0
+----------------------------------------------------
+  ans->deg = 4294967295 (11111111 11111111 11111111 11111111)
+
+State 70 file 20020406-1.i line 901 function DUPFFnew thread 0
+----------------------------------------------------
+  ans->deg = 4294967295 (11111111 11111111 11111111 11111111)
+
+State 71 file 20020406-1.i line 901 function DUPFFnew thread 0
+----------------------------------------------------
+  ans->deg = 4294967295 (11111111 11111111 11111111 11111111)
+
+State 72 file 20020406-1.i line 901 function DUPFFnew thread 0
+----------------------------------------------------
+  ans->deg = 4294967295 (11111111 11111111 11111111 11111111)
+
+State 81 file 20020406-1.i line 968 function main thread 0
+----------------------------------------------------
+  *(g->coeffs + 2) = 1 (00000000 00000000 00000000 00000001)
+
+State 82 file 20020406-1.i line 968 function main thread 0
+----------------------------------------------------
+  *(g->coeffs + 2) = 1 (00000000 00000000 00000000 00000001)
+
+State 83 file 20020406-1.i line 968 function main thread 0
+----------------------------------------------------
+  *(g->coeffs + 2) = 1 (00000000 00000000 00000000 00000001)
+
+State 84 file 20020406-1.i line 968 function main thread 0
+----------------------------------------------------
+  *(g->coeffs + 2) = 1 (00000000 00000000 00000000 00000001)
+
+State 87 file 20020406-1.i line 968 function main thread 0
+----------------------------------------------------
+  g->deg = 2 (00000000 00000000 00000000 00000010)
+
+State 88 file 20020406-1.i line 968 function main thread 0
+----------------------------------------------------
+  g->deg = 2 (00000000 00000000 00000000 00000010)
+
+State 89 file 20020406-1.i line 968 function main thread 0
+----------------------------------------------------
+  g->deg = 2 (00000000 00000000 00000000 00000010)
+
+State 90 file 20020406-1.i line 968 function main thread 0
+----------------------------------------------------
+  g->deg = 2 (00000000 00000000 00000000 00000010)
+
+State 111 file 20020406-1.i line 972 function main thread 0
+----------------------------------------------------
+Violated property:
+  file 20020406-1.i line 972 function main
+  dereference failure: forgotten memory: dynamic_25_array
+
+
+VERIFICATION FAILED
+
+Bug found (k = 6)
+
+
+Unknown

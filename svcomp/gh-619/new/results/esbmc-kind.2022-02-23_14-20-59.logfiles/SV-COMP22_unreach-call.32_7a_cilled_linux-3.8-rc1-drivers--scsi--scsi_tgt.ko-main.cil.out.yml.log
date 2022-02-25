@@ -1,0 +1,17 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-drivers--scsi--scsi_tgt.ko-main.cil.out.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --add-symex-value-sets --no-align-check --k-step 5 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-drivers--scsi--scsi_tgt.ko-main.cil.out.i --64 --witness-output 32_7a_cilled_linux-3.8-rc1-drivers--scsi--scsi_tgt.ko-main.cil.out.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --goto-unwind --unlimited-goto-unwind --k-induction --max-inductive-step 3 
+
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-drivers--scsi--scsi_tgt.ko-main.cil.out.i:7278:80: warning: incompatible integer to pointer conversion initializing 'void *' with an expression of type 'unsigned long' [-Wint-conversion]
+static wait_queue_head_t tgt_poll_wait = {{{{{{0U}}, 3735899821U, 4294967295U, 0xffffffffffffffffUL, {0, {0, 0}, "tgt_poll_wait.lock",
+                                                                               ^~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-consumption/32_7a_cilled_linux-3.8-rc1-drivers--scsi--scsi_tgt.ko-main.cil.out.i:7538:8: warning: incompatible integer to pointer conversion assigning to 'struct page *' from 'unsigned long' [-Wint-conversion]
+  page = 0xffffea0000000000UL + (tmp >> 12);
+       ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Unknown

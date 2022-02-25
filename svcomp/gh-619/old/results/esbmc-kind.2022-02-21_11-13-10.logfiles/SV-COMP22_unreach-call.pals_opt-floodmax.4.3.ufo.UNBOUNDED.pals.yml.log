@@ -1,0 +1,829 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/seq-mthreaded/pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --add-symex-value-sets --no-align-check --k-step 5 --floatbv --unlimited-k-steps ../sv-benchmarks/c/seq-mthreaded/pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c --32 --witness-output pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c.graphml --no-pointer-check --no-bounds-check --interval-analysis --goto-unwind --unlimited-goto-unwind --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/seq-mthreaded/pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.202s
+GOTO program processing time: 0.270s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.166s (1100 assignments)
+Slicing time: 0.006s (removed 725 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (375 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.006s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.006s
+Runtime decision procedure: 0.007s
+BMC program time: 0.186s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.151s (1099 assignments)
+Slicing time: 0.006s (removed 725 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (374 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.007s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.007s
+Runtime decision procedure: 0.038s
+The forward condition is unable to prove the property
+*** Checking base case, k = 6
+Starting Bounded Model Checking
+Unwinding loop 2  iteration  1   file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1284 function main
+Unwinding loop 2  iteration  2   file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1284 function main
+Unwinding loop 2  iteration  3   file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1284 function main
+Unwinding loop 2  iteration  4   file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1284 function main
+Unwinding loop 2  iteration  5   file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1284 function main
+Not unwinding 
+Symex completed in: 0.329s (3175 assignments)
+Slicing time: 0.014s (removed 1429 assignments)
+Generated 6 VCC(s), 6 remaining after simplification (1746 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.031s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.031s
+Runtime decision procedure: 0.376s
+Building error trace
+
+Counterexample:
+
+State 1 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1213 function main thread 0
+----------------------------------------------------
+  ep12 = 1
+
+State 2 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1214 function main thread 0
+----------------------------------------------------
+  ep13 = 0
+
+State 3 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1215 function main thread 0
+----------------------------------------------------
+  ep14 = 0
+
+State 4 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1216 function main thread 0
+----------------------------------------------------
+  ep21 = 0
+
+State 5 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1217 function main thread 0
+----------------------------------------------------
+  ep23 = 1
+
+State 6 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1218 function main thread 0
+----------------------------------------------------
+  ep24 = 0
+
+State 7 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1219 function main thread 0
+----------------------------------------------------
+  ep31 = 1
+
+State 8 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1220 function main thread 0
+----------------------------------------------------
+  ep32 = 1
+
+State 9 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1221 function main thread 0
+----------------------------------------------------
+  ep34 = 1
+
+State 10 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1222 function main thread 0
+----------------------------------------------------
+  ep41 = 0
+
+State 11 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1223 function main thread 0
+----------------------------------------------------
+  ep42 = 0
+
+State 12 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1224 function main thread 0
+----------------------------------------------------
+  ep43 = 1
+
+State 13 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1225 function main thread 0
+----------------------------------------------------
+  id1 = 51 (00110011)
+
+State 14 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1226 function main thread 0
+----------------------------------------------------
+  r1 = 0 (00000000)
+
+State 15 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1227 function main thread 0
+----------------------------------------------------
+  st1 = 0 (00000000)
+
+State 16 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1228 function main thread 0
+----------------------------------------------------
+  nl1 = 0 (00000000)
+
+State 17 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1230 function main thread 0
+----------------------------------------------------
+  max1 = 51 (00110011)
+
+State 18 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1231 function main thread 0
+----------------------------------------------------
+  mode1 = 0
+
+State 19 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1232 function main thread 0
+----------------------------------------------------
+  newmax1 = 1
+
+State 20 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1233 function main thread 0
+----------------------------------------------------
+  id2 = 53 (00110101)
+
+State 21 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1234 function main thread 0
+----------------------------------------------------
+  r2 = 0 (00000000)
+
+State 22 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1235 function main thread 0
+----------------------------------------------------
+  st2 = 0 (00000000)
+
+State 23 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1236 function main thread 0
+----------------------------------------------------
+  nl2 = 0 (00000000)
+
+State 24 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1238 function main thread 0
+----------------------------------------------------
+  max2 = 53 (00110101)
+
+State 25 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1239 function main thread 0
+----------------------------------------------------
+  mode2 = 0
+
+State 26 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1240 function main thread 0
+----------------------------------------------------
+  newmax2 = 1
+
+State 27 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1241 function main thread 0
+----------------------------------------------------
+  id3 = 36 (00100100)
+
+State 28 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1242 function main thread 0
+----------------------------------------------------
+  r3 = 0 (00000000)
+
+State 29 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1243 function main thread 0
+----------------------------------------------------
+  st3 = 0 (00000000)
+
+State 30 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1244 function main thread 0
+----------------------------------------------------
+  nl3 = 0 (00000000)
+
+State 31 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1246 function main thread 0
+----------------------------------------------------
+  max3 = 36 (00100100)
+
+State 32 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1247 function main thread 0
+----------------------------------------------------
+  mode3 = 0
+
+State 33 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1248 function main thread 0
+----------------------------------------------------
+  newmax3 = 1
+
+State 34 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1249 function main thread 0
+----------------------------------------------------
+  id4 = 37 (00100101)
+
+State 35 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1250 function main thread 0
+----------------------------------------------------
+  r4 = 0 (00000000)
+
+State 36 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1251 function main thread 0
+----------------------------------------------------
+  st4 = 0 (00000000)
+
+State 37 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1252 function main thread 0
+----------------------------------------------------
+  nl4 = 0 (00000000)
+
+State 38 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1254 function main thread 0
+----------------------------------------------------
+  max4 = 37 (00100101)
+
+State 39 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1255 function main thread 0
+----------------------------------------------------
+  mode4 = 0
+
+State 40 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1256 function main thread 0
+----------------------------------------------------
+  newmax4 = 1
+
+State 41 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 442 function init thread 0
+----------------------------------------------------
+  r121 = 1
+
+State 42 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 443 function init thread 0
+----------------------------------------------------
+  r131 = 0
+
+State 43 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 444 function init thread 0
+----------------------------------------------------
+  r141 = 0
+
+State 44 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 445 function init thread 0
+----------------------------------------------------
+  r211 = 0
+
+State 45 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 446 function init thread 0
+----------------------------------------------------
+  r231 = 1
+
+State 46 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 447 function init thread 0
+----------------------------------------------------
+  r241 = 0
+
+State 47 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 448 function init thread 0
+----------------------------------------------------
+  r311 = 1
+
+State 48 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 449 function init thread 0
+----------------------------------------------------
+  r321 = 1
+
+State 49 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 450 function init thread 0
+----------------------------------------------------
+  r341 = 1
+
+State 50 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 451 function init thread 0
+----------------------------------------------------
+  r411 = 0
+
+State 51 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 452 function init thread 0
+----------------------------------------------------
+  r421 = 0
+
+State 52 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 453 function init thread 0
+----------------------------------------------------
+  r431 = 1
+
+State 53 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 474 function init thread 0
+----------------------------------------------------
+  r122 = 1
+
+State 54 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 495 function init thread 0
+----------------------------------------------------
+  r132 = 1
+
+State 55 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 516 function init thread 0
+----------------------------------------------------
+  r142 = 0
+
+State 56 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 537 function init thread 0
+----------------------------------------------------
+  r212 = 1
+
+State 57 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 558 function init thread 0
+----------------------------------------------------
+  r232 = 1
+
+State 58 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 579 function init thread 0
+----------------------------------------------------
+  r242 = 1
+
+State 59 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 600 function init thread 0
+----------------------------------------------------
+  r312 = 1
+
+State 60 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 621 function init thread 0
+----------------------------------------------------
+  r322 = 1
+
+State 61 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 642 function init thread 0
+----------------------------------------------------
+  r342 = 1
+
+State 62 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 663 function init thread 0
+----------------------------------------------------
+  r412 = 1
+
+State 63 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 684 function init thread 0
+----------------------------------------------------
+  r422 = 1
+
+State 64 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 705 function init thread 0
+----------------------------------------------------
+  r432 = 1
+
+State 65 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 726 function init thread 0
+----------------------------------------------------
+  r123 = 1
+
+State 66 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 747 function init thread 0
+----------------------------------------------------
+  r133 = 1
+
+State 67 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 768 function init thread 0
+----------------------------------------------------
+  r143 = 1
+
+State 68 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 789 function init thread 0
+----------------------------------------------------
+  r213 = 1
+
+State 69 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 810 function init thread 0
+----------------------------------------------------
+  r233 = 1
+
+State 70 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 831 function init thread 0
+----------------------------------------------------
+  r243 = 1
+
+State 71 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 852 function init thread 0
+----------------------------------------------------
+  r313 = 1
+
+State 72 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 873 function init thread 0
+----------------------------------------------------
+  r323 = 1
+
+State 73 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 894 function init thread 0
+----------------------------------------------------
+  r343 = 1
+
+State 74 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 915 function init thread 0
+----------------------------------------------------
+  r413 = 1
+
+State 75 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 936 function init thread 0
+----------------------------------------------------
+  r423 = 1
+
+State 76 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 957 function init thread 0
+----------------------------------------------------
+  r433 = 1
+
+State 77 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 157 function node1 thread 0
+----------------------------------------------------
+  p12_new = 51 (00110011)
+
+State 78 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 229 function node2 thread 0
+----------------------------------------------------
+  p23_new = 53 (00110101)
+
+State 79 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 291 function node3 thread 0
+----------------------------------------------------
+  p31_new = 36 (00100100)
+
+State 80 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 296 function node3 thread 0
+----------------------------------------------------
+  p32_new = 36 (00100100)
+
+State 81 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 301 function node3 thread 0
+----------------------------------------------------
+  p34_new = 36 (00100100)
+
+State 82 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 368 function node4 thread 0
+----------------------------------------------------
+  p43_new = 37 (00100101)
+
+State 83 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1290 function main thread 0
+----------------------------------------------------
+  p12_old = 51 (00110011)
+
+State 84 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1292 function main thread 0
+----------------------------------------------------
+  p13_old = -1 (11111111)
+
+State 85 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1294 function main thread 0
+----------------------------------------------------
+  p14_old = -1 (11111111)
+
+State 86 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1296 function main thread 0
+----------------------------------------------------
+  p21_old = -1 (11111111)
+
+State 87 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1298 function main thread 0
+----------------------------------------------------
+  p23_old = 53 (00110101)
+
+State 88 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1300 function main thread 0
+----------------------------------------------------
+  p24_old = -1 (11111111)
+
+State 89 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1302 function main thread 0
+----------------------------------------------------
+  p31_old = 36 (00100100)
+
+State 90 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1304 function main thread 0
+----------------------------------------------------
+  p32_old = 36 (00100100)
+
+State 91 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1306 function main thread 0
+----------------------------------------------------
+  p34_old = 36 (00100100)
+
+State 92 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1308 function main thread 0
+----------------------------------------------------
+  p41_old = -1 (11111111)
+
+State 93 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1310 function main thread 0
+----------------------------------------------------
+  p42_old = -1 (11111111)
+
+State 94 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1312 function main thread 0
+----------------------------------------------------
+  p43_old = 37 (00100101)
+
+State 95 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 119 function node1 thread 0
+----------------------------------------------------
+  r1 = 1 (00000001)
+
+State 96 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 129 function node1 thread 0
+----------------------------------------------------
+  m1 = 36 (00100100)
+
+State 97 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 144 function node1 thread 0
+----------------------------------------------------
+  newmax1 = 0
+
+State 98 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 186 function node2 thread 0
+----------------------------------------------------
+  r2 = 1 (00000001)
+
+State 99 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 188 function node2 thread 0
+----------------------------------------------------
+  m2 = 51 (00110011)
+
+State 100 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 196 function node2 thread 0
+----------------------------------------------------
+  m2 = 36 (00100100)
+
+State 101 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 211 function node2 thread 0
+----------------------------------------------------
+  newmax2 = 0
+
+State 102 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 253 function node3 thread 0
+----------------------------------------------------
+  r3 = 1 (00000001)
+
+State 103 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 263 function node3 thread 0
+----------------------------------------------------
+  m3 = 53 (00110101)
+
+State 104 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 266 function node3 thread 0
+----------------------------------------------------
+  max3 = 53 (00110101)
+
+State 105 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 271 function node3 thread 0
+----------------------------------------------------
+  m3 = 37 (00100101)
+
+State 106 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 278 function node3 thread 0
+----------------------------------------------------
+  newmax3 = 1
+
+State 107 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 320 function node4 thread 0
+----------------------------------------------------
+  r4 = 1 (00000001)
+
+State 108 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 338 function node4 thread 0
+----------------------------------------------------
+  m4 = 36 (00100100)
+
+State 109 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 345 function node4 thread 0
+----------------------------------------------------
+  newmax4 = 0
+
+State 110 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1290 function main thread 0
+----------------------------------------------------
+  p12_old = -1 (11111111)
+
+State 111 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1292 function main thread 0
+----------------------------------------------------
+  p13_old = -1 (11111111)
+
+State 112 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1294 function main thread 0
+----------------------------------------------------
+  p14_old = -1 (11111111)
+
+State 113 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1296 function main thread 0
+----------------------------------------------------
+  p21_old = -1 (11111111)
+
+State 114 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1298 function main thread 0
+----------------------------------------------------
+  p23_old = -1 (11111111)
+
+State 115 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1300 function main thread 0
+----------------------------------------------------
+  p24_old = -1 (11111111)
+
+State 116 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1302 function main thread 0
+----------------------------------------------------
+  p31_old = -1 (11111111)
+
+State 117 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1304 function main thread 0
+----------------------------------------------------
+  p32_old = -1 (11111111)
+
+State 118 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1306 function main thread 0
+----------------------------------------------------
+  p34_old = -1 (11111111)
+
+State 119 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1308 function main thread 0
+----------------------------------------------------
+  p41_old = -1 (11111111)
+
+State 120 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1310 function main thread 0
+----------------------------------------------------
+  p42_old = -1 (11111111)
+
+State 121 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1312 function main thread 0
+----------------------------------------------------
+  p43_old = -1 (11111111)
+
+State 122 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 291 function node3 thread 0
+----------------------------------------------------
+  p31_new = 53 (00110101)
+
+State 123 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 296 function node3 thread 0
+----------------------------------------------------
+  p32_new = 53 (00110101)
+
+State 124 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 301 function node3 thread 0
+----------------------------------------------------
+  p34_new = 53 (00110101)
+
+State 125 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1290 function main thread 0
+----------------------------------------------------
+  p12_old = -1 (11111111)
+
+State 126 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1292 function main thread 0
+----------------------------------------------------
+  p13_old = -1 (11111111)
+
+State 127 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1294 function main thread 0
+----------------------------------------------------
+  p14_old = -1 (11111111)
+
+State 128 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1296 function main thread 0
+----------------------------------------------------
+  p21_old = -1 (11111111)
+
+State 129 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1298 function main thread 0
+----------------------------------------------------
+  p23_old = -1 (11111111)
+
+State 130 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1300 function main thread 0
+----------------------------------------------------
+  p24_old = -1 (11111111)
+
+State 131 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1302 function main thread 0
+----------------------------------------------------
+  p31_old = 53 (00110101)
+
+State 132 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1304 function main thread 0
+----------------------------------------------------
+  p32_old = 53 (00110101)
+
+State 133 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1306 function main thread 0
+----------------------------------------------------
+  p34_old = 53 (00110101)
+
+State 134 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1308 function main thread 0
+----------------------------------------------------
+  p41_old = -1 (11111111)
+
+State 135 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1310 function main thread 0
+----------------------------------------------------
+  p42_old = -1 (11111111)
+
+State 136 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1312 function main thread 0
+----------------------------------------------------
+  p43_old = -1 (11111111)
+
+State 137 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 119 function node1 thread 0
+----------------------------------------------------
+  r1 = 2 (00000010)
+
+State 138 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 129 function node1 thread 0
+----------------------------------------------------
+  m1 = 53 (00110101)
+
+State 139 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 132 function node1 thread 0
+----------------------------------------------------
+  max1 = 53 (00110101)
+
+State 140 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 144 function node1 thread 0
+----------------------------------------------------
+  newmax1 = 1
+
+State 141 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 186 function node2 thread 0
+----------------------------------------------------
+  r2 = 2 (00000010)
+
+State 142 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 188 function node2 thread 0
+----------------------------------------------------
+  m2 = -1 (11111111)
+
+State 143 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 196 function node2 thread 0
+----------------------------------------------------
+  m2 = 53 (00110101)
+
+State 144 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 211 function node2 thread 0
+----------------------------------------------------
+  newmax2 = 0
+
+State 145 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 253 function node3 thread 0
+----------------------------------------------------
+  r3 = 2 (00000010)
+
+State 146 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 263 function node3 thread 0
+----------------------------------------------------
+  m3 = -1 (11111111)
+
+State 147 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 271 function node3 thread 0
+----------------------------------------------------
+  m3 = -1 (11111111)
+
+State 148 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 278 function node3 thread 0
+----------------------------------------------------
+  newmax3 = 0
+
+State 149 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 320 function node4 thread 0
+----------------------------------------------------
+  r4 = 2 (00000010)
+
+State 150 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 338 function node4 thread 0
+----------------------------------------------------
+  m4 = 53 (00110101)
+
+State 151 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 341 function node4 thread 0
+----------------------------------------------------
+  max4 = 53 (00110101)
+
+State 152 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 345 function node4 thread 0
+----------------------------------------------------
+  newmax4 = 1
+
+State 153 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1290 function main thread 0
+----------------------------------------------------
+  p12_old = -1 (11111111)
+
+State 154 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1292 function main thread 0
+----------------------------------------------------
+  p13_old = -1 (11111111)
+
+State 155 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1294 function main thread 0
+----------------------------------------------------
+  p14_old = -1 (11111111)
+
+State 156 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1296 function main thread 0
+----------------------------------------------------
+  p21_old = -1 (11111111)
+
+State 157 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1298 function main thread 0
+----------------------------------------------------
+  p23_old = -1 (11111111)
+
+State 158 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1300 function main thread 0
+----------------------------------------------------
+  p24_old = -1 (11111111)
+
+State 159 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1302 function main thread 0
+----------------------------------------------------
+  p31_old = -1 (11111111)
+
+State 160 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1304 function main thread 0
+----------------------------------------------------
+  p32_old = -1 (11111111)
+
+State 161 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1306 function main thread 0
+----------------------------------------------------
+  p34_old = -1 (11111111)
+
+State 162 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1308 function main thread 0
+----------------------------------------------------
+  p41_old = -1 (11111111)
+
+State 163 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1310 function main thread 0
+----------------------------------------------------
+  p42_old = -1 (11111111)
+
+State 164 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1312 function main thread 0
+----------------------------------------------------
+  p43_old = -1 (11111111)
+
+State 165 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 157 function node1 thread 0
+----------------------------------------------------
+  p12_new = 53 (00110101)
+
+State 166 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 368 function node4 thread 0
+----------------------------------------------------
+  p43_new = 53 (00110101)
+
+State 167 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1290 function main thread 0
+----------------------------------------------------
+  p12_old = 53 (00110101)
+
+State 168 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1292 function main thread 0
+----------------------------------------------------
+  p13_old = -1 (11111111)
+
+State 169 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1294 function main thread 0
+----------------------------------------------------
+  p14_old = -1 (11111111)
+
+State 170 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1296 function main thread 0
+----------------------------------------------------
+  p21_old = -1 (11111111)
+
+State 171 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1298 function main thread 0
+----------------------------------------------------
+  p23_old = -1 (11111111)
+
+State 172 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1300 function main thread 0
+----------------------------------------------------
+  p24_old = -1 (11111111)
+
+State 173 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1302 function main thread 0
+----------------------------------------------------
+  p31_old = -1 (11111111)
+
+State 174 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1304 function main thread 0
+----------------------------------------------------
+  p32_old = -1 (11111111)
+
+State 175 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1306 function main thread 0
+----------------------------------------------------
+  p34_old = -1 (11111111)
+
+State 176 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1308 function main thread 0
+----------------------------------------------------
+  p41_old = -1 (11111111)
+
+State 177 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1310 function main thread 0
+----------------------------------------------------
+  p42_old = -1 (11111111)
+
+State 178 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 1312 function main thread 0
+----------------------------------------------------
+  p43_old = 53 (00110101)
+
+State 179 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 119 function node1 thread 0
+----------------------------------------------------
+  r1 = 3 (00000011)
+
+State 180 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 129 function node1 thread 0
+----------------------------------------------------
+  m1 = -1 (11111111)
+
+State 181 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 186 function node2 thread 0
+----------------------------------------------------
+  r2 = 3 (00000011)
+
+State 182 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 188 function node2 thread 0
+----------------------------------------------------
+  m2 = 53 (00110101)
+
+State 183 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 196 function node2 thread 0
+----------------------------------------------------
+  m2 = -1 (11111111)
+
+State 184 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 253 function node3 thread 0
+----------------------------------------------------
+  r3 = 3 (00000011)
+
+State 185 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 263 function node3 thread 0
+----------------------------------------------------
+  m3 = -1 (11111111)
+
+State 186 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 271 function node3 thread 0
+----------------------------------------------------
+  m3 = 53 (00110101)
+
+State 187 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 320 function node4 thread 0
+----------------------------------------------------
+  r4 = 3 (00000011)
+
+State 188 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 338 function node4 thread 0
+----------------------------------------------------
+  m4 = -1 (11111111)
+
+State 189 file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 3 function reach_error thread 0
+----------------------------------------------------
+Violated property:
+  file pals_opt-floodmax.4.3.ufo.UNBOUNDED.pals.c line 3 function reach_error
+  assertion 0
+  0
+
+
+VERIFICATION FAILED
+
+Bug found (k = 6)
+
+
+FALSE_REACH

@@ -1,0 +1,193 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/no-overflow.prp -s kinduction --arch 32 ../sv-benchmarks/c/bitvector/s3_srvr_1a_alt.BV.c.cil.c
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --add-symex-value-sets --no-align-check --k-step 5 --floatbv --unlimited-k-steps ../sv-benchmarks/c/bitvector/s3_srvr_1a_alt.BV.c.cil.c --32 --witness-output s3_srvr_1a_alt.BV.c.cil.c.graphml --no-pointer-check --no-bounds-check --overflow-check --no-assertions --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/bitvector/s3_srvr_1a_alt.BV.c.cil.c: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.107s
+GOTO program processing time: 0.002s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.005s (130 assignments)
+Slicing time: 0.000s (removed 108 assignments)
+Generated 2 VCC(s), 2 remaining after simplification (22 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.000s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.000s
+Runtime decision procedure: 0.000s
+BMC program time: 0.006s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.005s (130 assignments)
+Slicing time: 0.000s (removed 108 assignments)
+Generated 3 VCC(s), 3 remaining after simplification (22 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.000s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.000s
+Runtime decision procedure: 0.003s
+The forward condition is unable to prove the property
+*** Checking base case, k = 6
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file s3_srvr_1a_alt.BV.c.cil.c line 117 function ssl3_accept
+Unwinding loop 1  iteration  2   file s3_srvr_1a_alt.BV.c.cil.c line 117 function ssl3_accept
+Unwinding loop 1  iteration  3   file s3_srvr_1a_alt.BV.c.cil.c line 117 function ssl3_accept
+Unwinding loop 1  iteration  4   file s3_srvr_1a_alt.BV.c.cil.c line 117 function ssl3_accept
+Unwinding loop 1  iteration  5   file s3_srvr_1a_alt.BV.c.cil.c line 117 function ssl3_accept
+Not unwinding 
+Symex completed in: 1.282s (9013 assignments)
+Slicing time: 0.073s (removed 7427 assignments)
+Generated 58 VCC(s), 58 remaining after simplification (1586 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.024s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.024s
+Runtime decision procedure: 2.158s
+Building error trace
+
+Counterexample:
+
+State 1 file s3_srvr_1a_alt.BV.c.cil.c line 25 function ssl3_accept thread 0
+----------------------------------------------------
+  s__info_callback = 0 (00000000 00000000 00000000 00000000)
+
+State 2 file s3_srvr_1a_alt.BV.c.cil.c line 30 function ssl3_accept thread 0
+----------------------------------------------------
+  s__version = 768 (00000000 00000000 00000011 00000000)
+
+State 3 file s3_srvr_1a_alt.BV.c.cil.c line 33 function ssl3_accept thread 0
+----------------------------------------------------
+  s__hit = 1 (00000000 00000000 00000000 00000001)
+
+State 4 file s3_srvr_1a_alt.BV.c.cil.c line 35 function ssl3_accept thread 0
+----------------------------------------------------
+  s__init_buf___0 = 0 (00000000 00000000 00000000 00000000)
+
+State 5 file s3_srvr_1a_alt.BV.c.cil.c line 36 function ssl3_accept thread 0
+----------------------------------------------------
+  s__debug = 1 (00000000 00000000 00000000 00000001)
+
+State 6 file s3_srvr_1a_alt.BV.c.cil.c line 38 function ssl3_accept thread 0
+----------------------------------------------------
+  s__cert = 1 (00000000 00000000 00000000 00000001)
+
+State 7 file s3_srvr_1a_alt.BV.c.cil.c line 39 function ssl3_accept thread 0
+----------------------------------------------------
+  s__options = -2097153 (11111111 11011111 11111111 11111111)
+
+State 8 file s3_srvr_1a_alt.BV.c.cil.c line 40 function ssl3_accept thread 0
+----------------------------------------------------
+  s__verify_mode = -5 (11111111 11111111 11111111 11111011)
+
+State 9 file s3_srvr_1a_alt.BV.c.cil.c line 41 function ssl3_accept thread 0
+----------------------------------------------------
+  s__session__peer = 4095 (00000000 00000000 00001111 11111111)
+
+State 10 file s3_srvr_1a_alt.BV.c.cil.c line 42 function ssl3_accept thread 0
+----------------------------------------------------
+  s__cert__pkeys__AT0__privatekey = 1 (00000000 00000000 00000000 00000001)
+
+State 11 file s3_srvr_1a_alt.BV.c.cil.c line 43 function ssl3_accept thread 0
+----------------------------------------------------
+  s__ctx__info_callback = 0 (00000000 00000000 00000000 00000000)
+
+State 12 file s3_srvr_1a_alt.BV.c.cil.c line 44 function ssl3_accept thread 0
+----------------------------------------------------
+  s__ctx__stats__sess_accept_renegotiate = -34 (11111111 11111111 11111111 11011110)
+
+State 13 file s3_srvr_1a_alt.BV.c.cil.c line 45 function ssl3_accept thread 0
+----------------------------------------------------
+  s__ctx__stats__sess_accept = -103350833 (11111001 11010110 11111101 11001111)
+
+State 14 file s3_srvr_1a_alt.BV.c.cil.c line 46 function ssl3_accept thread 0
+----------------------------------------------------
+  s__ctx__stats__sess_accept_good = 2147483647 (01111111 11111111 11111111 11111111)
+
+State 15 file s3_srvr_1a_alt.BV.c.cil.c line 48 function ssl3_accept thread 0
+----------------------------------------------------
+  s__s3__tmp__reuse_message = 0 (00000000 00000000 00000000 00000000)
+
+State 16 file s3_srvr_1a_alt.BV.c.cil.c line 51 function ssl3_accept thread 0
+----------------------------------------------------
+  s__s3__tmp__new_cipher__algorithms = -271 (11111111 11111111 11111110 11110001)
+
+State 17 file s3_srvr_1a_alt.BV.c.cil.c line 53 function ssl3_accept thread 0
+----------------------------------------------------
+  s__s3__tmp__new_cipher__algo_strength = -1 (11111111 11111111 11111111 11111111)
+
+State 18 file s3_srvr_1a_alt.BV.c.cil.c line 55 function ssl3_accept thread 0
+----------------------------------------------------
+  buf = -1 (11111111 11111111 11111111 11111111)
+
+State 19 file s3_srvr_1a_alt.BV.c.cil.c line 73 function ssl3_accept thread 0
+----------------------------------------------------
+  tmp___8 = 0 (00000000 00000000 00000000 00000000)
+
+State 20 file s3_srvr_1a_alt.BV.c.cil.c line 77 function ssl3_accept thread 0
+----------------------------------------------------
+  ag_X = 1073741824 (01000000 00000000 00000000 00000000)
+
+State 21 file s3_srvr_1a_alt.BV.c.cil.c line 78 function ssl3_accept thread 0
+----------------------------------------------------
+  ag_Y = 536870912 (00100000 00000000 00000000 00000000)
+
+State 22 file s3_srvr_1a_alt.BV.c.cil.c line 79 function ssl3_accept thread 0
+----------------------------------------------------
+  ag_Z = 2147483646 (01111111 11111111 11111111 11111110)
+
+State 24 file s3_srvr_1a_alt.BV.c.cil.c line 303 function ssl3_accept thread 0
+----------------------------------------------------
+  ret = 1048575 (00000000 00001111 11111111 11111111)
+
+State 25 file s3_srvr_1a_alt.BV.c.cil.c line 652 function ssl3_accept thread 0
+----------------------------------------------------
+  ret = 1 (00000000 00000000 00000000 00000001)
+
+State 26 file s3_srvr_1a_alt.BV.c.cil.c line 320 function ssl3_accept thread 0
+----------------------------------------------------
+  ret = 3 (00000000 00000000 00000000 00000011)
+
+State 27 file s3_srvr_1a_alt.BV.c.cil.c line 652 function ssl3_accept thread 0
+----------------------------------------------------
+  ret = 63 (00000000 00000000 00000000 00111111)
+
+State 28 file s3_srvr_1a_alt.BV.c.cil.c line 119 function ssl3_accept thread 0
+----------------------------------------------------
+  state = 8656 (00000000 00000000 00100001 11010000)
+
+State 29 file s3_srvr_1a_alt.BV.c.cil.c line 538 function ssl3_accept thread 0
+----------------------------------------------------
+  tmp___9 = 4 (00000000 00000000 00000000 00000100)
+
+State 30 file s3_srvr_1a_alt.BV.c.cil.c line 545 function ssl3_accept thread 0
+----------------------------------------------------
+  ret = 3 (00000000 00000000 00000000 00000011)
+
+State 31 file s3_srvr_1a_alt.BV.c.cil.c line 556 function ssl3_accept thread 0
+----------------------------------------------------
+Violated property:
+  file s3_srvr_1a_alt.BV.c.cil.c line 556 function ssl3_accept
+  arithmetic overflow on mul
+  !overflow("*", ag_X, ag_Y)
+
+
+VERIFICATION FAILED
+
+Bug found (k = 6)
+
+
+FALSE_OVERFLOW

@@ -1,0 +1,161 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--vhost--vhost_net.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --add-symex-value-sets --no-align-check --k-step 5 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--vhost--vhost_net.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i --64 --witness-output 32_7_cilled_const_ok_linux-32_1-drivers--vhost--vhost_net.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --goto-unwind --unlimited-goto-unwind --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 64-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--vhost--vhost_net.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 1.586s
+GOTO program processing time: 0.387s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+**** WARNING: no body for function __builtin_object_size
+**** WARNING: no body for function __builtin_object_size
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+**** WARNING: no body for function __builtin_object_size
+Not unwinding 
+**** WARNING: no body for function __builtin_object_size
+**** WARNING: no body for function __builtin_object_size
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+**** WARNING: no body for function __builtin_object_size
+**** WARNING: no body for function __builtin_object_size
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+**** WARNING: no body for function __builtin_object_size
+Not unwinding 
+**** WARNING: no body for function __builtin_object_size
+**** WARNING: no body for function __builtin_object_size
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 1.419s (5487 assignments)
+Slicing time: 0.022s (removed 4565 assignments)
+Generated 16 VCC(s), 16 remaining after simplification (922 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.141s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.141s
+Runtime decision procedure: 29.295s
+Building error trace
+
+Counterexample:
+
+State 1 file 32_7_cilled_const_ok_linux-32_1-drivers--vhost--vhost_net.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i line 22502 function main thread 0
+----------------------------------------------------
+  tmp___9 = -1 (11111111 11111111 11111111 11111111)
+
+State 2 file 32_7_cilled_const_ok_linux-32_1-drivers--vhost--vhost_net.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i line 22515 function main thread 0
+----------------------------------------------------
+  tmp___8 = 2 (00000000 00000000 00000000 00000010)
+
+State 3 file 32_7_cilled_const_ok_linux-32_1-drivers--vhost--vhost_net.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i line 8383 function vhost_dev_check_owner thread 0
+----------------------------------------------------
+  __cil_tmp7 = INVALID16777728
+
+State 4 file 32_7_cilled_const_ok_linux-32_1-drivers--vhost--vhost_net.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i line 8384 function vhost_dev_check_owner thread 0
+----------------------------------------------------
+  __cil_tmp8 = (unsigned long int)INVALID16777728
+
+State 5 file 32_7_cilled_const_ok_linux-32_1-drivers--vhost--vhost_net.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i line 8387 function vhost_dev_check_owner thread 0
+----------------------------------------------------
+  __cil_tmp11 = 0
+
+State 6 file 32_7_cilled_const_ok_linux-32_1-drivers--vhost--vhost_net.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i line 8388 function vhost_dev_check_owner thread 0
+----------------------------------------------------
+  __cil_tmp12 = (unsigned long int)0
+
+State 7 file 32_7_cilled_const_ok_linux-32_1-drivers--vhost--vhost_net.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i line 12 function reach_error thread 0
+----------------------------------------------------
+Violated property:
+  file 32_7_cilled_const_ok_linux-32_1-drivers--vhost--vhost_net.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i line 12 function reach_error
+  assertion 0
+  0
+
+
+VERIFICATION FAILED
+
+Bug found (k = 1)
+
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--vhost--vhost_net.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i:6782:16: warning: cast to smaller integer type 'unsigned int' from 'poll_table *' (aka 'struct poll_table_struct *') [-Wpointer-to-int-cast]
+  __cil_tmp8 = (unsigned int )__cil_tmp7;
+               ^~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--vhost--vhost_net.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i:6818:17: warning: cast to smaller integer type 'unsigned int' from 'wait_queue_t *' (aka 'struct __wait_queue *') [-Wpointer-to-int-cast]
+  __cil_tmp11 = (unsigned int )__cil_tmp10;
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--vhost--vhost_net.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i:7694:21: warning: cast to smaller integer type 'unsigned int' from 'struct list_head *' [-Wpointer-to-int-cast]
+      __cil_tmp46 = (unsigned int )__cil_tmp45;
+                    ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--vhost--vhost_net.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i:8417:16: warning: cast to smaller integer type 'unsigned int' from 'struct vhost_work *' [-Wpointer-to-int-cast]
+  __cil_tmp7 = (unsigned int )__cil_tmp6;
+               ^~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--vhost--vhost_net.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i:8592:16: warning: cast to smaller integer type 'unsigned int' from 'struct vhost_memory_region (*)[0]' [-Wpointer-to-int-cast]
+  __cil_tmp8 = (unsigned int )__cil_tmp7;
+               ^~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--vhost--vhost_net.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i:9801:17: warning: cast to smaller integer type 'unsigned int' from 'struct vhost_memory_region (*)[0]' [-Wpointer-to-int-cast]
+  __cil_tmp18 = (unsigned int )__cil_tmp17;
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--vhost--vhost_net.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i:16029:20: warning: cast to smaller integer type 'unsigned int' from '__u16 *' (aka 'unsigned short *') [-Wpointer-to-int-cast]
+    __cil_tmp161 = (unsigned int )__cil_tmp160;
+                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--vhost--vhost_net.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i:16593:19: warning: cast to smaller integer type 'unsigned int' from '__u16 *' (aka 'unsigned short *') [-Wpointer-to-int-cast]
+    __cil_tmp78 = (unsigned int )__cil_tmp77;
+                  ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--vhost--vhost_net.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i:17922:16: warning: cast to smaller integer type 'unsigned int' from 'struct kref *' [-Wpointer-to-int-cast]
+  __cil_tmp6 = (unsigned int )__cil_tmp5;
+               ^~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--vhost--vhost_net.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i:20724:22: warning: cast to smaller integer type 'unsigned int' from '__u16 *' (aka 'unsigned short *') [-Wpointer-to-int-cast]
+      __cil_tmp210 = (unsigned int )__cil_tmp209;
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--vhost--vhost_net.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i:20862:17: warning: cast to smaller integer type 'unsigned int' from 'struct vhost_work *' [-Wpointer-to-int-cast]
+  __cil_tmp11 = (unsigned int )__cil_tmp10;
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--vhost--vhost_net.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i:20870:17: warning: cast to smaller integer type 'unsigned int' from 'struct vhost_dev *' [-Wpointer-to-int-cast]
+  __cil_tmp17 = (unsigned int )__cil_tmp16;
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--vhost--vhost_net.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i:20906:17: warning: cast to smaller integer type 'unsigned int' from 'struct vhost_work *' [-Wpointer-to-int-cast]
+  __cil_tmp11 = (unsigned int )__cil_tmp10;
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--vhost--vhost_net.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i:20914:17: warning: cast to smaller integer type 'unsigned int' from 'struct vhost_dev *' [-Wpointer-to-int-cast]
+  __cil_tmp17 = (unsigned int )__cil_tmp16;
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--vhost--vhost_net.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i:20946:17: warning: cast to smaller integer type 'unsigned int' from 'struct vhost_work *' [-Wpointer-to-int-cast]
+  __cil_tmp11 = (unsigned int )__cil_tmp10;
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--vhost--vhost_net.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i:20978:17: warning: cast to smaller integer type 'unsigned int' from 'struct vhost_work *' [-Wpointer-to-int-cast]
+  __cil_tmp11 = (unsigned int )__cil_tmp10;
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--vhost--vhost_net.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i:22475:1: warning: return type of 'main' is not 'int' [-Wmain-return-type]
+void main(void)
+^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--vhost--vhost_net.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i:22475:1: note: change return type to 'int'
+void main(void)
+^~~~
+int
+
+FALSE_REACH

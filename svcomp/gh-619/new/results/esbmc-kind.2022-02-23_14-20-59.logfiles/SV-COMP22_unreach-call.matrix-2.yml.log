@@ -1,0 +1,177 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/loops/matrix-2.c
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --add-symex-value-sets --no-align-check --k-step 5 --floatbv --unlimited-k-steps ../sv-benchmarks/c/loops/matrix-2.c --32 --witness-output matrix-2.c.graphml --no-pointer-check --no-bounds-check --interval-analysis --goto-unwind --unlimited-goto-unwind --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/loops/matrix-2.c: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.125s
+GOTO program processing time: 0.002s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.002s (49 assignments)
+Slicing time: 0.000s (removed 29 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (20 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.001s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.001s
+Runtime decision procedure: 0.000s
+BMC program time: 0.003s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.002s (48 assignments)
+Slicing time: 0.000s (removed 29 assignments)
+Generated 4 VCC(s), 4 remaining after simplification (19 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.000s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.000s
+Runtime decision procedure: 0.003s
+The forward condition is unable to prove the property
+*** Checking base case, k = 6
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file matrix-2.c line 23 function main
+Unwinding loop 1  iteration  2   file matrix-2.c line 23 function main
+Unwinding loop 1  iteration  3   file matrix-2.c line 23 function main
+Unwinding loop 1  iteration  4   file matrix-2.c line 23 function main
+Unwinding loop 1  iteration  5   file matrix-2.c line 23 function main
+Not unwinding 
+Unwinding loop 2  iteration  1   file matrix-2.c line 22 function main
+Unwinding loop 1  iteration  1   file matrix-2.c line 23 function main
+Unwinding loop 1  iteration  2   file matrix-2.c line 23 function main
+Unwinding loop 1  iteration  3   file matrix-2.c line 23 function main
+Unwinding loop 1  iteration  4   file matrix-2.c line 23 function main
+Unwinding loop 1  iteration  5   file matrix-2.c line 23 function main
+Not unwinding 
+Unwinding loop 2  iteration  2   file matrix-2.c line 22 function main
+Unwinding loop 1  iteration  1   file matrix-2.c line 23 function main
+Unwinding loop 1  iteration  2   file matrix-2.c line 23 function main
+Unwinding loop 1  iteration  3   file matrix-2.c line 23 function main
+Unwinding loop 1  iteration  4   file matrix-2.c line 23 function main
+Unwinding loop 1  iteration  5   file matrix-2.c line 23 function main
+Not unwinding 
+Unwinding loop 2  iteration  3   file matrix-2.c line 22 function main
+Unwinding loop 1  iteration  1   file matrix-2.c line 23 function main
+Unwinding loop 1  iteration  2   file matrix-2.c line 23 function main
+Unwinding loop 1  iteration  3   file matrix-2.c line 23 function main
+Unwinding loop 1  iteration  4   file matrix-2.c line 23 function main
+Unwinding loop 1  iteration  5   file matrix-2.c line 23 function main
+Not unwinding 
+Unwinding loop 2  iteration  4   file matrix-2.c line 22 function main
+Unwinding loop 1  iteration  1   file matrix-2.c line 23 function main
+Unwinding loop 1  iteration  2   file matrix-2.c line 23 function main
+Unwinding loop 1  iteration  3   file matrix-2.c line 23 function main
+Unwinding loop 1  iteration  4   file matrix-2.c line 23 function main
+Unwinding loop 1  iteration  5   file matrix-2.c line 23 function main
+Not unwinding 
+Unwinding loop 2  iteration  5   file matrix-2.c line 22 function main
+Unwinding loop 1  iteration  1   file matrix-2.c line 23 function main
+Unwinding loop 1  iteration  2   file matrix-2.c line 23 function main
+Unwinding loop 1  iteration  3   file matrix-2.c line 23 function main
+Unwinding loop 1  iteration  4   file matrix-2.c line 23 function main
+Unwinding loop 1  iteration  5   file matrix-2.c line 23 function main
+Not unwinding 
+Not unwinding 
+Unwinding loop 3  iteration  1   file matrix-2.c line 32 function main
+Unwinding loop 3  iteration  2   file matrix-2.c line 32 function main
+Unwinding loop 3  iteration  3   file matrix-2.c line 32 function main
+Unwinding loop 3  iteration  4   file matrix-2.c line 32 function main
+Unwinding loop 3  iteration  5   file matrix-2.c line 32 function main
+Not unwinding 
+Unwinding loop 4  iteration  1   file matrix-2.c line 31 function main
+Unwinding loop 3  iteration  1   file matrix-2.c line 32 function main
+Unwinding loop 3  iteration  2   file matrix-2.c line 32 function main
+Unwinding loop 3  iteration  3   file matrix-2.c line 32 function main
+Unwinding loop 3  iteration  4   file matrix-2.c line 32 function main
+Unwinding loop 3  iteration  5   file matrix-2.c line 32 function main
+Not unwinding 
+Unwinding loop 4  iteration  2   file matrix-2.c line 31 function main
+Unwinding loop 3  iteration  1   file matrix-2.c line 32 function main
+Unwinding loop 3  iteration  2   file matrix-2.c line 32 function main
+Unwinding loop 3  iteration  3   file matrix-2.c line 32 function main
+Unwinding loop 3  iteration  4   file matrix-2.c line 32 function main
+Unwinding loop 3  iteration  5   file matrix-2.c line 32 function main
+Not unwinding 
+Unwinding loop 4  iteration  3   file matrix-2.c line 31 function main
+Unwinding loop 3  iteration  1   file matrix-2.c line 32 function main
+Unwinding loop 3  iteration  2   file matrix-2.c line 32 function main
+Unwinding loop 3  iteration  3   file matrix-2.c line 32 function main
+Unwinding loop 3  iteration  4   file matrix-2.c line 32 function main
+Unwinding loop 3  iteration  5   file matrix-2.c line 32 function main
+Not unwinding 
+Unwinding loop 4  iteration  4   file matrix-2.c line 31 function main
+Unwinding loop 3  iteration  1   file matrix-2.c line 32 function main
+Unwinding loop 3  iteration  2   file matrix-2.c line 32 function main
+Unwinding loop 3  iteration  3   file matrix-2.c line 32 function main
+Unwinding loop 3  iteration  4   file matrix-2.c line 32 function main
+Unwinding loop 3  iteration  5   file matrix-2.c line 32 function main
+Not unwinding 
+Unwinding loop 4  iteration  5   file matrix-2.c line 31 function main
+Unwinding loop 3  iteration  1   file matrix-2.c line 32 function main
+Unwinding loop 3  iteration  2   file matrix-2.c line 32 function main
+Unwinding loop 3  iteration  3   file matrix-2.c line 32 function main
+Unwinding loop 3  iteration  4   file matrix-2.c line 32 function main
+Unwinding loop 3  iteration  5   file matrix-2.c line 32 function main
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.032s (679 assignments)
+Slicing time: 0.027s (removed 261 assignments)
+Generated 36 VCC(s), 36 remaining after simplification (418 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.013s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.013s
+Runtime decision procedure: 0.887s
+Building error trace
+
+Counterexample:
+
+State 1 file matrix-2.c line 16 function main thread 0
+----------------------------------------------------
+  N_LIN = 1 (00000000 00000000 00000000 00000001)
+
+State 2 file matrix-2.c line 17 function main thread 0
+----------------------------------------------------
+  N_COL = 1 (00000000 00000000 00000000 00000001)
+
+State 3 file matrix-2.c line 21 function main thread 0
+----------------------------------------------------
+  maior = -1358954506 (10101110 11111111 11111111 11110110)
+
+State 4 file matrix-2.c line 25 function main thread 0
+----------------------------------------------------
+  matriz[0][0] = -1358954506 (10101110 11111111 11111111 11110110)
+
+State 5 file matrix-2.c line 3 function reach_error thread 0
+----------------------------------------------------
+Violated property:
+  file matrix-2.c line 3 function reach_error
+  assertion 0
+  0
+
+
+VERIFICATION FAILED
+
+Bug found (k = 6)
+
+
+FALSE_REACH

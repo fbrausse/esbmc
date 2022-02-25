@@ -1,0 +1,76 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/ldv-commit-tester/m0_drivers-net-slip-ko--108_1a--1b0b0ac.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --add-symex-value-sets --no-align-check --k-step 5 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-commit-tester/m0_drivers-net-slip-ko--108_1a--1b0b0ac.i --64 --witness-output m0_drivers-net-slip-ko--108_1a--1b0b0ac.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --goto-unwind --unlimited-goto-unwind --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 64-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/ldv-commit-tester/m0_drivers-net-slip-ko--108_1a--1b0b0ac.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.615s
+GOTO program processing time: 0.107s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.010s (120 assignments)
+Slicing time: 0.001s (removed 91 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (29 assignments)
+BMC program time: 0.011s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.010s (120 assignments)
+Slicing time: 0.000s (removed 91 assignments)
+Generated 2 VCC(s), 2 remaining after simplification (29 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.002s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.002s
+Runtime decision procedure: 0.104s
+The forward condition is unable to prove the property
+*** Checking base case, k = 6
+Starting Bounded Model Checking
+Unwinding loop 13  iteration  1   file m0_drivers-net-slip-ko--108_1a--1b0b0ac.i line 7078 function main
+Unwinding loop 5  iteration  1   file m0_drivers-net-slip-ko--108_1a--1b0b0ac.i line 6300 function slip_esc6
+Unwinding loop 4  iteration  1   file m0_drivers-net-slip-ko--108_1a--1b0b0ac.i line 6294 function slip_esc6
+Unwinding loop 5  iteration  2   file m0_drivers-net-slip-ko--108_1a--1b0b0ac.i line 6300 function slip_esc6
+Unwinding loop 4  iteration  1   file m0_drivers-net-slip-ko--108_1a--1b0b0ac.i line 6294 function slip_esc6
+Unwinding loop 5  iteration  3   file m0_drivers-net-slip-ko--108_1a--1b0b0ac.i line 6300 function slip_esc6
+Unwinding loop 4  iteration  1   file m0_drivers-net-slip-ko--108_1a--1b0b0ac.i line 6294 function slip_esc6
+Unwinding loop 4  iteration  2   file m0_drivers-net-slip-ko--108_1a--1b0b0ac.i line 6294 function slip_esc6
+Unwinding loop 5  iteration  4   file m0_drivers-net-slip-ko--108_1a--1b0b0ac.i line 6300 function slip_esc6
+Unwinding loop 4  iteration  1   file m0_drivers-net-slip-ko--108_1a--1b0b0ac.i line 6294 function slip_esc6
+Unwinding loop 5  iteration  5   file m0_drivers-net-slip-ko--108_1a--1b0b0ac.i line 6300 function slip_esc6
+Unwinding loop 4  iteration  1   file m0_drivers-net-slip-ko--108_1a--1b0b0ac.i line 6294 function slip_esc6
+Not unwinding 
+Unwinding loop 6  iteration  1   file m0_drivers-net-slip-ko--108_1a--1b0b0ac.i line 6194 function slip_esc
+Unwinding loop 6  iteration  2   file m0_drivers-net-slip-ko--108_1a--1b0b0ac.i line 6194 function slip_esc
+Unwinding loop 6  iteration  3   file m0_drivers-net-slip-ko--108_1a--1b0b0ac.i line 6194 function slip_esc
+Unwinding loop 6  iteration  4   file m0_drivers-net-slip-ko--108_1a--1b0b0ac.i line 6194 function slip_esc
+Unwinding loop 6  iteration  5   file m0_drivers-net-slip-ko--108_1a--1b0b0ac.i line 6194 function slip_esc
+Not unwinding 
+No target candidate for function call *sl->tty->ops->write
+Unwinding loop 3  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  2   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  3   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  4   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  5   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 3  iteration  1   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  2   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  3   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  4   file string.c line 263 function memcpy
+Unwinding loop 3  iteration  5   file string.c line 263 function memcpy
+Not unwinding 
+Unwinding loop 8  iteration  1   file m0_drivers-net-slip-ko--108_1a--1b0b0ac.i line 5952 function sl_sync
+Unwinding loop 8  iteration  2   file m0_drivers-net-slip
+
+Unknown

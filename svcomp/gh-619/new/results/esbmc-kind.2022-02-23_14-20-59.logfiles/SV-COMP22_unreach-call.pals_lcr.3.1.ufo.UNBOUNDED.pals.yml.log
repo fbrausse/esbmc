@@ -1,0 +1,293 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/seq-mthreaded/pals_lcr.3.1.ufo.UNBOUNDED.pals.c
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --add-symex-value-sets --no-align-check --k-step 5 --floatbv --unlimited-k-steps ../sv-benchmarks/c/seq-mthreaded/pals_lcr.3.1.ufo.UNBOUNDED.pals.c --32 --witness-output pals_lcr.3.1.ufo.UNBOUNDED.pals.c.graphml --no-pointer-check --no-bounds-check --interval-analysis --goto-unwind --unlimited-goto-unwind --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/seq-mthreaded/pals_lcr.3.1.ufo.UNBOUNDED.pals.c: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.086s
+GOTO program processing time: 0.006s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.005s (178 assignments)
+Slicing time: 0.000s (removed 109 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (69 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.001s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.001s
+Runtime decision procedure: 0.001s
+BMC program time: 0.007s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.004s (177 assignments)
+Slicing time: 0.000s (removed 109 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (68 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.000s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.000s
+Runtime decision procedure: 0.003s
+The forward condition is unable to prove the property
+*** Checking base case, k = 6
+Starting Bounded Model Checking
+Unwinding loop 2  iteration  1   file pals_lcr.3.1.ufo.UNBOUNDED.pals.c line 262 function main
+Unwinding loop 2  iteration  2   file pals_lcr.3.1.ufo.UNBOUNDED.pals.c line 262 function main
+Unwinding loop 2  iteration  3   file pals_lcr.3.1.ufo.UNBOUNDED.pals.c line 262 function main
+Unwinding loop 2  iteration  4   file pals_lcr.3.1.ufo.UNBOUNDED.pals.c line 262 function main
+Unwinding loop 2  iteration  5   file pals_lcr.3.1.ufo.UNBOUNDED.pals.c line 262 function main
+Not unwinding 
+Symex completed in: 0.018s (768 assignments)
+Slicing time: 0.001s (removed 346 assignments)
+Generated 6 VCC(s), 6 remaining after simplification (422 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.004s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.004s
+Runtime decision procedure: 0.193s
+Building error trace
+
+Counterexample:
+
+State 1 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c line 240 function main thread 0
+----------------------------------------------------
+  r1 = 0 (00000000)
+
+State 2 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c line 241 function main thread 0
+----------------------------------------------------
+  id1 = 127 (01111111)
+
+State 3 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c line 242 function main thread 0
+----------------------------------------------------
+  st1 = 0 (00000000)
+
+State 4 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c line 243 function main thread 0
+----------------------------------------------------
+  send1 = 127 (01111111)
+
+State 5 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c line 244 function main thread 0
+----------------------------------------------------
+  mode1 = 0
+
+State 6 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c line 245 function main thread 0
+----------------------------------------------------
+  id2 = 65 (01000001)
+
+State 7 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c line 246 function main thread 0
+----------------------------------------------------
+  st2 = 0 (00000000)
+
+State 8 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c line 247 function main thread 0
+----------------------------------------------------
+  send2 = 65 (01000001)
+
+State 9 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c line 248 function main thread 0
+----------------------------------------------------
+  mode2 = 0
+
+State 10 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c line 249 function main thread 0
+----------------------------------------------------
+  id3 = 34 (00100010)
+
+State 11 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c line 250 function main thread 0
+----------------------------------------------------
+  st3 = 0 (00000000)
+
+State 12 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c line 251 function main thread 0
+----------------------------------------------------
+  send3 = 34 (00100010)
+
+State 13 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c line 252 function main thread 0
+----------------------------------------------------
+  mode3 = 0
+
+State 14 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c line 76 function node1 thread 0
+----------------------------------------------------
+  p1_new = 127 (01111111)
+
+State 15 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c line 101 function node2 thread 0
+----------------------------------------------------
+  p2_new = 65 (01000001)
+
+State 16 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c line 126 function node3 thread 0
+----------------------------------------------------
+  p3_new = 34 (00100010)
+
+State 17 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c line 267 function main thread 0
+----------------------------------------------------
+  p1_old = 127 (01111111)
+
+State 18 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c line 269 function main thread 0
+----------------------------------------------------
+  p2_old = 65 (01000001)
+
+State 19 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c line 271 function main thread 0
+----------------------------------------------------
+  p3_old = 34 (00100010)
+
+State 20 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c line 61 function node1 thread 0
+----------------------------------------------------
+  r1 = 1 (00000001)
+
+State 21 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c line 62 function node1 thread 0
+----------------------------------------------------
+  m1 = 34 (00100010)
+
+State 22 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c line 71 function node1 thread 0
+----------------------------------------------------
+  send1 = 34 (00100010)
+
+State 23 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c line 89 function node2 thread 0
+----------------------------------------------------
+  m2 = 127 (01111111)
+
+State 24 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c line 93 function node2 thread 0
+----------------------------------------------------
+  send2 = 127 (01111111)
+
+State 25 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c line 114 function node3 thread 0
+----------------------------------------------------
+  m3 = 65 (01000001)
+
+State 26 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c line 118 function node3 thread 0
+----------------------------------------------------
+  send3 = 65 (01000001)
+
+State 27 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c line 267 function main thread 0
+----------------------------------------------------
+  p1_old = -1 (11111111)
+
+State 28 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c line 269 function main thread 0
+----------------------------------------------------
+  p2_old = -1 (11111111)
+
+State 29 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c line 271 function main thread 0
+----------------------------------------------------
+  p3_old = -1 (11111111)
+
+State 30 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c line 76 function node1 thread 0
+----------------------------------------------------
+  p1_new = 34 (00100010)
+
+State 31 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c line 101 function node2 thread 0
+----------------------------------------------------
+  p2_new = 127 (01111111)
+
+State 32 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c line 126 function node3 thread 0
+----------------------------------------------------
+  p3_new = 65 (01000001)
+
+State 33 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c line 267 function main thread 0
+----------------------------------------------------
+  p1_old = 34 (00100010)
+
+State 34 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c line 269 function main thread 0
+----------------------------------------------------
+  p2_old = 127 (01111111)
+
+State 35 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c line 271 function main thread 0
+----------------------------------------------------
+  p3_old = 65 (01000001)
+
+State 36 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c line 61 function node1 thread 0
+----------------------------------------------------
+  r1 = 2 (00000010)
+
+State 37 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c line 62 function node1 thread 0
+----------------------------------------------------
+  m1 = 65 (01000001)
+
+State 38 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c line 71 function node1 thread 0
+----------------------------------------------------
+  send1 = 65 (01000001)
+
+State 39 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c line 89 function node2 thread 0
+----------------------------------------------------
+  m2 = 34 (00100010)
+
+State 40 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c line 114 function node3 thread 0
+----------------------------------------------------
+  m3 = 127 (01111111)
+
+State 41 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c line 118 function node3 thread 0
+----------------------------------------------------
+  send3 = 127 (01111111)
+
+State 42 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c line 267 function main thread 0
+----------------------------------------------------
+  p1_old = -1 (11111111)
+
+State 43 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c line 269 function main thread 0
+----------------------------------------------------
+  p2_old = -1 (11111111)
+
+State 44 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c line 271 function main thread 0
+----------------------------------------------------
+  p3_old = -1 (11111111)
+
+State 45 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c line 76 function node1 thread 0
+----------------------------------------------------
+  p1_new = 65 (01000001)
+
+State 46 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c line 101 function node2 thread 0
+----------------------------------------------------
+  p2_new = 127 (01111111)
+
+State 47 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c line 126 function node3 thread 0
+----------------------------------------------------
+  p3_new = 127 (01111111)
+
+State 48 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c line 267 function main thread 0
+----------------------------------------------------
+  p1_old = 65 (01000001)
+
+State 49 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c line 269 function main thread 0
+----------------------------------------------------
+  p2_old = 127 (01111111)
+
+State 50 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c line 271 function main thread 0
+----------------------------------------------------
+  p3_old = 127 (01111111)
+
+State 51 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c line 61 function node1 thread 0
+----------------------------------------------------
+  r1 = 3 (00000011)
+
+State 52 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c line 62 function node1 thread 0
+----------------------------------------------------
+  m1 = 127 (01111111)
+
+State 53 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c line 89 function node2 thread 0
+----------------------------------------------------
+  m2 = 65 (01000001)
+
+State 54 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c line 114 function node3 thread 0
+----------------------------------------------------
+  m3 = 127 (01111111)
+
+State 55 file pals_lcr.3.1.ufo.UNBOUNDED.pals.c line 3 function reach_error thread 0
+----------------------------------------------------
+Violated property:
+  file pals_lcr.3.1.ufo.UNBOUNDED.pals.c line 3 function reach_error
+  assertion 0
+  0
+
+
+VERIFICATION FAILED
+
+Bug found (k = 6)
+
+
+FALSE_REACH

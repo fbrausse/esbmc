@@ -1,0 +1,134 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/combinations/gcd_2+newton_1_1.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --add-symex-value-sets --no-align-check --k-step 5 --floatbv --unlimited-k-steps ../sv-benchmarks/c/combinations/gcd_2+newton_1_1.i --32 --witness-output gcd_2+newton_1_1.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --goto-unwind --unlimited-goto-unwind --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/combinations/gcd_2+newton_1_1.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.091s
+GOTO program processing time: 0.001s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.002s (49 assignments)
+Slicing time: 0.000s (removed 13 assignments)
+Generated 2 VCC(s), 2 remaining after simplification (36 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.027s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.027s
+Runtime decision procedure: 50.747s
+BMC program time: 50.777s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.002s (47 assignments)
+Slicing time: 0.000s (removed 19 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (28 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.001s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.001s
+Runtime decision procedure: 0.002s
+The forward condition is unable to prove the property
+*** Checking base case, k = 6
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file gcd_2+newton_1_1.i line 38 function gcd_test
+Unwinding loop 1  iteration  2   file gcd_2+newton_1_1.i line 38 function gcd_test
+Unwinding loop 1  iteration  3   file gcd_2+newton_1_1.i line 38 function gcd_test
+Unwinding loop 1  iteration  4   file gcd_2+newton_1_1.i line 38 function gcd_test
+Unwinding loop 1  iteration  5   file gcd_2+newton_1_1.i line 38 function gcd_test
+Not unwinding 
+Symex completed in: 0.002s (84 assignments)
+Slicing time: 0.000s (removed 23 assignments)
+Generated 2 VCC(s), 2 remaining after simplification (61 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.027s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.027s
+Runtime decision procedure: 66.426s
+BMC program time: 66.456s
+No bug has been found in the base case
+*** Checking forward condition, k = 6
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file gcd_2+newton_1_1.i line 38 function gcd_test
+Unwinding loop 1  iteration  2   file gcd_2+newton_1_1.i line 38 function gcd_test
+Unwinding loop 1  iteration  3   file gcd_2+newton_1_1.i line 38 function gcd_test
+Unwinding loop 1  iteration  4   file gcd_2+newton_1_1.i line 38 function gcd_test
+Unwinding loop 1  iteration  5   file gcd_2+newton_1_1.i line 38 function gcd_test
+Not unwinding 
+Symex completed in: 0.003s (82 assignments)
+Slicing time: 0.000s (removed 29 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (53 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.001s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.001s
+Runtime decision procedure: 1.356s
+The forward condition is unable to prove the property
+*** Checking base case, k = 11
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file gcd_2+newton_1_1.i line 38 function gcd_test
+Unwinding loop 1  iteration  2   file gcd_2+newton_1_1.i line 38 function gcd_test
+Unwinding loop 1  iteration  3   file gcd_2+newton_1_1.i line 38 function gcd_test
+Unwinding loop 1  iteration  4   file gcd_2+newton_1_1.i line 38 function gcd_test
+Unwinding loop 1  iteration  5   file gcd_2+newton_1_1.i line 38 function gcd_test
+Unwinding loop 1  iteration  6   file gcd_2+newton_1_1.i line 38 function gcd_test
+Unwinding loop 1  iteration  7   file gcd_2+newton_1_1.i line 38 function gcd_test
+Unwinding loop 1  iteration  8   file gcd_2+newton_1_1.i line 38 function gcd_test
+Unwinding loop 1  iteration  9   file gcd_2+newton_1_1.i line 38 function gcd_test
+Unwinding loop 1  iteration  10   file gcd_2+newton_1_1.i line 38 function gcd_test
+Not unwinding 
+Symex completed in: 0.004s (119 assignments)
+Slicing time: 0.000s (removed 33 assignments)
+Generated 2 VCC(s), 2 remaining after simplification (86 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.029s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.029s
+Runtime decision procedure: 85.589s
+BMC program time: 85.622s
+No bug has been found in the base case
+*** Checking forward condition, k = 11
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file gcd_2+newton_1_1.i line 38 function gcd_test
+Unwinding loop 1  iteration  2   file gcd_2+newton_1_1.i line 38 function gcd_test
+Unwinding loop 1  iteration  3   file gcd_2+newton_1_1.i line 38 function gcd_test
+Unwinding loop 1  iteration  4   file gcd_2+newton_1_1.i line 38 function gcd_test
+Unwinding loop 1  iteration  5   file gcd_2+newton_1_1.i line 38 function gcd_test
+Unwinding loop 1  iteration  6   file gcd_2+newton_1_1.i line 38 function gcd_test
+Unwinding loop 1  iteration  7   file gcd_2+newton_1_1.i line 38 function gcd_test
+Unwinding loop 1  iteration  8   file gcd_2+newton_1_1.i line 38 function gcd_test
+Unwinding loop 1  iteration  9   file gcd_2+newton_1_1.i line 38 function gcd_test
+Unwinding loop 1  iteration  10   file gcd_2+newton_1_1.i line 38 function gcd_test
+Not unwinding 
+Symex completed in: 0.004s (117 assignments)
+Slicing time: 0.000s (removed 39 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (78 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.002s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.002s
+Runtime decision procedure: 10.911s
+BMC program time: 10.917s
+Building successful trace
+
+VERIFICATION SUCCESSFUL
+
+Solution found by the forward condition; all states are reachable (k = 11
+
+
+TRUE

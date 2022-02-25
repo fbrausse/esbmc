@@ -1,0 +1,425 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --add-symex-value-sets --no-align-check --k-step 5 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i --64 --witness-output 32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --goto-unwind --unlimited-goto-unwind --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 64-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i: Parsing
+Converting
+
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:2150:166: warning: expression result unused [-Wunused-value]
+  ({ size_t __len = (len); void *__ret; if (__builtin_constant_p(len) && __len >= 64) __ret = memcpy((dst), (src), __len); else __ret = memcpy((dst), (src), __len); __ret; });
+                                                                                                                                                                     ^~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:4455:561: warning: expression result unused [-Wunused-value]
+ ({ __typeof__ (*(&lock->tickets.head)) __ret = (1); switch (sizeof(*(&lock->tickets.head))) { case 1: asm volatile ( "addb %b1, %0\n" : "+m" (*(&lock->tickets.head)) : "qi" (1) : "memory", "cc"); break; case 2: asm volatile ( "addw %w1, %0\n" : "+m" (*(&lock->tickets.head)) : "ri" (1) : "memory", "cc"); break; case 4: asm volatile ( "addl %1, %0\n" : "+m" (*(&lock->tickets.head)) : "ri" (1) : "memory", "cc"); break; case 8: asm volatile ( "addq %1, %0\n" : "+m" (*(&lock->tickets.head)) : "ri" (1) : "memory", "cc"); break; default: __add_wrong_size(); } __ret; });
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ^~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:4573:93: warning: expression result unused [-Wunused-value]
+ do { do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); flags = arch_local_irq_save(); } while (0); trace_hardirqs_off(); } while (0);
+                                                                                            ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:4610:95: warning: expression result unused [-Wunused-value]
+ do { if (({ ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_irqs_disabled_flags(flags); })) { do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); trace_hardirqs_off(); } else { trace_hardirqs_on(); do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); } } while (0);
+                                                                                              ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:4610:227: warning: expression result unused [-Wunused-value]
+ do { if (({ ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_irqs_disabled_flags(flags); })) { do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); trace_hardirqs_off(); } else { trace_hardirqs_on(); do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); } } while (0);
+                                                                                                                                                                                                                                  ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:4610:416: warning: expression result unused [-Wunused-value]
+ do { if (({ ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_irqs_disabled_flags(flags); })) { do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); trace_hardirqs_off(); } else { trace_hardirqs_on(); do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); } } while (0);
+                                                                                                                                                                                                                                                                                                                                                                                                                               ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:4692:93: warning: expression result unused [-Wunused-value]
+ do { do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); flags = arch_local_irq_save(); } while (0); trace_hardirqs_off(); } while (0);
+                                                                                            ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:4716:93: warning: expression result unused [-Wunused-value]
+ do { do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); flags = arch_local_irq_save(); } while (0); trace_hardirqs_off(); } while (0);
+                                                                                            ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:4760:95: warning: expression result unused [-Wunused-value]
+ do { if (({ ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_irqs_disabled_flags(flags); })) { do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); trace_hardirqs_off(); } else { trace_hardirqs_on(); do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); } } while (0);
+                                                                                              ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:4760:227: warning: expression result unused [-Wunused-value]
+ do { if (({ ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_irqs_disabled_flags(flags); })) { do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); trace_hardirqs_off(); } else { trace_hardirqs_on(); do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); } } while (0);
+                                                                                                                                                                                                                                  ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:4760:416: warning: expression result unused [-Wunused-value]
+ do { if (({ ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_irqs_disabled_flags(flags); })) { do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); trace_hardirqs_off(); } else { trace_hardirqs_on(); do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); } } while (0);
+                                                                                                                                                                                                                                                                                                                                                                                                                               ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:4782:95: warning: expression result unused [-Wunused-value]
+ do { if (({ ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_irqs_disabled_flags(flags); })) { do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); trace_hardirqs_off(); } else { trace_hardirqs_on(); do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); } } while (0);
+                                                                                              ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:4782:227: warning: expression result unused [-Wunused-value]
+ do { if (({ ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_irqs_disabled_flags(flags); })) { do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); trace_hardirqs_off(); } else { trace_hardirqs_on(); do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); } } while (0);
+                                                                                                                                                                                                                                  ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:4782:416: warning: expression result unused [-Wunused-value]
+ do { if (({ ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_irqs_disabled_flags(flags); })) { do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); trace_hardirqs_off(); } else { trace_hardirqs_on(); do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); } } while (0);
+                                                                                                                                                                                                                                                                                                                                                                                                                               ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:4833:88: warning: expression result unused [-Wunused-value]
+ do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); _raw_spin_unlock_irqrestore(&lock->rlock, flags); } while (0);
+                                                                                       ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:5902:168: warning: expression result unused [-Wunused-value]
+ return (current_thread_info()->preempt_count) != 0 || ({ unsigned long _flags; do { ({ unsigned long __dummy; typeof(_flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); _flags = arch_local_save_flags(); } while (0); ({ ({ unsigned long __dummy; typeof(_flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_irqs_disabled_flags(_flags); }); });
+                                                                                                                                                                       ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:5902:307: warning: expression result unused [-Wunused-value]
+ return (current_thread_info()->preempt_count) != 0 || ({ unsigned long _flags; do { ({ unsigned long __dummy; typeof(_flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); _flags = arch_local_save_flags(); } while (0); ({ ({ unsigned long __dummy; typeof(_flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_irqs_disabled_flags(_flags); }); });
+                                                                                                                                                                                                                                                                                                                  ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:6012:93: warning: expression result unused [-Wunused-value]
+ do { do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); flags = arch_local_irq_save(); } while (0); trace_hardirqs_off(); } while (0);
+                                                                                            ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:6014:95: warning: expression result unused [-Wunused-value]
+ do { if (({ ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_irqs_disabled_flags(flags); })) { do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); trace_hardirqs_off(); } else { trace_hardirqs_on(); do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); } } while (0);
+                                                                                              ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:6014:227: warning: expression result unused [-Wunused-value]
+ do { if (({ ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_irqs_disabled_flags(flags); })) { do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); trace_hardirqs_off(); } else { trace_hardirqs_on(); do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); } } while (0);
+                                                                                                                                                                                                                                  ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:6014:416: warning: expression result unused [-Wunused-value]
+ do { if (({ ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_irqs_disabled_flags(flags); })) { do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); trace_hardirqs_off(); } else { trace_hardirqs_on(); do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); } } while (0);
+                                                                                                                                                                                                                                                                                                                                                                                                                               ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:6020:93: warning: expression result unused [-Wunused-value]
+ do { do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); flags = arch_local_irq_save(); } while (0); trace_hardirqs_off(); } while (0);
+                                                                                            ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:6022:95: warning: expression result unused [-Wunused-value]
+ do { if (({ ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_irqs_disabled_flags(flags); })) { do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); trace_hardirqs_off(); } else { trace_hardirqs_on(); do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); } } while (0);
+                                                                                              ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:6022:227: warning: expression result unused [-Wunused-value]
+ do { if (({ ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_irqs_disabled_flags(flags); })) { do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); trace_hardirqs_off(); } else { trace_hardirqs_on(); do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); } } while (0);
+                                                                                                                                                                                                                                  ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:6022:416: warning: expression result unused [-Wunused-value]
+ do { if (({ ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_irqs_disabled_flags(flags); })) { do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); trace_hardirqs_off(); } else { trace_hardirqs_on(); do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); } } while (0);
+                                                                                                                                                                                                                                                                                                                                                                                                                               ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:6107:94: warning: expression result unused [-Wunused-value]
+ do { do { ({ unsigned long __dummy; typeof(*flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); *flags = _raw_spin_lock_irqsave(spinlock_check(&pgdat->node_size_lock)); } while (0); } while (0);
+                                                                                             ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:7743:197: warning: expression result unused [-Wunused-value]
+ ({ size_t __len = (count); void *__ret; if (__builtin_constant_p(count) && __len >= 64) __ret = memcpy((dst), ((const void *)src), __len); else __ret = memcpy((dst), ((const void *)src), __len); __ret; });
+                                                                                                                                                                                                    ^~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:7748:185: warning: expression result unused [-Wunused-value]
+ ({ size_t __len = (count); void *__ret; if (__builtin_constant_p(count) && __len >= 64) __ret = memcpy(((void *)dst), (src), __len); else __ret = memcpy(((void *)dst), (src), __len); __ret; });
+                                                                                                                                                                                        ^~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:8354:84: warning: use of logical '&&' with constant operand [-Wconstant-logical-operand]
+ if (((ver) >= 0x14) || (__builtin_constant_p((3*32+26)) && ( ((((3*32+26))>>5)==0 && (1UL<<(((3*32+26))&31) & ((1<<((0*32+ 0) & 31))|0|(1<<((0*32+ 5) & 31))|(1<<((0*32+ 6) & 31))| (1<<((0*32+ 8) & 31))|0|(1<<((0*32+24) & 31))|(1<<((0*32+15) & 31))| (1<<((0*32+25) & 31))|(1<<((0*32+26) & 31))))) || ((((3*32+26))>>5)==1 && (1UL<<(((3*32+26))&31) & ((1<<((1*32+29) & 31))|0))) || ((((3*32+26))>>5)==2 && (1UL<<(((3*32+26))&31) & 0)) || ((((3*32+26))>>5)==3 && (1UL<<(((3*32+26))&31) & ((1<<((3*32+20) & 31))))) || ((((3*32+26))>>5)==4 && (1UL<<(((3*32+26))&31) & 0)) || ((((3*32+26))>>5)==5 && (1UL<<(((3*32+26))&31) & 0)) || ((((3*32+26))>>5)==6 && (1UL<<(((3*32+26))&31) & 0)) || ((((3*32+26))>>5)==7 && (1UL<<(((3*32+26))&31) & 0)) || ((((3*32+26))>>5)==8 && (1UL<<(((3*32+26))&31) & 0)) || ((((3*32+26))>>5)==9 && (1UL<<(((3*32+26))&31) & 0)) ) ? 1 : (__builtin_constant_p(((3*32+26))) ? constant_test_bit(((3*32+26)), ((unsigned long *)((&boot_cpu_data)->x86_capability))) : variable_test_bit(((3*32+26)), ((unsigned long *)((&boot_cpu_data)->x86_capability))))))
+                                                                                   ^  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:8354:84: note: use '&' for a bitwise operation
+ if (((ver) >= 0x14) || (__builtin_constant_p((3*32+26)) && ( ((((3*32+26))>>5)==0 && (1UL<<(((3*32+26))&31) & ((1<<((0*32+ 0) & 31))|0|(1<<((0*32+ 5) & 31))|(1<<((0*32+ 6) & 31))| (1<<((0*32+ 8) & 31))|0|(1<<((0*32+24) & 31))|(1<<((0*32+15) & 31))| (1<<((0*32+25) & 31))|(1<<((0*32+26) & 31))))) || ((((3*32+26))>>5)==1 && (1UL<<(((3*32+26))&31) & ((1<<((1*32+29) & 31))|0))) || ((((3*32+26))>>5)==2 && (1UL<<(((3*32+26))&31) & 0)) || ((((3*32+26))>>5)==3 && (1UL<<(((3*32+26))&31) & ((1<<((3*32+20) & 31))))) || ((((3*32+26))>>5)==4 && (1UL<<(((3*32+26))&31) & 0)) || ((((3*32+26))>>5)==5 && (1UL<<(((3*32+26))&31) & 0)) || ((((3*32+26))>>5)==6 && (1UL<<(((3*32+26))&31) & 0)) || ((((3*32+26))>>5)==7 && (1UL<<(((3*32+26))&31) & 0)) || ((((3*32+26))>>5)==8 && (1UL<<(((3*32+26))&31) & 0)) || ((((3*32+26))>>5)==9 && (1UL<<(((3*32+26))&31) & 0)) ) ? 1 : (__builtin_constant_p(((3*32+26))) ? constant_test_bit(((3*32+26)), ((unsigned long *)((&boot_cpu_data)->x86_capability))) : variable_test_bit(((3*32+26)), ((unsigned long *)((&boot_cpu_data)->x86_capability))))))
+                                                                                   ^~
+                                                                                   &
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:8354:84: note: remove constant to silence this warning
+ if (((ver) >= 0x14) || (__builtin_constant_p((3*32+26)) && ( ((((3*32+26))>>5)==0 && (1UL<<(((3*32+26))&31) & ((1<<((0*32+ 0) & 31))|0|(1<<((0*32+ 5) & 31))|(1<<((0*32+ 6) & 31))| (1<<((0*32+ 8) & 31))|0|(1<<((0*32+24) & 31))|(1<<((0*32+15) & 31))| (1<<((0*32+25) & 31))|(1<<((0*32+26) & 31))))) || ((((3*32+26))>>5)==1 && (1UL<<(((3*32+26))&31) & ((1<<((1*32+29) & 31))|0))) || ((((3*32+26))>>5)==2 && (1UL<<(((3*32+26))&31) & 0)) || ((((3*32+26))>>5)==3 && (1UL<<(((3*32+26))&31) & ((1<<((3*32+20) & 31))))) || ((((3*32+26))>>5)==4 && (1UL<<(((3*32+26))&31) & 0)) || ((((3*32+26))>>5)==5 && (1UL<<(((3*32+26))&31) & 0)) || ((((3*32+26))>>5)==6 && (1UL<<(((3*32+26))&31) & 0)) || ((((3*32+26))>>5)==7 && (1UL<<(((3*32+26))&31) & 0)) || ((((3*32+26))>>5)==8 && (1UL<<(((3*32+26))&31) & 0)) || ((((3*32+26))>>5)==9 && (1UL<<(((3*32+26))&31) & 0)) ) ? 1 : (__builtin_constant_p(((3*32+26))) ? constant_test_bit(((3*32+26)), ((unsigned long *)((&boot_cpu_data)->x86_capability))) : variable_test_bit(((3*32+26)), ((unsigned long *)((&boot_cpu_data)->x86_capability))))))
+                                                                                  ~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:11365:182: warning: expression result unused [-Wunused-value]
+  ({ size_t __len = (sizeof(*to)); void *__ret; if (__builtin_constant_p(sizeof(*to)) && __len >= 64) __ret = memcpy((to), (from), __len); else __ret = memcpy((to), (from), __len); __ret; });
+                                                                                                                                                                                     ^~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:11367:264: warning: expression result unused [-Wunused-value]
+  ({ size_t __len = ((4 * sizeof(int)) + sizeof(from->_sifields._sigchld)); void *__ret; if (__builtin_constant_p((4 * sizeof(int)) + sizeof(from->_sifields._sigchld)) && __len >= 64) __ret = memcpy((to), (from), __len); else __ret = memcpy((to), (from), __len); __ret; });
+                                                                                                                                                                                                                                                                       ^~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:11670:93: warning: expression result unused [-Wunused-value]
+ do { do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); flags = arch_local_irq_save(); } while (0); trace_hardirqs_off(); } while (0);
+                                                                                            ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:11672:95: warning: expression result unused [-Wunused-value]
+ do { if (({ ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_irqs_disabled_flags(flags); })) { do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); trace_hardirqs_off(); } else { trace_hardirqs_on(); do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); } } while (0);
+                                                                                              ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:11672:227: warning: expression result unused [-Wunused-value]
+ do { if (({ ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_irqs_disabled_flags(flags); })) { do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); trace_hardirqs_off(); } else { trace_hardirqs_on(); do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); } } while (0);
+                                                                                                                                                                                                                                  ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:11672:416: warning: expression result unused [-Wunused-value]
+ do { if (({ ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_irqs_disabled_flags(flags); })) { do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); trace_hardirqs_off(); } else { trace_hardirqs_on(); do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); } } while (0);
+                                                                                                                                                                                                                                                                                                                                                                                                                               ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:11691:93: warning: expression result unused [-Wunused-value]
+ do { do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); flags = arch_local_irq_save(); } while (0); trace_hardirqs_off(); } while (0);
+                                                                                            ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:11693:95: warning: expression result unused [-Wunused-value]
+ do { if (({ ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_irqs_disabled_flags(flags); })) { do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); trace_hardirqs_off(); } else { trace_hardirqs_on(); do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); } } while (0);
+                                                                                              ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:11693:227: warning: expression result unused [-Wunused-value]
+ do { if (({ ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_irqs_disabled_flags(flags); })) { do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); trace_hardirqs_off(); } else { trace_hardirqs_on(); do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); } } while (0);
+                                                                                                                                                                                                                                  ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:11693:416: warning: expression result unused [-Wunused-value]
+ do { if (({ ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_irqs_disabled_flags(flags); })) { do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); trace_hardirqs_off(); } else { trace_hardirqs_on(); do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); } } while (0);
+                                                                                                                                                                                                                                                                                                                                                                                                                               ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:13389:93: warning: expression result unused [-Wunused-value]
+ do { do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); flags = _raw_spin_lock_irqsave(spinlock_check(&tsk->sighand->siglock)); } while (0); } while (0);
+                                                                                            ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:15272:26: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+ if ((((map)->bankwidth) == 1))
+      ~~~~~~~~~~~~~~~~~~~^~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:15272:26: note: remove extraneous parentheses around the comparison to silence this warning
+ if ((((map)->bankwidth) == 1))
+     ~                   ^   ~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:15272:26: note: use '=' to turn this equality comparison into an assignment
+ if ((((map)->bankwidth) == 1))
+                         ^~
+                         =
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:15274:31: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+ else if ((((map)->bankwidth) == 2))
+           ~~~~~~~~~~~~~~~~~~~^~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:15274:31: note: remove extraneous parentheses around the comparison to silence this warning
+ else if ((((map)->bankwidth) == 2))
+          ~                   ^   ~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:15274:31: note: use '=' to turn this equality comparison into an assignment
+ else if ((((map)->bankwidth) == 2))
+                              ^~
+                              =
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:15276:31: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+ else if ((((map)->bankwidth) == 4))
+           ~~~~~~~~~~~~~~~~~~~^~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:15276:31: note: remove extraneous parentheses around the comparison to silence this warning
+ else if ((((map)->bankwidth) == 4))
+          ~                   ^   ~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:15276:31: note: use '=' to turn this equality comparison into an assignment
+ else if ((((map)->bankwidth) == 4))
+                              ^~
+                              =
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:15278:31: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+ else if ((((map)->bankwidth) == 8))
+           ~~~~~~~~~~~~~~~~~~~^~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:15278:31: note: remove extraneous parentheses around the comparison to silence this warning
+ else if ((((map)->bankwidth) == 8))
+          ~                   ^   ~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:15278:31: note: use '=' to turn this equality comparison into an assignment
+ else if ((((map)->bankwidth) == 8))
+                              ^~
+                              =
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:15281:188: warning: expression result unused [-Wunused-value]
+  ({ size_t __len = (map->bankwidth); void *__ret; if (__builtin_constant_p(map->bankwidth) && __len >= 64) __ret = memcpy((r.x), (ptr), __len); else __ret = memcpy((r.x), (ptr), __len); __ret; });
+                                                                                                                                                                                           ^~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:15289:180: warning: expression result unused [-Wunused-value]
+  ({ size_t __len = (len); void *__ret; if (__builtin_constant_p(len) && __len >= 64) __ret = memcpy((dest+start), (buf), __len); else __ret = memcpy((dest+start), (buf), __len); __ret; });
+                                                                                                                                                                                   ^~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:15316:26: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+ if ((((map)->bankwidth) == 1))
+      ~~~~~~~~~~~~~~~~~~~^~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:15316:26: note: remove extraneous parentheses around the comparison to silence this warning
+ if ((((map)->bankwidth) == 1))
+     ~                   ^   ~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:15316:26: note: use '=' to turn this equality comparison into an assignment
+ if ((((map)->bankwidth) == 1))
+                         ^~
+                         =
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:15318:31: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+ else if ((((map)->bankwidth) == 2))
+           ~~~~~~~~~~~~~~~~~~~^~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:15318:31: note: remove extraneous parentheses around the comparison to silence this warning
+ else if ((((map)->bankwidth) == 2))
+          ~                   ^   ~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:15318:31: note: use '=' to turn this equality comparison into an assignment
+ else if ((((map)->bankwidth) == 2))
+                              ^~
+                              =
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:15320:31: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+ else if ((((map)->bankwidth) == 4))
+           ~~~~~~~~~~~~~~~~~~~^~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:15320:31: note: remove extraneous parentheses around the comparison to silence this warning
+ else if ((((map)->bankwidth) == 4))
+          ~                   ^   ~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:15320:31: note: use '=' to turn this equality comparison into an assignment
+ else if ((((map)->bankwidth) == 4))
+                              ^~
+                              =
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:15322:31: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+ else if ((((map)->bankwidth) == 8))
+           ~~~~~~~~~~~~~~~~~~~^~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:15322:31: note: remove extraneous parentheses around the comparison to silence this warning
+ else if ((((map)->bankwidth) == 8))
+          ~                   ^   ~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:15322:31: note: use '=' to turn this equality comparison into an assignment
+ else if ((((map)->bankwidth) == 8))
+                              ^~
+                              =
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:15332:26: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+ if ((((map)->bankwidth) == 1))
+      ~~~~~~~~~~~~~~~~~~~^~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:15332:26: note: remove extraneous parentheses around the comparison to silence this warning
+ if ((((map)->bankwidth) == 1))
+     ~                   ^   ~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:15332:26: note: use '=' to turn this equality comparison into an assignment
+ if ((((map)->bankwidth) == 1))
+                         ^~
+                         =
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:15334:31: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+ else if ((((map)->bankwidth) == 2))
+           ~~~~~~~~~~~~~~~~~~~^~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:15334:31: note: remove extraneous parentheses around the comparison to silence this warning
+ else if ((((map)->bankwidth) == 2))
+          ~                   ^   ~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:15334:31: note: use '=' to turn this equality comparison into an assignment
+ else if ((((map)->bankwidth) == 2))
+                              ^~
+                              =
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:15336:31: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+ else if ((((map)->bankwidth) == 4))
+           ~~~~~~~~~~~~~~~~~~~^~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:15336:31: note: remove extraneous parentheses around the comparison to silence this warning
+ else if ((((map)->bankwidth) == 4))
+          ~                   ^   ~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:15336:31: note: use '=' to turn this equality comparison into an assignment
+ else if ((((map)->bankwidth) == 4))
+                              ^~
+                              =
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:15338:31: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+ else if ((((map)->bankwidth) == 8))
+           ~~~~~~~~~~~~~~~~~~~^~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:15338:31: note: remove extraneous parentheses around the comparison to silence this warning
+ else if ((((map)->bankwidth) == 8))
+          ~                   ^   ~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:15338:31: note: use '=' to turn this equality comparison into an assignment
+ else if ((((map)->bankwidth) == 8))
+                              ^~
+                              =
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:15347:210: warning: expression result unused [-Wunused-value]
+  ({ size_t __len = (len); void *__ret; if (__builtin_constant_p(len) && __len >= 64) __ret = memcpy((to), ((char *)map->cached + from), __len); else __ret = memcpy((to), ((char *)map->cached + from), __len); __ret; });
+                                                                                                                                                                                                                 ^~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:16126:126: warning: expression result unused [-Wunused-value]
+ ({ uint32_t __base = (mtd->erasesize); uint32_t __rem; __rem = ((uint64_t)(sz)) % __base; (sz) = ((uint64_t)(sz)) / __base; __rem; });
+                                                                                                                             ^~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:16139:126: warning: expression result unused [-Wunused-value]
+ ({ uint32_t __base = (mtd->writesize); uint32_t __rem; __rem = ((uint64_t)(sz)) % __base; (sz) = ((uint64_t)(sz)) / __base; __rem; });
+                                                                                                                             ^~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:16491:26: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+ if ((((map)->bankwidth) == 1)) {
+      ~~~~~~~~~~~~~~~~~~~^~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:16491:26: note: remove extraneous parentheses around the comparison to silence this warning
+ if ((((map)->bankwidth) == 1)) {
+     ~                   ^   ~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:16491:26: note: use '=' to turn this equality comparison into an assignment
+ if ((((map)->bankwidth) == 1)) {
+                         ^~
+                         =
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:16493:33: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+ } else if ((((map)->bankwidth) == 2)) {
+             ~~~~~~~~~~~~~~~~~~~^~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:16493:33: note: remove extraneous parentheses around the comparison to silence this warning
+ } else if ((((map)->bankwidth) == 2)) {
+            ~                   ^   ~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:16493:33: note: use '=' to turn this equality comparison into an assignment
+ } else if ((((map)->bankwidth) == 2)) {
+                                ^~
+                                =
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:16502:26: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+ if ((((map)->bankwidth) == 1)) {
+      ~~~~~~~~~~~~~~~~~~~^~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:16502:26: note: remove extraneous parentheses around the comparison to silence this warning
+ if ((((map)->bankwidth) == 1)) {
+     ~                   ^   ~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:16502:26: note: use '=' to turn this equality comparison into an assignment
+ if ((((map)->bankwidth) == 1)) {
+                         ^~
+                         =
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:16504:33: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+ } else if ((((map)->bankwidth) == 2)) {
+             ~~~~~~~~~~~~~~~~~~~^~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:16504:33: note: remove extraneous parentheses around the comparison to silence this warning
+ } else if ((((map)->bankwidth) == 2)) {
+            ~                   ^   ~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:16504:33: note: use '=' to turn this equality comparison into an assignment
+ } else if ((((map)->bankwidth) == 2)) {
+                                ^~
+                                =
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:16645:209: warning: expression result unused [-Wunused-value]
+ ({ size_t __len = (sizeof(atmel_pri)); void *__ret; if (__builtin_constant_p(sizeof(atmel_pri)) && __len >= 64) __ret = memcpy((&atmel_pri), (extp), __len); else __ret = memcpy((&atmel_pri), (extp), __len); __ret; });
+                                                                                                                                                                                                                ^~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:17015:218: warning: expression result unused [-Wunused-value]
+  ({ size_t __len = (sizeof(struct cfi_private)); void *__ret; if (__builtin_constant_p(sizeof(struct cfi_private)) && __len >= 64) __ret = memcpy((newcfi), (cfi), __len); else __ret = memcpy((newcfi), (cfi), __len); __ret; });
+                                                                                                                                                                                                                         ^~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:18281:1: warning: return type of 'main' is not 'int' [-Wmain-return-type]
+void main(void) {
+^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:18281:1: note: change return type to 'int'
+void main(void) {
+^~~~
+int
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:18884:26: warning: implicit declaration of function 'ldv_xmalloc' is invalid in C99 [-Wimplicit-function-declaration]
+  return *(union ktime *)ldv_xmalloc(sizeof(union ktime));
+                         ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:18884:11: warning: cast to 'union ktime *' from smaller integer type 'int' [-Wint-to-pointer-cast]
+  return *(union ktime *)ldv_xmalloc(sizeof(union ktime));
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:18911:29: warning: implicit declaration of function 'ldv_xmalloc' is invalid in C99 [-Wimplicit-function-declaration]
+  return *(struct timeval *)ldv_xmalloc(sizeof(struct timeval));
+                            ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:18911:11: warning: cast to 'struct timeval *' from smaller integer type 'int' [-Wint-to-pointer-cast]
+  return *(struct timeval *)ldv_xmalloc(sizeof(struct timeval));
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Conversion of unsupported clang expr: "ChooseExpr" to expression
+ChooseExpr 0x6d3e1a8 <../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-mtd-chips-cfi_cmdset_0001.cil.out.i:15275:45, col:434> 'u16':'unsigned short'
+|-ConstantExpr 0x6d3e190 <col:67, col:97> 'int'
+| `-BinaryOperator 0x6d3d778 <col:67, col:97> 'int' '=='
+|   |-UnaryExprOrTypeTraitExpr 0x6d3d720 <col:67, col:92> 'unsigned long' sizeof
+|   | `-ParenExpr 0x6d3d700 <col:73, col:92> 'uint16_t':'unsigned short' lvalue
+|   |   `-UnaryOperator 0x6d3d6e8 <col:74, col:91> 'uint16_t':'unsigned short' lvalue prefix '*' cannot overflow
+|   |     `-ParenExpr 0x6d3d6c8 <col:75, col:91> 'uint16_t *'
+|   |       `-CStyleCastExpr 0x6d3d6a0 <col:76, col:88> 'uint16_t *' <BitCast>
+|   |         `-ImplicitCastExpr 0x6d3d688 <col:88> 'const void *' <LValueToRValue> part_of_explicit_cast
+|   |           `-DeclRefExpr 0x6d3d658 <col:88> 'const void *' lvalue ParmVar 0x6d3ce30 'ptr' 'const void *' non_odr_use_unevaluated
+|   `-ImplicitCastExpr 0x6d3d760 <col:97> 'unsigned long' <IntegralCast>
+|     `-IntegerLiteral 0x6d3d740 <col:97> 'int' 1
+|-UnaryOperator 0x6d3d828 <col:100, col:117> 'uint16_t':'unsigned short' lvalue prefix '*' cannot overflow
+| `-ParenExpr 0x6d3d808 <col:101, col:117> 'uint16_t *'
+|   `-CStyleCastExpr 0x6d3d7e0 <col:102, col:114> 'uint16_t *' <BitCast>
+|     `-ImplicitCastExpr 0x6d3d7c8 <col:114> 'const void *' <LValueToRValue> part_of_explicit_cast
+|       `-DeclRefExpr 0x6d3d798 <col:114> 'const void *' lvalue ParmVar 0x6d3ce30 'ptr' 'const void *'
+`-ChooseExpr 0x6d3e158 <col:120, col:433> 'u16':'unsigned short'
+  |-ConstantExpr 0x6d3e140 <col:142, col:172> 'int'
+  | `-BinaryOperator 0x6d3d960 <col:142, col:172> 'int' '=='
+  |   |-UnaryExprOrTypeTraitExpr 0x6d3d908 <col:142, col:167> 'unsigned long' sizeof
+  |   | `-ParenExpr 0x6d3d8e8 <col:148, col:167> 'uint16_t':'unsigned short' lvalue
+  |   |   `-UnaryOperator 0x6d3d8d0 <col:149, col:166> 'uint16_t':'unsigned short' lvalue prefix '*' cannot overflow
+  |   |     `-ParenExpr 0x6d3d8b0 <col:150, col:166> 'uint16_t *'
+  |   |       `-CStyleCastExpr 0x6d3d888 <col:151, col:163> 'uint16_t *' <BitCast>
+  |   |         `-ImplicitCastExpr 0x6d3d870 <col:163> 'const void *' <LValueToRValue> part_of_explicit_cast
+  |   |           `-DeclRefExpr 0x6d3d840 <col:163> 'const void *' lvalue ParmVar 0x6d3ce30 'ptr' 'const void *' non_odr_use_unevaluated
+  |   `-ImplicitCastExpr 0x6d3d948 <col:172> 'unsigned long' <IntegralCast>
+  |     `-IntegerLiteral 0x6d3d928 <col:172> 'int' 2
+  |-CallExpr 0x6d3daa8 <col:175, col:211> 'u16':'unsigned short'
+  | |-ImplicitCastExpr 0x6d3da90 <col:175> 'u16 (*)(const void *)' <FunctionToPointerDecay>
+  | | `-DeclRefExpr 0x6d3d980 <col:175> 'u16 (const void *)' Function 0x6d25310 'get_unaligned_le16' 'u16 (const void *)'
+  | `-ImplicitCastExpr 0x6d3dad0 <col:194, col:210> 'const void *' <BitCast>
+  |   `-ParenExpr 0x6d3da10 <col:194, col:210> 'uint16_t *'
+  |     `-CStyleCastExpr 0x6d3d9e8 <col:195, col:207> 'uint16_t *' <BitCast>
+  |       `-ImplicitCastExpr 0x6d3d9d0 <col:207> 'const void *' <LValueToRValue> part_of_explicit_cast
+  |         `-DeclRefExpr 0x6d3d9a0 <col:207> 'const void *' lvalue ParmVar 0x6d3ce30 'ptr' 'const void *'
+  `-ChooseExpr 0x6d3e108 <col:214, col:432> 'void'
+    |-ConstantExpr 0x6d3e0f0 <col:236, col:266> 'int'
+    | `-BinaryOperator 0x6d3dc08 <col:236, col:266> 'int' '=='
+    |   |-UnaryExprOrTypeTraitExpr 0x6d3dbb0 <col:236, col:261> 'unsigned long' sizeof
+    |   | `-ParenExpr 0x6d3db90 <col:242, col:261> 'uint16_t':'unsigned short' lvalue
+    |   |   `-UnaryOperator 0x6d3db78 <col:243, col:260> 'uint16_t':'unsigned short' lvalue prefix '*' cannot overflow
+    |   |     `-ParenExpr 0x6d3db58 <col:244, col:260> 'uint16_t *'
+    |   |       `-CStyleCastExpr 0x6d3db30 <col:245, col:257> 'uint16_t *' <BitCast>
+    |   |         `-ImplicitCastExpr 0x6d3db18 <col:257> 'const void *' <LValueToRValue> part_of_explicit_cast
+    |   |           `-DeclRefExpr 0x6d3dae8 <col:257> 'const void *' lvalue ParmVar 0x6d3ce30 'ptr' 'const void *' non_odr_use_unevaluated
+    |   `-ImplicitCastExpr 0x6d3dbf0 <col:266> 'unsigned long' <IntegralCast>
+    |     `-IntegerLiteral 0x6d3dbd0 <col:266> 'int' 4
+    |-CallExpr 0x6d3dd58 <col:269, col:305> 'u32':'unsigned int'
+    | |-ImplicitCastExpr 0x6d3dd40 <col:269> 'u32 (*)(const void *)' <FunctionToPointerDecay>
+    | | `-DeclRefExpr 0x6d3dc28 <col:269> 'u32 (const void *)' Function 0x6d25630 'get_unaligned_le32' 'u32 (const void *)'
+    | `-ImplicitCastExpr 0x6d3dd80 <col:288, col:304> 'const void *' <BitCast>
+    |   `-ParenExpr 0x6d3dcb8 <col:288, col:304> 'uint16_t *'
+    |     `-CStyleCastExpr 0x6d3dc90 <col:289, col:301> 'uint16_t *' <BitCast>
+    |       `-ImplicitCastExpr 0x6d3dc78 <col:301> 'const void *' <LValueToRValue> part_of_explicit_cast
+    |         `-DeclRefExpr 0x6d3dc48 <col:301> 'const void *' lvalue ParmVar 0x6d3ce30 'ptr' 'const void *'
+    `-ChooseExpr 0x6d3e0b8 <col:308, col:431> 'void'
+      |-ConstantExpr 0x6d3e0a0 <col:330, col:360> 'int'
+      | `-BinaryOperator 0x6d3deb8 <col:330, col:360> 'int' '=='
+      |   |-UnaryExprOrTypeTraitExpr 0x6d3de60 <col:330, col:355> 'unsigned long' sizeof
+      |   | `-ParenExpr 0x6d3de40 <col:336, col:355> 'uint16_t':'unsigned short' lvalue
+      |   |   `-UnaryOperator 0x6d3de28 <col:337, col:354> 'uint16_t':'unsigned short' lvalue prefix '*' cannot overflow
+      |   |     `-ParenExpr 0x6d3de08 <col:338, col:354> 'uint16_t *'
+      |   |       `-CStyleCastExpr 0x6d3dde0 <col:339, col:351> 'uint16_t *' <BitCast>
+      |   |         `-ImplicitCastExpr 0x6d3ddc8 <col:351> 'const void *' <LValueToRValue> part_of_explicit_cast
+      |   |           `-DeclRefExpr 0x6d3dd98 <col:351> 'const void *' lvalue ParmVar 0x6d3ce30 'ptr' 'const void *' non_odr_use_unevaluated
+      |   `-ImplicitCastExpr 0x6d3dea0 <col:360> 'unsigned long' <IntegralCast>
+      |     `-IntegerLiteral 0x6d3de80 <col:360> 'int' 8
+      |-CallExpr 0x6d3e008 <col:363, col:399> 'u64':'unsigned long long'
+      | |-ImplicitCastExpr 0x6d3dff0 <col:363> 'u64 (*)(const void *)' <FunctionToPointerDecay>
+      | | `-DeclRefExpr 0x6d3ded8 <col:363> 'u64 (const void *)' Function 0x6d25990 'get_unaligned_le64' 'u64 (const void *)'
+      | `-ImplicitCastExpr 0x6d3e030 <col:382, col:398> 'const void *' <BitCast>
+      |   `-ParenExpr 0x6d3df68 <col:382, col:398> 'uint16_t *'
+      |     `-CStyleCastExpr 0x6d3df40 <col:383, col:395> 'uint16_t *' <BitCast>
+      |       `-ImplicitCastExpr 0x6d3df28 <col:395> 'const void *' <LValueToRValue> part_of_explicit_cast
+      |         `-DeclRefExpr 0x6d3def8 <col:395> 'const void *' lvalue ParmVar 0x6d3ce30 'ptr' 'const void *'
+      `-CallExpr 0x6d3e080 <col:402, col:430> 'void'
+        `-ImplicitCastExpr 0x6d3e068 <col:402> 'void (*)(void)' <FunctionToPointerDecay>
+          `-DeclRefExpr 0x6d3e048 <col:402> 'void (void)' Function 0x6d2a430 '__bad_unaligned_access_size' 'void (void)'
+
+CONVERSION ERROR
+
+Unknown

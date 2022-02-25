@@ -1,0 +1,42 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/xcsp/aim-100-2-0-unsat-2.c
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --add-symex-value-sets --no-align-check --k-step 5 --floatbv --unlimited-k-steps ../sv-benchmarks/c/xcsp/aim-100-2-0-unsat-2.c --32 --witness-output aim-100-2-0-unsat-2.c.graphml --no-pointer-check --no-bounds-check --interval-analysis --goto-unwind --unlimited-goto-unwind --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/xcsp/aim-100-2-0-unsat-2.c: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.267s
+GOTO program processing time: 0.022s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Symex completed in: 0.108s (1289 assignments)
+Slicing time: 0.007s (removed 11 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (1278 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.022s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.022s
+Runtime decision procedure: 0.041s
+BMC program time: 0.179s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Symex completed in: 0.116s (1288 assignments)
+Slicing time: 0.007s (removed 11 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (1277 assignments)
+BMC program time: 0.123s
+Building successful trace
+
+VERIFICATION SUCCESSFUL
+
+Solution found by the forward condition; all states are reachable (k = 1
+
+
+TRUE

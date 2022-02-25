@@ -1,0 +1,24 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/busybox-1.22.0/wc-2.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --add-symex-value-sets --no-align-check --k-step 5 --floatbv --unlimited-k-steps ../sv-benchmarks/c/busybox-1.22.0/wc-2.i --64 --witness-output wc-2.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --goto-unwind --unlimited-goto-unwind --k-induction --max-inductive-step 3 
+
+../sv-benchmarks/c/busybox-1.22.0/wc-2.i:233:12: warning: declaration of built-in function '__sigsetjmp' requires the declaration of the 'jmp_buf' type, commonly provided in the header <setjmp.h>. [-Wincomplete-setjmp-declaration]
+extern int __sigsetjmp (struct __jmp_buf_tag __env[1], int __savemask) __attribute__ ((__nothrow__));
+           ^
+../sv-benchmarks/c/busybox-1.22.0/wc-2.i:2908:34: warning: adding 'long' to a string does not append to the string [-Wstring-plus-int]
+  const char *start_fmt = " %9u" + (signed long int)1;
+                          ~~~~~~~^~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/busybox-1.22.0/wc-2.i:2908:34: note: use array indexing to silence this warning
+  const char *start_fmt = " %9u" + (signed long int)1;
+                                 ^
+                          &      [                   ]
+../sv-benchmarks/c/busybox-1.22.0/wc-2.i:3155:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+}
+^
+
+Unknown

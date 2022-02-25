@@ -1,0 +1,92 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/float-newlib/float_req_bl_0877.c
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --add-symex-value-sets --no-align-check --k-step 5 --floatbv --unlimited-k-steps ../sv-benchmarks/c/float-newlib/float_req_bl_0877.c --32 --witness-output float_req_bl_0877.c.graphml --no-pointer-check --no-bounds-check --interval-analysis --goto-unwind --unlimited-goto-unwind --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/float-newlib/float_req_bl_0877.c: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.251s
+GOTO program processing time: 0.009s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.045s (569 assignments)
+Slicing time: 0.008s (removed 257 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (312 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.200s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.200s
+Runtime decision procedure: 0.430s
+BMC program time: 0.684s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.057s (568 assignments)
+Slicing time: 0.007s (removed 257 assignments)
+Generated 2 VCC(s), 2 remaining after simplification (311 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.212s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.212s
+Runtime decision procedure: 0.355s
+BMC program time: 0.632s
+Building successful trace
+
+VERIFICATION SUCCESSFUL
+
+Solution found by the forward condition; all states are reachable (k = 1
+
+../sv-benchmarks/c/float-newlib/float_req_bl_0877.c:126:13: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+  if (((hx) == 0))
+       ~~~~~^~~~
+../sv-benchmarks/c/float-newlib/float_req_bl_0877.c:126:13: note: remove extraneous parentheses around the comparison to silence this warning
+  if (((hx) == 0))
+      ~     ^   ~
+../sv-benchmarks/c/float-newlib/float_req_bl_0877.c:126:13: note: use '=' to turn this equality comparison into an assignment
+  if (((hx) == 0))
+            ^~
+            =
+../sv-benchmarks/c/float-newlib/float_req_bl_0877.c:212:13: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+  if (((hx) == 0))
+       ~~~~~^~~~
+../sv-benchmarks/c/float-newlib/float_req_bl_0877.c:212:13: note: remove extraneous parentheses around the comparison to silence this warning
+  if (((hx) == 0))
+      ~     ^   ~
+../sv-benchmarks/c/float-newlib/float_req_bl_0877.c:212:13: note: use '=' to turn this equality comparison into an assignment
+  if (((hx) == 0))
+            ^~
+            =
+../sv-benchmarks/c/float-newlib/float_req_bl_0877.c:316:13: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+  if (((iy) == 0))
+       ~~~~~^~~~
+../sv-benchmarks/c/float-newlib/float_req_bl_0877.c:316:13: note: remove extraneous parentheses around the comparison to silence this warning
+  if (((iy) == 0))
+      ~     ^   ~
+../sv-benchmarks/c/float-newlib/float_req_bl_0877.c:316:13: note: use '=' to turn this equality comparison into an assignment
+  if (((iy) == 0))
+            ^~
+            =
+../sv-benchmarks/c/float-newlib/float_req_bl_0877.c:337:13: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+  if (((iy) == 0x7f800000L)) {
+       ~~~~~^~~~~~~~~~~~~~
+../sv-benchmarks/c/float-newlib/float_req_bl_0877.c:337:13: note: remove extraneous parentheses around the comparison to silence this warning
+  if (((iy) == 0x7f800000L)) {
+      ~     ^             ~
+../sv-benchmarks/c/float-newlib/float_req_bl_0877.c:337:13: note: use '=' to turn this equality comparison into an assignment
+  if (((iy) == 0x7f800000L)) {
+            ^~
+            =
+
+TRUE

@@ -1,0 +1,240 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/product-lines/email_spec11_productSimulator.cil.c
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --add-symex-value-sets --no-align-check --k-step 5 --floatbv --unlimited-k-steps ../sv-benchmarks/c/product-lines/email_spec11_productSimulator.cil.c --32 --witness-output email_spec11_productSimulator.cil.c.graphml --no-pointer-check --no-bounds-check --interval-analysis --goto-unwind --unlimited-goto-unwind --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/product-lines/email_spec11_productSimulator.cil.c: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.311s
+GOTO program processing time: 0.247s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.784s (3746 assignments)
+Slicing time: 0.011s (removed 3450 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (296 assignments)
+BMC program time: 0.795s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.811s (3746 assignments)
+Slicing time: 0.006s (removed 3450 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (296 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.006s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.006s
+Runtime decision procedure: 0.162s
+The forward condition is unable to prove the property
+*** Checking base case, k = 6
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file email_spec11_productSimulator.cil.c line 2152 function test
+Unwinding loop 1  iteration  2   file email_spec11_productSimulator.cil.c line 2152 function test
+Unwinding loop 1  iteration  3   file email_spec11_productSimulator.cil.c line 2152 function test
+Unwinding loop 1  iteration  4   file email_spec11_productSimulator.cil.c line 2152 function test
+Symex completed in: 31.656s (147223 assignments)
+Slicing time: 4.946s (removed 125171 assignments)
+Generated 208 VCC(s), 208 remaining after simplification (22052 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.554s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.554s
+Runtime decision procedure: 2.190s
+Building error trace
+
+Counterexample:
+
+State 1 file email_spec11_productSimulator.cil.c line 65 function select_one thread 0
+----------------------------------------------------
+  choice = -2147483648 (10000000 00000000 00000000 00000000)
+
+State 2 file email_spec11_productSimulator.cil.c line 68 function select_one thread 0
+----------------------------------------------------
+  retValue_acc = -2147483648 (10000000 00000000 00000000 00000000)
+
+State 3 file email_spec11_productSimulator.cil.c line 65 function select_one thread 0
+----------------------------------------------------
+  choice = -2147483648 (10000000 00000000 00000000 00000000)
+
+State 4 file email_spec11_productSimulator.cil.c line 68 function select_one thread 0
+----------------------------------------------------
+  retValue_acc = -2147483648 (10000000 00000000 00000000 00000000)
+
+State 5 file email_spec11_productSimulator.cil.c line 65 function select_one thread 0
+----------------------------------------------------
+  choice = -2147483648 (10000000 00000000 00000000 00000000)
+
+State 6 file email_spec11_productSimulator.cil.c line 68 function select_one thread 0
+----------------------------------------------------
+  retValue_acc = -2147483648 (10000000 00000000 00000000 00000000)
+
+State 7 file email_spec11_productSimulator.cil.c line 65 function select_one thread 0
+----------------------------------------------------
+  choice = -2147483648 (10000000 00000000 00000000 00000000)
+
+State 8 file email_spec11_productSimulator.cil.c line 68 function select_one thread 0
+----------------------------------------------------
+  retValue_acc = -2147483648 (10000000 00000000 00000000 00000000)
+
+State 9 file email_spec11_productSimulator.cil.c line 65 function select_one thread 0
+----------------------------------------------------
+  choice = -2147483648 (10000000 00000000 00000000 00000000)
+
+State 10 file email_spec11_productSimulator.cil.c line 68 function select_one thread 0
+----------------------------------------------------
+  retValue_acc = -2147483648 (10000000 00000000 00000000 00000000)
+
+State 11 file email_spec11_productSimulator.cil.c line 65 function select_one thread 0
+----------------------------------------------------
+  choice = -2147483648 (10000000 00000000 00000000 00000000)
+
+State 12 file email_spec11_productSimulator.cil.c line 68 function select_one thread 0
+----------------------------------------------------
+  retValue_acc = -2147483648 (10000000 00000000 00000000 00000000)
+
+State 13 file email_spec11_productSimulator.cil.c line 65 function select_one thread 0
+----------------------------------------------------
+  choice = -2147483648 (10000000 00000000 00000000 00000000)
+
+State 14 file email_spec11_productSimulator.cil.c line 68 function select_one thread 0
+----------------------------------------------------
+  retValue_acc = -2147483648 (10000000 00000000 00000000 00000000)
+
+State 15 file email_spec11_productSimulator.cil.c line 65 function select_one thread 0
+----------------------------------------------------
+  choice = -2147483648 (10000000 00000000 00000000 00000000)
+
+State 16 file email_spec11_productSimulator.cil.c line 68 function select_one thread 0
+----------------------------------------------------
+  retValue_acc = -2147483648 (10000000 00000000 00000000 00000000)
+
+State 17 file email_spec11_productSimulator.cil.c line 163 function valid_product thread 0
+----------------------------------------------------
+  retValue_acc = 1 (00000000 00000000 00000000 00000001)
+bob: 1
+
+rjh: 2
+
+chuck: 3
+
+
+State 21 file email_spec11_productSimulator.cil.c line 2162 function test thread 0
+----------------------------------------------------
+  tmp___9 = -2147483648 (10000000 00000000 00000000 00000000)
+bob added rjhs key
+
+2
+
+456
+
+
+State 25 file email_spec11_productSimulator.cil.c line 2180 function test thread 0
+----------------------------------------------------
+  tmp___8 = -2147483648 (10000000 00000000 00000000 00000000)
+
+State 26 file email_spec11_productSimulator.cil.c line 2198 function test thread 0
+----------------------------------------------------
+  tmp___7 = -2147483648 (10000000 00000000 00000000 00000000)
+
+State 27 file email_spec11_productSimulator.cil.c line 2216 function test thread 0
+----------------------------------------------------
+  tmp___6 = 0 (00000000 00000000 00000000 00000000)
+
+State 28 file email_spec11_productSimulator.cil.c line 2234 function test thread 0
+----------------------------------------------------
+  tmp___5 = 0 (00000000 00000000 00000000 00000000)
+
+State 29 file email_spec11_productSimulator.cil.c line 2252 function test thread 0
+----------------------------------------------------
+  tmp___4 = 0 (00000000 00000000 00000000 00000000)
+
+State 30 file email_spec11_productSimulator.cil.c line 2270 function test thread 0
+----------------------------------------------------
+  tmp___3 = 0 (00000000 00000000 00000000 00000000)
+
+State 31 file email_spec11_productSimulator.cil.c line 2288 function test thread 0
+----------------------------------------------------
+  tmp___2 = 0 (00000000 00000000 00000000 00000000)
+
+State 32 file email_spec11_productSimulator.cil.c line 2306 function test thread 0
+----------------------------------------------------
+  tmp___1 = 0 (00000000 00000000 00000000 00000000)
+
+State 33 file email_spec11_productSimulator.cil.c line 2324 function test thread 0
+----------------------------------------------------
+  tmp___0 = 0 (00000000 00000000 00000000 00000000)
+
+State 34 file email_spec11_productSimulator.cil.c line 2342 function test thread 0
+----------------------------------------------------
+  tmp = -2147483648 (10000000 00000000 00000000 00000000)
+Please enter a subject and a message body.
+
+
+
+State 36 file email_spec11_productSimulator.cil.c line 2517 function getClientAddressBookSize thread 0
+----------------------------------------------------
+  retValue_acc = 0 (00000000 00000000 00000000 00000000)
+
+State 37 file email_spec11_productSimulator.cil.c line 296 function outgoing__role__AddressBook thread 0
+----------------------------------------------------
+  size = 0 (00000000 00000000 00000000 00000000)
+
+State 38 file email_spec11_productSimulator.cil.c line 3260 function findPublicKey thread 0
+----------------------------------------------------
+  retValue_acc = 456 (00000000 00000000 00000001 11001000)
+
+State 39 file email_spec11_productSimulator.cil.c line 251 function outgoing__role__Encrypt thread 0
+----------------------------------------------------
+  pubkey = 456 (00000000 00000000 00000001 11001000)
+
+State 40 file email_spec11_productSimulator.cil.c line 1973 function setEmailEncryptionKey thread 0
+----------------------------------------------------
+  __ste_email_encryptionKey0 = 456 (00000000 00000000 00000001 11001000)
+mail sent
+
+
+State 42 file email_spec11_productSimulator.cil.c line 2977 function getClientPrivateKey thread 0
+----------------------------------------------------
+  retValue_acc = 0 (00000000 00000000 00000000 00000000)
+
+State 43 file email_spec11_productSimulator.cil.c line 497 function incoming__role__Decrypt thread 0
+----------------------------------------------------
+  privkey = 0 (00000000 00000000 00000000 00000000)
+mail delivered
+
+
+
+State 45 file email_spec11_productSimulator.cil.c line 2930 function getClientAutoResponse thread 0
+----------------------------------------------------
+  retValue_acc = 1 (00000000 00000000 00000000 00000001)
+before autoRespond
+
+
+
+State 47 file email_spec11_productSimulator.cil.c line 1917 function isEncrypted thread 0
+----------------------------------------------------
+  retValue_acc = 1 (00000000 00000000 00000000 00000001)
+
+State 48 file email_spec11_productSimulator.cil.c line 11 function reach_error thread 0
+----------------------------------------------------
+Violated property:
+  file email_spec11_productSimulator.cil.c line 11 function reach_error
+  assertion 0
+  0
+
+
+VERIFICATION FAILED
+
+Bug found (k = 6)
+
+
+FALSE_REACH

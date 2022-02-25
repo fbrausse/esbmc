@@ -1,0 +1,225 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/eca-rers2012/Problem17_label26.c
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --add-symex-value-sets --no-align-check --k-step 5 --floatbv --unlimited-k-steps ../sv-benchmarks/c/eca-rers2012/Problem17_label26.c --32 --witness-output Problem17_label26.c.graphml --no-pointer-check --no-bounds-check --interval-analysis --goto-unwind --unlimited-goto-unwind --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/eca-rers2012/Problem17_label26.c: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.914s
+GOTO program processing time: 0.267s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.065s (828 assignments)
+Slicing time: 0.001s (removed 824 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (4 assignments)
+BMC program time: 0.067s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.072s (828 assignments)
+Slicing time: 0.001s (removed 824 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (4 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.000s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.000s
+Runtime decision procedure: 0.003s
+The forward condition is unable to prove the property
+*** Checking base case, k = 6
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file Problem17_label26.c line 2590 function main
+Unwinding loop 1  iteration  2   file Problem17_label26.c line 2590 function main
+Unwinding loop 1  iteration  3   file Problem17_label26.c line 2590 function main
+Unwinding loop 1  iteration  4   file Problem17_label26.c line 2590 function main
+Unwinding loop 1  iteration  5   file Problem17_label26.c line 2590 function main
+Not unwinding 
+Symex completed in: 2.094s (29483 assignments)
+Slicing time: 1.660s (removed 12187 assignments)
+Generated 5 VCC(s), 5 remaining after simplification (17296 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.732s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.732s
+Runtime decision procedure: 191.106s
+Building error trace
+
+Counterexample:
+
+State 1 file Problem17_label26.c line 2594 function main thread 0
+----------------------------------------------------
+  input = 6 (00000000 00000000 00000000 00000110)
+
+State 2 file Problem17_label26.c line 2594 function main thread 0
+----------------------------------------------------
+  input = 3 (00000000 00000000 00000000 00000011)
+
+State 3 file Problem17_label26.c line 1643 function calculate_output thread 0
+----------------------------------------------------
+  a14 = -131 (11111111 11111111 11111111 01111101)
+
+State 4 file Problem17_label26.c line 1644 function calculate_output thread 0
+----------------------------------------------------
+  a28 = 84 (00000000 00000000 00000000 01010100)
+
+State 5 file Problem17_label26.c line 2594 function main thread 0
+----------------------------------------------------
+  input = 5 (00000000 00000000 00000000 00000101)
+
+State 6 file Problem17_label26.c line 2163 function calculate_output2 thread 0
+----------------------------------------------------
+  a14 = 503475 (00000000 00000111 10101110 10110011)
+
+State 7 file Problem17_label26.c line 2164 function calculate_output2 thread 0
+----------------------------------------------------
+  a26 = 20 (00000000 00000000 00000000 00010100)
+
+State 8 file Problem17_label26.c line 2165 function calculate_output2 thread 0
+----------------------------------------------------
+  a28 = -599883 (11111111 11110110 11011000 10110101)
+
+State 9 file Problem17_label26.c line 2594 function main thread 0
+----------------------------------------------------
+  input = 6 (00000000 00000000 00000000 00000110)
+
+State 10 file Problem17_label26.c line 1051 function calculate_output thread 0
+----------------------------------------------------
+  a26 = 211 (00000000 00000000 00000000 11010011)
+
+State 11 file Problem17_label26.c line 1052 function calculate_output thread 0
+----------------------------------------------------
+  a28 = 163 (00000000 00000000 00000000 10100011)
+
+State 12 file Problem17_label26.c line 2594 function main thread 0
+----------------------------------------------------
+  input = 1 (00000000 00000000 00000000 00000001)
+
+State 13 file Problem17_label26.c line 598 function calculate_output thread 0
+----------------------------------------------------
+  a14 = -98 (11111111 11111111 11111111 10011110)
+
+State 14 file Problem17_label26.c line 599 function calculate_output thread 0
+----------------------------------------------------
+  a26 = 37 (00000000 00000000 00000000 00100101)
+
+State 15 file Problem17_label26.c line 600 function calculate_output thread 0
+----------------------------------------------------
+  a28 = 127730 (00000000 00000001 11110010 11110010)
+
+State 16 file Problem17_label26.c line 2594 function main thread 0
+----------------------------------------------------
+  input = 4 (00000000 00000000 00000000 00000100)
+
+State 17 file Problem17_label26.c line 13 function reach_error thread 0
+----------------------------------------------------
+Violated property:
+  file Problem17_label26.c line 13 function reach_error
+  assertion 0
+  0
+
+
+VERIFICATION FAILED
+
+Bug found (k = 6)
+
+../sv-benchmarks/c/eca-rers2012/Problem17_label26.c:284:14: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a24==2)){
+                    ~~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem17_label26.c:284:14: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a24==2)){
+                   ~   ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem17_label26.c:284:14: note: use '=' to turn this equality comparison into an assignment
+                if((a24==2)){
+                       ^~
+                       =
+../sv-benchmarks/c/eca-rers2012/Problem17_label26.c:378:14: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a24==4)){
+                    ~~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem17_label26.c:378:14: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a24==4)){
+                   ~   ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem17_label26.c:378:14: note: use '=' to turn this equality comparison into an assignment
+                if((a24==4)){
+                       ^~
+                       =
+../sv-benchmarks/c/eca-rers2012/Problem17_label26.c:558:14: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a24==3)){
+                    ~~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem17_label26.c:558:14: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a24==3)){
+                   ~   ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem17_label26.c:558:14: note: use '=' to turn this equality comparison into an assignment
+                if((a24==3)){
+                       ^~
+                       =
+../sv-benchmarks/c/eca-rers2012/Problem17_label26.c:617:14: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a24==1)){
+                    ~~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem17_label26.c:617:14: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a24==1)){
+                   ~   ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem17_label26.c:617:14: note: use '=' to turn this equality comparison into an assignment
+                if((a24==1)){
+                       ^~
+                       =
+../sv-benchmarks/c/eca-rers2012/Problem17_label26.c:1027:14: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a24==1)){
+                    ~~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem17_label26.c:1027:14: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a24==1)){
+                   ~   ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem17_label26.c:1027:14: note: use '=' to turn this equality comparison into an assignment
+                if((a24==1)){
+                       ^~
+                       =
+../sv-benchmarks/c/eca-rers2012/Problem17_label26.c:1375:14: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a24==3)){
+                    ~~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem17_label26.c:1375:14: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a24==3)){
+                   ~   ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem17_label26.c:1375:14: note: use '=' to turn this equality comparison into an assignment
+                if((a24==3)){
+                       ^~
+                       =
+../sv-benchmarks/c/eca-rers2012/Problem17_label26.c:1424:14: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a24==1)){
+                    ~~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem17_label26.c:1424:14: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a24==1)){
+                   ~   ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem17_label26.c:1424:14: note: use '=' to turn this equality comparison into an assignment
+                if((a24==1)){
+                       ^~
+                       =
+../sv-benchmarks/c/eca-rers2012/Problem17_label26.c:1718:14: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a24==1)){
+                    ~~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem17_label26.c:1718:14: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a24==1)){
+                   ~   ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem17_label26.c:1718:14: note: use '=' to turn this equality comparison into an assignment
+                if((a24==1)){
+                       ^~
+                       =
+../sv-benchmarks/c/eca-rers2012/Problem17_label26.c:2116:14: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+                if((a24==3)){
+                    ~~~^~~
+../sv-benchmarks/c/eca-rers2012/Problem17_label26.c:2116:14: note: remove extraneous parentheses around the comparison to silence this warning
+                if((a24==3)){
+                   ~   ^  ~
+../sv-benchmarks/c/eca-rers2012/Problem17_label26.c:2116:14: note: use '=' to turn this equality comparison into an assignment
+                if((a24==3)){
+                       ^~
+                       =
+
+FALSE_REACH

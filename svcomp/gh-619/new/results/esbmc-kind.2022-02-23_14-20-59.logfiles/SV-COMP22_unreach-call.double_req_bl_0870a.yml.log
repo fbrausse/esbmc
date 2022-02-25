@@ -1,0 +1,87 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/float-newlib/double_req_bl_0870a.c
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --add-symex-value-sets --no-align-check --k-step 5 --floatbv --unlimited-k-steps ../sv-benchmarks/c/float-newlib/double_req_bl_0870a.c --32 --witness-output double_req_bl_0870a.c.graphml --no-pointer-check --no-bounds-check --interval-analysis --goto-unwind --unlimited-goto-unwind --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/float-newlib/double_req_bl_0870a.c: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.241s
+GOTO program processing time: 0.011s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.049s (593 assignments)
+Slicing time: 0.005s (removed 365 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (228 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.071s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.071s
+Runtime decision procedure: 0.122s
+Building error trace
+
+Counterexample:
+
+State 1 file double_req_bl_0870a.c line 576 function main thread 0
+----------------------------------------------------
+  x = -1.000000 (10111111 11110000 00000000 00000000 00000000 00000000 00000000 00000000)
+
+State 2 file double_req_bl_0870a.c line 272 function __ieee754_pow thread 0
+----------------------------------------------------
+  ew_u.value = -1.000000 (10111111 11110000 00000000 00000000 00000000 00000000 00000000 00000000)
+
+State 3 file double_req_bl_0870a.c line 273 function __ieee754_pow thread 0
+----------------------------------------------------
+  hx = (signed int)ew_u.parts.msw
+
+State 4 file double_req_bl_0870a.c line 274 function __ieee754_pow thread 0
+----------------------------------------------------
+  lx = ew_u.parts.lsw
+
+State 5 file double_req_bl_0870a.c line 278 function __ieee754_pow thread 0
+----------------------------------------------------
+  ew_u.value = +NaN (01111111 11110000 00000000 00000000 00000000 00000000 00000000 00000001)
+
+State 6 file double_req_bl_0870a.c line 279 function __ieee754_pow thread 0
+----------------------------------------------------
+  hy = (signed int)ew_u.parts.msw
+
+State 7 file double_req_bl_0870a.c line 280 function __ieee754_pow thread 0
+----------------------------------------------------
+  ly = ew_u.parts.lsw
+
+State 8 file double_req_bl_0870a.c line 282 function __ieee754_pow thread 0
+----------------------------------------------------
+  ix = 1072693248 (00111111 11110000 00000000 00000000)
+
+State 9 file double_req_bl_0870a.c line 283 function __ieee754_pow thread 0
+----------------------------------------------------
+  iy = 2146435072 (01111111 11110000 00000000 00000000)
+
+State 10 file double_req_bl_0870a.c line 581 function main thread 0
+----------------------------------------------------
+  res = 1.000000 (00111111 11110000 00000000 00000000 00000000 00000000 00000000 00000000)
+
+State 11 file double_req_bl_0870a.c line 3 function reach_error thread 0
+----------------------------------------------------
+Violated property:
+  file double_req_bl_0870a.c line 3 function reach_error
+  assertion 0
+  0
+
+
+VERIFICATION FAILED
+
+Bug found (k = 1)
+
+
+FALSE_REACH

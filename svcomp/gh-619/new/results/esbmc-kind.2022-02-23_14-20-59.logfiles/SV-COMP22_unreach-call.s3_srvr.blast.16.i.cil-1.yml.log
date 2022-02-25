@@ -1,0 +1,265 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/openssl/s3_srvr.blast.16.i.cil-1.c
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --add-symex-value-sets --no-align-check --k-step 5 --floatbv --unlimited-k-steps ../sv-benchmarks/c/openssl/s3_srvr.blast.16.i.cil-1.c --32 --witness-output s3_srvr.blast.16.i.cil-1.c.graphml --no-pointer-check --no-bounds-check --interval-analysis --goto-unwind --unlimited-goto-unwind --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/openssl/s3_srvr.blast.16.i.cil-1.c: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.161s
+GOTO program processing time: 0.074s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 1.079s (913 assignments)
+Slicing time: 0.004s (removed 585 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (328 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.024s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.024s
+Runtime decision procedure: 0.000s
+BMC program time: 1.108s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 1.285s (912 assignments)
+Slicing time: 0.004s (removed 585 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (327 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.031s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.031s
+Runtime decision procedure: 0.821s
+The forward condition is unable to prove the property
+*** Checking base case, k = 6
+Starting Bounded Model Checking
+Unwinding loop 2  iteration  1   file s3_srvr.blast.16.i.cil-1.c line 1168 function ssl3_accept
+Unwinding loop 2  iteration  2   file s3_srvr.blast.16.i.cil-1.c line 1168 function ssl3_accept
+Unwinding loop 2  iteration  3   file s3_srvr.blast.16.i.cil-1.c line 1168 function ssl3_accept
+Unwinding loop 2  iteration  4   file s3_srvr.blast.16.i.cil-1.c line 1168 function ssl3_accept
+Unwinding loop 2  iteration  5   file s3_srvr.blast.16.i.cil-1.c line 1168 function ssl3_accept
+Not unwinding 
+Symex completed in: 47.072s (7425 assignments)
+Slicing time: 0.203s (removed 4965 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (2460 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.225s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.225s
+Runtime decision procedure: 2.288s
+Building error trace
+
+Counterexample:
+
+State 1 file s3_srvr.blast.16.i.cil-1.c line 1083 function main thread 0
+----------------------------------------------------
+  s->s3 = ( struct ssl3_state_st *)((void *)(&dynamic_88_value))
+
+State 2 file s3_srvr.blast.16.i.cil-1.c line 1084 function main thread 0
+----------------------------------------------------
+  s->ctx = ( struct ssl_ctx_st *)((void *)(&dynamic_89_value))
+
+State 3 file s3_srvr.blast.16.i.cil-1.c line 1085 function main thread 0
+----------------------------------------------------
+  s->session = ( struct ssl_session_st *)((void *)(&dynamic_90_value))
+
+State 4 file s3_srvr.blast.16.i.cil-1.c line 1087 function main thread 0
+----------------------------------------------------
+  s->info_callback = (void (*)())134217728
+
+State 5 file s3_srvr.blast.16.i.cil-1.c line 1088 function main thread 0
+----------------------------------------------------
+  s->options = 0 (00000000 00000000 00000000 00000000)
+
+State 6 file s3_srvr.blast.16.i.cil-1.c line 1089 function main thread 0
+----------------------------------------------------
+  s->verify_mode = 0 (00000000 00000000 00000000 00000000)
+
+State 7 file s3_srvr.blast.16.i.cil-1.c line 1090 function main thread 0
+----------------------------------------------------
+  s->session->peer = ( struct x509_st *)1
+
+State 8 file s3_srvr.blast.16.i.cil-1.c line 1091 function main thread 0
+----------------------------------------------------
+  s->s3->tmp.cert_request = 0 (00000000 00000000 00000000 00000000)
+
+State 9 file s3_srvr.blast.16.i.cil-1.c line 1092 function main thread 0
+----------------------------------------------------
+  s->s3->tmp.new_cipher = ( struct ssl_cipher_st *)((void *)(&dynamic_96_value))
+
+State 10 file s3_srvr.blast.16.i.cil-1.c line 1093 function main thread 0
+----------------------------------------------------
+  s->s3->tmp.new_cipher->algorithms = 17 (00000000 00000000 00000000 00010001)
+
+State 11 file s3_srvr.blast.16.i.cil-1.c line 1094 function main thread 0
+----------------------------------------------------
+  s->s3->tmp.new_cipher->algo_strength = 6 (00000000 00000000 00000000 00000110)
+
+State 12 file s3_srvr.blast.16.i.cil-1.c line 1101 function main thread 0
+----------------------------------------------------
+  s->cert = ( struct cert_st *)((void *)(&dynamic_100_value))
+
+State 13 file s3_srvr.blast.16.i.cil-1.c line 1102 function main thread 0
+----------------------------------------------------
+  s->cert->pkeys[0].privatekey = ( struct evp_pkey_st *)2113
+
+State 14 file s3_srvr.blast.16.i.cil-1.c line 1125 function ssl3_accept thread 0
+----------------------------------------------------
+  tmp___3 = 0 (00000000 00000000 00000000 00000000)
+
+State 15 file s3_srvr.blast.16.i.cil-1.c line 1126 function ssl3_accept thread 0
+----------------------------------------------------
+  tmp___4 = 0 (00000000 00000000 00000000 00000000)
+
+State 16 file s3_srvr.blast.16.i.cil-1.c line 1127 function ssl3_accept thread 0
+----------------------------------------------------
+  tmp___5 = 0 (00000000 00000000 00000000 00000000)
+
+State 17 file s3_srvr.blast.16.i.cil-1.c line 1128 function ssl3_accept thread 0
+----------------------------------------------------
+  tmp___6 = 268435552 (00010000 00000000 00000000 01100000)
+
+State 18 file s3_srvr.blast.16.i.cil-1.c line 1130 function ssl3_accept thread 0
+----------------------------------------------------
+  tmp___8 = 0 (00000000 00000000 00000000 00000000)
+
+State 19 file s3_srvr.blast.16.i.cil-1.c line 1131 function ssl3_accept thread 0
+----------------------------------------------------
+  tmp___9 = -1 (11111111 11111111 11111111 11111111)
+
+State 20 file s3_srvr.blast.16.i.cil-1.c line 1132 function ssl3_accept thread 0
+----------------------------------------------------
+  tmp___10 = -1 (11111111 11111111 11111111 11111111)
+
+State 21 file s3_srvr.blast.16.i.cil-1.c line 1137 function ssl3_accept thread 0
+----------------------------------------------------
+  s->state = 8464 (00000000 00000000 00100001 00010000)
+
+State 22 file s3_srvr.blast.16.i.cil-1.c line 1139 function ssl3_accept thread 0
+----------------------------------------------------
+  s->hit = -1 (11111111 11111111 11111111 11111111)
+
+State 23 file s3_srvr.blast.16.i.cil-1.c line 1140 function ssl3_accept thread 0
+----------------------------------------------------
+  s->state = 8464 (00000000 00000000 00100001 00010000)
+
+State 24 file s3_srvr.blast.16.i.cil-1.c line 1148 function ssl3_accept thread 0
+----------------------------------------------------
+  cb = dynamic_87_value.info_callback
+
+State 25 file s3_srvr.blast.16.i.cil-1.c line 1152 function ssl3_accept thread 0
+----------------------------------------------------
+  s->in_handshake = dynamic_87_value.in_handshake + 1
+
+State 26 file s3_srvr.blast.16.i.cil-1.c line 1170 function ssl3_accept thread 0
+----------------------------------------------------
+  state = dynamic_87_value.state
+
+State 27 file s3_srvr.blast.16.i.cil-1.c line 1355 function ssl3_accept thread 0
+----------------------------------------------------
+  s->shutdown = 0 (00000000 00000000 00000000 00000000)
+
+State 28 file s3_srvr.blast.16.i.cil-1.c line 1356 function ssl3_accept thread 0
+----------------------------------------------------
+  ret = 2147483647 (01111111 11111111 11111111 11111111)
+
+State 29 file s3_srvr.blast.16.i.cil-1.c line 1368 function ssl3_accept thread 0
+----------------------------------------------------
+  s->state = 8496 (00000000 00000000 00100001 00110000)
+
+State 30 file s3_srvr.blast.16.i.cil-1.c line 1369 function ssl3_accept thread 0
+----------------------------------------------------
+  s->init_num = 0 (00000000 00000000 00000000 00000000)
+
+State 31 file s3_srvr.blast.16.i.cil-1.c line 1170 function ssl3_accept thread 0
+----------------------------------------------------
+  state = dynamic_87_value.state
+
+State 32 file s3_srvr.blast.16.i.cil-1.c line 1373 function ssl3_accept thread 0
+----------------------------------------------------
+  ret = 2147483647 (01111111 11111111 11111111 11111111)
+
+State 33 file s3_srvr.blast.16.i.cil-1.c line 1385 function ssl3_accept thread 0
+----------------------------------------------------
+  s->state = 8656 (00000000 00000000 00100001 11010000)
+
+State 34 file s3_srvr.blast.16.i.cil-1.c line 1389 function ssl3_accept thread 0
+----------------------------------------------------
+  s->init_num = 0 (00000000 00000000 00000000 00000000)
+
+State 35 file s3_srvr.blast.16.i.cil-1.c line 1170 function ssl3_accept thread 0
+----------------------------------------------------
+  state = dynamic_87_value.state
+
+State 36 file s3_srvr.blast.16.i.cil-1.c line 1630 function ssl3_accept thread 0
+----------------------------------------------------
+  s->session->cipher = dynamic_88_value.tmp.new_cipher
+
+State 37 file s3_srvr.blast.16.i.cil-1.c line 1637 function ssl3_accept thread 0
+----------------------------------------------------
+  ret = 2147483647 (01111111 11111111 11111111 11111111)
+
+State 38 file s3_srvr.blast.16.i.cil-1.c line 1656 function ssl3_accept thread 0
+----------------------------------------------------
+  s->state = 8672 (00000000 00000000 00100001 11100000)
+
+State 39 file s3_srvr.blast.16.i.cil-1.c line 1657 function ssl3_accept thread 0
+----------------------------------------------------
+  s->init_num = 0 (00000000 00000000 00000000 00000000)
+
+State 40 file s3_srvr.blast.16.i.cil-1.c line 1170 function ssl3_accept thread 0
+----------------------------------------------------
+  state = dynamic_87_value.state
+
+State 41 file s3_srvr.blast.16.i.cil-1.c line 1667 function ssl3_accept thread 0
+----------------------------------------------------
+  ret = 2147483647 (01111111 11111111 11111111 11111111)
+
+State 42 file s3_srvr.blast.16.i.cil-1.c line 1686 function ssl3_accept thread 0
+----------------------------------------------------
+  s->state = 8448 (00000000 00000000 00100001 00000000)
+
+State 43 file s3_srvr.blast.16.i.cil-1.c line 1688 function ssl3_accept thread 0
+----------------------------------------------------
+  s->s3->tmp.next_state = 8640 (00000000 00000000 00100001 11000000)
+
+State 44 file s3_srvr.blast.16.i.cil-1.c line 1692 function ssl3_accept thread 0
+----------------------------------------------------
+  s->init_num = 0 (00000000 00000000 00000000 00000000)
+
+State 45 file s3_srvr.blast.16.i.cil-1.c line 1170 function ssl3_accept thread 0
+----------------------------------------------------
+  state = dynamic_87_value.state
+
+State 46 file s3_srvr.blast.16.i.cil-1.c line 1535 function ssl3_accept thread 0
+----------------------------------------------------
+  s->state = dynamic_88_value.tmp.next_state
+
+State 47 file s3_srvr.blast.16.i.cil-1.c line 1602 function ssl3_accept thread 0
+----------------------------------------------------
+  ret = 0 (00000000 00000000 00000000 00000000)
+
+State 48 file s3_srvr.blast.16.i.cil-1.c line 13 function reach_error thread 0
+----------------------------------------------------
+Violated property:
+  file s3_srvr.blast.16.i.cil-1.c line 13 function reach_error
+  assertion 0
+  0
+
+
+VERIFICATION FAILED
+
+Bug found (k = 6)
+
+
+FALSE_REACH

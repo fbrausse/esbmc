@@ -1,0 +1,16 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/goblint-regression/13-privatized_25-struct_nr_true.i
+
+
+--------------------------------------------------------------------------------
+
+
+Found pthread benchmark!
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --add-symex-value-sets --no-align-check --k-step 5 --floatbv --unlimited-k-steps ../sv-benchmarks/c/goblint-regression/13-privatized_25-struct_nr_true.i --32  --no-por --context-bound 2 --no-goto-merge --witness-output 13-privatized_25-struct_nr_true.i.graphml --no-pointer-check --no-bounds-check --goto-unwind --unlimited-goto-unwind --incremental-bmc 
+
+../sv-benchmarks/c/goblint-regression/13-privatized_25-struct_nr_true.i:506:12: warning: declaration of built-in function '__sigsetjmp' requires the declaration of the 'jmp_buf' type, commonly provided in the header <setjmp.h>. [-Wincomplete-setjmp-declaration]
+extern int __sigsetjmp (struct __jmp_buf_tag *__env, int __savemask) __attribute__ ((__nothrow__));
+           ^
+There are goto statements that shouldn't be merged at this point
+
+Unknown

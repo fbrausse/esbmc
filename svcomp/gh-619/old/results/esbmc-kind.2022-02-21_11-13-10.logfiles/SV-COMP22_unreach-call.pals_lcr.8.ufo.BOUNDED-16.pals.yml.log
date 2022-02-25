@@ -1,0 +1,42 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/seq-mthreaded/pals_lcr.8.ufo.BOUNDED-16.pals.c
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --add-symex-value-sets --no-align-check --k-step 5 --floatbv --unlimited-k-steps ../sv-benchmarks/c/seq-mthreaded/pals_lcr.8.ufo.BOUNDED-16.pals.c --32 --witness-output pals_lcr.8.ufo.BOUNDED-16.pals.c.graphml --no-pointer-check --no-bounds-check --interval-analysis --goto-unwind --unlimited-goto-unwind --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/seq-mthreaded/pals_lcr.8.ufo.BOUNDED-16.pals.c: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.107s
+GOTO program processing time: 0.044s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Symex completed in: 0.155s (4396 assignments)
+Slicing time: 0.008s (removed 1788 assignments)
+Generated 16 VCC(s), 16 remaining after simplification (2608 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.028s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.028s
+Runtime decision procedure: 27.732s
+BMC program time: 27.924s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Symex completed in: 0.172s (4380 assignments)
+Slicing time: 0.009s (removed 1788 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (2592 assignments)
+BMC program time: 0.181s
+Building successful trace
+
+VERIFICATION SUCCESSFUL
+
+Solution found by the forward condition; all states are reachable (k = 1
+
+
+TRUE

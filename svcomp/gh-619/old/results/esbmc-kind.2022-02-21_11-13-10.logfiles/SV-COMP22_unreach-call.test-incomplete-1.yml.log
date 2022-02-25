@@ -1,0 +1,28 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/busybox-1.22.0/test-incomplete-1.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --add-symex-value-sets --no-align-check --k-step 5 --floatbv --unlimited-k-steps ../sv-benchmarks/c/busybox-1.22.0/test-incomplete-1.i --64 --witness-output test-incomplete-1.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --goto-unwind --unlimited-goto-unwind --k-induction --max-inductive-step 3 
+
+../sv-benchmarks/c/busybox-1.22.0/test-incomplete-1.i:314:12: warning: declaration of built-in function '__sigsetjmp' requires the declaration of the 'jmp_buf' type, commonly provided in the header <setjmp.h>. [-Wincomplete-setjmp-declaration]
+extern int __sigsetjmp (struct __jmp_buf_tag __env[1], int __savemask) __attribute__ ((__nothrow__));
+           ^
+../sv-benchmarks/c/busybox-1.22.0/test-incomplete-1.i:3106:27: warning: adding 'long' to a string does not append to the string [-Wstring-plus-int]
+    bb_error_msg("%s: %s" + (signed long int)4, msg);
+                 ~~~~~~~~~^~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/busybox-1.22.0/test-incomplete-1.i:3106:27: note: use array indexing to silence this warning
+    bb_error_msg("%s: %s" + (signed long int)4, msg);
+                          ^
+                 &        [                   ]
+../sv-benchmarks/c/busybox-1.22.0/test-incomplete-1.i:3175:39: warning: adding 'long' to a string does not append to the string [-Wstring-plus-int]
+        if(!((unsigned long int)("]]" + 1l) + -((unsigned long int)"]]") == 1ul))
+                                 ~~~~~^~~~
+../sv-benchmarks/c/busybox-1.22.0/test-incomplete-1.i:3175:39: note: use array indexing to silence this warning
+        if(!((unsigned long int)("]]" + 1l) + -((unsigned long int)"]]") == 1ul))
+                                      ^
+                                 &    [   ]
+
+Unknown

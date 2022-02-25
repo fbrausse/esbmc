@@ -1,0 +1,133 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--target--iscsi--iscsi_target_mod.ko-entry_point.cil.out.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --add-symex-value-sets --no-align-check --k-step 5 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--target--iscsi--iscsi_target_mod.ko-entry_point.cil.out.i --64 --witness-output linux-4.2-rc1.tar.xz-32_7a-drivers--target--iscsi--iscsi_target_mod.ko-entry_point.cil.out.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --goto-unwind --unlimited-goto-unwind --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 64-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--target--iscsi--iscsi_target_mod.ko-entry_point.cil.out.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 8.300s
+GOTO program processing time: 14.655s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.147s (546 assignments)
+Slicing time: 0.001s (removed 539 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (7 assignments)
+BMC program time: 0.148s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.124s (546 assignments)
+Slicing time: 0.000s (removed 539 assignments)
+Generated 2 VCC(s), 2 remaining after simplification (7 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.001s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.001s
+Runtime decision procedure: 0.027s
+The forward condition is unable to prove the property
+*** Checking base case, k = 6
+Starting Bounded Model Checking
+Unwinding loop 175  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 175  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 175  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 175  iteration  4   file string.c line 272 function __memset_impl
+Unwinding loop 175  iteration  5   file string.c line 272 function __memset_impl
+Not unwinding 
+Unwinding loop 175  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 175  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 175  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 175  iteration  4   file string.c line 272 function __memset_impl
+Unwinding loop 175  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 175  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 175  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 175  iteration  4   file string.c line 272 function __memset_impl
+Unwinding loop 175  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 175  iteration  1   file string.c line 272 function __memset_impl
+Unwinding loop 175  iteration  2   file string.c line 272 function __memset_impl
+Unwinding loop 175  iteration  3   file string.c line 272 function __memset_impl
+Unwinding loop 175  iteration  4   file string.c line 272 function __memset_impl
+Unwinding loop 6  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--target--iscsi--iscsi_target_mod.ko-entry_point.cil.out.i line 9959 function iscsi_release_param_list
+Unwinding loop 6  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--target--iscsi--iscsi_target_mod.ko-entry_point.cil.out.i line 9959 function iscsi_release_param_list
+Unwinding loop 6  iteration  3   file linux-4.2-rc1.tar.xz-32_7a-drivers--target--iscsi--iscsi_target_mod.ko-entry_point.cil.out.i line 9959 function iscsi_release_param_list
+Unwinding loop 6  iteration  4   file linux-4.2-rc1.tar.xz-32_7a-drivers--target--iscsi--iscsi_target_mod.ko-entry_point.cil.out.i line 9959 function iscsi_release_param_list
+Unwinding loop 6  iteration  5   file linux-4.2-rc1.tar.xz-32_7a-drivers--target--iscsi--iscsi_target_mod.ko-entry_point.cil.out.i line 9959 function iscsi_release_param_list
+Not unwinding 
+Unwinding loop 10  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--target--iscsi--iscsi_target_mod.ko-entry_point.cil.out.i line 9930 function iscsi_release_extra_responses
+Unwinding loop 10  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--target--iscsi--iscsi_target_mod.ko-entry_point.cil.out.i line 9930 function iscsi_release_extra_responses
+Unwinding loop 10  iteration  3   file linux-4.2-rc1.tar.xz-32_7a-drivers--target--iscsi--iscsi_target_mod.ko-entry_point.cil.out.i line 9930 function iscsi_release_extra_responses
+Unwinding loop 10  iteration  4   file linux-4.2-rc1.tar.xz-32_7a-drivers--target--iscsi--iscsi_target_mod.ko-entry_point.cil.out.i line 9930 function iscsi_release_extra_responses
+Unwinding loop 10  iteration  5   file linux-4.2-rc1.tar.xz-32_7a-drivers--target--iscsi--iscsi_target_mod.ko-entry_point.cil.out.i line 9930 function iscsi_release_extra_responses
+Not unwinding 
+Unwinding loop 11  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--target--iscsi--iscsi_target_mod.ko-entry_point.cil.out.i line 9992 function iscsi_find_param_from_key
+Unwinding loop 3  iteration  1   file string.c line 96 function strcmp
+Unwinding loop 3  iteration  2   file string.c line 96 function strcmp
+Unwinding loop 3  iteration  3   file string.c line 96 function strcmp
+Unwinding loop 3  iteration  4   file string.c line 96 function strcmp
+Unwinding loop 3  iteration  5   file string.c line 96 function strcmp
+Not unwinding 
+Unwinding loop 11  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--target--iscsi--iscsi_target_mod.ko-entry_point.cil.out.i line 9992 function iscsi_find_param_from_key
+Unwinding loop 3  iteration  1   file string.c line 96 function strcmp
+Unwinding loop 3  iteration  2   file string.c line 96 function strcmp
+Unwinding loop 3  iteration  3   file string.c line 96 function strcmp
+Unwinding loop 3  iteration  4   file string.c line 96 function strcmp
+Unwinding loop 3  iteration  5   file string.c line 96 function strcmp
+Not unwinding 
+Unwinding loop 11  iteration  3   file linux-4.2-rc1.tar.xz-32_7a-drivers--target--iscsi--iscsi_target_mod.ko-entry_point.cil.out.i line 9992 function iscsi_find_param_from_key
+Unwinding loop 3  iteration  1   file string.c line 96 function strcmp
+Unwinding loop 3  iteration  2   file string.c line 96 function strcmp
+Unwinding loop 3  iteration  3   file string.c line 96 function strcmp
+Unwinding loop 3  iteration  4   file string.c line 96 function strcmp
+Unwinding loop 3  iteration  5   file string.c line 96 function strcmp
+Not unwinding 
+Unwinding loop 11  iteration  4   file linux-4.2-rc1.tar.xz-32_7a-drivers--target--iscsi--iscsi_target_mod.ko-entry_point.cil.out.i line 9992 function iscsi_find_param_from_key
+Unwinding loop 3  iteration  1   file string.c line 96 function strcmp
+Unwinding loop 3  iteration  2   file string.c line 96 function strcmp
+Unwinding loop 3  iteration  3   file string.c line 96 function strcmp
+Unwinding loop 3  iteration  4   file string.c line 96 function strcmp
+Unwinding loop 3  iteration  5   file string.c line 96 function strcmp
+Not unwinding 
+Unwinding loop 11  iteration  5   file linux-4.2-rc1.tar.xz-32_7a-drivers--target--iscsi--iscsi_target_mod.ko-entry_point.cil.out.i line 9992 function iscsi_find_param_from_key
+Unwinding loop 3  iteration  1   file string.c line 96 function strcmp
+Unwinding loop 3  iteration  2   file string.c line 96 function strcmp
+Unwinding loop 3  iteration  3   file string.c line 96 function strcmp
+Unwinding loop 3  iteration  4   file string.c line 96 function strcmp
+Unwinding loop 3  iteration  5   file string.c line 96 function strcmp
+Not unwinding 
+Not unwinding 
+Unwinding loop 121  iteration  1   file linux-4.2-rc1.tar.xz-32_7a-drivers--target--iscsi--iscsi_target_mod.ko-entry_point.cil.out.i line 25433 function iscsit_clear_tpg_np_login_threads
+Unwinding loop 121  iteration  2   file linux-4.2-rc1.tar.xz-32_7a-drivers--target--iscsi--iscsi_target_mod.ko-entry_point.cil.out.i line 25433 function iscsit_clear_tpg_np_login_threads
+Unwinding loop 121  iteration  3   file linux-4.2-rc1.tar.xz-32_7a-drivers--target--iscsi--iscsi_target_mod.ko-entry_point.cil.out.i line 25433 function iscsit_clear_tpg_np_login_threads
+Unwinding loop 121  iteration  4   file linux-4.2-rc1.tar.xz-32_7a-drivers--target--iscsi--iscsi_target_mod.ko-entry_point.cil.out.i line 25433 function iscsit_clear_tpg_np_login_threads
+Unwinding loop 121  iteration  5   file linux-4.2-rc1.tar.xz-32_7a-drivers--target--iscsi--iscsi_target_mod.ko
+../sv-benchmarks/c/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--target--iscsi--iscsi_target_mod.ko-entry_point.cil.out.i:19017:12: warning: incompatible redeclaration of library function 'vsnprintf' [-Wincompatible-library-redeclaration]
+extern int vsnprintf(char * , size_t , char const * , va_list * ) ;
+           ^
+../sv-benchmarks/c/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--target--iscsi--iscsi_target_mod.ko-entry_point.cil.out.i:19017:12: note: 'vsnprintf' is a builtin with type 'int (char *, unsigned long, const char *, struct __va_list_tag *)'
+../sv-benchmarks/c/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--target--iscsi--iscsi_target_mod.ko-entry_point.cil.out.i:19327:32: warning: incompatible pointer types passing 'cpumask_var_t *' (aka 'struct cpumask **') to parameter of type 'cpumask_var_t **' (aka 'struct cpumask ***') [-Wincompatible-pointer-types]
+  tmp___3 = zalloc_cpumask_var(& conn->conn_cpumask, 208U);
+                               ^~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--target--iscsi--iscsi_target_mod.ko-entry_point.cil.out.i:19047:49: note: passing argument to parameter here
+extern bool zalloc_cpumask_var(cpumask_var_t ** , gfp_t ) ;
+                                                ^
+../sv-benchmarks/c/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--target--iscsi--iscsi_target_mod.ko-entry_point.cil.out.i:32851:3: warning: 'memset' will always overflow; destination buffer has size 16, but size argument is 64 [-Wfortify-source]
+  memset((void *)(& datain), 0, 64UL);
+  ^
+../sv-benchmarks/c/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--target--iscsi--iscsi_target_mod.ko-entry_point.cil.out.i:39133:56: warning: format specifies type 'unsigned short' but the argument has type 'int' [-Wformat]
+                      sess->sid, (u8 *)(& sess->isid), (int )sess->tsih);
+                                                       ^~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--target--iscsi--iscsi_target_mod.ko-entry_point.cil.out.i:39182:24: warning: format specifies type 'unsigned short' but the argument has type 'int' [-Wformat]
+                       (int )conn->cid);
+                       ^~~~~~~~~~~~~~~
+
+Unknown

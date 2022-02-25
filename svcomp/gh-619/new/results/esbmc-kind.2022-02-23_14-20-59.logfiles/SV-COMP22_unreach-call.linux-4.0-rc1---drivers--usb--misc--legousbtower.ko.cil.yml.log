@@ -1,0 +1,634 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --add-symex-value-sets --no-align-check --k-step 5 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i --64 --witness-output linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --goto-unwind --unlimited-goto-unwind --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 64-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/ldv-linux-4.0-rc1-mav/linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.511s
+GOTO program processing time: 0.158s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+No target candidate for function call *arg0
+No target candidate for function call *arg0
+No target candidate for function call *arg0
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Not unwinding 
+No target candidate for function call *p->_qproc
+No target candidate for function call *p->_qproc
+Not unwinding 
+Symex completed in: 0.537s (2245 assignments)
+Slicing time: 0.007s (removed 1451 assignments)
+Generated 16 VCC(s), 16 remaining after simplification (794 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.127s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.127s
+Runtime decision procedure: 62.958s
+Building error trace
+
+Counterexample:
+
+State 1 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 8499 function ldv_undef_int thread 0
+----------------------------------------------------
+  tmp = 1073741824 (01000000 00000000 00000000 00000000)
+
+State 2 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 8278 function ldv_pre_usb_register_driver thread 0
+----------------------------------------------------
+  nondet = 1073741824 (01000000 00000000 00000000 00000000)
+
+State 3 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 8499 function ldv_undef_int thread 0
+----------------------------------------------------
+  tmp = -1 (11111111 11111111 11111111 11111111)
+
+State 4 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 6195 function ldv_usb_usb_instance_1 thread 0
+----------------------------------------------------
+  ldv_1_resource_usb_interface->dev.parent = (unsigned long int)(( struct device *)(( struct device {  struct device * parent;  struct device_private * p;  struct kobject { signed char * name;  struct list_head {  struct list_head * next;  struct list_head * prev; }entry;  struct kobject * parent;  struct kset * kset;  struct kobj_type * ktype;  struct kernfs_node * sd;  struct kref {  struct __anonstruct_atomic_t_6 { signed int counter; }refcount; }kref; unsigned int pad$7;  struct delayed_work {  struct work_struct {  struct __anonstruct_atomic64_t_7 { signed long int counter; }data;  struct list_head {  struct list_head * next;  struct list_head * prev; }entry; void (*)( struct work_struct *);  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }lockdep_map; }work;  struct timer_list {  struct list_head {  struct list_head * next;  struct list_head * prev; }entry; unsigned long int expires;  struct tvec_base * base; void (*)(unsigned long int); unsigned long int data; signed int slack; signed int start_pid; void * start_site; signed char [16] start_comm;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }lockdep_map; }timer;  struct workqueue_struct * wq; signed int cpu; unsigned int pad$4; }release; unsigned _ExtInt(1) state_initialized; unsigned _ExtInt(1) state_in_sysfs; unsigned _ExtInt(1) state_add_uevent_sent; unsigned _ExtInt(1) state_remove_uevent_sent; unsigned _ExtInt(1) uevent_suppress; unsigned _ExtInt(3) bit_field_pad$13; unsigned _ExtInt(56) pad$15; }kobj; signed char * init_name;  struct device_type * type;  struct mutex {  struct __anonstruct_atomic_t_6 { signed int counter; }count; unsigned int pad$1;  struct spinlock {  union __anonunion____missing_field_name_26 {  struct raw_spinlock {  struct arch_spinlock {  union __anonunion____missing_field_name_8 { unsigned int head_tail;  struct __raw_tickets { unsigned short int head; unsigned short int tail; }tickets; } __annonCompField4; }raw_lock; unsigned int magic; unsigned int owner_cpu; unsigned int pad$3; void * owner;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }dep_map; }rlock;  struct __anonstruct____missing_field_name_27 { unsigned char [24] __padding;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }dep_map; }__annonCompField17; } __annonCompField18; }wait_lock;  struct list_head {  struct list_head * next;  struct list_head * prev; }wait_list;  struct task_struct * owner; void * magic;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }dep_map; }mutex;  struct bus_type * bus;  struct device_driver * driver; void * platform_data; void * driver_data;  struct dev_pm_info {  struct pm_message { signed int event; }power_state; unsigned _ExtInt(1) can_wakeup; unsigned _ExtInt(1) async_suspend; unsigned _ExtInt(6) bit_field_pad$3; _Bool is_prepared; _Bool is_suspended; _Bool is_noirq_suspended; _Bool is_late_suspended; _Bool ignore_children; _Bool early_init; _Bool direct_complete; unsigned int pad$11;  struct spinlock {  union __anonunion____missing_field_name_26 {  struct raw_spinlock {  struct arch_spinlock {  union __anonunion____missing_field_name_8 { unsigned int head_tail;  struct __raw_tickets { unsigned short int head; unsigned short int tail; }tickets; } __annonCompField4; }raw_lock; unsigned int magic; unsigned int owner_cpu; unsigned int pad$3; void * owner;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }dep_map; }rlock;  struct __anonstruct____missing_field_name_27 { unsigned char [24] __padding;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }dep_map; }__annonCompField17; } __annonCompField18; }lock;  struct list_head {  struct list_head * next;  struct list_head * prev; }entry;  struct completion { unsigned int done; unsigned int pad$1;  struct __wait_queue_head {  struct spinlock {  union __anonunion____missing_field_name_26 {  struct raw_spinlock {  struct arch_spinlock {  union __anonunion____missing_field_name_8 { unsigned int head_tail;  struct __raw_tickets { unsigned short int head; unsigned short int tail; }tickets; } __annonCompField4; }raw_lock; unsigned int magic; unsigned int owner_cpu; unsigned int pad$3; void * owner;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }dep_map; }rlock;  struct __anonstruct____missing_field_name_27 { unsigned char [24] __padding;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }dep_map; }__annonCompField17; } __annonCompField18; }lock;  struct list_head {  struct list_head * next;  struct list_head * prev; }task_list; }wait; }completion;  struct wakeup_source * wakeup; _Bool wakeup_path; _Bool syscore; unsigned _ExtInt(48) pad$18;  struct timer_list {  struct list_head {  struct list_head * next;  struct list_head * prev; }entry; unsigned long int expires;  struct tvec_base * base; void (*)(unsigned long int); unsigned long int data; signed int slack; signed int start_pid; void * start_site; signed char [16] start_comm;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }lockdep_map; }suspend_timer; unsigned long int timer_expires;  struct work_struct {  struct __anonstruct_atomic64_t_7 { signed long int counter; }data;  struct list_head {  struct list_head * next;  struct list_head * prev; }entry; void (*)( struct work_struct *);  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }lockdep_map; }work;  struct __wait_queue_head {  struct spinlock {  union __anonunion____missing_field_name_26 {  struct raw_spinlock {  struct arch_spinlock {  union __anonunion____missing_field_name_8 { unsigned int head_tail;  struct __raw_tickets { unsigned short int head; unsigned short int tail; }tickets; } __annonCompField4; }raw_lock; unsigned int magic; unsigned int owner_cpu; unsigned int pad$3; void * owner;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }dep_map; }rlock;  struct __anonstruct____missing_field_name_27 { unsigned char [24] __padding;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }dep_map; }__annonCompField17; } __annonCompField18; }lock;  struct list_head {  struct list_head * next;  struct list_head * prev; }task_list; }wait_queue;  struct __anonstruct_atomic_t_6 { signed int counter; }usage_count;  struct __anonstruct_atomic_t_6 { signed int counter; }child_count; unsigned _ExtInt(3) disable_depth; unsigned _ExtInt(1) idle_notification; unsigned _ExtInt(1) request_pending; unsigned _ExtInt(1) deferred_resume; unsigned _ExtInt(1) run_wake; unsigned _ExtInt(1) runtime_auto; unsigned _ExtInt(1) no_callbacks; unsigned _ExtInt(1) irq_safe; unsigned _ExtInt(1) use_autosuspend; unsigned _ExtInt(1) timer_autosuspends; unsigned _ExtInt(1) memalloc_noio; unsigned _ExtInt(3) bit_field_pad$34; unsigned short int pad$37; signed int request; signed int runtime_status; signed int runtime_error; signed int autosuspend_delay; unsigned int pad$42; unsigned long int last_busy; unsigned long int active_jiffies; unsigned long int suspended_jiffies; unsigned long int accounting_timestamp;  struct pm_subsys_data * subsys_data; void (*)( struct device *, signed int);  struct dev_pm_qos * qos; }power;  struct dev_pm_domain * pm_domain;  struct dev_pin_info * pins; signed int numa_node; unsigned int pad$14; unsigned long int * dma_mask; unsigned long int coherent_dma_mask; unsigned long int dma_pfn_offset;  struct device_dma_parameters * dma_parms;  struct list_head {  struct list_head * next;  struct list_head * prev; }dma_pools;  struct dma_coherent_mem * dma_mem;  struct cma * cma_area;  struct dev_archdata {  struct dma_map_ops * dma_ops; void * iommu; }archdata;  struct device_node * of_node;  struct acpi_dev_node {  struct acpi_device * companion; }acpi_node; unsigned int devt; unsigned int id;  struct spinlock {  union __anonunion____missing_field_name_26 {  struct raw_spinlock {  struct arch_spinlock {  union __anonunion____missing_field_name_8 { unsigned int head_tail;  struct __raw_tickets { unsigned short int head; unsigned short int tail; }tickets; } __annonCompField4; }raw_lock; unsigned int magic; unsigned int owner_cpu; unsigned int pad$3; void * owner;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }dep_map; }rlock;  struct __anonstruct____missing_field_name_27 { unsigned char [24] __padding;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }dep_map; }__annonCompField17; } __annonCompField18; }devres_lock;  struct list_head {  struct list_head * next;  struct list_head * prev; }devres_head;  struct klist_node { void * n_klist;  struct list_head {  struct list_head * next;  struct list_head * prev; }n_node;  struct kref {  struct __anonstruct_atomic_t_6 { signed int counter; }refcount; }n_ref; unsigned int pad$3; }knode_class;  struct class * class;  struct attribute_group * * groups; void (*)( struct device *);  struct iommu_group * iommu_group; _Bool offline_disabled; _Bool offline; unsigned _ExtInt(48) pad$36; } *)((unsigned char *)(( struct usb_device *)(&dynamic_7_array[0])) + 144)))
+
+State 5 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 6195 function ldv_usb_usb_instance_1 thread 0
+----------------------------------------------------
+  ldv_1_resource_usb_interface->dev.parent = (unsigned long int)(( struct device *)(( struct device {  struct device * parent;  struct device_private * p;  struct kobject { signed char * name;  struct list_head {  struct list_head * next;  struct list_head * prev; }entry;  struct kobject * parent;  struct kset * kset;  struct kobj_type * ktype;  struct kernfs_node * sd;  struct kref {  struct __anonstruct_atomic_t_6 { signed int counter; }refcount; }kref; unsigned int pad$7;  struct delayed_work {  struct work_struct {  struct __anonstruct_atomic64_t_7 { signed long int counter; }data;  struct list_head {  struct list_head * next;  struct list_head * prev; }entry; void (*)( struct work_struct *);  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }lockdep_map; }work;  struct timer_list {  struct list_head {  struct list_head * next;  struct list_head * prev; }entry; unsigned long int expires;  struct tvec_base * base; void (*)(unsigned long int); unsigned long int data; signed int slack; signed int start_pid; void * start_site; signed char [16] start_comm;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }lockdep_map; }timer;  struct workqueue_struct * wq; signed int cpu; unsigned int pad$4; }release; unsigned _ExtInt(1) state_initialized; unsigned _ExtInt(1) state_in_sysfs; unsigned _ExtInt(1) state_add_uevent_sent; unsigned _ExtInt(1) state_remove_uevent_sent; unsigned _ExtInt(1) uevent_suppress; unsigned _ExtInt(3) bit_field_pad$13; unsigned _ExtInt(56) pad$15; }kobj; signed char * init_name;  struct device_type * type;  struct mutex {  struct __anonstruct_atomic_t_6 { signed int counter; }count; unsigned int pad$1;  struct spinlock {  union __anonunion____missing_field_name_26 {  struct raw_spinlock {  struct arch_spinlock {  union __anonunion____missing_field_name_8 { unsigned int head_tail;  struct __raw_tickets { unsigned short int head; unsigned short int tail; }tickets; } __annonCompField4; }raw_lock; unsigned int magic; unsigned int owner_cpu; unsigned int pad$3; void * owner;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }dep_map; }rlock;  struct __anonstruct____missing_field_name_27 { unsigned char [24] __padding;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }dep_map; }__annonCompField17; } __annonCompField18; }wait_lock;  struct list_head {  struct list_head * next;  struct list_head * prev; }wait_list;  struct task_struct * owner; void * magic;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }dep_map; }mutex;  struct bus_type * bus;  struct device_driver * driver; void * platform_data; void * driver_data;  struct dev_pm_info {  struct pm_message { signed int event; }power_state; unsigned _ExtInt(1) can_wakeup; unsigned _ExtInt(1) async_suspend; unsigned _ExtInt(6) bit_field_pad$3; _Bool is_prepared; _Bool is_suspended; _Bool is_noirq_suspended; _Bool is_late_suspended; _Bool ignore_children; _Bool early_init; _Bool direct_complete; unsigned int pad$11;  struct spinlock {  union __anonunion____missing_field_name_26 {  struct raw_spinlock {  struct arch_spinlock {  union __anonunion____missing_field_name_8 { unsigned int head_tail;  struct __raw_tickets { unsigned short int head; unsigned short int tail; }tickets; } __annonCompField4; }raw_lock; unsigned int magic; unsigned int owner_cpu; unsigned int pad$3; void * owner;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }dep_map; }rlock;  struct __anonstruct____missing_field_name_27 { unsigned char [24] __padding;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }dep_map; }__annonCompField17; } __annonCompField18; }lock;  struct list_head {  struct list_head * next;  struct list_head * prev; }entry;  struct completion { unsigned int done; unsigned int pad$1;  struct __wait_queue_head {  struct spinlock {  union __anonunion____missing_field_name_26 {  struct raw_spinlock {  struct arch_spinlock {  union __anonunion____missing_field_name_8 { unsigned int head_tail;  struct __raw_tickets { unsigned short int head; unsigned short int tail; }tickets; } __annonCompField4; }raw_lock; unsigned int magic; unsigned int owner_cpu; unsigned int pad$3; void * owner;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }dep_map; }rlock;  struct __anonstruct____missing_field_name_27 { unsigned char [24] __padding;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }dep_map; }__annonCompField17; } __annonCompField18; }lock;  struct list_head {  struct list_head * next;  struct list_head * prev; }task_list; }wait; }completion;  struct wakeup_source * wakeup; _Bool wakeup_path; _Bool syscore; unsigned _ExtInt(48) pad$18;  struct timer_list {  struct list_head {  struct list_head * next;  struct list_head * prev; }entry; unsigned long int expires;  struct tvec_base * base; void (*)(unsigned long int); unsigned long int data; signed int slack; signed int start_pid; void * start_site; signed char [16] start_comm;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }lockdep_map; }suspend_timer; unsigned long int timer_expires;  struct work_struct {  struct __anonstruct_atomic64_t_7 { signed long int counter; }data;  struct list_head {  struct list_head * next;  struct list_head * prev; }entry; void (*)( struct work_struct *);  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }lockdep_map; }work;  struct __wait_queue_head {  struct spinlock {  union __anonunion____missing_field_name_26 {  struct raw_spinlock {  struct arch_spinlock {  union __anonunion____missing_field_name_8 { unsigned int head_tail;  struct __raw_tickets { unsigned short int head; unsigned short int tail; }tickets; } __annonCompField4; }raw_lock; unsigned int magic; unsigned int owner_cpu; unsigned int pad$3; void * owner;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }dep_map; }rlock;  struct __anonstruct____missing_field_name_27 { unsigned char [24] __padding;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }dep_map; }__annonCompField17; } __annonCompField18; }lock;  struct list_head {  struct list_head * next;  struct list_head * prev; }task_list; }wait_queue;  struct __anonstruct_atomic_t_6 { signed int counter; }usage_count;  struct __anonstruct_atomic_t_6 { signed int counter; }child_count; unsigned _ExtInt(3) disable_depth; unsigned _ExtInt(1) idle_notification; unsigned _ExtInt(1) request_pending; unsigned _ExtInt(1) deferred_resume; unsigned _ExtInt(1) run_wake; unsigned _ExtInt(1) runtime_auto; unsigned _ExtInt(1) no_callbacks; unsigned _ExtInt(1) irq_safe; unsigned _ExtInt(1) use_autosuspend; unsigned _ExtInt(1) timer_autosuspends; unsigned _ExtInt(1) memalloc_noio; unsigned _ExtInt(3) bit_field_pad$34; unsigned short int pad$37; signed int request; signed int runtime_status; signed int runtime_error; signed int autosuspend_delay; unsigned int pad$42; unsigned long int last_busy; unsigned long int active_jiffies; unsigned long int suspended_jiffies; unsigned long int accounting_timestamp;  struct pm_subsys_data * subsys_data; void (*)( struct device *, signed int);  struct dev_pm_qos * qos; }power;  struct dev_pm_domain * pm_domain;  struct dev_pin_info * pins; signed int numa_node; unsigned int pad$14; unsigned long int * dma_mask; unsigned long int coherent_dma_mask; unsigned long int dma_pfn_offset;  struct device_dma_parameters * dma_parms;  struct list_head {  struct list_head * next;  struct list_head * prev; }dma_pools;  struct dma_coherent_mem * dma_mem;  struct cma * cma_area;  struct dev_archdata {  struct dma_map_ops * dma_ops; void * iommu; }archdata;  struct device_node * of_node;  struct acpi_dev_node {  struct acpi_device * companion; }acpi_node; unsigned int devt; unsigned int id;  struct spinlock {  union __anonunion____missing_field_name_26 {  struct raw_spinlock {  struct arch_spinlock {  union __anonunion____missing_field_name_8 { unsigned int head_tail;  struct __raw_tickets { unsigned short int head; unsigned short int tail; }tickets; } __annonCompField4; }raw_lock; unsigned int magic; unsigned int owner_cpu; unsigned int pad$3; void * owner;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }dep_map; }rlock;  struct __anonstruct____missing_field_name_27 { unsigned char [24] __padding;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }dep_map; }__annonCompField17; } __annonCompField18; }devres_lock;  struct list_head {  struct list_head * next;  struct list_head * prev; }devres_head;  struct klist_node { void * n_klist;  struct list_head {  struct list_head * next;  struct list_head * prev; }n_node;  struct kref {  struct __anonstruct_atomic_t_6 { signed int counter; }refcount; }n_ref; unsigned int pad$3; }knode_class;  struct class * class;  struct attribute_group * * groups; void (*)( struct device *);  struct iommu_group * iommu_group; _Bool offline_disabled; _Bool offline; unsigned _ExtInt(48) pad$36; } *)((unsigned char *)(( struct usb_device *)(&dynamic_7_array[0])) + 144)))
+
+State 6 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 6195 function ldv_usb_usb_instance_1 thread 0
+----------------------------------------------------
+  ldv_1_resource_usb_interface->dev.parent = (unsigned long int)(( struct device *)(( struct device {  struct device * parent;  struct device_private * p;  struct kobject { signed char * name;  struct list_head {  struct list_head * next;  struct list_head * prev; }entry;  struct kobject * parent;  struct kset * kset;  struct kobj_type * ktype;  struct kernfs_node * sd;  struct kref {  struct __anonstruct_atomic_t_6 { signed int counter; }refcount; }kref; unsigned int pad$7;  struct delayed_work {  struct work_struct {  struct __anonstruct_atomic64_t_7 { signed long int counter; }data;  struct list_head {  struct list_head * next;  struct list_head * prev; }entry; void (*)( struct work_struct *);  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }lockdep_map; }work;  struct timer_list {  struct list_head {  struct list_head * next;  struct list_head * prev; }entry; unsigned long int expires;  struct tvec_base * base; void (*)(unsigned long int); unsigned long int data; signed int slack; signed int start_pid; void * start_site; signed char [16] start_comm;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }lockdep_map; }timer;  struct workqueue_struct * wq; signed int cpu; unsigned int pad$4; }release; unsigned _ExtInt(1) state_initialized; unsigned _ExtInt(1) state_in_sysfs; unsigned _ExtInt(1) state_add_uevent_sent; unsigned _ExtInt(1) state_remove_uevent_sent; unsigned _ExtInt(1) uevent_suppress; unsigned _ExtInt(3) bit_field_pad$13; unsigned _ExtInt(56) pad$15; }kobj; signed char * init_name;  struct device_type * type;  struct mutex {  struct __anonstruct_atomic_t_6 { signed int counter; }count; unsigned int pad$1;  struct spinlock {  union __anonunion____missing_field_name_26 {  struct raw_spinlock {  struct arch_spinlock {  union __anonunion____missing_field_name_8 { unsigned int head_tail;  struct __raw_tickets { unsigned short int head; unsigned short int tail; }tickets; } __annonCompField4; }raw_lock; unsigned int magic; unsigned int owner_cpu; unsigned int pad$3; void * owner;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }dep_map; }rlock;  struct __anonstruct____missing_field_name_27 { unsigned char [24] __padding;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }dep_map; }__annonCompField17; } __annonCompField18; }wait_lock;  struct list_head {  struct list_head * next;  struct list_head * prev; }wait_list;  struct task_struct * owner; void * magic;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }dep_map; }mutex;  struct bus_type * bus;  struct device_driver * driver; void * platform_data; void * driver_data;  struct dev_pm_info {  struct pm_message { signed int event; }power_state; unsigned _ExtInt(1) can_wakeup; unsigned _ExtInt(1) async_suspend; unsigned _ExtInt(6) bit_field_pad$3; _Bool is_prepared; _Bool is_suspended; _Bool is_noirq_suspended; _Bool is_late_suspended; _Bool ignore_children; _Bool early_init; _Bool direct_complete; unsigned int pad$11;  struct spinlock {  union __anonunion____missing_field_name_26 {  struct raw_spinlock {  struct arch_spinlock {  union __anonunion____missing_field_name_8 { unsigned int head_tail;  struct __raw_tickets { unsigned short int head; unsigned short int tail; }tickets; } __annonCompField4; }raw_lock; unsigned int magic; unsigned int owner_cpu; unsigned int pad$3; void * owner;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }dep_map; }rlock;  struct __anonstruct____missing_field_name_27 { unsigned char [24] __padding;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }dep_map; }__annonCompField17; } __annonCompField18; }lock;  struct list_head {  struct list_head * next;  struct list_head * prev; }entry;  struct completion { unsigned int done; unsigned int pad$1;  struct __wait_queue_head {  struct spinlock {  union __anonunion____missing_field_name_26 {  struct raw_spinlock {  struct arch_spinlock {  union __anonunion____missing_field_name_8 { unsigned int head_tail;  struct __raw_tickets { unsigned short int head; unsigned short int tail; }tickets; } __annonCompField4; }raw_lock; unsigned int magic; unsigned int owner_cpu; unsigned int pad$3; void * owner;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }dep_map; }rlock;  struct __anonstruct____missing_field_name_27 { unsigned char [24] __padding;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }dep_map; }__annonCompField17; } __annonCompField18; }lock;  struct list_head {  struct list_head * next;  struct list_head * prev; }task_list; }wait; }completion;  struct wakeup_source * wakeup; _Bool wakeup_path; _Bool syscore; unsigned _ExtInt(48) pad$18;  struct timer_list {  struct list_head {  struct list_head * next;  struct list_head * prev; }entry; unsigned long int expires;  struct tvec_base * base; void (*)(unsigned long int); unsigned long int data; signed int slack; signed int start_pid; void * start_site; signed char [16] start_comm;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }lockdep_map; }suspend_timer; unsigned long int timer_expires;  struct work_struct {  struct __anonstruct_atomic64_t_7 { signed long int counter; }data;  struct list_head {  struct list_head * next;  struct list_head * prev; }entry; void (*)( struct work_struct *);  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }lockdep_map; }work;  struct __wait_queue_head {  struct spinlock {  union __anonunion____missing_field_name_26 {  struct raw_spinlock {  struct arch_spinlock {  union __anonunion____missing_field_name_8 { unsigned int head_tail;  struct __raw_tickets { unsigned short int head; unsigned short int tail; }tickets; } __annonCompField4; }raw_lock; unsigned int magic; unsigned int owner_cpu; unsigned int pad$3; void * owner;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }dep_map; }rlock;  struct __anonstruct____missing_field_name_27 { unsigned char [24] __padding;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }dep_map; }__annonCompField17; } __annonCompField18; }lock;  struct list_head {  struct list_head * next;  struct list_head * prev; }task_list; }wait_queue;  struct __anonstruct_atomic_t_6 { signed int counter; }usage_count;  struct __anonstruct_atomic_t_6 { signed int counter; }child_count; unsigned _ExtInt(3) disable_depth; unsigned _ExtInt(1) idle_notification; unsigned _ExtInt(1) request_pending; unsigned _ExtInt(1) deferred_resume; unsigned _ExtInt(1) run_wake; unsigned _ExtInt(1) runtime_auto; unsigned _ExtInt(1) no_callbacks; unsigned _ExtInt(1) irq_safe; unsigned _ExtInt(1) use_autosuspend; unsigned _ExtInt(1) timer_autosuspends; unsigned _ExtInt(1) memalloc_noio; unsigned _ExtInt(3) bit_field_pad$34; unsigned short int pad$37; signed int request; signed int runtime_status; signed int runtime_error; signed int autosuspend_delay; unsigned int pad$42; unsigned long int last_busy; unsigned long int active_jiffies; unsigned long int suspended_jiffies; unsigned long int accounting_timestamp;  struct pm_subsys_data * subsys_data; void (*)( struct device *, signed int);  struct dev_pm_qos * qos; }power;  struct dev_pm_domain * pm_domain;  struct dev_pin_info * pins; signed int numa_node; unsigned int pad$14; unsigned long int * dma_mask; unsigned long int coherent_dma_mask; unsigned long int dma_pfn_offset;  struct device_dma_parameters * dma_parms;  struct list_head {  struct list_head * next;  struct list_head * prev; }dma_pools;  struct dma_coherent_mem * dma_mem;  struct cma * cma_area;  struct dev_archdata {  struct dma_map_ops * dma_ops; void * iommu; }archdata;  struct device_node * of_node;  struct acpi_dev_node {  struct acpi_device * companion; }acpi_node; unsigned int devt; unsigned int id;  struct spinlock {  union __anonunion____missing_field_name_26 {  struct raw_spinlock {  struct arch_spinlock {  union __anonunion____missing_field_name_8 { unsigned int head_tail;  struct __raw_tickets { unsigned short int head; unsigned short int tail; }tickets; } __annonCompField4; }raw_lock; unsigned int magic; unsigned int owner_cpu; unsigned int pad$3; void * owner;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }dep_map; }rlock;  struct __anonstruct____missing_field_name_27 { unsigned char [24] __padding;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }dep_map; }__annonCompField17; } __annonCompField18; }devres_lock;  struct list_head {  struct list_head * next;  struct list_head * prev; }devres_head;  struct klist_node { void * n_klist;  struct list_head {  struct list_head * next;  struct list_head * prev; }n_node;  struct kref {  struct __anonstruct_atomic_t_6 { signed int counter; }refcount; }n_ref; unsigned int pad$3; }knode_class;  struct class * class;  struct attribute_group * * groups; void (*)( struct device *);  struct iommu_group * iommu_group; _Bool offline_disabled; _Bool offline; unsigned _ExtInt(48) pad$36; } *)((unsigned char *)(( struct usb_device *)(&dynamic_7_array[0])) + 144)))
+
+State 7 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 6195 function ldv_usb_usb_instance_1 thread 0
+----------------------------------------------------
+  ldv_1_resource_usb_interface->dev.parent = (unsigned long int)(( struct device *)(( struct device {  struct device * parent;  struct device_private * p;  struct kobject { signed char * name;  struct list_head {  struct list_head * next;  struct list_head * prev; }entry;  struct kobject * parent;  struct kset * kset;  struct kobj_type * ktype;  struct kernfs_node * sd;  struct kref {  struct __anonstruct_atomic_t_6 { signed int counter; }refcount; }kref; unsigned int pad$7;  struct delayed_work {  struct work_struct {  struct __anonstruct_atomic64_t_7 { signed long int counter; }data;  struct list_head {  struct list_head * next;  struct list_head * prev; }entry; void (*)( struct work_struct *);  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }lockdep_map; }work;  struct timer_list {  struct list_head {  struct list_head * next;  struct list_head * prev; }entry; unsigned long int expires;  struct tvec_base * base; void (*)(unsigned long int); unsigned long int data; signed int slack; signed int start_pid; void * start_site; signed char [16] start_comm;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }lockdep_map; }timer;  struct workqueue_struct * wq; signed int cpu; unsigned int pad$4; }release; unsigned _ExtInt(1) state_initialized; unsigned _ExtInt(1) state_in_sysfs; unsigned _ExtInt(1) state_add_uevent_sent; unsigned _ExtInt(1) state_remove_uevent_sent; unsigned _ExtInt(1) uevent_suppress; unsigned _ExtInt(3) bit_field_pad$13; unsigned _ExtInt(56) pad$15; }kobj; signed char * init_name;  struct device_type * type;  struct mutex {  struct __anonstruct_atomic_t_6 { signed int counter; }count; unsigned int pad$1;  struct spinlock {  union __anonunion____missing_field_name_26 {  struct raw_spinlock {  struct arch_spinlock {  union __anonunion____missing_field_name_8 { unsigned int head_tail;  struct __raw_tickets { unsigned short int head; unsigned short int tail; }tickets; } __annonCompField4; }raw_lock; unsigned int magic; unsigned int owner_cpu; unsigned int pad$3; void * owner;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }dep_map; }rlock;  struct __anonstruct____missing_field_name_27 { unsigned char [24] __padding;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }dep_map; }__annonCompField17; } __annonCompField18; }wait_lock;  struct list_head {  struct list_head * next;  struct list_head * prev; }wait_list;  struct task_struct * owner; void * magic;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }dep_map; }mutex;  struct bus_type * bus;  struct device_driver * driver; void * platform_data; void * driver_data;  struct dev_pm_info {  struct pm_message { signed int event; }power_state; unsigned _ExtInt(1) can_wakeup; unsigned _ExtInt(1) async_suspend; unsigned _ExtInt(6) bit_field_pad$3; _Bool is_prepared; _Bool is_suspended; _Bool is_noirq_suspended; _Bool is_late_suspended; _Bool ignore_children; _Bool early_init; _Bool direct_complete; unsigned int pad$11;  struct spinlock {  union __anonunion____missing_field_name_26 {  struct raw_spinlock {  struct arch_spinlock {  union __anonunion____missing_field_name_8 { unsigned int head_tail;  struct __raw_tickets { unsigned short int head; unsigned short int tail; }tickets; } __annonCompField4; }raw_lock; unsigned int magic; unsigned int owner_cpu; unsigned int pad$3; void * owner;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }dep_map; }rlock;  struct __anonstruct____missing_field_name_27 { unsigned char [24] __padding;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }dep_map; }__annonCompField17; } __annonCompField18; }lock;  struct list_head {  struct list_head * next;  struct list_head * prev; }entry;  struct completion { unsigned int done; unsigned int pad$1;  struct __wait_queue_head {  struct spinlock {  union __anonunion____missing_field_name_26 {  struct raw_spinlock {  struct arch_spinlock {  union __anonunion____missing_field_name_8 { unsigned int head_tail;  struct __raw_tickets { unsigned short int head; unsigned short int tail; }tickets; } __annonCompField4; }raw_lock; unsigned int magic; unsigned int owner_cpu; unsigned int pad$3; void * owner;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }dep_map; }rlock;  struct __anonstruct____missing_field_name_27 { unsigned char [24] __padding;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }dep_map; }__annonCompField17; } __annonCompField18; }lock;  struct list_head {  struct list_head * next;  struct list_head * prev; }task_list; }wait; }completion;  struct wakeup_source * wakeup; _Bool wakeup_path; _Bool syscore; unsigned _ExtInt(48) pad$18;  struct timer_list {  struct list_head {  struct list_head * next;  struct list_head * prev; }entry; unsigned long int expires;  struct tvec_base * base; void (*)(unsigned long int); unsigned long int data; signed int slack; signed int start_pid; void * start_site; signed char [16] start_comm;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }lockdep_map; }suspend_timer; unsigned long int timer_expires;  struct work_struct {  struct __anonstruct_atomic64_t_7 { signed long int counter; }data;  struct list_head {  struct list_head * next;  struct list_head * prev; }entry; void (*)( struct work_struct *);  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }lockdep_map; }work;  struct __wait_queue_head {  struct spinlock {  union __anonunion____missing_field_name_26 {  struct raw_spinlock {  struct arch_spinlock {  union __anonunion____missing_field_name_8 { unsigned int head_tail;  struct __raw_tickets { unsigned short int head; unsigned short int tail; }tickets; } __annonCompField4; }raw_lock; unsigned int magic; unsigned int owner_cpu; unsigned int pad$3; void * owner;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }dep_map; }rlock;  struct __anonstruct____missing_field_name_27 { unsigned char [24] __padding;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }dep_map; }__annonCompField17; } __annonCompField18; }lock;  struct list_head {  struct list_head * next;  struct list_head * prev; }task_list; }wait_queue;  struct __anonstruct_atomic_t_6 { signed int counter; }usage_count;  struct __anonstruct_atomic_t_6 { signed int counter; }child_count; unsigned _ExtInt(3) disable_depth; unsigned _ExtInt(1) idle_notification; unsigned _ExtInt(1) request_pending; unsigned _ExtInt(1) deferred_resume; unsigned _ExtInt(1) run_wake; unsigned _ExtInt(1) runtime_auto; unsigned _ExtInt(1) no_callbacks; unsigned _ExtInt(1) irq_safe; unsigned _ExtInt(1) use_autosuspend; unsigned _ExtInt(1) timer_autosuspends; unsigned _ExtInt(1) memalloc_noio; unsigned _ExtInt(3) bit_field_pad$34; unsigned short int pad$37; signed int request; signed int runtime_status; signed int runtime_error; signed int autosuspend_delay; unsigned int pad$42; unsigned long int last_busy; unsigned long int active_jiffies; unsigned long int suspended_jiffies; unsigned long int accounting_timestamp;  struct pm_subsys_data * subsys_data; void (*)( struct device *, signed int);  struct dev_pm_qos * qos; }power;  struct dev_pm_domain * pm_domain;  struct dev_pin_info * pins; signed int numa_node; unsigned int pad$14; unsigned long int * dma_mask; unsigned long int coherent_dma_mask; unsigned long int dma_pfn_offset;  struct device_dma_parameters * dma_parms;  struct list_head {  struct list_head * next;  struct list_head * prev; }dma_pools;  struct dma_coherent_mem * dma_mem;  struct cma * cma_area;  struct dev_archdata {  struct dma_map_ops * dma_ops; void * iommu; }archdata;  struct device_node * of_node;  struct acpi_dev_node {  struct acpi_device * companion; }acpi_node; unsigned int devt; unsigned int id;  struct spinlock {  union __anonunion____missing_field_name_26 {  struct raw_spinlock {  struct arch_spinlock {  union __anonunion____missing_field_name_8 { unsigned int head_tail;  struct __raw_tickets { unsigned short int head; unsigned short int tail; }tickets; } __annonCompField4; }raw_lock; unsigned int magic; unsigned int owner_cpu; unsigned int pad$3; void * owner;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }dep_map; }rlock;  struct __anonstruct____missing_field_name_27 { unsigned char [24] __padding;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }dep_map; }__annonCompField17; } __annonCompField18; }devres_lock;  struct list_head {  struct list_head * next;  struct list_head * prev; }devres_head;  struct klist_node { void * n_klist;  struct list_head {  struct list_head * next;  struct list_head * prev; }n_node;  struct kref {  struct __anonstruct_atomic_t_6 { signed int counter; }refcount; }n_ref; unsigned int pad$3; }knode_class;  struct class * class;  struct attribute_group * * groups; void (*)( struct device *);  struct iommu_group * iommu_group; _Bool offline_disabled; _Bool offline; unsigned _ExtInt(48) pad$36; } *)((unsigned char *)(( struct usb_device *)(&dynamic_7_array[0])) + 144)))
+
+State 8 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 6195 function ldv_usb_usb_instance_1 thread 0
+----------------------------------------------------
+  ldv_1_resource_usb_interface->dev.parent = (unsigned long int)(( struct device *)(( struct device {  struct device * parent;  struct device_private * p;  struct kobject { signed char * name;  struct list_head {  struct list_head * next;  struct list_head * prev; }entry;  struct kobject * parent;  struct kset * kset;  struct kobj_type * ktype;  struct kernfs_node * sd;  struct kref {  struct __anonstruct_atomic_t_6 { signed int counter; }refcount; }kref; unsigned int pad$7;  struct delayed_work {  struct work_struct {  struct __anonstruct_atomic64_t_7 { signed long int counter; }data;  struct list_head {  struct list_head * next;  struct list_head * prev; }entry; void (*)( struct work_struct *);  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }lockdep_map; }work;  struct timer_list {  struct list_head {  struct list_head * next;  struct list_head * prev; }entry; unsigned long int expires;  struct tvec_base * base; void (*)(unsigned long int); unsigned long int data; signed int slack; signed int start_pid; void * start_site; signed char [16] start_comm;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }lockdep_map; }timer;  struct workqueue_struct * wq; signed int cpu; unsigned int pad$4; }release; unsigned _ExtInt(1) state_initialized; unsigned _ExtInt(1) state_in_sysfs; unsigned _ExtInt(1) state_add_uevent_sent; unsigned _ExtInt(1) state_remove_uevent_sent; unsigned _ExtInt(1) uevent_suppress; unsigned _ExtInt(3) bit_field_pad$13; unsigned _ExtInt(56) pad$15; }kobj; signed char * init_name;  struct device_type * type;  struct mutex {  struct __anonstruct_atomic_t_6 { signed int counter; }count; unsigned int pad$1;  struct spinlock {  union __anonunion____missing_field_name_26 {  struct raw_spinlock {  struct arch_spinlock {  union __anonunion____missing_field_name_8 { unsigned int head_tail;  struct __raw_tickets { unsigned short int head; unsigned short int tail; }tickets; } __annonCompField4; }raw_lock; unsigned int magic; unsigned int owner_cpu; unsigned int pad$3; void * owner;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }dep_map; }rlock;  struct __anonstruct____missing_field_name_27 { unsigned char [24] __padding;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }dep_map; }__annonCompField17; } __annonCompField18; }wait_lock;  struct list_head {  struct list_head * next;  struct list_head * prev; }wait_list;  struct task_struct * owner; void * magic;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }dep_map; }mutex;  struct bus_type * bus;  struct device_driver * driver; void * platform_data; void * driver_data;  struct dev_pm_info {  struct pm_message { signed int event; }power_state; unsigned _ExtInt(1) can_wakeup; unsigned _ExtInt(1) async_suspend; unsigned _ExtInt(6) bit_field_pad$3; _Bool is_prepared; _Bool is_suspended; _Bool is_noirq_suspended; _Bool is_late_suspended; _Bool ignore_children; _Bool early_init; _Bool direct_complete; unsigned int pad$11;  struct spinlock {  union __anonunion____missing_field_name_26 {  struct raw_spinlock {  struct arch_spinlock {  union __anonunion____missing_field_name_8 { unsigned int head_tail;  struct __raw_tickets { unsigned short int head; unsigned short int tail; }tickets; } __annonCompField4; }raw_lock; unsigned int magic; unsigned int owner_cpu; unsigned int pad$3; void * owner;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }dep_map; }rlock;  struct __anonstruct____missing_field_name_27 { unsigned char [24] __padding;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }dep_map; }__annonCompField17; } __annonCompField18; }lock;  struct list_head {  struct list_head * next;  struct list_head * prev; }entry;  struct completion { unsigned int done; unsigned int pad$1;  struct __wait_queue_head {  struct spinlock {  union __anonunion____missing_field_name_26 {  struct raw_spinlock {  struct arch_spinlock {  union __anonunion____missing_field_name_8 { unsigned int head_tail;  struct __raw_tickets { unsigned short int head; unsigned short int tail; }tickets; } __annonCompField4; }raw_lock; unsigned int magic; unsigned int owner_cpu; unsigned int pad$3; void * owner;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }dep_map; }rlock;  struct __anonstruct____missing_field_name_27 { unsigned char [24] __padding;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }dep_map; }__annonCompField17; } __annonCompField18; }lock;  struct list_head {  struct list_head * next;  struct list_head * prev; }task_list; }wait; }completion;  struct wakeup_source * wakeup; _Bool wakeup_path; _Bool syscore; unsigned _ExtInt(48) pad$18;  struct timer_list {  struct list_head {  struct list_head * next;  struct list_head * prev; }entry; unsigned long int expires;  struct tvec_base * base; void (*)(unsigned long int); unsigned long int data; signed int slack; signed int start_pid; void * start_site; signed char [16] start_comm;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }lockdep_map; }suspend_timer; unsigned long int timer_expires;  struct work_struct {  struct __anonstruct_atomic64_t_7 { signed long int counter; }data;  struct list_head {  struct list_head * next;  struct list_head * prev; }entry; void (*)( struct work_struct *);  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }lockdep_map; }work;  struct __wait_queue_head {  struct spinlock {  union __anonunion____missing_field_name_26 {  struct raw_spinlock {  struct arch_spinlock {  union __anonunion____missing_field_name_8 { unsigned int head_tail;  struct __raw_tickets { unsigned short int head; unsigned short int tail; }tickets; } __annonCompField4; }raw_lock; unsigned int magic; unsigned int owner_cpu; unsigned int pad$3; void * owner;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }dep_map; }rlock;  struct __anonstruct____missing_field_name_27 { unsigned char [24] __padding;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }dep_map; }__annonCompField17; } __annonCompField18; }lock;  struct list_head {  struct list_head * next;  struct list_head * prev; }task_list; }wait_queue;  struct __anonstruct_atomic_t_6 { signed int counter; }usage_count;  struct __anonstruct_atomic_t_6 { signed int counter; }child_count; unsigned _ExtInt(3) disable_depth; unsigned _ExtInt(1) idle_notification; unsigned _ExtInt(1) request_pending; unsigned _ExtInt(1) deferred_resume; unsigned _ExtInt(1) run_wake; unsigned _ExtInt(1) runtime_auto; unsigned _ExtInt(1) no_callbacks; unsigned _ExtInt(1) irq_safe; unsigned _ExtInt(1) use_autosuspend; unsigned _ExtInt(1) timer_autosuspends; unsigned _ExtInt(1) memalloc_noio; unsigned _ExtInt(3) bit_field_pad$34; unsigned short int pad$37; signed int request; signed int runtime_status; signed int runtime_error; signed int autosuspend_delay; unsigned int pad$42; unsigned long int last_busy; unsigned long int active_jiffies; unsigned long int suspended_jiffies; unsigned long int accounting_timestamp;  struct pm_subsys_data * subsys_data; void (*)( struct device *, signed int);  struct dev_pm_qos * qos; }power;  struct dev_pm_domain * pm_domain;  struct dev_pin_info * pins; signed int numa_node; unsigned int pad$14; unsigned long int * dma_mask; unsigned long int coherent_dma_mask; unsigned long int dma_pfn_offset;  struct device_dma_parameters * dma_parms;  struct list_head {  struct list_head * next;  struct list_head * prev; }dma_pools;  struct dma_coherent_mem * dma_mem;  struct cma * cma_area;  struct dev_archdata {  struct dma_map_ops * dma_ops; void * iommu; }archdata;  struct device_node * of_node;  struct acpi_dev_node {  struct acpi_device * companion; }acpi_node; unsigned int devt; unsigned int id;  struct spinlock {  union __anonunion____missing_field_name_26 {  struct raw_spinlock {  struct arch_spinlock {  union __anonunion____missing_field_name_8 { unsigned int head_tail;  struct __raw_tickets { unsigned short int head; unsigned short int tail; }tickets; } __annonCompField4; }raw_lock; unsigned int magic; unsigned int owner_cpu; unsigned int pad$3; void * owner;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }dep_map; }rlock;  struct __anonstruct____missing_field_name_27 { unsigned char [24] __padding;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }dep_map; }__annonCompField17; } __annonCompField18; }devres_lock;  struct list_head {  struct list_head * next;  struct list_head * prev; }devres_head;  struct klist_node { void * n_klist;  struct list_head {  struct list_head * next;  struct list_head * prev; }n_node;  struct kref {  struct __anonstruct_atomic_t_6 { signed int counter; }refcount; }n_ref; unsigned int pad$3; }knode_class;  struct class * class;  struct attribute_group * * groups; void (*)( struct device *);  struct iommu_group * iommu_group; _Bool offline_disabled; _Bool offline; unsigned _ExtInt(48) pad$36; } *)((unsigned char *)(( struct usb_device *)(&dynamic_7_array[0])) + 144)))
+
+State 9 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 6195 function ldv_usb_usb_instance_1 thread 0
+----------------------------------------------------
+  ldv_1_resource_usb_interface->dev.parent = (unsigned long int)(( struct device *)(( struct device {  struct device * parent;  struct device_private * p;  struct kobject { signed char * name;  struct list_head {  struct list_head * next;  struct list_head * prev; }entry;  struct kobject * parent;  struct kset * kset;  struct kobj_type * ktype;  struct kernfs_node * sd;  struct kref {  struct __anonstruct_atomic_t_6 { signed int counter; }refcount; }kref; unsigned int pad$7;  struct delayed_work {  struct work_struct {  struct __anonstruct_atomic64_t_7 { signed long int counter; }data;  struct list_head {  struct list_head * next;  struct list_head * prev; }entry; void (*)( struct work_struct *);  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }lockdep_map; }work;  struct timer_list {  struct list_head {  struct list_head * next;  struct list_head * prev; }entry; unsigned long int expires;  struct tvec_base * base; void (*)(unsigned long int); unsigned long int data; signed int slack; signed int start_pid; void * start_site; signed char [16] start_comm;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }lockdep_map; }timer;  struct workqueue_struct * wq; signed int cpu; unsigned int pad$4; }release; unsigned _ExtInt(1) state_initialized; unsigned _ExtInt(1) state_in_sysfs; unsigned _ExtInt(1) state_add_uevent_sent; unsigned _ExtInt(1) state_remove_uevent_sent; unsigned _ExtInt(1) uevent_suppress; unsigned _ExtInt(3) bit_field_pad$13; unsigned _ExtInt(56) pad$15; }kobj; signed char * init_name;  struct device_type * type;  struct mutex {  struct __anonstruct_atomic_t_6 { signed int counter; }count; unsigned int pad$1;  struct spinlock {  union __anonunion____missing_field_name_26 {  struct raw_spinlock {  struct arch_spinlock {  union __anonunion____missing_field_name_8 { unsigned int head_tail;  struct __raw_tickets { unsigned short int head; unsigned short int tail; }tickets; } __annonCompField4; }raw_lock; unsigned int magic; unsigned int owner_cpu; unsigned int pad$3; void * owner;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }dep_map; }rlock;  struct __anonstruct____missing_field_name_27 { unsigned char [24] __padding;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }dep_map; }__annonCompField17; } __annonCompField18; }wait_lock;  struct list_head {  struct list_head * next;  struct list_head * prev; }wait_list;  struct task_struct * owner; void * magic;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }dep_map; }mutex;  struct bus_type * bus;  struct device_driver * driver; void * platform_data; void * driver_data;  struct dev_pm_info {  struct pm_message { signed int event; }power_state; unsigned _ExtInt(1) can_wakeup; unsigned _ExtInt(1) async_suspend; unsigned _ExtInt(6) bit_field_pad$3; _Bool is_prepared; _Bool is_suspended; _Bool is_noirq_suspended; _Bool is_late_suspended; _Bool ignore_children; _Bool early_init; _Bool direct_complete; unsigned int pad$11;  struct spinlock {  union __anonunion____missing_field_name_26 {  struct raw_spinlock {  struct arch_spinlock {  union __anonunion____missing_field_name_8 { unsigned int head_tail;  struct __raw_tickets { unsigned short int head; unsigned short int tail; }tickets; } __annonCompField4; }raw_lock; unsigned int magic; unsigned int owner_cpu; unsigned int pad$3; void * owner;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }dep_map; }rlock;  struct __anonstruct____missing_field_name_27 { unsigned char [24] __padding;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }dep_map; }__annonCompField17; } __annonCompField18; }lock;  struct list_head {  struct list_head * next;  struct list_head * prev; }entry;  struct completion { unsigned int done; unsigned int pad$1;  struct __wait_queue_head {  struct spinlock {  union __anonunion____missing_field_name_26 {  struct raw_spinlock {  struct arch_spinlock {  union __anonunion____missing_field_name_8 { unsigned int head_tail;  struct __raw_tickets { unsigned short int head; unsigned short int tail; }tickets; } __annonCompField4; }raw_lock; unsigned int magic; unsigned int owner_cpu; unsigned int pad$3; void * owner;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }dep_map; }rlock;  struct __anonstruct____missing_field_name_27 { unsigned char [24] __padding;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }dep_map; }__annonCompField17; } __annonCompField18; }lock;  struct list_head {  struct list_head * next;  struct list_head * prev; }task_list; }wait; }completion;  struct wakeup_source * wakeup; _Bool wakeup_path; _Bool syscore; unsigned _ExtInt(48) pad$18;  struct timer_list {  struct list_head {  struct list_head * next;  struct list_head * prev; }entry; unsigned long int expires;  struct tvec_base * base; void (*)(unsigned long int); unsigned long int data; signed int slack; signed int start_pid; void * start_site; signed char [16] start_comm;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }lockdep_map; }suspend_timer; unsigned long int timer_expires;  struct work_struct {  struct __anonstruct_atomic64_t_7 { signed long int counter; }data;  struct list_head {  struct list_head * next;  struct list_head * prev; }entry; void (*)( struct work_struct *);  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }lockdep_map; }work;  struct __wait_queue_head {  struct spinlock {  union __anonunion____missing_field_name_26 {  struct raw_spinlock {  struct arch_spinlock {  union __anonunion____missing_field_name_8 { unsigned int head_tail;  struct __raw_tickets { unsigned short int head; unsigned short int tail; }tickets; } __annonCompField4; }raw_lock; unsigned int magic; unsigned int owner_cpu; unsigned int pad$3; void * owner;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }dep_map; }rlock;  struct __anonstruct____missing_field_name_27 { unsigned char [24] __padding;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }dep_map; }__annonCompField17; } __annonCompField18; }lock;  struct list_head {  struct list_head * next;  struct list_head * prev; }task_list; }wait_queue;  struct __anonstruct_atomic_t_6 { signed int counter; }usage_count;  struct __anonstruct_atomic_t_6 { signed int counter; }child_count; unsigned _ExtInt(3) disable_depth; unsigned _ExtInt(1) idle_notification; unsigned _ExtInt(1) request_pending; unsigned _ExtInt(1) deferred_resume; unsigned _ExtInt(1) run_wake; unsigned _ExtInt(1) runtime_auto; unsigned _ExtInt(1) no_callbacks; unsigned _ExtInt(1) irq_safe; unsigned _ExtInt(1) use_autosuspend; unsigned _ExtInt(1) timer_autosuspends; unsigned _ExtInt(1) memalloc_noio; unsigned _ExtInt(3) bit_field_pad$34; unsigned short int pad$37; signed int request; signed int runtime_status; signed int runtime_error; signed int autosuspend_delay; unsigned int pad$42; unsigned long int last_busy; unsigned long int active_jiffies; unsigned long int suspended_jiffies; unsigned long int accounting_timestamp;  struct pm_subsys_data * subsys_data; void (*)( struct device *, signed int);  struct dev_pm_qos * qos; }power;  struct dev_pm_domain * pm_domain;  struct dev_pin_info * pins; signed int numa_node; unsigned int pad$14; unsigned long int * dma_mask; unsigned long int coherent_dma_mask; unsigned long int dma_pfn_offset;  struct device_dma_parameters * dma_parms;  struct list_head {  struct list_head * next;  struct list_head * prev; }dma_pools;  struct dma_coherent_mem * dma_mem;  struct cma * cma_area;  struct dev_archdata {  struct dma_map_ops * dma_ops; void * iommu; }archdata;  struct device_node * of_node;  struct acpi_dev_node {  struct acpi_device * companion; }acpi_node; unsigned int devt; unsigned int id;  struct spinlock {  union __anonunion____missing_field_name_26 {  struct raw_spinlock {  struct arch_spinlock {  union __anonunion____missing_field_name_8 { unsigned int head_tail;  struct __raw_tickets { unsigned short int head; unsigned short int tail; }tickets; } __annonCompField4; }raw_lock; unsigned int magic; unsigned int owner_cpu; unsigned int pad$3; void * owner;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }dep_map; }rlock;  struct __anonstruct____missing_field_name_27 { unsigned char [24] __padding;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }dep_map; }__annonCompField17; } __annonCompField18; }devres_lock;  struct list_head {  struct list_head * next;  struct list_head * prev; }devres_head;  struct klist_node { void * n_klist;  struct list_head {  struct list_head * next;  struct list_head * prev; }n_node;  struct kref {  struct __anonstruct_atomic_t_6 { signed int counter; }refcount; }n_ref; unsigned int pad$3; }knode_class;  struct class * class;  struct attribute_group * * groups; void (*)( struct device *);  struct iommu_group * iommu_group; _Bool offline_disabled; _Bool offline; unsigned _ExtInt(48) pad$36; } *)((unsigned char *)(( struct usb_device *)(&dynamic_7_array[0])) + 144)))
+
+State 10 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 6195 function ldv_usb_usb_instance_1 thread 0
+----------------------------------------------------
+  ldv_1_resource_usb_interface->dev.parent = (unsigned long int)(( struct device *)(( struct device {  struct device * parent;  struct device_private * p;  struct kobject { signed char * name;  struct list_head {  struct list_head * next;  struct list_head * prev; }entry;  struct kobject * parent;  struct kset * kset;  struct kobj_type * ktype;  struct kernfs_node * sd;  struct kref {  struct __anonstruct_atomic_t_6 { signed int counter; }refcount; }kref; unsigned int pad$7;  struct delayed_work {  struct work_struct {  struct __anonstruct_atomic64_t_7 { signed long int counter; }data;  struct list_head {  struct list_head * next;  struct list_head * prev; }entry; void (*)( struct work_struct *);  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }lockdep_map; }work;  struct timer_list {  struct list_head {  struct list_head * next;  struct list_head * prev; }entry; unsigned long int expires;  struct tvec_base * base; void (*)(unsigned long int); unsigned long int data; signed int slack; signed int start_pid; void * start_site; signed char [16] start_comm;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }lockdep_map; }timer;  struct workqueue_struct * wq; signed int cpu; unsigned int pad$4; }release; unsigned _ExtInt(1) state_initialized; unsigned _ExtInt(1) state_in_sysfs; unsigned _ExtInt(1) state_add_uevent_sent; unsigned _ExtInt(1) state_remove_uevent_sent; unsigned _ExtInt(1) uevent_suppress; unsigned _ExtInt(3) bit_field_pad$13; unsigned _ExtInt(56) pad$15; }kobj; signed char * init_name;  struct device_type * type;  struct mutex {  struct __anonstruct_atomic_t_6 { signed int counter; }count; unsigned int pad$1;  struct spinlock {  union __anonunion____missing_field_name_26 {  struct raw_spinlock {  struct arch_spinlock {  union __anonunion____missing_field_name_8 { unsigned int head_tail;  struct __raw_tickets { unsigned short int head; unsigned short int tail; }tickets; } __annonCompField4; }raw_lock; unsigned int magic; unsigned int owner_cpu; unsigned int pad$3; void * owner;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }dep_map; }rlock;  struct __anonstruct____missing_field_name_27 { unsigned char [24] __padding;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }dep_map; }__annonCompField17; } __annonCompField18; }wait_lock;  struct list_head {  struct list_head * next;  struct list_head * prev; }wait_list;  struct task_struct * owner; void * magic;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }dep_map; }mutex;  struct bus_type * bus;  struct device_driver * driver; void * platform_data; void * driver_data;  struct dev_pm_info {  struct pm_message { signed int event; }power_state; unsigned _ExtInt(1) can_wakeup; unsigned _ExtInt(1) async_suspend; unsigned _ExtInt(6) bit_field_pad$3; _Bool is_prepared; _Bool is_suspended; _Bool is_noirq_suspended; _Bool is_late_suspended; _Bool ignore_children; _Bool early_init; _Bool direct_complete; unsigned int pad$11;  struct spinlock {  union __anonunion____missing_field_name_26 {  struct raw_spinlock {  struct arch_spinlock {  union __anonunion____missing_field_name_8 { unsigned int head_tail;  struct __raw_tickets { unsigned short int head; unsigned short int tail; }tickets; } __annonCompField4; }raw_lock; unsigned int magic; unsigned int owner_cpu; unsigned int pad$3; void * owner;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }dep_map; }rlock;  struct __anonstruct____missing_field_name_27 { unsigned char [24] __padding;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }dep_map; }__annonCompField17; } __annonCompField18; }lock;  struct list_head {  struct list_head * next;  struct list_head * prev; }entry;  struct completion { unsigned int done; unsigned int pad$1;  struct __wait_queue_head {  struct spinlock {  union __anonunion____missing_field_name_26 {  struct raw_spinlock {  struct arch_spinlock {  union __anonunion____missing_field_name_8 { unsigned int head_tail;  struct __raw_tickets { unsigned short int head; unsigned short int tail; }tickets; } __annonCompField4; }raw_lock; unsigned int magic; unsigned int owner_cpu; unsigned int pad$3; void * owner;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }dep_map; }rlock;  struct __anonstruct____missing_field_name_27 { unsigned char [24] __padding;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }dep_map; }__annonCompField17; } __annonCompField18; }lock;  struct list_head {  struct list_head * next;  struct list_head * prev; }task_list; }wait; }completion;  struct wakeup_source * wakeup; _Bool wakeup_path; _Bool syscore; unsigned _ExtInt(48) pad$18;  struct timer_list {  struct list_head {  struct list_head * next;  struct list_head * prev; }entry; unsigned long int expires;  struct tvec_base * base; void (*)(unsigned long int); unsigned long int data; signed int slack; signed int start_pid; void * start_site; signed char [16] start_comm;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }lockdep_map; }suspend_timer; unsigned long int timer_expires;  struct work_struct {  struct __anonstruct_atomic64_t_7 { signed long int counter; }data;  struct list_head {  struct list_head * next;  struct list_head * prev; }entry; void (*)( struct work_struct *);  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }lockdep_map; }work;  struct __wait_queue_head {  struct spinlock {  union __anonunion____missing_field_name_26 {  struct raw_spinlock {  struct arch_spinlock {  union __anonunion____missing_field_name_8 { unsigned int head_tail;  struct __raw_tickets { unsigned short int head; unsigned short int tail; }tickets; } __annonCompField4; }raw_lock; unsigned int magic; unsigned int owner_cpu; unsigned int pad$3; void * owner;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }dep_map; }rlock;  struct __anonstruct____missing_field_name_27 { unsigned char [24] __padding;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }dep_map; }__annonCompField17; } __annonCompField18; }lock;  struct list_head {  struct list_head * next;  struct list_head * prev; }task_list; }wait_queue;  struct __anonstruct_atomic_t_6 { signed int counter; }usage_count;  struct __anonstruct_atomic_t_6 { signed int counter; }child_count; unsigned _ExtInt(3) disable_depth; unsigned _ExtInt(1) idle_notification; unsigned _ExtInt(1) request_pending; unsigned _ExtInt(1) deferred_resume; unsigned _ExtInt(1) run_wake; unsigned _ExtInt(1) runtime_auto; unsigned _ExtInt(1) no_callbacks; unsigned _ExtInt(1) irq_safe; unsigned _ExtInt(1) use_autosuspend; unsigned _ExtInt(1) timer_autosuspends; unsigned _ExtInt(1) memalloc_noio; unsigned _ExtInt(3) bit_field_pad$34; unsigned short int pad$37; signed int request; signed int runtime_status; signed int runtime_error; signed int autosuspend_delay; unsigned int pad$42; unsigned long int last_busy; unsigned long int active_jiffies; unsigned long int suspended_jiffies; unsigned long int accounting_timestamp;  struct pm_subsys_data * subsys_data; void (*)( struct device *, signed int);  struct dev_pm_qos * qos; }power;  struct dev_pm_domain * pm_domain;  struct dev_pin_info * pins; signed int numa_node; unsigned int pad$14; unsigned long int * dma_mask; unsigned long int coherent_dma_mask; unsigned long int dma_pfn_offset;  struct device_dma_parameters * dma_parms;  struct list_head {  struct list_head * next;  struct list_head * prev; }dma_pools;  struct dma_coherent_mem * dma_mem;  struct cma * cma_area;  struct dev_archdata {  struct dma_map_ops * dma_ops; void * iommu; }archdata;  struct device_node * of_node;  struct acpi_dev_node {  struct acpi_device * companion; }acpi_node; unsigned int devt; unsigned int id;  struct spinlock {  union __anonunion____missing_field_name_26 {  struct raw_spinlock {  struct arch_spinlock {  union __anonunion____missing_field_name_8 { unsigned int head_tail;  struct __raw_tickets { unsigned short int head; unsigned short int tail; }tickets; } __annonCompField4; }raw_lock; unsigned int magic; unsigned int owner_cpu; unsigned int pad$3; void * owner;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }dep_map; }rlock;  struct __anonstruct____missing_field_name_27 { unsigned char [24] __padding;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }dep_map; }__annonCompField17; } __annonCompField18; }devres_lock;  struct list_head {  struct list_head * next;  struct list_head * prev; }devres_head;  struct klist_node { void * n_klist;  struct list_head {  struct list_head * next;  struct list_head * prev; }n_node;  struct kref {  struct __anonstruct_atomic_t_6 { signed int counter; }refcount; }n_ref; unsigned int pad$3; }knode_class;  struct class * class;  struct attribute_group * * groups; void (*)( struct device *);  struct iommu_group * iommu_group; _Bool offline_disabled; _Bool offline; unsigned _ExtInt(48) pad$36; } *)((unsigned char *)(( struct usb_device *)(&dynamic_7_array[0])) + 144)))
+
+State 11 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 6195 function ldv_usb_usb_instance_1 thread 0
+----------------------------------------------------
+  ldv_1_resource_usb_interface->dev.parent = (unsigned long int)(( struct device *)(( struct device {  struct device * parent;  struct device_private * p;  struct kobject { signed char * name;  struct list_head {  struct list_head * next;  struct list_head * prev; }entry;  struct kobject * parent;  struct kset * kset;  struct kobj_type * ktype;  struct kernfs_node * sd;  struct kref {  struct __anonstruct_atomic_t_6 { signed int counter; }refcount; }kref; unsigned int pad$7;  struct delayed_work {  struct work_struct {  struct __anonstruct_atomic64_t_7 { signed long int counter; }data;  struct list_head {  struct list_head * next;  struct list_head * prev; }entry; void (*)( struct work_struct *);  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }lockdep_map; }work;  struct timer_list {  struct list_head {  struct list_head * next;  struct list_head * prev; }entry; unsigned long int expires;  struct tvec_base * base; void (*)(unsigned long int); unsigned long int data; signed int slack; signed int start_pid; void * start_site; signed char [16] start_comm;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }lockdep_map; }timer;  struct workqueue_struct * wq; signed int cpu; unsigned int pad$4; }release; unsigned _ExtInt(1) state_initialized; unsigned _ExtInt(1) state_in_sysfs; unsigned _ExtInt(1) state_add_uevent_sent; unsigned _ExtInt(1) state_remove_uevent_sent; unsigned _ExtInt(1) uevent_suppress; unsigned _ExtInt(3) bit_field_pad$13; unsigned _ExtInt(56) pad$15; }kobj; signed char * init_name;  struct device_type * type;  struct mutex {  struct __anonstruct_atomic_t_6 { signed int counter; }count; unsigned int pad$1;  struct spinlock {  union __anonunion____missing_field_name_26 {  struct raw_spinlock {  struct arch_spinlock {  union __anonunion____missing_field_name_8 { unsigned int head_tail;  struct __raw_tickets { unsigned short int head; unsigned short int tail; }tickets; } __annonCompField4; }raw_lock; unsigned int magic; unsigned int owner_cpu; unsigned int pad$3; void * owner;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }dep_map; }rlock;  struct __anonstruct____missing_field_name_27 { unsigned char [24] __padding;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }dep_map; }__annonCompField17; } __annonCompField18; }wait_lock;  struct list_head {  struct list_head * next;  struct list_head * prev; }wait_list;  struct task_struct * owner; void * magic;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }dep_map; }mutex;  struct bus_type * bus;  struct device_driver * driver; void * platform_data; void * driver_data;  struct dev_pm_info {  struct pm_message { signed int event; }power_state; unsigned _ExtInt(1) can_wakeup; unsigned _ExtInt(1) async_suspend; unsigned _ExtInt(6) bit_field_pad$3; _Bool is_prepared; _Bool is_suspended; _Bool is_noirq_suspended; _Bool is_late_suspended; _Bool ignore_children; _Bool early_init; _Bool direct_complete; unsigned int pad$11;  struct spinlock {  union __anonunion____missing_field_name_26 {  struct raw_spinlock {  struct arch_spinlock {  union __anonunion____missing_field_name_8 { unsigned int head_tail;  struct __raw_tickets { unsigned short int head; unsigned short int tail; }tickets; } __annonCompField4; }raw_lock; unsigned int magic; unsigned int owner_cpu; unsigned int pad$3; void * owner;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }dep_map; }rlock;  struct __anonstruct____missing_field_name_27 { unsigned char [24] __padding;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }dep_map; }__annonCompField17; } __annonCompField18; }lock;  struct list_head {  struct list_head * next;  struct list_head * prev; }entry;  struct completion { unsigned int done; unsigned int pad$1;  struct __wait_queue_head {  struct spinlock {  union __anonunion____missing_field_name_26 {  struct raw_spinlock {  struct arch_spinlock {  union __anonunion____missing_field_name_8 { unsigned int head_tail;  struct __raw_tickets { unsigned short int head; unsigned short int tail; }tickets; } __annonCompField4; }raw_lock; unsigned int magic; unsigned int owner_cpu; unsigned int pad$3; void * owner;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }dep_map; }rlock;  struct __anonstruct____missing_field_name_27 { unsigned char [24] __padding;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }dep_map; }__annonCompField17; } __annonCompField18; }lock;  struct list_head {  struct list_head * next;  struct list_head * prev; }task_list; }wait; }completion;  struct wakeup_source * wakeup; _Bool wakeup_path; _Bool syscore; unsigned _ExtInt(48) pad$18;  struct timer_list {  struct list_head {  struct list_head * next;  struct list_head * prev; }entry; unsigned long int expires;  struct tvec_base * base; void (*)(unsigned long int); unsigned long int data; signed int slack; signed int start_pid; void * start_site; signed char [16] start_comm;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }lockdep_map; }suspend_timer; unsigned long int timer_expires;  struct work_struct {  struct __anonstruct_atomic64_t_7 { signed long int counter; }data;  struct list_head {  struct list_head * next;  struct list_head * prev; }entry; void (*)( struct work_struct *);  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }lockdep_map; }work;  struct __wait_queue_head {  struct spinlock {  union __anonunion____missing_field_name_26 {  struct raw_spinlock {  struct arch_spinlock {  union __anonunion____missing_field_name_8 { unsigned int head_tail;  struct __raw_tickets { unsigned short int head; unsigned short int tail; }tickets; } __annonCompField4; }raw_lock; unsigned int magic; unsigned int owner_cpu; unsigned int pad$3; void * owner;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }dep_map; }rlock;  struct __anonstruct____missing_field_name_27 { unsigned char [24] __padding;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }dep_map; }__annonCompField17; } __annonCompField18; }lock;  struct list_head {  struct list_head * next;  struct list_head * prev; }task_list; }wait_queue;  struct __anonstruct_atomic_t_6 { signed int counter; }usage_count;  struct __anonstruct_atomic_t_6 { signed int counter; }child_count; unsigned _ExtInt(3) disable_depth; unsigned _ExtInt(1) idle_notification; unsigned _ExtInt(1) request_pending; unsigned _ExtInt(1) deferred_resume; unsigned _ExtInt(1) run_wake; unsigned _ExtInt(1) runtime_auto; unsigned _ExtInt(1) no_callbacks; unsigned _ExtInt(1) irq_safe; unsigned _ExtInt(1) use_autosuspend; unsigned _ExtInt(1) timer_autosuspends; unsigned _ExtInt(1) memalloc_noio; unsigned _ExtInt(3) bit_field_pad$34; unsigned short int pad$37; signed int request; signed int runtime_status; signed int runtime_error; signed int autosuspend_delay; unsigned int pad$42; unsigned long int last_busy; unsigned long int active_jiffies; unsigned long int suspended_jiffies; unsigned long int accounting_timestamp;  struct pm_subsys_data * subsys_data; void (*)( struct device *, signed int);  struct dev_pm_qos * qos; }power;  struct dev_pm_domain * pm_domain;  struct dev_pin_info * pins; signed int numa_node; unsigned int pad$14; unsigned long int * dma_mask; unsigned long int coherent_dma_mask; unsigned long int dma_pfn_offset;  struct device_dma_parameters * dma_parms;  struct list_head {  struct list_head * next;  struct list_head * prev; }dma_pools;  struct dma_coherent_mem * dma_mem;  struct cma * cma_area;  struct dev_archdata {  struct dma_map_ops * dma_ops; void * iommu; }archdata;  struct device_node * of_node;  struct acpi_dev_node {  struct acpi_device * companion; }acpi_node; unsigned int devt; unsigned int id;  struct spinlock {  union __anonunion____missing_field_name_26 {  struct raw_spinlock {  struct arch_spinlock {  union __anonunion____missing_field_name_8 { unsigned int head_tail;  struct __raw_tickets { unsigned short int head; unsigned short int tail; }tickets; } __annonCompField4; }raw_lock; unsigned int magic; unsigned int owner_cpu; unsigned int pad$3; void * owner;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }dep_map; }rlock;  struct __anonstruct____missing_field_name_27 { unsigned char [24] __padding;  struct lockdep_map {  struct lock_class_key * key;  struct lock_class * [2] class_cache; signed char * name; signed int cpu; unsigned int pad$4; unsigned long int ip; }dep_map; }__annonCompField17; } __annonCompField18; }devres_lock;  struct list_head {  struct list_head * next;  struct list_head * prev; }devres_head;  struct klist_node { void * n_klist;  struct list_head {  struct list_head * next;  struct list_head * prev; }n_node;  struct kref {  struct __anonstruct_atomic_t_6 { signed int counter; }refcount; }n_ref; unsigned int pad$3; }knode_class;  struct class * class;  struct attribute_group * * groups; void (*)( struct device *);  struct iommu_group * iommu_group; _Bool offline_disabled; _Bool offline; unsigned _ExtInt(48) pad$36; } *)((unsigned char *)(( struct usb_device *)(&dynamic_7_array[0])) + 144)))
+
+State 12 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 4391 function interface_to_usbdev thread 0
+----------------------------------------------------
+  __mptr = ( struct device *)1056896970
+
+State 13 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5380 function tower_probe thread 0
+----------------------------------------------------
+  udev = &dynamic_7_array[4294674832]
+
+State 14 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 8499 function ldv_undef_int thread 0
+----------------------------------------------------
+  tmp = 4194304 (00000000 01000000 00000000 00000000)
+
+State 15 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5384 function tower_probe thread 0
+----------------------------------------------------
+  dev = ( struct lego_usb_tower *)(&dynamic_10_array[0])
+
+State 16 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5395 function tower_probe thread 0
+----------------------------------------------------
+  dev->udev = (unsigned long int)(&dynamic_7_array[4294674832])
+
+State 17 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5395 function tower_probe thread 0
+----------------------------------------------------
+  dev->udev = (unsigned long int)(&dynamic_7_array[4294674832])
+
+State 18 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5395 function tower_probe thread 0
+----------------------------------------------------
+  dev->udev = (unsigned long int)(&dynamic_7_array[4294674832])
+
+State 19 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5395 function tower_probe thread 0
+----------------------------------------------------
+  dev->udev = (unsigned long int)(&dynamic_7_array[4294674832])
+
+State 20 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5395 function tower_probe thread 0
+----------------------------------------------------
+  dev->udev = (unsigned long int)(&dynamic_7_array[4294674832])
+
+State 21 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5395 function tower_probe thread 0
+----------------------------------------------------
+  dev->udev = (unsigned long int)(&dynamic_7_array[4294674832])
+
+State 22 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5395 function tower_probe thread 0
+----------------------------------------------------
+  dev->udev = (unsigned long int)(&dynamic_7_array[4294674832])
+
+State 23 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5395 function tower_probe thread 0
+----------------------------------------------------
+  dev->udev = (unsigned long int)(&dynamic_7_array[4294674832])
+
+State 24 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5396 function tower_probe thread 0
+----------------------------------------------------
+  dev->open_count = 0 (00000000 00000000 00000000 00000000)
+
+State 25 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5396 function tower_probe thread 0
+----------------------------------------------------
+  dev->open_count = 0 (00000000 00000000 00000000 00000000)
+
+State 26 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5396 function tower_probe thread 0
+----------------------------------------------------
+  dev->open_count = 0 (00000000 00000000 00000000 00000000)
+
+State 27 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5396 function tower_probe thread 0
+----------------------------------------------------
+  dev->open_count = 0 (00000000 00000000 00000000 00000000)
+
+State 28 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5397 function tower_probe thread 0
+----------------------------------------------------
+  dev->read_buffer = (unsigned long int)0
+
+State 29 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5397 function tower_probe thread 0
+----------------------------------------------------
+  dev->read_buffer = (unsigned long int)0
+
+State 30 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5397 function tower_probe thread 0
+----------------------------------------------------
+  dev->read_buffer = (unsigned long int)0
+
+State 31 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5397 function tower_probe thread 0
+----------------------------------------------------
+  dev->read_buffer = (unsigned long int)0
+
+State 32 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5397 function tower_probe thread 0
+----------------------------------------------------
+  dev->read_buffer = (unsigned long int)0
+
+State 33 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5397 function tower_probe thread 0
+----------------------------------------------------
+  dev->read_buffer = (unsigned long int)0
+
+State 34 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5397 function tower_probe thread 0
+----------------------------------------------------
+  dev->read_buffer = (unsigned long int)0
+
+State 35 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5397 function tower_probe thread 0
+----------------------------------------------------
+  dev->read_buffer = (unsigned long int)0
+
+State 36 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5398 function tower_probe thread 0
+----------------------------------------------------
+  dev->read_buffer_length = 0 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)
+
+State 37 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5398 function tower_probe thread 0
+----------------------------------------------------
+  dev->read_buffer_length = 0 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)
+
+State 38 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5398 function tower_probe thread 0
+----------------------------------------------------
+  dev->read_buffer_length = 0 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)
+
+State 39 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5398 function tower_probe thread 0
+----------------------------------------------------
+  dev->read_buffer_length = 0 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)
+
+State 40 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5398 function tower_probe thread 0
+----------------------------------------------------
+  dev->read_buffer_length = 0 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)
+
+State 41 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5398 function tower_probe thread 0
+----------------------------------------------------
+  dev->read_buffer_length = 0 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)
+
+State 42 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5398 function tower_probe thread 0
+----------------------------------------------------
+  dev->read_buffer_length = 0 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)
+
+State 43 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5398 function tower_probe thread 0
+----------------------------------------------------
+  dev->read_buffer_length = 0 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)
+
+State 44 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5399 function tower_probe thread 0
+----------------------------------------------------
+  dev->read_packet_length = 0 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)
+
+State 45 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5399 function tower_probe thread 0
+----------------------------------------------------
+  dev->read_packet_length = 0 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)
+
+State 46 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5399 function tower_probe thread 0
+----------------------------------------------------
+  dev->read_packet_length = 0 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)
+
+State 47 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5399 function tower_probe thread 0
+----------------------------------------------------
+  dev->read_packet_length = 0 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)
+
+State 48 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5399 function tower_probe thread 0
+----------------------------------------------------
+  dev->read_packet_length = 0 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)
+
+State 49 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5399 function tower_probe thread 0
+----------------------------------------------------
+  dev->read_packet_length = 0 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)
+
+State 50 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5399 function tower_probe thread 0
+----------------------------------------------------
+  dev->read_packet_length = 0 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)
+
+State 51 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5399 function tower_probe thread 0
+----------------------------------------------------
+  dev->read_packet_length = 0 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)
+
+State 52 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5403 function tower_probe thread 0
+----------------------------------------------------
+  dev->packet_timeout_jiffies = 12 (00000000 00000000 00000000 00001100)
+
+State 53 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5403 function tower_probe thread 0
+----------------------------------------------------
+  dev->packet_timeout_jiffies = 12 (00000000 00000000 00000000 00001100)
+
+State 54 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5403 function tower_probe thread 0
+----------------------------------------------------
+  dev->packet_timeout_jiffies = 12 (00000000 00000000 00000000 00001100)
+
+State 55 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5403 function tower_probe thread 0
+----------------------------------------------------
+  dev->packet_timeout_jiffies = 12 (00000000 00000000 00000000 00001100)
+
+State 56 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5404 function tower_probe thread 0
+----------------------------------------------------
+  dev->read_last_arrival = 0 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)
+
+State 57 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5404 function tower_probe thread 0
+----------------------------------------------------
+  dev->read_last_arrival = 0 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)
+
+State 58 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5404 function tower_probe thread 0
+----------------------------------------------------
+  dev->read_last_arrival = 0 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)
+
+State 59 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5404 function tower_probe thread 0
+----------------------------------------------------
+  dev->read_last_arrival = 0 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)
+
+State 60 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5404 function tower_probe thread 0
+----------------------------------------------------
+  dev->read_last_arrival = 0 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)
+
+State 61 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5404 function tower_probe thread 0
+----------------------------------------------------
+  dev->read_last_arrival = 0 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)
+
+State 62 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5404 function tower_probe thread 0
+----------------------------------------------------
+  dev->read_last_arrival = 0 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)
+
+State 63 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5404 function tower_probe thread 0
+----------------------------------------------------
+  dev->read_last_arrival = 0 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)
+
+State 64 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5407 function tower_probe thread 0
+----------------------------------------------------
+  dev->interrupt_in_buffer = (unsigned long int)0
+
+State 65 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5407 function tower_probe thread 0
+----------------------------------------------------
+  dev->interrupt_in_buffer = (unsigned long int)0
+
+State 66 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5407 function tower_probe thread 0
+----------------------------------------------------
+  dev->interrupt_in_buffer = (unsigned long int)0
+
+State 67 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5407 function tower_probe thread 0
+----------------------------------------------------
+  dev->interrupt_in_buffer = (unsigned long int)0
+
+State 68 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5407 function tower_probe thread 0
+----------------------------------------------------
+  dev->interrupt_in_buffer = (unsigned long int)0
+
+State 69 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5407 function tower_probe thread 0
+----------------------------------------------------
+  dev->interrupt_in_buffer = (unsigned long int)0
+
+State 70 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5407 function tower_probe thread 0
+----------------------------------------------------
+  dev->interrupt_in_buffer = (unsigned long int)0
+
+State 71 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5407 function tower_probe thread 0
+----------------------------------------------------
+  dev->interrupt_in_buffer = (unsigned long int)0
+
+State 72 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5408 function tower_probe thread 0
+----------------------------------------------------
+  dev->interrupt_in_endpoint = (unsigned long int)0
+
+State 73 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5408 function tower_probe thread 0
+----------------------------------------------------
+  dev->interrupt_in_endpoint = (unsigned long int)0
+
+State 74 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5408 function tower_probe thread 0
+----------------------------------------------------
+  dev->interrupt_in_endpoint = (unsigned long int)0
+
+State 75 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5408 function tower_probe thread 0
+----------------------------------------------------
+  dev->interrupt_in_endpoint = (unsigned long int)0
+
+State 76 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5408 function tower_probe thread 0
+----------------------------------------------------
+  dev->interrupt_in_endpoint = (unsigned long int)0
+
+State 77 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5408 function tower_probe thread 0
+----------------------------------------------------
+  dev->interrupt_in_endpoint = (unsigned long int)0
+
+State 78 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5408 function tower_probe thread 0
+----------------------------------------------------
+  dev->interrupt_in_endpoint = (unsigned long int)0
+
+State 79 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5408 function tower_probe thread 0
+----------------------------------------------------
+  dev->interrupt_in_endpoint = (unsigned long int)0
+
+State 80 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5409 function tower_probe thread 0
+----------------------------------------------------
+  dev->interrupt_in_urb = (unsigned long int)0
+
+State 81 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5409 function tower_probe thread 0
+----------------------------------------------------
+  dev->interrupt_in_urb = (unsigned long int)0
+
+State 82 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5409 function tower_probe thread 0
+----------------------------------------------------
+  dev->interrupt_in_urb = (unsigned long int)0
+
+State 83 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5409 function tower_probe thread 0
+----------------------------------------------------
+  dev->interrupt_in_urb = (unsigned long int)0
+
+State 84 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5409 function tower_probe thread 0
+----------------------------------------------------
+  dev->interrupt_in_urb = (unsigned long int)0
+
+State 85 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5409 function tower_probe thread 0
+----------------------------------------------------
+  dev->interrupt_in_urb = (unsigned long int)0
+
+State 86 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5409 function tower_probe thread 0
+----------------------------------------------------
+  dev->interrupt_in_urb = (unsigned long int)0
+
+State 87 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5409 function tower_probe thread 0
+----------------------------------------------------
+  dev->interrupt_in_urb = (unsigned long int)0
+
+State 88 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5410 function tower_probe thread 0
+----------------------------------------------------
+  dev->interrupt_in_running = 0 (00000000 00000000 00000000 00000000)
+
+State 89 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5410 function tower_probe thread 0
+----------------------------------------------------
+  dev->interrupt_in_running = 0 (00000000 00000000 00000000 00000000)
+
+State 90 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5410 function tower_probe thread 0
+----------------------------------------------------
+  dev->interrupt_in_running = 0 (00000000 00000000 00000000 00000000)
+
+State 91 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5410 function tower_probe thread 0
+----------------------------------------------------
+  dev->interrupt_in_running = 0 (00000000 00000000 00000000 00000000)
+
+State 92 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5411 function tower_probe thread 0
+----------------------------------------------------
+  dev->interrupt_in_done = 0 (00000000 00000000 00000000 00000000)
+
+State 93 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5411 function tower_probe thread 0
+----------------------------------------------------
+  dev->interrupt_in_done = 0 (00000000 00000000 00000000 00000000)
+
+State 94 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5411 function tower_probe thread 0
+----------------------------------------------------
+  dev->interrupt_in_done = 0 (00000000 00000000 00000000 00000000)
+
+State 95 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5411 function tower_probe thread 0
+----------------------------------------------------
+  dev->interrupt_in_done = 0 (00000000 00000000 00000000 00000000)
+
+State 96 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5412 function tower_probe thread 0
+----------------------------------------------------
+  dev->interrupt_out_buffer = (unsigned long int)0
+
+State 97 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5412 function tower_probe thread 0
+----------------------------------------------------
+  dev->interrupt_out_buffer = (unsigned long int)0
+
+State 98 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5412 function tower_probe thread 0
+----------------------------------------------------
+  dev->interrupt_out_buffer = (unsigned long int)0
+
+State 99 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5412 function tower_probe thread 0
+----------------------------------------------------
+  dev->interrupt_out_buffer = (unsigned long int)0
+
+State 100 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5412 function tower_probe thread 0
+----------------------------------------------------
+  dev->interrupt_out_buffer = (unsigned long int)0
+
+State 101 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5412 function tower_probe thread 0
+----------------------------------------------------
+  dev->interrupt_out_buffer = (unsigned long int)0
+
+State 102 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5412 function tower_probe thread 0
+----------------------------------------------------
+  dev->interrupt_out_buffer = (unsigned long int)0
+
+State 103 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5412 function tower_probe thread 0
+----------------------------------------------------
+  dev->interrupt_out_buffer = (unsigned long int)0
+
+State 104 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5413 function tower_probe thread 0
+----------------------------------------------------
+  dev->interrupt_out_endpoint = (unsigned long int)0
+
+State 105 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5413 function tower_probe thread 0
+----------------------------------------------------
+  dev->interrupt_out_endpoint = (unsigned long int)0
+
+State 106 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5413 function tower_probe thread 0
+----------------------------------------------------
+  dev->interrupt_out_endpoint = (unsigned long int)0
+
+State 107 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5413 function tower_probe thread 0
+----------------------------------------------------
+  dev->interrupt_out_endpoint = (unsigned long int)0
+
+State 108 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5413 function tower_probe thread 0
+----------------------------------------------------
+  dev->interrupt_out_endpoint = (unsigned long int)0
+
+State 109 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5413 function tower_probe thread 0
+----------------------------------------------------
+  dev->interrupt_out_endpoint = (unsigned long int)0
+
+State 110 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5413 function tower_probe thread 0
+----------------------------------------------------
+  dev->interrupt_out_endpoint = (unsigned long int)0
+
+State 111 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5413 function tower_probe thread 0
+----------------------------------------------------
+  dev->interrupt_out_endpoint = (unsigned long int)0
+
+State 112 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5414 function tower_probe thread 0
+----------------------------------------------------
+  dev->interrupt_out_urb = (unsigned long int)0
+
+State 113 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5414 function tower_probe thread 0
+----------------------------------------------------
+  dev->interrupt_out_urb = (unsigned long int)0
+
+State 114 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5414 function tower_probe thread 0
+----------------------------------------------------
+  dev->interrupt_out_urb = (unsigned long int)0
+
+State 115 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5414 function tower_probe thread 0
+----------------------------------------------------
+  dev->interrupt_out_urb = (unsigned long int)0
+
+State 116 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5414 function tower_probe thread 0
+----------------------------------------------------
+  dev->interrupt_out_urb = (unsigned long int)0
+
+State 117 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5414 function tower_probe thread 0
+----------------------------------------------------
+  dev->interrupt_out_urb = (unsigned long int)0
+
+State 118 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5414 function tower_probe thread 0
+----------------------------------------------------
+  dev->interrupt_out_urb = (unsigned long int)0
+
+State 119 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5414 function tower_probe thread 0
+----------------------------------------------------
+  dev->interrupt_out_urb = (unsigned long int)0
+
+State 120 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5415 function tower_probe thread 0
+----------------------------------------------------
+  dev->interrupt_out_busy = 0 (00000000 00000000 00000000 00000000)
+
+State 121 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5415 function tower_probe thread 0
+----------------------------------------------------
+  dev->interrupt_out_busy = 0 (00000000 00000000 00000000 00000000)
+
+State 122 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5415 function tower_probe thread 0
+----------------------------------------------------
+  dev->interrupt_out_busy = 0 (00000000 00000000 00000000 00000000)
+
+State 123 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5415 function tower_probe thread 0
+----------------------------------------------------
+  dev->interrupt_out_busy = 0 (00000000 00000000 00000000 00000000)
+
+State 124 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 8499 function ldv_undef_int thread 0
+----------------------------------------------------
+  tmp = 0 (00000000 00000000 00000000 00000000)
+
+State 125 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 8499 function ldv_undef_int thread 0
+----------------------------------------------------
+  tmp = 0 (00000000 00000000 00000000 00000000)
+
+State 126 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 8499 function ldv_undef_int thread 0
+----------------------------------------------------
+  tmp = -1 (11111111 11111111 11111111 11111111)
+
+State 127 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 8499 function ldv_undef_int thread 0
+----------------------------------------------------
+  tmp = 943392457 (00111000 00111011 00000110 11001001)
+
+State 128 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 5827 function ldv_file_operations_file_operations_instance_0 thread 0
+----------------------------------------------------
+  ldv_0_size_cnt_struct_device_ptr = ( struct device *)943392457
+
+State 129 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 8499 function ldv_undef_int thread 0
+----------------------------------------------------
+  tmp = -1 (11111111 11111111 11111111 11111111)
+
+State 130 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 8499 function ldv_undef_int thread 0
+----------------------------------------------------
+  tmp = -1 (11111111 11111111 11111111 11111111)
+
+State 131 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 4591 function tower_open thread 0
+----------------------------------------------------
+  dev = ( struct lego_usb_tower *)(&dynamic_33_array[579])
+
+State 132 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 8499 function ldv_undef_int thread 0
+----------------------------------------------------
+  tmp = -1 (11111111 11111111 11111111 11111111)
+
+State 133 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 4657 function tower_open thread 0
+----------------------------------------------------
+  file->private_data = (unsigned long int)((void *)(&dynamic_33_array[579]))
+
+State 134 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 4657 function tower_open thread 0
+----------------------------------------------------
+  file->private_data = (unsigned long int)((void *)(&dynamic_33_array[579]))
+
+State 135 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 4657 function tower_open thread 0
+----------------------------------------------------
+  file->private_data = (unsigned long int)((void *)(&dynamic_33_array[579]))
+
+State 136 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 4657 function tower_open thread 0
+----------------------------------------------------
+  file->private_data = (unsigned long int)((void *)(&dynamic_33_array[579]))
+
+State 137 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 4657 function tower_open thread 0
+----------------------------------------------------
+  file->private_data = (unsigned long int)((void *)(&dynamic_33_array[579]))
+
+State 138 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 4657 function tower_open thread 0
+----------------------------------------------------
+  file->private_data = (unsigned long int)((void *)(&dynamic_33_array[579]))
+
+State 139 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 4657 function tower_open thread 0
+----------------------------------------------------
+  file->private_data = (unsigned long int)((void *)(&dynamic_33_array[579]))
+
+State 140 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 4657 function tower_open thread 0
+----------------------------------------------------
+  file->private_data = (unsigned long int)((void *)(&dynamic_33_array[579]))
+
+State 141 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 8499 function ldv_undef_int thread 0
+----------------------------------------------------
+  tmp = -1 (11111111 11111111 11111111 11111111)
+
+State 142 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 8499 function ldv_undef_int thread 0
+----------------------------------------------------
+  tmp = 2 (00000000 00000000 00000000 00000010)
+
+State 143 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 4682 function tower_release thread 0
+----------------------------------------------------
+  dev = ( struct lego_usb_tower *)((void *)2080074781)
+
+State 144 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 8499 function ldv_undef_int thread 0
+----------------------------------------------------
+  tmp = -1 (11111111 11111111 11111111 11111111)
+
+State 145 file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 10059 function reach_error thread 0
+----------------------------------------------------
+Violated property:
+  file linux-4.0-rc1---drivers--usb--misc--legousbtower.ko.cil.i line 10059 function reach_error
+  assertion 0
+  0
+
+
+VERIFICATION FAILED
+
+Bug found (k = 1)
+
+
+FALSE_REACH

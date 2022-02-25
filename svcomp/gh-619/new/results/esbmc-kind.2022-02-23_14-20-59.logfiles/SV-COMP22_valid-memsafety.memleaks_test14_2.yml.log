@@ -1,0 +1,163 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/valid-memsafety.prp -s kinduction --arch 32 ../sv-benchmarks/c/ldv-memsafety/memleaks_test14_2.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --add-symex-value-sets --no-align-check --k-step 5 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-memsafety/memleaks_test14_2.i --32 --witness-output memleaks_test14_2.i.graphml --memory-leak-check --no-assertions --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/ldv-memsafety/memleaks_test14_2.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.115s
+GOTO program processing time: 0.001s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.007s (115 assignments)
+Slicing time: 0.000s (removed 35 assignments)
+Generated 41 VCC(s), 35 remaining after simplification (80 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.002s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.002s
+Runtime decision procedure: 0.228s
+BMC program time: 0.238s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.007s (115 assignments)
+Slicing time: 0.001s (removed 35 assignments)
+Generated 42 VCC(s), 36 remaining after simplification (80 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.003s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.003s
+Runtime decision procedure: 0.230s
+The forward condition is unable to prove the property
+*** Checking base case, k = 6
+Starting Bounded Model Checking
+Unwinding loop 3  iteration  1   file memleaks_test14_2.i line 770 function free_unsafe_14
+Unwinding loop 3  iteration  2   file memleaks_test14_2.i line 770 function free_unsafe_14
+Unwinding loop 3  iteration  3   file memleaks_test14_2.i line 770 function free_unsafe_14
+Unwinding loop 3  iteration  4   file memleaks_test14_2.i line 770 function free_unsafe_14
+Unwinding loop 3  iteration  5   file memleaks_test14_2.i line 770 function free_unsafe_14
+Not unwinding 
+Symex completed in: 0.025s (370 assignments)
+Slicing time: 0.003s (removed 60 assignments)
+Generated 191 VCC(s), 175 remaining after simplification (310 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.010s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.010s
+Runtime decision procedure: 3.858s
+Building error trace
+
+Counterexample:
+
+State 1 file memleaks_test14_2.i line 762 function alloc_14 thread 0
+----------------------------------------------------
+  p = ( struct A14 *)(&dynamic_6_array[0])
+
+State 2 file memleaks_test14_2.i line 547 function __ldv_list_add thread 0
+----------------------------------------------------
+  next->prev = { .next=&list_14?1!0, .prev=new?1!0&0#1 }
+
+State 6 file memleaks_test14_2.i line 548 function __ldv_list_add thread 0
+----------------------------------------------------
+  new->next = (unsigned int)(( struct ldv_list_head *)(&list_14))
+
+State 7 file memleaks_test14_2.i line 548 function __ldv_list_add thread 0
+----------------------------------------------------
+  new->next = (unsigned int)(( struct ldv_list_head *)(&list_14))
+
+State 8 file memleaks_test14_2.i line 548 function __ldv_list_add thread 0
+----------------------------------------------------
+  new->next = (unsigned int)(( struct ldv_list_head *)(&list_14))
+
+State 9 file memleaks_test14_2.i line 548 function __ldv_list_add thread 0
+----------------------------------------------------
+  new->next = (unsigned int)(( struct ldv_list_head *)(&list_14))
+
+State 13 file memleaks_test14_2.i line 549 function __ldv_list_add thread 0
+----------------------------------------------------
+  new->prev = (unsigned int)(( struct ldv_list_head *)(&list_14))
+
+State 14 file memleaks_test14_2.i line 549 function __ldv_list_add thread 0
+----------------------------------------------------
+  new->prev = (unsigned int)(( struct ldv_list_head *)(&list_14))
+
+State 15 file memleaks_test14_2.i line 549 function __ldv_list_add thread 0
+----------------------------------------------------
+  new->prev = (unsigned int)(( struct ldv_list_head *)(&list_14))
+
+State 16 file memleaks_test14_2.i line 549 function __ldv_list_add thread 0
+----------------------------------------------------
+  new->prev = (unsigned int)(( struct ldv_list_head *)(&list_14))
+
+State 17 file memleaks_test14_2.i line 550 function __ldv_list_add thread 0
+----------------------------------------------------
+  prev->next = &dynamic_6_array[4]
+
+State 18 file memleaks_test14_2.i line 770 function free_unsafe_14 thread 0
+----------------------------------------------------
+  __mptr = list_14.next
+
+State 19 file memleaks_test14_2.i line 770 function free_unsafe_14 thread 0
+----------------------------------------------------
+  p = &dynamic_6_array[0]
+
+State 24 file memleaks_test14_2.i line 770 function free_unsafe_14 thread 0
+----------------------------------------------------
+  __mptr = ( struct ldv_list_head *)2148250255
+
+State 25 file memleaks_test14_2.i line 770 function free_unsafe_14 thread 0
+----------------------------------------------------
+  n = &list_14
+
+State 39 file memleaks_test14_2.i line 554 function __ldv_list_del thread 0
+----------------------------------------------------
+  next->prev = &list_14
+
+State 45 file memleaks_test14_2.i line 555 function __ldv_list_del thread 0
+----------------------------------------------------
+  prev->next = &list_14
+
+State 46 file memleaks_test14_2.i line 770 function free_unsafe_14 thread 0
+----------------------------------------------------
+  p = &list_14
+
+State 53 file memleaks_test14_2.i line 770 function free_unsafe_14 thread 0
+----------------------------------------------------
+  __mptr = list_14.next
+
+State 54 file memleaks_test14_2.i line 770 function free_unsafe_14 thread 0
+----------------------------------------------------
+  n = &list_14
+
+State 55 file memleaks_test14_2.i line 781 function main thread 0
+----------------------------------------------------
+Violated property:
+  file memleaks_test14_2.i line 781 function main
+  dereference failure: forgotten memory: dynamic_6_array
+
+
+VERIFICATION FAILED
+
+Bug found (k = 6)
+
+../sv-benchmarks/c/ldv-memsafety/memleaks_test14_2.i:779:1: warning: return type of 'main' is not 'int' [-Wmain-return-type]
+void main(void) {
+^
+../sv-benchmarks/c/ldv-memsafety/memleaks_test14_2.i:779:1: note: change return type to 'int'
+void main(void) {
+^~~~
+int
+
+Unknown

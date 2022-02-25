@@ -1,0 +1,605 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/seq-pthread/cs_stateful-1.i
+
+
+--------------------------------------------------------------------------------
+
+
+Found pthread benchmark!
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --add-symex-value-sets --no-align-check --k-step 5 --floatbv --unlimited-k-steps ../sv-benchmarks/c/seq-pthread/cs_stateful-1.i --32  --no-por --context-bound 2 --no-goto-merge --witness-output cs_stateful-1.i.graphml --no-pointer-check --no-bounds-check --goto-unwind --unlimited-goto-unwind --incremental-bmc 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/seq-pthread/cs_stateful-1.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.140s
+GOTO program processing time: 0.001s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.001s (37 assignments)
+Slicing time: 0.000s (removed 35 assignments)
+Generated 0 VCC(s), 0 remaining after simplification (2 assignments)
+BMC program time: 0.001s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.001s (37 assignments)
+Slicing time: 0.000s (removed 35 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (2 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.000s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.000s
+Runtime decision procedure: 0.001s
+The forward condition is unable to prove the property
+*** Checking base case, k = 6
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file cs_stateful-1.i line 759 function main
+Unwinding loop 1  iteration  2   file cs_stateful-1.i line 759 function main
+Unwinding loop 1  iteration  3   file cs_stateful-1.i line 759 function main
+Unwinding loop 2  iteration  1   file cs_stateful-1.i line 759 function main
+Unwinding loop 2  iteration  2   file cs_stateful-1.i line 759 function main
+Unwinding loop 2  iteration  3   file cs_stateful-1.i line 759 function main
+Symex completed in: 0.136s (1500 assignments)
+Slicing time: 0.008s (removed 249 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (1251 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.078s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.078s
+Runtime decision procedure: 0.630s
+Building error trace
+
+Counterexample:
+
+State 1 file cs_stateful-1.i line 550 thread 0
+----------------------------------------------------
+  __CS_thread_status = ARRAY_OF(ARRAY_OF(0))
+
+State 2 file cs_stateful-1.i line 554 thread 0
+----------------------------------------------------
+  __CS_thread_lockedon = ARRAY_OF(ARRAY_OF(0))
+
+State 3 file cs_stateful-1.i line 760 function main thread 0
+----------------------------------------------------
+  __CS_cp___CS_thread_status[0][0] = 0 (00000000)
+
+State 4 file cs_stateful-1.i line 761 function main thread 0
+----------------------------------------------------
+  __CS_cp___CS_thread_lockedon[0][0] = (void *)2
+
+State 5 file cs_stateful-1.i line 760 function main thread 0
+----------------------------------------------------
+  __CS_cp___CS_thread_status[0][1] = 0 (00000000)
+
+State 6 file cs_stateful-1.i line 761 function main thread 0
+----------------------------------------------------
+  __CS_cp___CS_thread_lockedon[0][1] = (void *)3853647874
+
+State 7 file cs_stateful-1.i line 760 function main thread 0
+----------------------------------------------------
+  __CS_cp___CS_thread_status[0][2] = 0 (00000000)
+
+State 8 file cs_stateful-1.i line 761 function main thread 0
+----------------------------------------------------
+  __CS_cp___CS_thread_lockedon[0][2] = (void *)1074855936
+
+State 9 file cs_stateful-1.i line 763 function main thread 0
+----------------------------------------------------
+  __CS_cp_ma[0] = 0 (00000000)
+
+State 10 file cs_stateful-1.i line 764 function main thread 0
+----------------------------------------------------
+  __CS_cp_mb[0] = 0 (00000000)
+
+State 11 file cs_stateful-1.i line 765 function main thread 0
+----------------------------------------------------
+  __CS_cp_data1[0] = 0 (00000000 00000000 00000000 00000000)
+
+State 12 file cs_stateful-1.i line 766 function main thread 0
+----------------------------------------------------
+  __CS_cp_data2[0] = 0 (00000000 00000000 00000000 00000000)
+
+State 13 file cs_stateful-1.i line 760 function main thread 0
+----------------------------------------------------
+  __CS_cp___CS_thread_status[0][0] = 1 (00000001)
+
+State 14 file cs_stateful-1.i line 761 function main thread 0
+----------------------------------------------------
+  __CS_cp___CS_thread_lockedon[0][0] = 0
+
+State 15 file cs_stateful-1.i line 760 function main thread 0
+----------------------------------------------------
+  __CS_cp___CS_thread_status[0][1] = 2 (00000010)
+
+State 16 file cs_stateful-1.i line 761 function main thread 0
+----------------------------------------------------
+  __CS_cp___CS_thread_lockedon[0][1] = 0
+
+State 17 file cs_stateful-1.i line 760 function main thread 0
+----------------------------------------------------
+  __CS_cp___CS_thread_status[0][2] = 2 (00000010)
+
+State 18 file cs_stateful-1.i line 761 function main thread 0
+----------------------------------------------------
+  __CS_cp___CS_thread_lockedon[0][2] = 0
+
+State 19 file cs_stateful-1.i line 763 function main thread 0
+----------------------------------------------------
+  __CS_cp_ma[1] = 0 (00000000)
+
+State 20 file cs_stateful-1.i line 764 function main thread 0
+----------------------------------------------------
+  __CS_cp_mb[1] = 0 (00000000)
+
+State 21 file cs_stateful-1.i line 765 function main thread 0
+----------------------------------------------------
+  __CS_cp_data1[1] = 16 (00000000 00000000 00000000 00010000)
+
+State 22 file cs_stateful-1.i line 766 function main thread 0
+----------------------------------------------------
+  __CS_cp_data2[1] = 5 (00000000 00000000 00000000 00000101)
+
+State 23 file cs_stateful-1.i line 768 function main thread 0
+----------------------------------------------------
+  __CS_thread_status[1][0] = 1 (00000001)
+
+State 24 file cs_stateful-1.i line 769 function main thread 0
+----------------------------------------------------
+  __CS_thread_status[1][1] = 2 (00000010)
+
+State 25 file cs_stateful-1.i line 770 function main thread 0
+----------------------------------------------------
+  __CS_thread_status[1][2] = 2 (00000010)
+
+State 29 file cs_stateful-1.i line 774 function main thread 0
+----------------------------------------------------
+  ma[1] = 0 (00000000)
+
+State 30 file cs_stateful-1.i line 775 function main thread 0
+----------------------------------------------------
+  mb[1] = 0 (00000000)
+
+State 31 file cs_stateful-1.i line 776 function main thread 0
+----------------------------------------------------
+  data1[1] = 16 (00000000 00000000 00000000 00010000)
+
+State 32 file cs_stateful-1.i line 777 function main thread 0
+----------------------------------------------------
+  data2[1] = 5 (00000000 00000000 00000000 00000101)
+
+State 33 file cs_stateful-1.i line 781 function main thread 0
+----------------------------------------------------
+  __CS_thread_status[0][0] = 1 (00000001)
+
+State 34 file cs_stateful-1.i line 782 function main thread 0
+----------------------------------------------------
+  __CS_thread[0] = &main_thread
+
+State 35 file cs_stateful-1.i line 783 function main thread 0
+----------------------------------------------------
+  __CS_thread_allocated[0] = 1 (00000001)
+
+State 36 file cs_stateful-1.i line 560 function __CS_cs thread 0
+----------------------------------------------------
+  k = 0 (00000000)
+
+State 37 file cs_stateful-1.i line 562 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_round = 0 (00000000)
+
+State 38 file cs_stateful-1.i line 563 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_ret = 0 (00000000)
+
+State 39 file cs_stateful-1.i line 560 function __CS_cs thread 0
+----------------------------------------------------
+  k = 0 (00000000)
+
+State 40 file cs_stateful-1.i line 562 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_round = 0 (00000000)
+
+State 41 file cs_stateful-1.i line 563 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_ret = 0 (00000000)
+
+State 42 file cs_stateful-1.i line 560 function __CS_cs thread 0
+----------------------------------------------------
+  k = 0 (00000000)
+
+State 43 file cs_stateful-1.i line 562 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_round = 0 (00000000)
+
+State 44 file cs_stateful-1.i line 563 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_ret = 0 (00000000)
+
+State 45 file cs_stateful-1.i line 726 function main_thread thread 0
+----------------------------------------------------
+  data1[0] = 10 (00000000 00000000 00000000 00001010)
+
+State 46 file cs_stateful-1.i line 560 function __CS_cs thread 0
+----------------------------------------------------
+  k = 0 (00000000)
+
+State 47 file cs_stateful-1.i line 562 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_round = 0 (00000000)
+
+State 48 file cs_stateful-1.i line 563 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_ret = 0 (00000000)
+
+State 49 file cs_stateful-1.i line 728 function main_thread thread 0
+----------------------------------------------------
+  data2[0] = 10 (00000000 00000000 00000000 00001010)
+
+State 50 file cs_stateful-1.i line 560 function __CS_cs thread 0
+----------------------------------------------------
+  k = 0 (00000000)
+
+State 51 file cs_stateful-1.i line 562 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_round = 0 (00000000)
+
+State 52 file cs_stateful-1.i line 563 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_ret = 0 (00000000)
+
+State 53 file cs_stateful-1.i line 667 function __CS_pthread_create thread 0
+----------------------------------------------------
+  __CS_thread_allocated[1] = 1 (00000001)
+
+State 54 file cs_stateful-1.i line 668 function __CS_pthread_create thread 0
+----------------------------------------------------
+  __CS_thread_born_round[1] = 0 (00000000)
+
+State 55 file cs_stateful-1.i line 669 function __CS_pthread_create thread 0
+----------------------------------------------------
+  __CS_thread[1] = &thread1
+
+State 56 file cs_stateful-1.i line 670 function __CS_pthread_create thread 0
+----------------------------------------------------
+  __CS_thread_status[0][1] = 1 (00000001)
+
+State 57 file cs_stateful-1.i line 560 function __CS_cs thread 0
+----------------------------------------------------
+  k = 0 (00000000)
+
+State 58 file cs_stateful-1.i line 562 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_round = 0 (00000000)
+
+State 59 file cs_stateful-1.i line 563 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_ret = 0 (00000000)
+
+State 60 file cs_stateful-1.i line 667 function __CS_pthread_create thread 0
+----------------------------------------------------
+  __CS_thread_allocated[2] = 1 (00000001)
+
+State 61 file cs_stateful-1.i line 668 function __CS_pthread_create thread 0
+----------------------------------------------------
+  __CS_thread_born_round[2] = 0 (00000000)
+
+State 62 file cs_stateful-1.i line 669 function __CS_pthread_create thread 0
+----------------------------------------------------
+  __CS_thread[2] = &thread2
+
+State 63 file cs_stateful-1.i line 670 function __CS_pthread_create thread 0
+----------------------------------------------------
+  __CS_thread_status[0][2] = 1 (00000001)
+
+State 64 file cs_stateful-1.i line 560 function __CS_cs thread 0
+----------------------------------------------------
+  k = 1 (00000001)
+
+State 65 file cs_stateful-1.i line 562 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_round = 1 (00000001)
+
+State 66 file cs_stateful-1.i line 563 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_ret = 0 (00000000)
+
+State 67 file cs_stateful-1.i line 560 function __CS_cs thread 0
+----------------------------------------------------
+  k = 0 (00000000)
+
+State 68 file cs_stateful-1.i line 562 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_round = 1 (00000001)
+
+State 69 file cs_stateful-1.i line 563 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_ret = 0 (00000000)
+
+State 70 file cs_stateful-1.i line 560 function __CS_cs thread 0
+----------------------------------------------------
+  k = 0 (00000000)
+
+State 71 file cs_stateful-1.i line 562 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_round = 1 (00000001)
+
+State 72 file cs_stateful-1.i line 563 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_ret = 0 (00000000)
+
+State 73 file cs_stateful-1.i line 560 function __CS_cs thread 0
+----------------------------------------------------
+  k = 0 (00000000)
+
+State 74 file cs_stateful-1.i line 562 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_round = 1 (00000001)
+
+State 75 file cs_stateful-1.i line 563 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_ret = 0 (00000000)
+
+State 76 file cs_stateful-1.i line 788 function main thread 0
+----------------------------------------------------
+  __CS_thread_status[0][0] = 2 (00000010)
+
+State 77 file cs_stateful-1.i line 791 function main thread 0
+----------------------------------------------------
+  __CS_round = 0 (00000000)
+
+State 78 file cs_stateful-1.i line 560 function __CS_cs thread 0
+----------------------------------------------------
+  k = 0 (00000000)
+
+State 79 file cs_stateful-1.i line 562 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_round = 0 (00000000)
+
+State 80 file cs_stateful-1.i line 563 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_ret = 0 (00000000)
+
+State 81 file cs_stateful-1.i line 580 function __CS_pthread_mutex_lock thread 0
+----------------------------------------------------
+  *lock = 3 (00000011)
+
+State 82 file cs_stateful-1.i line 560 function __CS_cs thread 0
+----------------------------------------------------
+  k = 0 (00000000)
+
+State 83 file cs_stateful-1.i line 562 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_round = 0 (00000000)
+
+State 84 file cs_stateful-1.i line 563 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_ret = 0 (00000000)
+
+State 85 file cs_stateful-1.i line 690 function thread1 thread 0
+----------------------------------------------------
+  data1[0] = 11 (00000000 00000000 00000000 00001011)
+
+State 86 file cs_stateful-1.i line 560 function __CS_cs thread 0
+----------------------------------------------------
+  k = 0 (00000000)
+
+State 87 file cs_stateful-1.i line 562 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_round = 0 (00000000)
+
+State 88 file cs_stateful-1.i line 563 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_ret = 0 (00000000)
+
+State 89 file cs_stateful-1.i line 590 function __CS_pthread_mutex_unlock thread 0
+----------------------------------------------------
+  *lock = 0 (00000000)
+
+State 90 file cs_stateful-1.i line 560 function __CS_cs thread 0
+----------------------------------------------------
+  k = 0 (00000000)
+
+State 91 file cs_stateful-1.i line 562 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_round = 0 (00000000)
+
+State 92 file cs_stateful-1.i line 563 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_ret = 0 (00000000)
+
+State 93 file cs_stateful-1.i line 580 function __CS_pthread_mutex_lock thread 0
+----------------------------------------------------
+  *lock = 3 (00000011)
+
+State 94 file cs_stateful-1.i line 560 function __CS_cs thread 0
+----------------------------------------------------
+  k = 0 (00000000)
+
+State 95 file cs_stateful-1.i line 562 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_round = 0 (00000000)
+
+State 96 file cs_stateful-1.i line 563 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_ret = 0 (00000000)
+
+State 97 file cs_stateful-1.i line 696 function thread1 thread 0
+----------------------------------------------------
+  data2[0] = 11 (00000000 00000000 00000000 00001011)
+
+State 98 file cs_stateful-1.i line 560 function __CS_cs thread 0
+----------------------------------------------------
+  k = 0 (00000000)
+
+State 99 file cs_stateful-1.i line 562 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_round = 0 (00000000)
+
+State 100 file cs_stateful-1.i line 563 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_ret = 0 (00000000)
+
+State 101 file cs_stateful-1.i line 590 function __CS_pthread_mutex_unlock thread 0
+----------------------------------------------------
+  *lock = 0 (00000000)
+
+State 102 file cs_stateful-1.i line 560 function __CS_cs thread 0
+----------------------------------------------------
+  k = 0 (00000000)
+
+State 103 file cs_stateful-1.i line 562 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_round = 0 (00000000)
+
+State 104 file cs_stateful-1.i line 563 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_ret = 0 (00000000)
+
+State 105 file cs_stateful-1.i line 794 function main thread 0
+----------------------------------------------------
+  __CS_thread_status[0][1] = 2 (00000010)
+
+State 106 file cs_stateful-1.i line 797 function main thread 0
+----------------------------------------------------
+  __CS_round = 0 (00000000)
+
+State 107 file cs_stateful-1.i line 560 function __CS_cs thread 0
+----------------------------------------------------
+  k = 0 (00000000)
+
+State 108 file cs_stateful-1.i line 562 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_round = 0 (00000000)
+
+State 109 file cs_stateful-1.i line 563 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_ret = 0 (00000000)
+
+State 110 file cs_stateful-1.i line 580 function __CS_pthread_mutex_lock thread 0
+----------------------------------------------------
+  *lock = 3 (00000011)
+
+State 111 file cs_stateful-1.i line 560 function __CS_cs thread 0
+----------------------------------------------------
+  k = 0 (00000000)
+
+State 112 file cs_stateful-1.i line 562 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_round = 0 (00000000)
+
+State 113 file cs_stateful-1.i line 563 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_ret = 0 (00000000)
+
+State 114 file cs_stateful-1.i line 706 function thread2 thread 0
+----------------------------------------------------
+  data1[0] = 16 (00000000 00000000 00000000 00010000)
+
+State 115 file cs_stateful-1.i line 560 function __CS_cs thread 0
+----------------------------------------------------
+  k = 0 (00000000)
+
+State 116 file cs_stateful-1.i line 562 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_round = 0 (00000000)
+
+State 117 file cs_stateful-1.i line 563 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_ret = 0 (00000000)
+
+State 118 file cs_stateful-1.i line 590 function __CS_pthread_mutex_unlock thread 0
+----------------------------------------------------
+  *lock = 0 (00000000)
+
+State 119 file cs_stateful-1.i line 560 function __CS_cs thread 0
+----------------------------------------------------
+  k = 0 (00000000)
+
+State 120 file cs_stateful-1.i line 562 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_round = 0 (00000000)
+
+State 121 file cs_stateful-1.i line 563 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_ret = 0 (00000000)
+
+State 122 file cs_stateful-1.i line 580 function __CS_pthread_mutex_lock thread 0
+----------------------------------------------------
+  *lock = 3 (00000011)
+
+State 123 file cs_stateful-1.i line 560 function __CS_cs thread 0
+----------------------------------------------------
+  k = 0 (00000000)
+
+State 124 file cs_stateful-1.i line 562 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_round = 0 (00000000)
+
+State 125 file cs_stateful-1.i line 563 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_ret = 0 (00000000)
+
+State 126 file cs_stateful-1.i line 712 function thread2 thread 0
+----------------------------------------------------
+  data2[0] = 5 (00000000 00000000 00000000 00000101)
+
+State 127 file cs_stateful-1.i line 560 function __CS_cs thread 0
+----------------------------------------------------
+  k = 0 (00000000)
+
+State 128 file cs_stateful-1.i line 562 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_round = 0 (00000000)
+
+State 129 file cs_stateful-1.i line 563 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_ret = 0 (00000000)
+
+State 130 file cs_stateful-1.i line 590 function __CS_pthread_mutex_unlock thread 0
+----------------------------------------------------
+  *lock = 0 (00000000)
+
+State 131 file cs_stateful-1.i line 560 function __CS_cs thread 0
+----------------------------------------------------
+  k = 0 (00000000)
+
+State 132 file cs_stateful-1.i line 562 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_round = 0 (00000000)
+
+State 133 file cs_stateful-1.i line 563 function __CS_cs thread 0
+----------------------------------------------------
+  __CS_ret = 0 (00000000)
+
+State 134 file cs_stateful-1.i line 800 function main thread 0
+----------------------------------------------------
+  __CS_thread_status[0][2] = 2 (00000010)
+
+State 135 file cs_stateful-1.i line 13 function reach_error thread 0
+----------------------------------------------------
+Violated property:
+  file cs_stateful-1.i line 13 function reach_error
+  assertion 0
+  0
+
+
+VERIFICATION FAILED
+
+Bug found (k = 6)
+
+../sv-benchmarks/c/seq-pthread/cs_stateful-1.i:700:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+}
+^
+../sv-benchmarks/c/seq-pthread/cs_stateful-1.i:716:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+}
+^
+../sv-benchmarks/c/seq-pthread/cs_stateful-1.i:749:2: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ }
+ ^
+
+FALSE_REACH

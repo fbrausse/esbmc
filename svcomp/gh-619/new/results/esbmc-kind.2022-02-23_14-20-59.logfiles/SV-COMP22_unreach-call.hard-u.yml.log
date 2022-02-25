@@ -1,0 +1,139 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/nla-digbench/hard-u.c
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --add-symex-value-sets --no-align-check --k-step 5 --floatbv --unlimited-k-steps ../sv-benchmarks/c/nla-digbench/hard-u.c --32 --witness-output hard-u.c.graphml --no-pointer-check --no-bounds-check --interval-analysis --goto-unwind --unlimited-goto-unwind --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/nla-digbench/hard-u.c: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.135s
+GOTO program processing time: 0.001s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.002s (44 assignments)
+Slicing time: 0.000s (removed 15 assignments)
+Generated 6 VCC(s), 6 remaining after simplification (29 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.000s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.000s
+Runtime decision procedure: 0.000s
+BMC program time: 0.003s
+No bug has been found in the base case
+*** Checking forward condition, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Symex completed in: 0.001s (38 assignments)
+Slicing time: 0.000s (removed 28 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (10 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.000s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.000s
+Runtime decision procedure: 0.003s
+The forward condition is unable to prove the property
+*** Checking base case, k = 6
+Starting Bounded Model Checking
+Unwinding loop 1  iteration  1   file hard-u.c line 34 function main
+Unwinding loop 1  iteration  2   file hard-u.c line 34 function main
+Unwinding loop 1  iteration  3   file hard-u.c line 34 function main
+Unwinding loop 1  iteration  4   file hard-u.c line 34 function main
+Unwinding loop 1  iteration  5   file hard-u.c line 34 function main
+Not unwinding 
+Unwinding loop 2  iteration  1   file hard-u.c line 44 function main
+Unwinding loop 2  iteration  2   file hard-u.c line 44 function main
+Unwinding loop 2  iteration  3   file hard-u.c line 44 function main
+Unwinding loop 2  iteration  4   file hard-u.c line 44 function main
+Unwinding loop 2  iteration  5   file hard-u.c line 44 function main
+Not unwinding 
+Symex completed in: 0.007s (207 assignments)
+Slicing time: 0.003s (removed 38 assignments)
+Generated 26 VCC(s), 26 remaining after simplification (169 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.003s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.003s
+Runtime decision procedure: 5.417s
+Building error trace
+
+Counterexample:
+
+State 1 file hard-u.c line 25 function main thread 0
+----------------------------------------------------
+  A = 3959352416 (11101011 11111110 11101100 01100000)
+
+State 2 file hard-u.c line 26 function main thread 0
+----------------------------------------------------
+  B = 3151854694 (10111011 11011101 01111100 01100110)
+
+State 3 file hard-u.c line 29 function main thread 0
+----------------------------------------------------
+  r = 3959352416 (11101011 11111110 11101100 01100000)
+
+State 4 file hard-u.c line 30 function main thread 0
+----------------------------------------------------
+  d = 3151854694 (10111011 11011101 01111100 01100110)
+
+State 5 file hard-u.c line 40 function main thread 0
+----------------------------------------------------
+  d = 2008742092 (01110111 10111010 11111000 11001100)
+
+State 6 file hard-u.c line 40 function main thread 0
+----------------------------------------------------
+  d = 4017484184 (11101111 01110101 11110001 10011000)
+
+State 7 file hard-u.c line 50 function main thread 0
+----------------------------------------------------
+  d = 2008742092 (01110111 10111010 11111000 11001100)
+
+State 8 file hard-u.c line 51 function main thread 0
+----------------------------------------------------
+  p = 2 (00000000 00000000 00000000 00000010)
+
+State 9 file hard-u.c line 53 function main thread 0
+----------------------------------------------------
+  r = 1950610324 (01110100 01000011 11110011 10010100)
+
+State 10 file hard-u.c line 54 function main thread 0
+----------------------------------------------------
+  q = 2 (00000000 00000000 00000000 00000010)
+
+State 11 file hard-u.c line 50 function main thread 0
+----------------------------------------------------
+  d = 1004371046 (00111011 11011101 01111100 01100110)
+
+State 12 file hard-u.c line 51 function main thread 0
+----------------------------------------------------
+  p = 1 (00000000 00000000 00000000 00000001)
+
+State 13 file hard-u.c line 53 function main thread 0
+----------------------------------------------------
+  r = 946239278 (00111000 01100110 01110111 00101110)
+
+State 14 file hard-u.c line 54 function main thread 0
+----------------------------------------------------
+  q = 3 (00000000 00000000 00000000 00000011)
+
+State 15 file hard-u.c line 8 function reach_error thread 0
+----------------------------------------------------
+Violated property:
+  file hard-u.c line 8 function reach_error
+  assertion 0
+  0
+
+
+VERIFICATION FAILED
+
+Bug found (k = 6)
+
+
+FALSE_REACH

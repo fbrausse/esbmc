@@ -1,0 +1,41 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/pthread/queue_ok.i
+
+
+--------------------------------------------------------------------------------
+
+
+Found pthread benchmark!
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --add-symex-value-sets --no-align-check --k-step 5 --floatbv --unlimited-k-steps ../sv-benchmarks/c/pthread/queue_ok.i --32  --no-por --context-bound 2 --no-goto-merge --witness-output queue_ok.i.graphml --no-pointer-check --no-bounds-check --goto-unwind --unlimited-goto-unwind --incremental-bmc 
+
+../sv-benchmarks/c/pthread/queue_ok.i:518:12: warning: declaration of built-in function '__sigsetjmp' requires the declaration of the 'jmp_buf' type, commonly provided in the header <setjmp.h>. [-Wincomplete-setjmp-declaration]
+extern int __sigsetjmp (struct __jmp_buf_tag *__env, int __savemask) __attribute__ ((__nothrow__));
+           ^
+../sv-benchmarks/c/pthread/queue_ok.i:1032:13: warning: logical not is only applied to the left hand side of this comparison [-Wlogical-not-parentheses]
+        if (!dequeue(&queue)==stored_elements[i]) {
+            ^               ~~
+../sv-benchmarks/c/pthread/queue_ok.i:1032:13: note: add parentheses after the '!' to evaluate the comparison first
+        if (!dequeue(&queue)==stored_elements[i]) {
+            ^
+             (                                  )
+../sv-benchmarks/c/pthread/queue_ok.i:1032:13: note: add parentheses around left hand side expression to silence this warning
+        if (!dequeue(&queue)==stored_elements[i]) {
+            ^
+            (               )
+../sv-benchmarks/c/pthread/queue_ok.i:1048:7: warning: logical not is only applied to the left hand side of this comparison [-Wlogical-not-parentheses]
+  if (!empty(&queue)==(-1)) {
+      ^             ~~
+../sv-benchmarks/c/pthread/queue_ok.i:1048:7: note: add parentheses after the '!' to evaluate the comparison first
+  if (!empty(&queue)==(-1)) {
+      ^
+       (                  )
+../sv-benchmarks/c/pthread/queue_ok.i:1048:7: note: add parentheses around left hand side expression to silence this warning
+  if (!empty(&queue)==(-1)) {
+      ^
+      (             )
+../sv-benchmarks/c/pthread/queue_ok.i:1048:21: warning: result of comparison of constant -1 with boolean expression is always false [-Wtautological-constant-out-of-range-compare]
+  if (!empty(&queue)==(-1)) {
+      ~~~~~~~~~~~~~~^ ~~~~
+There are goto statements that shouldn't be merged at this point
+
+Unknown

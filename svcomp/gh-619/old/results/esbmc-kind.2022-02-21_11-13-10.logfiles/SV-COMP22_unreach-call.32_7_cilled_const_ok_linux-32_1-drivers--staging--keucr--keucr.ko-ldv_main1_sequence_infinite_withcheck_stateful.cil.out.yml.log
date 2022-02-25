@@ -1,0 +1,105 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--staging--keucr--keucr.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --add-symex-value-sets --no-align-check --k-step 5 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--staging--keucr--keucr.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i --64 --witness-output 32_7_cilled_const_ok_linux-32_1-drivers--staging--keucr--keucr.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --goto-unwind --unlimited-goto-unwind --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 64-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--staging--keucr--keucr.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 1.828s
+GOTO program processing time: 0.555s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+No target candidate for function call *__cil_tmp11
+Not unwinding 
+Symex completed in: 0.133s (745 assignments)
+Slicing time: 0.002s (removed 728 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (17 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.000s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.000s
+Runtime decision procedure: 0.002s
+Building error trace
+
+Counterexample:
+
+State 1 file 32_7_cilled_const_ok_linux-32_1-drivers--staging--keucr--keucr.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i line 9713 function main thread 0
+----------------------------------------------------
+  tmp___8 = 127 (00000000 00000000 00000000 01111111)
+
+State 2 file 32_7_cilled_const_ok_linux-32_1-drivers--staging--keucr--keucr.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i line 9720 function main thread 0
+----------------------------------------------------
+  tmp___7 = 4 (00000000 00000000 00000000 00000100)
+
+State 3 file 32_7_cilled_const_ok_linux-32_1-drivers--staging--keucr--keucr.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i line 12 function reach_error thread 0
+----------------------------------------------------
+Violated property:
+  file 32_7_cilled_const_ok_linux-32_1-drivers--staging--keucr--keucr.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i line 12 function reach_error
+  assertion 0
+  0
+
+
+VERIFICATION FAILED
+
+Bug found (k = 1)
+
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--staging--keucr--keucr.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i:4281:22: warning: incompatible redeclaration of library function 'strlen' [-Wincompatible-library-redeclaration]
+extern unsigned long strlen(char *s ) ;
+                     ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--staging--keucr--keucr.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i:4281:22: note: 'strlen' is a builtin with type 'unsigned long (const char *)'
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--staging--keucr--keucr.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i:4721:17: warning: cast to smaller integer type 'unsigned int' from 'struct device *' [-Wpointer-to-int-cast]
+  __cil_tmp10 = (unsigned int )__cil_tmp9;
+                ^~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--staging--keucr--keucr.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i:4790:16: warning: cast to smaller integer type 'unsigned int' from 'unsigned long (*)[0]' [-Wpointer-to-int-cast]
+  __cil_tmp8 = (unsigned int )__cil_tmp7;
+               ^~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--staging--keucr--keucr.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i:5154:13: warning: implicitly declaring library function 'memcpy' with type 'void *(void *, const void *, unsigned long)' [-Wimplicit-function-declaration]
+    __ret = memcpy(__cil_tmp46, __cil_tmp51, __len);
+            ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--staging--keucr--keucr.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i:5154:13: note: include the header <string.h> or explicitly provide a declaration for 'memcpy'
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--staging--keucr--keucr.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i:7364:5: warning: incompatible function pointer types initializing 'int (*)(struct usb_interface *, pm_message_t)' (aka 'int (*)(struct usb_interface *, struct pm_message)') with an expression of type 'int (*)(struct usb_interface *, int)' [-Wincompatible-function-pointer-types]
+    & eucr_suspend, & eucr_resume, & eucr_reset_resume, & eucr_pre_reset, & eucr_post_reset,
+    ^~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--staging--keucr--keucr.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i:7694:14: warning: incompatible redeclaration of library function 'sprintf' [-Wincompatible-library-redeclaration]
+extern int ( sprintf)(char *buf , char *fmt , ...) ;
+             ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--staging--keucr--keucr.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i:7694:14: note: 'sprintf' is a builtin with type 'int (char *, const char *, ...)'
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--staging--keucr--keucr.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i:7695:14: warning: incompatible redeclaration of library function 'sscanf' [-Wincompatible-library-redeclaration]
+extern int ( sscanf)(char * , char * , ...) ;
+             ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--staging--keucr--keucr.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i:7695:14: note: 'sscanf' is a builtin with type 'int (const char *restrict, const char *restrict, ...)'
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--staging--keucr--keucr.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i:9335:17: warning: cast to smaller integer type 'unsigned int' from 'struct device *' [-Wpointer-to-int-cast]
+  __cil_tmp12 = (unsigned int )__cil_tmp11;
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--staging--keucr--keucr.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i:9378:17: warning: cast to smaller integer type 'unsigned int' from 'struct device *' [-Wpointer-to-int-cast]
+  __cil_tmp14 = (unsigned int )__cil_tmp13;
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--staging--keucr--keucr.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i:9693:1: warning: return type of 'main' is not 'int' [-Wmain-return-type]
+void main(void)
+^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--staging--keucr--keucr.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i:9693:1: note: change return type to 'int'
+void main(void)
+^~~~
+int
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--staging--keucr--keucr.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i:9815:14: warning: incompatible redeclaration of library function 'memcpy' [-Wincompatible-library-redeclaration]
+extern void *memcpy(void *to , void *from , size_t len ) ;
+             ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--staging--keucr--keucr.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i:5154:13: note: 'memcpy' is a builtin with type 'void *(void *, const void *, unsigned long)'
+    __ret = memcpy(__cil_tmp46, __cil_tmp51, __len);
+            ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--staging--keucr--keucr.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i:18143:12: warning: incompatible redeclaration of library function 'memcmp' [-Wincompatible-library-redeclaration]
+extern int memcmp(void *cs , void *ct , unsigned long count ) ;
+           ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--staging--keucr--keucr.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i:18143:12: note: 'memcmp' is a builtin with type 'int (const void *, const void *, unsigned long)'
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cilled_const_ok_linux-32_1-drivers--staging--keucr--keucr.ko-ldv_main1_sequence_infinite_withcheck_stateful.cil.out.i:21006:3: warning: function 'complete_and_exit' declared 'noreturn' should not return [-Winvalid-noreturn]
+  return;
+  ^
+
+FALSE_REACH

@@ -1,0 +1,444 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 32 ../sv-benchmarks/c/xcsp/aim-100-2-0-sat-4.c
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --add-symex-value-sets --no-align-check --k-step 5 --floatbv --unlimited-k-steps ../sv-benchmarks/c/xcsp/aim-100-2-0-sat-4.c --32 --witness-output aim-100-2-0-sat-4.c.graphml --no-pointer-check --no-bounds-check --interval-analysis --goto-unwind --unlimited-goto-unwind --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/xcsp/aim-100-2-0-sat-4.c: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.262s
+GOTO program processing time: 0.022s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Symex completed in: 0.107s (1298 assignments)
+Slicing time: 0.006s (removed 11 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (1287 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.024s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.024s
+Runtime decision procedure: 0.046s
+Building error trace
+
+Counterexample:
+
+State 1 file aim-100-2-0-sat-4.c line 28 function main thread 0
+----------------------------------------------------
+  var0 = 0 (00000000 00000000 00000000 00000000)
+
+State 2 file aim-100-2-0-sat-4.c line 32 function main thread 0
+----------------------------------------------------
+  var1 = 1 (00000000 00000000 00000000 00000001)
+
+State 3 file aim-100-2-0-sat-4.c line 36 function main thread 0
+----------------------------------------------------
+  var2 = 0 (00000000 00000000 00000000 00000000)
+
+State 4 file aim-100-2-0-sat-4.c line 40 function main thread 0
+----------------------------------------------------
+  var3 = 1 (00000000 00000000 00000000 00000001)
+
+State 5 file aim-100-2-0-sat-4.c line 44 function main thread 0
+----------------------------------------------------
+  var4 = 0 (00000000 00000000 00000000 00000000)
+
+State 6 file aim-100-2-0-sat-4.c line 48 function main thread 0
+----------------------------------------------------
+  var5 = 0 (00000000 00000000 00000000 00000000)
+
+State 7 file aim-100-2-0-sat-4.c line 52 function main thread 0
+----------------------------------------------------
+  var6 = 1 (00000000 00000000 00000000 00000001)
+
+State 8 file aim-100-2-0-sat-4.c line 56 function main thread 0
+----------------------------------------------------
+  var7 = 1 (00000000 00000000 00000000 00000001)
+
+State 9 file aim-100-2-0-sat-4.c line 60 function main thread 0
+----------------------------------------------------
+  var8 = 0 (00000000 00000000 00000000 00000000)
+
+State 10 file aim-100-2-0-sat-4.c line 64 function main thread 0
+----------------------------------------------------
+  var9 = 1 (00000000 00000000 00000000 00000001)
+
+State 11 file aim-100-2-0-sat-4.c line 68 function main thread 0
+----------------------------------------------------
+  var10 = 1 (00000000 00000000 00000000 00000001)
+
+State 12 file aim-100-2-0-sat-4.c line 72 function main thread 0
+----------------------------------------------------
+  var11 = 0 (00000000 00000000 00000000 00000000)
+
+State 13 file aim-100-2-0-sat-4.c line 76 function main thread 0
+----------------------------------------------------
+  var12 = 0 (00000000 00000000 00000000 00000000)
+
+State 14 file aim-100-2-0-sat-4.c line 80 function main thread 0
+----------------------------------------------------
+  var13 = 0 (00000000 00000000 00000000 00000000)
+
+State 15 file aim-100-2-0-sat-4.c line 84 function main thread 0
+----------------------------------------------------
+  var14 = 1 (00000000 00000000 00000000 00000001)
+
+State 16 file aim-100-2-0-sat-4.c line 88 function main thread 0
+----------------------------------------------------
+  var15 = 0 (00000000 00000000 00000000 00000000)
+
+State 17 file aim-100-2-0-sat-4.c line 92 function main thread 0
+----------------------------------------------------
+  var16 = 0 (00000000 00000000 00000000 00000000)
+
+State 18 file aim-100-2-0-sat-4.c line 96 function main thread 0
+----------------------------------------------------
+  var17 = 1 (00000000 00000000 00000000 00000001)
+
+State 19 file aim-100-2-0-sat-4.c line 100 function main thread 0
+----------------------------------------------------
+  var18 = 0 (00000000 00000000 00000000 00000000)
+
+State 20 file aim-100-2-0-sat-4.c line 104 function main thread 0
+----------------------------------------------------
+  var19 = 1 (00000000 00000000 00000000 00000001)
+
+State 21 file aim-100-2-0-sat-4.c line 108 function main thread 0
+----------------------------------------------------
+  var20 = 0 (00000000 00000000 00000000 00000000)
+
+State 22 file aim-100-2-0-sat-4.c line 112 function main thread 0
+----------------------------------------------------
+  var21 = 0 (00000000 00000000 00000000 00000000)
+
+State 23 file aim-100-2-0-sat-4.c line 116 function main thread 0
+----------------------------------------------------
+  var22 = 0 (00000000 00000000 00000000 00000000)
+
+State 24 file aim-100-2-0-sat-4.c line 120 function main thread 0
+----------------------------------------------------
+  var23 = 1 (00000000 00000000 00000000 00000001)
+
+State 25 file aim-100-2-0-sat-4.c line 124 function main thread 0
+----------------------------------------------------
+  var24 = 0 (00000000 00000000 00000000 00000000)
+
+State 26 file aim-100-2-0-sat-4.c line 128 function main thread 0
+----------------------------------------------------
+  var25 = 0 (00000000 00000000 00000000 00000000)
+
+State 27 file aim-100-2-0-sat-4.c line 132 function main thread 0
+----------------------------------------------------
+  var26 = 1 (00000000 00000000 00000000 00000001)
+
+State 28 file aim-100-2-0-sat-4.c line 136 function main thread 0
+----------------------------------------------------
+  var27 = 0 (00000000 00000000 00000000 00000000)
+
+State 29 file aim-100-2-0-sat-4.c line 140 function main thread 0
+----------------------------------------------------
+  var28 = 0 (00000000 00000000 00000000 00000000)
+
+State 30 file aim-100-2-0-sat-4.c line 144 function main thread 0
+----------------------------------------------------
+  var29 = 0 (00000000 00000000 00000000 00000000)
+
+State 31 file aim-100-2-0-sat-4.c line 148 function main thread 0
+----------------------------------------------------
+  var30 = 0 (00000000 00000000 00000000 00000000)
+
+State 32 file aim-100-2-0-sat-4.c line 152 function main thread 0
+----------------------------------------------------
+  var31 = 1 (00000000 00000000 00000000 00000001)
+
+State 33 file aim-100-2-0-sat-4.c line 156 function main thread 0
+----------------------------------------------------
+  var32 = 0 (00000000 00000000 00000000 00000000)
+
+State 34 file aim-100-2-0-sat-4.c line 160 function main thread 0
+----------------------------------------------------
+  var33 = 0 (00000000 00000000 00000000 00000000)
+
+State 35 file aim-100-2-0-sat-4.c line 164 function main thread 0
+----------------------------------------------------
+  var34 = 1 (00000000 00000000 00000000 00000001)
+
+State 36 file aim-100-2-0-sat-4.c line 168 function main thread 0
+----------------------------------------------------
+  var35 = 1 (00000000 00000000 00000000 00000001)
+
+State 37 file aim-100-2-0-sat-4.c line 172 function main thread 0
+----------------------------------------------------
+  var36 = 0 (00000000 00000000 00000000 00000000)
+
+State 38 file aim-100-2-0-sat-4.c line 176 function main thread 0
+----------------------------------------------------
+  var37 = 0 (00000000 00000000 00000000 00000000)
+
+State 39 file aim-100-2-0-sat-4.c line 180 function main thread 0
+----------------------------------------------------
+  var38 = 0 (00000000 00000000 00000000 00000000)
+
+State 40 file aim-100-2-0-sat-4.c line 184 function main thread 0
+----------------------------------------------------
+  var39 = 0 (00000000 00000000 00000000 00000000)
+
+State 41 file aim-100-2-0-sat-4.c line 188 function main thread 0
+----------------------------------------------------
+  var40 = 1 (00000000 00000000 00000000 00000001)
+
+State 42 file aim-100-2-0-sat-4.c line 192 function main thread 0
+----------------------------------------------------
+  var41 = 1 (00000000 00000000 00000000 00000001)
+
+State 43 file aim-100-2-0-sat-4.c line 196 function main thread 0
+----------------------------------------------------
+  var42 = 1 (00000000 00000000 00000000 00000001)
+
+State 44 file aim-100-2-0-sat-4.c line 200 function main thread 0
+----------------------------------------------------
+  var43 = 1 (00000000 00000000 00000000 00000001)
+
+State 45 file aim-100-2-0-sat-4.c line 204 function main thread 0
+----------------------------------------------------
+  var44 = 1 (00000000 00000000 00000000 00000001)
+
+State 46 file aim-100-2-0-sat-4.c line 208 function main thread 0
+----------------------------------------------------
+  var45 = 0 (00000000 00000000 00000000 00000000)
+
+State 47 file aim-100-2-0-sat-4.c line 212 function main thread 0
+----------------------------------------------------
+  var46 = 0 (00000000 00000000 00000000 00000000)
+
+State 48 file aim-100-2-0-sat-4.c line 216 function main thread 0
+----------------------------------------------------
+  var47 = 0 (00000000 00000000 00000000 00000000)
+
+State 49 file aim-100-2-0-sat-4.c line 220 function main thread 0
+----------------------------------------------------
+  var48 = 1 (00000000 00000000 00000000 00000001)
+
+State 50 file aim-100-2-0-sat-4.c line 224 function main thread 0
+----------------------------------------------------
+  var49 = 0 (00000000 00000000 00000000 00000000)
+
+State 51 file aim-100-2-0-sat-4.c line 228 function main thread 0
+----------------------------------------------------
+  var50 = 0 (00000000 00000000 00000000 00000000)
+
+State 52 file aim-100-2-0-sat-4.c line 232 function main thread 0
+----------------------------------------------------
+  var51 = 1 (00000000 00000000 00000000 00000001)
+
+State 53 file aim-100-2-0-sat-4.c line 236 function main thread 0
+----------------------------------------------------
+  var52 = 0 (00000000 00000000 00000000 00000000)
+
+State 54 file aim-100-2-0-sat-4.c line 240 function main thread 0
+----------------------------------------------------
+  var53 = 1 (00000000 00000000 00000000 00000001)
+
+State 55 file aim-100-2-0-sat-4.c line 244 function main thread 0
+----------------------------------------------------
+  var54 = 1 (00000000 00000000 00000000 00000001)
+
+State 56 file aim-100-2-0-sat-4.c line 248 function main thread 0
+----------------------------------------------------
+  var55 = 0 (00000000 00000000 00000000 00000000)
+
+State 57 file aim-100-2-0-sat-4.c line 252 function main thread 0
+----------------------------------------------------
+  var56 = 1 (00000000 00000000 00000000 00000001)
+
+State 58 file aim-100-2-0-sat-4.c line 256 function main thread 0
+----------------------------------------------------
+  var57 = 1 (00000000 00000000 00000000 00000001)
+
+State 59 file aim-100-2-0-sat-4.c line 260 function main thread 0
+----------------------------------------------------
+  var58 = 1 (00000000 00000000 00000000 00000001)
+
+State 60 file aim-100-2-0-sat-4.c line 264 function main thread 0
+----------------------------------------------------
+  var59 = 1 (00000000 00000000 00000000 00000001)
+
+State 61 file aim-100-2-0-sat-4.c line 268 function main thread 0
+----------------------------------------------------
+  var60 = 1 (00000000 00000000 00000000 00000001)
+
+State 62 file aim-100-2-0-sat-4.c line 272 function main thread 0
+----------------------------------------------------
+  var61 = 0 (00000000 00000000 00000000 00000000)
+
+State 63 file aim-100-2-0-sat-4.c line 276 function main thread 0
+----------------------------------------------------
+  var62 = 1 (00000000 00000000 00000000 00000001)
+
+State 64 file aim-100-2-0-sat-4.c line 280 function main thread 0
+----------------------------------------------------
+  var63 = 0 (00000000 00000000 00000000 00000000)
+
+State 65 file aim-100-2-0-sat-4.c line 284 function main thread 0
+----------------------------------------------------
+  var64 = 0 (00000000 00000000 00000000 00000000)
+
+State 66 file aim-100-2-0-sat-4.c line 288 function main thread 0
+----------------------------------------------------
+  var65 = 1 (00000000 00000000 00000000 00000001)
+
+State 67 file aim-100-2-0-sat-4.c line 292 function main thread 0
+----------------------------------------------------
+  var66 = 0 (00000000 00000000 00000000 00000000)
+
+State 68 file aim-100-2-0-sat-4.c line 296 function main thread 0
+----------------------------------------------------
+  var67 = 0 (00000000 00000000 00000000 00000000)
+
+State 69 file aim-100-2-0-sat-4.c line 300 function main thread 0
+----------------------------------------------------
+  var68 = 0 (00000000 00000000 00000000 00000000)
+
+State 70 file aim-100-2-0-sat-4.c line 304 function main thread 0
+----------------------------------------------------
+  var69 = 0 (00000000 00000000 00000000 00000000)
+
+State 71 file aim-100-2-0-sat-4.c line 308 function main thread 0
+----------------------------------------------------
+  var70 = 1 (00000000 00000000 00000000 00000001)
+
+State 72 file aim-100-2-0-sat-4.c line 312 function main thread 0
+----------------------------------------------------
+  var71 = 1 (00000000 00000000 00000000 00000001)
+
+State 73 file aim-100-2-0-sat-4.c line 316 function main thread 0
+----------------------------------------------------
+  var72 = 1 (00000000 00000000 00000000 00000001)
+
+State 74 file aim-100-2-0-sat-4.c line 320 function main thread 0
+----------------------------------------------------
+  var73 = 1 (00000000 00000000 00000000 00000001)
+
+State 75 file aim-100-2-0-sat-4.c line 324 function main thread 0
+----------------------------------------------------
+  var74 = 1 (00000000 00000000 00000000 00000001)
+
+State 76 file aim-100-2-0-sat-4.c line 328 function main thread 0
+----------------------------------------------------
+  var75 = 1 (00000000 00000000 00000000 00000001)
+
+State 77 file aim-100-2-0-sat-4.c line 332 function main thread 0
+----------------------------------------------------
+  var76 = 0 (00000000 00000000 00000000 00000000)
+
+State 78 file aim-100-2-0-sat-4.c line 336 function main thread 0
+----------------------------------------------------
+  var77 = 1 (00000000 00000000 00000000 00000001)
+
+State 79 file aim-100-2-0-sat-4.c line 340 function main thread 0
+----------------------------------------------------
+  var78 = 0 (00000000 00000000 00000000 00000000)
+
+State 80 file aim-100-2-0-sat-4.c line 344 function main thread 0
+----------------------------------------------------
+  var79 = 0 (00000000 00000000 00000000 00000000)
+
+State 81 file aim-100-2-0-sat-4.c line 348 function main thread 0
+----------------------------------------------------
+  var80 = 0 (00000000 00000000 00000000 00000000)
+
+State 82 file aim-100-2-0-sat-4.c line 352 function main thread 0
+----------------------------------------------------
+  var81 = 0 (00000000 00000000 00000000 00000000)
+
+State 83 file aim-100-2-0-sat-4.c line 356 function main thread 0
+----------------------------------------------------
+  var82 = 0 (00000000 00000000 00000000 00000000)
+
+State 84 file aim-100-2-0-sat-4.c line 360 function main thread 0
+----------------------------------------------------
+  var83 = 0 (00000000 00000000 00000000 00000000)
+
+State 85 file aim-100-2-0-sat-4.c line 364 function main thread 0
+----------------------------------------------------
+  var84 = 1 (00000000 00000000 00000000 00000001)
+
+State 86 file aim-100-2-0-sat-4.c line 368 function main thread 0
+----------------------------------------------------
+  var85 = 1 (00000000 00000000 00000000 00000001)
+
+State 87 file aim-100-2-0-sat-4.c line 372 function main thread 0
+----------------------------------------------------
+  var86 = 0 (00000000 00000000 00000000 00000000)
+
+State 88 file aim-100-2-0-sat-4.c line 376 function main thread 0
+----------------------------------------------------
+  var87 = 0 (00000000 00000000 00000000 00000000)
+
+State 89 file aim-100-2-0-sat-4.c line 380 function main thread 0
+----------------------------------------------------
+  var88 = 0 (00000000 00000000 00000000 00000000)
+
+State 90 file aim-100-2-0-sat-4.c line 384 function main thread 0
+----------------------------------------------------
+  var89 = 0 (00000000 00000000 00000000 00000000)
+
+State 91 file aim-100-2-0-sat-4.c line 388 function main thread 0
+----------------------------------------------------
+  var90 = 1 (00000000 00000000 00000000 00000001)
+
+State 92 file aim-100-2-0-sat-4.c line 392 function main thread 0
+----------------------------------------------------
+  var91 = 1 (00000000 00000000 00000000 00000001)
+
+State 93 file aim-100-2-0-sat-4.c line 396 function main thread 0
+----------------------------------------------------
+  var92 = 0 (00000000 00000000 00000000 00000000)
+
+State 94 file aim-100-2-0-sat-4.c line 400 function main thread 0
+----------------------------------------------------
+  var93 = 0 (00000000 00000000 00000000 00000000)
+
+State 95 file aim-100-2-0-sat-4.c line 404 function main thread 0
+----------------------------------------------------
+  var94 = 0 (00000000 00000000 00000000 00000000)
+
+State 96 file aim-100-2-0-sat-4.c line 408 function main thread 0
+----------------------------------------------------
+  var95 = 0 (00000000 00000000 00000000 00000000)
+
+State 97 file aim-100-2-0-sat-4.c line 412 function main thread 0
+----------------------------------------------------
+  var96 = 1 (00000000 00000000 00000000 00000001)
+
+State 98 file aim-100-2-0-sat-4.c line 416 function main thread 0
+----------------------------------------------------
+  var97 = 0 (00000000 00000000 00000000 00000000)
+
+State 99 file aim-100-2-0-sat-4.c line 420 function main thread 0
+----------------------------------------------------
+  var98 = 1 (00000000 00000000 00000000 00000001)
+
+State 100 file aim-100-2-0-sat-4.c line 424 function main thread 0
+----------------------------------------------------
+  var99 = 0 (00000000 00000000 00000000 00000000)
+
+State 101 file aim-100-2-0-sat-4.c line 17 function reach_error thread 0
+----------------------------------------------------
+Violated property:
+  file aim-100-2-0-sat-4.c line 17 function reach_error
+  assertion 0
+  0
+
+
+VERIFICATION FAILED
+
+Bug found (k = 1)
+
+
+FALSE_REACH

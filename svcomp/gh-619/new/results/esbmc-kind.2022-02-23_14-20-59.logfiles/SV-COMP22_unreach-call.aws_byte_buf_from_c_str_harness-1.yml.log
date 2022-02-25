@@ -1,0 +1,97 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/aws-c-common/aws_byte_buf_from_c_str_harness-1.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --add-symex-value-sets --no-align-check --k-step 5 --floatbv --unlimited-k-steps ../sv-benchmarks/c/aws-c-common/aws_byte_buf_from_c_str_harness-1.i --64 --witness-output aws_byte_buf_from_c_str_harness-1.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --goto-unwind --unlimited-goto-unwind --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 64-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/aws-c-common/aws_byte_buf_from_c_str_harness-1.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.424s
+GOTO program processing time: 0.022s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Not unwinding 
+Not unwinding 
+Not unwinding 
+Symex completed in: 0.072s (125 assignments)
+Slicing time: 0.000s (removed 51 assignments)
+Generated 9 VCC(s), 9 remaining after simplification (74 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.001s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.001s
+Runtime decision procedure: 0.159s
+Building error trace
+
+Counterexample:
+
+State 1 file aws_byte_buf_from_c_str_harness-1.i line 8961 function aws_byte_buf_from_c_str_harness thread 0
+----------------------------------------------------
+  c_str = 0
+
+State 2 file aws_byte_buf_from_c_str_harness-1.i line 8191 function aws_byte_buf_from_c_str thread 0
+----------------------------------------------------
+  buf.len = 0 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)
+
+State 3 file aws_byte_buf_from_c_str_harness-1.i line 8193 function aws_byte_buf_from_c_str thread 0
+----------------------------------------------------
+  buf.buffer = buf.capacity == 0 ? 0 : 0
+
+State 4 file aws_byte_buf_from_c_str_harness-1.i line 8196 function aws_byte_buf_from_c_str thread 0
+----------------------------------------------------
+  buf.allocator = 0
+
+State 5 file aws_byte_buf_from_c_str_harness-1.i line 8966 function aws_byte_buf_from_c_str_harness thread 0
+----------------------------------------------------
+  buf = { .len=0, .buffer=0, .capacity=3, .allocator=0 }
+
+State 6 file aws_byte_buf_from_c_str_harness-1.i line 208 function reach_error thread 0
+----------------------------------------------------
+Violated property:
+  file aws_byte_buf_from_c_str_harness-1.i line 208 function reach_error
+  assertion 0
+  0
+
+
+VERIFICATION FAILED
+
+Bug found (k = 1)
+
+../sv-benchmarks/c/aws-c-common/aws_byte_buf_from_c_str_harness-1.i:1632:45: warning: attribute declaration must precede definition [-Wignored-attributes]
+extern void my_abort (void) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+                                            ^
+../sv-benchmarks/c/aws-c-common/aws_byte_buf_from_c_str_harness-1.i:232:6: note: previous definition is here
+void my_abort(void) {
+     ^
+../sv-benchmarks/c/aws-c-common/aws_byte_buf_from_c_str_harness-1.i:5785:12: warning: implicit declaration of function '__ESBMC_atomic_load' is invalid in C99 [-Wimplicit-function-declaration]
+    return __atomic_load_n(&(*(aws_atomic_impl_int_t *)(var)), aws_atomic_priv_xlate_order(memory_order));
+           ^
+esbmc_intrinsics.h:103:5: note: expanded from here
+    __ESBMC_atomic_load(__atomic_load_ptr, &__atomic_load_tmp, (MO));          \
+    ^
+../sv-benchmarks/c/aws-c-common/aws_byte_buf_from_c_str_harness-1.i:5793:12: warning: implicit declaration of function '__ESBMC_atomic_load' is invalid in C99 [-Wimplicit-function-declaration]
+    return __atomic_load_n(&((var)->value), aws_atomic_priv_xlate_order(memory_order));
+           ^
+esbmc_intrinsics.h:103:5: note: expanded from here
+    __ESBMC_atomic_load(__atomic_load_ptr, &__atomic_load_tmp, (MO));          \
+    ^
+../sv-benchmarks/c/aws-c-common/aws_byte_buf_from_c_str_harness-1.i:5801:5: warning: implicit declaration of function '__ESBMC_atomic_store' is invalid in C99 [-Wimplicit-function-declaration]
+    __atomic_store_n(&(*(aws_atomic_impl_int_t *)(var)), n, aws_atomic_priv_xlate_order(memory_order));
+    ^
+esbmc_intrinsics.h:111:5: note: expanded from here
+    __ESBMC_atomic_store(__atomic_store_ptr, &__atomic_store_tmp, (MO));       \
+    ^
+../sv-benchmarks/c/aws-c-common/aws_byte_buf_from_c_str_harness-1.i:5809:5: warning: implicit declaration of function '__ESBMC_atomic_store' is invalid in C99 [-Wimplicit-function-declaration]
+    __atomic_store_n(&((var)->value), p, aws_atomic_priv_xlate_order(memory_order));
+    ^
+esbmc_intrinsics.h:111:5: note: expanded from here
+    __ESBMC_atomic_store(__atomic_store_ptr, &__atomic_store_tmp, (MO));       \
+    ^
+
+FALSE_REACH

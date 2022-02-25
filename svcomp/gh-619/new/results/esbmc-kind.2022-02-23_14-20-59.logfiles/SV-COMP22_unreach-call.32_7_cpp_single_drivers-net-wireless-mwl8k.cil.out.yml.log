@@ -1,0 +1,345 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/unreach-call.prp -s kinduction --arch 64 ../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --add-symex-value-sets --no-align-check --k-step 5 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i --64 --witness-output 32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i.graphml --no-pointer-check --no-bounds-check --interval-analysis --goto-unwind --unlimited-goto-unwind --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 64-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i: Parsing
+Converting
+
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:1903:166: warning: expression result unused [-Wunused-value]
+  ({ size_t __len = (len); void *__ret; if (__builtin_constant_p(len) && __len >= 64) __ret = memcpy((dst), (src), __len); else __ret = memcpy((dst), (src), __len); __ret; });
+                                                                                                                                                                     ^~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:5283:561: warning: expression result unused [-Wunused-value]
+ ({ __typeof__ (*(&lock->tickets.head)) __ret = (1); switch (sizeof(*(&lock->tickets.head))) { case 1: asm volatile ( "addb %b1, %0\n" : "+m" (*(&lock->tickets.head)) : "qi" (1) : "memory", "cc"); break; case 2: asm volatile ( "addw %w1, %0\n" : "+m" (*(&lock->tickets.head)) : "ri" (1) : "memory", "cc"); break; case 4: asm volatile ( "addl %1, %0\n" : "+m" (*(&lock->tickets.head)) : "ri" (1) : "memory", "cc"); break; case 8: asm volatile ( "addq %1, %0\n" : "+m" (*(&lock->tickets.head)) : "ri" (1) : "memory", "cc"); break; default: __add_wrong_size(); } __ret; });
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ^~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:5401:93: warning: expression result unused [-Wunused-value]
+ do { do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); flags = arch_local_irq_save(); } while (0); trace_hardirqs_off(); } while (0);
+                                                                                            ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:5438:95: warning: expression result unused [-Wunused-value]
+ do { if (({ ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_irqs_disabled_flags(flags); })) { do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); trace_hardirqs_off(); } else { trace_hardirqs_on(); do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); } } while (0);
+                                                                                              ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:5438:227: warning: expression result unused [-Wunused-value]
+ do { if (({ ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_irqs_disabled_flags(flags); })) { do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); trace_hardirqs_off(); } else { trace_hardirqs_on(); do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); } } while (0);
+                                                                                                                                                                                                                                  ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:5438:416: warning: expression result unused [-Wunused-value]
+ do { if (({ ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_irqs_disabled_flags(flags); })) { do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); trace_hardirqs_off(); } else { trace_hardirqs_on(); do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); } } while (0);
+                                                                                                                                                                                                                                                                                                                                                                                                                               ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:5520:93: warning: expression result unused [-Wunused-value]
+ do { do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); flags = arch_local_irq_save(); } while (0); trace_hardirqs_off(); } while (0);
+                                                                                            ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:5544:93: warning: expression result unused [-Wunused-value]
+ do { do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); flags = arch_local_irq_save(); } while (0); trace_hardirqs_off(); } while (0);
+                                                                                            ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:5588:95: warning: expression result unused [-Wunused-value]
+ do { if (({ ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_irqs_disabled_flags(flags); })) { do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); trace_hardirqs_off(); } else { trace_hardirqs_on(); do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); } } while (0);
+                                                                                              ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:5588:227: warning: expression result unused [-Wunused-value]
+ do { if (({ ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_irqs_disabled_flags(flags); })) { do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); trace_hardirqs_off(); } else { trace_hardirqs_on(); do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); } } while (0);
+                                                                                                                                                                                                                                  ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:5588:416: warning: expression result unused [-Wunused-value]
+ do { if (({ ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_irqs_disabled_flags(flags); })) { do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); trace_hardirqs_off(); } else { trace_hardirqs_on(); do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); } } while (0);
+                                                                                                                                                                                                                                                                                                                                                                                                                               ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:5610:95: warning: expression result unused [-Wunused-value]
+ do { if (({ ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_irqs_disabled_flags(flags); })) { do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); trace_hardirqs_off(); } else { trace_hardirqs_on(); do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); } } while (0);
+                                                                                              ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:5610:227: warning: expression result unused [-Wunused-value]
+ do { if (({ ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_irqs_disabled_flags(flags); })) { do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); trace_hardirqs_off(); } else { trace_hardirqs_on(); do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); } } while (0);
+                                                                                                                                                                                                                                  ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:5610:416: warning: expression result unused [-Wunused-value]
+ do { if (({ ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_irqs_disabled_flags(flags); })) { do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); trace_hardirqs_off(); } else { trace_hardirqs_on(); do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); } } while (0);
+                                                                                                                                                                                                                                                                                                                                                                                                                               ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:5661:88: warning: expression result unused [-Wunused-value]
+ do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); _raw_spin_unlock_irqrestore(&lock->rlock, flags); } while (0);
+                                                                                       ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:6951:197: warning: expression result unused [-Wunused-value]
+ ({ size_t __len = (count); void *__ret; if (__builtin_constant_p(count) && __len >= 64) __ret = memcpy((dst), ((const void *)src), __len); else __ret = memcpy((dst), ((const void *)src), __len); __ret; });
+                                                                                                                                                                                                    ^~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:6956:185: warning: expression result unused [-Wunused-value]
+ ({ size_t __len = (count); void *__ret; if (__builtin_constant_p(count) && __len >= 64) __ret = memcpy(((void *)dst), (src), __len); else __ret = memcpy(((void *)dst), (src), __len); __ret; });
+                                                                                                                                                                                        ^~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:7562:84: warning: use of logical '&&' with constant operand [-Wconstant-logical-operand]
+ if (((ver) >= 0x14) || (__builtin_constant_p((3*32+26)) && ( ((((3*32+26))>>5)==0 && (1UL<<(((3*32+26))&31) & ((1<<((0*32+ 0) & 31))|0|(1<<((0*32+ 5) & 31))|(1<<((0*32+ 6) & 31))| (1<<((0*32+ 8) & 31))|0|(1<<((0*32+24) & 31))|(1<<((0*32+15) & 31))| (1<<((0*32+25) & 31))|(1<<((0*32+26) & 31))))) || ((((3*32+26))>>5)==1 && (1UL<<(((3*32+26))&31) & ((1<<((1*32+29) & 31))|0))) || ((((3*32+26))>>5)==2 && (1UL<<(((3*32+26))&31) & 0)) || ((((3*32+26))>>5)==3 && (1UL<<(((3*32+26))&31) & ((1<<((3*32+20) & 31))))) || ((((3*32+26))>>5)==4 && (1UL<<(((3*32+26))&31) & 0)) || ((((3*32+26))>>5)==5 && (1UL<<(((3*32+26))&31) & 0)) || ((((3*32+26))>>5)==6 && (1UL<<(((3*32+26))&31) & 0)) || ((((3*32+26))>>5)==7 && (1UL<<(((3*32+26))&31) & 0)) || ((((3*32+26))>>5)==8 && (1UL<<(((3*32+26))&31) & 0)) || ((((3*32+26))>>5)==9 && (1UL<<(((3*32+26))&31) & 0)) ) ? 1 : (__builtin_constant_p(((3*32+26))) ? constant_test_bit(((3*32+26)), ((unsigned long *)((&boot_cpu_data)->x86_capability))) : variable_test_bit(((3*32+26)), ((unsigned long *)((&boot_cpu_data)->x86_capability))))))
+                                                                                   ^  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:7562:84: note: use '&' for a bitwise operation
+ if (((ver) >= 0x14) || (__builtin_constant_p((3*32+26)) && ( ((((3*32+26))>>5)==0 && (1UL<<(((3*32+26))&31) & ((1<<((0*32+ 0) & 31))|0|(1<<((0*32+ 5) & 31))|(1<<((0*32+ 6) & 31))| (1<<((0*32+ 8) & 31))|0|(1<<((0*32+24) & 31))|(1<<((0*32+15) & 31))| (1<<((0*32+25) & 31))|(1<<((0*32+26) & 31))))) || ((((3*32+26))>>5)==1 && (1UL<<(((3*32+26))&31) & ((1<<((1*32+29) & 31))|0))) || ((((3*32+26))>>5)==2 && (1UL<<(((3*32+26))&31) & 0)) || ((((3*32+26))>>5)==3 && (1UL<<(((3*32+26))&31) & ((1<<((3*32+20) & 31))))) || ((((3*32+26))>>5)==4 && (1UL<<(((3*32+26))&31) & 0)) || ((((3*32+26))>>5)==5 && (1UL<<(((3*32+26))&31) & 0)) || ((((3*32+26))>>5)==6 && (1UL<<(((3*32+26))&31) & 0)) || ((((3*32+26))>>5)==7 && (1UL<<(((3*32+26))&31) & 0)) || ((((3*32+26))>>5)==8 && (1UL<<(((3*32+26))&31) & 0)) || ((((3*32+26))>>5)==9 && (1UL<<(((3*32+26))&31) & 0)) ) ? 1 : (__builtin_constant_p(((3*32+26))) ? constant_test_bit(((3*32+26)), ((unsigned long *)((&boot_cpu_data)->x86_capability))) : variable_test_bit(((3*32+26)), ((unsigned long *)((&boot_cpu_data)->x86_capability))))))
+                                                                                   ^~
+                                                                                   &
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:7562:84: note: remove constant to silence this warning
+ if (((ver) >= 0x14) || (__builtin_constant_p((3*32+26)) && ( ((((3*32+26))>>5)==0 && (1UL<<(((3*32+26))&31) & ((1<<((0*32+ 0) & 31))|0|(1<<((0*32+ 5) & 31))|(1<<((0*32+ 6) & 31))| (1<<((0*32+ 8) & 31))|0|(1<<((0*32+24) & 31))|(1<<((0*32+15) & 31))| (1<<((0*32+25) & 31))|(1<<((0*32+26) & 31))))) || ((((3*32+26))>>5)==1 && (1UL<<(((3*32+26))&31) & ((1<<((1*32+29) & 31))|0))) || ((((3*32+26))>>5)==2 && (1UL<<(((3*32+26))&31) & 0)) || ((((3*32+26))>>5)==3 && (1UL<<(((3*32+26))&31) & ((1<<((3*32+20) & 31))))) || ((((3*32+26))>>5)==4 && (1UL<<(((3*32+26))&31) & 0)) || ((((3*32+26))>>5)==5 && (1UL<<(((3*32+26))&31) & 0)) || ((((3*32+26))>>5)==6 && (1UL<<(((3*32+26))&31) & 0)) || ((((3*32+26))>>5)==7 && (1UL<<(((3*32+26))&31) & 0)) || ((((3*32+26))>>5)==8 && (1UL<<(((3*32+26))&31) & 0)) || ((((3*32+26))>>5)==9 && (1UL<<(((3*32+26))&31) & 0)) ) ? 1 : (__builtin_constant_p(((3*32+26))) ? constant_test_bit(((3*32+26)), ((unsigned long *)((&boot_cpu_data)->x86_capability))) : variable_test_bit(((3*32+26)), ((unsigned long *)((&boot_cpu_data)->x86_capability))))))
+                                                                                  ~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:8314:168: warning: expression result unused [-Wunused-value]
+ return (current_thread_info()->preempt_count) != 0 || ({ unsigned long _flags; do { ({ unsigned long __dummy; typeof(_flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); _flags = arch_local_save_flags(); } while (0); ({ ({ unsigned long __dummy; typeof(_flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_irqs_disabled_flags(_flags); }); });
+                                                                                                                                                                       ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:8314:307: warning: expression result unused [-Wunused-value]
+ return (current_thread_info()->preempt_count) != 0 || ({ unsigned long _flags; do { ({ unsigned long __dummy; typeof(_flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); _flags = arch_local_save_flags(); } while (0); ({ ({ unsigned long __dummy; typeof(_flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_irqs_disabled_flags(_flags); }); });
+                                                                                                                                                                                                                                                                                                                  ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:8424:93: warning: expression result unused [-Wunused-value]
+ do { do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); flags = arch_local_irq_save(); } while (0); trace_hardirqs_off(); } while (0);
+                                                                                            ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:8426:95: warning: expression result unused [-Wunused-value]
+ do { if (({ ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_irqs_disabled_flags(flags); })) { do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); trace_hardirqs_off(); } else { trace_hardirqs_on(); do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); } } while (0);
+                                                                                              ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:8426:227: warning: expression result unused [-Wunused-value]
+ do { if (({ ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_irqs_disabled_flags(flags); })) { do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); trace_hardirqs_off(); } else { trace_hardirqs_on(); do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); } } while (0);
+                                                                                                                                                                                                                                  ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:8426:416: warning: expression result unused [-Wunused-value]
+ do { if (({ ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_irqs_disabled_flags(flags); })) { do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); trace_hardirqs_off(); } else { trace_hardirqs_on(); do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); } } while (0);
+                                                                                                                                                                                                                                                                                                                                                                                                                               ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:8432:93: warning: expression result unused [-Wunused-value]
+ do { do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); flags = arch_local_irq_save(); } while (0); trace_hardirqs_off(); } while (0);
+                                                                                            ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:8434:95: warning: expression result unused [-Wunused-value]
+ do { if (({ ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_irqs_disabled_flags(flags); })) { do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); trace_hardirqs_off(); } else { trace_hardirqs_on(); do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); } } while (0);
+                                                                                              ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:8434:227: warning: expression result unused [-Wunused-value]
+ do { if (({ ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_irqs_disabled_flags(flags); })) { do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); trace_hardirqs_off(); } else { trace_hardirqs_on(); do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); } } while (0);
+                                                                                                                                                                                                                                  ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:8434:416: warning: expression result unused [-Wunused-value]
+ do { if (({ ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_irqs_disabled_flags(flags); })) { do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); trace_hardirqs_off(); } else { trace_hardirqs_on(); do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); } } while (0);
+                                                                                                                                                                                                                                                                                                                                                                                                                               ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:8519:94: warning: expression result unused [-Wunused-value]
+ do { do { ({ unsigned long __dummy; typeof(*flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); *flags = _raw_spin_lock_irqsave(spinlock_check(&pgdat->node_size_lock)); } while (0); } while (0);
+                                                                                             ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:12730:182: warning: expression result unused [-Wunused-value]
+  ({ size_t __len = (sizeof(*to)); void *__ret; if (__builtin_constant_p(sizeof(*to)) && __len >= 64) __ret = memcpy((to), (from), __len); else __ret = memcpy((to), (from), __len); __ret; });
+                                                                                                                                                                                     ^~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:12732:264: warning: expression result unused [-Wunused-value]
+  ({ size_t __len = ((4 * sizeof(int)) + sizeof(from->_sifields._sigchld)); void *__ret; if (__builtin_constant_p((4 * sizeof(int)) + sizeof(from->_sifields._sigchld)) && __len >= 64) __ret = memcpy((to), (from), __len); else __ret = memcpy((to), (from), __len); __ret; });
+                                                                                                                                                                                                                                                                       ^~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:13035:93: warning: expression result unused [-Wunused-value]
+ do { do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); flags = arch_local_irq_save(); } while (0); trace_hardirqs_off(); } while (0);
+                                                                                            ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:13037:95: warning: expression result unused [-Wunused-value]
+ do { if (({ ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_irqs_disabled_flags(flags); })) { do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); trace_hardirqs_off(); } else { trace_hardirqs_on(); do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); } } while (0);
+                                                                                              ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:13037:227: warning: expression result unused [-Wunused-value]
+ do { if (({ ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_irqs_disabled_flags(flags); })) { do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); trace_hardirqs_off(); } else { trace_hardirqs_on(); do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); } } while (0);
+                                                                                                                                                                                                                                  ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:13037:416: warning: expression result unused [-Wunused-value]
+ do { if (({ ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_irqs_disabled_flags(flags); })) { do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); trace_hardirqs_off(); } else { trace_hardirqs_on(); do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); } } while (0);
+                                                                                                                                                                                                                                                                                                                                                                                                                               ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:13056:93: warning: expression result unused [-Wunused-value]
+ do { do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); flags = arch_local_irq_save(); } while (0); trace_hardirqs_off(); } while (0);
+                                                                                            ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:13058:95: warning: expression result unused [-Wunused-value]
+ do { if (({ ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_irqs_disabled_flags(flags); })) { do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); trace_hardirqs_off(); } else { trace_hardirqs_on(); do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); } } while (0);
+                                                                                              ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:13058:227: warning: expression result unused [-Wunused-value]
+ do { if (({ ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_irqs_disabled_flags(flags); })) { do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); trace_hardirqs_off(); } else { trace_hardirqs_on(); do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); } } while (0);
+                                                                                                                                                                                                                                  ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:13058:416: warning: expression result unused [-Wunused-value]
+ do { if (({ ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_irqs_disabled_flags(flags); })) { do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); trace_hardirqs_off(); } else { trace_hardirqs_on(); do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); } } while (0);
+                                                                                                                                                                                                                                                                                                                                                                                                                               ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:14531:93: warning: expression result unused [-Wunused-value]
+ do { do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); flags = _raw_spin_lock_irqsave(spinlock_check(&tsk->sighand->siglock)); } while (0); } while (0);
+                                                                                            ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:16780:207: warning: expression result unused [-Wunused-value]
+       ({ size_t __len = (count * sizeof(pgd_t)); void *__ret; if (__builtin_constant_p(count * sizeof(pgd_t)) && __len >= 64) __ret = memcpy((dst), (src), __len); else __ret = memcpy((dst), (src), __len); __ret; });
+                                                                                                                                                                                                              ^~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:17143:93: warning: expression result unused [-Wunused-value]
+ do { do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); flags = arch_local_irq_save(); } while (0); trace_hardirqs_off(); } while (0);
+                                                                                            ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:17151:95: warning: expression result unused [-Wunused-value]
+ do { if (({ ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_irqs_disabled_flags(flags); })) { do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); trace_hardirqs_off(); } else { trace_hardirqs_on(); do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); } } while (0);
+                                                                                              ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:17151:227: warning: expression result unused [-Wunused-value]
+ do { if (({ ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_irqs_disabled_flags(flags); })) { do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); trace_hardirqs_off(); } else { trace_hardirqs_on(); do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); } } while (0);
+                                                                                                                                                                                                                                  ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:17151:416: warning: expression result unused [-Wunused-value]
+ do { if (({ ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_irqs_disabled_flags(flags); })) { do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); trace_hardirqs_off(); } else { trace_hardirqs_on(); do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); } } while (0);
+                                                                                                                                                                                                                                                                                                                                                                                                                               ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:18742:140: warning: expression result unused [-Wunused-value]
+ ({ int __ret_warn_on = !!(({ unsigned long _flags; do { ({ unsigned long __dummy; typeof(_flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); _flags = arch_local_save_flags(); } while (0); ({ ({ unsigned long __dummy; typeof(_flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_irqs_disabled_flags(_flags); }); })); if (ldv__builtin_expect(!!(__ret_warn_on), 0)) warn_slowpath_null("/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/dma-mapping.h", 153); ldv__builtin_expect(!!(__ret_warn_on), 0); });
+                                                                                                                                           ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:18742:279: warning: expression result unused [-Wunused-value]
+ ({ int __ret_warn_on = !!(({ unsigned long _flags; do { ({ unsigned long __dummy; typeof(_flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); _flags = arch_local_save_flags(); } while (0); ({ ({ unsigned long __dummy; typeof(_flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_irqs_disabled_flags(_flags); }); })); if (ldv__builtin_expect(!!(__ret_warn_on), 0)) warn_slowpath_null("/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/dma-mapping.h", 153); ldv__builtin_expect(!!(__ret_warn_on), 0); });
+                                                                                                                                                                                                                                                                                      ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:20978:175: warning: expression result unused [-Wunused-value]
+ ({ size_t __len = (len); void *__ret; if (__builtin_constant_p(len) && __len >= 64) __ret = memcpy((to), (skb->data), __len); else __ret = memcpy((to), (skb->data), __len); __ret; });
+                                                                                                                                                                              ^~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:20984:193: warning: expression result unused [-Wunused-value]
+ ({ size_t __len = (len); void *__ret; if (__builtin_constant_p(len) && __len >= 64) __ret = memcpy((to), (skb->data + offset), __len); else __ret = memcpy((to), (skb->data + offset), __len); __ret; });
+                                                                                                                                                                                                ^~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:20990:179: warning: expression result unused [-Wunused-value]
+ ({ size_t __len = (len); void *__ret; if (__builtin_constant_p(len) && __len >= 64) __ret = memcpy((skb->data), (from), __len); else __ret = memcpy((skb->data), (from), __len); __ret; });
+                                                                                                                                                                                  ^~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:20997:197: warning: expression result unused [-Wunused-value]
+ ({ size_t __len = (len); void *__ret; if (__builtin_constant_p(len) && __len >= 64) __ret = memcpy((skb->data + offset), (from), __len); else __ret = memcpy((skb->data + offset), (from), __len); __ret; });
+                                                                                                                                                                                                    ^~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:21182:118: warning: expression result unused [-Wunused-value]
+ if (({ unsigned long _flags; do { ({ unsigned long __dummy; typeof(_flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); _flags = arch_local_save_flags(); } while (0); ({ ({ unsigned long __dummy; typeof(_flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_irqs_disabled_flags(_flags); }); }))
+                                                                                                                     ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:21182:257: warning: expression result unused [-Wunused-value]
+ if (({ unsigned long _flags; do { ({ unsigned long __dummy; typeof(_flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); _flags = arch_local_save_flags(); } while (0); ({ ({ unsigned long __dummy; typeof(_flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_irqs_disabled_flags(_flags); }); }))
+                                                                                                                                                                                                                                                                ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:32102:197: warning: expression result unused [-Wunused-value]
+ ({ size_t __len = (6); void *__ret; if (__builtin_constant_p(6) && __len >= 64) __ret = memcpy((hw->wiphy->perm_addr), (addr), __len); else __ret = memcpy((hw->wiphy->perm_addr), (addr), __len); __ret; });
+                                                                                                                                                                                                    ^~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:32981:214: warning: expression result unused [-Wunused-value]
+  ({ size_t __len = (block_size); void *__ret; if (__builtin_constant_p(block_size) && __len >= 64) __ret = memcpy((cmd->payload), (data + done), __len); else __ret = memcpy((cmd->payload), (data + done), __len); __ret; });
+                                                                                                                                                                                                                     ^~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:33034:202: warning: expression result unused [-Wunused-value]
+  ({ size_t __len = (block_size); void *__ret; if (__builtin_constant_p(block_size) && __len >= 64) __ret = memcpy((buffer), (data + done), __len); else __ret = memcpy((buffer), (data + done), __len); __ret; });
+                                                                                                                                                                                                         ^~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:33497:236: warning: expression result unused [-Wunused-value]
+  ({ size_t __len = (sizeof(status)); void *__ret; if (__builtin_constant_p(sizeof(status)) && __len >= 64) __ret = memcpy((IEEE80211_SKB_RXCB(skb)), (&status), __len); else __ret = memcpy((IEEE80211_SKB_RXCB(skb)), (&status), __len); __ret; });
+                                                                                                                                                                                                                                           ^~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:34035:92: warning: passing 'u8 [32]' to parameter of type 'char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+  dev_err(&(hw->wiphy)->dev, "Command %s timeout after %u ms\n", mwl8k_cmd_name(cmd->code, buf, sizeof(buf)), 10000)
+                                                                                           ^~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:32814:53: note: passing argument to parameter 'buf' here
+static const char *mwl8k_cmd_name(__le16 cmd, char *buf, int bufsize)
+                                                    ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:34043:84: warning: passing 'u8 [32]' to parameter of type 'char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+   dev_err(&(hw->wiphy)->dev, "Command %s error 0x%x\n", mwl8k_cmd_name(cmd->code, buf, sizeof(buf)), (( __u16)(__le16)(cmd->result)))
+                                                                                   ^~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:32814:53: note: passing argument to parameter 'buf' here
+static const char *mwl8k_cmd_name(__le16 cmd, char *buf, int bufsize)
+                                                    ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:34046:87: warning: passing 'u8 [32]' to parameter of type 'char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+   dev_notice(&(hw->wiphy)->dev, "Command %s took %d ms\n", mwl8k_cmd_name(cmd->code, buf, sizeof(buf)), ms)
+                                                                                      ^~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:32814:53: note: passing argument to parameter 'buf' here
+static const char *mwl8k_cmd_name(__le16 cmd, char *buf, int bufsize)
+                                                    ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:34063:265: warning: expression result unused [-Wunused-value]
+ ({ size_t __len = (sizeof(mwl8k_channels_24)); void *__ret; if (__builtin_constant_p(sizeof(mwl8k_channels_24)) && __len >= 64) __ret = memcpy((priv->channels_24), (mwl8k_channels_24), __len); else __ret = memcpy((priv->channels_24), (mwl8k_channels_24), __len); __ret; });
+                                                                                                                                                                                                                                                                        ^~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:34065:247: warning: expression result unused [-Wunused-value]
+ ({ size_t __len = (sizeof(mwl8k_rates_24)); void *__ret; if (__builtin_constant_p(sizeof(mwl8k_rates_24)) && __len >= 64) __ret = memcpy((priv->rates_24), (mwl8k_rates_24), __len); else __ret = memcpy((priv->rates_24), (mwl8k_rates_24), __len); __ret; });
+                                                                                                                                                                                                                                                      ^~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:34077:265: warning: expression result unused [-Wunused-value]
+ ({ size_t __len = (sizeof(mwl8k_channels_50)); void *__ret; if (__builtin_constant_p(sizeof(mwl8k_channels_50)) && __len >= 64) __ret = memcpy((priv->channels_50), (mwl8k_channels_50), __len); else __ret = memcpy((priv->channels_50), (mwl8k_channels_50), __len); __ret; });
+                                                                                                                                                                                                                                                                        ^~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:34079:247: warning: expression result unused [-Wunused-value]
+ ({ size_t __len = (sizeof(mwl8k_rates_50)); void *__ret; if (__builtin_constant_p(sizeof(mwl8k_rates_50)) && __len >= 64) __ret = memcpy((priv->rates_50), (mwl8k_rates_50), __len); else __ret = memcpy((priv->rates_50), (mwl8k_rates_50), __len); __ret; });
+                                                                                                                                                                                                                                                      ^~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:34351:191: warning: expression result unused [-Wunused-value]
+   ({ size_t __len = (6); void *__ret; if (__builtin_constant_p(6) && __len >= 64) __ret = memcpy((cmd->addr[i]), (ha->addr), __len); else __ret = memcpy((cmd->addr[i]), (ha->addr), __len); __ret; });
+                                                                                                                                                                                              ^~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:34531:187: warning: expression result unused [-Wunused-value]
+ ({ size_t __len = (len); void *__ret; if (__builtin_constant_p(len) && __len >= 64) __ret = memcpy((cmd->beacon), (beacon), __len); else __ret = memcpy((cmd->beacon), (beacon), __len); __ret; });
+                                                                                                                                                                                          ^~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:34568:175: warning: expression result unused [-Wunused-value]
+ ({ size_t __len = (6); void *__ret; if (__builtin_constant_p(6) && __len >= 64) __ret = memcpy((cmd->bssid), (mac), __len); else __ret = memcpy((cmd->bssid), (mac), __len); __ret; });
+                                                                                                                                                                              ^~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:34637:207: warning: expression result unused [-Wunused-value]
+ ({ size_t __len = (6); void *__ret; if (__builtin_constant_p(6) && __len >= 64) __ret = memcpy((cmd->bssid), (vif->bss_conf.bssid), __len); else __ret = memcpy((cmd->bssid), (vif->bss_conf.bssid), __len); __ret; });
+                                                                                                                                                                                                              ^~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:34678:193: warning: expression result unused [-Wunused-value]
+ ({ size_t __len = (16); void *__ret; if (__builtin_constant_p(16) && __len >= 64) __ret = memcpy((cmd->mcs_set), (mcs_rates), __len); else __ret = memcpy((cmd->mcs_set), (mcs_rates), __len); __ret; });
+                                                                                                                                                                                                ^~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:34706:237: warning: expression result unused [-Wunused-value]
+ ({ size_t __len = (payload_len); void *__ret; if (__builtin_constant_p(payload_len) && __len >= 64) __ret = memcpy((cmd->beacon_data), (&payload->u.beacon), __len); else __ret = memcpy((cmd->beacon_data), (&payload->u.beacon), __len); __ret; });
+                                                                                                                                                                                                                                            ^~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:34964:192: warning: expression result unused [-Wunused-value]
+  ({ size_t __len = (6); void *__ret; if (__builtin_constant_p(6) && __len >= 64) __ret = memcpy((cmd->mbss.mac_addr), (mac), __len); else __ret = memcpy((cmd->mbss.mac_addr), (mac), __len); __ret; });
+                                                                                                                                                                                               ^~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:34966:182: warning: expression result unused [-Wunused-value]
+  ({ size_t __len = (6); void *__ret; if (__builtin_constant_p(6) && __len >= 64) __ret = memcpy((cmd->mac_addr), (mac), __len); else __ret = memcpy((cmd->mac_addr), (mac), __len); __ret; });
+                                                                                                                                                                                     ^~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:35105:255: warning: expression result unused [-Wunused-value]
+ ({ size_t __len = (6); void *__ret; if (__builtin_constant_p(6) && __len >= 64) __ret = memcpy((&cmd->create_params.peer_mac_addr[0]), (stream->sta->addr), __len); else __ret = memcpy((&cmd->create_params.peer_mac_addr[0]), (stream->sta->addr), __len); __ret; })
+                                                                                                                                                                                                                                                              ^~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:35130:247: warning: expression result unused [-Wunused-value]
+ ({ size_t __len = (6); void *__ret; if (__builtin_constant_p(6) && __len >= 64) __ret = memcpy((cmd->create_params.peer_mac_addr), (stream->sta->addr), __len); else __ret = memcpy((cmd->create_params.peer_mac_addr), (stream->sta->addr), __len); __ret; });
+                                                                                                                                                                                                                                                      ^~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:35197:193: warning: expression result unused [-Wunused-value]
+ ({ size_t __len = (6); void *__ret; if (__builtin_constant_p(6) && __len >= 64) __ret = memcpy((cmd->mac_addr), (sta->addr), __len); else __ret = memcpy((cmd->mac_addr), (sta->addr), __len); __ret; });
+                                                                                                                                                                                                ^~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:35229:193: warning: expression result unused [-Wunused-value]
+ ({ size_t __len = (6); void *__ret; if (__builtin_constant_p(6) && __len >= 64) __ret = memcpy((cmd->mac_addr), (vif->addr), __len); else __ret = memcpy((cmd->mac_addr), (vif->addr), __len); __ret; });
+                                                                                                                                                                                                ^~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:35244:183: warning: expression result unused [-Wunused-value]
+ ({ size_t __len = (6); void *__ret; if (__builtin_constant_p(6) && __len >= 64) __ret = memcpy((cmd->mac_addr), (addr), __len); else __ret = memcpy((cmd->mac_addr), (addr), __len); __ret; });
+                                                                                                                                                                                      ^~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:35299:183: warning: expression result unused [-Wunused-value]
+ ({ size_t __len = (6); void *__ret; if (__builtin_constant_p(6) && __len >= 64) __ret = memcpy((cmd->mac_addr), (addr), __len); else __ret = memcpy((cmd->mac_addr), (addr), __len); __ret; });
+                                                                                                                                                                                      ^~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:35315:183: warning: expression result unused [-Wunused-value]
+ ({ size_t __len = (6); void *__ret; if (__builtin_constant_p(6) && __len >= 64) __ret = memcpy((cmd->mac_addr), (addr), __len); else __ret = memcpy((cmd->mac_addr), (addr), __len); __ret; });
+                                                                                                                                                                                      ^~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:35368:271: warning: expression result unused [-Wunused-value]
+   ({ size_t __len = (sizeof(*key) + key->keylen); void *__ret; if (__builtin_constant_p(sizeof(*key) + key->keylen) && __len >= 64) __ret = memcpy((mwl8k_vif->wep_key_conf[idx].key), (key), __len); else __ret = memcpy((mwl8k_vif->wep_key_conf[idx].key), (key), __len); __ret; })
+                                                                                                                                                                                                                                                                              ^~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:35385:211: warning: expression result unused [-Wunused-value]
+ ({ size_t __len = (keymlen); void *__ret; if (__builtin_constant_p(keymlen) && __len >= 64) __ret = memcpy((cmd->key_material), (key->key), __len); else __ret = memcpy((cmd->key_material), (key->key), __len); __ret; });
+                                                                                                                                                                                                                  ^~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:35494:195: warning: expression result unused [-Wunused-value]
+ ({ size_t __len = (6); void *__ret; if (__builtin_constant_p(6) && __len >= 64) __ret = memcpy((cmd->peer_addr), (sta->addr), __len); else __ret = memcpy((cmd->peer_addr), (sta->addr), __len); __ret; });
+                                                                                                                                                                                                  ^~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:35507:219: warning: expression result unused [-Wunused-value]
+ ({ size_t __len = (16); void *__ret; if (__builtin_constant_p(16) && __len >= 64) __ret = memcpy((p->ht_rates), (sta->ht_cap.mcs.rx_mask), __len); else __ret = memcpy((p->ht_rates), (sta->ht_cap.mcs.rx_mask), __len); __ret; });
+                                                                                                                                                                                                                          ^~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:35525:185: warning: expression result unused [-Wunused-value]
+ ({ size_t __len = (6); void *__ret; if (__builtin_constant_p(6) && __len >= 64) __ret = memcpy((cmd->peer_addr), (addr), __len); else __ret = memcpy((cmd->peer_addr), (addr), __len); __ret; });
+                                                                                                                                                                                        ^~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:35639:7: warning: passing 'char [7]' to parameter of type 'const __u8 *' (aka 'const unsigned char *') converts between pointers to integer types with different sign [-Wpointer-sign]
+      "\x00\x00\x00\x00\x00\x00");
+      ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:34558:62: note: passing argument to parameter 'mac' here
+mwl8k_cmd_set_post_scan(struct ieee80211_hw *hw, const __u8 *mac)
+                                                             ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:35724:199: warning: expression result unused [-Wunused-value]
+ ({ size_t __len = (6); void *__ret; if (__builtin_constant_p(6) && __len >= 64) __ret = memcpy((mwl8k_vif->bssid), (vif->addr), __len); else __ret = memcpy((mwl8k_vif->bssid), (vif->addr), __len); __ret; });
+                                                                                                                                                                                                      ^~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:35848:220: warning: expression result unused [-Wunused-value]
+  ({ size_t __len = (16); void *__ret; if (__builtin_constant_p(16) && __len >= 64) __ret = memcpy((ap_mcs_rates), (ap->ht_cap.mcs.rx_mask), __len); else __ret = memcpy((ap_mcs_rates), (ap->ht_cap.mcs.rx_mask), __len); __ret; });
+                                                                                                                                                                                                                           ^~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:35879:226: warning: expression result unused [-Wunused-value]
+  ({ size_t __len = (6); void *__ret; if (__builtin_constant_p(6) && __len >= 64) __ret = memcpy((priv->capture_bssid), (vif->bss_conf.bssid), __len); else __ret = memcpy((priv->capture_bssid), (vif->bss_conf.bssid), __len); __ret; });
+                                                                                                                                                                                                                                 ^~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:36004:11: warning: assigning to 'const u8 *' (aka 'const unsigned char *') from 'char [7]' converts between pointers to integer types with different sign [-Wpointer-sign]
+    bssid = "\x01\x00\x00\x00\x00\x00";
+          ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:36068:238: warning: expression result unused [-Wunused-value]
+  ({ size_t __len = (sizeof(*params)); void *__ret; if (__builtin_constant_p(sizeof(*params)) && __len >= 64) __ret = memcpy((&priv->wmm_params[queue]), (params), __len); else __ret = memcpy((&priv->wmm_params[queue]), (params), __len); __ret; });
+                                                                                                                                                                                                                                             ^~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:36447:47: warning: passing 'char [7]' to parameter of type 'u8 *' (aka 'unsigned char *') converts between pointers to integer types with different sign [-Wpointer-sign]
+ rc = mwl8k_cmd_set_mac_addr(hw, ((void *)0), "\x00\x00\x00\x00\x00\x00");
+                                              ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:34973:38: note: passing argument to parameter 'mac' here
+      struct ieee80211_vif *vif, u8 *mac)
+                                     ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:36716:1: warning: return type of 'main' is not 'int' [-Wmain-return-type]
+void main(void) {
+^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:36716:1: note: change return type to 'int'
+void main(void) {
+^~~~
+int
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:37823:26: warning: implicit declaration of function 'ldv_xmalloc' is invalid in C99 [-Wimplicit-function-declaration]
+  return *(union ktime *)ldv_xmalloc(sizeof(union ktime));
+                         ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:37823:11: warning: cast to 'union ktime *' from smaller integer type 'int' [-Wint-to-pointer-cast]
+  return *(union ktime *)ldv_xmalloc(sizeof(union ktime));
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:37826:26: warning: implicit declaration of function 'ldv_xmalloc' is invalid in C99 [-Wimplicit-function-declaration]
+  return *(union ktime *)ldv_xmalloc(sizeof(union ktime));
+                         ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:37826:11: warning: cast to 'union ktime *' from smaller integer type 'int' [-Wint-to-pointer-cast]
+  return *(union ktime *)ldv_xmalloc(sizeof(union ktime));
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:37891:30: warning: implicit declaration of function 'ldv_xmalloc' is invalid in C99 [-Wimplicit-function-declaration]
+  return *(struct timespec *)ldv_xmalloc(sizeof(struct timespec));
+                             ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:37891:11: warning: cast to 'struct timespec *' from smaller integer type 'int' [-Wint-to-pointer-cast]
+  return *(struct timespec *)ldv_xmalloc(sizeof(struct timespec));
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:37894:29: warning: implicit declaration of function 'ldv_xmalloc' is invalid in C99 [-Wimplicit-function-declaration]
+  return *(struct timeval *)ldv_xmalloc(sizeof(struct timeval));
+                            ^
+../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:37894:11: warning: cast to 'struct timeval *' from smaller integer type 'int' [-Wint-to-pointer-cast]
+  return *(struct timeval *)ldv_xmalloc(sizeof(struct timeval));
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Conversion of unsupported clang expr: "TypeTraitExpr" to expression
+TypeTraitExpr 0x5e13b40 <../sv-benchmarks/c/ldv-linux-3.4-simple/32_7_cpp_single_drivers-net-wireless-mwl8k.cil.out.i:33223:100, col:183> 'int' __builtin_types_compatible_p
+
+CONVERSION ERROR
+
+Unknown

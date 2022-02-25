@@ -1,0 +1,126 @@
+./esbmc-wrapper.py -p ../sv-benchmarks/c/properties/valid-memsafety.prp -s kinduction --arch 32 ../sv-benchmarks/c/ldv-memsafety/memleaks_test11_2.i
+
+
+--------------------------------------------------------------------------------
+
+
+Verifying with ESBMC
+Command: ./esbmc --no-div-by-zero-check --force-malloc-success --state-hashing --add-symex-value-sets --no-align-check --k-step 5 --floatbv --unlimited-k-steps ../sv-benchmarks/c/ldv-memsafety/memleaks_test11_2.i --32 --witness-output memleaks_test11_2.i.graphml --memory-leak-check --no-assertions --k-induction --max-inductive-step 3 
+ESBMC version 6.8.0 64-bit x86_64 linux
+Target: 32-bit little-endian x86_64-unknown-linux with esbmc libc
+file ../sv-benchmarks/c/ldv-memsafety/memleaks_test11_2.i: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.178s
+GOTO program processing time: 0.001s
+*** Checking base case, k = 1
+Starting Bounded Model Checking
+Symex completed in: 0.011s (197 assignments)
+Slicing time: 0.001s (removed 40 assignments)
+Generated 43 VCC(s), 39 remaining after simplification (157 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector/floating-point arithmetic
+Encoding to solver time: 0.006s
+Solving with solver Boolector 3.2.2
+Encoding to solver time: 0.006s
+Runtime decision procedure: 0.636s
+Building error trace
+
+Counterexample:
+
+State 1 file memleaks_test11_2.i line 802 function entry_point thread 0
+----------------------------------------------------
+  c11 = ( struct ldv_i2c_client *)(&dynamic_2_array[0])
+
+State 2 file memleaks_test11_2.i line 804 function entry_point thread 0
+----------------------------------------------------
+  cfg = ( struct ldv_m88ts2022_config *)(&dynamic_4_array[0])
+
+State 6 file memleaks_test11_2.i line 807 function entry_point thread 0
+----------------------------------------------------
+  c11->dev.platform_data = (unsigned int)((void *)(&dynamic_4_array[0]))
+
+State 7 file memleaks_test11_2.i line 807 function entry_point thread 0
+----------------------------------------------------
+  c11->dev.platform_data = (unsigned int)((void *)(&dynamic_4_array[0]))
+
+State 8 file memleaks_test11_2.i line 807 function entry_point thread 0
+----------------------------------------------------
+  c11->dev.platform_data = (unsigned int)((void *)(&dynamic_4_array[0]))
+
+State 9 file memleaks_test11_2.i line 807 function entry_point thread 0
+----------------------------------------------------
+  c11->dev.platform_data = (unsigned int)((void *)(&dynamic_4_array[0]))
+
+State 10 file memleaks_test11_2.i line 808 function entry_point thread 0
+----------------------------------------------------
+  fe = ( struct ldv_dvb_frontend *)(&dynamic_6_array[0])
+
+State 14 file memleaks_test11_2.i line 811 function entry_point thread 0
+----------------------------------------------------
+  cfg->fe = (unsigned int)(&dynamic_6_array[0])
+
+State 15 file memleaks_test11_2.i line 811 function entry_point thread 0
+----------------------------------------------------
+  cfg->fe = (unsigned int)(&dynamic_6_array[0])
+
+State 16 file memleaks_test11_2.i line 811 function entry_point thread 0
+----------------------------------------------------
+  cfg->fe = (unsigned int)(&dynamic_6_array[0])
+
+State 17 file memleaks_test11_2.i line 811 function entry_point thread 0
+----------------------------------------------------
+  cfg->fe = (unsigned int)(&dynamic_6_array[0])
+
+State 21 file memleaks_test11_2.i line 784 function alloc_3_11 thread 0
+----------------------------------------------------
+  cfg = ( struct ldv_m88ts2022_config *)((void *)520019197)
+
+State 26 file memleaks_test11_2.i line 785 function alloc_3_11 thread 0
+----------------------------------------------------
+  fe = ( struct ldv_dvb_frontend *)4294967168
+
+State 27 file memleaks_test11_2.i line 786 function alloc_3_11 thread 0
+----------------------------------------------------
+  priv = ( struct Data11 *)(&dynamic_8_array[0])
+
+State 35 file memleaks_test11_2.i line 623 function ldv_dev_set_drvdata thread 0
+----------------------------------------------------
+  dev->driver_data = (unsigned int)0
+
+State 36 file memleaks_test11_2.i line 623 function ldv_dev_set_drvdata thread 0
+----------------------------------------------------
+  dev->driver_data = (unsigned int)0
+
+State 37 file memleaks_test11_2.i line 623 function ldv_dev_set_drvdata thread 0
+----------------------------------------------------
+  dev->driver_data = (unsigned int)0
+
+State 38 file memleaks_test11_2.i line 623 function ldv_dev_set_drvdata thread 0
+----------------------------------------------------
+  dev->driver_data = (unsigned int)0
+
+State 42 file memleaks_test11_2.i line 796 function free_11 thread 0
+----------------------------------------------------
+  priv = (void *)(( struct Data11 *)0)
+
+State 52 file memleaks_test11_2.i line 824 function main thread 0
+----------------------------------------------------
+Violated property:
+  file memleaks_test11_2.i line 824 function main
+  dereference failure: forgotten memory: dynamic_8_array
+
+
+VERIFICATION FAILED
+
+Bug found (k = 1)
+
+../sv-benchmarks/c/ldv-memsafety/memleaks_test11_2.i:822:1: warning: return type of 'main' is not 'int' [-Wmain-return-type]
+void main(void) {
+^
+../sv-benchmarks/c/ldv-memsafety/memleaks_test11_2.i:822:1: note: change return type to 'int'
+void main(void) {
+^~~~
+int
+
+Unknown
