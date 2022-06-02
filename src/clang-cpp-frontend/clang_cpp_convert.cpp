@@ -535,7 +535,6 @@ bool clang_cpp_convertert::get_expr(const clang::Stmt &stmt, exprt &new_expr)
     if(ne.hasInitializer())
     {
       exprt lhs("new_object", t);
-      lhs.cmt_lvalue(true);
 
       exprt init;
       if(get_expr(*ne.getInitializer(), init))
