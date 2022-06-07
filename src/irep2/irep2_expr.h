@@ -2884,7 +2884,9 @@ public:
   index2t(const type2tc &type, const expr2tc &source, const expr2tc &index)
     : index_expr_methods(type, index_id, source, index)
   {
-    assert(is_array_type(source) || is_string_type(source));
+    assert(
+      is_array_type(source) || is_string_type(source) ||
+      is_pointer_type(source));
   }
   index2t(const index2t &ref) = default;
 

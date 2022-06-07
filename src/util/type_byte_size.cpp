@@ -164,10 +164,15 @@ expr2tc compute_pointer_offset_bits(const expr2tc &expr)
     {
       sub_size = 64;
     }
+    else if(is_pointer_type(index.source_value))
+    {
+      const pointer_type2t &type = to_pointer_type(index.source_value->type);
+      sub_size = type_byte_size_bits(type.subtype);
+    }
     else
     {
       throw std::runtime_error(
-        "Unexpected index type in computer_pointer_offset");
+        "Unexpected index type in computer_pointer_offset_bits");
     }
 
     expr2tc result;

@@ -402,7 +402,7 @@ expr2tc dereferencet::dereference_expr_nonscalar(
     {
       /* pointer arithmetic needs to take the pointer type into account */
       index2t &index = to_index2t(expr);
-      tmp = add2tc(index.source_value->type, index.source_value, index.index);
+      tmp = index.source_value;
     }
     // first make sure there are no dereferences in there
     dereference_expr(tmp, guard, dereferencet::READ);
