@@ -358,6 +358,15 @@ expr2tc dereferencet::dereference_expr_nonscalar(
     /* The first expression we're called with is index2t, member2t or non-scalar
      * if2t. Thus, expr differs from base. */
     assert(expr != base);
+  }
+
+  if(
+    is_dereference2t(expr) ||
+    (is_index2t(expr) && is_pointer_type(to_index2t(expr).source_value)))
+  {
+    /* This is the base case of the dereference_expr_nonscalar() recursion:
+     * an actual dereference (or index on pointer-typed source, which
+     * semantically is the same). */
 
     // Check that either the base type that these steps are applied to matches
     // the type of the object we're wrapping in these steps. It's a type error
@@ -381,14 +390,26 @@ expr2tc dereferencet::dereference_expr_nonscalar(
     expr2tc offset_to_scalar = compute_pointer_offset_bits(base);
     simplify(offset_to_scalar);
 
-    dereference2t &deref = to_dereference2t(expr);
+    /* Work out the address we're dereferencing */
+    expr2tc tmp;
+    if(is_dereference2t(expr))
+    {
+      /* easy: just the dereferenced value */
+      dereference2t &deref = to_dereference2t(expr);
+      tmp = deref.value;
+    }
+    else
+    {
+      /* pointer arithmetic needs to take the pointer type into account */
+      index2t &index = to_index2t(expr);
+      tmp = add2tc(index.source_value->type, index.source_value, index.index);
+    }
     // first make sure there are no dereferences in there
-    dereference_expr(deref.value, guard, dereferencet::READ);
+    dereference_expr(tmp, guard, dereferencet::READ);
 
     const type2tc &to_type = base->type;
 
-    expr2tc result =
-      dereference(deref.value, to_type, guard, mode, offset_to_scalar);
+    expr2tc result = dereference(tmp, to_type, guard, mode, offset_to_scalar);
     return result;
   }
 
