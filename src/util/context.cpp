@@ -12,36 +12,33 @@ Author: Daniel Kroening, kroening@kroening.com
 
 bool contextt::add(const symbolt &symbol)
 {
-  std::pair<symbolst::iterator, bool> result =
-    symbols.insert(std::pair<irep_idt, symbolt>(symbol.id, symbol));
-
-  if(!result.second)
+  auto [it,ins] = symbols.emplace(symbol.id, symbol);
+  if(!ins)
     return true;
 
-  symbol_base_map.insert(std::pair<irep_idt, irep_idt>(symbol.name, symbol.id));
+  symbol_base_map.emplace(symbol.name, symbol.id);
 
-  ordered_symbols.push_back(&result.first->second);
+  ordered_symbols.push_back(&it->second);
   return false;
 }
 
 bool contextt::move(symbolt &symbol, symbolt *&new_symbol)
 {
   symbolt tmp;
-  std::pair<symbolst::iterator, bool> result =
-    symbols.insert(std::pair<irep_idt, symbolt>(symbol.id, tmp));
+  auto [it,ins] = symbols.emplace(symbol.id, tmp);
 
-  if(!result.second)
+  if(!ins)
   {
-    new_symbol = &result.first->second;
+    new_symbol = &it->second;
     return true;
   }
 
-  symbol_base_map.insert(std::pair<irep_idt, irep_idt>(symbol.name, symbol.id));
+  symbol_base_map.emplace(symbol.name, symbol.id);
 
-  ordered_symbols.push_back(&result.first->second);
+  ordered_symbols.push_back(&it->second);
 
-  result.first->second.swap(symbol);
-  new_symbol = &result.first->second;
+  it->second.swap(symbol);
+  new_symbol = &it->second;
   return false;
 }
 
@@ -56,7 +53,7 @@ symbolt *contextt::find_symbol(irep_idt name)
 {
   auto it = symbols.find(name);
   if(it != symbols.end())
-    return &(it->second);
+    return &it->second;
   return nullptr;
 }
 
@@ -64,7 +61,7 @@ const symbolt *contextt::find_symbol(irep_idt name) const
 {
   auto it = symbols.find(name);
   if(it != symbols.end())
-    return &(it->second);
+    return &it->second;
   return nullptr;
 }
 
@@ -86,38 +83,6 @@ void contextt::erase_symbol(irep_idt name)
   symbols.erase(it);
 }
 
-void contextt::foreach_operand_impl_const(const_symbol_delegate &expr) const
-{
-  for(const auto &symbol : symbols)
-  {
-    expr(symbol.second);
-  }
-}
-
-void contextt::foreach_operand_impl(symbol_delegate &expr)
-{
-  for(auto &symbol : symbols)
-  {
-    expr(symbol.second);
-  }
-}
-
-void contextt::foreach_operand_impl_in_order_const(
-  const_symbol_delegate &expr) const
-{
-  for(auto ordered_symbol : ordered_symbols)
-  {
-    expr(*ordered_symbol);
-  }
-}
-
-void contextt::foreach_operand_impl_in_order(symbol_delegate &expr)
-{
-  for(auto &ordered_symbol : ordered_symbols)
-  {
-    expr(*ordered_symbol);
-  }
-}
 symbolt *contextt::move_symbol_to_context(symbolt &symbol)
 {
   symbolt *s = find_symbol(symbol.id);

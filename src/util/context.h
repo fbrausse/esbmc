@@ -9,8 +9,6 @@ Author: Daniel Kroening, kroening@kroening.com
 #ifndef CPROVER_CONTEXT_H
 #define CPROVER_CONTEXT_H
 
-#include <functional>
-
 #include <map>
 #include <util/config.h>
 #include <util/symbol.h>
@@ -29,9 +27,6 @@ typedef std::multimap<irep_idt, irep_idt> symbol_base_mapt;
 
 class contextt
 {
-  typedef std::function<void(const symbolt &symbol)> const_symbol_delegate;
-  typedef std::function<void(symbolt &symbol)> symbol_delegate;
-
 public:
   typedef ::symbolst symbolst;
   typedef ::ordered_symbolst ordered_symbolst;
@@ -94,32 +89,40 @@ public:
 
   void erase_symbol(irep_idt name);
 
-  template <typename T>
-  void foreach_operand_in_order(T &&t) const
+  template <typename Func>
+  void foreach_operand_in_order(Func &&f) const
   {
-    const_symbol_delegate wrapped(std::cref(t));
-    foreach_operand_impl_in_order_const(wrapped);
+    for(const symbolt *ordered_symbol : ordered_symbols)
+    {
+      f(*ordered_symbol);
+    }
   }
 
-  template <typename T>
-  void Foreach_operand_in_order(T &&t)
+  template <typename Func>
+  void Foreach_operand_in_order(Func &&f)
   {
-    symbol_delegate wrapped(std::ref(t));
-    foreach_operand_impl_in_order(wrapped);
+    for(symbolt *ordered_symbol : ordered_symbols)
+    {
+      f(*ordered_symbol);
+    }
   }
 
-  template <typename T>
-  void foreach_operand(T &&t) const
+  template <typename Func>
+  void foreach_operand(Func &&f) const
   {
-    const_symbol_delegate wrapped(std::cref(t));
-    foreach_operand_impl_const(wrapped);
+    for(const auto &[_, symbol] : symbols)
+    {
+      f(symbol);
+    }
   }
 
-  template <typename T>
-  void Foreach_operand(T &&t)
+  template <typename Func>
+  void Foreach_operand(Func &&f)
   {
-    symbol_delegate wrapped(std::ref(t));
-    foreach_operand_impl(wrapped);
+    for(auto &[_, symbol] : symbols)
+    {
+      f(symbol);
+    }
   }
 
   unsigned int size() const
@@ -133,12 +136,6 @@ protected:
 private:
   symbolst symbols;
   ordered_symbolst ordered_symbols;
-
-  void foreach_operand_impl_const(const_symbol_delegate &expr) const;
-  void foreach_operand_impl(symbol_delegate &expr);
-
-  void foreach_operand_impl_in_order_const(const_symbol_delegate &expr) const;
-  void foreach_operand_impl_in_order(symbol_delegate &expr);
 };
 
 #endif
