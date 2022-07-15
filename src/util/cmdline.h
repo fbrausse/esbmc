@@ -50,7 +50,6 @@ public:
   cmdlinet(const messaget &msg) : msg(msg)
   {
   }
-  ~cmdlinet();
   typedef std::map<std::string, std::list<std::string>> options_mapt;
   options_mapt options_map;
   const messaget &msg;

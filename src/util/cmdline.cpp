@@ -96,7 +96,7 @@ simple_shell_unescape(const char *s, const messaget &msg, const char *var)
         }
         break;
       case ESC:
-        msg.error("Arrived at an unreachable place");
+        msg.error(fmt::format("Internal error parsing {}", var));
         abort();
       }
       arg.push_back(*s++);
@@ -113,11 +113,6 @@ simple_shell_unescape(const char *s, const messaget &msg, const char *var)
     split.emplace_back(std::move(arg));
   }
   return split;
-}
-
-cmdlinet::~cmdlinet()
-{
-  clear();
 }
 
 void cmdlinet::clear()
@@ -143,13 +138,9 @@ const char *cmdlinet::getval(const char *option) const
 {
   cmdlinet::options_mapt::const_iterator value = options_map.find(option);
   if(value == options_map.end())
-  {
-    return (const char *)nullptr;
-  }
+    return nullptr;
   if(value->second.empty())
-  {
-    return (const char *)nullptr;
-  }
+    return nullptr;
   return value->second.front().c_str();
 }
 
@@ -158,62 +149,53 @@ bool cmdlinet::parse(
   const char **argv,
   const struct group_opt_templ *opts)
 {
+  using namespace boost;
+  using namespace program_options;
+  using std::string;
+  using std::vector;
+
   clear();
+
   unsigned int i = 0;
   for(; opts[i].groupname != "end"; i++)
   {
-    boost::program_options::options_description op_desc(opts[i].groupname);
-    std::vector<opt_templ> groupoptions = opts[i].options;
-    for(std::vector<opt_templ>::iterator it = groupoptions.begin();
-        it != groupoptions.end();
-        ++it)
+    options_description op_desc(opts[i].groupname);
+    for(const opt_templ &o : opts[i].options)
     {
-      if(!it->type_default_value)
-      {
-        op_desc.add_options()(it->optstring, it->description);
-      }
+      if(!o.type_default_value)
+        op_desc.add_options()(o.optstring, o.description);
       else
-      {
-        op_desc.add_options()(
-          it->optstring, it->type_default_value, it->description);
-      }
+        op_desc.add_options()(o.optstring, o.type_default_value, o.description);
     }
     cmdline_options.add(op_desc);
   }
-  std::vector<opt_templ> hidden_group_options = opts[i + 1].options;
-  boost::program_options::options_description hidden_cmdline_options;
-  for(std::vector<opt_templ>::iterator it = hidden_group_options.begin();
-      it != hidden_group_options.end() && it->optstring[0] != '\0';
-      ++it)
+
+  const vector<opt_templ> &hidden_group_options = opts[i + 1].options;
+  options_description hidden_opts;
+  for(const opt_templ &o : hidden_group_options)
   {
-    if(!it->type_default_value)
-    {
-      hidden_cmdline_options.add_options()(it->optstring, "");
-    }
+    if(o.optstring[0] == '\0')
+      break;
+    if(!o.type_default_value)
+      hidden_opts.add_options()(o.optstring, "");
     else
-    {
-      hidden_cmdline_options.add_options()(
-        it->optstring, it->type_default_value, "");
-    }
+      hidden_opts.add_options()(o.optstring, o.type_default_value, "");
   }
 
-  boost::program_options::options_description all_cmdline_options;
-  all_cmdline_options.add(cmdline_options).add(hidden_cmdline_options);
-  boost::program_options::positional_options_description p;
+  options_description all_opts;
+  all_opts.add(cmdline_options).add(hidden_opts);
+  positional_options_description p;
   p.add("input-file", -1);
   try
   {
-    boost::program_options::store(
-      boost::program_options::command_line_parser(
+    store(
+      command_line_parser(
         simple_shell_unescape(getenv("ESBMC_OPTS"), msg, "ESBMC_OPTS"))
-        .options(all_cmdline_options)
+        .options(all_opts)
         .run(),
       vm);
-    boost::program_options::store(
-      boost::program_options::command_line_parser(argc, argv)
-        .options(all_cmdline_options)
-        .positional(p)
-        .run(),
+    store(
+      command_line_parser(argc, argv).options(all_opts).positional(p).run(),
       vm);
   }
   catch(std::exception &e)
@@ -223,52 +205,38 @@ bool cmdlinet::parse(
   }
 
   if(vm.count("input-file"))
-    args = vm["input-file"].as<std::vector<std::string>>();
+    args = vm["input-file"].as<vector<string>>();
 
-  for(auto &it : vm)
+  for(const auto &[option_name, value] : vm)
   {
     std::list<std::string> res;
-    std::string option_name = it.first;
-    const boost::any &value = vm[option_name].value();
-    if(const int *v = boost::any_cast<int>(&value))
-    {
+    if(const auto *v = any_cast<int>(&value.value()))
       res.emplace_front(std::to_string(*v));
-    }
-    else if(const std::string *v = boost::any_cast<std::string>(&value))
-    {
+    else if(const auto *v = any_cast<string>(&value.value()))
       res.emplace_front(*v);
-    }
-    else if(
-      const std::vector<int> *v = boost::any_cast<std::vector<int>>(&value))
-    {
-      for(auto iter = v->begin(); iter != v->end(); ++iter)
-      {
-        res.emplace_front(std::to_string(*iter));
-      }
-    }
+    else if(const auto *v = any_cast<vector<int>>(&value.value()))
+      for(const int &w : *v)
+        res.emplace_front(std::to_string(w));
     else
     {
-      std::vector<std::string> src =
-        vm[option_name].as<std::vector<std::string>>();
-      res.assign(src.begin(), src.end());
+      const vector<string> &w = value.as<vector<string>>();
+      res.assign(w.begin(), w.end());
     }
-    std::pair<options_mapt::iterator, bool> result =
-      options_map.insert(options_mapt::value_type(option_name, res));
-    if(!result.second)
-      result.first->second = res;
+    if(auto [it, ins] = options_map.emplace(option_name, res); !ins)
+      it->second = res;
   }
-  for(std::vector<opt_templ>::iterator it = hidden_group_options.begin();
-      it != hidden_group_options.end() && it->optstring[0] != '\0';
-      ++it)
+
+  for(const opt_templ &o : hidden_group_options)
   {
-    if(it->description[0] != '\0' && vm.count(it->description))
+    if(o.optstring[0] == '\0')
+      break;
+    if(o.description[0] != '\0' && vm.count(o.description))
     {
-      std::list<std::string> value = get_values(it->description);
-      std::pair<options_mapt::iterator, bool> result =
-        options_map.insert(options_mapt::value_type(it->optstring, value));
-      if(!result.second)
-        result.first->second = value;
+      const std::list<string> &values = get_values(o.description);
+      if(auto [it, ins] = options_map.emplace(o.optstring, values); !ins)
+        it->second = values;
     }
   }
+
   return false;
 }
