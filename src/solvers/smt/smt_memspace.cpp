@@ -434,8 +434,29 @@ void smt_convt::finalize_pointer_chain(unsigned int objnum)
     // Previous assertions ensure start < end for all objs.
     lessthan2tc lt1(end_i, start_j);
     greaterthan2tc gt1(start_i, end_j);
-    or2tc or1(lt1, gt1);
-    assert_expr(or1);
+    or2tc no_overlap(lt1, gt1);
+
+    expr2tc e = no_overlap;
+
+    /* If a `__ESBMC_alloc` has already been seen, we use it to make the address
+     * space constraints on all objects except NULL (j == 0) and INVALID
+     * (j == 1) dependent on whether the object is still alive:
+     *   (__ESBMC_alloc[j] == true) => (i_end < j_start || i_start > j_end)
+     * In case the object j was free'd, it no longer restricts the addresses of
+     * the new object i.
+     *
+     * XXXfbrausse: This is crucially relies on the fact that the current
+     * version of the __ESBMC_alloc symbol stored in `current_valid_objects_sym`
+     * is the one this new object i gets registered with.
+     */
+    if(j && current_valid_objects_sym)
+    {
+      expr2tc alive =
+        index2tc(get_bool_type(), current_valid_objects_sym, gen_ulong(j));
+      e = implies2tc(alive, e);
+    }
+
+    assert_expr(e);
   }
 }
 

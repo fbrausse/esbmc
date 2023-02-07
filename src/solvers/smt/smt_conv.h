@@ -834,6 +834,10 @@ public:
    *  popping. */
   std::list<std::map<unsigned, unsigned>> addr_space_data;
 
+  /** Holds the `__ESBMC_alloc` symbol convert_terminal() was last invoked with.
+   */
+  expr2tc current_valid_objects_sym;
+
   // XXX - push-pop will break here.
   typedef std::map<std::string, smt_astt> renumber_mapt;
   std::vector<renumber_mapt> renumber_map;
