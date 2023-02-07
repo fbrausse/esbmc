@@ -109,6 +109,8 @@ void clang_c_languaget::build_compiler_args(const std::string &tmp_dir)
     compiler_args.emplace_back("-target");
     compiler_args.emplace_back("mips64c128-unknown-linux");
     compiler_args.emplace_back("--sysroot=/usr/mips64-unknown-linux-gnu");
+    compiler_args.emplace_back(
+      "-D__builtin_cheri_length_get(p)=__esbmc_cheri_length_get(p)");
   }
 
   config.options.get_option("sysroot", sysroot);
@@ -416,6 +418,9 @@ int __ESBMC_builtin_constant_p(int);
     __ESBMC_atomic_store(__atomic_store_ptr, &__atomic_store_tmp, (MO));       \
   })
     )";
+
+  if (config.ansi_c.cheri)
+    intrinsics += "__SIZE_TYPE__ __esbmc_cheri_length_get(void *__capability);";
 
   return intrinsics;
 }
