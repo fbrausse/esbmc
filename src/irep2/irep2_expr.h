@@ -1877,6 +1877,8 @@ public:
     const expr2tc &rounding_mode)
     : typecast_expr_methods(type, typecast_id, from, rounding_mode)
   {
+    /* can't convert non-arrays to arrays */
+    assert(type == from->type || type->type_id != type2t::array_id);
   }
 
   /** Primary constructor. This constructor defaults the rounding mode to

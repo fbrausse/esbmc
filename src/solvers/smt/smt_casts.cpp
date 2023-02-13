@@ -667,6 +667,7 @@ smt_astt smt_convt::convert_typecast(const expr2tc &expr)
   if(is_pointer_type(cast.type))
     return convert_typecast_to_ptr(cast);
 
+#if 0
   // FAM Initialization?
   /*
    * The frontend does not handle 0-sized arrays
@@ -681,6 +682,7 @@ smt_astt smt_convt::convert_typecast(const expr2tc &expr)
     const expr2tc &zero = gen_zero(cast.type);
     return convert_ast(zero);
   }
+#endif
 
   if(is_pointer_type(cast.from))
     return convert_typecast_from_ptr(cast);

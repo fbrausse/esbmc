@@ -66,6 +66,7 @@ void exprt::copy_to_operands(const exprt &e1, const exprt &e2, const exprt &e3)
 
 void exprt::make_typecast(const typet &_type)
 {
+  assert(_type.id() != typet::t_array);
   exprt new_expr(exprt::typecast);
 
   new_expr.move_to_operands(*this);

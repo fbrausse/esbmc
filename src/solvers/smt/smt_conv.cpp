@@ -2490,6 +2490,8 @@ smt_astt smt_convt::array_create(const expr2tc &expr)
       !array_api->supports_bools_in_arrays)
       init = typecast2tc(type2tc(new unsignedbv_type2t(1)), init);
 
+    log_debug("array_create '{}': init[{}] = {}\n", name, i, *init);
+
     newsym_ast = newsym_ast->update(this, convert_ast(init), i);
   }
 
