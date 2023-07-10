@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <stdint.h> /* uintptr_t */
 #include <string.h>
 #include <ctype.h>
 #include <limits.h>
